@@ -24,6 +24,5 @@ Email::setAdminEmail("sales@silverstripe-ecommerce.com");
 LeftAndMain::require_css("ecommerce/css/ecommercecmsfixes.css");
 
 
-EcommerceConfig::set_folder_and_file_locations(array("mysite/ecommerce_config/ecommerce.yaml"));
+//
 
-PayPalExpressCheckoutPayment::set_live_config("pay_api1.sunnysideup.co.nz","A5X7F3B7UCHDDS2Y","AFcWxV21C7fd0v3bYYYRCpSSRl31AOiulket7ufyMMAWVAVr6aZ8Gf5l");
