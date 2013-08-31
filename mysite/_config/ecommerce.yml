@@ -4,3 +4,7 @@ EcommerceDBConfig:
     - ProductVariation
 
 
+Order:
+  modifiers:
+    - GSTTaxModifier
+    - PickUpOrDeliveryModifier
