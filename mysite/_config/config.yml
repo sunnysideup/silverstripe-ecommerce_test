@@ -1,4 +1,17 @@
+Name: ecommerceconfig
+---
 EcommerceConfig:
   folder_and_file_locations:
     - "mysite/_config/ecommerce.yml"
+
+---
+Name: testpayments
+Only:
+  environment: 'live'
+---
+EcommercePayment:
+  supported_methods:
+    EcommercePayment_TestSuccess : "Test Success Payment"
+    EcommercePayment_TestPending : "Test Pending Payment"
+    EcommercePayment_TestFailure : "Test Failure Payment"
 

@@ -24,3 +24,4 @@ Email::setAdminEmail("sales@silverstripe-ecommerce.com");
 LeftAndMain::require_css("ecommerce/css/ecommercecmsfixes.css");
 
 
+
