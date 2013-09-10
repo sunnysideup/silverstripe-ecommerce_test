@@ -4,7 +4,7 @@ global $project;
 $project = 'mysite';
 
 global $database;
-$database = 'ecommerce_test';
+$database = 'ecommerce_test2';
 
 require_once('conf/ConfigureFromEnv.php');
 
