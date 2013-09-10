@@ -103,19 +103,17 @@ class DefaultRecordsForEcommerce extends DataObject {
 					This is a demo site for the Silverstripe E-commerce, developed by <a href=\"http://www.sunnysideup.co.nz\">Sunny Side Up</a>.
 					It showcases the <a href=\"http://code.google.com/p/silverstripe-ecommerce\">Silverstripe e-commerce project</a>.
 					It <a href=\"/home/features/\">features</a> all the core e-commerce functionality as well as a selection of <i>add-on</i> modules - such as tax and delivery.
-					For the <i>theme</i>, or visual presentation, we have used the default Sunny Side Up theme.
-					Of course, the idea is that you add your own theme if you are using e-commerce for any of your projects.
-					Please use the menu below to browse this site.
+					For the <i>theme</i>, or visual presentation, we have used the default Simple theme, provided by Silverstripe Ltd.
 					<strong>
 						This site is for testing only so try anything you like.
-						Any feedback is appreciated and, where practicable, will be implemented.
+						Any feedback, recommendations, bug reports, pull requests, etc... are appreciated and, where practicable, will be acted on or implemented.
 					</strong>
 					Please feel free to starting <a href=\"/shop/\">shopping</a>.
 				</p>
 
-				<h2>Silverstripe 3.0</h2>
+				<h2>Silverstripe Version</h2>
 				<p>
-					We are in the process of upgrading e-commerce to <a href=\"http://ss3.silverstripe-ecommerce.com/\">Silverstripe 3.0</a>.
+					This website runs on Silverstripe 3.1.
 				</p>
 
 				<h2>Testing</h2>
@@ -133,8 +131,16 @@ class DefaultRecordsForEcommerce extends DataObject {
 
 				<h2>For developers</h2>
 				<p>
-					You can install an identical copy of this site (including test data) on your own development server by checking out this SVN repository: <br />
-					<a href=\"http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/\">http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/</a>.
+					If you are familiar with composer then you can enter the following command lines:
+				</p>
+				<pre>
+composer create-project --no-dev silverstripe/installer ./some-directory 3.1.x-dev
+composer require sunnysideup/ecommerce_test:dev-master
+				</pre>
+				Once installed, please run /dev/build/ from within your web-browser to install all the test data.
+				<p>
+					You can also install an identical copy of this site (including test data) on your own development server by checking out this SVN repository: <br />
+					<a href=\"http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/\">http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk</a>.
 				</p>
 				<h3>downloads, svn and git</h3>
 				<p>
@@ -144,8 +150,8 @@ class DefaultRecordsForEcommerce extends DataObject {
 				</p>
 				<h3>themes</h3>
 				<p>
-					This website showcases the Sunny Side Up theme.
-					We are also implementing the Silverstripe 3.0 simple theme.
+					This website showcases the Simple theme.
+					You can also view it in the Sunny Side Up Flavour
 					Use the links below to switch themes:
 				</p>
 				<ul>
@@ -159,7 +165,10 @@ class DefaultRecordsForEcommerce extends DataObject {
 					</strong>
 				</p>
 				<h3>data model</h3>
-				<p>Please review the latest <a href=\"/ecommerce/docs/en/DataModel.png\">e-commerce data model</a>.</p>
+				<p>
+					Please review the latest <a href=\"/ecommerce/docs/en/DataModel.png\">e-commerce data model</a>.
+					This data model can be a bit out of date, but it gives a very good overview of its model.
+				</p>
 
 				<h3>Customising your own copy of e-commerce</h3>
 				<p>We have created a PDF that shows a flow-chart of recommended steps you should take to <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/docs/en/CustomisingEcommerce.pdf\">customise your own e-commerce application</a>.</p>
@@ -173,7 +182,7 @@ class DefaultRecordsForEcommerce extends DataObject {
 				<h2>Thank you</h2>
 				<p>
 					Thank you <a href=\"http://www.silverstripe.org\">Silverstripe Community</a> for the Silverstripe foundation.
-					A big <i>kia ora</i> also to all the developers who contributed to <a href=\"http://code.google.com/p/silverstripe-ecommerce/\">the Silverstripe E-commerce Project</a>, especially <a href=\"http://www.burnbright.co.nz/\">Jeremy</a>.
+					A big <i>kia ora</i> also to all the developers who contributed to <a href=\"http://code.google.com/p/silverstripe-ecommerce/\">the Silverstripe E-commerce Project</a>.
 				</p>
 				",
 				"Children" => array(
