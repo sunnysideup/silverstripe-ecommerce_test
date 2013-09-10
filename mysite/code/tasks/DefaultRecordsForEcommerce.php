@@ -1,6 +1,10 @@
 <?php
 
-class DefaultRecordsForEcommerce extends DataObject {
+class DefaultRecordsForEcommerce extends BuildTask {
+
+	protected $title = 'Install Example E-commerce Data';
+
+	protected $description = "Install example e-commerce records";
 
 	protected $examplePages = array(
 		0 => Array("Title" => "Basics", "List" => array()),
@@ -11,7 +15,7 @@ class DefaultRecordsForEcommerce extends DataObject {
 		5 => Array("Title" => "Other", "List" => array())
 	);
 
-	function requireDefaultRecords() {
+	function run($requeste) {
 
 		set_time_limit(6000);
 
@@ -62,7 +66,7 @@ class DefaultRecordsForEcommerce extends DataObject {
 	function checkreset(){
 		if(Product::get()->First()) {
 			echo "<script type=\"text/javascript\">window.location = \"/dev/tasks/CleanEcommerceTables/?flush=all\";</script>";
-			die("data has not been reset yet... <a href=\"/build-ecommerce/reset/\">reset data now....</a>");
+			die("data has not been reset yet... <a href=\"/dev/tasks/CleanEcommerceTables/?flush=all\">reset data now....</a>");
 		}
 	}
 
@@ -134,7 +138,8 @@ class DefaultRecordsForEcommerce extends DataObject {
 					If you are familiar with composer then you can enter the following command lines:
 				</p>
 				<pre>
-composer create-project --no-dev silverstripe/installer ./some-directory 3.1.x-dev
+composer create-project --no-dev silverstripe/installer ./ecommercetest 3.1.x-dev
+cd ecommercetest
 composer require sunnysideup/ecommerce_test:dev-master
 				</pre>
 				Once installed, please run /dev/build/ from within your web-browser to install all the test data.
@@ -144,7 +149,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 				</p>
 				<h3>downloads, svn and git</h3>
 				<p>
-					Please log in (see <a href=\"#LoginDetails\">login details</a> above) to the <a href=\"home/downloads/\">the Git / SVN / Download page </a> to fork / checkout / download the source code.
+					Please log in (see <a href=\"#LoginDetails\">login details</a> above) to the <a href=\"/home/downloads/\">the Git / SVN / Download page </a> to fork / checkout / download the source code.
 				<p>
 					This demo is based on the <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/\">trunk</a> of e-commerce, as well as a bunch of complementary modules.
 				</p>

@@ -7,14 +7,10 @@ class CleanEcommerceTables extends BuildTask {
 
 	protected $description = "WARNING! Deletes ALL tables in the database";
 
-	function init() {
-		parent::init();
+	public function run($request) {
 		if(!Permission::check("ADMIN") && ! Director::isDev()) {
 			Security::permissionFailure($this, _t('Security.PERMFAILURE',' This page is secured and you need administrator rights to access it. Enter your credentials below and we will send you right along.'));
 		}
-	}
-
-	public function run($request) {
 		$rows = DB::query("SHOW TABLES");
 		foreach($rows as $tableArray) {
 			$table = array_shift($tableArray);

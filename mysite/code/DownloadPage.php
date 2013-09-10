@@ -4,7 +4,7 @@
 class DownloadPage extends Page {
 
 	function canDownload(){
-		if($member = Member::currentMember()) {
+		if($member = Member::currentUser()) {
 			if($member->IsShopAdmin()) {
 				return true;
 			}
