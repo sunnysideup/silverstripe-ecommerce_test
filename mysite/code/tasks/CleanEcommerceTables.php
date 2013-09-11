@@ -5,7 +5,7 @@ class CleanEcommerceTables extends BuildTask {
 
 	protected $title = 'Delete Database';
 
-	protected $description = "WARNING! Deletes ALL tables in the database";
+	protected $description = "WARNING! RESETS ALL tables in the database by deleting them!";
 
 	public function run($request) {
 		if(!Permission::check("ADMIN") && ! Director::isDev()) {

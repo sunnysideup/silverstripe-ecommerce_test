@@ -2,11 +2,12 @@
 
 class DefaultRecordsForEcommerce extends BuildTask {
 
+
 	protected $title = 'Install Example E-commerce Data';
 
-	protected $description = "Install example e-commerce records";
+	protected $description = "Installs pages, product, etc... so that you can see e-commerce in action with a full collection of data.";
 
-	protected $examplePages = array(
+	private $examplePages = array(
 		0 => Array("Title" => "Basics", "List" => array()),
 		1 => Array("Title" => "Products and Product Groups", "List" => array()),
 		2 => Array("Title" => "Checkout Options", "List" => array()),
@@ -15,81 +16,89 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		5 => Array("Title" => "Other", "List" => array())
 	);
 
+	private $fruitArray = array("Apple", "Crabapple", "Hawthorn", "Pear", "Apricot", "Peach", "Nectarines", "Plum", "Cherry", "Blackberry", "Raspberry", "Mulberry", "Strawberry", "Cranberry", "Blueberry", "Barberry", "Currant", "Gooseberry", "Elderberry", "Grapes", "Grapefruit", "Kiwi fruit", "Rhubarb", "Pawpaw", "Melon", "Watermelon", "Figs", "Dates", "Olive", "Jujube", "Pomegranate", "Lemon", "Lime", "Key Lime", "Mandarin", "Orange", "Sweet Lime", "Tangerine", "Avocado", "Guava", "Kumquat", "Lychee", "Passion Fruit", "Tomato", "Banana", "Gourd", "Cashew Fruit", "Cacao", "Coconut", "Custard Apple", "Jackfruit", "Mango", "Neem", "Okra", "Pineapple", "Vanilla", "Carrot");
+
+	private $imageArray = array();
+
+	private $steps = array(
+		"orderstep" => true,
+		"checkreset" => true,
+		"runecommercedefaults" => true,
+		"createimages" => true,
+		"createpages" => true,
+		"addvariations" => true,
+		"addcomboproducts" => false,
+		"addmymodifiers" => false,
+		"updatemyrecords" => true,
+		"createcurrencies" => true,
+		"createtags" => false,
+		"createrecommendedproducts" => false,
+		"addstock" => false,
+		"addspecialprice" => false,
+		"productsinmanygroups" => true,
+		"productswithspecialtax" => true,
+		"checkreset" => true,
+		"createorder" => true,
+		"collateexamplepages" => true
+	);
+
 	function run($request) {
 		$action = isset($_REQUEST["action"]) ? $_REQUEST["action"] : null;
-		set_time_limit(6000); ob_flush(); flush();
-		if(!$action || $action == "OrderStep") {
-			$orderStep = singleton("OrderStep"); ob_flush(); flush();
-			$orderStep->requireDefaultRecords();ob_flush(); flush();
+		set_time_limit(6000);
+		DB::alteration_message("
+		Wait for <br />
+		----------------------------- COMPLETE ---------------------------
+		<br />
+		which shows at the end of this task.");
+		foreach($this->steps as $step => $isToBeDone) {
+			if($isToBeDone) {
+				if(!$action || $action == $step) {
+					$this->$step();
+				}
+			}
 		}
-		if(!$action || $action == "checkreset") {
-			$this->checkreset();ob_flush(); flush();
-		}
-		if(!$action || $action == "runecommercedefaults") {
-			$this->runEcommerceDefaults();ob_flush(); flush();
-		}
-		if(!$action || $action == "createimages") {
-			$this->createImages();ob_flush(); flush();
-		}
-		if(!$action || $action == "createpages") {
-			$this->CreatePages();ob_flush(); flush();
-		}
-		if(!$action || $action == "addvariations") {
-			$this->AddVariations();ob_flush(); flush();
-		}
-		if(!$action || $action == "addcomboproducts") {
-			//$this->AddComboProducts();
-		}
-		if(!$action || $action == "addmymodifiers") {
-			//$this->AddMyModifiers();
-		}
-		if(!$action || $action == "updatemyrecords") {
-			$this->UpdateMyRecords();ob_flush(); flush();
-		}
-		if(!$action || $action == "createcurrencies") {
-			$this->createCurrencies();ob_flush(); flush();
-		}
-		if(!$action || $action == "createtags") {
-			//$this->createTags();
-		}
-		if(!$action || $action == "createrecommendedproducts") {
-			//$this->createRecommendedProducts();
-		}
-		if(!$action || $action == "addstock") {
-			//$this->addStock();
-		}
-		if(!$action || $action == "addspecialprice") {
-			//$this->addSpecialPrice();
-		}
-		if(!$action || $action == "productsinmanygroups") {
-			$this->productsInManyGroups();ob_flush(); flush();
-		}
-		if(!$action || $action == "productswithspecialtax") {
-			$this->productsWithSpecialTax();ob_flush(); flush();
-		}
-		if(!$action || $action == "checkreset") {
-			$this->createShopAdmin();ob_flush(); flush();
-		}
-		if(!$action || $action == "createorder") {
-			$this->createOrder();ob_flush(); flush();
-		}
-		if(!$action || $action == "collateexamplepages") {
-			$this->collateExamplePages();ob_flush(); flush();
-		}
-
 		DB::alteration_message("----------------------------- COMPLETE --------------------------- ");
 	}
 
 	function checkreset(){
-		if(Product::get()->First()) {
+		if(Product::get()->Count()) {
 			echo "<script type=\"text/javascript\">window.location = \"/dev/tasks/CleanEcommerceTables/?flush=all\";</script>";
 			die("data has not been reset yet... <a href=\"/dev/tasks/CleanEcommerceTables/?flush=all\">reset data now....</a>");
 		}
 	}
 
+	private function runecommercedefaults() {
+		$request = true;
+		$buildTask = new CreateEcommerceMemberGroups($request);
+		$buildTask->run($request);
+		$obj = new EcommerceDBConfig();
+		$obj->Title = "Test Configuration";
+		$obj->UseThisOne = 1;
+		$obj->write();
+	}
 
-	private function CreatePages()  {
-		$pages = $this->Pages();
+	private function createimages($width = 170, $height = 120) {
+		$folder = Folder::find_or_make("randomimages");
+		$folder->syncChildren();
+		if($folder->Children()->count() < 250) {
+			for($i = 0; $i < 10; $i++) {
+				$r = mt_rand(0, 255);
+				$g = mt_rand(0, 255);
+				$b = mt_rand(0, 255);
+				$im = @imagecreate($width, $height) or die("Cannot Initialize new GD image stream");
+				$background_color = imagecolorallocate($im, $r, $g, $b);
+				$baseFolderPath = Director::baseFolder();
+				$fileName = $baseFolderPath."/assets/randomimages/img_".sprintf("%03d", $r)."_".sprintf("%03d", $g)."_".sprintf("%03d", $b).".png";
+				if(!file_exists($fileName)) {
+					imagepng($im, $fileName);
+				}
+				imagedestroy($im);
+			}
+		}
+	}
+
+	private function createpages()  {
+		$pages = $this->getPages();
 		foreach($pages as $fields) {
 			$this->MakePage($fields);
 		}
@@ -106,12 +115,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		DB::alteration_message("adding terms page to checkout page");
 	}
 
-	/**
-	 *
-	 *Children = child pages....
-	 **/
-
-	private function Pages() {
+	private function getPages() {
 		return array(
 			array(
 				"URLSegment" => "home",
@@ -132,11 +136,6 @@ class DefaultRecordsForEcommerce extends BuildTask {
 					Please feel free to starting <a href=\"/shop/\">shopping</a>.
 				</p>
 
-				<h2>Silverstripe Version</h2>
-				<p>
-					This website runs on Silverstripe 3.1.
-				</p>
-
 				<h2>Testing</h2>
 				<p>
 					This site can reset itself so please go ahead and try whatever you want.
@@ -150,7 +149,16 @@ class DefaultRecordsForEcommerce extends BuildTask {
 					You can <a href=\"admin/shop/\">log-in</a> as follows: shop@silverstripe-ecommerce.com / test123.
 				</p>
 
+				<h2>Silverstripe Version</h2>
+				<p>
+					This website runs on Silverstripe 3.1.
+				</p>
+
+
 				<h2>For developers</h2>
+				<p>
+					You can install a complete copy of this website, including its data and images.
+				</p>
 				<p>
 					If you are familiar with composer then you can enter the following command lines:
 				</p>
@@ -159,7 +167,9 @@ composer create-project --no-dev silverstripe/installer ./ecommercetest 3.1.x-de
 cd ecommercetest
 composer require sunnysideup/ecommerce_test:dev-master
 				</pre>
-				Once installed, please run /dev/build/ from within your web-browser to install all the test data.
+				Once installed, please run /dev/build/ as per usual.
+				Next, to install the test data, please run:
+				<a href=\"/dev/tasks/CleanEcommerceTables/?flush=all\">the install task (/dev/tasks/CleanEcommerceTables/?flush=all - resets everything!)</a>
 				<p>
 					You can also install an identical copy of this site (including test data) on your own development server by checking out this SVN repository: <br />
 					<a href=\"http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/\">http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk</a>.
@@ -193,8 +203,9 @@ composer require sunnysideup/ecommerce_test:dev-master
 				</p>
 
 				<h3>Customising your own copy of e-commerce</h3>
-				<p>We have created a PDF that shows a flow-chart of recommended steps you should take to <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/docs/en/CustomisingEcommerce.pdf\">customise your own e-commerce application</a>.</p>
-
+				<p>
+					We have created a PDF that shows a flow-chart of recommended steps you should take to <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/docs/en/CustomisingEcommerce.pdf\">customise your own e-commerce application</a>.
+				</p>
 				<h3>bugs / feedback / questions</h3>
 				<p>
 					Please visit our <a href=\"http://code.google.com/p/silverstripe-ecommerce/issues/list\">issue list</a> or <a href=\"https://github.com/sunnysideup/silverstripe-ecommerce/issues\">file an issue on github</a> or email us [modules <i>ad</i> sunnysideup.co.nz] or get in touch with us in whatever way is easiest for you.
@@ -750,60 +761,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		return $array;
 	}
 
-	private function AddComboProducts(){
-		$pages = new ArrayList();
-		$productGroups = ProductGroup::get()
-			->where("ParentID > 0")
-			->Sort("\"Sort\" DESC")
-			->limit(3);
-		foreach($productGroups as $productGroup) {
-			$i = rand(1, 500);
-			$imageID = $this->getRandomImageID();
-			DB::query("Update \"File\" SET \"ClassName\" = 'Product_Image' WHERE ID = ".$imageID);
-			$numberSold = $i;
-			$fields = array(
-				"ClassName" => "CombinationProduct",
-				"ImageID" => $imageID,
-				"URLSegment" => "combo-product-$i",
-				"Title" => "Combination Product $i",
-				"MenuTitle" => "Combi Product $i",
-				"ParentID" => $productGroup->ID,
-				"Content" => "<p>
-					This is a combination Product.
-					Aenean tincidunt nisl id ante pretium quis ornare libero varius. Nam cursus, mi quis dignissim laoreet, mauris turpis molestie ligula, et luctus urna nibh et ligula. Morbi in arcu ante, sit amet fermentum lacus. Cras elit lacus, feugiat sit amet faucibus quis, condimentum a leo. Donec molestie lacinia nisl a ullamcorper.
-					For testing purposes - the following characteristics were added to this product:
-				<p>
-				<ul>
-					<li>featured: <i>YES</i></li>
-					<li>allow purchase: <i>YES</i></li>
-					<li>number sold: <i>".$numberSold."</i></li>
-				</ul>",
-				"InternalItemID" => "combo".$i,
-				"FeaturedProduct" => 1,
-				"AllowPurchase" => 1,
-				"NumberSold" => $numberSold,
-				"NewPrice" => 10
-			);
-			$this->MakePage($fields);
-			$page = CombinationProduct::get()
-				->where("ParentID = ".$productGroup->ID)
-				->First();
-			$includedProducts = $page->IncludedProducts();
-			$products = Product::get()
-				->where("\"AllowPurchase\" = 1")
-				->limit(3);
-			foreach($products as $product) {
-				$includedProducts->add($product);
-			}
-			$page->writeToStage('Stage');
-			$page->Publish('Stage', 'Live');
-			$page->Status = "Published";
-			$pages->push($page);
-		}
-		$this->addExamplePages(1, "Combination Products", $pages);
-	}
-
-	private function AddVariations() {
+	private function addvariations() {
 		$colourObject = ProductAttributeType::get()
 			->where("\"Name\" = 'Colour'")
 			->First();
@@ -924,7 +882,60 @@ composer require sunnysideup/ecommerce_test:dev-master
 		}
 	}
 
-	private function AddMyModifiers() {
+	private function addcomboproducts(){
+		$pages = new ArrayList();
+		$productGroups = ProductGroup::get()
+			->where("ParentID > 0")
+			->Sort("\"Sort\" DESC")
+			->limit(3);
+		foreach($productGroups as $productGroup) {
+			$i = rand(1, 500);
+			$imageID = $this->getRandomImageID();
+			DB::query("Update \"File\" SET \"ClassName\" = 'Product_Image' WHERE ID = ".$imageID);
+			$numberSold = $i;
+			$fields = array(
+				"ClassName" => "CombinationProduct",
+				"ImageID" => $imageID,
+				"URLSegment" => "combo-product-$i",
+				"Title" => "Combination Product $i",
+				"MenuTitle" => "Combi Product $i",
+				"ParentID" => $productGroup->ID,
+				"Content" => "<p>
+					This is a combination Product.
+					Aenean tincidunt nisl id ante pretium quis ornare libero varius. Nam cursus, mi quis dignissim laoreet, mauris turpis molestie ligula, et luctus urna nibh et ligula. Morbi in arcu ante, sit amet fermentum lacus. Cras elit lacus, feugiat sit amet faucibus quis, condimentum a leo. Donec molestie lacinia nisl a ullamcorper.
+					For testing purposes - the following characteristics were added to this product:
+				<p>
+				<ul>
+					<li>featured: <i>YES</i></li>
+					<li>allow purchase: <i>YES</i></li>
+					<li>number sold: <i>".$numberSold."</i></li>
+				</ul>",
+				"InternalItemID" => "combo".$i,
+				"FeaturedProduct" => 1,
+				"AllowPurchase" => 1,
+				"NumberSold" => $numberSold,
+				"NewPrice" => 10
+			);
+			$this->MakePage($fields);
+			$page = CombinationProduct::get()
+				->where("ParentID = ".$productGroup->ID)
+				->First();
+			$includedProducts = $page->IncludedProducts();
+			$products = Product::get()
+				->where("\"AllowPurchase\" = 1")
+				->limit(3);
+			foreach($products as $product) {
+				$includedProducts->add($product);
+			}
+			$page->writeToStage('Stage');
+			$page->Publish('Stage', 'Live');
+			$page->Status = "Published";
+			$pages->push($page);
+		}
+		$this->addExamplePages(1, "Combination Products", $pages);
+	}
+
+	private function addmymodifiers() {
 		if(!
 			PickUpOrDeliveryModifierOptions::get()
 			->where("Code = 'pickup'")
@@ -1076,7 +1087,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		DB::alteration_message("created AUD currency", "created");
 	}
 
-	private function createTags(){
+	private function createtags(){
 		$products = Product::get()
 			->where("ClassName = 'Product'")
 			->sort("Rand()")
@@ -1112,7 +1123,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		$existingTags->addMany(array($t1->ID, $t2->ID));
 	}
 
-	private function createRecommendedProducts(){
+	private function createrecommendedproducts(){
 		$products = Product::get()
 			->where("ClassName = 'Product'")
 			->sort("RAND()")
@@ -1136,7 +1147,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		}
 	}
 
-	private function addStock(){
+	private function addstock(){
 		$extension = "";
 		if(Versioned::current_stage() == "Live") {
 			$extension = "_Live";
@@ -1206,7 +1217,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		}
 	}
 
-	private function addSpecialPrice(){
+	private function addspecialprice(){
 
 		$task = new CreateEcommerceMemberGroups();
 		$task->run(false);
@@ -1288,7 +1299,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		}
 	}
 
-	private function productsWithSpecialTax(){
+	private function productswithspecialtax(){
 		$products = Product::get()
 			->where( "\"ClassName\" = 'Product'")
 			->sort( "RAND()")
@@ -1319,7 +1330,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		*/
 	}
 
-	private function productsInManyGroups(){
+	private function productsinmanygroups(){
 		$products = Product::get()
 			->where("\"ClassName\" = 'Product'")
 			->sort("RAND()")
@@ -1337,7 +1348,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		$this->addExamplePages(1, "Product shown in more than one Product Group", $products);
 	}
 
-	private function createShopAdmin() {
+	private function createshopadmin() {
 		$member = new Member();
 		$member->FirstName = 'Shop';
 		$member->Surname = 'Admin';
@@ -1348,7 +1359,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 		$member->Groups()->add($group);
 	}
 
-	private function createOrder(){
+	private function createorder(){
 		$order = new Order();
 		$order->UseShippingAddress = true;
 		$order->CustomerOrderNote = "THIS IS AN AUTO-GENERATED ORDER";
@@ -1425,7 +1436,7 @@ composer require sunnysideup/ecommerce_test:dev-master
 
 	}
 
-	private function collateExamplePages(){
+	private function collateexamplepages(){
 		$this->addExamplePages(0, "Checkout page", CheckoutPage::get()->First());
 		$this->addExamplePages(0, "Order Confirmation page", OrderConfirmationPage::get()->First());
 		$this->addExamplePages(0, "Cart page (review cart without checkout)", CartPage::get()->where("ClassName = 'CartPage'")->First());
@@ -1550,6 +1561,11 @@ composer require sunnysideup/ecommerce_test:dev-master
 
 
 	//====================================== ASSISTING FUNCTIONS =========================
+	//====================================== ASSISTING FUNCTIONS =========================
+	//====================================== ASSISTING FUNCTIONS =========================
+	//====================================== ASSISTING FUNCTIONS =========================
+	//====================================== ASSISTING FUNCTIONS =========================
+
 
 	private function MakePage($fields, $parentPage = null) {
 		$page = SiteTree::get()
@@ -1654,13 +1670,9 @@ composer require sunnysideup/ecommerce_test:dev-master
 		$this->examplePages[$group]["List"][$i]["List"] = $html;
 	}
 
-	private $fruitArray = array("Apple", "Crabapple", "Hawthorn", "Pear", "Apricot", "Peach", "Nectarines", "Plum", "Cherry", "Blackberry", "Raspberry", "Mulberry", "Strawberry", "Cranberry", "Blueberry", "Barberry", "Currant", "Gooseberry", "Elderberry", "Grapes", "Grapefruit", "Kiwi fruit", "Rhubarb", "Pawpaw", "Melon", "Watermelon", "Figs", "Dates", "Olive", "Jujube", "Pomegranate", "Lemon", "Lime", "Key Lime", "Mandarin", "Orange", "Sweet Lime", "Tangerine", "Avocado", "Guava", "Kumquat", "Lychee", "Passion Fruit", "Tomato", "Banana", "Gourd", "Cashew Fruit", "Cacao", "Coconut", "Custard Apple", "Jackfruit", "Mango", "Neem", "Okra", "Pineapple", "Vanilla", "Carrot");
-
 	private function randomName() {
 		return array_pop($this->fruitArray);
 	}
-
-	private $imageArray = array();
 
 	private function getRandomImageID(){
 		if(!count($this->imageArray)) {
@@ -1676,36 +1688,6 @@ composer require sunnysideup/ecommerce_test:dev-master
 			}
 		}
 		return array_pop($this->imageArray);
-	}
-
-	private function runEcommerceDefaults() {
-		$request = true;
-		$buildTask = new CreateEcommerceMemberGroups($request);
-		$buildTask->run($request);
-		$obj = new EcommerceDBConfig();
-		$obj->Title = "Test Configuration";
-		$obj->UseThisOne = 1;
-		$obj->write();
-	}
-
-	private function createImages($width = 170, $height = 120) {
-		$folder = Folder::find_or_make("randomimages");
-		$folder->syncChildren();
-		if($folder->Children()->count() < 250) {
-			for($i = 0; $i < 10; $i++) {
-				$r = mt_rand(0, 255);
-				$g = mt_rand(0, 255);
-				$b = mt_rand(0, 255);
-				$im = @imagecreate($width, $height) or die("Cannot Initialize new GD image stream");
-				$background_color = imagecolorallocate($im, $r, $g, $b);
-				$baseFolderPath = Director::baseFolder();
-				$fileName = $baseFolderPath."/assets/randomimages/img_".sprintf("%03d", $r)."_".sprintf("%03d", $g)."_".sprintf("%03d", $b).".png";
-				if(!file_exists($fileName)) {
-					imagepng($im, $fileName);
-				}
-				imagedestroy($im);
-			}
-		}
 	}
 
 	private function lipsum(){
