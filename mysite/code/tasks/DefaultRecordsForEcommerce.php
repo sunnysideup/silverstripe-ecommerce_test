@@ -15,7 +15,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		5 => Array("Title" => "Other", "List" => array())
 	);
 
-	function run($requeste) {
+	function run($request) {
 		$action = isset($_REQUEST["action"]) ? $_REQUEST["action"] : null;
 		set_time_limit(6000); ob_flush(); flush();
 		if(!$action || $action == "OrderStep") {
@@ -25,31 +25,31 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		if(!$action || $action == "checkreset") {
 			$this->checkreset();ob_flush(); flush();
 		}
-		if(!$action || $action == "runEcommerceDefaults") {
+		if(!$action || $action == "runecommercedefaults") {
 			$this->runEcommerceDefaults();ob_flush(); flush();
 		}
-		if(!$action || $action == "createImages") {
+		if(!$action || $action == "createimages") {
 			$this->createImages();ob_flush(); flush();
 		}
-		if(!$action || $action == "CreatePages") {
+		if(!$action || $action == "createpages") {
 			$this->CreatePages();ob_flush(); flush();
 		}
-		if(!$action || $action == "AddVariations") {
+		if(!$action || $action == "addvariations") {
 			$this->AddVariations();ob_flush(); flush();
 		}
-		if(!$action || $action == "AddComboProducts") {
+		if(!$action || $action == "addcomboproducts") {
 			//$this->AddComboProducts();
 		}
-		if(!$action || $action == "AddMyModifiers") {
+		if(!$action || $action == "addmymodifiers") {
 			//$this->AddMyModifiers();
 		}
-		if(!$action || $action == "UpdateMyRecords") {
+		if(!$action || $action == "updatemyrecords") {
 			$this->UpdateMyRecords();ob_flush(); flush();
 		}
-		if(!$action || $action == "createCurrencies") {
+		if(!$action || $action == "createcurrencies") {
 			$this->createCurrencies();ob_flush(); flush();
 		}
-		if(!$action || $action == "createTags") {
+		if(!$action || $action == "createtags") {
 			//$this->createTags();
 		}
 		if(!$action || $action == "createrecommendedproducts") {
