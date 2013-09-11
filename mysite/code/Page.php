@@ -71,7 +71,8 @@ class Page_Controller extends ContentController {
 
 	public function settheme(HTTPRequest $request){
 		$newTheme = $request->param("ID");
-		DB::query("Update SiteConfig SET theme = '$newTheme';");
+		$newTheme = Convert::raw2sql($newTheme);
+		DB::query("Update SiteConfig SET Theme = '$newTheme';");
 		Session::set("theme", $newTheme);
 		SSViewer::flush_template_cache();
 		$this->redirect($this->Link());
