@@ -21,7 +21,6 @@ class DefaultRecordsForEcommerce extends BuildTask {
 	private $imageArray = array();
 
 	private $steps = array(
-		"orderstep" => true,
 		"checkreset" => true,
 		"runecommercedefaults" => true,
 		"createimages" => true,
