@@ -48,10 +48,11 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		Wait for <br />
 		----------------------------- COMPLETE ---------------------------
 		<br />
-		which shows at the end of this task.");
+		which will show AGAIN at the end of this task.");
 		foreach($this->steps as $step => $isToBeDone) {
 			if($isToBeDone) {
 				if(!$action || $action == $step) {
+					echo "<h2>Running $step</h2>";
 					$this->$step();
 				}
 			}
