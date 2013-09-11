@@ -168,39 +168,36 @@ class DefaultRecordsForEcommerce extends BuildTask {
 				<p>
 					If you are familiar with composer then you can enter the following command lines:
 				</p>
-				<h5>composer install</h5>
+				<h3>composer install</h3>
 				<pre>
 composer create-project --no-dev silverstripe/installer ./ecommercetest 3.1.x-dev
 cd ecommercetest
-composer require sunnysideup/ecommerce_test:dev-master
-				</pre>
-				<h5>git install</h5>
+composer require sunnysideup/ecommerce_test:dev-master</pre>
+				<h3>git install</h3>
 				<p>
 					To install using git:
 				</p
 				<pre>
-git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommerce_test
-				</pre>
+git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommerce_test</pre>
 				<p>
 					After that, you will have to install the sub-modules, using the composer.json file as guide.
 				</p>
-				<h5>svn install</h5>
+				<h3>svn install</h3>
 				<p>
 					You can also install an identical copy of this site (including test data) on your own development server by checking out this SVN repository:
 				</p>
 				<pre>
-svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/
-				</pre>
+svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/</pre>
 				<p>
 					This repository contains all the svn externals.
 				</p>
+				<h3>installing example data</h3>
 				<p>
 					<strong>
 						If you do not use the composer method including the silverstripe installer then you will need
 						to add your own .htaccess + _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
 					</strong>
 				</p>
-				<h5>installing example data</h5>
 				<p>
 					Next, to install the test data, please run:
 					<a href=\"/dev/tasks/CleanEcommerceTables/\">the install task (/dev/tasks/CleanEcommerceTables/?flush=all - resets everything!)</a>
@@ -208,6 +205,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 				<h3>downloads, svn and git</h3>
 				<p>
 					Please log in (see <a href=\"#LoginDetails\">login details</a> above) to the <a href=\"/home/downloads/\">the Git / SVN / Download page </a> to fork / checkout / download the source code.
+				</p>
 				<p>
 					This demo is based on the <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/\">trunk</a> of e-commerce, as well as a bunch of complementary modules.
 				</p>
