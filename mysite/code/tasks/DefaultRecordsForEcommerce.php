@@ -17,31 +17,22 @@ class DefaultRecordsForEcommerce extends BuildTask {
 
 	function run($requeste) {
 
-		set_time_limit(6000);
-
-		parent::requireDefaultRecords();
-
-		$orderStep = singleton("OrderStep");
-
-		$orderStep->requireDefaultRecords();
-
-		$this->checkreset();
-
-		$this->runEcommerceDefaults();
-
-		$this->createImages();
-
-		$this->CreatePages();
-
-		$this->AddVariations();
+		set_time_limit(6000); ob_flush(); flush();
+		$orderStep = singleton("OrderStep"); ob_flush(); flush();
+		$orderStep->requireDefaultRecords();ob_flush(); flush();
+		$this->checkreset();ob_flush(); flush();
+		$this->runEcommerceDefaults();ob_flush(); flush();
+		$this->createImages();ob_flush(); flush();
+		$this->CreatePages();ob_flush(); flush();
+		$this->AddVariations();ob_flush(); flush();
 
 		//$this->AddComboProducts();
 
 		//$this->AddMyModifiers();
 
-		$this->UpdateMyRecords();
+		$this->UpdateMyRecords();ob_flush(); flush();
 
-		$this->createCurrencies();
+		$this->createCurrencies();ob_flush(); flush();
 
 		//$this->createTags();
 
@@ -51,16 +42,17 @@ class DefaultRecordsForEcommerce extends BuildTask {
 
 		//$this->addSpecialPrice();
 
-		$this->productsInManyGroups();
+		$this->productsInManyGroups();ob_flush(); flush();
 
-		$this->productsWithSpecialTax();
+		$this->productsWithSpecialTax();ob_flush(); flush();
 
-		$this->createShopAdmin();
+		$this->createShopAdmin();ob_flush(); flush();
 
-		$this->createOrder();
+		$this->createOrder();ob_flush(); flush();
 
-		$this->collateExamplePages();
+		$this->collateExamplePages();ob_flush(); flush();
 
+		DB::alteration_message("----------------------------- COMPLETE --------------------------- ");
 	}
 
 	function checkreset(){

@@ -14,4 +14,9 @@ Email::setAdminEmail("sales@silverstripe-ecommerce.com");
 LeftAndMain::require_css("ecommerce/css/ecommercecmsfixes.css");
 
 
-
+$theme = Session::get("theme");
+if(!$theme) {$theme = "simple";}
+if(Config::inst()->get("SSViewer", "theme") != $theme) {
+	$theme = Convert::raw2sql($theme);
+	Config::inst()->update("SSViewer", "theme", $theme);
+}

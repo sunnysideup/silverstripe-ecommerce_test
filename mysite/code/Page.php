@@ -50,8 +50,9 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		//theme needs to be set TWO times...
-		$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
+		//$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
 		parent::init();
+		$theme = Session::get("theme");
 		if($theme == "main") {
 			Requirements::themedCSS('reset');
 			Requirements::themedCSS('layout');
@@ -65,21 +66,16 @@ class Page_Controller extends ContentController {
 			Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
 		}
 		if($theme == "simple") {
-			Requirements::themedCSS('reset');
-			Requirements::themedCSS('layout');
-			Requirements::themedCSS('typography');
-			Requirements::themedCSS('form');
-			Requirements::themedCSS('menu');
-			Requirements::themedCSS('ecommerce');
-			Requirements::themedCSS('individualPages');
 		}
-		$theme = Session::get("theme"); if(!$theme) {$theme = "main";}SSViewer::set_theme($theme);
 	}
 
 	public function settheme(HTTPRequest $request){
 		$newTheme = $request->param("ID");
+		DB::query("Update SiteConfig SET theme = '$newTheme';");
 		Session::set("theme", $newTheme);
+		SSViewer::flush_template_cache();
 		$this->redirect($this->Link());
+
 	}
 
 	function IsNotHome() {
