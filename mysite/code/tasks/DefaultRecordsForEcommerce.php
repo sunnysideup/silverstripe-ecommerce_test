@@ -16,41 +16,66 @@ class DefaultRecordsForEcommerce extends BuildTask {
 	);
 
 	function run($requeste) {
-
+		$action = isset($_REQUEST["action"]) ? $_REQUEST["action"] : null;
 		set_time_limit(6000); ob_flush(); flush();
-		$orderStep = singleton("OrderStep"); ob_flush(); flush();
-		$orderStep->requireDefaultRecords();ob_flush(); flush();
-		$this->checkreset();ob_flush(); flush();
-		$this->runEcommerceDefaults();ob_flush(); flush();
-		$this->createImages();ob_flush(); flush();
-		$this->CreatePages();ob_flush(); flush();
-		$this->AddVariations();ob_flush(); flush();
-
-		//$this->AddComboProducts();
-
-		//$this->AddMyModifiers();
-
-		$this->UpdateMyRecords();ob_flush(); flush();
-
-		$this->createCurrencies();ob_flush(); flush();
-
-		//$this->createTags();
-
-		//$this->createRecommendedProducts();
-
-		//$this->addStock();
-
-		//$this->addSpecialPrice();
-
-		$this->productsInManyGroups();ob_flush(); flush();
-
-		$this->productsWithSpecialTax();ob_flush(); flush();
-
-		$this->createShopAdmin();ob_flush(); flush();
-
-		$this->createOrder();ob_flush(); flush();
-
-		$this->collateExamplePages();ob_flush(); flush();
+		if(!$action || $action == "OrderStep") {
+			$orderStep = singleton("OrderStep"); ob_flush(); flush();
+			$orderStep->requireDefaultRecords();ob_flush(); flush();
+		}
+		if(!$action || $action == "checkreset") {
+			$this->checkreset();ob_flush(); flush();
+		}
+		if(!$action || $action == "runEcommerceDefaults") {
+			$this->runEcommerceDefaults();ob_flush(); flush();
+		}
+		if(!$action || $action == "createImages") {
+			$this->createImages();ob_flush(); flush();
+		}
+		if(!$action || $action == "CreatePages") {
+			$this->CreatePages();ob_flush(); flush();
+		}
+		if(!$action || $action == "AddVariations") {
+			$this->AddVariations();ob_flush(); flush();
+		}
+		if(!$action || $action == "AddComboProducts") {
+			//$this->AddComboProducts();
+		}
+		if(!$action || $action == "AddMyModifiers") {
+			//$this->AddMyModifiers();
+		}
+		if(!$action || $action == "UpdateMyRecords") {
+			$this->UpdateMyRecords();ob_flush(); flush();
+		}
+		if(!$action || $action == "createCurrencies") {
+			$this->createCurrencies();ob_flush(); flush();
+		}
+		if(!$action || $action == "createTags") {
+			//$this->createTags();
+		}
+		if(!$action || $action == "createrecommendedproducts") {
+			//$this->createRecommendedProducts();
+		}
+		if(!$action || $action == "addstock") {
+			//$this->addStock();
+		}
+		if(!$action || $action == "addspecialprice") {
+			//$this->addSpecialPrice();
+		}
+		if(!$action || $action == "productsinmanygroups") {
+			$this->productsInManyGroups();ob_flush(); flush();
+		}
+		if(!$action || $action == "createshopadmin") {
+			$this->productsWithSpecialTax();ob_flush(); flush();
+		}
+		if(!$action || $action == "checkreset") {
+			$this->createShopAdmin();ob_flush(); flush();
+		}
+		if(!$action || $action == "createorder") {
+			$this->createOrder();ob_flush(); flush();
+		}
+		if(!$action || $action == "collateexamplepages") {
+			$this->collateExamplePages();ob_flush(); flush();
+		}
 
 		DB::alteration_message("----------------------------- COMPLETE --------------------------- ");
 	}
