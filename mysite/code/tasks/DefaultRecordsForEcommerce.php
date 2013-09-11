@@ -78,7 +78,12 @@ class DefaultRecordsForEcommerce extends BuildTask {
 	}
 
 	private function createimages($width = 170, $height = 120) {
+		$data = phpinfo();
+		if (!preg_match("GD Support enabled",$data)) {
+			die("Cannot Initialize new GD image stream, please install GD: e.g. <i>apt-get install php5-gd</i>");
+		}
 		$folder = Folder::find_or_make("randomimages");
+		DB::alteration_message("checking randomimages");
 		$folder->syncChildren();
 		if($folder->Children()->count() < 250) {
 			for($i = 0; $i < 10; $i++) {
@@ -91,6 +96,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 				$fileName = $baseFolderPath."/assets/randomimages/img_".sprintf("%03d", $r)."_".sprintf("%03d", $g)."_".sprintf("%03d", $b).".png";
 				if(!file_exists($fileName)) {
 					imagepng($im, $fileName);
+					DB::alteration_message("creating images: $fileName", "created");
 				}
 				imagedestroy($im);
 			}
@@ -162,17 +168,42 @@ class DefaultRecordsForEcommerce extends BuildTask {
 				<p>
 					If you are familiar with composer then you can enter the following command lines:
 				</p>
+				<h5>composer install</h5>
 				<pre>
 composer create-project --no-dev silverstripe/installer ./ecommercetest 3.1.x-dev
 cd ecommercetest
 composer require sunnysideup/ecommerce_test:dev-master
 				</pre>
-				Once installed, please run /dev/build/ as per usual.
-				Next, to install the test data, please run:
-				<a href=\"/dev/tasks/CleanEcommerceTables/?flush=all\">the install task (/dev/tasks/CleanEcommerceTables/?flush=all - resets everything!)</a>
+				<h5>git install</h5>
 				<p>
-					You can also install an identical copy of this site (including test data) on your own development server by checking out this SVN repository: <br />
-					<a href=\"http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/\">http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk</a>.
+					To install using git:
+				</p
+				<pre>
+git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommerce_test
+				</pre>
+				<p>
+					After that, you will have to install the sub-modules, using the composer.json file as guide.
+				</p>
+				<h5>svn install</h5>
+				<p>
+					You can also install an identical copy of this site (including test data) on your own development server by checking out this SVN repository:
+				</p>
+				<pre>
+svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/
+				</pre>
+				<p>
+					This repository contains all the svn externals.
+				</p>
+				<p>
+					<strong>
+						If you do not use the composer method including the silverstripe installer then you will need
+						to add your own .htaccess + _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
+					</strong>
+				</p>
+				<h5>installing example data</h5>
+				<p>
+					Next, to install the test data, please run:
+					<a href=\"/dev/tasks/CleanEcommerceTables/?flush=all\">the install task (/dev/tasks/CleanEcommerceTables/?flush=all - resets everything!)</a>
 				</p>
 				<h3>downloads, svn and git</h3>
 				<p>
