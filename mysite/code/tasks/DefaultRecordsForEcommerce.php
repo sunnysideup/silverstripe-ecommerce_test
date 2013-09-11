@@ -61,8 +61,8 @@ class DefaultRecordsForEcommerce extends BuildTask {
 
 	function checkreset(){
 		if(Product::get()->Count()) {
-			echo "<script type=\"text/javascript\">window.location = \"/dev/tasks/CleanEcommerceTables/?flush=all\";</script>";
-			die("data has not been reset yet... <a href=\"/dev/tasks/CleanEcommerceTables/?flush=all\">reset data now....</a>");
+			echo "<script type=\"text/javascript\">window.location = \"/dev/tasks/CleanEcommerceTables/\";</script>";
+			die("data has not been reset yet... <a href=\"/dev/tasks/CleanEcommerceTables/\">reset data now....</a>");
 		}
 	}
 
@@ -202,7 +202,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 				<h5>installing example data</h5>
 				<p>
 					Next, to install the test data, please run:
-					<a href=\"/dev/tasks/CleanEcommerceTables/?flush=all\">the install task (/dev/tasks/CleanEcommerceTables/?flush=all - resets everything!)</a>
+					<a href=\"/dev/tasks/CleanEcommerceTables/\">the install task (/dev/tasks/CleanEcommerceTables/?flush=all - resets everything!)</a>
 				</p>
 				<h3>downloads, svn and git</h3>
 				<p>

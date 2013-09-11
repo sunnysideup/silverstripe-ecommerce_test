@@ -18,7 +18,7 @@ class CleanEcommerceTables extends BuildTask {
 			DB::alteration_message("deleting ".$table, "deleted");
 		}
 		echo "<hr /><hr /><hr /><hr /><hr /><a href=\"/dev/build\">build database</a>
-		<script type=\"text/javascript\">window.location = \"/dev/build/?flush=1&returnURL=/dev/tasks/DefaultRecordsForEcommerce\";</script>"
+		<script type=\"text/javascript\">window.location = \"/dev/build/?returnURL=/dev/tasks/DefaultRecordsForEcommerce\";</script>"
 		;
 	}
 
