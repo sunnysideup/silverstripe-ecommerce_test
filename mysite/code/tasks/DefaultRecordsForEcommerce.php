@@ -64,7 +64,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		if(!$action || $action == "productsinmanygroups") {
 			$this->productsInManyGroups();ob_flush(); flush();
 		}
-		if(!$action || $action == "createshopadmin") {
+		if(!$action || $action == "productswithspecialtax") {
 			$this->productsWithSpecialTax();ob_flush(); flush();
 		}
 		if(!$action || $action == "checkreset") {
