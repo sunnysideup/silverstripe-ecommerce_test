@@ -77,9 +77,9 @@ class DefaultRecordsForEcommerce extends BuildTask {
 	}
 
 	private function createimages($width = 170, $height = 120) {
-		$data = phpinfo();
-		if (!preg_match("GD Support enabled",$data)) {
-			die("Cannot Initialize new GD image stream, please install GD: e.g. <i>apt-get install php5-gd</i>");
+		$data = get_loaded_extensions();
+		if (!in_array("gd",$data)) {
+			die("<span style='color: red;'>Cannot Initialize new GD image stream, please install GD: e.g. <i>apt-get install php5-gd</i></span>");
 		}
 		$folder = Folder::find_or_make("randomimages");
 		DB::alteration_message("checking randomimages");
