@@ -200,7 +200,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 				</p>
 				<p>
 					Next, to install the test data, please run:
-					<a href=\"/dev/tasks/CleanEcommerceTables/\">the install task (/dev/tasks/CleanEcommerceTables/?flush=all - resets everything!)</a>
+					<a href=\"/dev/tasks/CleanEcommerceTables/\">the install task (/dev/tasks/CleanEcommerceTables/ - resets everything!)</a>
 				</p>
 				<h3>downloads, svn and git</h3>
 				<p>
