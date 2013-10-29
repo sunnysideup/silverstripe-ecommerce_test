@@ -11,7 +11,7 @@ require_once('conf/ConfigureFromEnv.php');
 Email::setAdminEmail("sales@silverstripe-ecommerce.com");
 
 /*** ECOMMERCE ***/
-LeftAndMain::require_css("ecommerce/css/ecommercecmsfixes.css");
+
 
 
 $theme = Session::get("theme");
