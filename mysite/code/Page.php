@@ -52,7 +52,7 @@ class Page_Controller extends ContentController {
 		//theme needs to be set TWO times...
 		//$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
 		parent::init();
-		$theme = Session::get("theme");
+		$theme = Config::inst()->get("SSViewer", "theme");
 		if($theme == "main") {
 			Requirements::themedCSS('reset');
 			Requirements::themedCSS('layout');
@@ -65,7 +65,7 @@ class Page_Controller extends ContentController {
 			Requirements::themedCSS('individualPages');
 			Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
 		}
-		if($theme == "simple") {
+		elseif($theme == "simple") {
 		}
 	}
 
