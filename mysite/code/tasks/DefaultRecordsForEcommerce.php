@@ -38,6 +38,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		"productswithspecialtax" => true,
 		"checkreset" => true,
 		"createorder" => true,
+		"createshopadmin" => true,
 		"collateexamplepages" => true
 	);
 
