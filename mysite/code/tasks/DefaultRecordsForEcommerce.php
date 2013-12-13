@@ -1383,6 +1383,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 		$member->FirstName = 'Shop';
 		$member->Surname = 'Admin';
 		$member->Email = 'shop@silverstripe-ecommerce.com';
+		$member->SetPassword = 'test123';
 		$member->Password = 'test123';
 		$member->write();
 		$group = EcommerceRole::get_admin_group();
