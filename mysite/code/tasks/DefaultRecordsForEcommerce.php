@@ -435,6 +435,11 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 						<p>
 							Below is a full list of source code used on this site.
 							Downloads are only available to users who are logged in as shop administrator (you can find out how you can log in on the homepage).
+						</p>
+						<h3>CAREFUL!</h3>
+						<p>
+							From time to time this page will be out of date.
+							If unsure then please contact us to check that the information is up-to-date.
 						</p>",
 					)
 				)
