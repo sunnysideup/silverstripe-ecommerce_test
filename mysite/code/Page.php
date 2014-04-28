@@ -95,20 +95,17 @@ class Page_Controller extends ContentController {
 
 	function extendedMetaTags(){
 		return "
-			<base href=\"".Director::baseURL()."\" />
+			<base href=\"".Director::absolutebaseURL()."\" />
 			<meta charset=\"utf-8\" />
 			<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />
 			<title>".$this->Title."</title>
-			<link rel=\"icon\" href=\"".Director::baseURL()."/favicon.ico\" type=\"image/x-icon\" />
-			<link rel=\"shortcut icon\" href=\"".Director::baseURL()."/favicon.ico\" type=\"image/x-icon\" />
+			<link rel=\"icon\" href=\"".Director::absolutebaseURL()."favicon.ico\" type=\"image/x-icon\" />
+			<link rel=\"shortcut icon\" href=\"".Director::absolutebaseURL()."favicon.ico\" type=\"image/x-icon\" />
 			<meta name=\"robots\" content=\"NOODP, all, index, follow\" />
 			<meta name=\"googlebot\" content=\"NOODP, all, index, follow\" />
-			<meta name=\"rights\" content=\"Sunny Side Up\" />
-			<meta name=\"created\" content=\"".$this->Created."\" />
 			<meta name=\"geo.country\" content=\"New Zealand\" />
 			<meta http-equiv=\"imagetoolbar\" content=\"no\" />
 			<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />
-			<meta http-equiv=\"Content-Language\" content=\"en_NZ\" />
 
 			<meta property=\"og:title\" content=\"".$this->Title."\" />
 			<meta property=\"og:type\" content=\"website\" />
