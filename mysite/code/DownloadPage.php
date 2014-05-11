@@ -3,14 +3,6 @@
 
 class DownloadPage extends Page {
 
-	function canDownload(){
-		return true;
-		if($member = Member::currentUser()) {
-			if($member->IsShopAdmin()) {
-				return true;
-			}
-		}
-	}
 
 }
 
@@ -56,12 +48,6 @@ class DownloadPage_Controller extends Page_Controller {
 		$this->createDownloads();
 	}
 
-	function index() {
-		if($this->canDownload()){
-			$this->createDownloads();
-		}
-		return array();
-	}
 
 	function Downloads(){
 		$dos = new ArrayList();
@@ -110,17 +96,21 @@ class DownloadPage_Controller extends Page_Controller {
 	private function createDownloads() {
 		$folders = $this->getFolderList();
 		foreach($folders as $folder) {
+			if(!file_exists(Director::baseFolder(). '/assets/downloads/'.$folder.'.zip')) {
+				exec('
+					mkdir '.Director::baseFolder().'/assets/downloads/
+					cd '.Director::baseFolder().'/
+					zip -r assets/downloads/'.$folder.'.zip '.$folder.'/ -x "*.svn/*" -x "*.git/*"'
+				);
+			}
+		}
+		if(!file_exists(Director::baseFolder() . '/assets/download-all/ecommerce.zip')) {
 			exec('
-				mkdir '.Director::baseFolder().'/
+				mkdir '.Director::baseFolder().'/assets/download-all/
 				cd '.Director::baseFolder().'/
-				zip -r assets/downloads/'.$folder.'.zip '.$folder.'/ -x "*.svn/*" -x "*.git/*"'
+				zip -r assets/download-all/ecommerce.zip '.Director::baseFolder().'/assets/downloads/ -x "*.svn/*" -x "*.git/*" -x "_ss_environment.php"'
 			);
 		}
-		exec('
-			mkdir '.Director::baseFolder().'/assets/download-all/
-			cd '.Director::baseFolder().'/assets/download-all/
-			zip -r assets/download-all/ecommerce.zip '.Director::baseFolder().'/assets/downloads/ -x "*.svn/*" -x "*.git/*"'
-		);
 	}
 
 	private function getFolderList() {

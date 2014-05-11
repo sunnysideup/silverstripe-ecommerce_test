@@ -39,7 +39,8 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		"checkreset" => true,
 		"createorder" => true,
 		"createshopadmin" => true,
-		"collateexamplepages" => true
+		"collateexamplepages" => true,
+		"deletedownloads" => true
 	);
 
 	function run($request) {
@@ -205,7 +206,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 				</p>
 				<h3>downloads, svn and git</h3>
 				<p>
-					Please log in (see <a href=\"#LoginDetails\">login details</a> above) to the <a href=\"/home/downloads/\">the Git / SVN / Download page </a> to fork / checkout / download the source code.
+					Please log in (see <a href=\"#LoginDetails\">login details</a> above) to the <a href=\"/home/downloads-git-svn/\">the Git / SVN / Download page </a> to fork / checkout / download the source code.
 				</p>
 				<p>
 					This demo is based on the <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/\">trunk</a> of e-commerce, as well as a bunch of complementary modules.
@@ -229,16 +230,25 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 				<h3>data model</h3>
 				<p>
 					Please review the latest <a href=\"/ecommerce/docs/en/DataModel.png\">e-commerce data model</a>.
-					This data model can be a bit out of date, but it gives a very good overview of its model.
+					This data model can be a bit out of date, but it gives a very good overview of the e-commerce model.
 				</p>
 
 				<h3>Customising your own copy of e-commerce</h3>
 				<p>
-					We have created a PDF that shows a flow-chart of recommended steps you should take to <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/docs/en/CustomisingEcommerce.pdf\">customise your own e-commerce application</a>.
+					Please follow our <a href=\"/home/customisation-guide/\">e-commerce customisation guide</a> for the best way to customise your e-commerce application. You will be amazed how easy this is.
+				</p>
+				<h3>Documentation</h3>
+				<p>
+					The documentation for this module is rather sparse, but we hope the resources listed here provide some help.
+					You can also access the automatically created <a href=\"/ecommerce/docs/api/classes.xhtml\">API documentations included with this module</a>.
+					Our strategy is to improve the in-file comments with classes, methods, and so on so that the API will be able to provide you with all the documentation you may need.
 				</p>
 				<h3>bugs / feedback / questions</h3>
 				<p>
-					Please visit our <a href=\"http://code.google.com/p/silverstripe-ecommerce/issues/list\">issue list</a> or <a href=\"https://github.com/sunnysideup/silverstripe-ecommerce/issues\">file an issue on github</a> or email us [modules <i>ad</i> sunnysideup.co.nz] or get in touch with us in whatever way is easiest for you.
+					The best place to start is the e-commerce google group mailing list: <a href=\"https://groups.google.com/forum/#!forum/silverstripe-ecommerce\">https://groups.google.com/forum/#!forum/silverstripe-ecommerce</a>.
+				</p>
+				<p>
+					For more detailed questions / bug reports / etc... please visit our <a href=\"http://code.google.com/p/silverstripe-ecommerce/issues/list\">issue list</a> or <a href=\"https://github.com/sunnysideup/silverstripe-ecommerce/issues\">file an issue on github</a> or email us [modules <i>at</i> sunnysideup .co .nz] or get in touch with us in whatever way is easiest for you.
 					We welcome any feedback and we will act on it where we can.
 				</p>
 
@@ -264,6 +274,23 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 						"ShowInMenus" => true,
 						"ShowInSearch" => true,
 						"Content" => "",
+					),
+					array(
+						"URLSegment" => "customisation-guide",
+						"Title" => "Customisation Guide for Silverstripe E-commerce",
+						"MenuTitle" => "Customisation",
+						"ShowInMenus" => true,
+						"ShowInSearch" => true,
+						"Content" =>
+							"<p>
+								Below is a step-by-step guide to customising your e-commerce application.
+								It takes you through all the options - from the trivial through to the hard-core.
+								For any change you like to make, it is recommended that you look at the options to find
+								the easiest, most reliable and sustainable option.  You will be surprised how many changes
+								can be achieved through CMS updates, themeing, and config variable changes.
+							</p>
+							".
+							$this->createcustomisationsteps(),
 					),
 					array(
 						"URLSegment" => "others",
@@ -1581,8 +1608,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 			<li><a href="/api/v1/Order/1">view order with ID = 1</a></li>
 		</ul>
 		<p>
-			For more information on the restful server API, you can visit the <a href="http://api.silverstripe.org/3.1/api/RestfulServer.html">help documents</a> on this topic.
-			In the help documents you can read that potentially orders could also be created through third-party gateways.
+			For more information on the restful server API, you can visit the modules home: <a href="https://github.com/silverstripe/silverstripe-restfulserver">https://github.com/silverstripe/silverstripe-restfulserver</a> to find out more on this topic.
 		</p>
 		';
 		$featuresPage = Page::get()
@@ -1595,6 +1621,50 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 		$featuresPage->flushCache();
 	}
 
+	function deletedownloads() {
+		$this->deleteFolder(Director::baseFolder().'/assets/downloads/');
+		$this->deleteFolder(Director::baseFolder().'/assets/download-all/');
+	}
+
+	private function deleteFolder($path) {
+		if (is_dir($path) === true) {
+			$files = array_diff(scandir($path), array('.', '..'));
+			foreach ($files as $file){
+				Delete(realpath($path) . '/' . $file);
+			}
+			return rmdir($path);
+		}
+		else if (is_file($path) === true) {
+			return unlink($path);
+		}
+		return false;
+	}
+
+	function createcustomisationsteps(){
+		require_once 'thirdparty/spyc/spyc.php';
+		$parser = new Spyc();
+		$array = $parser->loadFile(Director::baseFolder().'/ecommerce/docs/en/CustomisationChart.yaml');
+		$html = "
+			<ol>";
+		foreach($array as $question => $answerArray) {
+			$html .= "
+				<li><h3>".$question."</h3>";
+			foreach($answerArray as $answer => $notes) {
+				$html .= "
+				<h4>".$answer."</h4>
+				<ul>";
+				foreach($notes as $noteKey => $note) {
+					$html .= "
+					<li>$note</li>";
+				}
+				$html .= "
+				</ul>";
+			}
+		}
+		$html .= "
+			</ol>";
+		return $html;
+	}
 
 	//====================================== ASSISTING FUNCTIONS =========================
 	//====================================== ASSISTING FUNCTIONS =========================
@@ -1878,6 +1948,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 		$rand = rand(0, $length -1);
 		return $array[$rand];
 	}
+
 
 
 }
