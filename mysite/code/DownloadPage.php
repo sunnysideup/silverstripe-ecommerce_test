@@ -10,10 +10,10 @@ class DownloadPage_Controller extends Page_Controller {
 
 	protected $defaultDownloadArray = array(
 		"all" => array(
-			"Title" => "Entire Site (use svn link for best results)",
+			"Title" => "Entire Site (git users must download submodules separately)",
 			"SVNLink" => "http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/",
 			"GITLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test",
-			"DownloadLink" => "assets/download-all/ecommerce"
+			"DownloadLink" => "assets/download-all/ecommerce.zip"
 			),
 		"silverstripe-framework" => array(
 			"Title" => "Sapphire 3.1.4 (provided by Silverstripe Ltd)",
@@ -70,7 +70,7 @@ class DownloadPage_Controller extends Page_Controller {
 				);
 			}
 			$downloadFile = Director::baseFolder()."/".$downloadLink;
-			if($this->canDownload() && file_exists($downloadFile)) {
+			if(file_exists($downloadFile)) {
 				$this->defaultDownloadArray[$folder]["DownloadLink"] = $downloadLink;
 			}
 		}
@@ -96,21 +96,56 @@ class DownloadPage_Controller extends Page_Controller {
 	private function createDownloads() {
 		$folders = $this->getFolderList();
 		foreach($folders as $folder) {
-			if(!file_exists(Director::baseFolder(). '/assets/downloads/'.$folder.'.zip')) {
+			$folderToZip = Director::baseFolder(). '/'.$folder.'/';
+			$destinationFile = Director::baseFolder(). '/assets/downloads/'.$folder.'.zip';
+			if(!file_exists($destinationFile)) {
 				exec('
 					mkdir '.Director::baseFolder().'/assets/downloads/
 					cd '.Director::baseFolder().'/
-					zip -r assets/downloads/'.$folder.'.zip '.$folder.'/ -x "*.svn/*" -x "*.git/*"'
+					zip -r assets/downloads/'.$folder.'.zip '.Director::baseFolder().'/'.$folder.'/ -x "*.svn/*" -x "*.git/*" -x "_ss_environment.php"'
 				);
+
+				//@mkdir(dirname($destinationFile));
+				//$this->makeZipFileFromFolder($folderToZip, $destinationFile);
 			}
 		}
 		if(!file_exists(Director::baseFolder() . '/assets/download-all/ecommerce.zip')) {
 			exec('
 				mkdir '.Director::baseFolder().'/assets/download-all/
 				cd '.Director::baseFolder().'/
-				zip -r assets/download-all/ecommerce.zip '.Director::baseFolder().'/assets/downloads/ -x "*.svn/*" -x "*.git/*" -x "_ss_environment.php"'
+				zip -r assets/download-all/ecommerce.zip '.Director::baseFolder().'/ -x "*.svn/*" -x "*.git/*" -x "_ss_environment.php"'
 			);
 		}
+	}
+
+	private function makeZipFileFromFolder($folderToZip, $destinationFile) {
+		// Get real path for our folder
+
+		// Initialize archive object
+		$zip = new ZipArchive;
+		$zip->open($destinationFile, ZipArchive::CREATE);
+
+		// Create recursive directory iterator
+		$files = new RecursiveIteratorIterator(
+				new RecursiveDirectoryIterator($folderToZip),
+				RecursiveIteratorIterator::LEAVES_ONLY
+		);
+
+		foreach ($files as $name => $file) {
+			// Get real path for current file
+			$filePath = $file->getRealPath();
+			if(is_dir($file) && basename($filePath) == ".svn") {
+				//do nothing...
+			}
+			else {
+				// Add current file to archive
+				$zip->addFile($filePath, str_replace(Director::baseFolder(), "", $filePath));
+			}
+		}
+
+		// Zip archive will be created only after closing object
+		$zip->close();
+
 	}
 
 	private function getFolderList() {
