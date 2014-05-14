@@ -233,11 +233,11 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 					This data model can be a bit out of date, but it gives a very good overview of the e-commerce model.
 				</p>
 
-				<h3>Customising your own copy of e-commerce</h3>
+				<h3>customisation</h3>
 				<p>
 					Please follow our <a href=\"/home/customisation-guide/\">e-commerce customisation guide</a> for the best way to customise your e-commerce application. You will be amazed how easy this is.
 				</p>
-				<h3>Documentation</h3>
+				<h3>documentation</h3>
 				<p>
 					The documentation for this module is rather sparse, but we hope the resources listed here provide some help.
 					You can also access the automatically created <a href=\"/ecommerce/docs/api/classes.xhtml\">API documentations included with this module</a>.
@@ -285,9 +285,10 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 							"<p>
 								Below is a step-by-step guide to customising your e-commerce application.
 								It takes you through all the options - from the trivial through to the hard-core.
-								For any change you like to make, it is recommended that you look at the options to find
-								the easiest, most reliable and sustainable option.  You will be surprised how many changes
-								can be achieved through CMS updates, themeing, and config variable changes.
+								For any change you like to make, it is recommended that you look at the steps below to find
+								the easiest, most reliable and sustainable option to achieve your goals.
+								You will be surprised how many changes
+								can be achieved through CMS updates, theme-ing, and configuration changes in the yml files.
 							</p>
 							".
 							$this->createcustomisationsteps(),
@@ -647,7 +648,6 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 					<p>
 						This demo e-commerce website has been developed by <a href=\"http://www.sunnysideup.co.nz\">Sunny Side Up</a> for evaluation and testing.
 						If you would like help in building an e-commerce website using the Silverstripe CMS then do not hesitate to contact us.
-						We charge <a href=\"http://www.xe.com/ucc/convert/?Amount=150&From=NZD&To=EUR\">NZD150</a> per hour for any e-commerce development work.
 						In many cases, we have provided the back-bone (PHP + Javascript) for sites, with our clients taking care of the front-end (HTML + CSS).
 						Here are our estimated charges for e-commerce websites:
 					</p>
