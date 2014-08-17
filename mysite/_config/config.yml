@@ -10,11 +10,12 @@ SSViewer:
 ---
 Name: testpayments
 Only:
-  environment: 'live'
+  environment: 'dev'
 ---
 EcommercePayment:
   supported_methods:
     EcommercePayment_TestSuccess : "Test Success Payment"
     EcommercePayment_TestPending : "Test Pending Payment"
     EcommercePayment_TestFailure : "Test Failure Payment"
+    PayPalExpressCheckoutPayment : "Paypal"
 
