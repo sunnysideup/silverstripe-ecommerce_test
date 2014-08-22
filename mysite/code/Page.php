@@ -93,7 +93,11 @@ class Page_Controller extends ContentController {
 		}
 	}
 
-	function extendedMetaTags(){
+	function HasNoExtendedMetatags(){
+		return true;
+	}
+
+	function ExtendedMetaTags(){
 		return "
 			<base href=\"".Director::absolutebaseURL()."\" />
 			<meta charset=\"utf-8\" />
