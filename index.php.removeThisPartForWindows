@@ -15,15 +15,16 @@
  */
 
 // This is the URL of the script that everything must be viewed with.
-define('BASE_SCRIPT_URL','index.php/');
-
-$ruLen = strlen($_SERVER['REQUEST_URI']);
-$snLen = strlen($_SERVER['SCRIPT_NAME']);
 
 $isIIS = (strpos($_SERVER['SERVER_SOFTWARE'], 'Microsoft-IIS') !== false);
 
 // IIS will populate server variables using one of these two ways
 if($isIIS) {
+	define('BASE_SCRIPT_URL','index.php/');
+
+	$ruLen = strlen($_SERVER['REQUEST_URI']);
+	$snLen = strlen($_SERVER['SCRIPT_NAME']);
+
 	if($_SERVER['REQUEST_URI'] == $_SERVER['SCRIPT_NAME']) {
 		$url = "";
 	} else if($ruLen > $snLen && substr($_SERVER['REQUEST_URI'],0,$snLen+1) == ($_SERVER['SCRIPT_NAME'] . '/')) {
