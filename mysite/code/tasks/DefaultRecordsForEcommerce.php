@@ -473,7 +473,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 				)
 			),
 			array(
-				"ClassName" => "ProductGroup",
+				"ClassName" => "ProductGroupSearchPage",
 				"URLSegment" => "shop",
 				"Title" => "Shop",
 				"MenuTitle" => "Shop",
