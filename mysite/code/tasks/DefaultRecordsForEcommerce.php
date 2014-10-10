@@ -1626,7 +1626,9 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 		if (is_dir($path) === true) {
 			$files = array_diff(scandir($path), array('.', '..'));
 			foreach ($files as $file){
-				Delete(realpath($path) . '/' . $file);
+				if(file_exists(realpath($path) . '/' . $file)) {
+					unlink(realpath($path) . '/' . $file);
+				}
 			}
 			return rmdir($path);
 		}
