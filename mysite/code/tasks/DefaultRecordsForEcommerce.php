@@ -1446,7 +1446,6 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 		$billingAddress->PostalCode = "555";
 		$billingAddress->Country = "NZ";
 		$billingAddress->Phone = "555 5555555";
-		$billingAddress->MobilePhone = "444 44444";
 		$billingAddress->Email = "tom@silverstripe-ecommerce.com";
 		$billingAddress->write();
 		$order->BillingAddressID = $billingAddress->ID;
@@ -1461,7 +1460,6 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 		$shippingAddress->ShippingPostalCode = "555";
 		$shippingAddress->ShippingCountry = "NZ";
 		$shippingAddress->ShippingPhone = "555 5555555";
-		$shippingAddress->ShippingMobilePhone = "444 44444";
 		$shippingAddress->write();
 		$order->ShippingAddressID = $shippingAddress->ID;
 
@@ -1551,7 +1549,6 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 			$billingAddress-&gt;PostalCode = "555";
 			$billingAddress-&gt;Country = "NZ";
 			$billingAddress-&gt;Phone = "555 5555555";
-			$billingAddress-&gt;MobilePhone = "444 44444";
 			$billingAddress-&gt;Email = "tom@silverstripe-ecommerce.com";
 			$billingAddress-&gt;write();
 			$order-&gt;BillingAddressID = $billingAddress-&gt;ID;
@@ -1566,7 +1563,6 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 			$shippingAddress-&gt;ShippingPostalCode = "555";
 			$shippingAddress-&gt;ShippingCountry = "NZ";
 			$shippingAddress-&gt;ShippingPhone = "555 5555555";
-			$shippingAddress-&gt;ShippingMobilePhone = "444 44444";
 			$shippingAddress-&gt;write();
 			$order-&gt;ShippingAddressID = $shippingAddress-&gt;ID;
 
