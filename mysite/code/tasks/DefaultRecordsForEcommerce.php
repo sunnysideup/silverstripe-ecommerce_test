@@ -71,7 +71,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 
 	private function runecommercedefaults() {
 		$request = true;
-		$buildTask = new CreateEcommerceMemberGroups($request);
+		$buildTask = new EcommerceTaskCreateMemberGroups($request);
 		$buildTask->run($request);
 		$obj = new EcommerceDBConfig();
 		$obj->Title = "Test Configuration";
@@ -1281,7 +1281,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 
 	private function addspecialprice(){
 
-		$task = new CreateEcommerceMemberGroups();
+		$task = new EcommerceTaskCreateMemberGroups();
 		$task->run(false);
 		$customerGroup = EcommerceRole::get_customer_group();
 		if(!$customerGroup) {
