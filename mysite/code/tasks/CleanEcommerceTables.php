@@ -8,7 +8,7 @@ class CleanEcommerceTables extends BuildTask {
 	protected $description = "WARNING! RESETS ALL tables in the database by deleting them!";
 
 	public function run($request) {
-		if(!Permission::check("ADMIN") && ! Director::isDev()) {
+		if(!Permission::check("ADMIN") && ! Director::isDev() && php_sapi_name() != 'cli') {
 			Security::permissionFailure($this, _t('Security.PERMFAILURE',' This page is secured and you need administrator rights to access it. Enter your credentials below and we will send you right along.'));
 		}
 		$rows = DB::query("SHOW TABLES");

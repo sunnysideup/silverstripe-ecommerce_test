@@ -243,6 +243,20 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 					You can also access the automatically created <a href=\"/ecommerce/docs/api/classes.xhtml\">API documentations included with this module</a>.
 					Our strategy is to improve the in-file comments with classes, methods, and so on so that the API will be able to provide you with all the documentation you may need.
 				</p>
+				<h3>other tools</h3>
+				<p>
+					This module has a bunch of tools, not seen in many other modules, that will help you build and maintain your application.
+					Here are some examples:
+				</p>
+				<ul>
+					<li>a complete <a href=\"/dev/ecommerce/\">dev screen</a> with a ton of tasks you can run</li>
+					<li>tools to migrate from earlier versions</li>
+					<li>lots of information on how to build templates</li>
+					<li>a complete list of all configs with explanations</li>
+					<li>a bunch of debug tools</li>
+					<li>maintenance tools (clear old orders, etc...)</li>
+				</ul>
+				<p>Make sure to also check out our <a href=\"/home/customisation-guide/\">customisation guide</a></p>
 				<h3>bugs / feedback / questions</h3>
 				<p>
 					The best place to start is the e-commerce google group mailing list: <a href=\"https://groups.google.com/forum/#!forum/silverstripe-ecommerce\">https://groups.google.com/forum/#!forum/silverstripe-ecommerce</a>.
@@ -507,7 +521,14 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 						"MenuTitle" => "Alternative Views",
 						"ShowInMenus" => 1,
 						"ShowInSearch" => 1,
-						"Content" => "<p>In this section we present a number of alternative ways to view products and product groups. Please use the sidebar menu to browse through the options.</p>",
+						"Content" => "<p>
+							E-commerce is set up in such a way that you can present products in many different ways.
+							Products can be shown in several product group pages (many-to-many relationship).
+							You can filter and sort them as you see fit.
+							There are also several display options.
+							There are also several modules that add functionality such as grouping products, creating price lists, etc...
+
+						</p>",
 						"Children" => array(
 							/*
 							array(
