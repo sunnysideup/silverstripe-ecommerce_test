@@ -5,13 +5,8 @@ EcommerceConfig:
     - "mysite/_config/ecommerce.yml"
 
 SSViewer:
-  theme: simple
+  theme: main
 
----
-Name: testpayments
-Only:
-  environment: 'dev'
----
 EcommercePayment:
   supported_methods:
     EcommercePayment_TestSuccess : "Test Success Payment"
