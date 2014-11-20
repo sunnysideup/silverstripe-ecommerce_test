@@ -21,3 +21,9 @@ PayPalExpressCheckoutPayment:
   API_Signature: 'A28oa-B5R0CTgak6ipR9IK8jr0OoAg01ay9d32LkRH-gEW2FOekonB8q'
 
 
+OrderStep:
+  order_steps_to_include:
+    step1: OrderStep_Created
+    step2: OrderStep_Submitted
+    step3: ElectronicDelivery_OrderStep
+    step4: OrderStep_Archived

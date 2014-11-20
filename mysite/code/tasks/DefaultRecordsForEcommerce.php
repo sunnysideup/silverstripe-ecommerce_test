@@ -40,7 +40,8 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		"createorder" => true,
 		"createshopadmin" => true,
 		"collateexamplepages" => true,
-		"deletedownloads" => true
+		"deletedownloads" => true,
+		"addfilestoelectronicdownloadproduct" => true
 	);
 
 	function run($request) {
@@ -184,20 +185,12 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 				<p>
 					After that, you will have to install the sub-modules, using the composer.json file as guide.
 				</p>
-				<h3>svn install</h3>
-				<p>
-					You can also install an identical copy of this site (including test data) on your own development server by checking out this SVN repository:
-				</p>
-				<pre>
-svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/</pre>
-				<p>
-					This repository contains all the svn externals.
-				</p>
 				<h3>installing example data</h3>
 				<p>
 					<strong>
 						If you do not use the composer method including the silverstripe installer then you will need
 						to add your own .htaccess + _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
+						The .htaccess files only work on apache servers of course, for other web-servers, please use the appropriate alternatives.
 					</strong>
 				</p>
 				<p>
@@ -256,7 +249,7 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 					<li>a bunch of debug tools</li>
 					<li>maintenance tools (clear old orders, etc...)</li>
 				</ul>
-				<p>Make sure to also check out our <a href=\"/home/customisation-guide/\">customisation guide</a></p>
+				<p>Make sure to also have a look at our <a href=\"/home/customisation-guide/\">customisation guide</a>.</p>
 				<h3>bugs / feedback / questions</h3>
 				<p>
 					The best place to start is the e-commerce google group mailing list: <a href=\"https://groups.google.com/forum/#!forum/silverstripe-ecommerce\">https://groups.google.com/forum/#!forum/silverstripe-ecommerce</a>.
@@ -530,6 +523,13 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 
 						</p>",
 						"Children" => array(
+							array(
+								"ClassName" => "ElectronicDownloadProduct",
+								"URLSegment" => "purchase-a-download",
+								"Title" => "Purchase some files for download",
+								"MenuTitle" => "Downloads",
+								"Content" => "<p>This is an example of the ElectronicDownloadProduct page template.</p>",
+							)
 							/*
 							array(
 								"ClassName" => "ProductGroupWithTags",
@@ -1968,6 +1968,14 @@ svn co http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/t
 		return $array[$rand];
 	}
 
+	private function addfilestoelectronicdownloadproduct(){
+		$pages = ElectronicDownloadProduct::get();
+		$files = File::get()->limit(5)->Sort("Rand()");
+		foreach($pages as $page) {
+			$page->DownloadFiles()->addMany($files);
+		}
+
+	}
 
 
 }
