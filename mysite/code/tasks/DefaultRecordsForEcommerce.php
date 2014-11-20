@@ -508,7 +508,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 						"Children" => $this->getProductGroups()
 					),
 					array(
-						"ClassName" => "Page",
+						"ClassName" => "ProductGroup",
 						"URLSegment" => "alternative-views",
 						"Title" => "Alternative Views of Product and Product Groups",
 						"MenuTitle" => "Alternative Views",
@@ -516,11 +516,10 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 						"ShowInSearch" => 1,
 						"Content" => "<p>
 							E-commerce is set up in such a way that you can present products in many different ways.
-							Products can be shown in several product group pages (many-to-many relationship).
+							Products can be shown in several product group pages (many-to-many relationship between products and groups).
 							You can filter and sort them as you see fit.
-							There are also several display options.
-							There are also several modules that add functionality such as grouping products, creating price lists, etc...
-
+							There are also several display options for the products.
+							What is more, we have made a <a href=\"https://github.com/search?q=user%3Asunnysideup+ecommerce+&type=Repositories\">large range of modules</a> available that can add functionality such as grouping products, creating price lists, etc...
 						</p>",
 						"Children" => array(
 							array(
@@ -528,6 +527,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 								"URLSegment" => "purchase-a-download",
 								"Title" => "Purchase some files for download",
 								"MenuTitle" => "Downloads",
+								"Price" => 11.95,
 								"Content" => "<p>This is an example of the ElectronicDownloadProduct page template.</p>",
 							)
 							/*
@@ -1972,6 +1972,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 		$pages = ElectronicDownloadProduct::get();
 		$files = File::get()->limit(5)->Sort("Rand()");
 		foreach($pages as $page) {
+			DB::alteration_message("Adding files to ".$page->Title, "created")
 			$page->DownloadFiles()->addMany($files);
 		}
 
