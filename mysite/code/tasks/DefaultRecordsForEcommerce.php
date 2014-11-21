@@ -173,9 +173,9 @@ class DefaultRecordsForEcommerce extends BuildTask {
 				</p>
 				<h3>composer install</h3>
 				<pre>
-composer create-project --no-dev silverstripe/installer ./ecommercetest 3.1
+composer create-project sunnysideup/ecommerce_test:dev-master ./ecommercetest
 cd ecommercetest
-composer require sunnysideup/ecommerce_test:dev-master</pre>
+				</pre>
 				<h3>git install</h3>
 				<p>
 					To install using git:
