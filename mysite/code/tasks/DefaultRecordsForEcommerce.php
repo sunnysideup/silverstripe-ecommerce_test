@@ -1972,7 +1972,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 		$pages = ElectronicDownloadProduct::get();
 		$files = File::get()->limit(5)->Sort("Rand()");
 		foreach($pages as $page) {
-			DB::alteration_message("Adding files to ".$page->Title, "created")
+			DB::alteration_message("Adding files to ".$page->Title, "created");
 			$page->DownloadFiles()->addMany($files);
 		}
 

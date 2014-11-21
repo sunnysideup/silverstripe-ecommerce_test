@@ -52,6 +52,7 @@ class Page_Controller extends ContentController {
 		//theme needs to be set TWO times...
 		//$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
 		parent::init();
+
 		$theme = Config::inst()->get("SSViewer", "theme");
 		if($theme == "main") {
 			Requirements::themedCSS('reset');
