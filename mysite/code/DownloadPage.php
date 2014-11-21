@@ -16,29 +16,29 @@ class DownloadPage_Controller extends Page_Controller {
 			"DownloadLink" => "assets/download-all/ecommerce.zip"
 			),
 		"silverstripe-framework" => array(
-			"Title" => "Sapphire 3.1.4 (provided by Silverstripe Ltd)",
+			"Title" => "Sapphire 3.1.8 (provided by Silverstripe Ltd)",
 			"FolderPadded" => "sapphire",
-			"SVNLink" => "https://github.com/silverstripe/silverstripe-framework/tags/3.1.4",
-			"GITLink" => "https://github.com/silverstripe/silverstripe-framework/tree/3.1.4",
+			"SVNLink" => "https://github.com/silverstripe/silverstripe-framework/tags/3.1.8",
+			"GITLink" => "https://github.com/silverstripe/silverstripe-framework/tree/3.1.8",
 			"DownloadLink" => ""
 			),
 		"silverstripe-cms" => array(
-			"Title" => "CMS 3.1.4 (provided by Silverstripe Ltd)",
+			"Title" => "CMS 3.1.8 (provided by Silverstripe Ltd)",
 			"FolderPadded" => "cms",
-			"SVNLink" => "https://github.com/silverstripe/silverstripe-cms/tags/3.1.4",
-			"GITLink" => "https://github.com/silverstripe/silverstripe-cms/tree/3.1.4",
+			"SVNLink" => "https://github.com/silverstripe/silverstripe-cms/tags/3.1.8",
+			"GITLink" => "https://github.com/silverstripe/silverstripe-cms/tree/3.1.8",
 			"DownloadLink" => ""
 			),
 		"mysite" => array(
 			"Title" => "mysite (example only)",
-			"SVNLink" => "http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/mysite",
-			"GITLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test/mysite/",
+			"SVNLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test/",
+			"GITLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test/",
 			"DownloadLink" => "assets/downloads/mysite"
 			),
 		"themes" => array(
 			"Title" => "themes (example only)",
-			"SVNLink" => "http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/themes",
-			"GITLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test/themes/",
+			"SVNLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test/",
+			"GITLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test/",
 			"DownloadLink" => "assets/downloads/themes"
 			)
 	);

@@ -188,11 +188,9 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 				</p>
 				<h3>installing example data</h3>
 				<p>
-					<strong>
-						You will need to add your own .htaccess + _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
-						The .htaccess files only work on apache servers of course, for other web-servers, please use the appropriate alternatives.
-						An example is included.
-					</strong>
+					You will need to add your own .htaccess and _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
+					The .htaccess files only work on apache servers of course, for other web-servers, please use the appropriate alternatives.
+					An example is included.
 				</p>
 				<p>
 					Next, to install the test data, please run:
