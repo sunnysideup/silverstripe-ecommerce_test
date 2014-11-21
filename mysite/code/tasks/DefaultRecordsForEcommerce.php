@@ -176,6 +176,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 composer create-project sunnysideup/ecommerce_test:dev-master ./ecommercetest
 cd ecommercetest
 				</pre>
+				After you install the project, you will need to install a
 				<h3>git install</h3>
 				<p>
 					To install using git:
@@ -188,9 +189,9 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 				<h3>installing example data</h3>
 				<p>
 					<strong>
-						If you do not use the composer method including the silverstripe installer then you will need
-						to add your own .htaccess + _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
+						You will need to add your own .htaccess + _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
 						The .htaccess files only work on apache servers of course, for other web-servers, please use the appropriate alternatives.
+						An example is included.
 					</strong>
 				</p>
 				<p>

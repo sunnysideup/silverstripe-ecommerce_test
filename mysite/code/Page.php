@@ -22,6 +22,15 @@ class Page extends SiteTree {
 		}
 	}
 
+	function requireDefaultRecords(){
+		parent::requireDefaultRecords();
+		if(DB::query("SELECT COUNT(ID) FROM SiteTree")->value() < 10) {
+			$obj = new DefaultRecordsForEcommerce();
+			$obj->run();
+			return ;
+			//Controller::curr()->redirect(Director::baseURL()."dev/tasks/DefaultRecordsForEcommerce/");
+		}
+	}
 }
 
 

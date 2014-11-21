@@ -1,0 +1,22 @@
+<?php
+
+// this one is important! "live" for live website
+define('SS_ENVIRONMENT_TYPE', 'dev');
+
+//usually localhost
+define('SS_DATABASE_SERVER', 'localhost');
+
+define('SS_DATABASE_USERNAME', 'dbusername');
+
+define('SS_DATABASE_PASSWORD', 'aaa');
+
+//can be anything you like or nothing at all.
+//I make it dev_ for the dev site and www_ for the live site
+define('SS_DATABASE_PREFIX', 'dev_');
+
+//default log in for CMS... Usually it pays to
+//create a separate log in for the client.
+define('SS_DEFAULT_ADMIN_USERNAME', 'a@b.com');
+define('SS_DEFAULT_ADMIN_PASSWORD', 'ccccccc');
+
+define('SS_SEND_ALL_EMAILS_TO', 'a@b.com; c@d.com');
