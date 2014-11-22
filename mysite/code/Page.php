@@ -116,7 +116,6 @@ class Page_Controller extends ContentController {
 			<meta name=\"robots\" content=\"NOODP, all, index, follow\" />
 			<meta name=\"googlebot\" content=\"NOODP, all, index, follow\" />
 			<meta name=\"geo.country\" content=\"New Zealand\" />
-			<meta http-equiv=\"imagetoolbar\" content=\"no\" />
 			<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />
 
 			<meta property=\"og:title\" content=\"".$this->Title."\" />
