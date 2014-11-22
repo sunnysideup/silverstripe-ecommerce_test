@@ -1,5 +1,7 @@
-Ecommerce Test Example
+E-commerce Test Example
 ================================================================================
+
+<img src="https://travis-ci.org/sunnysideup/silverstripe-ecommerce_test.svg?branch=master">
 
 This is the source code for www.silverstripe-ecommerce.com
 

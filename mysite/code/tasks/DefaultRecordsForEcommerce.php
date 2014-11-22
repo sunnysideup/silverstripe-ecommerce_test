@@ -1525,15 +1525,19 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 		$html = '
 		<h2>Some Interesting Features</h2>
 		<p>
-			Below we will list some features of this e-commerce application that may be of interest to you:
+			Below are some features of this e-commerce application that may be of interest to you:
 		</p>
 		<ul>
 			<li>customised search for users with search history graphs for admins</li>
-			<li>ability to check-out with or without adding a password</li>
+			<li>ability to check-out with or without adding a password (creating an account)</li>
 			<li>easy to use CMS</li>
 			<li>very fast product listings, making extensive use of caching</li>
-			<li>many ways to display products</li>
+			<li>many ways to display products, allowing the content editor to set things like <i>products per page</i>, <i>product selctions</i>, <i>sorting orders</i></li>
+			<li>multi-currency options and currency conversions</li>
+			<li>step-by-step system for completed orders leading them from being submitted to archived via very steps.  This allows the admin to review orders where needed, add extra information, such as tracking codes for delivery, etc...</li>
 			<li>code that is very easy to customise and adjust for your needs</li>
+			<li>a ton of additional modules are available - you can add them directly to your e-commece install or use these as examples for building your own extensions </li>
+			<li>geo-coding for addresses</li>
 			<li>extensive developer assistance through various tools and personalised help</li>
 		</ul>
 		<h2>examples shown on this demo site</h2>';
