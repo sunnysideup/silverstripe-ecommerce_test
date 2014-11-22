@@ -41,7 +41,8 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		"createshopadmin" => true,
 		"collateexamplepages" => true,
 		"deletedownloads" => true,
-		"addfilestoelectronicdownloadproduct" => true
+		"addfilestoelectronicdownloadproduct" => true,
+		"completeall" => true
 	);
 
 	function run($request) {
@@ -60,7 +61,6 @@ class DefaultRecordsForEcommerce extends BuildTask {
 				}
 			}
 		}
-		DB::alteration_message("----------------------------- COMPLETE --------------------------- ");
 	}
 
 	function checkreset(){
@@ -1675,6 +1675,10 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 				<h4>".$answer."</h4>
 				<ul>";
 				foreach($notes as $noteKey => $note) {
+					if(is_array($note) ) {
+						print_r($note);
+					}
+
 					$html .= "
 					<li>$note</li>";
 				}
@@ -1980,6 +1984,12 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 
 	}
 
+	private function completeall(){
+		$obj = new CompleteSetupRecord();
+		$obj->CompletedSetup = 1;
+		$obj->write();
+		DB::alteration_message("----------------------------- COMPLETE --------------------------- ");
+	}
 
 }
 

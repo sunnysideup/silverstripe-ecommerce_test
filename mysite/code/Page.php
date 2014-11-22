@@ -56,8 +56,8 @@ class Page_Controller extends ContentController {
 		//theme needs to be set TWO times...
 		//$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
 		parent::init();
-		if(!$this->SiteConfig()->SetupCompleted) {
-			$this->redirect('/dev/tasks/CleanEcommerceTables/?flush=all')
+		if(!CompleteSetupRecord::get()->count()) {
+			$this->redirect('/dev/tasks/CleanEcommerceTables/?flush=all');
 		}
 		$theme = Config::inst()->get("SSViewer", "theme");
 		if($theme == "main") {
@@ -124,7 +124,6 @@ class Page_Controller extends ContentController {
 			<meta property=\"og:url\" content=\"".$this->Link()."/\" />
 			<meta property=\"og:site_name\" content=\"Silverstripe E-commerce\" />
 			<meta property=\"og:description\" content=\"".substr(strip_tags($this->Content),0, 100)."\" />
-
 		";
 	}
 
