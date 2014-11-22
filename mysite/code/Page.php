@@ -79,6 +79,7 @@ class Page_Controller extends ContentController {
 				$this->redirect('/dev/tasks/CleanEcommerceTables/?flush=all');
 			}
 		}
+		return array();
 	}
 
 	public function settheme(HTTPRequest $request){
