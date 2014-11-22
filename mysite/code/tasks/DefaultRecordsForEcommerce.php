@@ -1522,7 +1522,21 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 		$this->addExamplePages(2, "Discount Coupon (try <i>AAA</i>)", CheckoutPage::get()->First());
 		$this->addExamplePages(4, "Products with zero price", Product::get()->where( "\"Price\" = 0 AND ClassName = 'Product'")->First());
 		//$this->addExamplePages(5, "Corporate Account Order page", AddUpProductsToOrderPage::get()->First());
-		$html = '<h2>examples shown on this demo site</h2>';
+		$html = '
+		<h2>Some Interesting Features</h2>
+		<p>
+			Below we will list some features of this e-commerce application that may be of interest to you:
+		</p>
+		<ul>
+			<li>customised search for users with search history graphs for admins</li>
+			<li>ability to check-out with or without adding a password</li>
+			<li>easy to use CMS</li>
+			<li>very fast product listings, making extensive use of caching</li>
+			<li>many ways to display products</li>
+			<li>code that is very easy to customise and adjust for your needs</li>
+			<li>extensive developer assistance through various tools and personalised help</li>
+		</ul>
+		<h2>examples shown on this demo site</h2>';
 		foreach($this->examplePages as $key => $exampleGroups) {
 			$html .= "<h3>".$exampleGroups["Title"]."</h3><ul>";
 			foreach($exampleGroups["List"] as $examplePages) {
@@ -1531,76 +1545,6 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 			$html .= "</ul>";
 		}
 		$html .= '
-		<h2>adding an order programatically</h2>
-		<p>As part of this demo, we automatically add an order - as follows:</p>
-		<pre>
-			$order = new Order();
-			$order-&gt;UseShippingAddress = true;
-			$order-&gt;CustomerOrderNote = "THIS IS AN AUTO-GENERATED ORDER";
-			$order-&gt;write();
-
-			$member = new Member();
-			$member-&gt;FirstName = \'Tom\';
-			$member-&gt;Surname = \'Cruize\';
-			$member-&gt;Email = \'tom@silverstripe-ecommerce.com\';
-			$member-&gt;Password = \'test123\';
-			$member-&gt;write();
-			$order-&gt;MemberID = $member-&gt;ID;
-
-			$billingAddress = new BillingAddress();
-			$billingAddress-&gt;Prefix = "Dr";
-			$billingAddress-&gt;FirstName = "Tom";
-			$billingAddress-&gt;Surname = "Cruize";
-			$billingAddress-&gt;Address = "Lamp Drive";
-			$billingAddress-&gt;Address2 = "Linux Mountain";
-			$billingAddress-&gt;City = "Apache Town";
-			$billingAddress-&gt;PostalCode = "555";
-			$billingAddress-&gt;Country = "NZ";
-			$billingAddress-&gt;Phone = "555 5555555";
-			$billingAddress-&gt;Email = "tom@silverstripe-ecommerce.com";
-			$billingAddress-&gt;write();
-			$order-&gt;BillingAddressID = $billingAddress-&gt;ID;
-
-			$shippingAddress = new ShippingAddress();
-			$shippingAddress-&gt;ShippingPrefix = "Dr";
-			$shippingAddress-&gt;ShippingFirstName = "Tom";
-			$shippingAddress-&gt;ShippingSurname = "Cruize";
-			$shippingAddress-&gt;ShippingAddress = "Lamp Drive";
-			$shippingAddress-&gt;ShippingAddress2 = "Linux Mountain";
-			$shippingAddress-&gt;ShippingCity = "Apache Town";
-			$shippingAddress-&gt;ShippingPostalCode = "555";
-			$shippingAddress-&gt;ShippingCountry = "NZ";
-			$shippingAddress-&gt;ShippingPhone = "555 5555555";
-			$shippingAddress-&gt;write();
-			$order-&gt;ShippingAddressID = $shippingAddress-&gt;ID;
-
-			//get a random product
-			$product = Product::get()->First();;
-			$triedArray = array($product-&gt;ID);
-			$extension = "";
-			if(Versioned::current_stage() == "Live") {
-				$extension = "_Live";
-			}
-			$count = 0;
-			while($product && !$product-&gt;canPurchase() && $count &lt; 50) {
-				$product = Product::get()->where(
-					"\"ClassName\" = \'Product\' AND \"Product{$extension}\".\"ID\" NOT IN (".implode(",", $triedArray).")"
-				)->First();
-				if($product) {
-					$triedArray[] = $product-&gt;ID;
-				}
-				$count++;
-			}
-
-			//adding product order item
-			$item = new Product_OrderItem();
-			$item-&gt;addBuyableToOrderItem($product, 7);
-			$item-&gt;OrderID = $order-&gt;ID;
-			$item-&gt;write();
-			//final save
-			$order-&gt;write();
-			$order-&gt;tryToFinaliseOrder();
-		</pre>
 		<h2>API Access</h2>
 		<p>
 			E-commerce allows you to access its model using the built-in Silverstripe API.
