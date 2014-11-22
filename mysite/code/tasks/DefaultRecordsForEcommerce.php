@@ -675,6 +675,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 						Here are our estimated charges for e-commerce websites:
 					</p>
 					<ul>
+						<li>free advice during your build of an e-commerce website: <a href=\"http://www.xe.com/ucc/convert/?Amount=200&From=NZD&To=EUR\">NZD200</a>.</li>
 						<li>install only: <a href=\"http://www.xe.com/ucc/convert/?Amount=700&From=NZD&To=EUR\">NZD700</a>.</li>
 						<li>small-size site, PHP + Javascript only: <a href=\"http://www.xe.com/ucc/convert/?Amount=1200&From=NZD&To=EUR\">NZD1200</a>.</li>
 						<li>small-size site, PHP + Javascript + CSS: <a href=\"http://www.xe.com/ucc/convert/?Amount=2400&From=NZD&To=EUR\">NZD2400</a>.</li>
@@ -686,22 +687,6 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 						<li>large-size site, PHP + Javascript + CSS: <a href=\"http://www.xe.com/ucc/convert/?Amount=21600&From=NZD&To=EUR\">NZD21600</a>.</li>
 						<li>large-size site, PHP + Javascript + CSS + Design: <a href=\"http://www.xe.com/ucc/convert/?Amount=43200&From=NZD&To=EUR\">NZD43200</a>.</li>
 					</ul>
-					<h2>Track Record</h2>
-					<p>
-						We are one of a few companies who have actually built a solid number of e-comemrce sites using the Silverstripe CMS.
-						Our work includes:
-					</p>
-					<ul>
-						<li><a href=\"http://www.photowarehouse.co.nz\">photowarehouse</a> - a large retailer site with over four thousand products - contracted by <a href=\"http://www.msodesign.com\">MSO Design</a> to develop back-end only</li>
-						<li><a href=\"http://www.kprcatering.co.nz\">kpr catering</a> - a catering company - contracted by <a href=\"http://www.msodesign.com\">MSO Design</a> to develop back-end only</li>
-						<li><a href=\"http://www.resumetemplates-usa.com\">resume templates usa</a> - a US based company selling curriculum vitae (resume) templates</li>
-						<li><a href=\"http://www.regalsalmon.co.nz\">Regal Salmon</a> - an NZ based company selling salmon - contracted by three-sixty media to build back-end</li>
-						<li><a href=\"http://www.cathaven.com.au\">Cat Haven</a> - an AU based organisation helping cats - contracted by <a href=\"http://www.designcity.com.au\">design city</a> to build back-end</li>
-						<li><a href=\"http://www.avelonshop.me\">Avelon Fashion</a> - an NL based fasion design company</li>
-					</ul>
-					<p>
-						Feel free to contact us by phone: +64 4 889 2773 or email: ecommerce [at] sunnysideup [dot] co [dot] nz for more information.
-					</p>
 				"
 			)
 			/*
