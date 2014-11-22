@@ -2,6 +2,10 @@
 
 class Page extends SiteTree {
 
+	private static $db = array(
+		"SetupCompleted" => "Boolean"
+	);
+
 	private static $has_one = array(
 		"BackgroundImage" => "Image"
 	);
@@ -22,15 +26,6 @@ class Page extends SiteTree {
 		}
 	}
 
-	function requireDefaultRecords(){
-		parent::requireDefaultRecords();
-		if(DB::query("SELECT COUNT(ID) FROM SiteTree")->value() < 10) {
-			$obj = new DefaultRecordsForEcommerce();
-			$obj->run();
-			return ;
-			//Controller::curr()->redirect(Director::baseURL()."dev/tasks/DefaultRecordsForEcommerce/");
-		}
-	}
 }
 
 
@@ -61,7 +56,9 @@ class Page_Controller extends ContentController {
 		//theme needs to be set TWO times...
 		//$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
 		parent::init();
-
+		if(!$this->SiteConfig()->SetupCompleted) {
+			$this->redirect('/dev/tasks/CleanEcommerceTables/?flush=all')
+		}
 		$theme = Config::inst()->get("SSViewer", "theme");
 		if($theme == "main") {
 			Requirements::themedCSS('reset');

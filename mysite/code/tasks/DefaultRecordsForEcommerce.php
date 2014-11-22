@@ -484,15 +484,18 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 				"Title" => "Shop",
 				"MenuTitle" => "Shop",
 				"Content" => "
-					<p>For each product group you can set the products that should be included.&nbsp; The options are:</p>
+					<p>
+						On this test website, we have created a Product Search Page as the parent page of all product grops and products.
+						Product Group Pages allow the developer and content-editor to show products in a wide variety of ways.
+						Some options included are:
+					</p>
 					<ul>
-					<li>None, just like this page.</li>
-					<li>Direct Children only</li>
-					<li>Child and Grand Child Products</li>
-					<li>etc...</li>
-					<li>All products on the site.&nbsp;</li>
+						<li>What products to show (e.g. all children and grandchildren),</li>
+						<li>how to display them,</li>
+						<li>how many per page, and</li>
+						<li>how they should be sorted (by default).</li>
 					</ul>
-					<p>You can also setup a \"custom\" list of products by using one of the Product Group extension pages.</p>
+					<p>You can also setup <i>custom list</i> of products, such as new products or specials, by using one of the page types that extend Product Group provided in several of the the e-commerce modules.</p>
 				",
 				"Children" => array(
 					array(
