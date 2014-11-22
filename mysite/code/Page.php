@@ -56,9 +56,6 @@ class Page_Controller extends ContentController {
 		//theme needs to be set TWO times...
 		//$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
 		parent::init();
-		if(!CompleteSetupRecord::get()->count()) {
-			$this->redirect('/dev/tasks/CleanEcommerceTables/?flush=all');
-		}
 		$theme = Config::inst()->get("SSViewer", "theme");
 		if($theme == "main") {
 			Requirements::themedCSS('reset');
@@ -73,6 +70,14 @@ class Page_Controller extends ContentController {
 			Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
 		}
 		elseif($theme == "simple") {
+		}
+	}
+
+	public function index(){
+		if($this->URLSegment == "home") {
+			if(!CompleteSetupRecord::get()->count()) {
+				$this->redirect('/dev/tasks/CleanEcommerceTables/?flush=all');
+			}
 		}
 	}
 
