@@ -150,7 +150,7 @@ class DefaultRecordsForEcommerce extends BuildTask {
 					This site can reset itself so please go ahead and try whatever you want.
 					At any time you can <a href=\"/shoppingcart/clear/\">reset the shopping cart</a> to start a new order.
 					Also, make sure to <a href=\"admin/shop/\">open the cms</a> (see login details above).
-					If you have some feedback then please <a href=\"/about-us/\">contact us</a>.
+					If you have some feedback then please <a href=\"http://www.ssmods.com/contact-us/\">contact us</a>.
 					<a href=\"http://www.sunnysideup.co.nz\">Sunny Side Up</a> is also available for <a href=\"/about-us/\">paid support</a>.
 				</p>
 				<h3 id=\"LoginDetails\">Log in details</h3>
@@ -687,6 +687,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 						<li>large-size site, PHP + Javascript + CSS: <a href=\"http://www.xe.com/ucc/convert/?Amount=21600&From=NZD&To=EUR\">NZD21600</a>.</li>
 						<li>large-size site, PHP + Javascript + CSS + Design: <a href=\"http://www.xe.com/ucc/convert/?Amount=43200&From=NZD&To=EUR\">NZD43200</a>.</li>
 					</ul>
+					<p>For more information, please <a href=\"http://www.ssmods.com/contact-us/\">contact us</a>.</p>
 				"
 			)
 			/*
