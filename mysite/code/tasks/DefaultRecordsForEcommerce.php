@@ -243,7 +243,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 				<ul>
 					<li>a complete <a href=\"/dev/ecommerce/\">dev screen</a> with a ton of tasks you can run</li>
 					<li>tools to migrate from earlier versions</li>
-					<li>lots of information on how to build templates</li>
+					<li>lots of <a href=\"/ecommercetemplatetest/\">information on how to build templates</a></li>
 					<li>a complete list of all configs with explanations</li>
 					<li>a bunch of debug tools</li>
 					<li>maintenance tools (clear old orders, etc...)</li>
