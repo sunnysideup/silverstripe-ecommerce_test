@@ -11,7 +11,7 @@ class DownloadPage_Controller extends Page_Controller {
 	protected $defaultDownloadArray = array(
 		"all" => array(
 			"Title" => "Entire Site (git users must download submodules separately)",
-			"SVNLink" => "http://sunny.svnrepository.com/svn/sunny-side-up-general/ecommerce_test/trunk/",
+			"SVNLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test/branches/master",
 			"GITLink" => "https://github.com/sunnysideup/silverstripe-ecommerce_test",
 			"DownloadLink" => "assets/download-all/ecommerce.zip"
 			),
