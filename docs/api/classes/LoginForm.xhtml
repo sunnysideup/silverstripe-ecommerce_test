@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - LoginForm</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">LoginForm</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/security/LoginForm.php.xhtml#line12">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>LoginForm</h1>
+        <h4>Abstract base class for a login form</h4>
+        <p>This class is used as a base class for the different log-in forms like<br/>or .<br/></p>
+        <ul>
+          <li>Author: Markus Lanthaler &lt;markus@silverstripe.com&gt;</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class LoginForm
+                extends <a title="Form" href="../classes/Form.xhtml">Form</a>
+            {<br/><ul class="none"><li>// Inherited constants from <a title="Form" href="../classes/Form.xhtml">Form</a></li><li>const <a href="#ENC_TYPE_URLENCODED">ENC_TYPE_URLENCODED</a> = 'application/x-www-form-urlencoded';</li><li>const <a href="#ENC_TYPE_MULTIPART">ENC_TYPE_MULTIPART</a> = 'multipart/form-data';</li><li>const <a href="#MERGE_DEFAULT">MERGE_DEFAULT</a> = 0;</li><li>const <a href="#MERGE_CLEAR_MISSING">MERGE_CLEAR_MISSING</a> = 1;</li><li>const <a href="#MERGE_IGNORE_FALSEISH">MERGE_IGNORE_FALSEISH</a> = 2;</li></ul><ul class="none"><li>// members</li><li>protected string <a href="#members">$authenticator_class</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="Form">Form</span></li><li>public boolean <a href="#members">$IncludeFormTag</a>;
+                        </li><li>protected <a href="#members">$fields</a>;
+                        </li><li>protected <a href="#members">$actions</a>;
+                        </li><li>protected <span title="Controller">Controller</span> <a href="#members">$controller</a>;
+                        </li><li>protected <a href="#members">$name</a>;
+                        </li><li>protected <a href="#members">$validator</a>;
+                        </li><li>protected string <a href="#members">$formMethod</a>;
+                        </li><li>protected boolean <a href="#members">$strictFormMethodCheck</a>;
+                        </li><li>protected <a href="#members">$current_action</a>;
+                        </li><li>protected <span title="Dataobject">Dataobject</span> <a href="#members">$record</a>;
+                        </li><li>protected <a href="#members">$hasDefaultAction</a>;
+                        </li><li>protected string <a href="#members">$target</a>;
+                        </li><li>protected string <a href="#members">$legend</a>;
+                        </li><li>protected string <a href="#members">$template</a>;
+                        </li><li>protected <a href="#members">$buttonClickedFunc</a>;
+                        </li><li>protected <a href="#members">$message</a>;
+                        </li><li>protected <a href="#members">$messageType</a>;
+                        </li><li>protected <span title="bool">bool</span> <a href="#members">$redirectToFormOnValidationError</a>;
+                        </li><li>protected <a href="#members">$security</a>;
+                        </li><li>protected <span title="SecurityToken">SecurityToken</span> <a href="#members">$securityToken</a>;
+                        </li><li>protected array <a href="#members">$extraClasses</a>;
+                        </li><li>protected string <a href="#members">$encType</a>;
+                        </li><li>protected array <a href="#members">$attributes</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="RequestHandler">RequestHandler</span></li><li>protected <span title="SS_HTTPRequest">SS_HTTPRequest</span> <a href="#members">$request</a>;
+                        </li><li>protected <a href="#members">$model</a>;
+                        </li><li>protected boolean <a href="#members">$brokenOnConstruct</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="ViewableData">ViewableData</span></li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$failover</a>;
+                        </li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$customisedObject</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="Object">Object</span></li><li>public string <a href="#members">$class</a>;
+                        </li><li>protected array <a href="#members">$extension_instances</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$beforeExtendCallbacks</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$afterExtendCallbacks</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public void <a title="LoginForm" href="../classes/LoginForm/__construct.xhtml">__construct</a>()
+                    </li><li>public Authenticator <a title="LoginForm" href="../classes/LoginForm/getAuthenticator.xhtml">getAuthenticator</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Form">Form</span></li><li>public void <a title="Form" href="../classes/Form/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setupFormErrors.xhtml">setupFormErrors</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/httpSubmission.xhtml">httpSubmission</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/checkAccessAction.xhtml">checkAccessAction</a>()
+                        </li><li>protected SS_HTTPResponse|string <a title="Form" href="../classes/Form/getValidationErrorResponse.xhtml">getValidationErrorResponse</a>()
+                        </li><li>protected FormField <a title="Form" href="../classes/Form/checkFieldsForAction.xhtml">checkFieldsForAction</a>()
+                        </li><li>public FormField <a title="Form" href="../classes/Form/handleField.xhtml">handleField</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/makeReadonly.xhtml">makeReadonly</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setRedirectToFormOnValidationError.xhtml">setRedirectToFormOnValidationError</a>()
+                        </li><li>public bool <a title="Form" href="../classes/Form/getRedirectToFormOnValidationError.xhtml">getRedirectToFormOnValidationError</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/addErrorMessage.xhtml">addErrorMessage</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/transform.xhtml">transform</a>()
+                        </li><li>public Validator <a title="Form" href="../classes/Form/getValidator.xhtml">getValidator</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setValidator.xhtml">setValidator</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/unsetValidator.xhtml">unsetValidator</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/transformTo.xhtml">transformTo</a>()
+                        </li><li>public FieldList <a title="Form" href="../classes/Form/getExtraFields.xhtml">getExtraFields</a>()
+                        </li><li>public FieldList <a title="Form" href="../classes/Form/Fields.xhtml">Fields</a>()
+                        </li><li>public FieldList <a title="Form" href="../classes/Form/HiddenFields.xhtml">HiddenFields</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/VisibleFields.xhtml">VisibleFields</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setFields.xhtml">setFields</a>()
+                        </li><li>public FieldList <a title="Form" href="../classes/Form/Actions.xhtml">Actions</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setActions.xhtml">setActions</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/unsetAllActions.xhtml">unsetAllActions</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setAttribute.xhtml">setAttribute</a>()
+                        </li><li>public String <a title="Form" href="../classes/Form/getAttribute.xhtml">getAttribute</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/getAttributes.xhtml">getAttributes</a>()
+                        </li><li>public String <a title="Form" href="../classes/Form/getAttributesHTML.xhtml">getAttributesHTML</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/FormAttributes.xhtml">FormAttributes</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setTarget.xhtml">setTarget</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setLegend.xhtml">setLegend</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setTemplate.xhtml">setTemplate</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/getTemplate.xhtml">getTemplate</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/getEncType.xhtml">getEncType</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setEncType.xhtml">setEncType</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/FormHttpMethod.xhtml">FormHttpMethod</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/FormMethod.xhtml">FormMethod</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setFormMethod.xhtml">setFormMethod</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setStrictFormMethodCheck.xhtml">setStrictFormMethodCheck</a>()
+                        </li><li>public boolean <a title="Form" href="../classes/Form/getStrictFormMethodCheck.xhtml">getStrictFormMethodCheck</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/FormAction.xhtml">FormAction</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setFormAction.xhtml">setFormAction</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/FormName.xhtml">FormName</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setHTMLID.xhtml">setHTMLID</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/Controller.xhtml">Controller</a>()
+                        </li><li>public Controller <a title="Form" href="../classes/Form/getController.xhtml">getController</a>()
+                        </li><li>public Form <a title="Form" href="../classes/Form/setController.xhtml">setController</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/getName.xhtml">getName</a>()
+                        </li><li>public Form <a title="Form" href="../classes/Form/setName.xhtml">setName</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/FieldMap.xhtml">FieldMap</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/Message.xhtml">Message</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/MessageType.xhtml">MessageType</a>()
+                        </li><li>protected string <a title="Form" href="../classes/Form/getMessageFromSession.xhtml">getMessageFromSession</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setMessage.xhtml">setMessage</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/sessionMessage.xhtml">sessionMessage</a>()
+                        </li><li>public static void <a title="Form" href="../classes/Form/messageForForm.xhtml">messageForForm</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/clearMessage.xhtml">clearMessage</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/resetValidation.xhtml">resetValidation</a>()
+                        </li><li>public DataObject <a title="Form" href="../classes/Form/getRecord.xhtml">getRecord</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/getLegend.xhtml">getLegend</a>()
+                        </li><li>public boolean <a title="Form" href="../classes/Form/validate.xhtml">validate</a>()
+                        </li><li>public Form <a title="Form" href="../classes/Form/loadDataFrom.xhtml">loadDataFrom</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/saveInto.xhtml">saveInto</a>()
+                        </li><li>public array <a title="Form" href="../classes/Form/getData.xhtml">getData</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/callfieldmethod.xhtml">callfieldmethod</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/forTemplate.xhtml">forTemplate</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/forAjaxTemplate.xhtml">forAjaxTemplate</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/formHtmlContent.xhtml">formHtmlContent</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/renderWithoutActionButton.xhtml">renderWithoutActionButton</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/setButtonClicked.xhtml">setButtonClicked</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/buttonClicked.xhtml">buttonClicked</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/defaultAction.xhtml">defaultAction</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/disableDefaultAction.xhtml">disableDefaultAction</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/disableSecurityToken.xhtml">disableSecurityToken</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/enableSecurityToken.xhtml">enableSecurityToken</a>()
+                        </li><li>public SecurityToken|null <a title="Form" href="../classes/Form/getSecurityToken.xhtml">getSecurityToken</a>()
+                        </li><li>public static string <a title="Form" href="../classes/Form/single_field_required.xhtml">single_field_required</a>()
+                        </li><li>public static void <a title="Form" href="../classes/Form/current_action.xhtml">current_action</a>()
+                        </li><li>public static void <a title="Form" href="../classes/Form/set_current_action.xhtml">set_current_action</a>()
+                        </li><li>public string <a title="Form" href="../classes/Form/extraClass.xhtml">extraClass</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/addExtraClass.xhtml">addExtraClass</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/removeExtraClass.xhtml">removeExtraClass</a>()
+                        </li><li>public void <a title="Form" href="../classes/Form/debug.xhtml">debug</a>()
+                        </li><li>public SS_HTTPResponse <a title="Form" href="../classes/Form/testSubmission.xhtml">testSubmission</a>()
+                        </li><li>public SS_HTTPResponse <a title="Form" href="../classes/Form/testAjaxSubmission.xhtml">testAjaxSubmission</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="RequestHandler">RequestHandler</span></li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/setDataModel.xhtml">setDataModel</a>()
+                        </li><li>public SS_HTTPResponse|RequestHandler|string|array <a title="RequestHandler" href="../classes/RequestHandler/handleRequest.xhtml">handleRequest</a>()
+                        </li><li>protected void <a title="RequestHandler" href="../classes/RequestHandler/findAction.xhtml">findAction</a>()
+                        </li><li>protected SS_HTTPResponse <a title="RequestHandler" href="../classes/RequestHandler/handleAction.xhtml">handleAction</a>()
+                        </li><li>public array|null <a title="RequestHandler" href="../classes/RequestHandler/allowedActions.xhtml">allowedActions</a>()
+                        </li><li>public bool <a title="RequestHandler" href="../classes/RequestHandler/hasAction.xhtml">hasAction</a>()
+                        </li><li>protected void <a title="RequestHandler" href="../classes/RequestHandler/definingClassForAction.xhtml">definingClassForAction</a>()
+                        </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/checkAccessAction.xhtml">checkAccessAction</a>()
+                        </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/httpError.xhtml">httpError</a>()
+                        </li><li>public SS_HTTPRequest|NullHTTPRequest <a title="RequestHandler" href="../classes/RequestHandler/getRequest.xhtml">getRequest</a>()
+                        </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/setRequest.xhtml">setRequest</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="ViewableData">ViewableData</span></li><li>public static string <a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator</a>()
+                        </li><li>public static array <a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>public ViewableData_Customised <a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache</a>()
+                        </li><li>public HTMLText <a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues</a>()
+                        </li><li>public ArrayIterator <a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator</a>()
+                        </li><li>public ViewableData <a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses</a>()
+                        </li><li>public ViewableData_Debugger <a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="Object">Object</span></li><li>public static Config_ForClass|null <a title="Object" href="../classes/Object/config.xhtml">config</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/create.xhtml">create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/strong_create.xhtml">strong_create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass</a>()
+                        </li><li>public static string <a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass</a>()
+                        </li><li>public static any <a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/get_static.xhtml">get_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/set_static.xhtml">set_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/combined_static.xhtml">combined_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/has_extension.xhtml">has_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_extension.xhtml">add_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension</a>()
+                        </li><li>public static array <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/__construct.xhtml">__construct</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/__call.xhtml">__call</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/createMethod.xhtml">createMethod</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/stat.xhtml">stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/exists.xhtml">exists</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/is_a.xhtml">is_a</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/__toString.xhtml">__toString</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/extend.xhtml">extend</a>()
+                        </li><li>public Extension <a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/clearCache.xhtml">clearCache</a>()
+                        </li><li>protected mixed <a title="Object" href="../classes/Object/loadCache.xhtml">loadCache</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/saveCache.xhtml">saveCache</a>()
+                        </li><li>protected string <a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Form.xhtml">Form</a>
+            </li>
+          </ul>
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/CMSMemberLoginForm.xhtml">CMSMemberLoginForm</a>
+            </li>
+            <li>
+              <a href="../classes/MemberLoginForm.xhtml">MemberLoginForm</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">352</td>
+            <td>: Once we switch to a stricter policy regarding allowed_actions (meaning actions must be set</td>
+          </tr>
+          <tr>
+            <td class="nummeric">172</td>
+            <td>Fix LeftAndMain usage</td>
+          </tr>
+          <tr>
+            <td class="nummeric">584+</td>
+            <td>Add support for removing extensions with parameters</td>
+          </tr>
+          <tr>
+            <td class="nummeric">966+</td>
+            <td>integrate inheritance rules</td>
+          </tr>
+        </table>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="ENC_TYPE_URLENCODED">ENC_TYPE_URLENCODED</td>
+              <td>'application/x-www-form-urlencoded'</td>
+            </tr>
+            <tr>
+              <td id="ENC_TYPE_MULTIPART">ENC_TYPE_MULTIPART</td>
+              <td>'multipart/form-data'</td>
+            </tr>
+            <tr>
+              <td id="MERGE_DEFAULT">MERGE_DEFAULT</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td id="MERGE_CLEAR_MISSING">MERGE_CLEAR_MISSING</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td id="MERGE_IGNORE_FALSEISH">MERGE_IGNORE_FALSEISH</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="actions">
+              <strong>$actions</strong>
+            </li>
+            <li id="afterExtendCallbacks"><strong>$afterExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call after extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="attributes"><strong>$attributes</strong>
+                —
+                array</li>
+            <li id="authenticator_class"><strong>$authenticator_class</strong>
+                —
+                string<br/><span class="indent">Authenticator class to use with this login form</span></li>
+            <li id="beforeExtendCallbacks"><strong>$beforeExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call prior to extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="brokenOnConstruct"><strong>$brokenOnConstruct</strong>
+                —
+                boolean<br/><span class="indent">This variable records whether RequestHandler::__construct() was called or not. Useful for checking if subclasses have called parent::__construct()</span></li>
+            <li id="buttonClickedFunc">
+              <strong>$buttonClickedFunc</strong>
+            </li>
+            <li id="controller"><strong>$controller</strong>
+                —
+                <a href="#">Controller</a></li>
+            <li id="current_action">
+              <strong>$current_action</strong>
+            </li>
+            <li id="customisedObject"><strong>$customisedObject</strong>
+                —
+                <a href="#">ViewableData</a></li>
+            <li id="encType"><strong>$encType</strong>
+                —
+                string</li>
+            <li id="extension_instances"><strong>$extension_instances</strong>
+                —
+                array</li>
+            <li id="extraClasses"><strong>$extraClasses</strong>
+                —
+                array</li>
+            <li id="failover"><strong>$failover</strong>
+                —
+                <a href="#">ViewableData</a><br/><span class="indent">A failover object to attempt to get data from if it is not present on this object.</span></li>
+            <li id="fields">
+              <strong>$fields</strong>
+            </li>
+            <li id="formMethod">
+              <strong>$formMethod</strong>
+            </li>
+            <li id="hasDefaultAction">
+              <strong>$hasDefaultAction</strong>
+              <br/>
+              <span class="indent">Keeps track of whether this form has a default action or not.</span>
+            </li>
+            <li id="legend"><strong>$legend</strong>
+                —
+                string<br/><span class="indent">Legend value, to be inserted into the &lt;legend&gt; element before the &lt;fieldset&gt; in Form.ss template.</span></li>
+            <li id="message">
+              <strong>$message</strong>
+            </li>
+            <li id="messageType">
+              <strong>$messageType</strong>
+            </li>
+            <li id="model">
+              <strong>$model</strong>
+              <br/>
+              <span class="indent">The DataModel for this request</span>
+            </li>
+            <li id="name">
+              <strong>$name</strong>
+            </li>
+            <li id="record"><strong>$record</strong>
+                —
+                <a href="#">Dataobject</a></li>
+            <li id="redirectToFormOnValidationError"><strong>$redirectToFormOnValidationError</strong>
+                —
+                <a href="#">bool</a><br/><span class="indent">Should we redirect the user back down to the the form on validation errors rather then just the page</span></li>
+            <li id="request"><strong>$request</strong>
+                —
+                <a href="#">SS_HTTPRequest</a></li>
+            <li id="security">
+              <strong>$security</strong>
+            </li>
+            <li id="securityToken"><strong>$securityToken</strong>
+                —
+                <a href="#">SecurityToken</a></li>
+            <li id="strictFormMethodCheck"><strong>$strictFormMethodCheck</strong>
+                —
+                boolean</li>
+            <li id="target"><strong>$target</strong>
+                —
+                string<br/><span class="indent">Target attribute of form-tag.</span></li>
+            <li id="template"><strong>$template</strong>
+                —
+                string<br/><span class="indent">The SS template to render this form HTML into.</span></li>
+            <li id="validator">
+              <strong>$validator</strong>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="IncludeFormTag"><strong>$IncludeFormTag</strong>
+                —
+                boolean</li>
+            <li id="class"><strong>$class</strong>
+                —
+                string</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="LoginForm" href="../classes/LoginForm/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="getAuthenticator"><a title="LoginForm" href="../classes/LoginForm/getAuthenticator.xhtml">getAuthenticator()</a>
+                — Get the authenticator instance</li>
+          </ul>
+          <h3>Inherited from <a title="Form" href="../classes/Form.xhtml">Form</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="checkFieldsForAction"><a title="Form" href="../classes/Form/checkFieldsForAction.xhtml">checkFieldsForAction()</a>
+                — Fields can have action to, let's check if anyone of the responds to $funcname them</li>
+            <li id="getMessageFromSession">
+              <a title="Form" href="../classes/Form/getMessageFromSession.xhtml">getMessageFromSession()</a>
+            </li>
+            <li id="getValidationErrorResponse"><a title="Form" href="../classes/Form/getValidationErrorResponse.xhtml">getValidationErrorResponse()</a>
+                — Returns the appropriate response up the controller chain if {@link validate()} fails (which is checked prior to executing any form actions).</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="Actions"><a title="Form" href="../classes/Form/Actions.xhtml">Actions()</a>
+                — Return the form's action buttons - used by the templates</li>
+            <li id="Controller"><a title="Form" href="../classes/Form/Controller.xhtml">Controller()</a>
+                — Returns this form's controller.</li>
+            <li id="FieldMap"><a title="Form" href="../classes/Form/FieldMap.xhtml">FieldMap()</a>
+                — Returns an object where there is a method with the same name as each data field on the form.</li>
+            <li id="Fields"><a title="Form" href="../classes/Form/Fields.xhtml">Fields()</a>
+                — Return the form's fields - used by the templates</li>
+            <li id="FormAction"><a title="Form" href="../classes/Form/FormAction.xhtml">FormAction()</a>
+                — Return the form's action attribute.</li>
+            <li id="FormAttributes">
+              <a title="Form" href="../classes/Form/FormAttributes.xhtml">FormAttributes()</a>
+            </li>
+            <li id="FormHttpMethod"><a title="Form" href="../classes/Form/FormHttpMethod.xhtml">FormHttpMethod()</a>
+                — Returns the real HTTP method for the form: GET, POST, PUT, DELETE or HEAD.</li>
+            <li id="FormMethod"><a title="Form" href="../classes/Form/FormMethod.xhtml">FormMethod()</a>
+                — Returns the form method to be used in the &lt;form&gt; tag.</li>
+            <li id="FormName"><a title="Form" href="../classes/Form/FormName.xhtml">FormName()</a>
+                — Returns the name of the form</li>
+            <li id="HiddenFields"><a title="Form" href="../classes/Form/HiddenFields.xhtml">HiddenFields()</a>
+                — Return all &lt;input type="hidden"&gt; fields in a form - including fields nested in {@link CompositeFields}.</li>
+            <li id="Message"><a title="Form" href="../classes/Form/Message.xhtml">Message()</a>
+                — The next functions store and modify the forms message attributes. messages are stored in session under $_SESSION[formname][message];</li>
+            <li id="MessageType">
+              <a title="Form" href="../classes/Form/MessageType.xhtml">MessageType()</a>
+            </li>
+            <li id="VisibleFields"><a title="Form" href="../classes/Form/VisibleFields.xhtml">VisibleFields()</a>
+                — Return all fields except for the hidden fields.</li>
+            <li id="addErrorMessage"><a title="Form" href="../classes/Form/addErrorMessage.xhtml">addErrorMessage()</a>
+                — Add a plain text error message to a field on this form.  It will be saved into the session and used the next time this form is displayed.</li>
+            <li id="addExtraClass"><a title="Form" href="../classes/Form/addExtraClass.xhtml">addExtraClass()</a>
+                — Add a CSS-class to the form-container. If needed, multiple classes can be added by delimiting a string with spaces.</li>
+            <li id="buttonClicked">
+              <a title="Form" href="../classes/Form/buttonClicked.xhtml">buttonClicked()</a>
+            </li>
+            <li id="callfieldmethod"><a title="Form" href="../classes/Form/callfieldmethod.xhtml">callfieldmethod()</a>
+                — Call the given method on the given field.</li>
+            <li id="checkAccessAction">
+              <a title="Form" href="../classes/Form/checkAccessAction.xhtml">checkAccessAction()</a>
+            </li>
+            <li id="clearMessage">
+              <a title="Form" href="../classes/Form/clearMessage.xhtml">clearMessage()</a>
+            </li>
+            <li id="current_action"><a title="Form" href="../classes/Form/current_action.xhtml">current_action()</a>
+                — Return the current form action being called, if available.</li>
+            <li id="debug">
+              <a title="Form" href="../classes/Form/debug.xhtml">debug()</a>
+            </li>
+            <li id="defaultAction"><a title="Form" href="../classes/Form/defaultAction.xhtml">defaultAction()</a>
+                — Return the default button that should be clicked when another one isn't available</li>
+            <li id="disableDefaultAction"><a title="Form" href="../classes/Form/disableDefaultAction.xhtml">disableDefaultAction()</a>
+                — Disable the default button.</li>
+            <li id="disableSecurityToken"><a title="Form" href="../classes/Form/disableSecurityToken.xhtml">disableSecurityToken()</a>
+                — Disable the requirement of a security token on this form instance. This security protects against CSRF attacks, but you should disable this if you don't want to tie a form to a session - eg a search form.</li>
+            <li id="enableSecurityToken"><a title="Form" href="../classes/Form/enableSecurityToken.xhtml">enableSecurityToken()</a>
+                — Enable {@link SecurityToken} protection for this form instance.</li>
+            <li id="extraClass"><a title="Form" href="../classes/Form/extraClass.xhtml">extraClass()</a>
+                — Compiles all CSS-classes.</li>
+            <li id="forAjaxTemplate"><a title="Form" href="../classes/Form/forAjaxTemplate.xhtml">forAjaxTemplate()</a>
+                — Return a rendered version of this form, suitable for ajax post-back.</li>
+            <li id="forTemplate"><a title="Form" href="../classes/Form/forTemplate.xhtml">forTemplate()</a>
+                — Return a rendered version of this form.</li>
+            <li id="formHtmlContent"><a title="Form" href="../classes/Form/formHtmlContent.xhtml">formHtmlContent()</a>
+                — Returns an HTML rendition of this form, without the &lt;form&gt; tag itself.</li>
+            <li id="getAttribute">
+              <a title="Form" href="../classes/Form/getAttribute.xhtml">getAttribute()</a>
+            </li>
+            <li id="getAttributes">
+              <a title="Form" href="../classes/Form/getAttributes.xhtml">getAttributes()</a>
+            </li>
+            <li id="getAttributesHTML"><a title="Form" href="../classes/Form/getAttributesHTML.xhtml">getAttributesHTML()</a>
+                — Return the attributes of the form tag - used by the templates.</li>
+            <li id="getController"><a title="Form" href="../classes/Form/getController.xhtml">getController()</a>
+                — Get the controller.</li>
+            <li id="getData"><a title="Form" href="../classes/Form/getData.xhtml">getData()</a>
+                — Get the submitted data from this form through {@link FieldList-&gt;dataFields()}, which filters out any form-specific data like form-actions.</li>
+            <li id="getEncType"><a title="Form" href="../classes/Form/getEncType.xhtml">getEncType()</a>
+                — Returns the encoding type for the form.</li>
+            <li id="getExtraFields"><a title="Form" href="../classes/Form/getExtraFields.xhtml">getExtraFields()</a>
+                — Generate extra special fields - namely the security token field (if required).</li>
+            <li id="getLegend"><a title="Form" href="../classes/Form/getLegend.xhtml">getLegend()</a>
+                — Get the legend value to be inserted into the &lt;legend&gt; element in Form.ss</li>
+            <li id="getName"><a title="Form" href="../classes/Form/getName.xhtml">getName()</a>
+                — Get the name of the form.</li>
+            <li id="getRecord"><a title="Form" href="../classes/Form/getRecord.xhtml">getRecord()</a>
+                — Returns the DataObject that has given this form its data through {@link loadDataFrom()}.</li>
+            <li id="getRedirectToFormOnValidationError"><a title="Form" href="../classes/Form/getRedirectToFormOnValidationError.xhtml">getRedirectToFormOnValidationError()</a>
+                — Get whether the user should be redirected back down to the form on the page upon validation errors</li>
+            <li id="getSecurityToken"><a title="Form" href="../classes/Form/getSecurityToken.xhtml">getSecurityToken()</a>
+                — Returns the security token for this form (if any exists).</li>
+            <li id="getStrictFormMethodCheck">
+              <a title="Form" href="../classes/Form/getStrictFormMethodCheck.xhtml">getStrictFormMethodCheck()</a>
+            </li>
+            <li id="getTemplate"><a title="Form" href="../classes/Form/getTemplate.xhtml">getTemplate()</a>
+                — Return the template to render this form with.</li>
+            <li id="getValidator"><a title="Form" href="../classes/Form/getValidator.xhtml">getValidator()</a>
+                — Get the {@link Validator} attached to this form.</li>
+            <li id="handleField"><a title="Form" href="../classes/Form/handleField.xhtml">handleField()</a>
+                — Handle a field request.</li>
+            <li id="httpSubmission"><a title="Form" href="../classes/Form/httpSubmission.xhtml">httpSubmission()</a>
+                — Handle a form submission.  GET and POST requests behave identically.</li>
+            <li id="loadDataFrom"><a title="Form" href="../classes/Form/loadDataFrom.xhtml">loadDataFrom()</a>
+                — Load data from the given DataObject or array.</li>
+            <li id="makeReadonly"><a title="Form" href="../classes/Form/makeReadonly.xhtml">makeReadonly()</a>
+                — Convert this form into a readonly form</li>
+            <li id="messageForForm">
+              <a title="Form" href="../classes/Form/messageForForm.xhtml">messageForForm()</a>
+            </li>
+            <li id="removeExtraClass"><a title="Form" href="../classes/Form/removeExtraClass.xhtml">removeExtraClass()</a>
+                — Remove a CSS-class from the form-container. Multiple class names can be passed through as a space delimited string</li>
+            <li id="renderWithoutActionButton"><a title="Form" href="../classes/Form/renderWithoutActionButton.xhtml">renderWithoutActionButton()</a>
+                — Render this form using the given template, and return the result as a string You can pass either an SSViewer or a template name</li>
+            <li id="resetValidation">
+              <a title="Form" href="../classes/Form/resetValidation.xhtml">resetValidation()</a>
+            </li>
+            <li id="saveInto"><a title="Form" href="../classes/Form/saveInto.xhtml">saveInto()</a>
+                — Save the contents of this form into the given data object.</li>
+            <li id="sessionMessage"><a title="Form" href="../classes/Form/sessionMessage.xhtml">sessionMessage()</a>
+                — Set a message to the session, for display next time this form is shown.</li>
+            <li id="setActions"><a title="Form" href="../classes/Form/setActions.xhtml">setActions()</a>
+                — Setter for the form actions.</li>
+            <li id="setAttribute">
+              <a title="Form" href="../classes/Form/setAttribute.xhtml">setAttribute()</a>
+            </li>
+            <li id="setButtonClicked"><a title="Form" href="../classes/Form/setButtonClicked.xhtml">setButtonClicked()</a>
+                — Sets the button that was clicked.  This should only be called by the Controller.</li>
+            <li id="setController"><a title="Form" href="../classes/Form/setController.xhtml">setController()</a>
+                — Set the controller.</li>
+            <li id="setEncType"><a title="Form" href="../classes/Form/setEncType.xhtml">setEncType()</a>
+                — Sets the form encoding type. The most common encoding types are defined in {@link ENC_TYPE_URLENCODED} and {@link ENC_TYPE_MULTIPART}.</li>
+            <li id="setFields"><a title="Form" href="../classes/Form/setFields.xhtml">setFields()</a>
+                — Setter for the form fields.</li>
+            <li id="setFormAction"><a title="Form" href="../classes/Form/setFormAction.xhtml">setFormAction()</a>
+                — Set the form action attribute to a custom URL.</li>
+            <li id="setFormMethod"><a title="Form" href="../classes/Form/setFormMethod.xhtml">setFormMethod()</a>
+                — Set the form method: GET, POST, PUT, DELETE.</li>
+            <li id="setHTMLID"><a title="Form" href="../classes/Form/setHTMLID.xhtml">setHTMLID()</a>
+                — Set the HTML ID attribute of the form</li>
+            <li id="setLegend"><a title="Form" href="../classes/Form/setLegend.xhtml">setLegend()</a>
+                — Set the legend value to be inserted into the &lt;legend&gt; element in the Form.ss template.</li>
+            <li id="setMessage"><a title="Form" href="../classes/Form/setMessage.xhtml">setMessage()</a>
+                — Set a status message for the form.</li>
+            <li id="setName"><a title="Form" href="../classes/Form/setName.xhtml">setName()</a>
+                — Set the name of the form.</li>
+            <li id="setRedirectToFormOnValidationError"><a title="Form" href="../classes/Form/setRedirectToFormOnValidationError.xhtml">setRedirectToFormOnValidationError()</a>
+                — Set whether the user should be redirected back down to the form on the page upon validation errors in the form or if they just need to redirect back to the page</li>
+            <li id="setStrictFormMethodCheck"><a title="Form" href="../classes/Form/setStrictFormMethodCheck.xhtml">setStrictFormMethodCheck()</a>
+                — If set to true, enforce the matching of the form method.</li>
+            <li id="setTarget"><a title="Form" href="../classes/Form/setTarget.xhtml">setTarget()</a>
+                — Set the target of this form to any value - useful for opening the form contents in a new window or refreshing another frame</li>
+            <li id="setTemplate"><a title="Form" href="../classes/Form/setTemplate.xhtml">setTemplate()</a>
+                — Set the SS template that this form should use to render with. The default is "Form".</li>
+            <li id="setValidator"><a title="Form" href="../classes/Form/setValidator.xhtml">setValidator()</a>
+                — Set the {@link Validator} on this form.</li>
+            <li id="set_current_action"><a title="Form" href="../classes/Form/set_current_action.xhtml">set_current_action()</a>
+                — Set the current form action.  Should only be called by Controller.</li>
+            <li id="setupFormErrors"><a title="Form" href="../classes/Form/setupFormErrors.xhtml">setupFormErrors()</a>
+                — Set up current form errors in session to the current form if appropriate.</li>
+            <li id="single_field_required"><a title="Form" href="../classes/Form/single_field_required.xhtml">single_field_required()</a>
+                — Returns the name of a field, if that's the only field that the current controller is interested in.</li>
+            <li id="testAjaxSubmission"><a title="Form" href="../classes/Form/testAjaxSubmission.xhtml">testAjaxSubmission()</a>
+                — Test an ajax submission of this form.</li>
+            <li id="testSubmission"><a title="Form" href="../classes/Form/testSubmission.xhtml">testSubmission()</a>
+                — Test a submission of this form.</li>
+            <li id="transform">
+              <a title="Form" href="../classes/Form/transform.xhtml">transform()</a>
+            </li>
+            <li id="transformTo"><a title="Form" href="../classes/Form/transformTo.xhtml">transformTo()</a>
+                — Convert this form to another format.</li>
+            <li id="unsetAllActions"><a title="Form" href="../classes/Form/unsetAllActions.xhtml">unsetAllActions()</a>
+                — Unset all form actions</li>
+            <li id="unsetValidator"><a title="Form" href="../classes/Form/unsetValidator.xhtml">unsetValidator()</a>
+                — Remove the {@link Validator} from this from.</li>
+            <li id="validate"><a title="Form" href="../classes/Form/validate.xhtml">validate()</a>
+                — Processing that occurs before a form is executed.</li>
+          </ul>
+          <h3>Inherited from <a title="RequestHandler" href="../classes/RequestHandler.xhtml">RequestHandler</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="definingClassForAction"><a title="RequestHandler" href="../classes/RequestHandler/definingClassForAction.xhtml">definingClassForAction()</a>
+                — Return the class that defines the given action, so that we know where to check allowed_actions.</li>
+            <li id="findAction">
+              <a title="RequestHandler" href="../classes/RequestHandler/findAction.xhtml">findAction()</a>
+            </li>
+            <li id="handleAction"><a title="RequestHandler" href="../classes/RequestHandler/handleAction.xhtml">handleAction()</a>
+                — Given a request, and an action name, call that action name on this RequestHandler</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="allowedActions"><a title="RequestHandler" href="../classes/RequestHandler/allowedActions.xhtml">allowedActions()</a>
+                — Get a array of allowed actions defined on this controller, any parent classes or extensions.</li>
+            <li id="checkAccessAction"><a title="RequestHandler" href="../classes/RequestHandler/checkAccessAction.xhtml">checkAccessAction()</a>
+                — Check that the given action is allowed to be called from a URL.</li>
+            <li id="getRequest"><a title="RequestHandler" href="../classes/RequestHandler/getRequest.xhtml">getRequest()</a>
+                — Returns the SS_HTTPRequest object that this controller is using.</li>
+            <li id="handleRequest"><a title="RequestHandler" href="../classes/RequestHandler/handleRequest.xhtml">handleRequest()</a>
+                — Handles URL requests.</li>
+            <li id="hasAction"><a title="RequestHandler" href="../classes/RequestHandler/hasAction.xhtml">hasAction()</a>
+                — Checks if this request handler has a specific action, even if the current user cannot access it.</li>
+            <li id="httpError"><a title="RequestHandler" href="../classes/RequestHandler/httpError.xhtml">httpError()</a>
+                — Throws a HTTP error response encased in a {@link SS_HTTPResponse_Exception}, which is later caught in {@link RequestHandler::handleAction()} and returned to the user.</li>
+            <li id="setDataModel"><a title="RequestHandler" href="../classes/RequestHandler/setDataModel.xhtml">setDataModel()</a>
+                — Set the DataModel for this request.</li>
+            <li id="setRequest"><a title="RequestHandler" href="../classes/RequestHandler/setRequest.xhtml">setRequest()</a>
+                — Typically the request is set through {@link handleAction()} or {@link handleRequest()}, but in some based we want to set it manually.</li>
+          </ul>
+          <h3>Inherited from <a title="ViewableData" href="../classes/ViewableData.xhtml">ViewableData</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="ATT_val"><a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val()</a>
+                — Return the value of a field escaped suitable to be inserted into an XML node attribute.</li>
+            <li id="CSSClasses"><a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses()</a>
+                — Get part of the current classes ancestry to be used as a CSS class.</li>
+            <li id="Debug"><a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug()</a>
+                — Return debug information about this object that can be rendered into a template</li>
+            <li id="JS_val"><a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val()</a>
+                — Return the value of a field in a JavaScript-save format.</li>
+            <li id="Me"><a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me()</a>
+                — When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself.</li>
+            <li id="RAW_val"><a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val()</a>
+                — Return the value of the field without any escaping being applied.</li>
+            <li id="SQL_val"><a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val()</a>
+                — Return the value of a field in an SQL-safe format.</li>
+            <li id="ThemeDir"><a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir()</a>
+                — Return the directory if the current active theme (relative to the site root).</li>
+            <li id="XML_val"><a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val()</a>
+                — Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template.</li>
+            <li id="__get"><a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get()</a>
+                — Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object.</li>
+            <li id="__isset"><a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset()</a>
+                — Check if a field exists on this object or its failover.</li>
+            <li id="__set"><a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set()</a>
+                — Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method.</li>
+            <li id="buildCastingCache"><a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache()</a>
+                — Save the casting cache for this object (including data from any failovers) into a variable</li>
+            <li id="cachedCall"><a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall()</a>
+                — A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method.</li>
+            <li id="castingClass"><a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass()</a>
+                — Get the class name a field on this object will be casted to</li>
+            <li id="castingHelper"><a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper()</a>
+                — Return the "casting helper" (a piece of PHP code that when evaluated creates a casted value object) for a field on this object.</li>
+            <li id="castingHelperPair"><a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair()</a>
+                — Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).</li>
+            <li id="castingObjectCreator"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator()</a>
+                — Converts a field spec into an object creator. For example: "Int" becomes "new Int($fieldName);" and "Varchar(50)" becomes "new Varchar($fieldName, 50);".</li>
+            <li id="castingObjectCreatorPair"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair()</a>
+                — Convert a field schema (e.g. "Varchar(50)") into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor.</li>
+            <li id="customise"><a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise()</a>
+                — Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.</li>
+            <li id="defineMethods"><a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods()</a>
+                — Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}.</li>
+            <li id="escapeTypeForField"><a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField()</a>
+                — Return the string-format type for the given field.</li>
+            <li id="getField"><a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField()</a>
+                — Get the value of a field on this object. This should be overloaded in child classes.</li>
+            <li id="getIterator"><a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator()</a>
+                — Return a single-item iterator so you can iterate over the fields of a single record.</li>
+            <li id="getXMLValues"><a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues()</a>
+                — Get an array of XML-escaped values by field name</li>
+            <li id="hasField"><a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField()</a>
+                — Check if a field exists on this object. This should be overloaded in child classes.</li>
+            <li id="hasValue"><a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue()</a>
+                — Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag.</li>
+            <li id="obj"><a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj()</a>
+                — Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified.</li>
+            <li id="renderWith"><a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith()</a>
+                — Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance</li>
+            <li id="setCustomisedObj">
+              <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj()</a>
+            </li>
+            <li id="setField"><a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField()</a>
+                — Set a field on this object. This should be overloaded in child classes.</li>
+          </ul>
+          <h3>Inherited from <a title="Object" href="../classes/Object.xhtml">Object</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="addMethodsFrom"><a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom()</a>
+                — Add all the methods from an object property (which is an {@link Extension}) to this object.</li>
+            <li id="addWrapperMethod"><a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod()</a>
+                — Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)</li>
+            <li id="afterExtending"><a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending()</a>
+                — Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="beforeExtending"><a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending()</a>
+                — Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="createMethod"><a title="Object" href="../classes/Object/createMethod.xhtml">createMethod()</a>
+                — Add an extra method using raw PHP code passed as a string</li>
+            <li id="defineMethods"><a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods()</a>
+                — Adds any methods from {@link Extension} instances attached to this object.</li>
+            <li id="loadCache"><a title="Object" href="../classes/Object/loadCache.xhtml">loadCache()</a>
+                — Loads a cache from the filesystem if a valid on is present and within the specified lifetime</li>
+            <li id="sanitiseCachename"><a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename()</a>
+                — Strip a file name of special characters so it is suitable for use as a cache file name</li>
+            <li id="saveCache"><a title="Object" href="../classes/Object/saveCache.xhtml">saveCache()</a>
+                — Save a piece of cached data to the file system</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__call"><a title="Object" href="../classes/Object/__call.xhtml">__call()</a>
+                — Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located</li>
+            <li id="__toString">
+              <a title="Object" href="../classes/Object/__toString.xhtml">__toString()</a>
+            </li>
+            <li id="addStaticVars"><a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars()</a>
+                — Merge in a set of additional static variables</li>
+            <li id="add_extension"><a title="Object" href="../classes/Object/add_extension.xhtml">add_extension()</a>
+                — Add an extension to a specific class.</li>
+            <li id="add_static_var"><a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var()</a>
+                — Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.</li>
+            <li id="allMethodNames"><a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames()</a>
+                — Return the names of all the methods available on this object</li>
+            <li id="cacheToFile"><a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile()</a>
+                — Cache the results of an instance method in this object to a file, or if it is already cache return the cached results</li>
+            <li id="clearCache"><a title="Object" href="../classes/Object/clearCache.xhtml">clearCache()</a>
+                — Clears the cache for the given cacheToFile call</li>
+            <li id="combined_static"><a title="Object" href="../classes/Object/combined_static.xhtml">combined_static()</a>
+                — Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable</li>
+            <li id="config"><a title="Object" href="../classes/Object/config.xhtml">config()</a>
+                — Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....).</li>
+            <li id="create"><a title="Object" href="../classes/Object/create.xhtml">create()</a>
+                — An implementation of the factory method, allows you to create an instance of a class</li>
+            <li id="create_from_string"><a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string()</a>
+                — Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().</li>
+            <li id="exists"><a title="Object" href="../classes/Object/exists.xhtml">exists()</a>
+                — Return true if this object "exists" i.e. has a sensible value</li>
+            <li id="extend"><a title="Object" href="../classes/Object/extend.xhtml">extend()</a>
+                — Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed</li>
+            <li id="getCustomClass"><a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass()</a>
+                — If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name</li>
+            <li id="getExtensionInstance"><a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance()</a>
+                — Get an extension instance attached to this object by name.</li>
+            <li id="getExtensionInstances"><a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances()</a>
+                — Get all extension instances for this specific object instance.</li>
+            <li id="get_extensions">
+              <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions()</a>
+            </li>
+            <li id="get_extra_config_sources">
+              <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources()</a>
+            </li>
+            <li id="get_static"><a title="Object" href="../classes/Object/get_static.xhtml">get_static()</a>
+                — Get a static variable, taking into account SS's inbuild static caches and pseudo-statics</li>
+            <li id="hasExtension"><a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension()</a>
+                — Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.</li>
+            <li id="hasMethod"><a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod()</a>
+                — Return TRUE if a method exists on this object</li>
+            <li id="has_extension"><a title="Object" href="../classes/Object/has_extension.xhtml">has_extension()</a>
+                — Return TRUE if a class has a specified extension.</li>
+            <li id="invokeWithExtensions"><a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions()</a>
+                — Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array</li>
+            <li id="is_a"><a title="Object" href="../classes/Object/is_a.xhtml">is_a()</a>
+                — Check if this class is an instance of a specific class, or has that class as one of its parents</li>
+            <li id="parentClass">
+              <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass()</a>
+            </li>
+            <li id="parse_class_spec"><a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec()</a>
+                — Parses a class-spec, such as "Versioned('Stage','Live')", as passed to create_from_string().</li>
+            <li id="remove_extension"><a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension()</a>
+                — Remove an extension from a class.</li>
+            <li id="set_stat">
+              <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat()</a>
+            </li>
+            <li id="set_static"><a title="Object" href="../classes/Object/set_static.xhtml">set_static()</a>
+                — Set a static variable</li>
+            <li id="stat">
+              <a title="Object" href="../classes/Object/stat.xhtml">stat()</a>
+            </li>
+            <li id="static_lookup"><a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup()</a>
+                — Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class.</li>
+            <li id="strong_create"><a title="Object" href="../classes/Object/strong_create.xhtml">strong_create()</a>
+                — Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}</li>
+            <li id="uninherited">
+              <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited()</a>
+            </li>
+            <li id="uninherited_static"><a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static()</a>
+                — Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class.</li>
+            <li id="useCustomClass"><a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass()</a>
+                — This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

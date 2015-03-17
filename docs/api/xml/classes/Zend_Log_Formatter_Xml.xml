@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Log_Formatter_Xml" namespace="" name="Zend_Log_Formatter_Xml" abstract="false" final="false" start="34" end="165">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Log/Formatter" file="Xml.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Log/Formatter/Xml.php" size="4588" time="2015-03-14T10:41:29+13:00" unixtime="1426282889" sha1="1d8d8e42e911e9bb83f240b234b8580782b0b2bc" relative="framework/thirdparty/Zend/Log/Formatter/Xml.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Log"/>
+    <subpackage value="Formatter"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+    <version value="$Id: Xml.php 24237 2011-07-13 18:22:20Z matthew $"/>
+  </docblock>
+  <extends full="Zend_Log_Formatter_Abstract" namespace="" name="Zend_Log_Formatter_Abstract"/>
+  <member name="_rootElement" type="{unknown}" visibility="protected" line="39">
+    <docblock>
+      <description/>
+      <var description="Name of root element" type="string"/>
+    </docblock>
+  </member>
+  <member name="_elementMap" type="{unknown}" visibility="protected" line="44">
+    <docblock>
+      <description/>
+      <var description="Relates XML elements to log data field keys." type="array"/>
+    </docblock>
+  </member>
+  <member name="_encoding" type="{unknown}" visibility="protected" line="49">
+    <docblock>
+      <description/>
+      <var description="Encoding to use in XML" type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="58" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Class constructor (the default encoding is UTF-8)"/>
+      <param type="object" variable="$options">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </constructor>
+  <method name="factory" start="100" end="103" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Factory for Zend_Log_Formatter_Xml classe"/>
+      <param type="object" variable="$options">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Formatter_Xml" namespace="" name="Zend_Log_Formatter_Xml"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getEncoding" start="110" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get encoding"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setEncoding" start="121" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set encoding"/>
+      <param type="string" variable="$value"/>
+      <return type="object">
+        <type full="Zend_Log_Formatter_Xml" namespace="" name="Zend_Log_Formatter_Xml"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="format" start="133" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Formats data into a single line to be written by the writer."/>
+      <param description="event data" type="array" variable="$event"/>
+      <return description="formatted line to write to the log" type="string"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Zend_Log_Formatter_Abstract" namespace="" name="Zend_Log_Formatter_Abstract"/>
+  <interface full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface">
+    <method name="format" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Formats data into a single line to be written by the writer."/>
+        <param description="event data" type="array" variable="$event"/>
+        <return description="formatted line to write to the log" type="string"/>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface">
+    <method name="factory" start="37" end="37" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct a Zend_Log driver"/>
+        <param type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface"/>
+        </return>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

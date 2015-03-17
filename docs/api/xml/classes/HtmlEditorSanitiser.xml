@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="HtmlEditorSanitiser" namespace="" name="HtmlEditorSanitiser" abstract="false" final="false" start="13" end="305">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms" file="HtmlEditorSanitiser.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/HtmlEditorSanitiser.php" size="10084" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="d6e823cb5c97236e410c2c58388e06dd23712151" relative="framework/forms/HtmlEditorSanitiser.php"/>
+  <docblock>
+    <description compact="Sanitises an HTMLValue so it's contents are the elements and attributes that are whitelisted using the same configuration as TinyMCE">See www.tinymce.com/wiki.php/configuration:valid_elements for details on the spec of TinyMCE's
+whitelist configuration</description>
+    <package value="forms"/>
+    <subpackage value="fields-formattedinput"/>
+  </docblock>
+  <member name="elements" type="array" visibility="protected" line="16">
+    <docblock>
+      <var description="- $element =&gt; $rule hash for whitelist element rules where the element name isn't a pattern" type="object">
+        <type full="[stdClass]" namespace="" name="[stdClass]"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="elementPatterns" type="array" visibility="protected" line="18">
+    <docblock>
+      <var description="- Sequential list of whitelist element rules where the element name is a pattern" type="object">
+        <type full="[stdClass]" namespace="" name="[stdClass]"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="globalAttributes" type="array" visibility="protected" line="21">
+    <docblock>
+      <var description="- The list of attributes that apply to all further whitelisted elements added" type="object">
+        <type full="[stdClass]" namespace="" name="[stdClass]"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="31" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Construct a sanitiser from a given HtmlEditorConfig">Note that we build data structures from the current state of HtmlEditorConfig - later changes to
+the passed instance won't cause this instance to update it's whitelist</description>
+      <param type="object" variable="$config">
+        <type full="HtmlEditorConfig" namespace="" name="HtmlEditorConfig"/>
+      </param>
+    </docblock>
+    <parameter name="config" byreference="false" type="object">
+      <type full="\\HtmlEditorConfig" namespace="\" name="HtmlEditorConfig"/>
+    </parameter>
+  </constructor>
+  <method name="patternToRegex" start="45" end="47" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given a TinyMCE pattern (close to unix glob style), create a regex that does the match"/>
+      <param description="The TinyMCE pattern" variable="$str" type="object">
+        <type full="-" namespace="" name="-"/>
+      </param>
+      <return description="- The equivalent regex" type="string"/>
+    </docblock>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addValidElements" start="57" end="164" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given a valid_elements string, parse out the actual element and attribute rules and add to the internal whitelist">Logic based heavily on javascript version from tiny_mce_src.js</description>
+      <param description="- The valid_elements or extended_valid_elements string to add to the whitelist" type="string" variable="$validElements"/>
+    </docblock>
+    <parameter name="validElements" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Create the new element" line="70"/>
+      <comment value="Copy attributes from global rule into current rule" line="83"/>
+      <comment value="Attributes defined" line="88"/>
+      <comment value="Required" line="99"/>
+      <comment value="Default value" line="111"/>
+      <comment value="Default value" line="113"/>
+      <comment value="Check for attribute patterns" line="131"/>
+      <comment value="Global rule, store away these for later usage" line="143"/>
+      <comment value="Handle substitute elements such as b/strong" line="148"/>
+      <comment value="Add pattern or exact element" line="154"/>
+    </inline>
+  </method>
+  <method name="getRuleForElement" start="171" end="178" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given an element tag, return the rule structure for that element"/>
+      <param description="- The element tag" type="string" variable="$tag"/>
+      <return description="- The element rule" type="object">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </return>
+    </docblock>
+    <parameter name="tag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getRuleForAttribute" start="185" end="192" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given an attribute name, return the rule structure for that attribute"/>
+      <param description="- The attribute name" type="string" variable="$name"/>
+      <return description="- The attribute rule" type="object">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </return>
+    </docblock>
+    <parameter name="elementRule" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="elementMatchesRule" start="200" end="223" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given a DOMElement and an element rule, check if that element passes the rule"/>
+      <param description="- the element to check" type="object" variable="$element">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <param description="- the rule to check against" type="object" variable="$rule">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </param>
+      <return description="- true if the element passes (and so can be kept), false if it fails (and so needs stripping)" type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="element" byreference="false" type="{unknown}"/>
+    <parameter name="rule" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If the rule doesn't exist at all, the element isn't allowed" line="201"/>
+      <comment value="If the rule has attributes required, check them to see if this element has at least one" line="204"/>
+      <comment value="If the rule says to remove empty elements, and this element is empty, remove it" line="218"/>
+      <comment value="No further tests required, element passes" line="221"/>
+    </inline>
+  </method>
+  <method name="attributeMatchesRule" start="231" end="240" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given a DOMAttr and an attribute rule, check if that attribute passes the rule"/>
+      <param description="- the attribute to check" type="object" variable="$attr">
+        <type full="DOMAttr" namespace="" name="DOMAttr"/>
+      </param>
+      <param description="- the rule to check against" type="object" variable="$rule">
+        <type full="stdClass" namespace="" name="stdClass"/>
+      </param>
+      <return description="- true if the attribute passes (and so can be kept), false if it fails (and so needs stripping)" type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="attr" byreference="false" type="{unknown}"/>
+    <parameter name="rule" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="If the rule doesn't exist at all, the attribute isn't allowed" line="232"/>
+      <comment value="If the rule has a set of valid values, check them to see if this attribute is one" line="235"/>
+      <comment value="No further tests required, attribute passes" line="238"/>
+    </inline>
+  </method>
+  <method name="sanitise" start="248" end="303" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Given an SS_HTMLValue instance, will remove and elements and attributes that are not explicitly included in the whitelist passed to __construct on instance creation"/>
+      <param description="- The HTMLValue to remove any non-whitelisted elements &amp; attributes from" type="object" variable="$html">
+        <type full="SS_HTMLValue" namespace="" name="SS_HTMLValue"/>
+      </param>
+    </docblock>
+    <parameter name="html" byreference="false" type="object">
+      <type full="\\SS_HTMLValue" namespace="\" name="SS_HTMLValue"/>
+    </parameter>
+    <inline>
+      <comment value="If this element isn't allowed, strip it" line="256"/>
+      <comment value="If it's a script or style, we don't keep contents" line="258"/>
+    </inline>
+  </method>
+</class>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="TokenTerminal" namespace="" name="TokenTerminal" abstract="true" final="false" start="241" end="251">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/php-peg" file="Compiler.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/php-peg/Compiler.php" size="23171" time="2015-03-14T10:41:57+13:00" unixtime="1426282917" sha1="260402e4dfe5e7208559894377bc477612b2a4d0" relative="framework/thirdparty/php-peg/Compiler.php"/>
+  <extends full="Token" namespace="" name="Token"/>
+  <method name="set_text" start="242" end="244" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="match_code" start="246" end="250" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Token" namespace="" name="Token">
+    <extends full="PHPWriter" namespace="" name="PHPWriter"/>
+    <member name="optional" type="{unknown}" default="FALSE" visibility="public" line="122"/>
+    <member name="zero_or_more" type="{unknown}" default="FALSE" visibility="public" line="123"/>
+    <member name="one_or_more" type="{unknown}" default="FALSE" visibility="public" line="124"/>
+    <member name="positive_lookahead" type="{unknown}" default="FALSE" visibility="public" line="125"/>
+    <member name="negative_lookahead" type="{unknown}" default="FALSE" visibility="public" line="126"/>
+    <member name="silent" type="{unknown}" default="FALSE" visibility="public" line="127"/>
+    <member name="tag" type="{unknown}" default="FALSE" visibility="public" line="129"/>
+    <member name="type" type="{unknown}" visibility="public" line="131"/>
+    <member name="value" type="{unknown}" visibility="public" line="132"/>
+    <constructor name="__construct" start="134" end="137" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="type" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}" default="NULL"/>
+    </constructor>
+    <method name="compile" start="141" end="237" abstract="false" final="false" static="false" visibility="public"/>
+  </parent>
+  <parent full="PHPWriter" namespace="" name="PHPWriter">
+    <member name="varid" type="integer" default="0" visibility="public" line="37"/>
+    <method name="varid" start="39" end="41" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="function_name" start="43" end="49" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="str" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="save" start="51" end="57" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="id" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="restore" start="59" end="72" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="id" byreference="false" type="{unknown}"/>
+      <parameter name="remove" byreference="false" type="{unknown}" default="FALSE"/>
+    </method>
+    <method name="match_fail_conditional" start="74" end="84" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="on" byreference="false" type="{unknown}"/>
+      <parameter name="match" byreference="false" type="{unknown}" default="NULL"/>
+      <parameter name="fail" byreference="false" type="{unknown}" default="NULL"/>
+    </method>
+    <method name="match_fail_block" start="86" end="105" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="code" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <extender full="TokenExpressionable" namespace="" name="TokenExpressionable"/>
+  <extender full="TokenLiteral" namespace="" name="TokenLiteral"/>
+  <extender full="TokenRegex" namespace="" name="TokenRegex"/>
+  <extender full="TokenWhitespace" namespace="" name="TokenWhitespace"/>
+</class>

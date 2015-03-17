@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Oembed</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Oembed</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/oembed/Oembed.php.xhtml#line24">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Oembed</h1>
+        <h4>Format of the Oembed config. Autodiscover allows discovery of all URLs.</h4>
+        <p>Endpoint set to true means autodiscovery for this specific provider is<br/>allowed (even if autodiscovery in general has been disabled).<br/><br/>&lt;code&gt;<br/><br/>name: Oembed<br/>---<br/>Oembed:<br/>providers:<br/>'http://*.youtube.com/watch*':<br/>'http://www.youtube.com/oembed/'<br/>autodiscover:<br/>true<br/>&lt;/code&gt;</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Oembed
+            {<br/><ul class="none"><li>// methods</li><li>public static void <a title="Oembed" href="../classes/Oembed/is_enabled.xhtml">is_enabled</a>()
+                    </li><li>public static void <a title="Oembed" href="../classes/Oembed/get_autodiscover.xhtml">get_autodiscover</a>()
+                    </li><li>public static void <a title="Oembed" href="../classes/Oembed/get_providers.xhtml">get_providers</a>()
+                    </li><li>protected static void <a title="Oembed" href="../classes/Oembed/find_endpoint.xhtml">find_endpoint</a>()
+                    </li><li>protected static void <a title="Oembed" href="../classes/Oembed/matches_scheme.xhtml">matches_scheme</a>()
+                    </li><li>protected static void <a title="Oembed" href="../classes/Oembed/autodiscover_from_url.xhtml">autodiscover_from_url</a>()
+                    </li><li>public static void <a title="Oembed" href="../classes/Oembed/get_oembed_from_url.xhtml">get_oembed_from_url</a>()
+                    </li><li>public static void <a title="Oembed" href="../classes/Oembed/handle_shortcode.xhtml">handle_shortcode</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="autodiscover_from_url"><a title="Oembed" href="../classes/Oembed/autodiscover_from_url.xhtml">autodiscover_from_url()</a>
+                — Performs a HTTP request to the URL and scans the response for resource links that mention oembed in their type.</li>
+            <li id="find_endpoint"><a title="Oembed" href="../classes/Oembed/find_endpoint.xhtml">find_endpoint()</a>
+                — Returns an endpoint (a base Oembed URL) from first matching provider.</li>
+            <li id="matches_scheme"><a title="Oembed" href="../classes/Oembed/matches_scheme.xhtml">matches_scheme()</a>
+                — Checks the URL if it matches against the scheme (pattern).</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="get_autodiscover"><a title="Oembed" href="../classes/Oembed/get_autodiscover.xhtml">get_autodiscover()</a>
+                — Gets the autodiscover setting from the config.</li>
+            <li id="get_oembed_from_url"><a title="Oembed" href="../classes/Oembed/get_oembed_from_url.xhtml">get_oembed_from_url()</a>
+                — Takes the human-readable URL of an embeddable resource and converts it into an Oembed_Result descriptor (which contains a full Oembed resource URL).</li>
+            <li id="get_providers"><a title="Oembed" href="../classes/Oembed/get_providers.xhtml">get_providers()</a>
+                — Gets providers from config.</li>
+            <li id="handle_shortcode">
+              <a title="Oembed" href="../classes/Oembed/handle_shortcode.xhtml">handle_shortcode()</a>
+            </li>
+            <li id="is_enabled">
+              <a title="Oembed" href="../classes/Oembed/is_enabled.xhtml">is_enabled()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

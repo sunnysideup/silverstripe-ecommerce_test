@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PackagingBox" namespace="" name="PackagingBox" abstract="false" final="false" start="8" end="194">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../ecommerce_delivery/thirdparty" file="PackagingBox.php" realpath="/var/www/_modules/ecommerce_test/trunk/ecommerce_delivery/thirdparty/PackagingBox.php" size="5812" time="2015-03-14T10:43:32+13:00" unixtime="1426283012" sha1="7be49ab759030897812c7abe941c9d1b8a18a209" relative="ecommerce_delivery/thirdparty/PackagingBox.php"/>
+  <docblock>
+    <description compact="source: https://github.com/yetzt/boxing/blob/master/boxing.class.php"/>
+  </docblock>
+  <member name="outer_boxes" type="{unknown}" visibility="private" line="9"/>
+  <member name="inner_boxes" type="{unknown}" visibility="private" line="10"/>
+  <method name="boxing" start="11" end="15" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="add_outer_box" start="16" end="24" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="l" byreference="false" type="{unknown}"/>
+    <parameter name="w" byreference="false" type="{unknown}"/>
+    <parameter name="h" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add_inner_box" start="25" end="33" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="l" byreference="false" type="{unknown}"/>
+    <parameter name="w" byreference="false" type="{unknown}"/>
+    <parameter name="h" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fits" start="34" end="63" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="first we do a simple volume check, this can save a lot of calculations" line="35"/>
+      <comment value="get next inner box" line="39"/>
+      <comment value="smallest first" line="45"/>
+      <comment value="matches!" line="49"/>
+      <comment value="we ran out of inner boxes but have outer boxes left" line="61"/>
+    </inline>
+  </method>
+  <method name="fits_volume" start="64" end="79" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="inner boxes have more volume than outer ones" line="74"/>
+    </inline>
+  </method>
+  <method name="find_subboxes" start="80" end="106" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="inner_box_id" byreference="false" type="{unknown}"/>
+    <parameter name="outer_box_id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fits_inside" start="107" end="119" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="inner_box_id" byreference="false" type="{unknown}"/>
+    <parameter name="outer_box_id" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="fits" line="113"/>
+    </inline>
+  </method>
+  <method name="sort_dimensions" start="120" end="124" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="l" byreference="false" type="{unknown}"/>
+    <parameter name="w" byreference="false" type="{unknown}"/>
+    <parameter name="h" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="sort_outer_boxes" start="125" end="131" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="next_outer_box" start="132" end="142" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="next_inner_box" start="143" end="153" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="_sksort" start="154" end="178" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="array" byreference="false" type="{unknown}"/>
+    <parameter name="subkey" byreference="false" type="{unknown}"/>
+    <parameter name="sort_descending" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="keep_keys_in_sub" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="slightly modified since stolen from http://www.php.net/manual/de/function.sort.php#93473" line="155"/>
+    </inline>
+  </method>
+  <method name="_diffsort" start="179" end="193" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="array" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="quick and dirty hack since _sksort() does strange things" line="180"/>
+    </inline>
+  </method>
+</class>

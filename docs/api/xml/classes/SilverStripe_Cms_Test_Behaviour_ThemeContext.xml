@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SilverStripe\Cms\Test\Behaviour\ThemeContext" namespace="SilverStripe\Cms\Test\Behaviour" name="ThemeContext" abstract="false" final="false" start="22" end="109">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../cms/tests/behat/features/bootstrap/SilverStripe/Cms/Test/Behaviour" file="ThemeContext.php" realpath="/var/www/_modules/ecommerce_test/trunk/cms/tests/behat/features/bootstrap/SilverStripe/Cms/Test/Behaviour/ThemeContext.php" size="3251" time="2015-03-14T10:42:39+13:00" unixtime="1426282959" sha1="fc40ee7177abef5a30ca8c63f80e56f63cae25bb" relative="cms/tests/behat/features/bootstrap/SilverStripe/Cms/Test/Behaviour/ThemeContext.php"/>
+  <docblock>
+    <description compact="Context used to create fixtures in the SilverStripe ORM."/>
+  </docblock>
+  <extends full="Behat\Behat\Context\BehatContext" namespace="Behat\Behat\Context" name="BehatContext"/>
+  <member name="restoreFiles" type="array" visibility="protected" line="24"/>
+  <member name="restoreDirectories" type="array" visibility="protected" line="25"/>
+  <method name="stepCreateTheme" start="32" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a test theme"/>
+      <given value="/^a theme &quot;(?&lt;theme&gt;[^&quot;]+)&quot;/"/>
+    </docblock>
+    <parameter name="theme" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="stepCreateTemplate" start="45" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a template within a test theme"/>
+      <given value="/^a template &quot;(?&lt;template&gt;[^&quot;]+)&quot; in theme &quot;(?&lt;theme&gt;[^&quot;]+)&quot; with content &quot;(?&lt;content&gt;[^&quot;]+)&quot;/"/>
+    </docblock>
+    <parameter name="template" byreference="false" type="{unknown}"/>
+    <parameter name="theme" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="requireFile" start="53" end="67" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Already exists" line="54"/>
+      <comment value="If the content is different, remember old content for restoration" line="56"/>
+    </inline>
+  </method>
+  <method name="requireDir" start="69" end="75" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="dirname" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Directory doesn't exist, create it and mark it for deletion" line="70"/>
+    </inline>
+  </method>
+  <method name="cleanThemesAfterScenario" start="82" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clean up any theme manipulation"/>
+      <afterscenario/>
+    </docblock>
+    <inline>
+      <comment value="Restore any created/modified files." line="83"/>
+      <comment value="- If modified, revert then to original contnet" line="84"/>
+      <comment value="- If created, delete them" line="85"/>
+      <comment value="Restore any created directories: that is, delete them" line="98"/>
+      <comment value="Flip the order so that nested direcotires are unlinked() first" line="100"/>
+    </inline>
+  </method>
+</class>

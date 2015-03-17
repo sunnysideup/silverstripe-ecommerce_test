@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SSViewer" namespace="" name="SSViewer" abstract="false" final="false" start="566" end="1198">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/view" file="SSViewer.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/view/SSViewer.php" size="39375" time="2015-03-14T10:42:30+13:00" unixtime="1426282950" sha1="ef64a4a35a6f49d03bf1437c3b95405f06b93b27" relative="framework/view/SSViewer.php"/>
+  <docblock>
+    <description compact="Parses a template file with an *.ss file extension.">In addition to a full template in the templates/ folder, a template in
+templates/Content or templates/Layout will be rendered into $Content and
+$Layout, respectively.
+A single template can be parsed by multiple nested <link xmlns="http://xml.phpdox.net/src" value="SSViewer"/> instances
+through $Layout/$Content placeholders, as well as &lt;% include MyTemplateFile %&gt; template commands.
+&lt;b&gt;Themes&lt;/b&gt;
+See http://doc.silverstripe.org/themes and http://doc.silverstripe.org/themes:developing
+&lt;b&gt;Caching&lt;/b&gt;
+Compiled templates are cached via <link xmlns="http://xml.phpdox.net/src" value="SS_Cache"/>, usually on the filesystem.
+If you put ?flush=1 on your URL, it will force the template to be recompiled.
+</description>
+    <see value="http://doc.silverstripe.org/themes"/>
+    <see value="http://doc.silverstripe.org/themes:developing"/>
+    <package value="framework"/>
+    <subpackage value="view"/>
+  </docblock>
+  <implements full="Flushable" namespace="" name="Flushable"/>
+  <member name="source_file_comments" type="{unknown}" default="false" visibility="private" line="572">
+    <docblock>
+      <description/>
+      <config/>
+      <var description="$source_file_comments" type="boolean"/>
+    </docblock>
+  </member>
+  <member name="template_cache_flushed" type="{unknown}" default="false" visibility="private" line="577">
+    <docblock>
+      <description/>
+      <ignore/>
+    </docblock>
+  </member>
+  <member name="cacheblock_cache_flushed" type="{unknown}" default="false" visibility="private" line="582">
+    <docblock>
+      <description/>
+      <ignore/>
+    </docblock>
+  </member>
+  <method name="set_source_file_comments" start="591" end="594" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set whether HTML comments indicating the source .SS file used to render this page should be included in the output.  This is enabled by default"/>
+      <deprecated value="3.2 Use the &quot;SSViewer.source_file_comments&quot; config setting instead"/>
+      <param type="boolean" variable="$val"/>
+    </docblock>
+    <parameter name="val" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_source_file_comments" start="600" end="603" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;SSViewer.source_file_comments&quot; config setting instead"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <member name="chosenTemplates" type="array" visibility="private" line="609">
+    <docblock>
+      <description/>
+      <var description="$chosenTemplates Associative array for the different" type="array">template containers: "main" and "Layout". Values are absolute file paths to *.ss files.</var>
+    </docblock>
+  </member>
+  <member name="rewriteHashlinks" type="{unknown}" default="true" visibility="protected" line="614">
+    <docblock>
+      <description/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="theme" type="{unknown}" default="null" visibility="private" line="621">
+    <docblock>
+      <description/>
+      <config/>
+      <var description="The used &quot;theme&quot;, which usually consists of templates, images and stylesheets." type="string">Only used when <link xmlns="http://xml.phpdox.net/src" value="$theme_enabled"/> is set to TRUE.
+</var>
+    </docblock>
+  </member>
+  <member name="theme_enabled" type="{unknown}" default="true" visibility="private" line="631">
+    <docblock>
+      <description/>
+      <config/>
+      <var description="Use the theme. Set to FALSE in order to disable themes," type="boolean">which can be useful for scenarios where theme overrides are temporarily undesired,
+such as an administrative interface separate from the website theme.
+It retains the theme settings to be re-enabled, for example when a website content
+needs to be rendered from within this administrative interface.</var>
+    </docblock>
+  </member>
+  <member name="includeRequirements" type="{unknown}" default="true" visibility="protected" line="636">
+    <docblock>
+      <description/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="parser" type="{unknown}" visibility="protected" line="641">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="TemplateParser" namespace="" name="TemplateParser"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="global_key" type="string" default="'$CurrentReadingMode, $CurrentUser.ID'" visibility="private" line="649"/>
+  <method name="flush" start="654" end="657" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Triggered early in the request when someone requests a flush."/>
+    </docblock>
+  </method>
+  <method name="fromString" start="664" end="666" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a template from a string instead of a .ss file"/>
+      <return type="object">
+        <type full="SSViewer" namespace="" name="SSViewer"/>
+      </return>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="set_theme" start="672" end="675" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;SSViewer.theme&quot; config setting instead"/>
+      <param description="The &quot;base theme&quot; name (without underscores)." type="string" variable="$theme"/>
+    </docblock>
+    <parameter name="theme" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="current_theme" start="681" end="684" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;SSViewer.theme&quot; config setting instead"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="get_theme_folder" start="691" end="694" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the path to the theme folder"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="get_themes" start="703" end="718" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns an array of theme names present in a directory."/>
+      <param type="string" variable="$path"/>
+      <param description="Include subthemes (default false)." type="object" variable="$subthemes">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="subthemes" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="current_custom_theme" start="723" end="726" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="get_templates_by_class" start="737" end="752" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Traverses the given the given class context looking for templates with the relevant name."/>
+      <param description="- valid class name" variable="$className" type="string"/>
+      <param variable="$suffix" type="string"/>
+      <param variable="$baseClass" type="string"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="className" byreference="false" type="{unknown}"/>
+    <parameter name="suffix" byreference="false" type="string" default="''"/>
+    <parameter name="baseClass" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Figure out the class name from the supplied context." line="738"/>
+    </inline>
+  </method>
+  <constructor name="__construct" start="762" end="790" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="If passed as a string with .ss extension, used as the &quot;main&quot; template." type="object" variable="$templateList">If passed as an array, it can be used for template inheritance (first found template "wins").
+ Usually the array values are PHP class names, which directly correlate to template names.
+ &lt;code&gt;
+ array('MySpecificPage', 'MyPage', 'Page')
+ &lt;/code&gt;<type full="string|array" namespace="" name="string|array"/></param>
+    </docblock>
+    <parameter name="templateList" byreference="false" type="{unknown}"/>
+    <parameter name="parser" byreference="false" type="object" default="null">
+      <type full="\\TemplateParser" namespace="\" name="TemplateParser"/>
+    </parameter>
+  </constructor>
+  <method name="setParser" start="796" end="799" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the template parser that will be used in template generation"/>
+      <param type="object" variable="$parser">
+        <type full="\TemplateParser" namespace="" name="TemplateParser"/>
+      </param>
+    </docblock>
+    <parameter name="parser" byreference="false" type="object">
+      <type full="\\TemplateParser" namespace="\" name="TemplateParser"/>
+    </parameter>
+  </method>
+  <method name="getParser" start="805" end="808" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the parser that is set for template generation"/>
+      <return type="object">
+        <type full="\TemplateParser" namespace="" name="TemplateParser"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="hasTemplate" start="817" end="831" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns true if at least one of the listed templates exists."/>
+      <param type="array" variable="$templates"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="templates" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setOption" start="847" end="855" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set a global rendering option.">The following options are available:
+ - rewriteHashlinks: If true (the default), &lt;a href="#..."&gt; will be rewritten to contain the
+   current URL.  This lets it play nicely with our &lt;base&gt; tag.
+ - If rewriteHashlinks = 'php' then, a piece of PHP script will be inserted before the hash
+   links: "&lt;?php echo $_SERVER['REQUEST_URI']; ?&gt;".  This is useful if you're generating a
+   page that will be saved to a .php file and may be accessed from different URLs.</description>
+      <deprecated value="3.2 Use the &quot;SSViewer.rewrite_hash_links&quot; config setting instead"/>
+      <param type="string" variable="$optionName"/>
+      <param type="mixed" variable="$optionVal"/>
+    </docblock>
+    <parameter name="optionName" byreference="false" type="{unknown}"/>
+    <parameter name="optionVal" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getOption" start="862" end="870" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;SSViewer.rewrite_hash_links&quot; config setting instead"/>
+      <param type="string"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="optionName" byreference="false" type="{unknown}"/>
+  </method>
+  <member name="rewrite_hash_links" type="{unknown}" default="true" visibility="private" line="876">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="topLevel" type="array" visibility="protected" line="878"/>
+  <method name="topLevel" start="880" end="884" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="dontRewriteHashlinks" start="890" end="894" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call this to disable rewriting of &lt;a href=&quot;#xxx&quot;&gt; links.  This is useful in Ajax applications.">It returns the SSViewer objects, so that you can call new SSViewer("X")-&gt;dontRewriteHashlinks()-&gt;process();</description>
+    </docblock>
+  </method>
+  <method name="exists" start="896" end="898" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTemplateFileByType" start="906" end="922" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param description="A template name without '.ss' extension or path" type="string" variable="$identifier"/>
+      <param description="The template type, either &quot;main&quot;, &quot;Includes&quot; or &quot;Layout&quot;" type="string" variable="$type"/>
+      <return description="Full system path to a template file" type="string"/>
+    </docblock>
+    <parameter name="identifier" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flush_template_cache" start="932" end="940" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clears all parsed template files in the cache folder.">Can only be called once per request (there may be multiple SSViewer instances).</description>
+      <param description="Set this to true to force a re-flush. If left to false, flushing" type="object" variable="$force">may only be performed once a request.<type full="bool" namespace="" name="bool"/></param>
+    </docblock>
+    <parameter name="force" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="flush_cacheblock_cache" start="950" end="968" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clears all partial cache blocks.">Can only be called once per request (there may be multiple SSViewer instances).</description>
+      <param description="Set this to true to force a re-flush. If left to false, flushing" type="object" variable="$force">may only be performed once a request.<type full="bool" namespace="" name="bool"/></param>
+    </docblock>
+    <parameter name="force" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <member name="partialCacheStore" type="{unknown}" default="null" visibility="protected" line="973">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="setPartialCacheStore" start="980" end="982" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the cache object to use when storing / retrieving partial cache blocks."/>
+      <param type="object" variable="$cache">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </param>
+    </docblock>
+    <parameter name="cache" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPartialCacheStore" start="989" end="991" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the cache object to use when storing / retrieving partial cache blocks."/>
+      <return type="object">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="includeRequirements" start="998" end="1000" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flag whether to include the requirements in this response."/>
+      <param type="boolean"/>
+    </docblock>
+    <parameter name="incl" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="includeGeneratedTemplate" start="1016" end="1034" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="An internal utility function to set up variables in preparation for including a compiled template, then do the include">Effectively this is the common code that both SSViewer#process and SSViewer_FromString#process call</description>
+      <param description="- The path to the file that contains the template compiled to PHP" type="string" variable="$cacheFile"/>
+      <param description="- The item to use as the root scope for the template" type="object" variable="$item">
+        <type full="Object" namespace="" name="Object"/>
+      </param>
+      <param description="- Any variables to layer on top of the scope" type="object" variable="$overlay">
+        <type full="array|null" namespace="" name="array|null"/>
+      </param>
+      <param description="- Any variables to layer underneath the scope" type="object" variable="$underlay">
+        <type full="array|null" namespace="" name="array|null"/>
+      </param>
+      <param description="- the current scope of a parent template including a sub-template" type="object" variable="$inheritedScope">
+        <type full="Object" namespace="" name="Object"/>
+      </param>
+      <return description="- The result of executing the template" type="string"/>
+    </docblock>
+    <parameter name="cacheFile" byreference="false" type="{unknown}"/>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+    <parameter name="overlay" byreference="false" type="{unknown}"/>
+    <parameter name="underlay" byreference="false" type="{unknown}"/>
+    <parameter name="inheritedScope" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="process" start="1053" end="1122" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The process() method handles the &quot;meat&quot; of the template processing.">It takes care of caching the output (via <link xmlns="http://xml.phpdox.net/src" value="SS_Cache"/>), as well as
+replacing the special "$Content" and "$Layout" placeholders with their
+respective subtemplates.
+The method injects extra HTML in the header via <link xmlns="http://xml.phpdox.net/src" value="Requirements::includeInHTML()"/>.
+Note: You can call this method indirectly by <link xmlns="http://xml.phpdox.net/src" value="ViewableData-&gt;renderWith()"/>.
+</description>
+      <param type="object" variable="$item">
+        <type full="ViewableData" namespace="" name="ViewableData"/>
+      </param>
+      <param description="- arguments to an included template" type="object" variable="$arguments">
+        <type full="array|null" namespace="" name="array|null"/>
+      </param>
+      <param description="- the current scope of a parent template including a sub-template" type="object" variable="$inheritedScope">
+        <type full="Object" namespace="" name="Object"/>
+      </param>
+      <return description="Parsed template output." type="object">
+        <type full="HTMLText" namespace="" name="HTMLText"/>
+      </return>
+    </docblock>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="inheritedScope" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Makes the rendered sub-templates available on the parent item," line="1086"/>
+      <comment value="through $Content and $Layout placeholders." line="1087"/>
+      <comment value="If we have our crazy base tag, then fix # links referencing the current page." line="1106"/>
+    </inline>
+  </method>
+  <method name="execute_template" start="1133" end="1138" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Execute the given template, passing it the given data.">Used by the &lt;% include %&gt; template tag to process templates.</description>
+      <param description="Template name" type="string" variable="$template"/>
+      <param description="Data context" type="mixed" variable="$data"/>
+      <param description="Additional arguments" type="array" variable="$arguments"/>
+      <return description="Evaluated result" type="string"/>
+    </docblock>
+    <parameter name="template" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="scope" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="execute_string" start="1150" end="1155" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Execute the evaluated string, passing it the given data.">Used by partial caching to evaluate custom cache keys expressed using
+template expressions</description>
+      <param description="Input string" type="string" variable="$content"/>
+      <param description="Data context" type="mixed" variable="$data"/>
+      <param description="Additional arguments" type="array" variable="$arguments"/>
+      <return description="Evaluated result" type="string"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="parseTemplateContent" start="1157" end="1163" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="template" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="templates" start="1169" end="1171" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the filenames of the template that will be rendered.  It is a map that may contain 'Content' &amp; 'Layout', and will have to contain 'main'"/>
+    </docblock>
+  </method>
+  <method name="setTemplateFile" start="1177" end="1179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="&quot;Layout&quot; or &quot;main&quot;" type="string" variable="$type"/>
+      <param description="Full system path to the template file" type="string" variable="$file"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_base_tag" start="1188" end="1197" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return an appropriate base tag for the given template.">It will be closed on an XHTML document, and unclosed on an HTML document.</description>
+      <param description="content of the template generated so far; it should contain" variable="$contentGeneratedSoFar" type="object">the DOCTYPE declaration.<type full="The" namespace="" name="The"/></param>
+    </docblock>
+    <parameter name="contentGeneratedSoFar" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Is the document XHTML?" line="1191"/>
+    </inline>
+  </method>
+  <interface full="Flushable" namespace="" name="Flushable">
+    <method name="flush" start="18" end="18" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="This function is triggered early in the request if the &quot;flush&quot; query parameter has been set. Each class that implements Flushable implements this function which looks after it's own specific flushing functionality."/>
+        <see value="FlushRequestFilter"/>
+      </docblock>
+    </method>
+  </interface>
+  <extender full="SSViewer_FromString" namespace="" name="SSViewer_FromString"/>
+</class>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="i18nTextCollector_Writer_RailsYaml" namespace="" name="i18nTextCollector_Writer_RailsYaml" abstract="false" final="false" start="586" end="639">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/i18n" file="i18nTextCollector.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/i18n/i18nTextCollector.php" size="23836" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="cbc6c963c6f11f410985e088937018f09150a493" relative="framework/i18n/i18nTextCollector.php"/>
+  <docblock>
+    <description compact="Writes files compatible with {@link i18nRailsYamlAdapter}."/>
+    <package value="framework"/>
+    <subpackage value="i18n"/>
+  </docblock>
+  <implements full="i18nTextCollector_Writer" namespace="" name="i18nTextCollector_Writer"/>
+  <method name="write" start="588" end="608" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="entities" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Create folder for lang files" line="591"/>
+      <comment value="Open the English file and write the Master String Table" line="598"/>
+    </inline>
+  </method>
+  <method name="getYaml" start="610" end="638" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="entities" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Use the Zend copy of this script to prevent class conflicts when RailsYaml is included" line="611"/>
+      <comment value="Unflatten array" line="615"/>
+      <comment value="Legacy support: Don't count *.ss as namespace" line="618"/>
+      <comment value="Write YAML" line="630"/>
+      <todo value="Dumper can't handle YAML comments, so the context information is currently discarded" line="634"/>
+    </inline>
+  </method>
+  <interface full="i18nTextCollector_Writer" namespace="" name="i18nTextCollector_Writer">
+    <method name="write" start="496" end="496" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param description="Map of entity names (incl. namespace) to an numeric array, with at least one element," type="object" variable="$entities">the original string, and an optional second element, the context.<type full="Array" namespace="" name="Array"/></param>
+        <param type="object" variable="$locale">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <param description="The directory base on which the collector should create new lang folders and files." type="object" variable="$path">Usually the webroot set through <link xmlns="http://xml.phpdox.net/src" value="Director::baseFolder()"/>. Can be overwritten for
+                    testing or export purposes.
+<type full="String" namespace="" name="String"/></param>
+        <return description="success" type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </return>
+      </docblock>
+      <parameter name="entities" byreference="false" type="{unknown}"/>
+      <parameter name="locale" byreference="false" type="{unknown}"/>
+      <parameter name="path" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

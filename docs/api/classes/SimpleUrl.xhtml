@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SimpleUrl</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SimpleUrl</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/simpletest/url.php.xhtml#line25">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SimpleUrl</h1>
+        <h4>URL parser to replace parse_url() PHP function which    got broken in PHP 4.3.0. Adds some browser specific    functionality such as expandomatics.</h4>
+        <p>Guesses a bit trying to separate the host from<br/>the path and tries to keep a raw, possibly unparsable,<br/>request string as long as possible.<br/>@package SimpleTest<br/>   @subpackage WebTester</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SimpleUrl
+            {<br/><ul class="none"><li>// members</li><li>public <a href="#members">$_scheme</a>;
+                    </li><li>public <a href="#members">$_username</a>;
+                    </li><li>public <a href="#members">$_password</a>;
+                    </li><li>public <a href="#members">$_host</a>;
+                    </li><li>public <a href="#members">$_port</a>;
+                    </li><li>public <a href="#members">$_path</a>;
+                    </li><li>public <a href="#members">$_request</a>;
+                    </li><li>public <a href="#members">$_fragment</a>;
+                    </li><li>public <a href="#members">$_x</a>;
+                    </li><li>public <a href="#members">$_y</a>;
+                    </li><li>public <a href="#members">$_target</a>;
+                    </li><li>public <a href="#members">$_raw</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/SimpleUrl.xhtml">SimpleUrl</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_chompCoordinates.xhtml">_chompCoordinates</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_chompScheme.xhtml">_chompScheme</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_chompLogin.xhtml">_chompLogin</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_chompHost.xhtml">_chompHost</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_chompPath.xhtml">_chompPath</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_chompRequest.xhtml">_chompRequest</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_parseRequest.xhtml">_parseRequest</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getScheme.xhtml">getScheme</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getUsername.xhtml">getUsername</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getPassword.xhtml">getPassword</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getHost.xhtml">getHost</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getTld.xhtml">getTld</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getPort.xhtml">getPort</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getPath.xhtml">getPath</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getPage.xhtml">getPage</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getBasePath.xhtml">getBasePath</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getFragment.xhtml">getFragment</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/setCoordinates.xhtml">setCoordinates</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getX.xhtml">getX</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getY.xhtml">getY</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getEncodedRequest.xhtml">getEncodedRequest</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/addRequestParameter.xhtml">addRequestParameter</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/addRequestParameters.xhtml">addRequestParameters</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/clearRequest.xhtml">clearRequest</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getTarget.xhtml">getTarget</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/setTarget.xhtml">setTarget</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/asString.xhtml">asString</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/makeAbsolute.xhtml">makeAbsolute</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_extractAbsolutePath.xhtml">_extractAbsolutePath</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/_isRelativePath.xhtml">_isRelativePath</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getIdentity.xhtml">getIdentity</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/normalisePath.xhtml">normalisePath</a>()
+                    </li><li>public void <a title="SimpleUrl" href="../classes/SimpleUrl/getAllTopLevelDomains.xhtml">getAllTopLevelDomains</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>public</h4>
+          <ul class="members">
+            <li id="_fragment">
+              <strong>$_fragment</strong>
+            </li>
+            <li id="_host">
+              <strong>$_host</strong>
+            </li>
+            <li id="_password">
+              <strong>$_password</strong>
+            </li>
+            <li id="_path">
+              <strong>$_path</strong>
+            </li>
+            <li id="_port">
+              <strong>$_port</strong>
+            </li>
+            <li id="_raw">
+              <strong>$_raw</strong>
+            </li>
+            <li id="_request">
+              <strong>$_request</strong>
+            </li>
+            <li id="_scheme">
+              <strong>$_scheme</strong>
+            </li>
+            <li id="_target">
+              <strong>$_target</strong>
+            </li>
+            <li id="_username">
+              <strong>$_username</strong>
+            </li>
+            <li id="_x">
+              <strong>$_x</strong>
+            </li>
+            <li id="_y">
+              <strong>$_y</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="SimpleUrl"><a title="SimpleUrl" href="../classes/SimpleUrl/SimpleUrl.xhtml">SimpleUrl()</a>
+                — Constructor. Parses URL into sections.</li>
+            <li id="_chompCoordinates"><a title="SimpleUrl" href="../classes/SimpleUrl/_chompCoordinates.xhtml">_chompCoordinates()</a>
+                — Extracts the X, Y coordinate pair from an image map.</li>
+            <li id="_chompHost"><a title="SimpleUrl" href="../classes/SimpleUrl/_chompHost.xhtml">_chompHost()</a>
+                — Extracts the host part of an incoming URL.</li>
+            <li id="_chompLogin"><a title="SimpleUrl" href="../classes/SimpleUrl/_chompLogin.xhtml">_chompLogin()</a>
+                — Extracts the username and password from the    incoming URL. The // prefix will be reattached    to the URL after the doublet is extracted.</li>
+            <li id="_chompPath"><a title="SimpleUrl" href="../classes/SimpleUrl/_chompPath.xhtml">_chompPath()</a>
+                — Extracts the path information from the incoming    URL. Strips this path from the URL.</li>
+            <li id="_chompRequest"><a title="SimpleUrl" href="../classes/SimpleUrl/_chompRequest.xhtml">_chompRequest()</a>
+                — Strips off the request data.</li>
+            <li id="_chompScheme"><a title="SimpleUrl" href="../classes/SimpleUrl/_chompScheme.xhtml">_chompScheme()</a>
+                — Extracts the scheme part of an incoming URL.</li>
+            <li id="_extractAbsolutePath"><a title="SimpleUrl" href="../classes/SimpleUrl/_extractAbsolutePath.xhtml">_extractAbsolutePath()</a>
+                — Replaces unknown sections of the path with base parts    to return a complete absolute one.</li>
+            <li id="_isRelativePath"><a title="SimpleUrl" href="../classes/SimpleUrl/_isRelativePath.xhtml">_isRelativePath()</a>
+                — Simple test to see if a path part is relative.</li>
+            <li id="_parseRequest"><a title="SimpleUrl" href="../classes/SimpleUrl/_parseRequest.xhtml">_parseRequest()</a>
+                — Breaks the request down into an object.</li>
+            <li id="addRequestParameter"><a title="SimpleUrl" href="../classes/SimpleUrl/addRequestParameter.xhtml">addRequestParameter()</a>
+                — Adds an additional parameter to the request.</li>
+            <li id="addRequestParameters"><a title="SimpleUrl" href="../classes/SimpleUrl/addRequestParameters.xhtml">addRequestParameters()</a>
+                — Adds additional parameters to the request.</li>
+            <li id="asString"><a title="SimpleUrl" href="../classes/SimpleUrl/asString.xhtml">asString()</a>
+                — Renders the URL back into a string.</li>
+            <li id="clearRequest"><a title="SimpleUrl" href="../classes/SimpleUrl/clearRequest.xhtml">clearRequest()</a>
+                — Clears down all parameters.</li>
+            <li id="getAllTopLevelDomains"><a title="SimpleUrl" href="../classes/SimpleUrl/getAllTopLevelDomains.xhtml">getAllTopLevelDomains()</a>
+                — A pipe seperated list of all TLDs that result in two part    domain names.</li>
+            <li id="getBasePath"><a title="SimpleUrl" href="../classes/SimpleUrl/getBasePath.xhtml">getBasePath()</a>
+                — Gets the path to the page.</li>
+            <li id="getEncodedRequest"><a title="SimpleUrl" href="../classes/SimpleUrl/getEncodedRequest.xhtml">getEncodedRequest()</a>
+                — Accessor for current request parameters    in URL string form. Will return teh original request    if at all possible even if it doesn't make much    sense.</li>
+            <li id="getFragment"><a title="SimpleUrl" href="../classes/SimpleUrl/getFragment.xhtml">getFragment()</a>
+                — Accessor for fragment at end of URL after the "#".</li>
+            <li id="getHost"><a title="SimpleUrl" href="../classes/SimpleUrl/getHost.xhtml">getHost()</a>
+                — Accessor for hostname and port.</li>
+            <li id="getIdentity"><a title="SimpleUrl" href="../classes/SimpleUrl/getIdentity.xhtml">getIdentity()</a>
+                — Extracts the username and password for use in rendering    a URL.</li>
+            <li id="getPage"><a title="SimpleUrl" href="../classes/SimpleUrl/getPage.xhtml">getPage()</a>
+                — Accessor for page if any. This may be a    directory name if ambiguious.</li>
+            <li id="getPassword"><a title="SimpleUrl" href="../classes/SimpleUrl/getPassword.xhtml">getPassword()</a>
+                — Accessor for password.</li>
+            <li id="getPath"><a title="SimpleUrl" href="../classes/SimpleUrl/getPath.xhtml">getPath()</a>
+                — Accessor for path.</li>
+            <li id="getPort"><a title="SimpleUrl" href="../classes/SimpleUrl/getPort.xhtml">getPort()</a>
+                — Accessor for port number.</li>
+            <li id="getScheme"><a title="SimpleUrl" href="../classes/SimpleUrl/getScheme.xhtml">getScheme()</a>
+                — Accessor for protocol part.</li>
+            <li id="getTarget"><a title="SimpleUrl" href="../classes/SimpleUrl/getTarget.xhtml">getTarget()</a>
+                — Gets the frame target if present. Although    not strictly part of the URL specification it    acts as similarily to the browser.</li>
+            <li id="getTld"><a title="SimpleUrl" href="../classes/SimpleUrl/getTld.xhtml">getTld()</a>
+                — Accessor for top level domain.</li>
+            <li id="getUsername"><a title="SimpleUrl" href="../classes/SimpleUrl/getUsername.xhtml">getUsername()</a>
+                — Accessor for user name.</li>
+            <li id="getX"><a title="SimpleUrl" href="../classes/SimpleUrl/getX.xhtml">getX()</a>
+                — Accessor for horizontal image coordinate.</li>
+            <li id="getY"><a title="SimpleUrl" href="../classes/SimpleUrl/getY.xhtml">getY()</a>
+                — Accessor for vertical image coordinate.</li>
+            <li id="makeAbsolute"><a title="SimpleUrl" href="../classes/SimpleUrl/makeAbsolute.xhtml">makeAbsolute()</a>
+                — Replaces unknown sections to turn a relative    URL into an absolute one. The base URL can    be either a string or a SimpleUrl object.</li>
+            <li id="normalisePath"><a title="SimpleUrl" href="../classes/SimpleUrl/normalisePath.xhtml">normalisePath()</a>
+                — Replaces . and .. sections of the path.</li>
+            <li id="setCoordinates"><a title="SimpleUrl" href="../classes/SimpleUrl/setCoordinates.xhtml">setCoordinates()</a>
+                — Sets image coordinates. Set to false to clear    them.</li>
+            <li id="setTarget"><a title="SimpleUrl" href="../classes/SimpleUrl/setTarget.xhtml">setTarget()</a>
+                — Attaches a frame target.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

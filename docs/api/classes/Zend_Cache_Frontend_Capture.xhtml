@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Cache_Frontend_Capture</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Cache_Frontend_Capture</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Cache/Frontend/Capture.php.xhtml#line36">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Cache_Frontend_Capture</h1>
+        <h4/>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Cache_Frontend_Capture
+                extends <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core.xhtml">Zend_Cache_Core</a>
+            {<br/><ul class="none"><li>// Inherited constants from <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core.xhtml">Zend_Cache_Core</a></li><li>const <a href="#BACKEND_NOT_SUPPORTS_TAG">BACKEND_NOT_SUPPORTS_TAG</a> = 'tags are not supported by the current backend';</li><li>const <a href="#BACKEND_NOT_IMPLEMENTS_EXTENDED_IF">BACKEND_NOT_IMPLEMENTS_EXTENDED_IF</a> = 'Current backend doesn\'t implement the Zend_Cache_Backend_ExtendedInterface, so this method is not available';</li></ul><ul class="none"><li>// members</li><li>protected array <a href="#members">$_idStack</a>;
+                    </li><li>protected array <a href="#members">$_tags</a>;
+                    </li><li>protected <a href="#members">$_extension</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="Zend_Cache_Core">Zend_Cache_Core</span></li><li>protected <span title="Zend_Cache_Backend_Interface">Zend_Cache_Backend_Interface</span> <a href="#members">$_backend</a>;
+                        </li><li>protected array <a href="#members">$_options</a>;
+                        </li><li>protected array <a href="#members">$_directivesList</a>;
+                        </li><li>protected array <a href="#members">$_specificOptions</a>;
+                        </li><li>protected boolean <a href="#members">$_extendedBackend</a>;
+                        </li><li>protected array <a href="#members">$_backendCapabilities</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public mixed <a title="Zend_Cache_Frontend_Capture" href="../classes/Zend_Cache_Frontend_Capture/start.xhtml">start</a>()
+                    </li><li>public string <a title="Zend_Cache_Frontend_Capture" href="../classes/Zend_Cache_Frontend_Capture/_flush.xhtml">_flush</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Zend_Cache_Core">Zend_Cache_Core</span></li><li>public void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/__construct.xhtml">__construct</a>()
+                        </li><li>public Zend_Cache_Core <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setConfig.xhtml">setConfig</a>()
+                        </li><li>public void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setBackend.xhtml">setBackend</a>()
+                        </li><li>public Zend_Cache_Backend <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getBackend.xhtml">getBackend</a>()
+                        </li><li>public void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setOption.xhtml">setOption</a>()
+                        </li><li>public mixed <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getOption.xhtml">getOption</a>()
+                        </li><li>public void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setLifetime.xhtml">setLifetime</a>()
+                        </li><li>public mixed|false <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/load.xhtml">load</a>()
+                        </li><li>public int|false <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/test.xhtml">test</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/save.xhtml">save</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/remove.xhtml">remove</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/clean.xhtml">clean</a>()
+                        </li><li>public array <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIdsMatchingTags.xhtml">getIdsMatchingTags</a>()
+                        </li><li>public array <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIdsNotMatchingTags.xhtml">getIdsNotMatchingTags</a>()
+                        </li><li>public array <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIdsMatchingAnyTags.xhtml">getIdsMatchingAnyTags</a>()
+                        </li><li>public array <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIds.xhtml">getIds</a>()
+                        </li><li>public array <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getTags.xhtml">getTags</a>()
+                        </li><li>public int <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getFillingPercentage.xhtml">getFillingPercentage</a>()
+                        </li><li>public array <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getMetadatas.xhtml">getMetadatas</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/touch.xhtml">touch</a>()
+                        </li><li>protected static void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_validateIdOrTag.xhtml">_validateIdOrTag</a>()
+                        </li><li>protected static void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_validateTagsArray.xhtml">_validateTagsArray</a>()
+                        </li><li>protected void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_loggerSanity.xhtml">_loggerSanity</a>()
+                        </li><li>protected void <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_log.xhtml">_log</a>()
+                        </li><li>protected string <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_id.xhtml">_id</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Zend_Cache_Core.xhtml">Zend_Cache_Core</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="BACKEND_NOT_SUPPORTS_TAG">BACKEND_NOT_SUPPORTS_TAG</td>
+              <td>'tags are not supported by the current backend'</td>
+            </tr>
+            <tr>
+              <td id="BACKEND_NOT_IMPLEMENTS_EXTENDED_IF">BACKEND_NOT_IMPLEMENTS_EXTENDED_IF</td>
+              <td>'Current backend doesn\'t implement the Zend_Cache_Backend_ExtendedInterface, so this method is not available'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_backend"><strong>$_backend</strong>
+                —
+                <a href="#">Zend_Cache_Backend_Interface</a><br/><span class="indent">Backend Object</span></li>
+            <li id="_backendCapabilities"><strong>$_backendCapabilities</strong>
+                —
+                array<br/><span class="indent">Array of capabilities of the backend (only if it implements Zend_Cache_Backend_ExtendedInterface)</span></li>
+            <li id="_directivesList"><strong>$_directivesList</strong>
+                —
+                array<br/><span class="indent">Array of options which have to be transfered to backend</span></li>
+            <li id="_extendedBackend"><strong>$_extendedBackend</strong>
+                —
+                boolean<br/><span class="indent">True if the backend implements Zend_Cache_Backend_ExtendedInterface</span></li>
+            <li id="_extension">
+              <strong>$_extension</strong>
+            </li>
+            <li id="_idStack"><strong>$_idStack</strong>
+                —
+                array<br/><span class="indent">Page identifiers</span></li>
+            <li id="_options"><strong>$_options</strong>
+                —
+                array<br/><span class="indent">Available options</span></li>
+            <li id="_specificOptions"><strong>$_specificOptions</strong>
+                —
+                array<br/><span class="indent">Not used for the core, just a sort a hint to get a common setOption() method (for the core and for frontends)</span></li>
+            <li id="_tags"><strong>$_tags</strong>
+                —
+                array<br/><span class="indent">Tags</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="_flush"><a title="Zend_Cache_Frontend_Capture" href="../classes/Zend_Cache_Frontend_Capture/_flush.xhtml">_flush()</a>
+                — callback for output buffering (shouldn't really be called manually)</li>
+            <li id="start"><a title="Zend_Cache_Frontend_Capture" href="../classes/Zend_Cache_Frontend_Capture/start.xhtml">start()</a>
+                — Start the cache</li>
+          </ul>
+          <h3>Inherited from <a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core.xhtml">Zend_Cache_Core</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="_id"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_id.xhtml">_id()</a>
+                — Make and return a cache id</li>
+            <li id="_log"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_log.xhtml">_log()</a>
+                — Log a message at the WARN (4) priority.</li>
+            <li id="_loggerSanity"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_loggerSanity.xhtml">_loggerSanity()</a>
+                — Make sure if we enable logging that the Zend_Log class is available.</li>
+            <li id="_validateIdOrTag"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_validateIdOrTag.xhtml">_validateIdOrTag()</a>
+                — Validate a cache id or a tag (security, reliable filenames, reserved prefixes...)</li>
+            <li id="_validateTagsArray"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/_validateTagsArray.xhtml">_validateTagsArray()</a>
+                — Validate a tags array (security, reliable filenames, reserved prefixes...)</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="clean"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/clean.xhtml">clean()</a>
+                — Clean cache entries</li>
+            <li id="getBackend"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getBackend.xhtml">getBackend()</a>
+                — Returns the backend</li>
+            <li id="getFillingPercentage"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getFillingPercentage.xhtml">getFillingPercentage()</a>
+                — Return the filling percentage of the backend storage</li>
+            <li id="getIds"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIds.xhtml">getIds()</a>
+                — Return an array of stored cache ids</li>
+            <li id="getIdsMatchingAnyTags"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIdsMatchingAnyTags.xhtml">getIdsMatchingAnyTags()</a>
+                — Return an array of stored cache ids which match any given tags</li>
+            <li id="getIdsMatchingTags"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIdsMatchingTags.xhtml">getIdsMatchingTags()</a>
+                — Return an array of stored cache ids which match given tags</li>
+            <li id="getIdsNotMatchingTags"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getIdsNotMatchingTags.xhtml">getIdsNotMatchingTags()</a>
+                — Return an array of stored cache ids which don't match given tags</li>
+            <li id="getMetadatas"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getMetadatas.xhtml">getMetadatas()</a>
+                — Return an array of metadatas for the given cache id</li>
+            <li id="getOption"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getOption.xhtml">getOption()</a>
+                — Public frontend to get an option value</li>
+            <li id="getTags"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/getTags.xhtml">getTags()</a>
+                — Return an array of stored tags</li>
+            <li id="load"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/load.xhtml">load()</a>
+                — Test if a cache is available for the given id and (if yes) return it (false else)</li>
+            <li id="remove"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/remove.xhtml">remove()</a>
+                — Remove a cache</li>
+            <li id="save"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/save.xhtml">save()</a>
+                — Save some data in a cache</li>
+            <li id="setBackend"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setBackend.xhtml">setBackend()</a>
+                — Set the backend</li>
+            <li id="setConfig"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setConfig.xhtml">setConfig()</a>
+                — Set options using an instance of type Zend_Config</li>
+            <li id="setLifetime"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setLifetime.xhtml">setLifetime()</a>
+                — Force a new lifetime</li>
+            <li id="setOption"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/setOption.xhtml">setOption()</a>
+                — Public frontend to set an option</li>
+            <li id="test"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/test.xhtml">test()</a>
+                — Test if a cache is available for the given id</li>
+            <li id="touch"><a title="Zend_Cache_Core" href="../classes/Zend_Cache_Core/touch.xhtml">touch()</a>
+                — Give (if possible) an extra lifetime to the given cache id</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

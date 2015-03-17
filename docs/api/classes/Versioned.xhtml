@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Versioned</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Versioned</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/model/Versioned.php.xhtml#line11">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Versioned</h1>
+        <h4>The Versioned extension allows your DataObjects to have several versions, allowing you to rollback changes and view history. An example of this is the pages used in the CMS.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Versioned
+                extends <a title="DataExtension" href="../classes/DataExtension.xhtml">DataExtension</a>
+                implements
+                <a title="TemplateGlobalProvider" href="../interfaces/TemplateGlobalProvider.xhtml">TemplateGlobalProvider</a>
+            {<br/><ul class="none"><li>// constants</li><li>const DEFAULT_MODE = 'Stage.Live';</li></ul><ul class="none"><li>// members</li><li>protected array <a href="#members">$stages</a>;
+                    </li><li>protected string <a href="#members">$defaultStage</a>;
+                    </li><li>protected string <a href="#members">$liveStage</a>;
+                    </li><li>public string <a href="#members">$migratingVersion</a>;
+                    </li><li>protected array <a href="#members">$cache_versionnumber</a>;
+                    </li><li>protected string <a href="#members">$reading_mode</a>;
+                    </li><li>public <span title="Boolean">Boolean</span> <a href="#members">$_nextWriteWithoutVersion</a>;
+                    </li><li>private array <a href="#members">$db_for_versions_table</a>;
+                    </li><li>private array <a href="#members">$db</a>;
+                    </li><li>private boolean <a href="#members">$prepopulate_versionnumber_cache</a>;
+                    </li><li>private array <a href="#members">$archive_tables</a>;
+                    </li><li>private array <a href="#members">$indexes_for_versions_table</a>;
+                    </li><li>protected array <a href="#members">$versionableExtensions</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="Extension">Extension</span></li><li>protected <span title="Object">Object</span> <a href="#members">$owner</a>;
+                        </li><li>protected <span title="DataObject">DataObject</span> <a href="#members">$ownerBaseClass</a>;
+                        </li><li>public <a href="#members">$class</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="Versioned" href="../classes/Versioned/reset.xhtml">reset</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/augmentDataQueryCreation.xhtml">augmentDataQueryCreation</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/augmentSQL.xhtml">augmentSQL</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/augmentLoadLazyFields.xhtml">augmentLoadLazyFields</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/on_db_reset.xhtml">on_db_reset</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/augmentDatabase.xhtml">augmentDatabase</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/augmentWrite.xhtml">augmentWrite</a>()
+                    </li><li>public int <a title="Versioned" href="../classes/Versioned/writeWithoutVersion.xhtml">writeWithoutVersion</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/onAfterWrite.xhtml">onAfterWrite</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/onAfterSkippedWrite.xhtml">onAfterSkippedWrite</a>()
+                    </li><li>public boolean <a title="Versioned" href="../classes/Versioned/canBeVersioned.xhtml">canBeVersioned</a>()
+                    </li><li>public boolean <a title="Versioned" href="../classes/Versioned/hasVersionField.xhtml">hasVersionField</a>()
+                    </li><li>public string <a title="Versioned" href="../classes/Versioned/extendWithSuffix.xhtml">extendWithSuffix</a>()
+                    </li><li>public DataObject <a title="Versioned" href="../classes/Versioned/latestPublished.xhtml">latestPublished</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/publish.xhtml">publish</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/migrateVersion.xhtml">migrateVersion</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/stagesDiffer.xhtml">stagesDiffer</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/Versions.xhtml">Versions</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/allVersions.xhtml">allVersions</a>()
+                    </li><li>public DataObject <a title="Versioned" href="../classes/Versioned/compareVersions.xhtml">compareVersions</a>()
+                    </li><li>public string <a title="Versioned" href="../classes/Versioned/baseTable.xhtml">baseTable</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/choose_site_stage.xhtml">choose_site_stage</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/set_reading_mode.xhtml">set_reading_mode</a>()
+                    </li><li>public static string <a title="Versioned" href="../classes/Versioned/get_reading_mode.xhtml">get_reading_mode</a>()
+                    </li><li>public static string <a title="Versioned" href="../classes/Versioned/get_live_stage.xhtml">get_live_stage</a>()
+                    </li><li>public static string <a title="Versioned" href="../classes/Versioned/current_stage.xhtml">current_stage</a>()
+                    </li><li>public static string <a title="Versioned" href="../classes/Versioned/current_archived_date.xhtml">current_archived_date</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/reading_stage.xhtml">reading_stage</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/reading_archived_date.xhtml">reading_archived_date</a>()
+                    </li><li>public static DataObject <a title="Versioned" href="../classes/Versioned/get_one_by_stage.xhtml">get_one_by_stage</a>()
+                    </li><li>public static int <a title="Versioned" href="../classes/Versioned/get_versionnumber_by_stage.xhtml">get_versionnumber_by_stage</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/prepopulate_versionnumber_cache.xhtml">prepopulate_versionnumber_cache</a>()
+                    </li><li>public static SS_List <a title="Versioned" href="../classes/Versioned/get_by_stage.xhtml">get_by_stage</a>()
+                    </li><li>public int <a title="Versioned" href="../classes/Versioned/deleteFromStage.xhtml">deleteFromStage</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/writeToStage.xhtml">writeToStage</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/doRollbackTo.xhtml">doRollbackTo</a>()
+                    </li><li>public static DataObject <a title="Versioned" href="../classes/Versioned/get_latest_version.xhtml">get_latest_version</a>()
+                    </li><li>public boolean <a title="Versioned" href="../classes/Versioned/isLatestVersion.xhtml">isLatestVersion</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/get_including_deleted.xhtml">get_including_deleted</a>()
+                    </li><li>public static DataObject <a title="Versioned" href="../classes/Versioned/get_version.xhtml">get_version</a>()
+                    </li><li>public static DataList <a title="Versioned" href="../classes/Versioned/get_all_versions.xhtml">get_all_versions</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/updateFieldLabels.xhtml">updateFieldLabels</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/updateCMSFields.xhtml">updateCMSFields</a>()
+                    </li><li>public void <a title="Versioned" href="../classes/Versioned/flushCache.xhtml">flushCache</a>()
+                    </li><li>public string <a title="Versioned" href="../classes/Versioned/cacheKeyComponent.xhtml">cacheKeyComponent</a>()
+                    </li><li>public array <a title="Versioned" href="../classes/Versioned/getVersionedStages.xhtml">getVersionedStages</a>()
+                    </li><li>public string <a title="Versioned" href="../classes/Versioned/getDefaultStage.xhtml">getDefaultStage</a>()
+                    </li><li>public static void <a title="Versioned" href="../classes/Versioned/get_template_global_variables.xhtml">get_template_global_variables</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="DataExtension">DataExtension</span></li><li>public static void <a title="DataExtension" href="../classes/DataExtension/get_extra_config.xhtml">get_extra_config</a>()
+                        </li><li>public static void <a title="DataExtension" href="../classes/DataExtension/unload_extra_statics.xhtml">unload_extra_statics</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/validate.xhtml">validate</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/augmentSQL.xhtml">augmentSQL</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/augmentDatabase.xhtml">augmentDatabase</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/augmentWrite.xhtml">augmentWrite</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/onBeforeWrite.xhtml">onBeforeWrite</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/onAfterWrite.xhtml">onAfterWrite</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/onBeforeDelete.xhtml">onBeforeDelete</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/onAfterDelete.xhtml">onAfterDelete</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/requireDefaultRecords.xhtml">requireDefaultRecords</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/populateDefaults.xhtml">populateDefaults</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/can.xhtml">can</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/canEdit.xhtml">canEdit</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/canDelete.xhtml">canDelete</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/canCreate.xhtml">canCreate</a>()
+                        </li><li>public array <a title="DataExtension" href="../classes/DataExtension/extraStatics.xhtml">extraStatics</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/updateCMSFields.xhtml">updateCMSFields</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/updateFrontEndFields.xhtml">updateFrontEndFields</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/updateCMSActions.xhtml">updateCMSActions</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/updateSummaryFields.xhtml">updateSummaryFields</a>()
+                        </li><li>public void <a title="DataExtension" href="../classes/DataExtension/updateFieldLabels.xhtml">updateFieldLabels</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="Extension">Extension</span></li><li>public void <a title="Extension" href="../classes/Extension/__construct.xhtml">__construct</a>()
+                        </li><li>public static void <a title="Extension" href="../classes/Extension/add_to_class.xhtml">add_to_class</a>()
+                        </li><li>public void <a title="Extension" href="../classes/Extension/setOwner.xhtml">setOwner</a>()
+                        </li><li>public void <a title="Extension" href="../classes/Extension/clearOwner.xhtml">clearOwner</a>()
+                        </li><li>public Object <a title="Extension" href="../classes/Extension/getOwner.xhtml">getOwner</a>()
+                        </li><li>public static string <a title="Extension" href="../classes/Extension/get_classname_without_arguments.xhtml">get_classname_without_arguments</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/DataExtension.xhtml">DataExtension</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/TemplateGlobalProvider.xhtml">TemplateGlobalProvider</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">188+</td>
+            <td>Should this all go into VersionedDataQuery?</td>
+          </tr>
+          <tr>
+            <td class="nummeric">363+</td>
+            <td>Reduce the coupling between this and SapphireTest, somehow.</td>
+          </tr>
+          <tr>
+            <td class="nummeric">822</td>
+            <td>DB Abstraction: if statement here:</td>
+          </tr>
+          <tr>
+            <td class="nummeric">1073</td>
+            <td>No identity cache operating</td>
+          </tr>
+          <tr>
+            <td class="nummeric">1250+</td>
+            <td>Performance - could do this directly via SQL.</td>
+          </tr>
+        </table>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="DEFAULT_MODE">DEFAULT_MODE</td>
+              <td>'Stage.Live'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="archive_tables"><strong>$archive_tables</strong>
+                —
+                array<br/><span class="indent">Keep track of the archive tables that have been created.</span></li>
+            <li id="db"><strong>$db</strong>
+                —
+                array</li>
+            <li id="db_for_versions_table"><strong>$db_for_versions_table</strong>
+                —
+                array<br/><span class="indent">Additional database columns for the new "_versions" table. Used in {@link augmentDatabase()} and all Versioned calls extending or creating SELECT statements.</span></li>
+            <li id="indexes_for_versions_table"><strong>$indexes_for_versions_table</strong>
+                —
+                array<br/><span class="indent">Additional database indexes for the new "_versions" table. Used in {@link augmentDatabase()}.</span></li>
+            <li id="prepopulate_versionnumber_cache"><strong>$prepopulate_versionnumber_cache</strong>
+                —
+                boolean<br/><span class="indent">Used to enable or disable the prepopulation of the version number cache.</span></li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="cache_versionnumber"><strong>$cache_versionnumber</strong>
+                —
+                array<br/><span class="indent">A cache used by get_versionnumber_by_stage().</span></li>
+            <li id="defaultStage"><strong>$defaultStage</strong>
+                —
+                string<br/><span class="indent">The 'default' stage.</span></li>
+            <li id="liveStage"><strong>$liveStage</strong>
+                —
+                string<br/><span class="indent">The 'live' stage.</span></li>
+            <li id="owner"><strong>$owner</strong>
+                —
+                <a href="#">Object</a><br/><span class="indent">The object this extension is applied to.</span></li>
+            <li id="ownerBaseClass"><strong>$ownerBaseClass</strong>
+                —
+                <a href="#">DataObject</a><br/><span class="indent">The base class that this extension was applied to; $this-&gt;owner must be one of these</span></li>
+            <li id="reading_mode"><strong>$reading_mode</strong>
+                —
+                string</li>
+            <li id="stages"><strong>$stages</strong>
+                —
+                array<br/><span class="indent">An array of possible stages.</span></li>
+            <li id="versionableExtensions"><strong>$versionableExtensions</strong>
+                —
+                array<br/><span class="indent">An array of DataObject extensions that may require versioning for extra tables The array value is a set of suffixes to form these table names, assuming a preceding '_'.</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="_nextWriteWithoutVersion"><strong>$_nextWriteWithoutVersion</strong>
+                —
+                <a href="#">Boolean</a></li>
+            <li id="class">
+              <strong>$class</strong>
+            </li>
+            <li id="migratingVersion"><strong>$migratingVersion</strong>
+                —
+                string<br/><span class="indent">A version that a DataObject should be when it is 'migrating', that is, when it is in the process of moving from one stage to another.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Versioned" href="../classes/Versioned/__construct.xhtml">__construct()</a>
+                — Construct a new Versioned object.</li>
+            <li id="Versions">
+              <a title="Versioned" href="../classes/Versioned/Versions.xhtml">Versions()</a>
+            </li>
+            <li id="allVersions"><a title="Versioned" href="../classes/Versioned/allVersions.xhtml">allVersions()</a>
+                — Return a list of all the versions available.</li>
+            <li id="augmentDataQueryCreation"><a title="Versioned" href="../classes/Versioned/augmentDataQueryCreation.xhtml">augmentDataQueryCreation()</a>
+                — Amend freshly created DataQuery objects with versioned-specific information.</li>
+            <li id="augmentDatabase">
+              <a title="Versioned" href="../classes/Versioned/augmentDatabase.xhtml">augmentDatabase()</a>
+            </li>
+            <li id="augmentLoadLazyFields"><a title="Versioned" href="../classes/Versioned/augmentLoadLazyFields.xhtml">augmentLoadLazyFields()</a>
+                — For lazy loaded fields requiring extra sql manipulation, ie versioning.</li>
+            <li id="augmentSQL"><a title="Versioned" href="../classes/Versioned/augmentSQL.xhtml">augmentSQL()</a>
+                — Augment the the SQLQuery that is created by the DataQuery</li>
+            <li id="augmentWrite"><a title="Versioned" href="../classes/Versioned/augmentWrite.xhtml">augmentWrite()</a>
+                — Augment a write-record request.</li>
+            <li id="baseTable"><a title="Versioned" href="../classes/Versioned/baseTable.xhtml">baseTable()</a>
+                — Return the base table - the class that directly extends DataObject.</li>
+            <li id="cacheKeyComponent"><a title="Versioned" href="../classes/Versioned/cacheKeyComponent.xhtml">cacheKeyComponent()</a>
+                — Return a piece of text to keep DataObject cache keys appropriately specific.</li>
+            <li id="canBeVersioned"><a title="Versioned" href="../classes/Versioned/canBeVersioned.xhtml">canBeVersioned()</a>
+                — Determine if a table is supporting the Versioned extensions (e.g.</li>
+            <li id="choose_site_stage"><a title="Versioned" href="../classes/Versioned/choose_site_stage.xhtml">choose_site_stage()</a>
+                — Choose the stage the site is currently on.</li>
+            <li id="compareVersions"><a title="Versioned" href="../classes/Versioned/compareVersions.xhtml">compareVersions()</a>
+                — Compare two version, and return the diff between them.</li>
+            <li id="current_archived_date"><a title="Versioned" href="../classes/Versioned/current_archived_date.xhtml">current_archived_date()</a>
+                — Get the current archive date.</li>
+            <li id="current_stage"><a title="Versioned" href="../classes/Versioned/current_stage.xhtml">current_stage()</a>
+                — Get the current reading stage.</li>
+            <li id="deleteFromStage">
+              <a title="Versioned" href="../classes/Versioned/deleteFromStage.xhtml">deleteFromStage()</a>
+            </li>
+            <li id="doRollbackTo"><a title="Versioned" href="../classes/Versioned/doRollbackTo.xhtml">doRollbackTo()</a>
+                — Roll the draft version of this page to match the published page.</li>
+            <li id="extendWithSuffix">
+              <a title="Versioned" href="../classes/Versioned/extendWithSuffix.xhtml">extendWithSuffix()</a>
+            </li>
+            <li id="flushCache">
+              <a title="Versioned" href="../classes/Versioned/flushCache.xhtml">flushCache()</a>
+            </li>
+            <li id="getDefaultStage">
+              <a title="Versioned" href="../classes/Versioned/getDefaultStage.xhtml">getDefaultStage()</a>
+            </li>
+            <li id="getVersionedStages"><a title="Versioned" href="../classes/Versioned/getVersionedStages.xhtml">getVersionedStages()</a>
+                — Returns an array of possible stages.</li>
+            <li id="get_all_versions"><a title="Versioned" href="../classes/Versioned/get_all_versions.xhtml">get_all_versions()</a>
+                — Return a list of all versions for a given id.</li>
+            <li id="get_by_stage"><a title="Versioned" href="../classes/Versioned/get_by_stage.xhtml">get_by_stage()</a>
+                — Get a set of class instances by the given stage.</li>
+            <li id="get_including_deleted"><a title="Versioned" href="../classes/Versioned/get_including_deleted.xhtml">get_including_deleted()</a>
+                — Return the equivalent of a DataList::create() call, querying the latest version of each page stored in the (class)_versions tables.</li>
+            <li id="get_latest_version"><a title="Versioned" href="../classes/Versioned/get_latest_version.xhtml">get_latest_version()</a>
+                — Return the latest version of the given page.</li>
+            <li id="get_live_stage"><a title="Versioned" href="../classes/Versioned/get_live_stage.xhtml">get_live_stage()</a>
+                — Get the name of the 'live' stage.</li>
+            <li id="get_one_by_stage"><a title="Versioned" href="../classes/Versioned/get_one_by_stage.xhtml">get_one_by_stage()</a>
+                — Get a singleton instance of a class in the given stage.</li>
+            <li id="get_reading_mode"><a title="Versioned" href="../classes/Versioned/get_reading_mode.xhtml">get_reading_mode()</a>
+                — Get the current reading mode.</li>
+            <li id="get_template_global_variables">
+              <a title="Versioned" href="../classes/Versioned/get_template_global_variables.xhtml">get_template_global_variables()</a>
+            </li>
+            <li id="get_version"><a title="Versioned" href="../classes/Versioned/get_version.xhtml">get_version()</a>
+                — Return the specific version of the given id.</li>
+            <li id="get_versionnumber_by_stage"><a title="Versioned" href="../classes/Versioned/get_versionnumber_by_stage.xhtml">get_versionnumber_by_stage()</a>
+                — Gets the current version number of a specific record.</li>
+            <li id="hasVersionField"><a title="Versioned" href="../classes/Versioned/hasVersionField.xhtml">hasVersionField()</a>
+                — Check if a certain table has the 'Version' field.</li>
+            <li id="isLatestVersion"><a title="Versioned" href="../classes/Versioned/isLatestVersion.xhtml">isLatestVersion()</a>
+                — Returns whether the current record is the latest one.</li>
+            <li id="latestPublished"><a title="Versioned" href="../classes/Versioned/latestPublished.xhtml">latestPublished()</a>
+                — Get the latest published DataObject.</li>
+            <li id="migrateVersion"><a title="Versioned" href="../classes/Versioned/migrateVersion.xhtml">migrateVersion()</a>
+                — Set the migrating version.</li>
+            <li id="onAfterSkippedWrite"><a title="Versioned" href="../classes/Versioned/onAfterSkippedWrite.xhtml">onAfterSkippedWrite()</a>
+                — If a write was skipped, then we need to ensure that we don't leave a migrateVersion() value lying around for the next write.</li>
+            <li id="onAfterWrite">
+              <a title="Versioned" href="../classes/Versioned/onAfterWrite.xhtml">onAfterWrite()</a>
+            </li>
+            <li id="on_db_reset"><a title="Versioned" href="../classes/Versioned/on_db_reset.xhtml">on_db_reset()</a>
+                — Called by {@link SapphireTest} when the database is reset.</li>
+            <li id="prepopulate_versionnumber_cache"><a title="Versioned" href="../classes/Versioned/prepopulate_versionnumber_cache.xhtml">prepopulate_versionnumber_cache()</a>
+                — Pre-populate the cache for Versioned::get_versionnumber_by_stage() for a list of record IDs, for more efficient database querying.  If $idList is null, then every page will be pre-cached.</li>
+            <li id="publish"><a title="Versioned" href="../classes/Versioned/publish.xhtml">publish()</a>
+                — Move a database record from one stage to the other.</li>
+            <li id="reading_archived_date"><a title="Versioned" href="../classes/Versioned/reading_archived_date.xhtml">reading_archived_date()</a>
+                — Set the reading archive date.</li>
+            <li id="reading_stage"><a title="Versioned" href="../classes/Versioned/reading_stage.xhtml">reading_stage()</a>
+                — Set the reading stage.</li>
+            <li id="reset"><a title="Versioned" href="../classes/Versioned/reset.xhtml">reset()</a>
+                — Reset static configuration variables to their default values.</li>
+            <li id="set_reading_mode"><a title="Versioned" href="../classes/Versioned/set_reading_mode.xhtml">set_reading_mode()</a>
+                — Set the current reading mode.</li>
+            <li id="stagesDiffer"><a title="Versioned" href="../classes/Versioned/stagesDiffer.xhtml">stagesDiffer()</a>
+                — Compare two stages to see if they're different.</li>
+            <li id="updateCMSFields">
+              <a title="Versioned" href="../classes/Versioned/updateCMSFields.xhtml">updateCMSFields()</a>
+            </li>
+            <li id="updateFieldLabels">
+              <a title="Versioned" href="../classes/Versioned/updateFieldLabels.xhtml">updateFieldLabels()</a>
+            </li>
+            <li id="writeToStage">
+              <a title="Versioned" href="../classes/Versioned/writeToStage.xhtml">writeToStage()</a>
+            </li>
+            <li id="writeWithoutVersion"><a title="Versioned" href="../classes/Versioned/writeWithoutVersion.xhtml">writeWithoutVersion()</a>
+                — Perform a write without affecting the version table.</li>
+          </ul>
+          <h3>Inherited from <a title="DataExtension" href="../classes/DataExtension.xhtml">DataExtension</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="augmentDatabase"><a title="DataExtension" href="../classes/DataExtension/augmentDatabase.xhtml">augmentDatabase()</a>
+                — Update the database schema as required by this extension.</li>
+            <li id="augmentSQL"><a title="DataExtension" href="../classes/DataExtension/augmentSQL.xhtml">augmentSQL()</a>
+                — Edit the given query object to support queries for this extension</li>
+            <li id="augmentWrite"><a title="DataExtension" href="../classes/DataExtension/augmentWrite.xhtml">augmentWrite()</a>
+                — Augment a write-record request.</li>
+            <li id="can">
+              <a title="DataExtension" href="../classes/DataExtension/can.xhtml">can()</a>
+            </li>
+            <li id="canCreate">
+              <a title="DataExtension" href="../classes/DataExtension/canCreate.xhtml">canCreate()</a>
+            </li>
+            <li id="canDelete">
+              <a title="DataExtension" href="../classes/DataExtension/canDelete.xhtml">canDelete()</a>
+            </li>
+            <li id="canEdit">
+              <a title="DataExtension" href="../classes/DataExtension/canEdit.xhtml">canEdit()</a>
+            </li>
+            <li id="extraStatics"><a title="DataExtension" href="../classes/DataExtension/extraStatics.xhtml">extraStatics()</a>
+                — Define extra database fields</li>
+            <li id="get_extra_config">
+              <a title="DataExtension" href="../classes/DataExtension/get_extra_config.xhtml">get_extra_config()</a>
+            </li>
+            <li id="onAfterDelete">
+              <a title="DataExtension" href="../classes/DataExtension/onAfterDelete.xhtml">onAfterDelete()</a>
+            </li>
+            <li id="onAfterWrite">
+              <a title="DataExtension" href="../classes/DataExtension/onAfterWrite.xhtml">onAfterWrite()</a>
+            </li>
+            <li id="onBeforeDelete">
+              <a title="DataExtension" href="../classes/DataExtension/onBeforeDelete.xhtml">onBeforeDelete()</a>
+            </li>
+            <li id="onBeforeWrite">
+              <a title="DataExtension" href="../classes/DataExtension/onBeforeWrite.xhtml">onBeforeWrite()</a>
+            </li>
+            <li id="populateDefaults">
+              <a title="DataExtension" href="../classes/DataExtension/populateDefaults.xhtml">populateDefaults()</a>
+            </li>
+            <li id="requireDefaultRecords">
+              <a title="DataExtension" href="../classes/DataExtension/requireDefaultRecords.xhtml">requireDefaultRecords()</a>
+            </li>
+            <li id="unload_extra_statics">
+              <a title="DataExtension" href="../classes/DataExtension/unload_extra_statics.xhtml">unload_extra_statics()</a>
+            </li>
+            <li id="updateCMSActions"><a title="DataExtension" href="../classes/DataExtension/updateCMSActions.xhtml">updateCMSActions()</a>
+                — This is used to provide modifications to the form actions used in the CMS. {@link DataObject-&gt;getCMSActions()}.</li>
+            <li id="updateCMSFields"><a title="DataExtension" href="../classes/DataExtension/updateCMSFields.xhtml">updateCMSFields()</a>
+                — This function is used to provide modifications to the form in the CMS by the extension. By default, no changes are made. {@link DataObject-&gt;getCMSFields()}.</li>
+            <li id="updateFieldLabels"><a title="DataExtension" href="../classes/DataExtension/updateFieldLabels.xhtml">updateFieldLabels()</a>
+                — this function is used to provide modifications to the fields labels in CMS by the extension By default, the fieldLabels() of its owner will merge more fields defined in the extension's $extra_fields['field_labels']</li>
+            <li id="updateFrontEndFields"><a title="DataExtension" href="../classes/DataExtension/updateFrontEndFields.xhtml">updateFrontEndFields()</a>
+                — This function is used to provide modifications to the form used for front end forms. {@link DataObject-&gt;getFrontEndFields()}</li>
+            <li id="updateSummaryFields"><a title="DataExtension" href="../classes/DataExtension/updateSummaryFields.xhtml">updateSummaryFields()</a>
+                — this function is used to provide modifications to the summary fields in CMS by the extension By default, the summaryField() of its owner will merge more fields defined in the extension's $extra_fields['summary_fields']</li>
+            <li id="validate"><a title="DataExtension" href="../classes/DataExtension/validate.xhtml">validate()</a>
+                — Hook for extension-specific validation.</li>
+          </ul>
+          <h3>Inherited from <a title="Extension" href="../classes/Extension.xhtml">Extension</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="add_to_class"><a title="Extension" href="../classes/Extension/add_to_class.xhtml">add_to_class()</a>
+                — Called when this extension is added to a particular class</li>
+            <li id="clearOwner">
+              <a title="Extension" href="../classes/Extension/clearOwner.xhtml">clearOwner()</a>
+            </li>
+            <li id="getOwner"><a title="Extension" href="../classes/Extension/getOwner.xhtml">getOwner()</a>
+                — Returns the owner of this extension.</li>
+            <li id="get_classname_without_arguments"><a title="Extension" href="../classes/Extension/get_classname_without_arguments.xhtml">get_classname_without_arguments()</a>
+                — Helper method to strip eval'ed arguments from a string thats passed to {@link DataObject::$extensions} or {@link Object::add_extension()}.</li>
+            <li id="setOwner"><a title="Extension" href="../classes/Extension/setOwner.xhtml">setOwner()</a>
+                — Set the owner of this extension.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider" abstract="false" final="false" start="19" end="39">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldComponent.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldComponent.php" size="6076" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="026a1c40c146e02df07a741dec8113859b0384a5" relative="framework/forms/gridfield/GridFieldComponent.php"/>
+  <docblock>
+    <description compact="A GridField manipulator that provides HTML for the header/footer rows, or f or before/after the template."/>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+  <method name="getHTMLFragments" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a map where the keys are fragment names and the values are pieces of HTML to add to these fragments.">Here are 4 built-in fragments: 'header', 'footer', 'before', and
+'after', but components may also specify fragments of their own.
+To specify a new fragment, specify a new fragment by including the
+text "$DefineFragment(fragmentname)" in the HTML that you return.
+Fragment names should only contain alphanumerics, -, and _.
+If you attempt to return HTML for a fragment that doesn't exist, an
+exception will be thrown when the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> is rendered.
+</description>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <implementor full="GridFieldAddNewButtonOriginalPage" namespace="" name="GridFieldAddNewButtonOriginalPage"/>
+  <implementor full="GridFieldTest_HTMLFragments" namespace="" name="GridFieldTest_HTMLFragments"/>
+  <implementor full="GridFieldPaginator" namespace="" name="GridFieldPaginator"/>
+  <implementor full="GridFieldPageCount" namespace="" name="GridFieldPageCount"/>
+  <implementor full="GridFieldAddExistingAutocompleter" namespace="" name="GridFieldAddExistingAutocompleter"/>
+  <implementor full="GridFieldFooter" namespace="" name="GridFieldFooter"/>
+  <implementor full="GridFieldSortableHeader" namespace="" name="GridFieldSortableHeader"/>
+  <implementor full="GridFieldPrintButton" namespace="" name="GridFieldPrintButton"/>
+  <parent full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+  <implementor full="GridFieldExportButton" namespace="" name="GridFieldExportButton"/>
+  <implementor full="GridFieldLevelup" namespace="" name="GridFieldLevelup"/>
+  <implementor full="GridFieldAddNewButton" namespace="" name="GridFieldAddNewButton"/>
+  <implementor full="GridFieldFilterHeader" namespace="" name="GridFieldFilterHeader"/>
+  <implementor full="GridState_Component" namespace="" name="GridState_Component"/>
+  <implementor full="GridFieldToolbarHeader" namespace="" name="GridFieldToolbarHeader"/>
+  <implementor full="GridFieldButtonRow" namespace="" name="GridFieldButtonRow"/>
+</interface>

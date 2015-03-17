@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_HTTPResponse</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_HTTPResponse</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/control/HTTPResponse.php.xhtml#line8">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_HTTPResponse</h1>
+        <h4>Represents a response returned by a controller.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_HTTPResponse
+            {<br/><ul class="none"><li>// members</li><li>protected array <a href="#members">$status_codes</a>;
+                    </li><li>protected array <a href="#members">$redirect_codes</a>;
+                    </li><li>protected <span title="Int">Int</span> <a href="#members">$statusCode</a>;
+                    </li><li>protected <span title="String">String</span> <a href="#members">$statusDescription</a>;
+                    </li><li>protected array <a href="#members">$headers</a>;
+                    </li><li>protected string <a href="#members">$body</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/__construct.xhtml">__construct</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/setStatusCode.xhtml">setStatusCode</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/setStatusDescription.xhtml">setStatusDescription</a>()
+                    </li><li>public Int <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getStatusCode.xhtml">getStatusCode</a>()
+                    </li><li>public string <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getStatusDescription.xhtml">getStatusDescription</a>()
+                    </li><li>public bool <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/isError.xhtml">isError</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/setBody.xhtml">setBody</a>()
+                    </li><li>public null|string <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getBody.xhtml">getBody</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/addHeader.xhtml">addHeader</a>()
+                    </li><li>public void <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getHeader.xhtml">getHeader</a>()
+                    </li><li>public array <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getHeaders.xhtml">getHeaders</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/removeHeader.xhtml">removeHeader</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/redirect.xhtml">redirect</a>()
+                    </li><li>public void <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/output.xhtml">output</a>()
+                    </li><li>public bool <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/isFinished.xhtml">isFinished</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/CartResponse.xhtml">CartResponse</a>
+            </li>
+            <li>
+              <a href="../classes/EcommerceResponse.xhtml">EcommerceResponse</a>
+            </li>
+            <li>
+              <a href="../classes/LeftAndMain_HTTPResponse.xhtml">LeftAndMain_HTTPResponse</a>
+            </li>
+            <li>
+              <a href="../classes/RestfulService_Response.xhtml">RestfulService_Response</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="body"><strong>$body</strong>
+                —
+                string</li>
+            <li id="headers"><strong>$headers</strong>
+                —
+                array<br/><span class="indent">HTTP Headers like "Content-Type: text/xml"</span></li>
+            <li id="redirect_codes"><strong>$redirect_codes</strong>
+                —
+                array</li>
+            <li id="statusCode"><strong>$statusCode</strong>
+                —
+                <a href="#">Int</a></li>
+            <li id="statusDescription"><strong>$statusDescription</strong>
+                —
+                <a href="#">String</a></li>
+            <li id="status_codes"><strong>$status_codes</strong>
+                —
+                array</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/__construct.xhtml">__construct()</a>
+                — Create a new HTTP response</li>
+            <li id="addHeader"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/addHeader.xhtml">addHeader()</a>
+                — Add a HTTP header to the response, replacing any header of the same name.</li>
+            <li id="getBody">
+              <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getBody.xhtml">getBody()</a>
+            </li>
+            <li id="getHeader"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getHeader.xhtml">getHeader()</a>
+                — Return the HTTP header of the given name.</li>
+            <li id="getHeaders">
+              <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getHeaders.xhtml">getHeaders()</a>
+            </li>
+            <li id="getStatusCode">
+              <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getStatusCode.xhtml">getStatusCode()</a>
+            </li>
+            <li id="getStatusDescription">
+              <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/getStatusDescription.xhtml">getStatusDescription()</a>
+            </li>
+            <li id="isError"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/isError.xhtml">isError()</a>
+                — Returns true if this HTTP response is in error</li>
+            <li id="isFinished"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/isFinished.xhtml">isFinished()</a>
+                — Returns true if this response is "finished", that is, no more script execution should be done.</li>
+            <li id="output"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/output.xhtml">output()</a>
+                — Send this HTTPReponse to the browser</li>
+            <li id="redirect">
+              <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/redirect.xhtml">redirect()</a>
+            </li>
+            <li id="removeHeader"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/removeHeader.xhtml">removeHeader()</a>
+                — Remove an existing HTTP header by its name, e.g. "Content-Type".</li>
+            <li id="setBody">
+              <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/setBody.xhtml">setBody()</a>
+            </li>
+            <li id="setStatusCode">
+              <a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/setStatusCode.xhtml">setStatusCode()</a>
+            </li>
+            <li id="setStatusDescription"><a title="SS_HTTPResponse" href="../classes/SS_HTTPResponse/setStatusDescription.xhtml">setStatusDescription()</a>
+                — The text to be given alongside the status code ("reason phrase").</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

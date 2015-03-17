@@ -1,0 +1,2024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ShoppingCart_Controller" namespace="" name="ShoppingCart_Controller" abstract="false" final="false" start="16" end="700">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../ecommerce/code/control" file="ShoppingCart_Controller.php" realpath="/var/www/_modules/ecommerce_test/trunk/ecommerce/code/control/ShoppingCart_Controller.php" size="20487" time="2015-03-14T10:43:16+13:00" unixtime="1426282996" sha1="6c4a777a6ff28937846208ea859ac5f4fc400be5" relative="ecommerce/code/control/ShoppingCart_Controller.php"/>
+  <docblock>
+    <description compact="ShoppingCart_Controller">Handles the modification of a shopping cart via http requests.
+Provides links for making these modifications.
+
+author: Jeremy Shipman, Nicolaas Francken
+package: ecommerce
+
+todo supply links for adding, removing, and clearing cart items
+todo link for removing modifier(s)</description>
+  </docblock>
+  <extends full="Controller" namespace="" name="Controller"/>
+  <member name="url_handlers" type="array" visibility="private" line="21">
+    <docblock>
+      <description compact="Default URL handlers - (Action)/(ID)/(OtherID)"/>
+    </docblock>
+  </member>
+  <member name="methodsRequiringSecurityID" type="array" visibility="protected" line="30">
+    <docblock>
+      <description compact="We need to only use the Security ID on a few actions, these are listed here."/>
+      <var type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="cart" type="{unknown}" default="null" visibility="protected" line="46">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="ShoppingCart" namespace="" name="ShoppingCart"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="init" start="48" end="70" abstract="false" final="false" static="false" visibility="public"/>
+  <member name="allowed_actions" type="array" visibility="private" line="72"/>
+  <method name="index" start="100" end="114" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="Link" start="124" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$action">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return description="(Link)" type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="action" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="create_link" start="132" end="138" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="returns ABSOLUTE link to the shopping cart controller"/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="actionAndOtherLinkVariables" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="add_item_link" start="147" end="149" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$buyableID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$classNameForBuyable">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="buyableID" byreference="false" type="{unknown}"/>
+    <parameter name="classNameForBuyable" byreference="false" type="string" default="&quot;Product&quot;"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="remove_item_link" start="158" end="160" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$buyableID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$classNameForBuyable">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="buyableID" byreference="false" type="{unknown}"/>
+    <parameter name="classNameForBuyable" byreference="false" type="string" default="&quot;Product&quot;"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="remove_all_item_link" start="169" end="171" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$buyableID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$classNameForBuyable">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="buyableID" byreference="false" type="{unknown}"/>
+    <parameter name="classNameForBuyable" byreference="false" type="string" default="&quot;Product&quot;"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="remove_all_item_and_edit_link" start="180" end="182" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$buyableID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$classNameForBuyable">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="buyableID" byreference="false" type="{unknown}"/>
+    <parameter name="classNameForBuyable" byreference="false" type="string" default="&quot;Product&quot;"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="set_quantity_item_link" start="191" end="193" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$buyableID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$classNameForBuyable">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="buyableID" byreference="false" type="{unknown}"/>
+    <parameter name="classNameForBuyable" byreference="false" type="string" default="&quot;Product&quot;"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="remove_modifier_link" start="201" end="203" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$modifierID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="modifierID" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="add_modifier_link" start="211" end="213" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$modifierID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="modifierID" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="remove_address_link" start="222" end="224" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$addressID">
+        <type full="Integer" namespace="" name="Integer"/>
+      </param>
+      <param type="object" variable="$addressClassName">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="addressID" byreference="false" type="{unknown}"/>
+    <parameter name="addressClassName" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="clear_cart_link" start="230" end="232" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="save_cart_link" start="238" end="240" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="clear_cart_and_logout_link" start="246" end="248" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="delete_order_link" start="254" end="256" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$parameters">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="orderID" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="copy_order_link" start="258" end="260" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="orderID" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="set_currency_link" start="268" end="270" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="returns a link that allows you to set a currency...">dont be fooled by the set_ part...</description>
+      <param type="object" variable="$code">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="parameters" byreference="false" type="array"/>
+  </method>
+  <method name="json" start="277" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="return json for cart... no further actions."/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="JSON" namespace="" name="JSON"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="additem" start="287" end="290" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds item to cart via controller action; one by default."/>
+      <param type="object">
+        <type full="HTTPRequest" namespace="" name="HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="setquantityitem" start="299" end="302" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the exact passed quantity.">Note: If no ?quantity=x is specified in URL, then quantity will be set to 1.</description>
+      <param type="object">
+        <type full="HTTPRequest" namespace="" name="HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="removeitem" start="310" end="313" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes item from cart via controller action; one by default."/>
+      <param type="object">
+        <type full="HTTPRequest" namespace="" name="HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="removeallitem" start="321" end="324" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes all of a specific item"/>
+      <param type="object">
+        <type full="HTTPRequest" namespace="" name="HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="removeallitemandedit" start="332" end="342" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes all of a specific item AND return back"/>
+      <param type="object">
+        <type full="HTTPRequest" namespace="" name="HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="removemodifier" start="350" end="354" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes a specified modifier from the cart;"/>
+      <param type="object">
+        <type full="HTTPRequest" namespace="" name="HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="addmodifier" start="362" end="366" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a specified modifier to the cart;"/>
+      <param type="object">
+        <type full="HTTPRequest" namespace="" name="HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="setcountry" start="375" end="380" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="sets the country"/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <inline>
+      <comment value="set_country will check if the country code is actually allowed...." line="377"/>
+    </inline>
+  </method>
+  <method name="setregion" start="387" end="391" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="setcurrency" start="398" end="402" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="save" start="409" end="412" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return description="- if the request is AJAX, it returns JSON - CartResponse::ReturnCartData();" type="object">If it is not AJAX it redirects back to requesting page.<type full="Mixed" namespace="" name="Mixed"/></return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="clear" start="418" end="422" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECT" namespace="" name="REDIRECT"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="clearandlogout" start="428" end="435" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECT" namespace="" name="REDIRECT"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="deleteorder" start="441" end="449" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECT" namespace="" name="REDIRECT"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="copyorder" start="451" end="457" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="numberofitemsincart" start="464" end="467" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="return number of items in cart"/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="integer"/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="showcart" start="474" end="476" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="return cart for ajax call"/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="HTML" namespace="" name="HTML"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="loadorder" start="483" end="492" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="loads an order"/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECT" namespace="" name="REDIRECT"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="removeaddress" start="501" end="526" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="remove address from list of available addresses in checkout."/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return description="| REDIRECT" type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+      <todo value=": add non-ajax version of this request."/>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="submittedbuyable" start="535" end="558" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="allows us to view out-dated buyables that have been deleted where only old versions exist.">this method should redirect</description>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECT" namespace="" name="REDIRECT"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <inline>
+      <comment value="show singleton with old version" line="544"/>
+    </inline>
+  </method>
+  <method name="loginas" start="567" end="594" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="This can be used by admins to log in as customers to place orders on their behalf..."/>
+      <param type="object">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <return type="object">
+        <type full="REDIRECT" namespace="" name="REDIRECT"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <method name="params_to_get_string" start="608" end="612" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Helper function used by link functions Creates the appropriate url-encoded string parameters for links from array">Produces string such as: MyParam%3D11%26OtherParam%3D1
+    ...which decodes to: MyParam=11&amp;OtherParam=1
+
+you will need to decode the url with javascript before using it.</description>
+      <todo value=": check that comment description actually matches what it does"/>
+      <return description="(URLSegment)" type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="array" byreference="false" type="array"/>
+  </method>
+  <method name="buyable" start="618" end="637" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets a buyable object based on URL actions"/>
+      <return description="| Null - returns buyable" type="object">
+        <type full="DataObject" namespace="" name="DataObject"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="quantity" start="643" end="649" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the requested quantity"/>
+      <return type="object">
+        <type full="Float" namespace="" name="Float"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="parameters" start="656" end="658" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets the request parameters"/>
+      <param description="choose between obtaining the chosen parameters from GET or POST" variable="$getpost" type="object">
+        <type full="-" namespace="" name="-"/>
+      </param>
+      <return type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="getpost" byreference="false" type="string" default="'GET'"/>
+  </method>
+  <method name="debug" start="664" end="671" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handy debugging action visit.">Log in as an administrator and visit mysite/shoppingcart/debug</description>
+    </docblock>
+  </method>
+  <method name="ajaxtest" start="678" end="697" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="test the ajax response for developers only"/>
+      <return description="to buffer" type="object">
+        <type full="output" namespace="" name="output"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+  </method>
+  <parent full="Controller" namespace="" name="Controller">
+    <extends full="RequestHandler" namespace="" name="RequestHandler"/>
+    <member name="urlParams" type="{unknown}" visibility="protected" line="17">
+      <docblock>
+        <description/>
+        <var description="$urlParams An array of arguments extracted from the URL" type="array"/>
+      </docblock>
+    </member>
+    <member name="requestParams" type="{unknown}" visibility="protected" line="24">
+      <docblock>
+        <description/>
+        <var description="$requestParams Contains all GET and POST parameters" type="array">passed to the current <link xmlns="http://xml.phpdox.net/src" value="SS_HTTPRequest"/>.
+</var>
+        <uses value="SS_HTTPRequest-&gt;requestVars()"/>
+      </docblock>
+    </member>
+    <member name="action" type="{unknown}" visibility="protected" line="33">
+      <docblock>
+        <description/>
+        <var description="$action The URL part matched on the current controller as" type="string">determined by the "$Action" part of the <link xmlns="http://xml.phpdox.net/src" value="$url_handlers"/> definition.
+Should correlate to a public method on this controller.
+Used in <link xmlns="http://xml.phpdox.net/src" value="render()"/> and <link xmlns="http://xml.phpdox.net/src" value="getViewer()"/> to determine
+action-specific templates.
+</var>
+      </docblock>
+    </member>
+    <member name="session" type="{unknown}" visibility="protected" line="38">
+      <docblock>
+        <description compact="The {@link Session} object for this controller"/>
+      </docblock>
+    </member>
+    <member name="controller_stack" type="array" visibility="protected" line="44">
+      <docblock>
+        <description compact="Stack of current controllers.">Controller::$controller_stack[0] is the current controller.</description>
+      </docblock>
+    </member>
+    <member name="basicAuthEnabled" type="{unknown}" default="true" visibility="protected" line="46"/>
+    <member name="response" type="{unknown}" visibility="protected" line="52">
+      <docblock>
+        <description/>
+        <var description="$response The response object that the controller returns." type="object">Set in <link xmlns="http://xml.phpdox.net/src" value="handleRequest()"/>.
+<type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/></var>
+      </docblock>
+    </member>
+    <member name="baseInitCalled" type="{unknown}" default="false" visibility="protected" line="226"/>
+    <method name="init" start="71" end="86" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Initialisation function that is run before any action on the controller is called."/>
+        <uses value="BasicAuth::requireLogin()"/>
+      </docblock>
+      <inline>
+        <comment value="Directly access the session variable just in case the Group or Member tables don't yet exist" line="74"/>
+        <comment value="This is used to test that subordinate controllers are actually calling parent::init() - a common bug" line="84"/>
+      </inline>
+    </method>
+    <method name="Link" start="91" end="93" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a link to this controller.  Overload with your own Link rules if they exist."/>
+      </docblock>
+    </method>
+    <method name="handleRequest" start="126" end="179" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Executes this controller, and return an {@link SS_HTTPResponse} object with the result.">This method first does a few set-up activities:
+ - Push this controller ont to the controller stack -
+   see <link xmlns="http://xml.phpdox.net/src" value="Controller::curr()"/> for information about this.
+ - Call <link xmlns="http://xml.phpdox.net/src" value="init()"/> - Defer to <link xmlns="http://xml.phpdox.net/src" value="RequestHandler-&gt;handleRequest()"/> to determine which action
+   should be executed
+Note: $requestParams['executeForm'] support was removed,
+make the following change in your URLs:
+"/?executeForm=FooBar" -&gt; "/FooBar"
+Also make sure "FooBar" is in the $allowed_actions of your controller class.
+Note: You should rarely need to overload run() -
+this kind of change is only really appropriate for things like nested
+controllers - <link xmlns="http://xml.phpdox.net/src" value="ModelAsController"/> and <link xmlns="http://xml.phpdox.net/src" value="RootURLController"/>are two examples here.  If you want to make more
+orthodox functionality, it's better to overload <link xmlns="http://xml.phpdox.net/src" value="init()"/> or <link xmlns="http://xml.phpdox.net/src" value="index()"/>.
+Important: If you are going to overload handleRequest,
+make sure that you start the method with $this-&gt;pushCurrent()
+and end the method with $this-&gt;popCurrent().
+Failure to do this will create weird session errors.
+</description>
+        <param description="{@link SS_HTTPRequest} object that is responsible" variable="$request" type="object">for distributing request parsing.<type full="The" namespace="" name="The"/></param>
+        <return description="The response that this controller produces," type="object">including HTTP headers such as redirection info<type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/></return>
+      </docblock>
+      <parameter name="request" byreference="false" type="object">
+        <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+      </parameter>
+      <parameter name="model" byreference="false" type="object">
+        <type full="\\DataModel" namespace="\" name="DataModel"/>
+      </parameter>
+      <inline>
+        <comment value="Init" line="137"/>
+        <comment value="If we had a redirection or something, halt processing." line="147"/>
+      </inline>
+    </method>
+    <method name="handleAction" start="185" end="205" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Controller's default action handler.  It will call the method named in $Action, if that method exists.">If $Action isn't given, it will use "index" as a default.</description>
+      </docblock>
+      <parameter name="request" byreference="false" type="{unknown}"/>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="If the action returns an array, customise with it before rendering the template." line="196"/>
+      </inline>
+    </method>
+    <method name="setURLParams" start="207" end="209" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="urlParams" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getURLParams" start="214" end="216" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="The parameters extracted from the URL by the {@link Director}." type="array"/>
+      </docblock>
+    </method>
+    <method name="getResponse" start="222" end="224" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the SS_HTTPResponse object that this controller is building up.">Can be used to set the status code and headers</description>
+      </docblock>
+    </method>
+    <method name="getFormOwner" start="232" end="245" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the object that is going to own a form that's being processed, and handle its execution.">Note that the result needn't be an actual controller object.</description>
+      </docblock>
+      <inline>
+        <comment value="Get the appropraite ocntroller: sometimes we want to get a form from another controller" line="233"/>
+      </inline>
+    </method>
+    <method name="defaultAction" start="251" end="253" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="This is the default action handler used if a method doesn't exist.">It will process the controller object with the template returned by <link xmlns="http://xml.phpdox.net/src" value="getViewer()"/></description>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getAction" start="258" end="260" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the action that is being executed on this controller."/>
+      </docblock>
+    </method>
+    <method name="getViewer" start="266" end="301" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return an SSViewer object to process the data"/>
+        <return description="The viewer identified being the default handler for this Controller/Action combination" type="object">
+          <type full="SSViewer" namespace="" name="SSViewer"/>
+        </return>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Hard-coded templates" line="267"/>
+      </inline>
+    </method>
+    <method name="hasAction" start="303" end="305" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="action" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="removeAction" start="313" end="322" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Removes all the &quot;action&quot; part of the current URL and returns the result.">If no action parameter is present, returns the full URL</description>
+        <static/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="fullURL" byreference="false" type="{unknown}"/>
+      <parameter name="action" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="default to current action" line="314"/>
+      </inline>
+    </method>
+    <method name="definingClassForAction" start="328" end="339" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Return the class that defines the given action, so that we know where to check allowed_actions.">Overrides RequestHandler to also look at defined templates</description>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasActionTemplate" start="347" end="359" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE if this controller has a template that is specifically designed to handle a specific action."/>
+        <param type="string" variable="$action"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="render" start="368" end="377" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Render the current controller with the templates determined by {@link getViewer()}."/>
+        <param description="Key-value array for custom template variables (Optional)" type="array" variable="$params"/>
+        <return description="Parsed template content" type="string"/>
+      </docblock>
+      <parameter name="params" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="if the object is already customised (e.g. through Controller-&gt;run()), use it" line="371"/>
+      </inline>
+    </method>
+    <method name="disableBasicAuth" start="384" end="386" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Call this to disable site-wide basic authentication for a specific contoller.">This must be called before Controller::init().  That is, you must call it in your controller's
+init method before it calls parent::init().</description>
+      </docblock>
+    </method>
+    <method name="curr" start="392" end="398" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Returns the current controller"/>
+        <returns value="Controller"/>
+      </docblock>
+    </method>
+    <method name="has_curr" start="404" end="406" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Tests whether we have a currently active controller or not"/>
+        <return description="True if there is at least 1 controller in the stack." type="boolean"/>
+      </docblock>
+    </method>
+    <method name="can" start="415" end="426" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if the member is allowed to do the given action."/>
+        <param description="The permission to be checked, such as 'View'." type="object">
+          <type full="perm" namespace="" name="perm"/>
+        </param>
+        <param description="The member whose permissions need checking.  Defaults to the currently logged" type="object">in user.<type full="member" namespace="" name="member"/></param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="perm" byreference="false" type="{unknown}"/>
+      <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="pushCurrent" start="435" end="445" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Pushes this controller onto the stack of current controllers.">This means that any redirection, session setting, or other things that rely on Controller::curr() will now
+write to this controller object.</description>
+      </docblock>
+      <inline>
+        <comment value="Create a new session object" line="437"/>
+      </inline>
+    </method>
+    <method name="popCurrent" start="450" end="457" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Pop this controller off the top of the stack."/>
+      </docblock>
+    </method>
+    <method name="redirect" start="464" end="479" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Redirect to the given URL."/>
+        <return type="object">
+          <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+        </return>
+      </docblock>
+      <parameter name="url" byreference="false" type="{unknown}"/>
+      <parameter name="code" byreference="false" type="integer" default="302"/>
+      <inline>
+        <comment value="Attach site-root to relative links, if they have a slash in them" line="473"/>
+      </inline>
+    </method>
+    <method name="redirectBack" start="489" end="517" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Redirect back. Uses either the HTTP_REFERER or a manually set request-variable called &quot;BackURL&quot;.">This variable is needed in scenarios where not HTTP-Referer is sent (
+e.g when calling a page by location.href in IE).
+If none of the two variables is available, it will redirect to the base
+URL (see <link xmlns="http://xml.phpdox.net/src" value="Director::baseURL()"/>).
+</description>
+        <uses value="redirect()"/>
+      </docblock>
+      <inline>
+        <comment value="Don't cache the redirect back ever" line="490"/>
+        <comment value="In edge-cases, this will be called outside of a handleRequest() context; in that case," line="495"/>
+        <comment value="redirect to the homepage - don't break into the global state at this stage because we'll" line="496"/>
+        <comment value="be calling from a test context or something else where the global state is inappropraite" line="497"/>
+        <comment value="absolute redirection URLs not located on this site may cause phishing" line="510"/>
+      </inline>
+    </method>
+    <method name="redirectedTo" start="524" end="526" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Tests whether a redirection has been requested."/>
+        <return description="If redirect() has been called, it will return the URL redirected to.  Otherwise, it will" type="string">return null;</return>
+      </docblock>
+    </method>
+    <method name="getSession" start="532" end="534" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the Session object representing this Controller's session"/>
+        <return type="object">
+          <type full="Session" namespace="" name="Session"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setSession" start="539" end="541" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the Session object."/>
+      </docblock>
+      <parameter name="session" byreference="false" type="object">
+        <type full="\\Session" namespace="\" name="Session"/>
+      </parameter>
+    </method>
+    <method name="join_links" start="554" end="583" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Joins two or more link segments together, putting a slash between them if necessary.">Use this for building the results of <link xmlns="http://xml.phpdox.net/src" value="Link()"/> methods.
+If either of the links have query strings,
+then they will be combined and put at the end of the resulting url.
+Caution: All parameters are expected to be URI-encoded already.
+</description>
+        <param type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="Find fragment identifier - keep the last one" line="561"/>
+        <comment value="Find querystrings" line="565"/>
+      </inline>
+    </method>
+    <method name="get_template_global_variables" start="585" end="589" abstract="false" final="false" static="true" visibility="public"/>
+  </parent>
+  <parent full="RequestHandler" namespace="" name="RequestHandler">
+    <extends full="ViewableData" namespace="" name="ViewableData"/>
+    <member name="request" type="{unknown}" default="null" visibility="protected" line="42">
+      <docblock>
+        <description/>
+        <var description="$request The request object that the controller was called with." type="object">Set in <link xmlns="http://xml.phpdox.net/src" value="handleRequest()"/>. Useful to generate the {}
+<type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/></var>
+      </docblock>
+    </member>
+    <member name="model" type="{unknown}" default="null" visibility="protected" line="47">
+      <docblock>
+        <description compact="The DataModel for this request"/>
+      </docblock>
+    </member>
+    <member name="brokenOnConstruct" type="{unknown}" default="true" visibility="protected" line="56">
+      <docblock>
+        <description compact="This variable records whether RequestHandler::__construct() was called or not. Useful for checking if subclasses have called parent::__construct()"/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="110" end="120" abstract="false" final="false" static="false" visibility="public">
+      <inline>
+        <comment value="Check necessary to avoid class conflicts before manifest is rebuilt" line="113"/>
+        <comment value="This will prevent bugs if setDataModel() isn't called." line="116"/>
+      </inline>
+    </constructor>
+    <method name="setDataModel" start="125" end="127" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the DataModel for this request."/>
+      </docblock>
+      <parameter name="model" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="handleRequest" start="150" end="239" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Handles URL requests.">- ViewableData::handleRequest() iterates through each rule in <link xmlns="http://xml.phpdox.net/src" value="self::$url_handlers"/>.
+ - If the rule matches, the named method will be called.
+ - If there is still more URL to be processed, then handleRequest()
+   is called on the object that that method returns.
+Once all of the URL has been processed, the final result is returned.
+However, if the final result is an array, this
+array is interpreted as being additional template data to customise the
+2nd to last result with, rather than an object
+in its own right.  This is most frequently used when a Controller's
+action will return an array of data with which to
+customise the controller.
+</description>
+        <param description="{@link SS_HTTPRequest} object that is reponsible for distributing URL parsing" variable="$request" type="object">
+          <type full="The" namespace="" name="The"/>
+        </param>
+        <uses value="SS_HTTPRequest"/>
+        <uses value="SS_HTTPRequest-&gt;match()"/>
+        <return type="object">
+          <type full="SS_HTTPResponse|RequestHandler|string|array" namespace="" name="SS_HTTPResponse|RequestHandler|string|array"/>
+        </return>
+      </docblock>
+      <parameter name="request" byreference="false" type="object">
+        <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+      </parameter>
+      <parameter name="model" byreference="false" type="object">
+        <type full="\\DataModel" namespace="\" name="DataModel"/>
+      </parameter>
+      <inline>
+        <comment value="$handlerClass is used to step up the class hierarchy to implement url_handlers inheritance" line="151"/>
+        <comment value="If nothing matches, return this object" line="163"/>
+        <comment value="Start to find what action to call. Start by using what findAction returned" line="166"/>
+        <comment value="We used to put &quot;handleAction&quot; as the action on controllers, but (a) this could only be called when" line="169"/>
+        <comment value="you had $Action in your rule, and (b) RequestHandler didn't have one. $Action is better" line="170"/>
+        <todo value="Fix LeftAndMain usage" line="172"/>
+        <comment value="Deprecation::notice('3.2.0', 'Calling handleAction directly is deprecated - use $Action instead');" line="173"/>
+        <comment value="Actions can reference URL parameters, eg, '$Action/$ID/$OtherID' =&gt; '$Action'," line="177"/>
+        <comment value="If we return a RequestHandler, call handleRequest() on that, even if there is no more URL to" line="214"/>
+        <comment value="parse. It might have its own handler. However, we only do this if we haven't just parsed an" line="215"/>
+        <comment value="empty rule ourselves, to prevent infinite loops. Also prevent further handling of controller" line="216"/>
+        <comment value="actions which return themselves to avoid infinite loops." line="217"/>
+        <comment value="Array results can be used to handle" line="224"/>
+      </inline>
+    </method>
+    <method name="findAction" start="241" end="267" abstract="false" final="false" static="false" visibility="protected">
+      <parameter name="request" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="We stop after RequestHandler; in other words, at ViewableData" line="244"/>
+      </inline>
+    </method>
+    <method name="handleAction" start="278" end="294" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Given a request, and an action name, call that action name on this RequestHandler">Must not raise SS_HTTPResponse_Exceptions - instead it should return</description>
+        <param variable="$request"/>
+        <param variable="$action"/>
+        <return type="object">
+          <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+        </return>
+      </docblock>
+      <parameter name="request" byreference="false" type="{unknown}"/>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="allowedActions" start="308" end="340" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get a array of allowed actions defined on this controller, any parent classes or extensions.">Caution: Since 3.1, allowed_actions definitions only apply
+to methods on the controller they're defined on,
+so it is recommended to use the $class argument
+when invoking this method.</description>
+        <param type="object" variable="$limitToClass">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="array|null" namespace="" name="array|null"/>
+        </return>
+      </docblock>
+      <parameter name="limitToClass" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="convert all keys and values to lowercase to" line="328"/>
+        <comment value="allow for easier comparison, unless it is a permission code" line="329"/>
+      </inline>
+    </method>
+    <method name="hasAction" start="350" end="383" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks if this request handler has a specific action, even if the current user cannot access it.">Includes class ancestry and extensions in the checks.</description>
+        <param type="string" variable="$action"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Don't allow access to any non-public methods (inspect instance plus all extensions)" line="353"/>
+        <comment value="Check if the action is defined in the allowed actions of any ancestry class" line="365"/>
+        <comment value="as either a key or value. Note that if the action is numeric, then keys are not" line="366"/>
+        <comment value="searched for actions to prevent actual array keys being recognised as actions." line="367"/>
+      </inline>
+    </method>
+    <method name="definingClassForAction" start="388" end="399" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Return the class that defines the given action, so that we know where to check allowed_actions."/>
+      </docblock>
+      <parameter name="actionOrigCasing" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="checkAccessAction" start="405" end="454" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check that the given action is allowed to be called from a URL.">It will interrogate <link xmlns="http://xml.phpdox.net/src" value="self::$allowed_actions"/> to determine this.
+</description>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Get actions for this specific class (without inheritance)" line="412"/>
+        <comment value="check if specific action is set" line="416"/>
+        <comment value="TRUE should always allow access" line="421"/>
+        <comment value="If we don't have a match in allowed_actions," line="447"/>
+        <comment value="whitelist the 'index' action as well as undefined actions based on configuration." line="448"/>
+      </inline>
+    </method>
+    <method name="httpError" start="464" end="473" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Throws a HTTP error response encased in a {@link SS_HTTPResponse_Exception}, which is later caught in {@link RequestHandler::handleAction()} and returned to the user."/>
+        <param type="int" variable="$errorCode"/>
+        <param description="Plaintext error message" type="string" variable="$errorMessage"/>
+        <uses value="SS_HTTPResponse_Exception"/>
+      </docblock>
+      <parameter name="errorCode" byreference="false" type="{unknown}"/>
+      <parameter name="errorMessage" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Call a handler method such as onBeforeHTTPError404" line="465"/>
+        <comment value="Call a handler method such as onBeforeHTTPError, passing 404 as the first arg" line="468"/>
+        <comment value="Throw a new exception" line="471"/>
+      </inline>
+    </method>
+    <method name="getRequest" start="483" end="485" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the SS_HTTPRequest object that this controller is using.">Returns a placeholder <link xmlns="http://xml.phpdox.net/src" value="NullHTTPRequest"/> object unless
+<link xmlns="http://xml.phpdox.net/src" value="handleAction()"/> or <link xmlns="http://xml.phpdox.net/src" value="handleRequest()"/> have been called,
+which adds a reference to an actual <link xmlns="http://xml.phpdox.net/src" value="SS_HTTPRequest"/> object.
+</description>
+        <return type="object">
+          <type full="SS_HTTPRequest|NullHTTPRequest" namespace="" name="SS_HTTPRequest|NullHTTPRequest"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setRequest" start="493" end="495" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Typically the request is set through {@link handleAction()} or {@link handleRequest()}, but in some based we want to set it manually."/>
+        <param type="object">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </param>
+      </docblock>
+      <parameter name="request" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <parent full="ViewableData" namespace="" name="ViewableData">
+    <extends full="Object" namespace="" name="Object"/>
+    <member name="failover" type="{unknown}" visibility="protected" line="51">
+      <docblock>
+        <description compact="A failover object to attempt to get data from if it is not present on this object."/>
+        <var type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="customisedObject" type="{unknown}" visibility="protected" line="56">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="castingObjectCreator" start="72" end="74" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Converts a field spec into an object creator. For example: &quot;Int&quot; becomes &quot;new Int($fieldName);&quot; and &quot;Varchar(50)&quot; becomes &quot;new Varchar($fieldName, 50);&quot;."/>
+        <param description="The field spec" type="string" variable="$fieldSchema"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingObjectCreatorPair" start="83" end="85" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Convert a field schema (e.g. &quot;Varchar(50)&quot;) into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor."/>
+        <param type="string" variable="$fieldSchema"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__isset" start="95" end="97" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if a field exists on this object or its failover."/>
+        <param type="string" variable="$property"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__get" start="106" end="114" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object."/>
+        <param type="string" variable="$property"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__set" start="123" end="129" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method."/>
+        <param type="string" variable="$property"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasField" start="137" end="139" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if a field exists on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getField" start="147" end="149" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a field on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setField" start="157" end="159" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a field on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="defineMethods" start="167" end="186" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}."/>
+      </docblock>
+    </method>
+    <method name="customise" start="197" end="209" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.">Note that any fields you specify will take precedence over the fields on this object.</description>
+        <param type="object" variable="$data">
+          <type full="array|ViewableData" namespace="" name="array|ViewableData"/>
+        </param>
+        <return type="object">
+          <type full="ViewableData_Customised" namespace="" name="ViewableData_Customised"/>
+        </return>
+      </docblock>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setCustomisedObj" start="214" end="216" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </param>
+      </docblock>
+      <parameter name="object" byreference="false" type="object">
+        <type full="\\ViewableData" namespace="\" name="ViewableData"/>
+      </parameter>
+    </method>
+    <method name="castingHelperPair" start="231" end="234" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).">The returned array contains two keys:
+ - className: the class the field would be casted to (e.g. "Varchar")
+ - castingHelper: the casting helper for casting the field (e.g. "return new Varchar($fieldName)")</description>
+        <param type="string" variable="$field"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingHelper" start="243" end="252" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the &quot;casting helper&quot; (a piece of PHP code that when evaluated creates a casted value object) for a field on this object."/>
+        <param type="string" variable="$field"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingClass" start="260" end="267" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the class name a field on this object will be casted to"/>
+        <param type="string" variable="$field"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="escapeTypeForField" start="275" end="279" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the string-format type for the given field."/>
+        <param type="string" variable="$field"/>
+        <return description="'xml'|'raw'" type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="buildCastingCache" start="286" end="308" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Save the casting cache for this object (including data from any failovers) into a variable"/>
+        <param type="object" variable="$cache">
+          <type full="reference" namespace="" name="reference"/>
+        </param>
+      </docblock>
+      <parameter name="cache" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="renderWith" start="323" end="340" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance"/>
+        <param description="the template to render into" type="object" variable="$template">
+          <type full="string|array|SSViewer" namespace="" name="string|array|SSViewer"/>
+        </param>
+        <param description="fields to customise() the object with before rendering" type="array" variable="$customFields"/>
+        <return type="object">
+          <type full="HTMLText" namespace="" name="HTMLText"/>
+        </return>
+      </docblock>
+      <parameter name="template" byreference="false" type="{unknown}"/>
+      <parameter name="customFields" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="obj" start="352" end="390" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified."/>
+        <param type="string" variable="$fieldName"/>
+        <param type="array" variable="$arguments"/>
+        <param description="if TRUE, the value will ALWAYS be casted to an object before being returned," type="object" variable="$forceReturnedObject">even if there is no explicit casting information<type full="bool" namespace="" name="bool"/></param>
+        <param description="a custom cache name" type="string" variable="$cacheName"/>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="forceReturnedObject" byreference="false" type="{unknown}" default="true"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="cacheName" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="HACK: Don't call the deprecated FormField::Name() method" line="356"/>
+      </inline>
+    </method>
+    <method name="cachedCall" start="400" end="402" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method."/>
+        <param type="string" variable="$field"/>
+        <param type="array" variable="$arguments"/>
+        <param description="an optional custom cache identifier" type="string" variable="$identifier"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="identifier" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="hasValue" start="413" end="422" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag."/>
+        <param type="string" variable="$field"/>
+        <param type="array" variable="$arguments"/>
+        <param type="object" variable="$cache">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="XML_val" start="435" end="438" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="RAW_val" start="443" end="445" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of the field without any escaping being applied."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="SQL_val" start="450" end="452" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field in an SQL-safe format."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="JS_val" start="457" end="459" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field in a JavaScript-save format."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="ATT_val" start="464" end="466" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field escaped suitable to be inserted into an XML node attribute."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="getXMLValues" start="476" end="484" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an array of XML-escaped values by field name"/>
+        <param description="an array of field names" type="array" variable="$elements"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="fields" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getIterator" start="496" end="498" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a single-item iterator so you can iterate over the fields of a single record.">This is useful so you can use a single record inside a &lt;% control %&gt; block in a template - and then use
+to access individual fields on this object.</description>
+        <return type="object">
+          <type full="ArrayIterator" namespace="" name="ArrayIterator"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="Me" start="508" end="510" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself."/>
+        <return type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="ThemeDir" start="524" end="533" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the directory if the current active theme (relative to the site root).">This method is useful for things such as accessing theme images from your template without hardcoding the theme
+page - e.g. &lt;img src="$ThemeDir/images/something.gif"&gt;.
+
+This method should only be used when a theme is currently active. However, it will fall over to the current
+project directory.</description>
+        <param description="the subtheme path to get" type="string" variable="$subtheme"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="subtheme" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="CSSClasses" start="545" end="561" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get part of the current classes ancestry to be used as a CSS class.">This method returns an escaped string of CSS classes representing the current classes ancestry until it hits a
+stop point - e.g. "Page DataObject ViewableData".</description>
+        <param description="the class to stop at (default: ViewableData)" type="string" variable="$stopAtClass"/>
+        <return type="string"/>
+        <uses value="ClassInfo"/>
+      </docblock>
+      <parameter name="stopAtClass" byreference="false" type="string" default="'ViewableData'"/>
+      <inline>
+        <comment value="optionally add template identifier" line="555"/>
+      </inline>
+    </method>
+    <method name="Debug" start="568" end="570" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return debug information about this object that can be rendered into a template"/>
+        <return type="object">
+          <type full="ViewableData_Debugger" namespace="" name="ViewableData_Debugger"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+  <parent full="Object" namespace="" name="Object">
+    <member name="class" type="{unknown}" visibility="public" line="54">
+      <docblock>
+        <description/>
+        <var description="the class name" type="string"/>
+      </docblock>
+    </member>
+    <member name="extension_instances" type="array" visibility="protected" line="67">
+      <docblock>
+        <description/>
+        <var description="all current extension instances." type="array"/>
+      </docblock>
+    </member>
+    <member name="beforeExtendCallbacks" type="array" visibility="protected" line="75">
+      <docblock>
+        <description compact="List of callbacks to call prior to extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="afterExtendCallbacks" type="array" visibility="protected" line="98">
+      <docblock>
+        <description compact="List of callbacks to call after extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="config" start="60" end="62" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....)."/>
+        <return type="object">
+          <type full="Config_ForClass|null" namespace="" name="Config_ForClass|null"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="beforeExtending" start="85" end="90" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="afterExtending" start="108" end="113" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="create" start="132" end="143" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="An implementation of the factory method, allows you to create an instance of a class">This method first for strong class overloads (singletons &amp; DB interaction), then custom class overloads. If an
+overload is found, an instance of this is returned rather than the original class. To overload a class, use
+{@link Object::useCustomClass()}
+
+This can be called in one of two ways - either calling via the class directly,
+or calling on Object and passing the class name as the first parameter. The following
+are equivalent:
+   $list = DataList::create('SiteTree');
+  $list = SiteTree::get();</description>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="Class to create should be the calling class if not Object," line="135"/>
+        <comment value="otherwise the first parameter" line="136"/>
+      </inline>
+    </method>
+    <method name="create_from_string" start="169" end="188" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().">Construction itself is done with Object::create(), so that Object::useCustomClass() calls
+are respected.
+
+`Object::create_from_string("Versioned('Stage','Live')")` will return the result of
+`Versioned::create('Stage', 'Live);`
+
+It is designed for simple, clonable objects.  The first time this method is called for a given
+string it is cached, and clones of that object are returned.
+
+If you pass the $firstArg argument, this will be prepended to the constructor arguments. It's
+impossible to pass null as the firstArg argument.
+
+`Object::create_from_string("Varchar(50)", "MyField")` will return the result of
+`Vachar::create('MyField', '50');`
+
+Arguments are always strings, although this is a quirk of the current implementation rather
+than something that can be relied upon.</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <parameter name="firstArg" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="an $extension value can contain parameters as a string," line="171"/>
+        <comment value="e.g. &quot;Versioned('Stage','Live')&quot;" line="172"/>
+      </inline>
+    </method>
+    <method name="parse_class_spec" start="194" end="274" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Parses a class-spec, such as &quot;Versioned('Stage','Live')&quot;, as passed to create_from_string().">Returns a 2-elemnent array, with classname and arguments</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Keep track of the current bucket that we're putting data into" line="200"/>
+        <comment value="Get the class naem" line="207"/>
+      </inline>
+    </method>
+    <method name="strong_create" start="284" end="293" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}"/>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="useCustomClass" start="304" end="310" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}"/>
+        <param description="the class to replace" type="string" variable="$oldClass"/>
+        <param description="the class to replace it with" type="string" variable="$newClass"/>
+        <param description="allows you to enforce a certain class replacement under all circumstances. This is used in" type="object" variable="$strong">singletons and DB interaction classes<type full="bool" namespace="" name="bool"/></param>
+      </docblock>
+      <parameter name="oldClass" byreference="false" type="{unknown}"/>
+      <parameter name="newClass" byreference="false" type="{unknown}"/>
+      <parameter name="strong" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="getCustomClass" start="318" end="326" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name"/>
+        <param description="the class to check" type="string" variable="$class"/>
+        <return description="the class that would be created if you called {@link Object::create()} with the class" type="string"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="static_lookup" start="339" end="374" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class."/>
+        <static/>
+        <param description="The class to get the static from" variable="$class" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="The property to get from the class" variable="$name" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="- The value to return if property doesn't exist on class" type="object" variable="$default">
+          <type full="null" namespace="" name="null"/>
+        </param>
+        <return description="- The value of the static property $name on class $class, or $default if that property is not" type="object">defined<type full="any" namespace="" name="any"/></return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="default" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="get_static" start="391" end="394" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a static variable, taking into account SS's inbuild static caches and pseudo-statics">This method first checks for any extra values added by <link xmlns="http://xml.phpdox.net/src" value="Object::add_static_var()"/>, and attemps to traverse
+up the extra static var chain until it reaches the top, or it reaches a replacement static.
+If any extra values are discovered, they are then merged with the default PHP static values, or in some cases
+completely replace the default PHP static when you set $replace = true, and do not define extra data on any
+child classes
+</description>
+        <param type="string" variable="$class"/>
+        <param description="the property name" type="string" variable="$name"/>
+        <param description="if set to TRUE, force a regeneration of the static cache" type="object" variable="$uncached">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_static" start="403" end="406" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set a static variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the property name to set" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited_static" start="415" end="418" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class."/>
+        <param type="string" variable="$class"/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="combined_static" start="430" end="435" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param description="an optional parent class name to begin merging statics down from, rather than traversing" type="string" variable="$ceiling">the entire hierarchy</param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="ceiling" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="addStaticVars" start="444" end="447" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Merge in a set of additional static variables"/>
+        <param type="string" variable="$class"/>
+        <param description="in a [property name] =&gt; [value] format" type="array" variable="$properties"/>
+        <param description="replace existing static vars" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="properties" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="add_static_var" start="465" end="470" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.">Documentation from http://php.net/array_merge_recursive:
+If the input arrays have the same string keys, then the values for these keys are merged together
+into an array, and this is done recursively, so that if one of the values is an array itself,
+the function will merge it with a corresponding entry in another array too.
+If, however, the arrays have the same numeric key, the later value will not overwrite the original value,
+but will be appended.</description>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+        <param description="completely replace existing static values" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="has_extension" start="481" end="503" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a class has a specified extension.">This supports backwards-compatible format (static Object::has_extension($requiredExtension))
+and new format ($object-&gt;has_extension($class, $requiredExtension))</description>
+        <param description="if 1 argument supplied, the class name of the extension to" type="string" variable="$classOrExtension">check for; if 2 supplied, the class name to test</param>
+        <param description="used only if 2 arguments supplied" type="string" variable="$requiredExtension"/>
+        <param description="if the extension has to match the required extension and not be a subclass" type="boolean" variable="$strict"/>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="requiredExtension" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="strict" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="BC support" line="482"/>
+      </inline>
+    </method>
+    <method name="add_extension" start="523" end="565" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add an extension to a specific class.">The preferred method for adding extensions is through YAML config,
+since it avoids autoloading the class, and is easier to override in
+more specific configurations.
+As an alternative, extensions can be added to a specific class
+directly in the <link xmlns="http://xml.phpdox.net/src" value="Object::$extensions"/> array.
+See <link xmlns="http://xml.phpdox.net/src" value="SiteTree::$extensions"/> for examples.
+Keep in mind that the extension will only be applied to new
+instances, not existing ones (including all instances created through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>).
+</description>
+        <see value="http://doc.silverstripe.org/framework/en/trunk/reference/dataextension"/>
+        <param description="Class that should be extended - has to be a subclass of {@link Object}" type="string" variable="$class"/>
+        <param description="Subclass of {@link Extension} with optional parameters" type="string" variable="$extension">as a string, e.g. "Versioned" or "Translatable('Param')"</param>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="extension" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="unset some caches" line="545"/>
+        <comment value="load statics now for DataObject classes" line="559"/>
+      </inline>
+    </method>
+    <method name="remove_extension" start="584" end="614" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Remove an extension from a class.">Keep in mind that this won't revert any datamodel additions
+of the extension at runtime, unless its used before the
+schema building kicks in (in your _config.php).
+Doesn't remove the extension from any <link xmlns="http://xml.phpdox.net/src" value="Object"/>instances which are already created, but will have an
+effect on new extensions.
+Clears any previously created singletons through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>to avoid side-effects from stale extension information.
+</description>
+        <todo value="Add support for removing extensions with parameters"/>
+        <param description="Classname of an {@link Extension} subclass, without parameters" type="string" variable="$extension"/>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="remove any instances of the extension with parameters" line="589"/>
+        <comment value="extensions with parameters will be stored in config as" line="594"/>
+        <comment value="ExtensionName(&quot;Param&quot;)." line="595"/>
+        <comment value="unset singletons to avoid side-effects" line="604"/>
+        <comment value="unset some caches" line="607"/>
+      </inline>
+    </method>
+    <method name="get_extensions" start="623" end="635" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$class"/>
+        <param description="Include the argument string in the return array," type="object" variable="$includeArgumentString">FALSE would return array("Versioned"), TRUE returns array("Versioned('Stage','Live')").<type full="bool" namespace="" name="bool"/></param>
+        <return description="Numeric array of either {@link DataExtension} classnames," type="array">or eval'ed classname strings with constructor arguments.</return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="includeArgumentString" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="get_extra_config_sources" start="641" end="678" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="If this class is unextendable, NOP" line="644"/>
+        <comment value="Get a list of extensions" line="650"/>
+        <comment value="Build a list of all sources;" line="654"/>
+      </inline>
+    </method>
+    <constructor name="__construct" start="680" end="699" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="__call" start="711" end="765" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located">You can add extra methods to a class using <link xmlns="http://xml.phpdox.net/src" value="Extensions"/>, <link xmlns="http://xml.phpdox.net/src" value="Object::createMethod()"/> or
+<link xmlns="http://xml.phpdox.net/src" value="Object::addWrapperMethod()"/></description>
+        <param type="string" variable="$method"/>
+        <param type="array" variable="$arguments"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="If the method cache was cleared by an an Object::add_extension() / Object::remove_extension()" line="712"/>
+        <comment value="call, then we should rebuild it." line="713"/>
+      </inline>
+    </method>
+    <method name="hasMethod" start="778" end="780" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a method exists on this object">This should be used rather than PHP's inbuild method_exists() as it takes into account methods added via
+extensions</description>
+        <param type="string" variable="$method"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="allMethodNames" start="788" end="798" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the names of all the methods available on this object"/>
+        <param description="include methods added dynamically at runtime" type="object" variable="$custom">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="array"/>
+      </docblock>
+      <parameter name="custom" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="defineMethods" start="807" end="821" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Adds any methods from {@link Extension} instances attached to this object.">All these methods can then be called directly on the instance (transparently
+mapped through <link xmlns="http://xml.phpdox.net/src" value="__call()"/>), or called explicitly through <link xmlns="http://xml.phpdox.net/src" value="extend()"/>.
+</description>
+        <uses value="addMethodsFrom()"/>
+      </docblock>
+    </method>
+    <method name="addMethodsFrom" start="829" end="864" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add all the methods from an object property (which is an {@link Extension}) to this object."/>
+        <param description="the property name" type="string" variable="$property"/>
+        <param description="an index to use if the property is an array" type="object" variable="$index">
+          <type full="string|int" namespace="" name="string|int"/>
+        </param>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <parameter name="index" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="addWrapperMethod" start="873" end="878" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)"/>
+        <param description="the method name to wrap" type="string" variable="$method"/>
+        <param description="the method name to wrap to" type="string" variable="$wrap"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="wrap" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="createMethod" start="888" end="892" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add an extra method using raw PHP code passed as a string"/>
+        <param description="the method name" type="string" variable="$method"/>
+        <param description="the PHP code - arguments will be in an array called $args, while you can access this object" type="string" variable="$code">by using $obj. Note that you cannot call protected methods, as the method is actually an external
+       function</param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="code" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="stat" start="899" end="901" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::get_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_stat" start="906" end="908" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::set_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited" start="913" end="915" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::uninherited_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="exists" start="927" end="929" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return true if this object &quot;exists&quot; i.e. has a sensible value">This method should be overriden in subclasses to provide more context about the classes state. For example, a
+{@link DataObject} class could return false when it is deleted from the database</description>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="parentClass" start="934" end="936" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="this classes parent class" type="string"/>
+      </docblock>
+    </method>
+    <method name="is_a" start="944" end="946" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if this class is an instance of a specific class, or has that class as one of its parents"/>
+        <param type="string" variable="$class"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="951" end="953" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="the class name" type="string"/>
+      </docblock>
+    </method>
+    <method name="invokeWithExtensions" start="966" end="971" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array"/>
+        <param description="the method name to call" type="string" variable="$method"/>
+        <param description="a single argument to pass" type="mixed" variable="$argument"/>
+        <return type="mixed"/>
+        <todo value="integrate inheritance rules"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="argument" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="extend" start="988" end="1017" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed">Currently returns an array, with an index resulting every time the function is called. Only adds returns if
+they're not NULL, to avoid bogus results from methods just defined on the parent extension. This is important for
+permission-checks through extend, as they use min() to determine if any of the returns is FALSE. As min() doesn't
+do type checking, an included NULL return would fail the permission checks.
+The extension methods are defined during <link xmlns="http://xml.phpdox.net/src" value="__construct()"/> in <link xmlns="http://xml.phpdox.net/src" value="defineMethods()"/>.
+</description>
+        <param description="the name of the method to call on each extension" type="string" variable="$method"/>
+        <param description="... up to 7 arguments to be passed to the method" type="mixed" variable="$a1"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="a1" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a2" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a3" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a4" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a5" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a6" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a7" byreference="true" type="{unknown}" default="null"/>
+    </method>
+    <method name="getExtensionInstance" start="1027" end="1029" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an extension instance attached to this object by name."/>
+        <uses value="hasExtension()"/>
+        <param type="string" variable="$extension"/>
+        <return type="object">
+          <type full="Extension" namespace="" name="Extension"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasExtension" start="1045" end="1047" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.">Caution: Don't use singleton(&lt;class&gt;)-&gt;hasExtension() as it will
+give you inconsistent results based on when the singleton was first
+accessed.</description>
+        <param description="Classname of an {@link Extension} subclass without parameters" type="string" variable="$extension"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getExtensionInstances" start="1056" end="1058" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get all extension instances for this specific object instance.">See <link xmlns="http://xml.phpdox.net/src" value="get_extensions()"/> to get all applied extension classes
+for this class (not the instance).
+</description>
+        <return description="Map of {@link DataExtension} instances, keyed by classname." type="array"/>
+      </docblock>
+    </method>
+    <method name="cacheToFile" start="1072" end="1092" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Cache the results of an instance method in this object to a file, or if it is already cache return the cached results"/>
+        <param description="the method name to cache" type="string" variable="$method"/>
+        <param description="the cache lifetime in seconds" type="int" variable="$lifetime"/>
+        <param description="custom cache ID to use" type="string" variable="$ID"/>
+        <param description="an optional array of arguments" type="array" variable="$arguments"/>
+        <return description="the cached data" type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="clearCache" start="1097" end="1105" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Clears the cache for the given cacheToFile call"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="loadCache" start="1114" end="1122" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Loads a cache from the filesystem if a valid on is present and within the specified lifetime"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="the lifetime (in seconds) of the cache before it is invalid" type="int" variable="$lifetime"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+    </method>
+    <method name="saveCache" start="1130" end="1132" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Save a piece of cached data to the file system"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="data to save (must be serializable)" type="mixed" variable="$data"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="sanitiseCachename" start="1140" end="1142" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Strip a file name of special characters so it is suitable for use as a cache file name"/>
+        <param type="string" variable="$name"/>
+        <return description="the name with all special cahracters replaced with underscores" type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="IteratorAggregate" namespace="" name="IteratorAggregate">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="getIterator" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Retrieve an external iterator"/>
+      <return type="Traversable"/>
+    </docblock>
+  </method>
+  </interface>
+  <interface full="TemplateGlobalProvider" namespace="" name="TemplateGlobalProvider">
+    <method name="get_template_global_variables" start="33" end="33" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Called by SSViewer to get a list of global variables to expose to the template, the static method to call on this class to get the value for those variables, and the class to use for casting the returned value for use in a template">If the method to call is not included for a particular template variable, a method named the same as the
+template variable will be called
+
+If the casting class is not specified for a particular template variable, ViewableData::$default_cast is used
+
+The first letter of the template variable is case-insensitive. However the method name is always case sensitive.</description>
+        <abstract/>
+        <return description="Returns an array of items. Each key =&gt; value pair is one of three forms:" type="array">- template name (no key)
+ - template name =&gt; method name
+ - template name =&gt; array(), where the array can contain these key =&gt; value pairs
+    - "method" =&gt; method name
+    - "casting" =&gt; casting class to use (i.e., Varchar, HTMLText, etc)</return>
+      </docblock>
+    </method>
+  </interface>
+</class>

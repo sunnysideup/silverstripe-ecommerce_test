@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Cache_Backend_ZendServer_Disk</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Cache_Backend_ZendServer_Disk</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Cache/Backend/ZendServer/Disk.php.xhtml#line37">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Cache_Backend_ZendServer_Disk</h1>
+        <h4/>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Cache_Backend_ZendServer_Disk
+                extends <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer.xhtml">Zend_Cache_Backend_ZendServer</a>
+                implements
+                <a title="Zend_Cache_Backend_Interface" href="../interfaces/Zend_Cache_Backend_Interface.xhtml">Zend_Cache_Backend_Interface</a>
+            {<br/><ul class="none"><li>// Inherited members from <span title="Zend_Cache_Backend_ZendServer">Zend_Cache_Backend_ZendServer</span></li><li>protected array <a href="#members">$_options</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="Zend_Cache_Backend">Zend_Cache_Backend</span></li><li>protected array <a href="#members">$_directives</a>;
+                        </li><li>protected array <a href="#members">$_options</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/__construct.xhtml">__construct</a>()
+                    </li><li>protected boolean <a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_store.xhtml">_store</a>()
+                    </li><li>protected void <a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_fetch.xhtml">_fetch</a>()
+                    </li><li>protected boolean <a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_unset.xhtml">_unset</a>()
+                    </li><li>protected void <a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_clear.xhtml">_clear</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Zend_Cache_Backend_ZendServer">Zend_Cache_Backend_ZendServer</span></li><li>protected abstract void <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_store.xhtml">_store</a>()
+                        </li><li>protected abstract void <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_fetch.xhtml">_fetch</a>()
+                        </li><li>protected abstract void <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_unset.xhtml">_unset</a>()
+                        </li><li>protected abstract void <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_clear.xhtml">_clear</a>()
+                        </li><li>public string <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/load.xhtml">load</a>()
+                        </li><li>public mixed <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/test.xhtml">test</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/save.xhtml">save</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/remove.xhtml">remove</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/clean.xhtml">clean</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="Zend_Cache_Backend">Zend_Cache_Backend</span></li><li>public void <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/setDirectives.xhtml">setDirectives</a>()
+                        </li><li>public void <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/setOption.xhtml">setOption</a>()
+                        </li><li>public int <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/getLifetime.xhtml">getLifetime</a>()
+                        </li><li>public boolean <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/isAutomaticCleaningAvailable.xhtml">isAutomaticCleaningAvailable</a>()
+                        </li><li>public string <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/getTmpDir.xhtml">getTmpDir</a>()
+                        </li><li>protected boolean <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/_isGoodTmpDir.xhtml">_isGoodTmpDir</a>()
+                        </li><li>protected void <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/_loggerSanity.xhtml">_loggerSanity</a>()
+                        </li><li>protected void <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/_log.xhtml">_log</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Zend_Cache_Backend_ZendServer.xhtml">Zend_Cache_Backend_ZendServer</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/Zend_Cache_Backend_Interface.xhtml">Zend_Cache_Backend_Interface</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_directives"><strong>$_directives</strong>
+                —
+                array<br/><span class="indent">Frontend or Core directives</span></li>
+            <li id="_options"><strong>$_options</strong>
+                —
+                array<br/><span class="indent">Available options</span></li>
+            <li id="_options"><strong>$_options</strong>
+                —
+                array<br/><span class="indent">Available options</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_clear"><a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_clear.xhtml">_clear()</a>
+                — Clear cache</li>
+            <li id="_fetch"><a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_fetch.xhtml">_fetch()</a>
+                — Fetch data</li>
+            <li id="_store"><a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_store.xhtml">_store()</a>
+                — Store data</li>
+            <li id="_unset"><a title="Zend_Cache_Backend_ZendServer_Disk" href="../classes/Zend_Cache_Backend_ZendServer_Disk/_unset.xhtml">_unset()</a>
+                — Unset data</li>
+          </ul>
+          <h3>Inherited from <a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer.xhtml">Zend_Cache_Backend_ZendServer</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="_clear"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_clear.xhtml">_clear()</a>
+                — Clear cache</li>
+            <li id="_fetch"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_fetch.xhtml">_fetch()</a>
+                — Fetch data</li>
+            <li id="_store"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_store.xhtml">_store()</a>
+                — Store data</li>
+            <li id="_unset"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/_unset.xhtml">_unset()</a>
+                — Unset data</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="clean"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/clean.xhtml">clean()</a>
+                — Clean some cache records</li>
+            <li id="load"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/load.xhtml">load()</a>
+                — Test if a cache is available for the given id and (if yes) return it (false else)</li>
+            <li id="remove"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/remove.xhtml">remove()</a>
+                — Remove a cache record</li>
+            <li id="save"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/save.xhtml">save()</a>
+                — Save some string datas into a cache record</li>
+            <li id="test"><a title="Zend_Cache_Backend_ZendServer" href="../classes/Zend_Cache_Backend_ZendServer/test.xhtml">test()</a>
+                — Test if a cache is available or not (for the given id)</li>
+          </ul>
+          <h3>Inherited from <a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend.xhtml">Zend_Cache_Backend</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="_isGoodTmpDir"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/_isGoodTmpDir.xhtml">_isGoodTmpDir()</a>
+                — Verify if the given temporary directory is readable and writable</li>
+            <li id="_log"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/_log.xhtml">_log()</a>
+                — Log a message at the WARN (4) priority.</li>
+            <li id="_loggerSanity"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/_loggerSanity.xhtml">_loggerSanity()</a>
+                — Make sure if we enable logging that the Zend_Log class is available.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="getLifetime"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/getLifetime.xhtml">getLifetime()</a>
+                — Get the life time</li>
+            <li id="getTmpDir"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/getTmpDir.xhtml">getTmpDir()</a>
+                — Determine system TMP directory and detect if we have read access</li>
+            <li id="isAutomaticCleaningAvailable"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/isAutomaticCleaningAvailable.xhtml">isAutomaticCleaningAvailable()</a>
+                — Return true if the automatic cleaning is available for the backend</li>
+            <li id="setDirectives"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/setDirectives.xhtml">setDirectives()</a>
+                — Set the frontend directives</li>
+            <li id="setOption"><a title="Zend_Cache_Backend" href="../classes/Zend_Cache_Backend/setOption.xhtml">setOption()</a>
+                — Set an option</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

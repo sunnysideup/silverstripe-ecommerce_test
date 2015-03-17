@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldPrintButton" namespace="" name="GridFieldPrintButton" abstract="false" final="false" start="9" end="253">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldPrintButton.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldPrintButton.php" size="5234" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="20a34742e41798d3cf8c381f6f8582590265cd91" relative="framework/forms/gridfield/GridFieldPrintButton.php"/>
+  <docblock>
+    <description compact="Adds an &quot;Print&quot; button to the bottom or top of a GridField."/>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <implements full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider"/>
+  <implements full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider"/>
+  <implements full="GridField_URLHandler" namespace="" name="GridField_URLHandler"/>
+  <member name="printColumns" type="{unknown}" visibility="protected" line="17">
+    <docblock>
+      <description/>
+      <var description="Map of a property name on the printed objects, with values" type="array">being the column title in the CSV file.
+Note that titles are only used when <link xmlns="http://xml.phpdox.net/src" value="$csvHasHeader"/> is set to TRUE
+</var>
+    </docblock>
+  </member>
+  <member name="printHasHeader" type="{unknown}" default="true" visibility="protected" line="22">
+    <docblock>
+      <description/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="targetFragment" type="{unknown}" visibility="protected" line="29">
+    <docblock>
+      <description compact="Fragment to write the button to."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="35" end="38" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="The HTML fragment to write the button into" type="string" variable="$targetFragment"/>
+      <param description="The columns to include in the print view" type="array" variable="$printColumns"/>
+    </docblock>
+    <parameter name="targetFragment" byreference="false" type="string" default="&quot;after&quot;"/>
+    <parameter name="printColumns" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="getHTMLFragments" start="47" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Place the print button in a &lt;p&gt; tag below the field"/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getActions" start="71" end="73" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Print is an action button."/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handleAction" start="83" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle the print action."/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="string"/>
+      <param type="array"/>
+      <param type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="actionName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getURLHandlers" start="95" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Print is accessible via the url"/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handlePrint" start="104" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle the print, for both the action button and the URL"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="request" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getPrintColumnsForGridField" start="121" end="131" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return the columns to print"/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+  </method>
+  <method name="getTitle" start="140" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the title of the printed page"/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+  </method>
+  <method name="generatePrintData" start="171" end="220" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Export core."/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+  </method>
+  <method name="getPrintColumns" start="225" end="227" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setPrintColumns" start="232" end="236" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="array"/>
+    </docblock>
+    <parameter name="cols" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPrintHasHeader" start="241" end="243" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="setPrintHasHeader" start="248" end="252" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="boolean"/>
+    </docblock>
+    <parameter name="bool" byreference="false" type="{unknown}"/>
+  </method>
+  <interface full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getHTMLFragments" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a map where the keys are fragment names and the values are pieces of HTML to add to these fragments.">Here are 4 built-in fragments: 'header', 'footer', 'before', and
+'after', but components may also specify fragments of their own.
+To specify a new fragment, specify a new fragment by including the
+text "$DefineFragment(fragmentname)" in the HTML that you return.
+Fragment names should only contain alphanumerics, -, and _.
+If you attempt to return HTML for a fragment that doesn't exist, an
+exception will be thrown when the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> is rendered.
+</description>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getActions" start="129" end="129" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a list of the actions handled by this action provider.">Used to identify the action later on through the $actionName parameter
+in <link xmlns="http://xml.phpdox.net/src" value="handleAction"/>.
+There is no namespacing on these actions, so you need to ensure that
+they don't conflict with other components.
+</description>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <return description="with action identifier strings." type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </return>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="handleAction" start="142" end="142" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Handle an action on the given {@link GridField}.">Calls ALL components for every action handled, so the component needs
+to ensure it only accepts actions it is actually supposed to handle.</description>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="Action identifier, see {@link getActions()}." type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <param description="Arguments relevant for this" type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </param>
+        <param description="All form data" type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </param>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="object">
+        <type full="\\GridField" namespace="\" name="GridField"/>
+      </parameter>
+      <parameter name="actionName" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="GridField_URLHandler" namespace="" name="GridField_URLHandler">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getURLHandlers" start="192" end="192" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return URLs to be handled by this grid field, in an array the same form as $url_handlers.">Handler methods will be called on the component, rather than the
+{@link GridField}.</description>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

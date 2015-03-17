@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_LogErrorEmailFormatter" namespace="" name="SS_LogErrorEmailFormatter" abstract="false" final="false" start="10" end="80">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev" file="LogErrorEmailFormatter.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/LogErrorEmailFormatter.php" size="2243" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="c82a2f6a6f39acf6209f6ef7538d5124a590eb54" relative="framework/dev/LogErrorEmailFormatter.php"/>
+  <docblock>
+    <description compact="Formats SS error emails with a basic layout."/>
+    <package value="framework"/>
+    <subpackage value="dev"/>
+  </docblock>
+  <implements full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+  <method name="format" start="12" end="78" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Render the provided backtrace" line="47"/>
+      <comment value="Compile extra data" line="50"/>
+    </inline>
+  </method>
+  <interface full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface">
+    <method name="format" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Formats data into a single line to be written by the writer."/>
+        <param description="event data" type="array" variable="$event"/>
+        <return description="formatted line to write to the log" type="string"/>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Session" namespace="" name="Session" abstract="false" final="false" start="86" end="631">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control" file="Session.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/Session.php" size="17630" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="b34ed2d14f1a59aa8d139299ec1812e09669c4af" relative="framework/control/Session.php"/>
+  <docblock>
+    <description compact="Handles all manipulation of the session.">The static methods are used to manipulate the currently active controller's session.
+The instance methods are used to manipulate a particular session.  There can be more than one of these created.
+In order to support things like testing, the session is associated with a particular Controller.  In normal usage,
+this is loaded from and saved to the regular PHP session, but for things like static-page-generation and
+unit-testing, you can create multiple Controllers, each with their own session.
+The instance object is basically just a way of manipulating a set of nested maps, and isn't specific to session
+data.
+&lt;b&gt;Saving Data&lt;/b&gt;
+You can write a value to a users session from your PHP code using the static function <link xmlns="http://xml.phpdox.net/src" value="Session::set()"/>. You
+can add this line in any function or file you wish to save the value.
+&lt;code&gt;
+	Session::set('MyValue', 6);
+&lt;/code&gt;
+Saves the value of "6" to the MyValue session data. You can also save arrays or serialized objects in session (but
+note there may be size restrictions as to how much you can save)
+&lt;code&gt;
+	// save a variable
+	$var = 1;
+	Session::set('MyVar', $var);
+	// saves an array
+	Session::set('MyArrayOfValues', array('1','2','3'));
+	// saves an object (you'll have to unserialize it back)
+	$object = new Object();
+	Session::set('MyObject', serialize($object));
+&lt;/code&gt;
+&lt;b&gt;Accessing Data&lt;/b&gt;
+Once you have saved a value to the Session you can access it by using the <link xmlns="http://xml.phpdox.net/src" value="Session::get()"/> function.
+Like the <link xmlns="http://xml.phpdox.net/src" value="Session::set()} function you can use this anywhere in your PHP files.&#10;&#10;The values in the comments are the values stored from the previous example.&#10;&#10;&lt;code&gt;&#10;public function bar() {&#10;&#9;$value = Session::get('MyValue'); // $value = 6&#10;&#9;$var   = Session::get('MyVar'); // $var = 1&#10;&#9;$array = Session::get('MyArrayOfValues'); // $array = array(1,2,3)&#10;&#9;$object = Session::get('MyObject', unserialize($object)); // $object = Object()"/>&lt;/code&gt;
+You can also get all the values in the session at once. This is useful for debugging.
+&lt;code&gt;
+Session::get_all(); // returns an array of all the session values.
+&lt;/code&gt;
+&lt;b&gt;Clearing Data&lt;/b&gt;
+Once you have accessed a value from the Session it doesn't automatically wipe the value from the Session, you have
+to specifically remove it. To clear a value you can either delete 1 session value by the name that you saved it
+&lt;code&gt;
+Session::clear('MyValue'); // MyValue is no longer 6.
+&lt;/code&gt;
+Or you can clear every single value in the session at once. Note SilverStripe stores some of its own session data
+including form and page comment information. None of this is vital but clear_all will clear everything.
+&lt;code&gt;
+	Session::clear_all();
+&lt;/code&gt;
+</description>
+    <see value="Cookie"/>
+    <todo value="This class is currently really basic and could do with a more well-thought-out implementation."/>
+    <package value="framework"/>
+    <subpackage value="control"/>
+  </docblock>
+  <member name="timeout" type="integer" default="0" visibility="private" line="92">
+    <docblock>
+      <description/>
+      <var description="Set session timeout in seconds." type="object">
+        <type full="$timeout" namespace="" name="$timeout"/>
+      </var>
+      <config/>
+    </docblock>
+  </member>
+  <member name="session_ips" type="array" visibility="private" line="98">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="cookie_domain" type="{unknown}" visibility="private" line="104">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="cookie_path" type="{unknown}" visibility="private" line="110">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="session_store_path" type="{unknown}" visibility="private" line="116">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="cookie_secure" type="{unknown}" default="false" visibility="private" line="122">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="data" type="array" visibility="protected" line="127">
+    <docblock>
+      <description compact="Session data"/>
+    </docblock>
+  </member>
+  <member name="changedData" type="array" visibility="protected" line="129"/>
+  <method name="userAgent" start="131" end="137" abstract="false" final="false" static="false" visibility="protected"/>
+  <constructor name="__construct" start="144" end="157" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start PHP session, then create a new Session object with the given start data."/>
+      <param description="Can be an array of data (such as $_SESSION) or another Session object to clone." variable="$data" type="object">
+        <type full="array|Session" namespace="" name="array|Session"/>
+      </param>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Funny business detected!" line="151"/>
+    </inline>
+  </constructor>
+  <method name="set_cookie_domain" start="169" end="172" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Cookie domain, for example 'www.php.net'.">To make cookies visible on all subdomains then the domain
+must be prefixed with a dot like '.php.net'.</description>
+      <deprecated value="3.2 Use the &quot;Session.cookie_domain&quot; config setting instead"/>
+      <param description="The domain to set" type="string" variable="$domain"/>
+    </docblock>
+    <parameter name="domain" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_cookie_domain" start="181" end="184" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the cookie domain."/>
+      <deprecated value="3.2 Use the &quot;Session.cookie_domain&quot; config setting instead"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="set_cookie_path" start="194" end="197" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Path to set on the domain where the session cookie will work.">Use a single slash ('/') for all paths on the domain.</description>
+      <deprecated value="3.2 Use the &quot;Session.cookie_path&quot; config setting instead"/>
+      <param description="The path to set" type="string" variable="$path"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_cookie_path" start="206" end="213" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the path on the domain where the session cookie will work."/>
+      <deprecated value="3.2 Use the &quot;Session.cookie_path&quot; config setting instead"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="set_cookie_secure" start="222" end="225" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Secure cookie, tells the browser to only send it over SSL."/>
+      <deprecated value="3.2 Use the &quot;Session.cookie_secure&quot; config setting instead"/>
+      <param type="boolean" variable="$secure"/>
+    </docblock>
+    <parameter name="secure" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_cookie_secure" start="234" end="237" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get if the cookie is secure"/>
+      <deprecated value="3.2 Use the &quot;Session.cookie_secure&quot; config setting instead"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="set_session_store_path" start="246" end="249" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the session store path"/>
+      <deprecated value="3.2 Use the &quot;Session.session_store_path&quot; config setting instead"/>
+      <param description="Filesystem path to the session store" type="string" variable="$path"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_session_store_path" start="255" end="258" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the session store path"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="set_timeout_ips" start="277" end="280" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Provide an &lt;code&gt;array&lt;/code&gt; of rules specifing timeouts for IPv4 address ranges or individual IPv4 addresses. The key is an IP address or range and the value is the time until the session expires in seconds. For example:">Session::set_timeout_ips(array(
+		'127.0.0.1' =&gt; 36000
+));
+
+Any user connecting from 127.0.0.1 (localhost) will have their session expired after 10 hours.
+
+Session::set_timeout is used to set the timeout value for any users whose address is not in the given IP range.</description>
+      <deprecated value="3.2 Use the &quot;Session.timeout_ips&quot; config setting instead"/>
+      <param description="Array of IPv4 rules." type="array" variable="$session_ips"/>
+    </docblock>
+    <parameter name="ips" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add_to_array" start="285" end="287" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Add a value to a specific key in the session array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="val" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="set" start="295" end="297" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set a key/value pair in the session"/>
+      <param description="Key" type="string" variable="$name"/>
+      <param description="Value" type="string" variable="$val"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="val" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="304" end="306" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return a specific value by session key"/>
+      <param description="Key to lookup" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_all" start="313" end="315" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return all the values in session"/>
+      <return type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="clear" start="322" end="324" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clear a given session key, value pair."/>
+      <param description="Key to lookup" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear_all" start="331" end="334" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clear all the values"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="save" start="339" end="341" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Save all the values in our session to $_SESSION"/>
+    </docblock>
+  </method>
+  <member name="default_session" type="{unknown}" default="null" visibility="protected" line="343"/>
+  <method name="current_session" start="345" end="355" abstract="false" final="false" static="true" visibility="protected"/>
+  <method name="inst_start" start="357" end="391" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="sid" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Allow storing the session in a non standard location" line="372"/>
+      <comment value="If we want a secure cookie for HTTPS, use a seperate session name. This lets us have a" line="375"/>
+      <comment value="seperate (less secure) session for non-HTTPS requests" line="376"/>
+      <comment value="Modify the timeout behaviour so it's the *inactive* time before the session expires." line="385"/>
+      <comment value="By default it's the total session lifetime" line="386"/>
+    </inline>
+  </method>
+  <method name="inst_destroy" start="393" end="417" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="removeCookie" byreference="false" type="{unknown}" default="true"/>
+    <inline>
+      <comment value="Clean up the superglobal - session_destroy does not do it." line="412"/>
+      <comment value="http://nz1.php.net/manual/en/function.session-destroy.php" line="413"/>
+    </inline>
+  </method>
+  <method name="inst_set" start="419" end="449" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="val" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Quicker execution path for &quot;.&quot;-free names" line="420"/>
+    </inline>
+  </method>
+  <method name="inst_addToArray" start="451" end="465" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="val" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="We still want to do this even if we have strict path checking for legacy code" line="454"/>
+    </inline>
+  </method>
+  <method name="inst_get" start="467" end="490" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Quicker execution path for &quot;.&quot;-free names" line="468"/>
+    </inline>
+  </method>
+  <method name="inst_clear" start="492" end="514" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="We still want to do this even if we have strict path checking for legacy code" line="495"/>
+      <comment value="don't clear a record that doesn't exist" line="500"/>
+      <comment value="only loop to find data within diffVar if var is proven to exist in the above loop" line="505"/>
+    </inline>
+  </method>
+  <method name="inst_clearAll" start="516" end="522" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="inst_getAll" start="524" end="526" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="inst_finalize" start="528" end="530" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="inst_save" start="536" end="546" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save data to session Only save the changes, so that anyone manipulating $_SESSION directly doesn't get burned."/>
+    </docblock>
+  </method>
+  <method name="recursivelyApply" start="552" end="561" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Recursively apply the changes represented in $data to $dest.">Used to update $_SESSION</description>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="dest" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="inst_changedData" start="567" end="569" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the changed data, for debugging purposes."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="setFormMessage" start="579" end="582" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Sets the appropriate form message in session, with type. This will be shown once, for the form specified."/>
+      <param description="the form name you wish to use ( usually $form-&gt;FormName() )" type="object">
+        <type full="formname" namespace="" name="formname"/>
+      </param>
+      <param description="the message you wish to add to it" type="object">
+        <type full="messsage" namespace="" name="messsage"/>
+      </param>
+      <param description="the type of message" type="object">
+        <type full="type" namespace="" name="type"/>
+      </param>
+    </docblock>
+    <parameter name="formname" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="request_contains_session_id" start="588" end="592" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Is there a session ID in the request?"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="start" start="599" end="601" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Initialize session."/>
+      <param description="Start the session with a specific ID" type="string" variable="$sid"/>
+    </docblock>
+    <parameter name="sid" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="destroy" start="608" end="610" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Destroy the active session."/>
+      <param description="If set to TRUE, removes the user's cookie, FALSE does not remove" type="object" variable="$removeCookie">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="removeCookie" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="set_timeout" start="619" end="622" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the timeout of a Session value"/>
+      <deprecated value="3.2 Use the &quot;Session.timeout&quot; config setting instead"/>
+      <param description="Time until a session expires in seconds. Defaults to expire when browser is closed." type="int" variable="$timeout"/>
+    </docblock>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_timeout" start="627" end="630" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;Session.timeout&quot; config setting instead"/>
+    </docblock>
+  </method>
+</class>

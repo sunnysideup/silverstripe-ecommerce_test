@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - ArrayListTest</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">ArrayListTest</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/tests/model/ArrayListTest.php.xhtml#line6">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>ArrayListTest</h1>
+        <h4/>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class ArrayListTest
+                extends <a title="SapphireTest" href="../classes/SapphireTest.xhtml">SapphireTest</a>
+            {<br/><ul class="none"><li>// Inherited members from <span title="SapphireTest">SapphireTest</span></li><li>protected <span title="string|array">string|array</span> <a href="#members">$fixture_file</a>;
+                        </li><li>protected <span title="FixtureFactory">FixtureFactory</span> <a href="#members">$fixtureFactory</a>;
+                        </li><li>protected <span title="bool">bool</span> <a href="#members">$skipTest</a>;
+                        </li><li>protected <span title="Boolean">Boolean</span> <a href="#members">$usesDatabase</a>;
+                        </li><li>protected <a href="#members">$originalMailer</a>;
+                        </li><li>protected <a href="#members">$originalMemberPasswordValidator</a>;
+                        </li><li>protected <a href="#members">$originalRequirements</a>;
+                        </li><li>protected <a href="#members">$originalIsRunningTest</a>;
+                        </li><li>protected <a href="#members">$originalTheme</a>;
+                        </li><li>protected <a href="#members">$originalNestedURLsState</a>;
+                        </li><li>protected <a href="#members">$originalMemoryLimit</a>;
+                        </li><li>protected <a href="#members">$mailer</a>;
+                        </li><li>protected <a href="#members">$regular_manifest</a>;
+                        </li><li>protected boolean <a href="#members">$is_running_test</a>;
+                        </li><li>protected <a href="#members">$test_class_manifest</a>;
+                        </li><li>protected array <a href="#members">$requireDefaultRecordsFrom</a>;
+                        </li><li>protected array <a href="#members">$illegalExtensions</a>;
+                        </li><li>protected array <a href="#members">$requiredExtensions</a>;
+                        </li><li>protected array <a href="#members">$extraDataObjects</a>;
+                        </li><li>protected <a href="#members">$backupGlobals</a>;
+                        </li><li>protected array <a href="#members">$fixtures</a>;
+                        </li><li>protected <a href="#members">$model</a>;
+                        </li><li>protected array <a href="#members">$cache_generatedMembers</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testPushOperator.xhtml">testPushOperator</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testArrayAccessExists.xhtml">testArrayAccessExists</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testArrayAccessUnset.xhtml">testArrayAccessUnset</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testArrayAccessSet.xhtml">testArrayAccessSet</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testCount.xhtml">testCount</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testExists.xhtml">testExists</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testToNestedArray.xhtml">testToNestedArray</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testEach.xhtml">testEach</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testLimit.xhtml">testLimit</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testAddRemove.xhtml">testAddRemove</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testReplace.xhtml">testReplace</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMerge.xhtml">testMerge</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testRemoveDuplicates.xhtml">testRemoveDuplicates</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testPushPop.xhtml">testPushPop</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testShiftUnshift.xhtml">testShiftUnshift</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testFirstLast.xhtml">testFirstLast</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMap.xhtml">testMap</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testFind.xhtml">testFind</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testColumn.xhtml">testColumn</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSortSimpleDefaultIsSortedASC.xhtml">testSortSimpleDefaultIsSortedASC</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSortSimpleASCOrder.xhtml">testSortSimpleASCOrder</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSortSimpleDESCOrder.xhtml">testSortSimpleDESCOrder</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testReverse.xhtml">testReverse</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleMultiSort.xhtml">testSimpleMultiSort</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultiSort.xhtml">testMultiSort</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleFilter.xhtml">testSimpleFilter</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleFilterWithMultiple.xhtml">testSimpleFilterWithMultiple</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleFilterWithMultipleNoMatch.xhtml">testSimpleFilterWithMultipleNoMatch</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleFilter.xhtml">testMultipleFilter</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleFilterNoMatch.xhtml">testMultipleFilterNoMatch</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleWithArrayFilter.xhtml">testMultipleWithArrayFilter</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleWithArrayFilterAdvanced.xhtml">testMultipleWithArrayFilterAdvanced</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testFilterByCallback.xhtml">testFilterByCallback</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleExclude.xhtml">testSimpleExclude</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleExcludeNoMatch.xhtml">testSimpleExcludeNoMatch</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleExcludeWithArray.xhtml">testSimpleExcludeWithArray</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testExcludeWithTwoArrays.xhtml">testExcludeWithTwoArrays</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleExclude.xhtml">testMultipleExclude</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleExcludeNoMatch.xhtml">testMultipleExcludeNoMatch</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleExcludeThreeArguments.xhtml">testMultipleExcludeThreeArguments</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testCanFilterBy.xhtml">testCanFilterBy</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testCanFilterByEmpty.xhtml">testCanFilterByEmpty</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testByID.xhtml">testByID</a>()
+                    </li><li>public void <a title="ArrayListTest" href="../classes/ArrayListTest/testByIDEmpty.xhtml">testByIDEmpty</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="SapphireTest">SapphireTest</span></li><li>public static boolean <a title="SapphireTest" href="../classes/SapphireTest/is_running_test.xhtml">is_running_test</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/set_is_running_test.xhtml">set_is_running_test</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/set_test_class_manifest.xhtml">set_test_class_manifest</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/get_test_class_manifest.xhtml">get_test_class_manifest</a>()
+                        </li><li>public static String <a title="SapphireTest" href="../classes/SapphireTest/get_fixture_file.xhtml">get_fixture_file</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/setUp.xhtml">setUp</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/setUpOnce.xhtml">setUpOnce</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/tearDownOnce.xhtml">tearDownOnce</a>()
+                        </li><li>public FixtureFactory <a title="SapphireTest" href="../classes/SapphireTest/getFixtureFactory.xhtml">getFixtureFactory</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/setFixtureFactory.xhtml">setFixtureFactory</a>()
+                        </li><li>protected int <a title="SapphireTest" href="../classes/SapphireTest/idFromFixture.xhtml">idFromFixture</a>()
+                        </li><li>protected A <a title="SapphireTest" href="../classes/SapphireTest/allFixtureIDs.xhtml">allFixtureIDs</a>()
+                        </li><li>protected DataObject <a title="SapphireTest" href="../classes/SapphireTest/objFromFixture.xhtml">objFromFixture</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/loadFixture.xhtml">loadFixture</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/clearFixtures.xhtml">clearFixtures</a>()
+                        </li><li>protected String <a title="SapphireTest" href="../classes/SapphireTest/getCurrentAbsolutePath.xhtml">getCurrentAbsolutePath</a>()
+                        </li><li>protected String <a title="SapphireTest" href="../classes/SapphireTest/getCurrentRelativePath.xhtml">getCurrentRelativePath</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/tearDown.xhtml">tearDown</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/assertContains.xhtml">assertContains</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/assertNotContains.xhtml">assertNotContains</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/clearEmails.xhtml">clearEmails</a>()
+                        </li><li>public array <a title="SapphireTest" href="../classes/SapphireTest/findEmail.xhtml">findEmail</a>()
+                        </li><li>public array <a title="SapphireTest" href="../classes/SapphireTest/assertEmailSent.xhtml">assertEmailSent</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/assertDOSContains.xhtml">assertDOSContains</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/assertDOSEquals.xhtml">assertDOSEquals</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/assertDOSAllMatch.xhtml">assertDOSAllMatch</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/using_temp_db.xhtml">using_temp_db</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/kill_temp_db.xhtml">kill_temp_db</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/empty_temp_db.xhtml">empty_temp_db</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/create_temp_db.xhtml">create_temp_db</a>()
+                        </li><li>public static void <a title="SapphireTest" href="../classes/SapphireTest/delete_all_temp_dbs.xhtml">delete_all_temp_dbs</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/resetDBSchema.xhtml">resetDBSchema</a>()
+                        </li><li>public void <a title="SapphireTest" href="../classes/SapphireTest/logInWithPermission.xhtml">logInWithPermission</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/SapphireTest.xhtml">SapphireTest</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">217</td>
+            <td>this could be a special test model</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="backupGlobals">
+              <strong>$backupGlobals</strong>
+              <br/>
+              <span class="indent">We need to disabling backing up of globals to avoid overriding the few globals SilverStripe relies on, like $lang for the i18n subsystem.</span>
+            </li>
+            <li id="cache_generatedMembers">
+              <strong>$cache_generatedMembers</strong>
+              <br/>
+              <span class="indent">Cache for logInWithPermission()</span>
+            </li>
+            <li id="extraDataObjects">
+              <strong>$extraDataObjects</strong>
+              <br/>
+              <span class="indent">By default, the test database won't contain any DataObjects that have the interface TestOnly.</span>
+            </li>
+            <li id="fixtureFactory"><strong>$fixtureFactory</strong>
+                —
+                <a href="#">FixtureFactory</a></li>
+            <li id="fixture_file"><strong>$fixture_file</strong>
+                —
+                <a href="#">string|array</a><br/><span class="indent">Path to fixture data for this test run.</span></li>
+            <li id="fixtures"><strong>$fixtures</strong>
+                —
+                array</li>
+            <li id="illegalExtensions">
+              <strong>$illegalExtensions</strong>
+              <br/>
+              <span class="indent">A list of extensions that can't be applied during the execution of this run.  If they are applied, they will be temporarily removed and a database migration called.</span>
+            </li>
+            <li id="is_running_test"><strong>$is_running_test</strong>
+                —
+                boolean</li>
+            <li id="mailer">
+              <strong>$mailer</strong>
+            </li>
+            <li id="model">
+              <strong>$model</strong>
+            </li>
+            <li id="originalIsRunningTest">
+              <strong>$originalIsRunningTest</strong>
+            </li>
+            <li id="originalMailer">
+              <strong>$originalMailer</strong>
+            </li>
+            <li id="originalMemberPasswordValidator">
+              <strong>$originalMemberPasswordValidator</strong>
+            </li>
+            <li id="originalMemoryLimit">
+              <strong>$originalMemoryLimit</strong>
+            </li>
+            <li id="originalNestedURLsState">
+              <strong>$originalNestedURLsState</strong>
+            </li>
+            <li id="originalRequirements">
+              <strong>$originalRequirements</strong>
+            </li>
+            <li id="originalTheme">
+              <strong>$originalTheme</strong>
+            </li>
+            <li id="regular_manifest">
+              <strong>$regular_manifest</strong>
+              <br/>
+              <span class="indent">Pointer to the manifest that isn't a test manifest</span>
+            </li>
+            <li id="requireDefaultRecordsFrom">
+              <strong>$requireDefaultRecordsFrom</strong>
+              <br/>
+              <span class="indent">By default, setUp() does not require default records. Pass class names in here, and the require/augment default records function will be called on them.</span>
+            </li>
+            <li id="requiredExtensions">
+              <strong>$requiredExtensions</strong>
+              <br/>
+              <span class="indent">A list of extensions that must be applied during the execution of this run.  If they are not applied, they will be temporarily added and a database migration called.</span>
+            </li>
+            <li id="skipTest"><strong>$skipTest</strong>
+                —
+                <a href="#">bool</a></li>
+            <li id="test_class_manifest">
+              <strong>$test_class_manifest</strong>
+            </li>
+            <li id="usesDatabase"><strong>$usesDatabase</strong>
+                —
+                <a href="#">Boolean</a></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="testAddRemove">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testAddRemove.xhtml">testAddRemove()</a>
+            </li>
+            <li id="testArrayAccessExists">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testArrayAccessExists.xhtml">testArrayAccessExists()</a>
+            </li>
+            <li id="testArrayAccessSet">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testArrayAccessSet.xhtml">testArrayAccessSet()</a>
+            </li>
+            <li id="testArrayAccessUnset">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testArrayAccessUnset.xhtml">testArrayAccessUnset()</a>
+            </li>
+            <li id="testByID">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testByID.xhtml">testByID()</a>
+            </li>
+            <li id="testByIDEmpty">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testByIDEmpty.xhtml">testByIDEmpty()</a>
+            </li>
+            <li id="testCanFilterBy">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testCanFilterBy.xhtml">testCanFilterBy()</a>
+            </li>
+            <li id="testCanFilterByEmpty">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testCanFilterByEmpty.xhtml">testCanFilterByEmpty()</a>
+            </li>
+            <li id="testColumn">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testColumn.xhtml">testColumn()</a>
+            </li>
+            <li id="testCount">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testCount.xhtml">testCount()</a>
+            </li>
+            <li id="testEach">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testEach.xhtml">testEach()</a>
+            </li>
+            <li id="testExcludeWithTwoArrays"><a title="ArrayListTest" href="../classes/ArrayListTest/testExcludeWithTwoArrays.xhtml">testExcludeWithTwoArrays()</a>
+                — $list-&gt;exclude(array('Name'=&gt;'bob, 'Age'=&gt;21)); // exclude all Bob that has Age 21</li>
+            <li id="testExists">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testExists.xhtml">testExists()</a>
+            </li>
+            <li id="testFilterByCallback"><a title="ArrayListTest" href="../classes/ArrayListTest/testFilterByCallback.xhtml">testFilterByCallback()</a>
+                — $list = $list-&gt;filterByCallback(function($item, $list) { return $item-&gt;Age == 21; })</li>
+            <li id="testFind">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testFind.xhtml">testFind()</a>
+            </li>
+            <li id="testFirstLast">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testFirstLast.xhtml">testFirstLast()</a>
+            </li>
+            <li id="testLimit">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testLimit.xhtml">testLimit()</a>
+            </li>
+            <li id="testMap">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testMap.xhtml">testMap()</a>
+            </li>
+            <li id="testMerge">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testMerge.xhtml">testMerge()</a>
+            </li>
+            <li id="testMultiSort">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testMultiSort.xhtml">testMultiSort()</a>
+            </li>
+            <li id="testMultipleExclude"><a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleExclude.xhtml">testMultipleExclude()</a>
+                — $list-&gt;exclude(array('Name'=&gt;array('bob','phil'), 'Age'=&gt;array(10, 16)));</li>
+            <li id="testMultipleExcludeNoMatch"><a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleExcludeNoMatch.xhtml">testMultipleExcludeNoMatch()</a>
+                — $list-&gt;exclude(array('Name'=&gt;array('bob','phil'), 'Age'=&gt;array(10, 16), 'Bananas'=&gt;true));</li>
+            <li id="testMultipleExcludeThreeArguments"><a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleExcludeThreeArguments.xhtml">testMultipleExcludeThreeArguments()</a>
+                — $list-&gt;exclude(array('Name'=&gt;array('bob','phil'), 'Age'=&gt;array(10, 16), 'HasBananas'=&gt;true));</li>
+            <li id="testMultipleFilter"><a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleFilter.xhtml">testMultipleFilter()</a>
+                — $list-&gt;filter(array('Name'=&gt;'bob, 'Age'=&gt;21)); // bob with the Age 21 in list</li>
+            <li id="testMultipleFilterNoMatch"><a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleFilterNoMatch.xhtml">testMultipleFilterNoMatch()</a>
+                — $list-&gt;filter(array('Name'=&gt;'bob, 'Age'=&gt;21)); // negative version</li>
+            <li id="testMultipleWithArrayFilter"><a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleWithArrayFilter.xhtml">testMultipleWithArrayFilter()</a>
+                — $list-&gt;filter(array('Name'=&gt;'Steve', 'Age'=&gt;array(21, 43))); // Steve with the Age 21 or 43</li>
+            <li id="testMultipleWithArrayFilterAdvanced"><a title="ArrayListTest" href="../classes/ArrayListTest/testMultipleWithArrayFilterAdvanced.xhtml">testMultipleWithArrayFilterAdvanced()</a>
+                — $list-&gt;filter(array('Name'=&gt;array('aziz','bob'), 'Age'=&gt;array(21, 43)));</li>
+            <li id="testPushOperator">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testPushOperator.xhtml">testPushOperator()</a>
+            </li>
+            <li id="testPushPop">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testPushPop.xhtml">testPushPop()</a>
+            </li>
+            <li id="testRemoveDuplicates">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testRemoveDuplicates.xhtml">testRemoveDuplicates()</a>
+            </li>
+            <li id="testReplace">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testReplace.xhtml">testReplace()</a>
+            </li>
+            <li id="testReverse">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testReverse.xhtml">testReverse()</a>
+            </li>
+            <li id="testShiftUnshift">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testShiftUnshift.xhtml">testShiftUnshift()</a>
+            </li>
+            <li id="testSimpleExclude"><a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleExclude.xhtml">testSimpleExclude()</a>
+                — $list-&gt;exclude('Name', 'bob'); // exclude bob from list</li>
+            <li id="testSimpleExcludeNoMatch"><a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleExcludeNoMatch.xhtml">testSimpleExcludeNoMatch()</a>
+                — $list-&gt;exclude('Name', 'bob'); // No exclusion version</li>
+            <li id="testSimpleExcludeWithArray"><a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleExcludeWithArray.xhtml">testSimpleExcludeWithArray()</a>
+                — $list-&gt;exclude('Name', array('Steve','John'));</li>
+            <li id="testSimpleFilter"><a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleFilter.xhtml">testSimpleFilter()</a>
+                — $list-&gt;filter('Name', 'bob'); // only bob in the list</li>
+            <li id="testSimpleFilterWithMultiple"><a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleFilterWithMultiple.xhtml">testSimpleFilterWithMultiple()</a>
+                — $list-&gt;filter('Name', array('Steve', 'John'); // Steve and John in list</li>
+            <li id="testSimpleFilterWithMultipleNoMatch"><a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleFilterWithMultipleNoMatch.xhtml">testSimpleFilterWithMultipleNoMatch()</a>
+                — $list-&gt;filter('Name', array('Steve', 'John'); // negative version</li>
+            <li id="testSimpleMultiSort">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testSimpleMultiSort.xhtml">testSimpleMultiSort()</a>
+            </li>
+            <li id="testSortSimpleASCOrder">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testSortSimpleASCOrder.xhtml">testSortSimpleASCOrder()</a>
+            </li>
+            <li id="testSortSimpleDESCOrder">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testSortSimpleDESCOrder.xhtml">testSortSimpleDESCOrder()</a>
+            </li>
+            <li id="testSortSimpleDefaultIsSortedASC">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testSortSimpleDefaultIsSortedASC.xhtml">testSortSimpleDefaultIsSortedASC()</a>
+            </li>
+            <li id="testToNestedArray">
+              <a title="ArrayListTest" href="../classes/ArrayListTest/testToNestedArray.xhtml">testToNestedArray()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="SapphireTest" href="../classes/SapphireTest.xhtml">SapphireTest</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="allFixtureIDs"><a title="SapphireTest" href="../classes/SapphireTest/allFixtureIDs.xhtml">allFixtureIDs()</a>
+                — Return all of the IDs in the fixture of a particular class name.</li>
+            <li id="getCurrentAbsolutePath"><a title="SapphireTest" href="../classes/SapphireTest/getCurrentAbsolutePath.xhtml">getCurrentAbsolutePath()</a>
+                — Useful for writing unit tests without hardcoding folder structures.</li>
+            <li id="getCurrentRelativePath">
+              <a title="SapphireTest" href="../classes/SapphireTest/getCurrentRelativePath.xhtml">getCurrentRelativePath()</a>
+            </li>
+            <li id="idFromFixture"><a title="SapphireTest" href="../classes/SapphireTest/idFromFixture.xhtml">idFromFixture()</a>
+                — Get the ID of an object from the fixture.</li>
+            <li id="objFromFixture"><a title="SapphireTest" href="../classes/SapphireTest/objFromFixture.xhtml">objFromFixture()</a>
+                — Get an object from the fixture.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="assertContains">
+              <a title="SapphireTest" href="../classes/SapphireTest/assertContains.xhtml">assertContains()</a>
+            </li>
+            <li id="assertDOSAllMatch"><a title="SapphireTest" href="../classes/SapphireTest/assertDOSAllMatch.xhtml">assertDOSAllMatch()</a>
+                — Assert that the every record in the given {@link SS_List} matches the given key-value pairs.</li>
+            <li id="assertDOSContains"><a title="SapphireTest" href="../classes/SapphireTest/assertDOSContains.xhtml">assertDOSContains()</a>
+                — Assert that the given {@link SS_List} includes DataObjects matching the given key-value pairs.  Each match must correspond to 1 distinct record.</li>
+            <li id="assertDOSEquals"><a title="SapphireTest" href="../classes/SapphireTest/assertDOSEquals.xhtml">assertDOSEquals()</a>
+                — Assert that the given {@link SS_List} includes only DataObjects matching the given key-value pairs.  Each match must correspond to 1 distinct record.</li>
+            <li id="assertEmailSent"><a title="SapphireTest" href="../classes/SapphireTest/assertEmailSent.xhtml">assertEmailSent()</a>
+                — Assert that the matching email was sent since the last call to clearEmails() All of the parameters can either be a string, or, if they start with "/", a PREG-compatible regular expression.</li>
+            <li id="assertNotContains">
+              <a title="SapphireTest" href="../classes/SapphireTest/assertNotContains.xhtml">assertNotContains()</a>
+            </li>
+            <li id="clearEmails"><a title="SapphireTest" href="../classes/SapphireTest/clearEmails.xhtml">clearEmails()</a>
+                — Clear the log of emails sent</li>
+            <li id="clearFixtures"><a title="SapphireTest" href="../classes/SapphireTest/clearFixtures.xhtml">clearFixtures()</a>
+                — Clear all fixtures which were previously loaded through {@link loadFixture()}</li>
+            <li id="create_temp_db">
+              <a title="SapphireTest" href="../classes/SapphireTest/create_temp_db.xhtml">create_temp_db()</a>
+            </li>
+            <li id="delete_all_temp_dbs">
+              <a title="SapphireTest" href="../classes/SapphireTest/delete_all_temp_dbs.xhtml">delete_all_temp_dbs()</a>
+            </li>
+            <li id="empty_temp_db"><a title="SapphireTest" href="../classes/SapphireTest/empty_temp_db.xhtml">empty_temp_db()</a>
+                — Remove all content from the temporary database.</li>
+            <li id="findEmail"><a title="SapphireTest" href="../classes/SapphireTest/findEmail.xhtml">findEmail()</a>
+                — Search for an email that was sent.</li>
+            <li id="getFixtureFactory">
+              <a title="SapphireTest" href="../classes/SapphireTest/getFixtureFactory.xhtml">getFixtureFactory()</a>
+            </li>
+            <li id="get_fixture_file">
+              <a title="SapphireTest" href="../classes/SapphireTest/get_fixture_file.xhtml">get_fixture_file()</a>
+            </li>
+            <li id="get_test_class_manifest"><a title="SapphireTest" href="../classes/SapphireTest/get_test_class_manifest.xhtml">get_test_class_manifest()</a>
+                — Return the manifest being used to look up test classes by helper functions</li>
+            <li id="is_running_test"><a title="SapphireTest" href="../classes/SapphireTest/is_running_test.xhtml">is_running_test()</a>
+                — Determines if unit tests are currently run (via {@link TestRunner}).</li>
+            <li id="kill_temp_db">
+              <a title="SapphireTest" href="../classes/SapphireTest/kill_temp_db.xhtml">kill_temp_db()</a>
+            </li>
+            <li id="loadFixture"><a title="SapphireTest" href="../classes/SapphireTest/loadFixture.xhtml">loadFixture()</a>
+                — Load a YAML fixture file into the database.</li>
+            <li id="logInWithPermission"><a title="SapphireTest" href="../classes/SapphireTest/logInWithPermission.xhtml">logInWithPermission()</a>
+                — Create a member and group with the given permission code, and log in with it.</li>
+            <li id="resetDBSchema"><a title="SapphireTest" href="../classes/SapphireTest/resetDBSchema.xhtml">resetDBSchema()</a>
+                — Reset the testing database's schema.</li>
+            <li id="setFixtureFactory">
+              <a title="SapphireTest" href="../classes/SapphireTest/setFixtureFactory.xhtml">setFixtureFactory()</a>
+            </li>
+            <li id="setUp">
+              <a title="SapphireTest" href="../classes/SapphireTest/setUp.xhtml">setUp()</a>
+            </li>
+            <li id="setUpOnce"><a title="SapphireTest" href="../classes/SapphireTest/setUpOnce.xhtml">setUpOnce()</a>
+                — Called once per test case ({@link SapphireTest} subclass).</li>
+            <li id="set_is_running_test">
+              <a title="SapphireTest" href="../classes/SapphireTest/set_is_running_test.xhtml">set_is_running_test()</a>
+            </li>
+            <li id="set_test_class_manifest"><a title="SapphireTest" href="../classes/SapphireTest/set_test_class_manifest.xhtml">set_test_class_manifest()</a>
+                — Set the manifest to be used to look up test classes by helper functions</li>
+            <li id="tearDown">
+              <a title="SapphireTest" href="../classes/SapphireTest/tearDown.xhtml">tearDown()</a>
+            </li>
+            <li id="tearDownOnce"><a title="SapphireTest" href="../classes/SapphireTest/tearDownOnce.xhtml">tearDownOnce()</a>
+                — tearDown method that's called once per test class rather once per test method.</li>
+            <li id="using_temp_db"><a title="SapphireTest" href="../classes/SapphireTest/using_temp_db.xhtml">using_temp_db()</a>
+                — Returns true if we are currently using a temporary database</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

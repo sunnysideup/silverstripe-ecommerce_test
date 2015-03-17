@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Moxiecode_Logger</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Moxiecode_Logger</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/tinymce-spellchecker/classes/utils/Logger.php.xhtml#line21">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Moxiecode_Logger</h1>
+        <h4>Logging utility class. This class handles basic logging with levels, log rotation and custom log formats. It's designed to be compact but still powerful and flexible.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Moxiecode_Logger
+            {<br/><ul class="none"><li>// members</li><li>public <a href="#members">$_path</a>;
+                    </li><li>public <a href="#members">$_filename</a>;
+                    </li><li>public <a href="#members">$_maxSize</a>;
+                    </li><li>public <a href="#members">$_maxFiles</a>;
+                    </li><li>public <a href="#members">$_maxSizeBytes</a>;
+                    </li><li>public <a href="#members">$_level</a>;
+                    </li><li>public <a href="#members">$_format</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/Moxiecode_Logger.xhtml">Moxiecode_Logger</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setLevel.xhtml">setLevel</a>()
+                    </li><li>public int <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getLevel.xhtml">getLevel</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setPath.xhtml">setPath</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getPath.xhtml">getPath</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setFileName.xhtml">setFileName</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getFileName.xhtml">getFileName</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setFormat.xhtml">setFormat</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getFormat.xhtml">getFormat</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setMaxSize.xhtml">setMaxSize</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getMaxSize.xhtml">getMaxSize</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setMaxFiles.xhtml">setMaxFiles</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getMaxFiles.xhtml">getMaxFiles</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/debug.xhtml">debug</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/info.xhtml">info</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/warn.xhtml">warn</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/error.xhtml">error</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/fatal.xhtml">fatal</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isDebugEnabled.xhtml">isDebugEnabled</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isInfoEnabled.xhtml">isInfoEnabled</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isWarnEnabled.xhtml">isWarnEnabled</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isErrorEnabled.xhtml">isErrorEnabled</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isFatalEnabled.xhtml">isFatalEnabled</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/_logMsg.xhtml">_logMsg</a>()
+                    </li><li>public void <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/toOSPath.xhtml">toOSPath</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>public</h4>
+          <ul class="members">
+            <li id="_filename">
+              <strong>$_filename</strong>
+            </li>
+            <li id="_format">
+              <strong>$_format</strong>
+            </li>
+            <li id="_level">
+              <strong>$_level</strong>
+            </li>
+            <li id="_maxFiles">
+              <strong>$_maxFiles</strong>
+            </li>
+            <li id="_maxSize">
+              <strong>$_maxSize</strong>
+            </li>
+            <li id="_maxSizeBytes">
+              <strong>$_maxSizeBytes</strong>
+            </li>
+            <li id="_path">
+              <strong>$_path</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="Moxiecode_Logger"><a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/Moxiecode_Logger.xhtml">Moxiecode_Logger()</a>
+                — Constructs a new logger instance.</li>
+            <li id="_logMsg">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/_logMsg.xhtml">_logMsg()</a>
+            </li>
+            <li id="debug">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/debug.xhtml">debug()</a>
+            </li>
+            <li id="error">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/error.xhtml">error()</a>
+            </li>
+            <li id="fatal">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/fatal.xhtml">fatal()</a>
+            </li>
+            <li id="getFileName">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getFileName.xhtml">getFileName()</a>
+            </li>
+            <li id="getFormat">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getFormat.xhtml">getFormat()</a>
+            </li>
+            <li id="getLevel"><a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getLevel.xhtml">getLevel()</a>
+                — Returns the current log level for example MC_LOGGER_DEBUG.</li>
+            <li id="getMaxFiles">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getMaxFiles.xhtml">getMaxFiles()</a>
+            </li>
+            <li id="getMaxSize">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getMaxSize.xhtml">getMaxSize()</a>
+            </li>
+            <li id="getPath">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/getPath.xhtml">getPath()</a>
+            </li>
+            <li id="info">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/info.xhtml">info()</a>
+            </li>
+            <li id="isDebugEnabled">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isDebugEnabled.xhtml">isDebugEnabled()</a>
+            </li>
+            <li id="isErrorEnabled">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isErrorEnabled.xhtml">isErrorEnabled()</a>
+            </li>
+            <li id="isFatalEnabled">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isFatalEnabled.xhtml">isFatalEnabled()</a>
+            </li>
+            <li id="isInfoEnabled">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isInfoEnabled.xhtml">isInfoEnabled()</a>
+            </li>
+            <li id="isWarnEnabled">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/isWarnEnabled.xhtml">isWarnEnabled()</a>
+            </li>
+            <li id="setFileName">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setFileName.xhtml">setFileName()</a>
+            </li>
+            <li id="setFormat">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setFormat.xhtml">setFormat()</a>
+            </li>
+            <li id="setLevel"><a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setLevel.xhtml">setLevel()</a>
+                — Sets the current log level, use the MC_LOGGER constants.</li>
+            <li id="setMaxFiles">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setMaxFiles.xhtml">setMaxFiles()</a>
+            </li>
+            <li id="setMaxSize">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setMaxSize.xhtml">setMaxSize()</a>
+            </li>
+            <li id="setPath">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/setPath.xhtml">setPath()</a>
+            </li>
+            <li id="toOSPath"><a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/toOSPath.xhtml">toOSPath()</a>
+                — Converts a Unix path to OS specific path.</li>
+            <li id="warn">
+              <a title="Moxiecode_Logger" href="../classes/Moxiecode_Logger/warn.xhtml">warn()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Log_Writer_Abstract</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Log_Writer_Abstract</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Log/Writer/Abstract.php.xhtml#line34">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Log_Writer_Abstract</h1>
+        <h4/>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Log_Writer_Abstract
+                implements
+                <a title="Zend_Log_FactoryInterface" href="../interfaces/Zend_Log_FactoryInterface.xhtml">Zend_Log_FactoryInterface</a>
+            {<br/><ul class="none"><li>// members</li><li>protected array <a href="#members">$_filters</a>;
+                    </li><li>protected <span title="Zend_Log_Formatter_Interface">Zend_Log_Formatter_Interface</span> <a href="#members">$_formatter</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public Zend_Log_Writer_Abstract <a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/addFilter.xhtml">addFilter</a>()
+                    </li><li>public void <a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/write.xhtml">write</a>()
+                    </li><li>public Zend_Log_Writer_Abstract <a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/setFormatter.xhtml">setFormatter</a>()
+                    </li><li>public void <a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/shutdown.xhtml">shutdown</a>()
+                    </li><li>protected abstract void <a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/_write.xhtml">_write</a>()
+                    </li><li>protected static array <a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/_parseConfig.xhtml">_parseConfig</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/SS_SysLogWriter.xhtml">SS_SysLogWriter</a>
+            </li>
+            <li>
+              <a href="../classes/SS_LogEmailWriter.xhtml">SS_LogEmailWriter</a>
+            </li>
+            <li>
+              <a href="../classes/SS_LogFileWriter.xhtml">SS_LogFileWriter</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_Firebug.xhtml">Zend_Log_Writer_Firebug</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_Db.xhtml">Zend_Log_Writer_Db</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_ZendMonitor.xhtml">Zend_Log_Writer_ZendMonitor</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_Syslog.xhtml">Zend_Log_Writer_Syslog</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_Mail.xhtml">Zend_Log_Writer_Mail</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_Mock.xhtml">Zend_Log_Writer_Mock</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_Null.xhtml">Zend_Log_Writer_Null</a>
+            </li>
+            <li>
+              <a href="../classes/Zend_Log_Writer_Stream.xhtml">Zend_Log_Writer_Stream</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/Zend_Log_FactoryInterface.xhtml">Zend_Log_FactoryInterface</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_filters"><strong>$_filters</strong>
+                —
+                array</li>
+            <li id="_formatter"><strong>$_formatter</strong>
+                —
+                <a href="#">Zend_Log_Formatter_Interface</a><br/><span class="indent">Formats the log message before writing.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_parseConfig"><a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/_parseConfig.xhtml">_parseConfig()</a>
+                — Validate and optionally convert the config to array</li>
+            <li id="_write"><a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/_write.xhtml">_write()</a>
+                — Write a message to the log.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="addFilter"><a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/addFilter.xhtml">addFilter()</a>
+                — Add a filter specific to this writer.</li>
+            <li id="setFormatter"><a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/setFormatter.xhtml">setFormatter()</a>
+                — Set a new formatter for this writer</li>
+            <li id="shutdown"><a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/shutdown.xhtml">shutdown()</a>
+                — Perform shutdown activites such as closing open resources</li>
+            <li id="write"><a title="Zend_Log_Writer_Abstract" href="../classes/Zend_Log_Writer_Abstract/write.xhtml">write()</a>
+                — Log a message to this writer.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

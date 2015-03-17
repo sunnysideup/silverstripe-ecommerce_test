@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_TemplateManifest</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_TemplateManifest</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/core/manifest/TemplateManifest.php.xhtml#line9">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_TemplateManifest</h1>
+        <h4>A class which builds a manifest of all templates present in a directory, in both modules and themes.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_TemplateManifest
+            {<br/><ul class="none"><li>// constants</li><li>const TEMPLATES_DIR = 'templates';</li></ul><ul class="none"><li>// members</li><li>protected <a href="#members">$base</a>;
+                    </li><li>protected <a href="#members">$tests</a>;
+                    </li><li>protected <a href="#members">$cache</a>;
+                    </li><li>protected <a href="#members">$cacheKey</a>;
+                    </li><li>protected <a href="#members">$project</a>;
+                    </li><li>protected <a href="#members">$inited</a>;
+                    </li><li>protected array <a href="#members">$templates</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getBase.xhtml">getBase</a>()
+                    </li><li>public string <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getCacheKey.xhtml">getCacheKey</a>()
+                    </li><li>public array <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getTemplates.xhtml">getTemplates</a>()
+                    </li><li>public array <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getTemplate.xhtml">getTemplate</a>()
+                    </li><li>public array <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getCandidateTemplate.xhtml">getCandidateTemplate</a>()
+                    </li><li>public void <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/regenerate.xhtml">regenerate</a>()
+                    </li><li>public void <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/handleFile.xhtml">handleFile</a>()
+                    </li><li>protected void <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/init.xhtml">init</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="TEMPLATES_DIR">TEMPLATES_DIR</td>
+              <td>'templates'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="base">
+              <strong>$base</strong>
+            </li>
+            <li id="cache">
+              <strong>$cache</strong>
+            </li>
+            <li id="cacheKey">
+              <strong>$cacheKey</strong>
+            </li>
+            <li id="inited">
+              <strong>$inited</strong>
+            </li>
+            <li id="project">
+              <strong>$project</strong>
+            </li>
+            <li id="templates">
+              <strong>$templates</strong>
+            </li>
+            <li id="tests">
+              <strong>$tests</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="init">
+              <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/init.xhtml">init()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/__construct.xhtml">__construct()</a>
+                — Constructs a new template manifest. The manifest is not actually built or loaded from cache until needed.</li>
+            <li id="getBase">
+              <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getBase.xhtml">getBase()</a>
+            </li>
+            <li id="getCacheKey"><a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getCacheKey.xhtml">getCacheKey()</a>
+                — Generate a unique cache key to avoid manifest cache collisions.</li>
+            <li id="getCandidateTemplate"><a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getCandidateTemplate.xhtml">getCandidateTemplate()</a>
+                — Returns the correct candidate template. In order of importance, application project code, current theme and finally modules.</li>
+            <li id="getTemplate"><a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getTemplate.xhtml">getTemplate()</a>
+                — Returns a set of possible candidate templates that match a certain template name.</li>
+            <li id="getTemplates"><a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/getTemplates.xhtml">getTemplates()</a>
+                — Returns a map of all template information. The map is in the following format:</li>
+            <li id="handleFile">
+              <a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/handleFile.xhtml">handleFile()</a>
+            </li>
+            <li id="regenerate"><a title="SS_TemplateManifest" href="../classes/SS_TemplateManifest/regenerate.xhtml">regenerate()</a>
+                — Regenerates the manifest by scanning the base path.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

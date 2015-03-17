@@ -1,0 +1,1782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridState" namespace="" name="GridState" abstract="false" final="false" start="13" end="116">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridState.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridState.php" size="3298" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="1f5517411b1f8e7015c13d9f837c3938c4a33f07" relative="framework/forms/gridfield/GridState.php"/>
+  <docblock>
+    <description compact="This class is a snapshot of the current status of a {@link GridField}.">It's designed to be inserted into a Form as a HiddenField and passed through
+to actions such as the <link xmlns="http://xml.phpdox.net/src" value="GridField_FormAction"/>.
+</description>
+    <see value="GridField"/>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <extends full="HiddenField" namespace="" name="HiddenField"/>
+  <member name="grid" type="{unknown}" visibility="protected" line="18">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="data" type="{unknown}" default="null" visibility="protected" line="23">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="GridState_Data" namespace="" name="GridState_Data"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="30" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$name">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param description="- json encoded string" type="string" variable="$data"/>
+    </docblock>
+    <parameter name="grid" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="array_to_object" start="42" end="48" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$d"/>
+      <return type="object"/>
+    </docblock>
+    <parameter name="d" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setValue" start="53" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getData" start="64" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="GridState_Data" namespace="" name="GridState_Data"/>
+      </var>
+    </docblock>
+  </method>
+  <method name="getList" start="75" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="DataList" namespace="" name="DataList"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="Value" start="84" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a json encoded string representation of this state."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="dataValue" start="97" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a json encoded string representation of this state."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="attrValue" start="105" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="type" namespace="" name="type"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="__toString" start="113" end="115" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="type" namespace="" name="type"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="HiddenField" namespace="" name="HiddenField">
+    <extends full="FormField" namespace="" name="FormField"/>
+    <method name="FieldHolder" start="10" end="12" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="properties" byreference="false" type="array"/>
+    </method>
+    <method name="performReadonlyTransformation" start="14" end="18" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="IsHidden" start="20" end="22" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="getAttributes" start="24" end="29" abstract="false" final="false" static="false" visibility="public"/>
+  </parent>
+  <parent full="FormField" namespace="" name="FormField">
+    <extends full="RequestHandler" namespace="" name="RequestHandler"/>
+    <member name="form" type="{unknown}" visibility="protected" line="25">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="Form" namespace="" name="Form"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="name" type="{unknown}" visibility="protected" line="27"/>
+    <member name="description" type="{unknown}" visibility="protected" line="33">
+      <docblock>
+        <description/>
+        <var description="string Adds a &quot;title&quot;-attribute to the markup." type="object">
+          <type full="$description" namespace="" name="$description"/>
+        </var>
+        <todo value="Implement in all subclasses"/>
+      </docblock>
+    </member>
+    <member name="extraClasses" type="{unknown}" visibility="protected" line="38">
+      <docblock>
+        <description/>
+        <var description="array Extra CSS-classes for the formfield-container" type="object">
+          <type full="$extraClasses" namespace="" name="$extraClasses"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="dontEscape" type="{unknown}" visibility="public" line="40"/>
+    <member name="rightTitle" type="{unknown}" visibility="protected" line="46">
+      <docblock>
+        <description/>
+        <var description="string Used in SmallFieldHolder to force a right-aligned label, or in FieldHolder" type="object">to create contextual label.<type full="$rightTitle" namespace="" name="$rightTitle"/></var>
+      </docblock>
+    </member>
+    <member name="leftTitle" type="{unknown}" visibility="protected" line="52">
+      <docblock>
+        <description/>
+        <var description="string Used in SmallFieldHolder() to force a left-aligned label with correct spacing." type="object">Please use $title for FormFields rendered with FieldHolder().<type full="$leftTitle" namespace="" name="$leftTitle"/></var>
+      </docblock>
+    </member>
+    <member name="containerFieldList" type="{unknown}" visibility="protected" line="58">
+      <docblock>
+        <description compact="Stores a reference to the FieldList that contains this object."/>
+        <var type="object">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="readonly" type="{unknown}" default="false" visibility="protected" line="63">
+      <docblock>
+        <description/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <member name="disabled" type="{unknown}" default="false" visibility="protected" line="68">
+      <docblock>
+        <description/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <member name="customValidationMessage" type="string" default="&quot;&quot;" visibility="protected" line="73">
+      <docblock>
+        <description/>
+        <var description="custom validation message for the Field" type="string"/>
+      </docblock>
+    </member>
+    <member name="template" type="{unknown}" visibility="protected" line="85">
+      <docblock>
+        <description compact="Name of the template used to render this form field. If not set, then will look up the class ancestry for the first matching template where the template name equals the class name.">To explicitly use a custom template or one named other than the form
+field see <link xmlns="http://xml.phpdox.net/src" value="setTemplate()"/>, <link xmlns="http://xml.phpdox.net/src" value="setFieldHolderTemplate()"/></description>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <member name="attributes" type="array" visibility="protected" line="94">
+      <docblock>
+        <description/>
+        <var description="All attributes on the form field (not the field holder)." type="array">Partially determined based on other instance properties, please use <link xmlns="http://xml.phpdox.net/src" value="getAttributes()"/>.
+</var>
+      </docblock>
+    </member>
+    <method name="name_to_label" start="108" end="118" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Takes a fieldname and converts camelcase to spaced words. Also resolves combined fieldnames with dot syntax to spaced words.">Examples:
+- 'TotalAmount' will return 'Total Amount'
+- 'Organisation.ZipCode' will return 'Organisation Zip Code'</description>
+        <param type="string" variable="$fieldName"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="create_tag" start="123" end="135" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct and return HTML tag."/>
+      </docblock>
+      <parameter name="tag" byreference="false" type="{unknown}"/>
+      <parameter name="attributes" byreference="false" type="{unknown}"/>
+      <parameter name="content" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Note: as indicated by the $k == value item here; the decisions over what to include in the attributes" line="126"/>
+        <comment value="can sometimes get finicky" line="127"/>
+      </inline>
+    </method>
+    <constructor name="__construct" start="144" end="151" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Creates a new field."/>
+        <param description="The internal field name, passed to forms." type="string" variable="$name"/>
+        <param description="The human-readable field label." type="string" variable="$title"/>
+        <param description="The value of the field." type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="title" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="value" byreference="false" type="{unknown}" default="null"/>
+    </constructor>
+    <method name="Link" start="156" end="158" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a Link to this field"/>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="ID" start="165" end="169" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the HTML ID of the field - used in the template by label tags.">The ID is generated as FormName_FieldName.  All Field functions should ensure
+that this ID is included in the field.</description>
+      </docblock>
+    </method>
+    <method name="getName" start="176" end="178" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field name - used by templates."/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="Message" start="186" end="188" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field message, used by form validation.">Use <link xmlns="http://xml.phpdox.net/src" value="setError()"/> to set this property.
+</description>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="MessageType" start="198" end="200" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field message type, used by form validation.">Arbitrary value which is mostly used for CSS classes
+in the rendered HTML, e.g. "required".
+Use <link xmlns="http://xml.phpdox.net/src" value="setError()"/> to set this property.
+</description>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="Value" start="205" end="207" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field value - used by templates."/>
+      </docblock>
+    </method>
+    <method name="saveInto" start="215" end="219" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Method to save this form field into the given data object.">By default, makes use of $this-&gt;dataValue()</description>
+        <param description="DataObject to save data into" type="object" variable="$record">
+          <type full="DataObjectInterface" namespace="" name="DataObjectInterface"/>
+        </param>
+      </docblock>
+      <parameter name="record" byreference="false" type="object">
+        <type full="\\DataObjectInterface" namespace="\" name="DataObjectInterface"/>
+      </parameter>
+    </method>
+    <method name="dataValue" start="224" end="226" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field value suitable for insertion into the data object"/>
+      </docblock>
+    </method>
+    <method name="Title" start="231" end="233" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field label - used by templates."/>
+      </docblock>
+    </method>
+    <method name="setTitle" start="235" end="238" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="val" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="RightTitle" start="246" end="248" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the contextual label than can be used for additional field description.">Can be shown to the right or under the field in question.</description>
+        <return description="Contextual label text." type="string"/>
+      </docblock>
+    </method>
+    <method name="setRightTitle" start="255" end="258" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the contextual label."/>
+        <param description="Text to set on the label." variable="$val" type="string"/>
+      </docblock>
+      <parameter name="val" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="LeftTitle" start="260" end="262" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="setLeftTitle" start="264" end="267" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="val" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="extraClass" start="277" end="294" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Compiles all CSS-classes. Optionally includes a &quot;nolabel&quot;-class if no title was set on the formfield.">Uses <link xmlns="http://xml.phpdox.net/src" value="Message()"/> and <link xmlns="http://xml.phpdox.net/src" value="MessageType()"/> to add validatoin
+error classes which can be used to style the contained tags.
+</description>
+        <return description="CSS-classnames" type="string"/>
+      </docblock>
+      <inline>
+        <comment value="Allow customization of label and field tag positioning" line="284"/>
+        <comment value="Allow custom styling of any element in the container based" line="287"/>
+        <comment value="on validation errors, e.g. red borders on input tags." line="288"/>
+        <comment value="CSS-Class needs to be different from the one rendered" line="289"/>
+        <comment value="through {@link FieldHolder()}" line="290"/>
+      </inline>
+    </method>
+    <method name="addExtraClass" start="302" end="310" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add one or more CSS-classes to the formfield-container. Multiple class names should be space delimited."/>
+        <param type="string" variable="$class"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="removeExtraClass" start="317" end="325" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Remove one or more CSS-classes from the formfield-container."/>
+        <param type="string" variable="$class"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setAttribute" start="344" end="347" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set an HTML attribute on the field element, mostly an &lt;input&gt; tag.">Some attributes are best set through more specialized methods, to avoid interfering with built-in behaviour:
+- 'class': <link xmlns="http://xml.phpdox.net/src" value="addExtraClass()"/>- 'title': <link xmlns="http://xml.phpdox.net/src" value="setDescription()"/>- 'value': <link xmlns="http://xml.phpdox.net/src" value="setValue"/>- 'name': <link xmlns="http://xml.phpdox.net/src" value="setName"/>CAUTION Doesn't work on most fields which are composed of more than one HTML form field:
+AjaxUniqueTextField, CheckboxSetField, ComplexTableField, CompositeField, ConfirmedPasswordField,
+CountryDropdownField, CreditCardField, CurrencyField, DateField, DatetimeField, FieldGroup, GridField,
+HtmlEditorField, ImageField, ImageFormAction, InlineFormAction, ListBoxField, etc.
+</description>
+        <param type="string"/>
+        <param type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getAttribute" start="355" end="358" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an HTML attribute defined by the field, or added through {@link setAttribute()}.">Caution: Doesn't work on all fields, see <link xmlns="http://xml.phpdox.net/src" value="setAttribute()"/>.
+</description>
+        <return type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getAttributes" start="363" end="380" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="getAttributesHTML" start="387" end="407" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param description="Custom attributes to process. Falls back to {@link getAttributes()}." type="object">If at least one argument is passed as a string, all arguments act as excludes by name.<type full="Array" namespace="" name="Array"/></param>
+        <return description="HTML attributes, ready for insertion into an HTML tag" type="string"/>
+      </docblock>
+      <parameter name="attrs" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Remove empty" line="392"/>
+        <comment value="Remove excluded" line="397"/>
+        <comment value="Create markkup" line="400"/>
+      </inline>
+    </method>
+    <method name="attrTitle" start="412" end="414" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a version of a title suitable for insertion into an HTML attribute"/>
+      </docblock>
+    </method>
+    <method name="attrValue" start="418" end="420" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a version of a title suitable for insertion into an HTML attribute"/>
+      </docblock>
+    </method>
+    <method name="setValue" start="429" end="432" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the field value."/>
+        <param type="mixed" variable="$value"/>
+        <param description="Optional data source passed in by {@see Form::loadDataFrom}" type="mixed" variable="$data"/>
+        <return description="Self reference" type="object">
+          <type full="FormField" namespace="" name="FormField"/>
+        </return>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setName" start="437" end="440" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the field name"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setForm" start="447" end="450" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the container form.">This is called whenever you create a new form and put fields inside it, so that you don't
+have to worry about linking the two.</description>
+      </docblock>
+      <parameter name="form" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getForm" start="457" end="459" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the currently used form."/>
+        <return type="object">
+          <type full="Form" namespace="" name="Form"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="securityTokenEnabled" start="466" end="471" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if security token protection is enabled on the parent {@link Form}."/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setError" start="480" end="485" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the error message to be displayed on the form field Set by php validation of the form."/>
+        <param description="Message to show to the user. Allows HTML content," type="string" variable="$message">which means you need to use Convert::raw2xml() for any user supplied data.</param>
+      </docblock>
+      <parameter name="message" byreference="false" type="{unknown}"/>
+      <parameter name="messageType" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setCustomValidationMessage" start="494" end="498" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the custom error message to show instead of the default format of Please Fill In XXX. Different from setError() as that appends it to the standard error messaging"/>
+        <param description="Message for the error" type="string"/>
+      </docblock>
+      <parameter name="msg" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getCustomValidationMessage" start="508" end="510" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the custom error message for this form field. If a custom message has not been defined then just return blank. The default error is defined on {@link Validator}."/>
+        <todo value="Should the default error message be stored here instead"/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="setTemplate" start="519" end="523" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set name of template (without path or extension).">Caution: Not consistently implemented in all subclasses,
+please check the <link xmlns="http://xml.phpdox.net/src" value="Field()"/> method on the subclass for support.
+</description>
+        <param type="string"/>
+      </docblock>
+      <parameter name="template" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getTemplate" start="528" end="530" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="getFieldHolderTemplate" start="535" end="537" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="setFieldHolderTemplate" start="548" end="552" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set name of template (without path or extension) for the holder, which in turn is responsible for rendering {@link Field()}.">Caution: Not consistently implemented in all subclasses,
+please check the <link xmlns="http://xml.phpdox.net/src" value="Field()"/> method on the subclass for support.
+</description>
+        <param type="string"/>
+      </docblock>
+      <parameter name="template" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getSmallFieldHolderTemplate" start="557" end="559" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="setSmallFieldHolderTemplate" start="570" end="574" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set name of template (without path or extension) for the small holder, which in turn is responsible for rendering {@link Field()}.">Caution: Not consistently implemented in all subclasses,
+please check the <link xmlns="http://xml.phpdox.net/src" value="Field()"/> method on the subclass for support.
+</description>
+        <param type="string"/>
+      </docblock>
+      <parameter name="template" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="Field" start="586" end="590" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the form field - used by templates.">Although FieldHolder is generally what is inserted into templates, all of the field holder
+templates make use of $Field.  It's expected that FieldHolder will give you the "complete"
+representation of the field on the form, whereas Field will give you the core editing widget,
+such as an input tag.</description>
+        <param description="key value pairs of template variables" type="array" variable="$properties"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="properties" byreference="false" type="array"/>
+    </method>
+    <method name="FieldHolder" start="602" end="606" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a &quot;field holder&quot; for this field - used by templates.">Forms are constructed by concatenating a number of these field holders.
+The default field holder is a label and a form field inside a div.</description>
+        <see value="FieldHolder.ss"/>
+        <param description="key value pairs of template variables" type="array" variable="$properties"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="properties" byreference="false" type="array"/>
+    </method>
+    <method name="SmallFieldHolder" start="615" end="619" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a restricted field holder used within things like FieldGroups."/>
+        <param type="array" variable="$properties"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="properties" byreference="false" type="array"/>
+    </method>
+    <method name="getTemplates" start="626" end="628" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns an array of templates to use for rendering {@link FieldH}"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="getFieldHolderTemplates" start="635" end="640" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns an array of templates to use for rendering {@link FieldHolder}"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="getSmallFieldHolderTemplates" start="647" end="652" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns an array of templates to use for rendering {@link SmallFieldHolder}"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="isComposite" start="682" end="684" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if this field is a composite field.">To create composite field types, you should subclass <link xmlns="http://xml.phpdox.net/src" value="CompositeField"/>.
+</description>
+      </docblock>
+    </method>
+    <method name="hasData" start="694" end="696" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if this field has its own data.">Some fields, such as titles and composite fields, don't actually have any data.  It doesn't
+make sense for data-focused methods to look at them.  By overloading hasData() to return false,
+you can prevent any data-focused methods from looking at it.</description>
+        <see value="FieldList::collateDataFields()"/>
+      </docblock>
+    </method>
+    <method name="isReadonly" start="701" end="703" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+    <method name="setReadonly" start="710" end="713" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets readonly-flag on form-field. Please use performReadonlyTransformation() to actually transform this instance."/>
+        <param description="Setting &quot;false&quot; has no effect on the field-state." variable="$bool" type="boolean"/>
+      </docblock>
+      <parameter name="bool" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="isDisabled" start="718" end="720" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+    <method name="setDisabled" start="727" end="730" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets disabed-flag on form-field. Please use performDisabledTransformation() to actually transform this instance."/>
+        <param description="Setting &quot;false&quot; has no effect on the field-state." variable="$bool" type="boolean"/>
+      </docblock>
+      <parameter name="bool" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="performReadonlyTransformation" start="735" end="739" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a readonly version of this field"/>
+      </docblock>
+    </method>
+    <method name="performDisabledTransformation" start="748" end="758" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a disabled version of this field.">Tries to find a class of the class name of this field suffixed with "_Disabled",
+failing that, finds a method <link xmlns="http://xml.phpdox.net/src" value="setDisabled()"/>.
+</description>
+        <return type="object">
+          <type full="FormField" namespace="" name="FormField"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="transform" start="760" end="762" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="trans" byreference="false" type="object">
+        <type full="\\FormTransformation" namespace="\" name="FormTransformation"/>
+      </parameter>
+    </method>
+    <method name="hasClass" start="764" end="768" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="Type" start="778" end="780" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field type - used by templates.">The field type is the class name with the word Field dropped off the end, all lowercase.
+It's handy for assigning HTML classes. Doesn't signify the &lt;input type&gt; attribute,
+see {link getAttributes()}.</description>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="createTag" start="785" end="788" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <deprecated value="3.2 Use FormField::create_tag()"/>
+      </docblock>
+      <parameter name="tag" byreference="false" type="{unknown}"/>
+      <parameter name="attributes" byreference="false" type="{unknown}"/>
+      <parameter name="content" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="validate" start="798" end="800" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Abstract method each {@link FormField} subclass must implement, determines whether the field is valid or not based on the value."/>
+        <todo value="Make this abstract."/>
+        <param type="object">
+          <type full="Validator" namespace="" name="Validator"/>
+        </param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="validator" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setDescription" start="809" end="812" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Describe this field, provide help text for it.">By default, renders as a &lt;span class="description"&gt;
+underneath the form field.</description>
+        <return description="Description" type="string"/>
+      </docblock>
+      <parameter name="description" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getDescription" start="817" end="819" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="debug" start="821" end="824" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="forTemplate" start="830" end="832" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="This function is used by the template processor.  If you refer to a field as a $ variable, it will return the $Field value."/>
+      </docblock>
+    </method>
+    <method name="Required" start="838" end="842" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <uses value="Validator-&gt;fieldIsRequired()"/>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+    <method name="setContainerFieldList" start="850" end="853" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the FieldList that contains this field."/>
+        <param type="object" variable="$list">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </param>
+        <return type="object">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </return>
+      </docblock>
+      <parameter name="list" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getContainerFieldList" start="860" end="862" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the FieldList that contains this field."/>
+        <return type="object">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="rootFieldList" start="864" end="867" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="castedCopy" start="885" end="905" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns another instance of this field, but &quot;cast&quot; to a different class.">The logic tries to retain all of the instance properties,
+and may be overloaded by subclasses to set additional ones.
+Assumes the standard FormField parameter signature with
+its name as the only mandatory argument. Mainly geared towards
+creating *_Readonly or *_Disabled subclasses of the same type,
+or casting to a <link xmlns="http://xml.phpdox.net/src" value="ReadonlyField"/>.
+Does not copy custom field templates, since they probably won't apply to
+the new instance.
+</description>
+        <param description="Class name for copy, or existing copy instance to update" type="object" variable="$classOrCopy">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="FormField" namespace="" name="FormField"/>
+        </return>
+      </docblock>
+      <parameter name="classOrCopy" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Only include built-in attributes, ignore anything" line="896"/>
+        <comment value="set through getAttributes(), since those might change important characteristics" line="897"/>
+        <comment value="of the field, e.g. its &quot;type&quot; attribute." line="898"/>
+      </inline>
+    </method>
+  </parent>
+  <parent full="RequestHandler" namespace="" name="RequestHandler">
+    <extends full="ViewableData" namespace="" name="ViewableData"/>
+    <member name="request" type="{unknown}" default="null" visibility="protected" line="42">
+      <docblock>
+        <description/>
+        <var description="$request The request object that the controller was called with." type="object">Set in <link xmlns="http://xml.phpdox.net/src" value="handleRequest()"/>. Useful to generate the {}
+<type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/></var>
+      </docblock>
+    </member>
+    <member name="model" type="{unknown}" default="null" visibility="protected" line="47">
+      <docblock>
+        <description compact="The DataModel for this request"/>
+      </docblock>
+    </member>
+    <member name="brokenOnConstruct" type="{unknown}" default="true" visibility="protected" line="56">
+      <docblock>
+        <description compact="This variable records whether RequestHandler::__construct() was called or not. Useful for checking if subclasses have called parent::__construct()"/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="110" end="120" abstract="false" final="false" static="false" visibility="public">
+      <inline>
+        <comment value="Check necessary to avoid class conflicts before manifest is rebuilt" line="113"/>
+        <comment value="This will prevent bugs if setDataModel() isn't called." line="116"/>
+      </inline>
+    </constructor>
+    <method name="setDataModel" start="125" end="127" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the DataModel for this request."/>
+      </docblock>
+      <parameter name="model" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="handleRequest" start="150" end="239" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Handles URL requests.">- ViewableData::handleRequest() iterates through each rule in <link xmlns="http://xml.phpdox.net/src" value="self::$url_handlers"/>.
+ - If the rule matches, the named method will be called.
+ - If there is still more URL to be processed, then handleRequest()
+   is called on the object that that method returns.
+Once all of the URL has been processed, the final result is returned.
+However, if the final result is an array, this
+array is interpreted as being additional template data to customise the
+2nd to last result with, rather than an object
+in its own right.  This is most frequently used when a Controller's
+action will return an array of data with which to
+customise the controller.
+</description>
+        <param description="{@link SS_HTTPRequest} object that is reponsible for distributing URL parsing" variable="$request" type="object">
+          <type full="The" namespace="" name="The"/>
+        </param>
+        <uses value="SS_HTTPRequest"/>
+        <uses value="SS_HTTPRequest-&gt;match()"/>
+        <return type="object">
+          <type full="SS_HTTPResponse|RequestHandler|string|array" namespace="" name="SS_HTTPResponse|RequestHandler|string|array"/>
+        </return>
+      </docblock>
+      <parameter name="request" byreference="false" type="object">
+        <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+      </parameter>
+      <parameter name="model" byreference="false" type="object">
+        <type full="\\DataModel" namespace="\" name="DataModel"/>
+      </parameter>
+      <inline>
+        <comment value="$handlerClass is used to step up the class hierarchy to implement url_handlers inheritance" line="151"/>
+        <comment value="If nothing matches, return this object" line="163"/>
+        <comment value="Start to find what action to call. Start by using what findAction returned" line="166"/>
+        <comment value="We used to put &quot;handleAction&quot; as the action on controllers, but (a) this could only be called when" line="169"/>
+        <comment value="you had $Action in your rule, and (b) RequestHandler didn't have one. $Action is better" line="170"/>
+        <todo value="Fix LeftAndMain usage" line="172"/>
+        <comment value="Deprecation::notice('3.2.0', 'Calling handleAction directly is deprecated - use $Action instead');" line="173"/>
+        <comment value="Actions can reference URL parameters, eg, '$Action/$ID/$OtherID' =&gt; '$Action'," line="177"/>
+        <comment value="If we return a RequestHandler, call handleRequest() on that, even if there is no more URL to" line="214"/>
+        <comment value="parse. It might have its own handler. However, we only do this if we haven't just parsed an" line="215"/>
+        <comment value="empty rule ourselves, to prevent infinite loops. Also prevent further handling of controller" line="216"/>
+        <comment value="actions which return themselves to avoid infinite loops." line="217"/>
+        <comment value="Array results can be used to handle" line="224"/>
+      </inline>
+    </method>
+    <method name="findAction" start="241" end="267" abstract="false" final="false" static="false" visibility="protected">
+      <parameter name="request" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="We stop after RequestHandler; in other words, at ViewableData" line="244"/>
+      </inline>
+    </method>
+    <method name="handleAction" start="278" end="294" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Given a request, and an action name, call that action name on this RequestHandler">Must not raise SS_HTTPResponse_Exceptions - instead it should return</description>
+        <param variable="$request"/>
+        <param variable="$action"/>
+        <return type="object">
+          <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+        </return>
+      </docblock>
+      <parameter name="request" byreference="false" type="{unknown}"/>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="allowedActions" start="308" end="340" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get a array of allowed actions defined on this controller, any parent classes or extensions.">Caution: Since 3.1, allowed_actions definitions only apply
+to methods on the controller they're defined on,
+so it is recommended to use the $class argument
+when invoking this method.</description>
+        <param type="object" variable="$limitToClass">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="array|null" namespace="" name="array|null"/>
+        </return>
+      </docblock>
+      <parameter name="limitToClass" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="convert all keys and values to lowercase to" line="328"/>
+        <comment value="allow for easier comparison, unless it is a permission code" line="329"/>
+      </inline>
+    </method>
+    <method name="hasAction" start="350" end="383" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks if this request handler has a specific action, even if the current user cannot access it.">Includes class ancestry and extensions in the checks.</description>
+        <param type="string" variable="$action"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Don't allow access to any non-public methods (inspect instance plus all extensions)" line="353"/>
+        <comment value="Check if the action is defined in the allowed actions of any ancestry class" line="365"/>
+        <comment value="as either a key or value. Note that if the action is numeric, then keys are not" line="366"/>
+        <comment value="searched for actions to prevent actual array keys being recognised as actions." line="367"/>
+      </inline>
+    </method>
+    <method name="definingClassForAction" start="388" end="399" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Return the class that defines the given action, so that we know where to check allowed_actions."/>
+      </docblock>
+      <parameter name="actionOrigCasing" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="checkAccessAction" start="405" end="454" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check that the given action is allowed to be called from a URL.">It will interrogate <link xmlns="http://xml.phpdox.net/src" value="self::$allowed_actions"/> to determine this.
+</description>
+      </docblock>
+      <parameter name="action" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Get actions for this specific class (without inheritance)" line="412"/>
+        <comment value="check if specific action is set" line="416"/>
+        <comment value="TRUE should always allow access" line="421"/>
+        <comment value="If we don't have a match in allowed_actions," line="447"/>
+        <comment value="whitelist the 'index' action as well as undefined actions based on configuration." line="448"/>
+      </inline>
+    </method>
+    <method name="httpError" start="464" end="473" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Throws a HTTP error response encased in a {@link SS_HTTPResponse_Exception}, which is later caught in {@link RequestHandler::handleAction()} and returned to the user."/>
+        <param type="int" variable="$errorCode"/>
+        <param description="Plaintext error message" type="string" variable="$errorMessage"/>
+        <uses value="SS_HTTPResponse_Exception"/>
+      </docblock>
+      <parameter name="errorCode" byreference="false" type="{unknown}"/>
+      <parameter name="errorMessage" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Call a handler method such as onBeforeHTTPError404" line="465"/>
+        <comment value="Call a handler method such as onBeforeHTTPError, passing 404 as the first arg" line="468"/>
+        <comment value="Throw a new exception" line="471"/>
+      </inline>
+    </method>
+    <method name="getRequest" start="483" end="485" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the SS_HTTPRequest object that this controller is using.">Returns a placeholder <link xmlns="http://xml.phpdox.net/src" value="NullHTTPRequest"/> object unless
+<link xmlns="http://xml.phpdox.net/src" value="handleAction()"/> or <link xmlns="http://xml.phpdox.net/src" value="handleRequest()"/> have been called,
+which adds a reference to an actual <link xmlns="http://xml.phpdox.net/src" value="SS_HTTPRequest"/> object.
+</description>
+        <return type="object">
+          <type full="SS_HTTPRequest|NullHTTPRequest" namespace="" name="SS_HTTPRequest|NullHTTPRequest"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setRequest" start="493" end="495" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Typically the request is set through {@link handleAction()} or {@link handleRequest()}, but in some based we want to set it manually."/>
+        <param type="object">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </param>
+      </docblock>
+      <parameter name="request" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <parent full="ViewableData" namespace="" name="ViewableData">
+    <extends full="Object" namespace="" name="Object"/>
+    <member name="failover" type="{unknown}" visibility="protected" line="51">
+      <docblock>
+        <description compact="A failover object to attempt to get data from if it is not present on this object."/>
+        <var type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="customisedObject" type="{unknown}" visibility="protected" line="56">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="castingObjectCreator" start="72" end="74" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Converts a field spec into an object creator. For example: &quot;Int&quot; becomes &quot;new Int($fieldName);&quot; and &quot;Varchar(50)&quot; becomes &quot;new Varchar($fieldName, 50);&quot;."/>
+        <param description="The field spec" type="string" variable="$fieldSchema"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingObjectCreatorPair" start="83" end="85" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Convert a field schema (e.g. &quot;Varchar(50)&quot;) into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor."/>
+        <param type="string" variable="$fieldSchema"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__isset" start="95" end="97" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if a field exists on this object or its failover."/>
+        <param type="string" variable="$property"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__get" start="106" end="114" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object."/>
+        <param type="string" variable="$property"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__set" start="123" end="129" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method."/>
+        <param type="string" variable="$property"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasField" start="137" end="139" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if a field exists on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getField" start="147" end="149" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a field on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setField" start="157" end="159" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a field on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="defineMethods" start="167" end="186" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}."/>
+      </docblock>
+    </method>
+    <method name="customise" start="197" end="209" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.">Note that any fields you specify will take precedence over the fields on this object.</description>
+        <param type="object" variable="$data">
+          <type full="array|ViewableData" namespace="" name="array|ViewableData"/>
+        </param>
+        <return type="object">
+          <type full="ViewableData_Customised" namespace="" name="ViewableData_Customised"/>
+        </return>
+      </docblock>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setCustomisedObj" start="214" end="216" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </param>
+      </docblock>
+      <parameter name="object" byreference="false" type="object">
+        <type full="\\ViewableData" namespace="\" name="ViewableData"/>
+      </parameter>
+    </method>
+    <method name="castingHelperPair" start="231" end="234" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).">The returned array contains two keys:
+ - className: the class the field would be casted to (e.g. "Varchar")
+ - castingHelper: the casting helper for casting the field (e.g. "return new Varchar($fieldName)")</description>
+        <param type="string" variable="$field"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingHelper" start="243" end="252" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the &quot;casting helper&quot; (a piece of PHP code that when evaluated creates a casted value object) for a field on this object."/>
+        <param type="string" variable="$field"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingClass" start="260" end="267" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the class name a field on this object will be casted to"/>
+        <param type="string" variable="$field"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="escapeTypeForField" start="275" end="279" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the string-format type for the given field."/>
+        <param type="string" variable="$field"/>
+        <return description="'xml'|'raw'" type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="buildCastingCache" start="286" end="308" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Save the casting cache for this object (including data from any failovers) into a variable"/>
+        <param type="object" variable="$cache">
+          <type full="reference" namespace="" name="reference"/>
+        </param>
+      </docblock>
+      <parameter name="cache" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="renderWith" start="323" end="340" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance"/>
+        <param description="the template to render into" type="object" variable="$template">
+          <type full="string|array|SSViewer" namespace="" name="string|array|SSViewer"/>
+        </param>
+        <param description="fields to customise() the object with before rendering" type="array" variable="$customFields"/>
+        <return type="object">
+          <type full="HTMLText" namespace="" name="HTMLText"/>
+        </return>
+      </docblock>
+      <parameter name="template" byreference="false" type="{unknown}"/>
+      <parameter name="customFields" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="obj" start="352" end="390" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified."/>
+        <param type="string" variable="$fieldName"/>
+        <param type="array" variable="$arguments"/>
+        <param description="if TRUE, the value will ALWAYS be casted to an object before being returned," type="object" variable="$forceReturnedObject">even if there is no explicit casting information<type full="bool" namespace="" name="bool"/></param>
+        <param description="a custom cache name" type="string" variable="$cacheName"/>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="forceReturnedObject" byreference="false" type="{unknown}" default="true"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="cacheName" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="HACK: Don't call the deprecated FormField::Name() method" line="356"/>
+      </inline>
+    </method>
+    <method name="cachedCall" start="400" end="402" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method."/>
+        <param type="string" variable="$field"/>
+        <param type="array" variable="$arguments"/>
+        <param description="an optional custom cache identifier" type="string" variable="$identifier"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="identifier" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="hasValue" start="413" end="422" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag."/>
+        <param type="string" variable="$field"/>
+        <param type="array" variable="$arguments"/>
+        <param type="object" variable="$cache">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="XML_val" start="435" end="438" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="RAW_val" start="443" end="445" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of the field without any escaping being applied."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="SQL_val" start="450" end="452" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field in an SQL-safe format."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="JS_val" start="457" end="459" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field in a JavaScript-save format."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="ATT_val" start="464" end="466" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field escaped suitable to be inserted into an XML node attribute."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="getXMLValues" start="476" end="484" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an array of XML-escaped values by field name"/>
+        <param description="an array of field names" type="array" variable="$elements"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="fields" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getIterator" start="496" end="498" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a single-item iterator so you can iterate over the fields of a single record.">This is useful so you can use a single record inside a &lt;% control %&gt; block in a template - and then use
+to access individual fields on this object.</description>
+        <return type="object">
+          <type full="ArrayIterator" namespace="" name="ArrayIterator"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="Me" start="508" end="510" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself."/>
+        <return type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="ThemeDir" start="524" end="533" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the directory if the current active theme (relative to the site root).">This method is useful for things such as accessing theme images from your template without hardcoding the theme
+page - e.g. &lt;img src="$ThemeDir/images/something.gif"&gt;.
+
+This method should only be used when a theme is currently active. However, it will fall over to the current
+project directory.</description>
+        <param description="the subtheme path to get" type="string" variable="$subtheme"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="subtheme" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="CSSClasses" start="545" end="561" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get part of the current classes ancestry to be used as a CSS class.">This method returns an escaped string of CSS classes representing the current classes ancestry until it hits a
+stop point - e.g. "Page DataObject ViewableData".</description>
+        <param description="the class to stop at (default: ViewableData)" type="string" variable="$stopAtClass"/>
+        <return type="string"/>
+        <uses value="ClassInfo"/>
+      </docblock>
+      <parameter name="stopAtClass" byreference="false" type="string" default="'ViewableData'"/>
+      <inline>
+        <comment value="optionally add template identifier" line="555"/>
+      </inline>
+    </method>
+    <method name="Debug" start="568" end="570" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return debug information about this object that can be rendered into a template"/>
+        <return type="object">
+          <type full="ViewableData_Debugger" namespace="" name="ViewableData_Debugger"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+  <parent full="Object" namespace="" name="Object">
+    <member name="class" type="{unknown}" visibility="public" line="54">
+      <docblock>
+        <description/>
+        <var description="the class name" type="string"/>
+      </docblock>
+    </member>
+    <member name="extension_instances" type="array" visibility="protected" line="67">
+      <docblock>
+        <description/>
+        <var description="all current extension instances." type="array"/>
+      </docblock>
+    </member>
+    <member name="beforeExtendCallbacks" type="array" visibility="protected" line="75">
+      <docblock>
+        <description compact="List of callbacks to call prior to extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="afterExtendCallbacks" type="array" visibility="protected" line="98">
+      <docblock>
+        <description compact="List of callbacks to call after extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="config" start="60" end="62" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....)."/>
+        <return type="object">
+          <type full="Config_ForClass|null" namespace="" name="Config_ForClass|null"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="beforeExtending" start="85" end="90" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="afterExtending" start="108" end="113" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="create" start="132" end="143" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="An implementation of the factory method, allows you to create an instance of a class">This method first for strong class overloads (singletons &amp; DB interaction), then custom class overloads. If an
+overload is found, an instance of this is returned rather than the original class. To overload a class, use
+{@link Object::useCustomClass()}
+
+This can be called in one of two ways - either calling via the class directly,
+or calling on Object and passing the class name as the first parameter. The following
+are equivalent:
+   $list = DataList::create('SiteTree');
+  $list = SiteTree::get();</description>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="Class to create should be the calling class if not Object," line="135"/>
+        <comment value="otherwise the first parameter" line="136"/>
+      </inline>
+    </method>
+    <method name="create_from_string" start="169" end="188" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().">Construction itself is done with Object::create(), so that Object::useCustomClass() calls
+are respected.
+
+`Object::create_from_string("Versioned('Stage','Live')")` will return the result of
+`Versioned::create('Stage', 'Live);`
+
+It is designed for simple, clonable objects.  The first time this method is called for a given
+string it is cached, and clones of that object are returned.
+
+If you pass the $firstArg argument, this will be prepended to the constructor arguments. It's
+impossible to pass null as the firstArg argument.
+
+`Object::create_from_string("Varchar(50)", "MyField")` will return the result of
+`Vachar::create('MyField', '50');`
+
+Arguments are always strings, although this is a quirk of the current implementation rather
+than something that can be relied upon.</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <parameter name="firstArg" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="an $extension value can contain parameters as a string," line="171"/>
+        <comment value="e.g. &quot;Versioned('Stage','Live')&quot;" line="172"/>
+      </inline>
+    </method>
+    <method name="parse_class_spec" start="194" end="274" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Parses a class-spec, such as &quot;Versioned('Stage','Live')&quot;, as passed to create_from_string().">Returns a 2-elemnent array, with classname and arguments</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Keep track of the current bucket that we're putting data into" line="200"/>
+        <comment value="Get the class naem" line="207"/>
+      </inline>
+    </method>
+    <method name="strong_create" start="284" end="293" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}"/>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="useCustomClass" start="304" end="310" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}"/>
+        <param description="the class to replace" type="string" variable="$oldClass"/>
+        <param description="the class to replace it with" type="string" variable="$newClass"/>
+        <param description="allows you to enforce a certain class replacement under all circumstances. This is used in" type="object" variable="$strong">singletons and DB interaction classes<type full="bool" namespace="" name="bool"/></param>
+      </docblock>
+      <parameter name="oldClass" byreference="false" type="{unknown}"/>
+      <parameter name="newClass" byreference="false" type="{unknown}"/>
+      <parameter name="strong" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="getCustomClass" start="318" end="326" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name"/>
+        <param description="the class to check" type="string" variable="$class"/>
+        <return description="the class that would be created if you called {@link Object::create()} with the class" type="string"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="static_lookup" start="339" end="374" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class."/>
+        <static/>
+        <param description="The class to get the static from" variable="$class" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="The property to get from the class" variable="$name" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="- The value to return if property doesn't exist on class" type="object" variable="$default">
+          <type full="null" namespace="" name="null"/>
+        </param>
+        <return description="- The value of the static property $name on class $class, or $default if that property is not" type="object">defined<type full="any" namespace="" name="any"/></return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="default" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="get_static" start="391" end="394" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a static variable, taking into account SS's inbuild static caches and pseudo-statics">This method first checks for any extra values added by <link xmlns="http://xml.phpdox.net/src" value="Object::add_static_var()"/>, and attemps to traverse
+up the extra static var chain until it reaches the top, or it reaches a replacement static.
+If any extra values are discovered, they are then merged with the default PHP static values, or in some cases
+completely replace the default PHP static when you set $replace = true, and do not define extra data on any
+child classes
+</description>
+        <param type="string" variable="$class"/>
+        <param description="the property name" type="string" variable="$name"/>
+        <param description="if set to TRUE, force a regeneration of the static cache" type="object" variable="$uncached">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_static" start="403" end="406" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set a static variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the property name to set" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited_static" start="415" end="418" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class."/>
+        <param type="string" variable="$class"/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="combined_static" start="430" end="435" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param description="an optional parent class name to begin merging statics down from, rather than traversing" type="string" variable="$ceiling">the entire hierarchy</param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="ceiling" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="addStaticVars" start="444" end="447" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Merge in a set of additional static variables"/>
+        <param type="string" variable="$class"/>
+        <param description="in a [property name] =&gt; [value] format" type="array" variable="$properties"/>
+        <param description="replace existing static vars" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="properties" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="add_static_var" start="465" end="470" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.">Documentation from http://php.net/array_merge_recursive:
+If the input arrays have the same string keys, then the values for these keys are merged together
+into an array, and this is done recursively, so that if one of the values is an array itself,
+the function will merge it with a corresponding entry in another array too.
+If, however, the arrays have the same numeric key, the later value will not overwrite the original value,
+but will be appended.</description>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+        <param description="completely replace existing static values" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="has_extension" start="481" end="503" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a class has a specified extension.">This supports backwards-compatible format (static Object::has_extension($requiredExtension))
+and new format ($object-&gt;has_extension($class, $requiredExtension))</description>
+        <param description="if 1 argument supplied, the class name of the extension to" type="string" variable="$classOrExtension">check for; if 2 supplied, the class name to test</param>
+        <param description="used only if 2 arguments supplied" type="string" variable="$requiredExtension"/>
+        <param description="if the extension has to match the required extension and not be a subclass" type="boolean" variable="$strict"/>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="requiredExtension" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="strict" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="BC support" line="482"/>
+      </inline>
+    </method>
+    <method name="add_extension" start="523" end="565" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add an extension to a specific class.">The preferred method for adding extensions is through YAML config,
+since it avoids autoloading the class, and is easier to override in
+more specific configurations.
+As an alternative, extensions can be added to a specific class
+directly in the <link xmlns="http://xml.phpdox.net/src" value="Object::$extensions"/> array.
+See <link xmlns="http://xml.phpdox.net/src" value="SiteTree::$extensions"/> for examples.
+Keep in mind that the extension will only be applied to new
+instances, not existing ones (including all instances created through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>).
+</description>
+        <see value="http://doc.silverstripe.org/framework/en/trunk/reference/dataextension"/>
+        <param description="Class that should be extended - has to be a subclass of {@link Object}" type="string" variable="$class"/>
+        <param description="Subclass of {@link Extension} with optional parameters" type="string" variable="$extension">as a string, e.g. "Versioned" or "Translatable('Param')"</param>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="extension" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="unset some caches" line="545"/>
+        <comment value="load statics now for DataObject classes" line="559"/>
+      </inline>
+    </method>
+    <method name="remove_extension" start="584" end="614" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Remove an extension from a class.">Keep in mind that this won't revert any datamodel additions
+of the extension at runtime, unless its used before the
+schema building kicks in (in your _config.php).
+Doesn't remove the extension from any <link xmlns="http://xml.phpdox.net/src" value="Object"/>instances which are already created, but will have an
+effect on new extensions.
+Clears any previously created singletons through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>to avoid side-effects from stale extension information.
+</description>
+        <todo value="Add support for removing extensions with parameters"/>
+        <param description="Classname of an {@link Extension} subclass, without parameters" type="string" variable="$extension"/>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="remove any instances of the extension with parameters" line="589"/>
+        <comment value="extensions with parameters will be stored in config as" line="594"/>
+        <comment value="ExtensionName(&quot;Param&quot;)." line="595"/>
+        <comment value="unset singletons to avoid side-effects" line="604"/>
+        <comment value="unset some caches" line="607"/>
+      </inline>
+    </method>
+    <method name="get_extensions" start="623" end="635" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$class"/>
+        <param description="Include the argument string in the return array," type="object" variable="$includeArgumentString">FALSE would return array("Versioned"), TRUE returns array("Versioned('Stage','Live')").<type full="bool" namespace="" name="bool"/></param>
+        <return description="Numeric array of either {@link DataExtension} classnames," type="array">or eval'ed classname strings with constructor arguments.</return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="includeArgumentString" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="get_extra_config_sources" start="641" end="678" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="If this class is unextendable, NOP" line="644"/>
+        <comment value="Get a list of extensions" line="650"/>
+        <comment value="Build a list of all sources;" line="654"/>
+      </inline>
+    </method>
+    <constructor name="__construct" start="680" end="699" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="__call" start="711" end="765" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located">You can add extra methods to a class using <link xmlns="http://xml.phpdox.net/src" value="Extensions"/>, <link xmlns="http://xml.phpdox.net/src" value="Object::createMethod()"/> or
+<link xmlns="http://xml.phpdox.net/src" value="Object::addWrapperMethod()"/></description>
+        <param type="string" variable="$method"/>
+        <param type="array" variable="$arguments"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="If the method cache was cleared by an an Object::add_extension() / Object::remove_extension()" line="712"/>
+        <comment value="call, then we should rebuild it." line="713"/>
+      </inline>
+    </method>
+    <method name="hasMethod" start="778" end="780" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a method exists on this object">This should be used rather than PHP's inbuild method_exists() as it takes into account methods added via
+extensions</description>
+        <param type="string" variable="$method"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="allMethodNames" start="788" end="798" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the names of all the methods available on this object"/>
+        <param description="include methods added dynamically at runtime" type="object" variable="$custom">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="array"/>
+      </docblock>
+      <parameter name="custom" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="defineMethods" start="807" end="821" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Adds any methods from {@link Extension} instances attached to this object.">All these methods can then be called directly on the instance (transparently
+mapped through <link xmlns="http://xml.phpdox.net/src" value="__call()"/>), or called explicitly through <link xmlns="http://xml.phpdox.net/src" value="extend()"/>.
+</description>
+        <uses value="addMethodsFrom()"/>
+      </docblock>
+    </method>
+    <method name="addMethodsFrom" start="829" end="864" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add all the methods from an object property (which is an {@link Extension}) to this object."/>
+        <param description="the property name" type="string" variable="$property"/>
+        <param description="an index to use if the property is an array" type="object" variable="$index">
+          <type full="string|int" namespace="" name="string|int"/>
+        </param>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <parameter name="index" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="addWrapperMethod" start="873" end="878" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)"/>
+        <param description="the method name to wrap" type="string" variable="$method"/>
+        <param description="the method name to wrap to" type="string" variable="$wrap"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="wrap" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="createMethod" start="888" end="892" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add an extra method using raw PHP code passed as a string"/>
+        <param description="the method name" type="string" variable="$method"/>
+        <param description="the PHP code - arguments will be in an array called $args, while you can access this object" type="string" variable="$code">by using $obj. Note that you cannot call protected methods, as the method is actually an external
+       function</param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="code" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="stat" start="899" end="901" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::get_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_stat" start="906" end="908" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::set_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited" start="913" end="915" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::uninherited_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="exists" start="927" end="929" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return true if this object &quot;exists&quot; i.e. has a sensible value">This method should be overriden in subclasses to provide more context about the classes state. For example, a
+{@link DataObject} class could return false when it is deleted from the database</description>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="parentClass" start="934" end="936" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="this classes parent class" type="string"/>
+      </docblock>
+    </method>
+    <method name="is_a" start="944" end="946" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if this class is an instance of a specific class, or has that class as one of its parents"/>
+        <param type="string" variable="$class"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="951" end="953" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="the class name" type="string"/>
+      </docblock>
+    </method>
+    <method name="invokeWithExtensions" start="966" end="971" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array"/>
+        <param description="the method name to call" type="string" variable="$method"/>
+        <param description="a single argument to pass" type="mixed" variable="$argument"/>
+        <return type="mixed"/>
+        <todo value="integrate inheritance rules"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="argument" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="extend" start="988" end="1017" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed">Currently returns an array, with an index resulting every time the function is called. Only adds returns if
+they're not NULL, to avoid bogus results from methods just defined on the parent extension. This is important for
+permission-checks through extend, as they use min() to determine if any of the returns is FALSE. As min() doesn't
+do type checking, an included NULL return would fail the permission checks.
+The extension methods are defined during <link xmlns="http://xml.phpdox.net/src" value="__construct()"/> in <link xmlns="http://xml.phpdox.net/src" value="defineMethods()"/>.
+</description>
+        <param description="the name of the method to call on each extension" type="string" variable="$method"/>
+        <param description="... up to 7 arguments to be passed to the method" type="mixed" variable="$a1"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="a1" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a2" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a3" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a4" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a5" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a6" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a7" byreference="true" type="{unknown}" default="null"/>
+    </method>
+    <method name="getExtensionInstance" start="1027" end="1029" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an extension instance attached to this object by name."/>
+        <uses value="hasExtension()"/>
+        <param type="string" variable="$extension"/>
+        <return type="object">
+          <type full="Extension" namespace="" name="Extension"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasExtension" start="1045" end="1047" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.">Caution: Don't use singleton(&lt;class&gt;)-&gt;hasExtension() as it will
+give you inconsistent results based on when the singleton was first
+accessed.</description>
+        <param description="Classname of an {@link Extension} subclass without parameters" type="string" variable="$extension"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getExtensionInstances" start="1056" end="1058" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get all extension instances for this specific object instance.">See <link xmlns="http://xml.phpdox.net/src" value="get_extensions()"/> to get all applied extension classes
+for this class (not the instance).
+</description>
+        <return description="Map of {@link DataExtension} instances, keyed by classname." type="array"/>
+      </docblock>
+    </method>
+    <method name="cacheToFile" start="1072" end="1092" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Cache the results of an instance method in this object to a file, or if it is already cache return the cached results"/>
+        <param description="the method name to cache" type="string" variable="$method"/>
+        <param description="the cache lifetime in seconds" type="int" variable="$lifetime"/>
+        <param description="custom cache ID to use" type="string" variable="$ID"/>
+        <param description="an optional array of arguments" type="array" variable="$arguments"/>
+        <return description="the cached data" type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="clearCache" start="1097" end="1105" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Clears the cache for the given cacheToFile call"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="loadCache" start="1114" end="1122" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Loads a cache from the filesystem if a valid on is present and within the specified lifetime"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="the lifetime (in seconds) of the cache before it is invalid" type="int" variable="$lifetime"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+    </method>
+    <method name="saveCache" start="1130" end="1132" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Save a piece of cached data to the file system"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="data to save (must be serializable)" type="mixed" variable="$data"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="sanitiseCachename" start="1140" end="1142" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Strip a file name of special characters so it is suitable for use as a cache file name"/>
+        <param type="string" variable="$name"/>
+        <return description="the name with all special cahracters replaced with underscores" type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="IteratorAggregate" namespace="" name="IteratorAggregate">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="getIterator" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Retrieve an external iterator"/>
+      <return type="Traversable"/>
+    </docblock>
+  </method>
+  </interface>
+</class>

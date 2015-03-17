@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Diff" namespace="" name="Diff" abstract="false" final="false" start="530" end="820">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/core" file="Diff.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/core/Diff.php" size="23321" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="e265822e4be3fbba3dd384a251a508aa82156628" relative="framework/core/Diff.php"/>
+  <docblock>
+    <description compact="Class representing a 'diff' between two sequences of strings."/>
+    <package value="framework"/>
+    <subpackage value="core"/>
+  </docblock>
+  <member name="html_cleaner_class" type="{unknown}" default="null" visibility="public" line="532"/>
+  <member name="edits" type="{unknown}" visibility="public" line="534"/>
+  <method name="Diff" start="544" end="548" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor.">Computes diff between sequences of strings.</description>
+      <param description="An array of strings." variable="$from_lines" type="array">(Typically these are lines from a file.)</param>
+      <param description="An array of strings." variable="$to_lines" type="array"/>
+    </docblock>
+    <parameter name="from_lines" byreference="false" type="{unknown}"/>
+    <parameter name="to_lines" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="reverse" start="560" end="567" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compute reversed Diff.">SYNOPSIS:
+
+ $diff = new Diff($lines1, $lines2);
+ $rev = $diff-&gt;reverse();</description>
+      <return description="A Diff object representing the inverse of the" type="object">original diff.</return>
+    </docblock>
+  </method>
+  <method name="isEmpty" start="574" end="580" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check for empty diff."/>
+      <return description="True iff two sequences were identical." type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="lcs" start="589" end="596" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compute the length of the Longest Common Subsequence (LCS).">This is mostly for diagnostic purposed.</description>
+      <return description="The length of the LCS." type="int"/>
+    </docblock>
+  </method>
+  <method name="orig" start="606" end="614" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the original set of lines.">This reconstructs the $from_lines parameter passed to the
+constructor.</description>
+      <return description="The original sequence of strings." type="array"/>
+    </docblock>
+  </method>
+  <method name="finaltext" start="624" end="632" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the final set of lines.">This reconstructs the $to_lines parameter passed to the
+constructor.</description>
+      <return description="The sequence of strings." type="array"/>
+    </docblock>
+  </method>
+  <method name="_check" start="639" end="661" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check a Diff for validity.">This is here only for debugging purposes.</description>
+    </docblock>
+    <parameter name="from_lines" byreference="false" type="{unknown}"/>
+    <parameter name="to_lines" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="cleanHTML" start="676" end="697" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Attempt to clean invalid HTML, which messes up diffs.">This cleans code if possible, using an instance of HTMLCleaner
+
+ NB: By default, only extremely simple tidying is performed,
+ by passing through DomDocument::loadHTML and saveXML</description>
+      <param description="HTML content" type="string" variable="$content"/>
+      <param description="Optional instance of a HTMLCleaner class to" type="object" variable="$cleaner">use, overriding self::$html_cleaner_class</param>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="cleaner" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Remove empty &lt;ins /&gt; and &lt;del /&gt; tags because browsers hate them" line="693"/>
+    </inline>
+  </method>
+  <method name="compareHTML" start="705" end="792" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+    <parameter name="escape" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="First split up the content into words and tags" line="706"/>
+      <comment value="Diff that" line="710"/>
+      <comment value="Go through everything, converting edited tags (and their content) into single chunks.  Otherwise" line="716"/>
+      <comment value="the generated HTML gets crusty" line="717"/>
+      <comment value="$tagStack &gt; 0 indicates that we should be tag-building" line="748"/>
+      <comment value="Diff the re-chunked data, turning it into maked up HTML" line="764"/>
+    </inline>
+  </method>
+  <method name="getHTMLChunks" start="797" end="818" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param description="If passed as an array, values will be concatenated with a comma." type="object">
+        <type full="string|array" namespace="" name="string|array"/>
+      </param>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <extender full="MappedDiff" namespace="" name="MappedDiff"/>
+</class>

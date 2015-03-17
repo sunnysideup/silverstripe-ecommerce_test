@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SSViewer_DataPresenter</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SSViewer_DataPresenter</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/view/SSViewer.php.xhtml#line360">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SSViewer_DataPresenter</h1>
+        <h4>This extends SSViewer_Scope to mix in data on top of what the item provides. This can be "global" data that is scope-independant (like BaseURL), or type-specific data that is layered on top cross-cut like (like $FirstLast etc).</h4>
+        <p>It's separate from SSViewer_Scope to keep that fairly complex code as clean as possible.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SSViewer_DataPresenter
+                extends <a title="SSViewer_Scope" href="../classes/SSViewer_Scope.xhtml">SSViewer_Scope</a>
+            {<br/><ul class="none"><li>// members</li><li>private <a href="#members">$globalProperties</a>;
+                    </li><li>private <a href="#members">$iteratorProperties</a>;
+                    </li><li>protected <span title="array|null">array|null</span> <a href="#members">$overlay</a>;
+                    </li><li>protected <span title="array|null">array|null</span> <a href="#members">$underlay</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="SSViewer_Scope">SSViewer_Scope</span></li><li>protected <a href="#members">$item</a>;
+                        </li><li>protected <a href="#members">$itemIterator</a>;
+                        </li><li>protected <a href="#members">$itemIteratorTotal</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/__construct.xhtml">__construct</a>()
+                    </li><li>protected void <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/createCallableArray.xhtml">createCallableArray</a>()
+                    </li><li>public void <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/getInjectedValue.xhtml">getInjectedValue</a>()
+                    </li><li>public void <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/getObj.xhtml">getObj</a>()
+                    </li><li>public void <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/__call.xhtml">__call</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="SSViewer_Scope">SSViewer_Scope</span></li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/getItem.xhtml">getItem</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/locally.xhtml">locally</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/resetLocalScope.xhtml">resetLocalScope</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/getObj.xhtml">getObj</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/obj.xhtml">obj</a>()
+                        </li><li>public  <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/self.xhtml">self</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/pushScope.xhtml">pushScope</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/popScope.xhtml">popScope</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/next.xhtml">next</a>()
+                        </li><li>public void <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/__call.xhtml">__call</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/SSViewer_Scope.xhtml">SSViewer_Scope</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="globalProperties">
+              <strong>$globalProperties</strong>
+            </li>
+            <li id="iteratorProperties">
+              <strong>$iteratorProperties</strong>
+            </li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="item">
+              <strong>$item</strong>
+            </li>
+            <li id="itemIterator">
+              <strong>$itemIterator</strong>
+            </li>
+            <li id="itemIteratorTotal">
+              <strong>$itemIteratorTotal</strong>
+            </li>
+            <li id="overlay"><strong>$overlay</strong>
+                —
+                <a href="#">array|null</a><br/><span class="indent">Overlay variables. Take precedence over anything from the current scope</span></li>
+            <li id="underlay"><strong>$underlay</strong>
+                —
+                <a href="#">array|null</a><br/><span class="indent">Underlay variables. Concede precedence to overlay variables or anything from the current scope</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="createCallableArray">
+              <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/createCallableArray.xhtml">createCallableArray()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="__call">
+              <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/__call.xhtml">__call()</a>
+            </li>
+            <li id="getInjectedValue">
+              <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/getInjectedValue.xhtml">getInjectedValue()</a>
+            </li>
+            <li id="getObj">
+              <a title="SSViewer_DataPresenter" href="../classes/SSViewer_DataPresenter/getObj.xhtml">getObj()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="SSViewer_Scope" href="../classes/SSViewer_Scope.xhtml">SSViewer_Scope</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="__call">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/__call.xhtml">__call()</a>
+            </li>
+            <li id="getItem">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/getItem.xhtml">getItem()</a>
+            </li>
+            <li id="getObj">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/getObj.xhtml">getObj()</a>
+            </li>
+            <li id="locally"><a title="SSViewer_Scope" href="../classes/SSViewer_Scope/locally.xhtml">locally()</a>
+                — Called at the start of every lookup chain by SSTemplateParser to indicate a new lookup from local scope</li>
+            <li id="next">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/next.xhtml">next()</a>
+            </li>
+            <li id="obj">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/obj.xhtml">obj()</a>
+            </li>
+            <li id="popScope">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/popScope.xhtml">popScope()</a>
+            </li>
+            <li id="pushScope">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/pushScope.xhtml">pushScope()</a>
+            </li>
+            <li id="resetLocalScope">
+              <a title="SSViewer_Scope" href="../classes/SSViewer_Scope/resetLocalScope.xhtml">resetLocalScope()</a>
+            </li>
+            <li id="self"><a title="SSViewer_Scope" href="../classes/SSViewer_Scope/self.xhtml">self()</a>
+                — Gets the current object and resets the scope.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

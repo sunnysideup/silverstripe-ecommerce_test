@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="CurrentPageIdentifier" namespace="" name="CurrentPageIdentifier" abstract="false" final="false" start="7" end="20">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../cms/code/model" file="CurrentPageIdentifier.php" realpath="/var/www/_modules/ecommerce_test/trunk/cms/code/model/CurrentPageIdentifier.php" size="446" time="2015-03-14T10:42:38+13:00" unixtime="1426282958" sha1="251832efd32a37c4465d8ff78851fffff56bc44f" relative="cms/code/model/CurrentPageIdentifier.php"/>
+  <docblock>
+    <description compact="This interface lets us set up objects that will tell us what the current page is."/>
+    <package value="cms"/>
+    <subpackage value="model"/>
+  </docblock>
+  <method name="currentPageID" start="12" end="12" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current page ID."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="isCurrentPage" start="19" end="19" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if the given DataObject is the current page."/>
+      <param description="The page to check." type="object" variable="$page">
+        <type full="DataObject" namespace="" name="DataObject"/>
+      </param>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="page" byreference="false" type="object">
+      <type full="\\DataObject" namespace="\" name="DataObject"/>
+    </parameter>
+  </method>
+  <implementor full="CMSPageAddController_Products" namespace="" name="CMSPageAddController_Products"/>
+  <implementor full="CMSMain" namespace="" name="CMSMain"/>
+  <implementor full="CMSPageEditController" namespace="" name="CMSPageEditController"/>
+  <implementor full="CMSPageSettingsController" namespace="" name="CMSPageSettingsController"/>
+  <implementor full="CMSPageHistoryController" namespace="" name="CMSPageHistoryController"/>
+  <implementor full="CMSPageAddController" namespace="" name="CMSPageAddController"/>
+  <implementor full="CMSPagesController" namespace="" name="CMSPagesController"/>
+</interface>

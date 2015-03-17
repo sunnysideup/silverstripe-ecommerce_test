@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="_database" namespace="" name="_database" abstract="false" final="false" start="2" end="152">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/jstree/_demo/_inc" file="class._database_i.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/jstree/_demo/_inc/class._database_i.php" size="3518" time="2015-03-14T10:41:54+13:00" unixtime="1426282914" sha1="5ec3ed25ef384a7fbfeeffa3f42279564d1d3a7f" relative="framework/thirdparty/jstree/_demo/_inc/class._database_i.php"/>
+  <member name="data" type="{unknown}" default="false" visibility="private" line="3"/>
+  <member name="result" type="{unknown}" default="false" visibility="private" line="4"/>
+  <member name="row" type="{unknown}" default="false" visibility="private" line="5"/>
+  <member name="settings" type="array" visibility="public" line="7"/>
+  <constructor name="__construct" start="19" end="23" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="connect" start="25" end="43" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="query" start="45" end="53" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="sql" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="echo $sql.&quot;&lt;br /&gt;:&quot;;" line="50"/>
+    </inline>
+  </method>
+  <method name="nextr" start="55" end="63" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="get_row" start="65" end="85" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="mode" byreference="false" type="string" default="&quot;both&quot;"/>
+  </method>
+  <method name="get_all" start="87" end="98" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="mode" byreference="false" type="string" default="&quot;both&quot;"/>
+    <parameter name="key" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="f" start="100" end="102" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="go_to" start="104" end="110" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="row" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="nf" start="112" end="118" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="af" start="119" end="121" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="error" start="122" end="137" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="string" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+  <method name="insert_id" start="138" end="140" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="escape" start="141" end="144" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="destroy" start="146" end="149" abstract="false" final="false" static="false" visibility="public"/>
+</class>

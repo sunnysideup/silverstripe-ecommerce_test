@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Cookie" namespace="" name="Cookie" abstract="false" final="false" start="8" end="156">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control" file="Cookie.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/Cookie.php" size="4283" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="619327b722a0dea2bcd6e543b96e57f00cacb5a3" relative="framework/control/Cookie.php"/>
+  <docblock>
+    <description compact="A set of static methods for manipulating cookies."/>
+    <package value="framework"/>
+    <subpackage value="misc"/>
+  </docblock>
+  <member name="report_errors" type="{unknown}" default="true" visibility="private" line="14">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="cookie_class" type="string" default="'Cookie'" visibility="public" line="19">
+    <docblock>
+      <description/>
+      <var description="cookie class" type="string"/>
+    </docblock>
+  </member>
+  <member name="inst" type="{unknown}" default="null" visibility="private" line="21"/>
+  <method name="get_inst" start="23" end="28" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="set" start="41" end="45" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set a cookie variable"/>
+      <param description="The variable name" type="string" variable="$name"/>
+      <param description="The variable value." type="mixed" variable="$value"/>
+      <param description="The expiry time, in days. Defaults to 90." type="int" variable="$expiry"/>
+      <param description="See http://php.net/set_session" type="string" variable="$path"/>
+      <param description="See http://php.net/set_session" type="string" variable="$domain"/>
+      <param description="See http://php.net/set_session" type="boolean" variable="$secure"/>
+      <param description="See http://php.net/set_session" type="boolean" variable="$httpOnly"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiry" byreference="false" type="integer" default="90"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="secure" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="httpOnly" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="get" start="53" end="55" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get a cookie variable."/>
+      <param type="string"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="forceExpiry" start="62" end="66" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string"/>
+      <param type="string"/>
+      <param type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="force_expiry" start="73" end="75" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string"/>
+      <param type="string"/>
+      <param type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="set_report_errors" start="81" end="84" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use &quot;Cookie.report_errors&quot; config setting instead"/>
+      <param type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="reportErrors" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="report_errors" start="90" end="93" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use &quot;Cookie.report_errors&quot; config setting instead"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="inst_set" start="106" end="120" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Set a cookie variable"/>
+      <param description="The variable name" type="string" variable="$name"/>
+      <param description="The variable value." type="mixed" variable="$value"/>
+      <param description="The expiry time, in days. Defaults to 90." type="int" variable="$expiry"/>
+      <param description="See http://php.net/set_session" type="string" variable="$path"/>
+      <param description="See http://php.net/set_session" type="string" variable="$domain"/>
+      <param description="See http://php.net/set_session" type="boolean" variable="$secure"/>
+      <param description="See http://php.net/set_session" type="boolean" variable="$httpOnly"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="expiry" byreference="false" type="integer" default="90"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="secure" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="httpOnly" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="inst_get" start="126" end="128" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="inst_force_expiry" start="133" end="137" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <param type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="domain" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="inst_set_report_errors" start="143" end="146" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;Cookie.report_errors&quot; config setting instead"/>
+      <param type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="reportErrors" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="inst_report_errors" start="152" end="155" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;Cookie.report_errors&quot; config setting instead"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+</class>

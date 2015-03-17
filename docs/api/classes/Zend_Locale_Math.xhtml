@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Locale_Math</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Locale_Math</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Locale/Math.php.xhtml#line35">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Locale_Math</h1>
+        <h4>Utility class for proxying math function to bcmath functions, if present, otherwise to PHP builtin math operators, with limited detection of overflow conditions.</h4>
+        <p>Sampling of PHP environments and platforms suggests that at least 80% to 90% support bcmath.<br/>Thus, this file should be as light as possible.</p>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Locale_Math
+            {<br/><ul class="none"><li>// members</li><li>public <a href="#members">$_bcmathDisabled</a>;
+                    </li><li>public array <a href="#members">$add</a>;
+                    </li><li>public array <a href="#members">$sub</a>;
+                    </li><li>public array <a href="#members">$pow</a>;
+                    </li><li>public array <a href="#members">$mul</a>;
+                    </li><li>public array <a href="#members">$div</a>;
+                    </li><li>public array <a href="#members">$comp</a>;
+                    </li><li>public array <a href="#members">$sqrt</a>;
+                    </li><li>public array <a href="#members">$mod</a>;
+                    </li><li>public string <a href="#members">$scale</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/isBcmathDisabled.xhtml">isBcmathDisabled</a>()
+                    </li><li>public static void <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/round.xhtml">round</a>()
+                    </li><li>public static void <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/floatalize.xhtml">floatalize</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/normalize.xhtml">normalize</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/localize.xhtml">localize</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/exponent.xhtml">exponent</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Add.xhtml">Add</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Sub.xhtml">Sub</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Pow.xhtml">Pow</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Mul.xhtml">Mul</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Div.xhtml">Div</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Sqrt.xhtml">Sqrt</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Mod.xhtml">Mod</a>()
+                    </li><li>public static string <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Comp.xhtml">Comp</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/Zend_Locale_Math_PhpMath.xhtml">Zend_Locale_Math_PhpMath</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>public</h4>
+          <ul class="members">
+            <li id="_bcmathDisabled">
+              <strong>$_bcmathDisabled</strong>
+            </li>
+            <li id="add">
+              <strong>$add</strong>
+            </li>
+            <li id="comp">
+              <strong>$comp</strong>
+            </li>
+            <li id="div">
+              <strong>$div</strong>
+            </li>
+            <li id="mod">
+              <strong>$mod</strong>
+            </li>
+            <li id="mul">
+              <strong>$mul</strong>
+            </li>
+            <li id="pow">
+              <strong>$pow</strong>
+            </li>
+            <li id="scale">
+              <strong>$scale</strong>
+            </li>
+            <li id="sqrt">
+              <strong>$sqrt</strong>
+            </li>
+            <li id="sub">
+              <strong>$sub</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="Add"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Add.xhtml">Add()</a>
+                — BCAdd - fixes a problem of BCMath and exponential numbers</li>
+            <li id="Comp"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Comp.xhtml">Comp()</a>
+                — BCComp - fixes a problem of BCMath and exponential numbers</li>
+            <li id="Div"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Div.xhtml">Div()</a>
+                — BCDiv - fixes a problem of BCMath and exponential numbers</li>
+            <li id="Mod"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Mod.xhtml">Mod()</a>
+                — BCMod - fixes a problem of BCMath and exponential numbers</li>
+            <li id="Mul"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Mul.xhtml">Mul()</a>
+                — BCMul - fixes a problem of BCMath and exponential numbers</li>
+            <li id="Pow"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Pow.xhtml">Pow()</a>
+                — BCPow - fixes a problem of BCMath and exponential numbers</li>
+            <li id="Sqrt"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Sqrt.xhtml">Sqrt()</a>
+                — BCSqrt - fixes a problem of BCMath and exponential numbers</li>
+            <li id="Sub"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/Sub.xhtml">Sub()</a>
+                — BCSub - fixes a problem of BCMath and exponential numbers</li>
+            <li id="exponent"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/exponent.xhtml">exponent()</a>
+                — Changes exponential numbers to plain string numbers Fixes a problem of BCMath with numbers containing exponents</li>
+            <li id="floatalize"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/floatalize.xhtml">floatalize()</a>
+                — Convert a scientific notation to float Additionally fixed a problem with PHP &lt;= 5.2.x with big integers</li>
+            <li id="isBcmathDisabled">
+              <a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/isBcmathDisabled.xhtml">isBcmathDisabled()</a>
+            </li>
+            <li id="localize"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/localize.xhtml">localize()</a>
+                — Localizes an input from standard english notation Fixes a problem of BCMath with setLocale which is PHP related</li>
+            <li id="normalize"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/normalize.xhtml">normalize()</a>
+                — Normalizes an input to standard english notation Fixes a problem of BCMath with setLocale which is PHP related</li>
+            <li id="round"><a title="Zend_Locale_Math" href="../classes/Zend_Locale_Math/round.xhtml">round()</a>
+                — Surprisingly, the results of this implementation of round() prove better than the native PHP round(). For example, try:   round(639.795, 2);   round(267.835, 2);   round(0.302515, 5);   round(0.36665, 4); then try:   Zend_Locale_Math::round('639.795', 2);</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

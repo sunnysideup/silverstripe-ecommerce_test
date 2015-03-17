@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Log_Formatter_Abstract" namespace="" name="Zend_Log_Formatter_Abstract" abstract="true" final="false" start="37" end="40">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Log/Formatter" file="Abstract.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Log/Formatter/Abstract.php" size="1374" time="2015-03-14T10:41:29+13:00" unixtime="1426282889" sha1="9e155411b3df05eae323157ba5cbe105b917d958" relative="framework/thirdparty/Zend/Log/Formatter/Abstract.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Log"/>
+    <subpackage value="Formatter"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+    <version value="$Id: Abstract.php 23775 2011-03-01 17:25:24Z ralph $"/>
+  </docblock>
+  <implements full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+  <implements full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface"/>
+  <extender full="Zend_Log_Formatter_Firebug" namespace="" name="Zend_Log_Formatter_Firebug"/>
+  <extender full="Zend_Log_Formatter_Simple" namespace="" name="Zend_Log_Formatter_Simple"/>
+  <interface full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface">
+    <method name="format" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Formats data into a single line to be written by the writer."/>
+        <param description="event data" type="array" variable="$event"/>
+        <return description="formatted line to write to the log" type="string"/>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface">
+    <method name="factory" start="37" end="37" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct a Zend_Log driver"/>
+        <param type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface"/>
+        </return>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <extender full="Zend_Log_Formatter_Xml" namespace="" name="Zend_Log_Formatter_Xml"/>
+</class>

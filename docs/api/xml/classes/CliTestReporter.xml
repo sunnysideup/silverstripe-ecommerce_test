@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="CliTestReporter" namespace="" name="CliTestReporter" abstract="false" final="false" start="8" end="110">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev" file="CliTestReporter.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/CliTestReporter.php" size="3253" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="c3ed22d6ecaf9f1a0d9e9594f747ba4100ae2c52" relative="framework/dev/CliTestReporter.php"/>
+  <docblock>
+    <description compact="Test reporter optimised for CLI (ie, plain-text) output"/>
+    <package value="framework"/>
+    <subpackage value="testing"/>
+  </docblock>
+  <extends full="SapphireTestReporter" namespace="" name="SapphireTestReporter"/>
+  <method name="writeResults" start="13" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Display error bar if it exists"/>
+    </docblock>
+    <inline>
+      <comment value="Use sake dev/tests/all --showslow to show slow tests" line="47"/>
+      <comment value="Ignore below-average speeds" line="56"/>
+    </inline>
+  </method>
+  <method name="endTest" start="65" end="81" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Status indicator, a la PHPUnit" line="66"/>
+    </inline>
+  </method>
+  <method name="writeTest" start="84" end="108" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="test" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="SapphireTestReporter" namespace="" name="SapphireTestReporter">
+    <member name="suiteResults" type="{unknown}" visibility="protected" line="47">
+      <docblock>
+        <description compact="Holds array of suites and total number of tests run"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="currentSuite" type="{unknown}" visibility="protected" line="52">
+      <docblock>
+        <description compact="Holds data of current suite that is been run"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="currentTest" type="{unknown}" visibility="protected" line="57">
+      <docblock>
+        <description compact="Holds data of current test that is been run"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="hasTimer" type="{unknown}" visibility="protected" line="62">
+      <docblock>
+        <description compact="Whether PEAR Benchmark_Timer is available for timing"/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <member name="timer" type="{unknown}" visibility="protected" line="67">
+      <docblock>
+        <description compact="Holds the PEAR Benchmark_Timer object"/>
+        <var description="Benchmark_Timer" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="startTestTime" type="{unknown}" visibility="protected" line="69"/>
+    <member name="testSpeeds" type="array" visibility="protected" line="74">
+      <docblock>
+        <description compact="An array of all the test speeds"/>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="83" end="97" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Constructor, checks to see availability of PEAR Benchmark_Timer and sets up basic properties"/>
+        <access value="public"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+    </constructor>
+    <method name="getSuiteResults" start="105" end="107" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the suite results"/>
+        <access value="public"/>
+        <return description="Suite results" type="array"/>
+      </docblock>
+    </method>
+    <method name="startTestSuite" start="117" end="128" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets up the container for result details of the current test suite when each suite is first run"/>
+        <access value="public"/>
+        <param description="PHPUnit2_Framework_TestSuite the suite that is been run" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="suite" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_TestSuite" namespace="\" name="PHPUnit_Framework_TestSuite"/>
+      </parameter>
+    </method>
+    <method name="startTest" start="138" end="161" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets up the container for result details of the current test when each test is first run"/>
+        <access value="public"/>
+        <param description="PHPUnit_Framework_Test the test that is being run" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="test" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+      </parameter>
+    </method>
+    <method name="addStatus" start="171" end="186" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Logs the specified status to the current test, or if no test is currently run, to the test suite."/>
+        <param description="Status code" type="integer" variable="$status"/>
+        <param description="Message to log" type="string" variable="$message"/>
+        <param description="Exception body related to this message" type="string" variable="$exception"/>
+        <param description="Stacktrace" type="array" variable="$trace"/>
+      </docblock>
+      <parameter name="status" byreference="false" type="{unknown}"/>
+      <parameter name="message" byreference="false" type="{unknown}"/>
+      <parameter name="exception" byreference="false" type="{unknown}"/>
+      <parameter name="trace" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Build status body to be saved" line="172"/>
+        <comment value="Log either to current test or suite record" line="180"/>
+      </inline>
+    </method>
+    <method name="addFailure" start="197" end="200" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Adds the failure detail to the current test and increases the failure count for the current suite"/>
+        <access value="public"/>
+        <param description="PHPUnit_Framework_Test current test that is being run" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <param description="PHPUnit_Framework_AssertationFailedError PHPUnit error" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="test" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+      </parameter>
+      <parameter name="e" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_AssertionFailedError" namespace="\" name="PHPUnit_Framework_AssertionFailedError"/>
+      </parameter>
+      <parameter name="time" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="addError" start="211" end="214" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Adds the error detail to the current test and increases the error count for the current suite"/>
+        <access value="public"/>
+        <param description="PHPUnit_Framework_Test current test that is being run" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <param description="PHPUnit_Framework_AssertationFailedError PHPUnit error" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="test" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+      </parameter>
+      <parameter name="e" byreference="false" type="object">
+        <type full="\\Exception" namespace="\" name="Exception"/>
+      </parameter>
+      <parameter name="time" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="addIncompleteTest" start="225" end="228" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Adds the test incomplete detail to the current test and increases the incomplete count for the current suite"/>
+        <access value="public"/>
+        <param description="PHPUnit_Framework_Test current test that is being run" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <param description="PHPUnit_Framework_AssertationFailedError PHPUnit error" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="test" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+      </parameter>
+      <parameter name="e" byreference="false" type="object">
+        <type full="\\Exception" namespace="\" name="Exception"/>
+      </parameter>
+      <parameter name="time" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="addSkippedTest" start="236" end="238" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Not used"/>
+        <param type="object" variable="$test">
+          <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+        </param>
+        <param type="object" variable="$time">
+          <type full="unknown_type" namespace="" name="unknown_type"/>
+        </param>
+      </docblock>
+      <parameter name="test" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+      </parameter>
+      <parameter name="e" byreference="false" type="object">
+        <type full="\\Exception" namespace="\" name="Exception"/>
+      </parameter>
+      <parameter name="time" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="endCurrentTest" start="244" end="258" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Cleanly end the current test"/>
+      </docblock>
+      <inline>
+        <comment value="Time the current test" line="247"/>
+        <comment value="Save and reset current state" line="255"/>
+      </inline>
+    </method>
+    <method name="endTest" start="268" end="274" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Upon completion of a test, records the execution time (if available) and adds the test to the tests performed in the current suite."/>
+        <access value="public"/>
+        <param description="PHPUnit_Framework_Test current test that is being run" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="test" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+      </parameter>
+      <parameter name="time" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="endCurrentTestSuite" start="279" end="288" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Cleanly end the current test suite"/>
+      </docblock>
+      <inline>
+        <comment value="Ensure any current test is ended along with the current suite" line="282"/>
+        <comment value="Save and reset current state" line="285"/>
+      </inline>
+    </method>
+    <method name="endTestSuite" start="297" end="301" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Upon completion of a test suite adds the suite to the suties performed"/>
+        <access value="public"/>
+        <param description="PHPUnit_Framework_TestSuite current suite that is being run" type="object">
+          <type full="obj" namespace="" name="obj"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="suite" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_TestSuite" namespace="\" name="PHPUnit_Framework_TestSuite"/>
+      </parameter>
+    </method>
+    <method name="addRiskyTest" start="311" end="313" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Risky test."/>
+        <param type="object" variable="$test">
+          <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+        </param>
+        <param type="object" variable="$e">
+          <type full="Exception" namespace="" name="Exception"/>
+        </param>
+        <param type="float" variable="$time"/>
+        <since value="Method available since Release 3.8.0"/>
+      </docblock>
+      <parameter name="test" byreference="false" type="object">
+        <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+      </parameter>
+      <parameter name="e" byreference="false" type="object">
+        <type full="\\Exception" namespace="\" name="Exception"/>
+      </parameter>
+      <parameter name="time" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="writeResultError" start="346" end="351" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Writes a status message to the output stream in a user readable HTML format"/>
+        <param description="Name of the object that generated the error" type="string" variable="$name"/>
+        <param description="Message of the error" type="string" variable="$message"/>
+        <param description="Stacktrace" type="array" variable="$trace"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="message" byreference="false" type="{unknown}"/>
+      <parameter name="trace" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="writeResults" start="356" end="407" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Display error bar if it exists"/>
+      </docblock>
+      <inline>
+        <comment value="Includes both suite and test level errors" line="361"/>
+        <comment value="Ensure that the current suite is cleanly ended." line="363"/>
+        <comment value="A suite may not end correctly if there was an error during setUp" line="364"/>
+        <comment value="Report suite error. In the case of fatal non-success messages" line="369"/>
+        <comment value="These should be reported as errors. Failure/Success relate only" line="370"/>
+        <comment value="to individual tests directly" line="371"/>
+        <comment value="Run through all tests in this suite" line="381"/>
+        <comment value="Report test error" line="391"/>
+      </inline>
+    </method>
+    <method name="testNameToPhrase" start="409" end="411" abstract="false" final="false" static="false" visibility="protected">
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

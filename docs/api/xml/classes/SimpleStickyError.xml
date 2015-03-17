@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleStickyError" namespace="" name="SimpleStickyError" abstract="false" final="false" start="21" end="67">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="socket.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/socket.php" size="6310" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="519b3bb2df32102d2d8a470f2d4f8b359d12850d" relative="framework/thirdparty/simpletest/socket.php"/>
+  <docblock>
+    <description compact="Stashes an error for later. Useful for constructors    until PHP gets exceptions.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <member name="_error" type="string" default="'Constructor not chained'" visibility="public" line="22"/>
+  <method name="SimpleStickyError" start="28" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the error to empty.">@access public</description>
+    </docblock>
+  </method>
+  <method name="isError" start="37" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test for an outstanding error.">@return boolean           True if there is an error.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getError" start="47" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for an outstanding error.">@return string     Empty string if no error otherwise
+                      the error message.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="_setError" start="56" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the internal error.">@param string       Error message to stash.
+   @access protected</description>
+    </docblock>
+    <parameter name="error" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_clearError" start="64" end="66" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Resets the error state to no error.">@access protected</description>
+    </docblock>
+  </method>
+  <extender full="SimpleSocket" namespace="" name="SimpleSocket"/>
+  <extender full="SimpleSecureSocket" namespace="" name="SimpleSecureSocket"/>
+  <extender full="SimpleHttpResponse" namespace="" name="SimpleHttpResponse"/>
+</class>

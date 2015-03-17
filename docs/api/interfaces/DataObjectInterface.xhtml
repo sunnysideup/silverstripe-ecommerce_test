@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - DataObjectInterface</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../interfaces.xhtml">Interfaces</a>
+          </li>
+          <li class="separator">DataObjectInterface</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#violations">Violations</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/model/DataObjectInterface.php.xhtml#line10">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>DataObjectInterface</h1>
+        <h4>DataObjectInterface is an interface that other data systems in your application can implement in order to behave in a manner similar to DataObject.</h4>
+        <p>In addition to the methods defined below, the data of the object should be directly accessible as fields.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">interface DataObjectInterface
+            {<br/><ul class="none"><li>// methods</li><li>public void <a title="DataObjectInterface" href="../interfaces/DataObjectInterface/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="DataObjectInterface" href="../interfaces/DataObjectInterface/write.xhtml">write</a>()
+                    </li><li>public void <a title="DataObjectInterface" href="../interfaces/DataObjectInterface/delete.xhtml">delete</a>()
+                    </li><li>public void <a title="DataObjectInterface" href="../interfaces/DataObjectInterface/__get.xhtml">__get</a>()
+                    </li><li>public void <a title="DataObjectInterface" href="../interfaces/DataObjectInterface/setCastedField.xhtml">setCastedField</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="DataObjectInterface" href="../interfaces/DataObjectInterface/__construct.xhtml">__construct()</a>
+                — Create a new data object, not yet in the database.  To load an object into the database, a null object should be constructed, its fields set, and the write() method called.</li>
+            <li id="__get"><a title="DataObjectInterface" href="../interfaces/DataObjectInterface/__get.xhtml">__get()</a>
+                — Get the named field.</li>
+            <li id="delete"><a title="DataObjectInterface" href="../interfaces/DataObjectInterface/delete.xhtml">delete()</a>
+                — Remove this object from the database.  Doesn't do anything if this object isn't in the database.</li>
+            <li id="setCastedField"><a title="DataObjectInterface" href="../interfaces/DataObjectInterface/setCastedField.xhtml">setCastedField()</a>
+                — Save content from a form into a field on this data object.</li>
+            <li id="write"><a title="DataObjectInterface" href="../interfaces/DataObjectInterface/write.xhtml">write()</a>
+                — Write the current object back to the database.  It should know whether this is a new object, in which case this would be an insert command, or if this is an existing object queried from the database, in which case thes would be</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

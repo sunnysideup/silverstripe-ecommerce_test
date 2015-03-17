@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="HTTP" namespace="" name="HTTP" abstract="false" final="false" start="10" end="445">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control" file="HTTP.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/HTTP.php" size="15296" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="0cb5ff00f19a8993df2b399f4aefd7a477bb4ff8" relative="framework/control/HTTP.php"/>
+  <docblock>
+    <description compact="A class with HTTP-related helpers.">Like Debug, this is more a bundle of methods than a class ;-)</description>
+    <package value="framework"/>
+    <subpackage value="misc"/>
+  </docblock>
+  <member name="cache_age" type="integer" default="0" visibility="protected" line="15">
+    <docblock>
+      <description/>
+      <var description="$cache_age" type="int"/>
+    </docblock>
+  </member>
+  <member name="modification_date" type="{unknown}" default="null" visibility="protected" line="20">
+    <docblock>
+      <description/>
+      <var description="$modification_date" type="object">
+        <type full="timestamp" namespace="" name="timestamp"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="etag" type="{unknown}" default="null" visibility="protected" line="25">
+    <docblock>
+      <description/>
+      <var description="$etag" type="string"/>
+    </docblock>
+  </member>
+  <member name="cache_ajax_requests" type="{unknown}" default="true" visibility="private" line="30">
+    <docblock>
+      <description/>
+      <config/>
+    </docblock>
+  </member>
+  <method name="filename2url" start="38" end="62" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Turns a local system filename into a URL by comparing it to the script filename."/>
+      <param type="string"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Count the number of extra folders the script is in." line="58"/>
+      <comment value="$prefix = str_repeat(&quot;../&quot;, substr_count(substr($_SERVER[SCRIPT_FILENAME],$commonBaseLength)));" line="59"/>
+    </inline>
+  </method>
+  <method name="absoluteURLs" start="67" end="76" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Turn all relative URLs in the content to absolute URLs"/>
+    </docblock>
+    <parameter name="html" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="urlRewriter" start="104" end="146" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Rewrite all the URLs in the given content, evaluating the given string as PHP code.">Put $URL where you want the URL to appear, however, you can't embed $URL in strings
+Some example code:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;'"../../" . $URL'&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'myRewriter($URL)'&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'(substr($URL,0,1)=="/") ? "../" . substr($URL,1) : $URL'&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+As of 3.2 $code should be a callable which takes a single parameter and returns
+the rewritten URL. e.g.
+
+&lt;code&gt;
+function($url) {
+	return Director::absoluteURL($url, true);
+}
+&lt;/code&gt;</description>
+      <param description="The HTML to search for links to rewrite" type="string" variable="$content"/>
+      <param description="Either a string that can evaluate to an expression" type="object" variable="$code">to rewrite links (depreciated), or a callable that takes a single
+parameter and returns the rewritten URL<type full="string|callable" namespace="" name="string|callable"/></param>
+      <return description="content with all links rewritten as per the logic specified in $code" type="object">
+        <type full="The" namespace="" name="The"/>
+      </return>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Replace attributes" line="109"/>
+      <comment value="Replace css styles" line="119"/>
+      <todo value="- http://www.css3.info/preview/multiple-backgrounds/" line="120"/>
+      <comment value="Callback for regexp replacement" line="128"/>
+      <comment value="Execute each expression" line="140"/>
+    </inline>
+  </method>
+  <method name="setGetVar" start="167" end="213" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Will try to include a GET parameter for an existing URL, preserving existing parameters and fragments.">If no URL is given, falls back to $_SERVER['REQUEST_URI'].
+Uses parse_url() to dissect the URL, and http_build_query() to reconstruct it
+with the additional parameter. Converts any '&amp;' (ampersand)
+URL parameter separators to the more XHTML compliant '&amp;amp;'.
+
+CAUTION: If the URL is determined to be relative,
+it is prepended with Director::absoluteBaseURL().
+This method will always return an absolute URL because
+Director::makeRelative() can lead to inconsistent results.</description>
+      <param type="object" variable="$varname">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$varvalue">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="Relative or absolute URL (Optional)." type="object" variable="$currentURL">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="Separator for http_build_query(). (Optional)." type="object" variable="$separator">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return description="Absolute URL" type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="varname" byreference="false" type="{unknown}"/>
+    <parameter name="varvalue" byreference="false" type="{unknown}"/>
+    <parameter name="currentURL" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="separator" byreference="false" type="string" default="'&amp;amp;'"/>
+    <inline>
+      <comment value="We need absolute URLs for parse_url()" line="171"/>
+      <comment value="try to parse uri" line="177"/>
+      <comment value="Parse params and add new variable" line="183"/>
+      <comment value="Generate URI segments and formatting" line="188"/>
+      <comment value="format in either user:pass@host.com or user@host.com" line="193"/>
+      <comment value="handle URL params which are existing / new" line="201"/>
+      <comment value="keep fragments (anchors) intact." line="204"/>
+      <comment value="Recompile URI segments" line="207"/>
+    </inline>
+  </method>
+  <method name="RAW_setGetVar" start="215" end="218" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="varname" byreference="false" type="{unknown}"/>
+    <parameter name="varvalue" byreference="false" type="{unknown}"/>
+    <parameter name="currentURL" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="findByTagAndAttribute" start="227" end="244" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Search for all tags with a specific attribute, then return the value of that attribute in a flat array."/>
+      <param type="string" variable="$content"/>
+      <param description="an array of tags to attributes, for example &quot;[a] =&gt; 'href', [div] =&gt; 'id'&quot;" type="array" variable="$attributes"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLinksIn" start="246" end="248" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getImagesIn" start="250" end="252" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_mime_type" start="264" end="284" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the MIME type based on a file's extension.">If the finfo class exists in PHP, and the file actually exists, then use that
+extension, otherwise fallback to a list of commonly known MIME types.</description>
+      <uses value="finfo"/>
+      <param description="Relative path to filename from project root, e.g. &quot;mysite/tests/file.csv&quot;" type="string" variable="$filename"/>
+      <return description="MIME type" type="string"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If the finfo module is compiled into PHP, use it." line="265"/>
+      <comment value="Fallback to use the list from the HTTP.yml configuration and rely on the file extension" line="272"/>
+      <comment value="to get the file mime-type" line="273"/>
+      <comment value="Get the mime-types" line="275"/>
+      <comment value="The mime type doesn't exist" line="278"/>
+    </inline>
+  </method>
+  <method name="set_cache_age" start="289" end="291" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the maximum age of this page in web caches, in seconds"/>
+    </docblock>
+    <parameter name="age" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="register_modification_date" start="293" end="297" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="dateString" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="register_modification_timestamp" start="299" end="302" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="timestamp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="register_etag" start="304" end="306" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="etag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="add_cache_headers" start="314" end="426" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Add the appropriate caching headers to the response, including If-Modified-Since / 304 handling."/>
+      <param description="The SS_HTTPResponse object to augment.  Omitted the argument or passing a string is" type="object">deprecated; in these cases, the headers are output directly.<type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/></param>
+    </docblock>
+    <parameter name="body" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Validate argument" line="317"/>
+      <comment value="Development sites have frequently changing templates; this can get stuffed up by the code" line="323"/>
+      <comment value="below." line="324"/>
+      <comment value="The headers have been sent and we don't have an SS_HTTPResponse object to attach things to; no point in" line="327"/>
+      <comment value="us trying." line="328"/>
+      <comment value="Popuplate $responseHeaders with all the headers that we want to build" line="331"/>
+      <comment value="currently using a config setting to cancel this, seems to be so taht the CMS caches ajax requests" line="334"/>
+      <comment value="bdc: now we must check for DUMB IE6:" line="340"/>
+      <comment value="To do: User-Agent should only be added in situations where you *are* actually" line="350"/>
+      <comment value="Chrome ignores Varies when redirecting back (http://code.google.com/p/chromium/issues/detail?id=79758)" line="380"/>
+      <comment value="which means that if you log out, you get redirected back to a page which Chrome then checks against" line="381"/>
+      <comment value="last-modified (which passes, getting a 304)" line="382"/>
+      <comment value="when it shouldn't be trying to use that page at all because it's the &quot;logged in&quot; version." line="383"/>
+      <comment value="By also using and etag that includes both the modification date and all the varies" line="384"/>
+      <comment value="values which we also check against we can catch this and not return a 304" line="385"/>
+      <comment value="304 response detection" line="394"/>
+      <comment value="As above, only 304 if the last request had all the same varies values" line="398"/>
+      <comment value="(or the etag isn't passed as part of the request - but with chrome it always is)" line="399"/>
+      <comment value="Now that we've generated them, either output them or attach them to the SS_HTTPResponse as appropriate" line="421"/>
+    </inline>
+  </method>
+  <method name="gmt_date" start="434" end="436" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return an {@link http://www.faqs.org/rfcs/rfc2822 RFC 2822} date in the GMT timezone (a timestamp is always in GMT: the number of seconds since January 1 1970 00:00:00 GMT)"/>
+    </docblock>
+    <parameter name="timestamp" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_cache_age" start="441" end="443" abstract="false" final="false" static="true" visibility="public"/>
+</class>

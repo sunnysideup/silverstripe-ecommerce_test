@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ObjectTest_ExtendTest1" namespace="" name="ObjectTest_ExtendTest1" abstract="false" final="false" start="574" end="579">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/core" file="ObjectTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/core/ObjectTest.php" size="21024" time="2015-03-14T10:41:06+13:00" unixtime="1426282866" sha1="4347ddc3e3b549f2c6e1a6108a36031e8627bd28" relative="framework/tests/core/ObjectTest.php"/>
+  <extends full="Extension" namespace="" name="Extension"/>
+  <method name="extendableMethod" start="575" end="578" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="argument" byreference="true" type="{unknown}" default="null"/>
+  </method>
+  <parent full="Extension" namespace="" name="Extension">
+    <member name="owner" type="{unknown}" visibility="protected" line="26">
+      <docblock>
+        <description compact="The object this extension is applied to."/>
+        <var type="object">
+          <type full="Object" namespace="" name="Object"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="ownerBaseClass" type="{unknown}" visibility="protected" line="32">
+      <docblock>
+        <description compact="The base class that this extension was applied to; $this-&gt;owner must be one of these"/>
+        <var type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="class" type="{unknown}" visibility="public" line="40"/>
+    <constructor name="__construct" start="42" end="44" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="add_to_class" start="52" end="54" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Called when this extension is added to a particular class"/>
+        <static/>
+        <param variable="$class"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="extensionClass" byreference="false" type="{unknown}"/>
+      <parameter name="args" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="setOwner" start="64" end="70" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the owner of this extension."/>
+        <param description="The owner object," type="object" variable="$owner">
+          <type full="Object" namespace="" name="Object"/>
+        </param>
+        <param description="The base class that the extension is applied to; this may be" type="string" variable="$ownerBaseClass">the class of owner, or it may be a parent.  For example, if Versioned was applied to SiteTree,
+and then a Page object was instantiated, $owner would be a Page object, but $ownerBaseClass
+would be 'SiteTree'.</param>
+      </docblock>
+      <parameter name="owner" byreference="false" type="{unknown}"/>
+      <parameter name="ownerBaseClass" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="clearOwner" start="72" end="76" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="getOwner" start="83" end="85" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the owner of this extension."/>
+        <return type="object">
+          <type full="Object" namespace="" name="Object"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="get_classname_without_arguments" start="95" end="97" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Helper method to strip eval'ed arguments from a string thats passed to {@link DataObject::$extensions} or {@link Object::add_extension()}."/>
+        <param description="E.g. &quot;Versioned('Stage','Live')&quot;" type="string" variable="$extensionStr"/>
+        <return description="Extension classname, e.g. &quot;Versioned&quot;" type="string"/>
+      </docblock>
+      <parameter name="extensionStr" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

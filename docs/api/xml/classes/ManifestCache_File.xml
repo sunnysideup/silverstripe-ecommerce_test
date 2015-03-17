@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ManifestCache_File" namespace="" name="ManifestCache_File" abstract="false" final="false" start="22" end="41">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/core/manifest" file="ManifestCache.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/core/manifest/ManifestCache.php" size="2025" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="631eacaf61274b95047ec59928a5efd4260c3ab7" relative="framework/core/manifest/ManifestCache.php"/>
+  <docblock>
+    <description compact="Stores manifest data in files in TEMP_DIR dir on filesystem"/>
+    <package value="framework"/>
+    <subpackage value="manifest"/>
+  </docblock>
+  <implements full="ManifestCache" namespace="" name="ManifestCache"/>
+  <constructor name="__construct" start="23" end="26" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="load" start="28" end="31" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="save" start="33" end="36" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear" start="38" end="40" abstract="false" final="false" static="false" visibility="public"/>
+  <interface full="ManifestCache" namespace="" name="ManifestCache">
+    <constructor name="__construct" start="10" end="10" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </constructor>
+    <method name="load" start="11" end="11" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="key" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="save" start="12" end="12" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="data" byreference="false" type="{unknown}"/>
+      <parameter name="key" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="clear" start="13" end="13" abstract="false" final="false" static="false" visibility="public"/>
+  </interface>
+  <extender full="ManifestCache_File_PHP" namespace="" name="ManifestCache_File_PHP"/>
+</class>

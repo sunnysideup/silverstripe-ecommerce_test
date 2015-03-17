@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="NullHTTPRequest" namespace="" name="NullHTTPRequest" abstract="false" final="false" start="10" end="16">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control" file="NullHTTPRequest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/NullHTTPRequest.php" size="411" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="c791bb89ef554a01f3e7f4c278047978c038a8e4" relative="framework/control/NullHTTPRequest.php"/>
+  <docblock>
+    <description compact="Implements the &quot;Null Object&quot; pattern for a missing http request.">Set on controllers on construction time, typically overwritten
+by <link xmlns="http://xml.phpdox.net/src" value="Controller-&gt;handleRequest()"/> and <link xmlns="http://xml.phpdox.net/src" value="Controller-&gt;handleAction()"/> later on.
+</description>
+    <package value="framework"/>
+    <subpackage value="control"/>
+  </docblock>
+  <extends full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+  <constructor name="__construct" start="12" end="14" abstract="false" final="false" static="false" visibility="public"/>
+  <parent full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest">
+    <member name="url" type="{unknown}" visibility="protected" line="25">
+      <docblock>
+        <description/>
+        <var description="$url" type="string"/>
+      </docblock>
+    </member>
+    <member name="dirParts" type="{unknown}" visibility="protected" line="33">
+      <docblock>
+        <description compact="The non-extension parts of the passed URL as an array, originally exploded by the &quot;/&quot; separator.">All elements of the URL are loaded in here,
+and subsequently popped out of the array by <link xmlns="http://xml.phpdox.net/src" value="shift()"/>.
+Only use this structure for internal request handling purposes.
+</description>
+      </docblock>
+    </member>
+    <member name="extension" type="{unknown}" visibility="protected" line="38">
+      <docblock>
+        <description/>
+        <var description="$extension The URL extension (if present)" type="string"/>
+      </docblock>
+    </member>
+    <member name="httpMethod" type="{unknown}" visibility="protected" line="43">
+      <docblock>
+        <description/>
+        <var description="$httpMethod The HTTP method in all uppercase: GET/PUT/POST/DELETE/HEAD" type="string"/>
+      </docblock>
+    </member>
+    <member name="getVars" type="array" visibility="protected" line="48">
+      <docblock>
+        <description/>
+        <var description="$getVars Contains alls HTTP GET parameters passed into this request." type="array"/>
+      </docblock>
+    </member>
+    <member name="postVars" type="array" visibility="protected" line="53">
+      <docblock>
+        <description/>
+        <var description="$postVars Contains alls HTTP POST parameters passed into this request." type="array"/>
+      </docblock>
+    </member>
+    <member name="headers" type="array" visibility="protected" line="61">
+      <docblock>
+        <description compact="HTTP Headers like &quot;Content-Type: text/xml&quot;"/>
+        <see value="http://en.wikipedia.org/wiki/List_of_HTTP_headers"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="body" type="{unknown}" visibility="protected" line="68">
+      <docblock>
+        <description compact="Raw HTTP body, used by PUT and POST requests."/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <member name="allParams" type="array" visibility="protected" line="76">
+      <docblock>
+        <description/>
+        <var description="$allParams Contains an associative array of all" type="array">arguments matched in all calls to <link xmlns="http://xml.phpdox.net/src" value="RequestHandler-&gt;handleRequest()"/>.
+It's a "historical record" that's specific to the current call of
+<link xmlns="http://xml.phpdox.net/src" value="handleRequest()"/>, and is only complete once the "last call" to that method is made.
+</var>
+      </docblock>
+    </member>
+    <member name="latestParams" type="array" visibility="protected" line="86">
+      <docblock>
+        <description/>
+        <var description="$latestParams Contains an associative array of all" type="array">arguments matched in the current call from <link xmlns="http://xml.phpdox.net/src" value="RequestHandler-&gt;handleRequest()"/>,
+as denoted with a "$"-prefix in the $url_handlers definitions.
+Contains different states throughout its lifespan, so just useful
+while processed in <link xmlns="http://xml.phpdox.net/src" value="RequestHandler"/> and to get the last
+processes arguments.
+</var>
+      </docblock>
+    </member>
+    <member name="routeParams" type="array" visibility="protected" line="101">
+      <docblock>
+        <description/>
+        <var description="$routeParams Contains an associative array of all arguments" type="array">explicitly set in the route table for the current request.
+Useful for passing generic arguments via custom routes.
+
+E.g. The "Locale" parameter would be assigned "en_NZ" below
+
+Director:
+  rules:
+    'en_NZ/$URLSegment!//$Action/$ID/$OtherID':
+      Controller: 'ModelAsController'
+      Locale: 'en_NZ'</var>
+      </docblock>
+    </member>
+    <member name="unshiftedButParsedParts" type="integer" default="0" visibility="protected" line="103"/>
+    <constructor name="__construct" start="108" end="115" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Construct a SS_HTTPRequest from a URL relative to the site root."/>
+      </docblock>
+      <parameter name="httpMethod" byreference="false" type="{unknown}"/>
+      <parameter name="url" byreference="false" type="{unknown}"/>
+      <parameter name="getVars" byreference="false" type="array"/>
+      <parameter name="postVars" byreference="false" type="array"/>
+      <parameter name="body" byreference="false" type="{unknown}" default="null"/>
+    </constructor>
+    <method name="setUrl" start="127" end="142" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Allow the setting of a URL">This is here so that RootURLController can change the URL of the request
+without us loosing all the other info attached (like headers)</description>
+        <param description="The new URL" type="string"/>
+        <return description="The updated request" type="object">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </return>
+      </docblock>
+      <parameter name="url" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Normalize URL if its relative (strictly speaking), or has leading slashes" line="130"/>
+      </inline>
+    </method>
+    <method name="isGET" start="147" end="149" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="isPOST" start="154" end="156" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="isPUT" start="161" end="163" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="isDELETE" start="168" end="170" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="isHEAD" start="175" end="177" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setBody" start="183" end="186" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$body"/>
+        <return description="$this" type="object">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </return>
+      </docblock>
+      <parameter name="body" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getBody" start="191" end="193" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="null|string" namespace="" name="null|string"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getVars" start="198" end="200" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="postVars" start="205" end="207" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="requestVars" start="216" end="218" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns all combined HTTP GET and POST parameters passed into this request. If a parameter with the same name exists in both arrays, the POST value is returned."/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="getVar" start="224" end="226" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="postVar" start="232" end="234" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="requestVar" start="240" end="243" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getExtension" start="253" end="255" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a possible file extension found in parsing the URL as denoted by a &quot;.&quot;-character near the end of the URL.">Doesn't necessarily have to belong to an existing file,
+as extensions can be also used for content-type-switching.</description>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="isMedia" start="266" end="268" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks if the {@link SS_HTTPRequest-&gt;getExtension()} on this request matches one of the more common media types embedded into a webpage - e.g. css, png.">This is useful for things like determining wether to display a fully rendered error page or not. Note that the
+media file types is not at all comprehensive.</description>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="addHeader" start="276" end="278" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add a HTTP header to the response, replacing any header of the same name."/>
+        <param description="Example: &quot;Content-Type&quot;" type="string" variable="$header"/>
+        <param description="Example: &quot;text/xml&quot;" type="string" variable="$value"/>
+      </docblock>
+      <parameter name="header" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getHeaders" start="283" end="285" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="getHeader" start="293" end="295" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Remove an existing HTTP header"/>
+        <param type="string" variable="$header"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="header" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="removeHeader" start="304" end="307" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Remove an existing HTTP header by its name, e.g. &quot;Content-Type&quot;."/>
+        <param type="string" variable="$header"/>
+        <return description="$this" type="object">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </return>
+      </docblock>
+      <parameter name="header" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getURL" start="315" end="333" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the URL used to generate the page"/>
+        <param description="whether or not to include the get parameters\" type="object" variable="$includeGetVars">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="string"/>
+      </docblock>
+      <parameter name="includeGetVars" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="if we don't unset $vars['url'] we end up with /my/url?url=my/url&amp;foo=bar etc" line="319"/>
+      </inline>
+    </method>
+    <method name="isAjax" start="342" end="347" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if this request an ajax request, based on custom HTTP ajax added by common JavaScript libraries, or based on an explicit &quot;ajax&quot; request parameter."/>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+    <method name="offsetExists" start="356" end="360" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Enables the existence of a key-value pair in the request to be checked using array syntax, so isset($request['title']) will check for $_POST['title'] and $_GET['title']"/>
+        <param type="object" variable="$offset">
+          <type full="unknown_type" namespace="" name="unknown_type"/>
+        </param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="offset" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="offsetGet" start="368" end="370" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Access a request variable using array syntax. eg: $request['title'] instead of $request-&gt;postVar('title')"/>
+        <param type="object" variable="$offset">
+          <type full="unknown_type" namespace="" name="unknown_type"/>
+        </param>
+        <return type="object">
+          <type full="unknown" namespace="" name="unknown"/>
+        </return>
+      </docblock>
+      <parameter name="offset" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="offsetSet" start="375" end="375" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <ignore/>
+      </docblock>
+      <parameter name="offset" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="offsetUnset" start="380" end="380" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <ignore/>
+      </docblock>
+      <parameter name="offset" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="send_file" start="391" end="402" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct an SS_HTTPResponse that will deliver a file to the client"/>
+        <static/>
+        <param variable="$fileData"/>
+        <param variable="$fileName"/>
+        <param type="object" variable="$mimeType">
+          <type full="null" namespace="" name="null"/>
+        </param>
+        <return type="object">
+          <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+        </return>
+      </docblock>
+      <parameter name="fileData" byreference="false" type="{unknown}"/>
+      <parameter name="fileName" byreference="false" type="{unknown}"/>
+      <parameter name="mimeType" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Note a IE-only fix that inspects this header in HTTP::add_cache_headers()." line="397"/>
+      </inline>
+    </method>
+    <method name="match" start="423" end="507" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Matches a URL pattern The pattern can contain a number of segments, separated by / (and an extension indicated by a .)">The parts can be either literals, or, if they start with a $ they are interpreted as variables.
+ - Literals must be provided in order to match
+ - $Variables are optional
+ - However, if you put ! at the end of a variable, then it becomes mandatory.
+
+For example:
+ - admin/crm/list will match admin/crm/$Action/$ID/$OtherID, but it won't match admin/crm/$Action!/$ClassName!
+
+The pattern can optionally start with an HTTP method and a space.  For example, "POST $Controller/$Action".
+This is used to define a rule that only matches on a specific HTTP method.</description>
+        <param variable="$pattern"/>
+        <param type="object" variable="$shiftOnSuccess">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="object">
+          <type full="array|bool" namespace="" name="array|bool"/>
+        </return>
+      </docblock>
+      <parameter name="pattern" byreference="false" type="{unknown}"/>
+      <parameter name="shiftOnSuccess" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="Check if a specific method is required" line="424"/>
+        <comment value="If we get this far, we can match the URL pattern as usual." line="429"/>
+        <comment value="Special case for the root URL controller" line="433"/>
+        <comment value="Check for the '//' marker that represents the &quot;shifting point&quot;" line="438"/>
+        <comment value="Filter out any &quot;empty&quot; matching parts - either from an initial / or a trailing /" line="451"/>
+        <comment value="Match a variable" line="458"/>
+        <comment value="A variable ending in ! is required" line="460"/>
+        <comment value="Fail if a required variable isn't populated" line="469"/>
+        <comment value="We keep track of pattern parts that we looked at but didn't shift off." line="492"/>
+        <comment value="This lets us say that we have *parsed* the whole URL even when we haven't *shifted* it all" line="493"/>
+        <comment value="Load the arguments that actually have a value into $this-&gt;allParams" line="499"/>
+        <comment value="This ensures that previous values aren't overridden with blanks" line="500"/>
+      </inline>
+    </method>
+    <method name="allParams" start="512" end="514" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="shiftAllParams" start="521" end="536" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Shift all the parameter values down a key space, and return the shifted value."/>
+        <return type="string"/>
+      </docblock>
+      <inline>
+        <comment value="push additional unparsed URL parts onto the parameter stack" line="526"/>
+      </inline>
+    </method>
+    <method name="latestParams" start="541" end="543" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="latestParam" start="549" end="552" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$name"/>
+        <return type="object">
+          <type full="string|null" namespace="" name="string|null"/>
+        </return>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="routeParams" start="557" end="559" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="setRouteParams" start="565" end="568" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param variable="$params"/>
+        <return description="$this" type="object">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </return>
+      </docblock>
+      <parameter name="params" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="params" start="573" end="575" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="param" start="584" end="588" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Finds a named URL parameter (denoted by &quot;$&quot;-prefix in $url_handlers) from the full URL, or a parameter specified in the route table"/>
+        <param type="string" variable="$name"/>
+        <return description="Value of the URL parameter (if found)" type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="remaining" start="597" end="599" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the unparsed part of the original URL separated by commas. This is used by {@link RequestHandler-&gt;handleRequest()} to determine if further URL processing is necessary."/>
+        <return description="Partial URL" type="string"/>
+      </docblock>
+    </method>
+    <method name="isEmptyPattern" start="608" end="614" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if this is a URL that will match without shifting off any of the URL.">This is used by the request handler to prevent infinite parsing loops.</description>
+        <param variable="$pattern"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="pattern" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="shift" start="623" end="637" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Shift one or more parts off the beginning of the URL.">If you specify shifting more than 1 item off, then the items will be returned as an array</description>
+        <param description="Shift Count" type="int" variable="$count"/>
+        <return type="object">
+          <type full="String|Array" namespace="" name="String|Array"/>
+        </return>
+      </docblock>
+      <parameter name="count" byreference="false" type="integer" default="1"/>
+    </method>
+    <method name="allParsed" start="645" end="647" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if the URL has been completely parsed.">This will respect parsed but unshifted directory parts.</description>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getIP" start="655" end="665" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the client IP address which originated this request."/>
+        <return type="string"/>
+      </docblock>
+      <inline>
+        <comment value="check ip from share internet" line="657"/>
+      </inline>
+    </method>
+    <method name="getAcceptMimetypes" start="675" end="682" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns all mimetypes from the HTTP &quot;Accept&quot; header as an array."/>
+        <param description="Don't strip away optional &quot;quality indicators&quot;, e.g. &quot;application/xml;q=0.9&quot;" type="boolean" variable="$includeQuality">(Default: false)</param>
+        <return type="array"/>
+      </docblock>
+      <parameter name="includeQuality" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="httpMethod" start="687" end="689" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="HTTP method (all uppercase)" type="string"/>
+      </docblock>
+    </method>
+    <method name="detect_method" start="707" end="716" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Gets the &quot;real&quot; HTTP method for a request.">Used to work around browser limitations of form
+submissions to GET and POST, by overriding the HTTP method
+with a POST parameter called "_method" for PUT, DELETE, HEAD.
+Using GET for the "_method" override is not supported,
+as GET should never carry out state changes.
+Alternatively you can use a custom HTTP header 'X-HTTP-Method-Override'
+to override the original method in <link xmlns="http://xml.phpdox.net/src" value="Director::direct()"/>.
+The '_method' POST parameter overrules the custom HTTP header.
+</description>
+        <param description="Original HTTP method from the browser request" type="string" variable="$origMethod"/>
+        <param type="array" variable="$postVars"/>
+        <return description="HTTP method (all uppercase)" type="string"/>
+      </docblock>
+      <parameter name="origMethod" byreference="false" type="{unknown}"/>
+      <parameter name="postVars" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="ArrayAccess" namespace="" name="ArrayAccess">
+    <method name="offsetExists" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Whether a offset exists">Whether or not an offset exists.</description>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+    <method name="offsetGet" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Offset to retrieve">Returns the value at specified offset.</description>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+    <method name="offsetSet" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Offset to set"/>
+      <return type="void"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+    <parameter name="value" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+    <method name="offsetUnset" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Offset to unset">Unsets an offset.</description>
+      <return type="void"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+  </interface>
+</class>

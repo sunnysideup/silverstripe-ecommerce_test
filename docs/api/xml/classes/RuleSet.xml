@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="RuleSet" namespace="" name="RuleSet" abstract="false" final="false" start="761" end="807">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/php-peg" file="Compiler.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/php-peg/Compiler.php" size="23171" time="2015-03-14T10:41:57+13:00" unixtime="1426282917" sha1="260402e4dfe5e7208559894377bc477612b2a4d0" relative="framework/thirdparty/php-peg/Compiler.php"/>
+  <member name="rules" type="array" visibility="public" line="762"/>
+  <method name="addRule" start="764" end="771" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="indent" byreference="false" type="{unknown}"/>
+    <parameter name="lines" byreference="false" type="{unknown}"/>
+    <parameter name="out" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="compile" start="773" end="806" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="indent" byreference="false" type="{unknown}"/>
+    <parameter name="rulestr" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Ignore blank lines" line="780"/>
+      <comment value="Ignore comments" line="782"/>
+      <comment value="Strip off indent" line="785"/>
+      <comment value="Any indented line, add to current set of lines" line="791"/>
+      <comment value="Any unfinished block add a rule for" line="801"/>
+      <comment value="And return the compiled version" line="804"/>
+    </inline>
+  </method>
+</class>

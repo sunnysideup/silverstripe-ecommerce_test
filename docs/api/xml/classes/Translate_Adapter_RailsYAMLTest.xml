@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Translate_Adapter_RailsYAMLTest" namespace="" name="Translate_Adapter_RailsYAMLTest" abstract="false" final="false" start="19" end="234">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/zend_translate_railsyaml/tests/Translate/Adapter" file="RailsYAMLTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/zend_translate_railsyaml/tests/Translate/Adapter/RailsYAMLTest.php" size="8717" time="2015-03-14T10:42:29+13:00" unixtime="1426282949" sha1="618947af299a9900ea99173c20e07d83e5b885b9" relative="framework/thirdparty/zend_translate_railsyaml/tests/Translate/Adapter/RailsYAMLTest.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Translate"/>
+    <subpackage value="UnitTests"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+    <group value="Zend_Translate"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+  <member name="_errorOccurred" type="{unknown}" default="false" visibility="protected" line="26">
+    <docblock>
+      <description compact="Error flag"/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <method name="main" start="33" end="37" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Runs the test methods of this class."/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setUp" start="39" end="45" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="tearDown" start="47" end="53" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCreate" start="55" end="64" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testToString" start="66" end="70" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testTranslate" start="72" end="84" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testIsTranslated" start="86" end="98" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoadTranslationData" start="100" end="117" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testOptions" start="119" end="146" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testClearing" start="148" end="155" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testCaching" start="157" end="186" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testLoadingFilesIntoCacheAfterwards" start="188" end="206" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="errorHandlerIgnore" start="218" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Ignores a raised PHP error when in effect, but throws a flag to indicate an error occurred"/>
+      <param type="integer" variable="$errno"/>
+      <param type="string" variable="$errstr"/>
+      <param type="string" variable="$errfile"/>
+      <param type="integer" variable="$errline"/>
+      <param type="array" variable="$errcontext"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="errno" byreference="false" type="{unknown}"/>
+    <parameter name="errstr" byreference="false" type="{unknown}"/>
+    <parameter name="errfile" byreference="false" type="{unknown}"/>
+    <parameter name="errline" byreference="false" type="{unknown}"/>
+    <parameter name="errcontext" byreference="false" type="array"/>
+  </method>
+  <method name="getDefaultAdapter" start="226" end="233" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Translate_Adapter_RailsYAML" namespace="" name="Translate_Adapter_RailsYAML"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+</class>

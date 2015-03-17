@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SessionTest" namespace="" name="SessionTest" abstract="false" final="false" start="10" end="111">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/control" file="SessionTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/control/SessionTest.php" size="3186" time="2015-03-14T10:41:06+13:00" unixtime="1426282866" sha1="6d7edc7a18b30ae6b79932b0899d1c8c31ab54b5" relative="framework/tests/control/SessionTest.php"/>
+  <docblock>
+    <description compact="Tests to cover the {@link Session} class"/>
+    <package value="framework"/>
+    <subpackage value="tests"/>
+  </docblock>
+  <extends full="SapphireTest" namespace="" name="SapphireTest"/>
+  <method name="testGetSetBasics" start="12" end="16" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testClearElement" start="18" end="23" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testClearAllElements" start="25" end="35" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="should session get return null? The array key should probably be" line="31"/>
+      <comment value="unset from the data array" line="32"/>
+    </inline>
+  </method>
+  <method name="testGetAllElements" start="37" end="47" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Remove all session that might've been set by the test harness" line="38"/>
+    </inline>
+  </method>
+  <method name="testSettingExistingDoesntClear" start="49" end="56" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testClearElementThatDoesntExist" start="61" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check that changedData isn't populated with junk when clearing non-existent entries."/>
+    </docblock>
+  </method>
+  <method name="testClearElementThatDoesExist" start="79" end="86" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check that changedData is populated with clearing data."/>
+    </docblock>
+  </method>
+  <method name="testNonStandardPath" start="88" end="93" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="testUserAgentLockout" start="95" end="110" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Set a user agent" line="96"/>
+      <comment value="Generate our session" line="99"/>
+      <comment value="Change our UA" line="104"/>
+      <comment value="Verify the new session reset our values" line="107"/>
+    </inline>
+  </method>
+  <parent full="SapphireTest" namespace="" name="SapphireTest">
+    <extends full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+    <member name="fixture_file" type="{unknown}" default="null" visibility="protected" line="27">
+      <docblock>
+        <description compact="Path to fixture data for this test run.">If passed as an array, multiple fixture files will be loaded.
+Please note that you won't be able to refer with "=&gt;" notation
+between the fixtures, they act independent of each other.</description>
+        <var type="object">
+          <type full="string|array" namespace="" name="string|array"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="fixtureFactory" type="{unknown}" visibility="protected" line="32">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="FixtureFactory" namespace="" name="FixtureFactory"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="skipTest" type="{unknown}" default="false" visibility="protected" line="37">
+      <docblock>
+        <description/>
+        <var description="Set whether to include this test in the TestRunner or to skip this." type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="usesDatabase" type="{unknown}" default="null" visibility="protected" line="44">
+      <docblock>
+        <description/>
+        <var description="If set to TRUE, this will force a test database to be generated" type="object">in <link xmlns="http://xml.phpdox.net/src" value="setUp()"/>. Note that this flag is overruled by the presence of a
+<link xmlns="http://xml.phpdox.net/src" value="$fixture_file"/>, which always forces a database build.
+<type full="Boolean" namespace="" name="Boolean"/></var>
+      </docblock>
+    </member>
+    <member name="originalMailer" type="{unknown}" visibility="protected" line="46"/>
+    <member name="originalMemberPasswordValidator" type="{unknown}" visibility="protected" line="47"/>
+    <member name="originalRequirements" type="{unknown}" visibility="protected" line="48"/>
+    <member name="originalIsRunningTest" type="{unknown}" visibility="protected" line="49"/>
+    <member name="originalTheme" type="{unknown}" visibility="protected" line="50"/>
+    <member name="originalNestedURLsState" type="{unknown}" visibility="protected" line="51"/>
+    <member name="originalMemoryLimit" type="{unknown}" visibility="protected" line="52"/>
+    <member name="mailer" type="{unknown}" visibility="protected" line="54"/>
+    <member name="regular_manifest" type="{unknown}" visibility="protected" line="59">
+      <docblock>
+        <description compact="Pointer to the manifest that isn't a test manifest"/>
+      </docblock>
+    </member>
+    <member name="is_running_test" type="{unknown}" default="false" visibility="protected" line="64">
+      <docblock>
+        <description/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <member name="test_class_manifest" type="{unknown}" visibility="protected" line="66"/>
+    <member name="requireDefaultRecordsFrom" type="array" visibility="protected" line="73">
+      <docblock>
+        <description compact="By default, setUp() does not require default records. Pass class names in here, and the require/augment default records function will be called on them."/>
+      </docblock>
+    </member>
+    <member name="illegalExtensions" type="array" visibility="protected" line="83">
+      <docblock>
+        <description compact="A list of extensions that can't be applied during the execution of this run.  If they are applied, they will be temporarily removed and a database migration called.">The keys of the are the classes that the extensions can't be applied the extensions to, and
+the values are an array of illegal extensions on that class.</description>
+      </docblock>
+    </member>
+    <member name="requiredExtensions" type="array" visibility="protected" line="98">
+      <docblock>
+        <description compact="A list of extensions that must be applied during the execution of this run.  If they are not applied, they will be temporarily added and a database migration called.">The keys of the are the classes to apply the extensions to, and the values are an array
+of required extensions on that class.
+
+Example:
+&lt;code&gt;
+array("MyTreeDataObject" =&gt; array("Versioned", "Hierarchy"))
+&lt;/code&gt;</description>
+      </docblock>
+    </member>
+    <member name="extraDataObjects" type="array" visibility="protected" line="106">
+      <docblock>
+        <description compact="By default, the test database won't contain any DataObjects that have the interface TestOnly.">This variable lets you define additional TestOnly DataObjects to set up for this test.
+Set it to an array of DataObject subclass names.</description>
+      </docblock>
+    </member>
+    <member name="backupGlobals" type="{unknown}" default="FALSE" visibility="protected" line="114">
+      <docblock>
+        <description compact="We need to disabling backing up of globals to avoid overriding the few globals SilverStripe relies on, like $lang for the i18n subsystem."/>
+        <see value="http://sebastian-bergmann.de/archives/797-Global-Variables-and-PHPUnit.html"/>
+      </docblock>
+    </member>
+    <member name="fixtures" type="array" visibility="protected" line="164">
+      <docblock>
+        <description/>
+        <var description="$fixtures Array of {@link YamlFixture} instances" type="array"/>
+        <deprecated value="3.1 Use $fixtureFactory instad"/>
+      </docblock>
+    </member>
+    <member name="model" type="{unknown}" visibility="protected" line="166"/>
+    <member name="cache_generatedMembers" type="array" visibility="protected" line="884">
+      <docblock>
+        <description compact="Cache for logInWithPermission()"/>
+      </docblock>
+    </member>
+    <method name="is_running_test" start="131" end="133" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Determines if unit tests are currently run (via {@link TestRunner}).">This is used as a cheap replacement for fully mockable state
+in certain contiditions (e.g. access checks).
+Caution: When set to FALSE, certain controllers might bypass
+access checks, so this is a very security sensitive setting.</description>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+    <method name="set_is_running_test" start="135" end="137" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="bool" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="set_test_class_manifest" start="142" end="144" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set the manifest to be used to look up test classes by helper functions"/>
+      </docblock>
+      <parameter name="manifest" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="get_test_class_manifest" start="149" end="151" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return the manifest being used to look up test classes by helper functions"/>
+      </docblock>
+    </method>
+    <method name="get_fixture_file" start="156" end="158" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setUp" start="168" end="277" abstract="false" final="false" static="false" visibility="public">
+      <inline>
+        <comment value="We cannot run the tests on this abstract class." line="169"/>
+        <comment value="Mark test as being run" line="180"/>
+        <comment value="i18n needs to be set to the defaults or tests fail" line="184"/>
+        <comment value="Set default timezone consistently to avoid NZ-specific dependencies" line="189"/>
+        <comment value="Remove password validation" line="192"/>
+        <comment value="Set up email" line="211"/>
+        <todo value="this could be a special test model" line="217"/>
+        <comment value="Set up fixture" line="220"/>
+        <comment value="echo &quot;Re-creating temp database... &quot;;" line="225"/>
+        <comment value="Support fixture paths relative to the test class, rather than relative to webroot" line="246"/>
+        <comment value="String checking is faster than file_exists() calls." line="247"/>
+        <comment value="backwards compatibility: Load first fixture into $this-&gt;fixture" line="260"/>
+        <comment value="Preserve memory settings" line="269"/>
+        <comment value="turn off template debugging" line="272"/>
+        <comment value="Clear requirements" line="275"/>
+      </inline>
+    </method>
+    <method name="setUpOnce" start="287" end="330" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Called once per test case ({@link SapphireTest} subclass).">This is different to <link xmlns="http://xml.phpdox.net/src" value="setUp()"/>, which gets called once
+per method. Useful to initialize expensive operations which
+don't change state for any called method inside the test,
+e.g. dynamically adding an extension. See <link xmlns="http://xml.phpdox.net/src" value="tearDownOnce()"/>for tearing down the state again.
+</description>
+      </docblock>
+      <inline>
+        <comment value="Remove any illegal extensions that are present" line="294"/>
+        <comment value="Add any required extensions that aren't present" line="306"/>
+        <comment value="If we have made changes to the extensions present, then migrate the database schema." line="319"/>
+        <comment value="clear singletons, they're caching old extension info" line="324"/>
+        <comment value="which is used in DatabaseAdmin-&gt;doBuild()" line="325"/>
+        <comment value="Set default timezone consistently to avoid NZ-specific dependencies" line="328"/>
+      </inline>
+    </method>
+    <method name="tearDownOnce" start="335" end="356" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="tearDown method that's called once per test class rather once per test method."/>
+      </docblock>
+      <inline>
+        <comment value="If we have made changes to the extensions present, then migrate the database schema." line="336"/>
+        <comment value="Remove extensions added for testing" line="338"/>
+        <comment value="Reapply ones removed" line="345"/>
+      </inline>
+    </method>
+    <method name="getFixtureFactory" start="361" end="364" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return type="object">
+          <type full="FixtureFactory" namespace="" name="FixtureFactory"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setFixtureFactory" start="366" end="369" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="factory" byreference="false" type="object">
+        <type full="\\FixtureFactory" namespace="\" name="FixtureFactory"/>
+      </parameter>
+    </method>
+    <method name="idFromFixture" start="378" end="390" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Get the ID of an object from the fixture."/>
+        <param description="data class, as specified in your fixture file.  Parent classes won't work" variable="$className" type="object">
+          <type full="The" namespace="" name="The"/>
+        </param>
+        <param description="identifier string, as provided in your fixture file" variable="$identifier" type="object">
+          <type full="The" namespace="" name="The"/>
+        </param>
+        <return type="int"/>
+      </docblock>
+      <parameter name="className" byreference="false" type="{unknown}"/>
+      <parameter name="identifier" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="allFixtureIDs" start="399" end="401" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Return all of the IDs in the fixture of a particular class name.">Will collate all IDs form all fixtures if multiple fixtures are provided.</description>
+        <param type="string" variable="$className"/>
+        <return description="map of fixture-identifier =&gt; object-id" type="object">
+          <type full="A" namespace="" name="A"/>
+        </return>
+      </docblock>
+      <parameter name="className" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="objFromFixture" start="411" end="423" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Get an object from the fixture."/>
+        <param description="The data class, as specified in your fixture file. Parent classes won't work" type="string" variable="$className"/>
+        <param description="The identifier string, as provided in your fixture file" type="string" variable="$identifier"/>
+        <return type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="className" byreference="false" type="{unknown}"/>
+      <parameter name="identifier" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="loadFixture" start="432" end="436" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Load a YAML fixture file into the database.">Once loaded, you can use idFromFixture() and objFromFixture() to get items from the fixture.
+Doesn't clear existing fixtures.</description>
+        <param description="location of the .yml fixture file, relative to the site base dir" variable="$fixtureFile" type="object">
+          <type full="The" namespace="" name="The"/>
+        </param>
+      </docblock>
+      <parameter name="fixtureFile" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="clearFixtures" start="442" end="445" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Clear all fixtures which were previously loaded through {@link loadFixture()}"/>
+      </docblock>
+    </method>
+    <method name="getCurrentAbsolutePath" start="452" end="456" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Useful for writing unit tests without hardcoding folder structures."/>
+        <return description="Absolute path to current class." type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getCurrentRelativePath" start="461" end="466" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description/>
+        <return description="File path relative to webroot" type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="tearDown" start="468" end="504" abstract="false" final="false" static="false" visibility="public">
+      <inline>
+        <comment value="Preserve memory settings" line="469"/>
+        <comment value="Restore email configuration" line="472"/>
+        <comment value="Restore password validation" line="479"/>
+        <comment value="Restore requirements" line="484"/>
+        <comment value="Mark test as no longer being run - we use originalIsRunningTest to allow for nested SapphireTest calls" line="489"/>
+        <comment value="Reset mocked datetime" line="493"/>
+        <comment value="Stop the redirection that might have been requested in the test." line="496"/>
+        <comment value="Note: Ideally a clean Controller should be created for each test." line="497"/>
+        <comment value="Now all tests executed in a batch share the same controller." line="498"/>
+      </inline>
+    </method>
+    <method name="assertContains" start="506" end="516" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="needle" byreference="false" type="{unknown}"/>
+      <parameter name="haystack" byreference="false" type="{unknown}"/>
+      <parameter name="message" byreference="false" type="string" default="''"/>
+      <parameter name="ignoreCase" byreference="false" type="{unknown}" default="FALSE"/>
+      <parameter name="checkForObjectIdentity" byreference="false" type="{unknown}" default="TRUE"/>
+      <parameter name="checkForNonObjectIdentity" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="assertNotContains" start="518" end="528" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="needle" byreference="false" type="{unknown}"/>
+      <parameter name="haystack" byreference="false" type="{unknown}"/>
+      <parameter name="message" byreference="false" type="string" default="''"/>
+      <parameter name="ignoreCase" byreference="false" type="{unknown}" default="FALSE"/>
+      <parameter name="checkForObjectIdentity" byreference="false" type="{unknown}" default="TRUE"/>
+      <parameter name="checkForNonObjectIdentity" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="clearEmails" start="533" end="535" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Clear the log of emails sent"/>
+      </docblock>
+    </method>
+    <method name="findEmail" start="547" end="549" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Search for an email that was sent.">All of the parameters can either be a string, or, if they start with "/", a PREG-compatible regular expression.</description>
+        <param variable="$to"/>
+        <param variable="$from"/>
+        <param variable="$subject"/>
+        <param variable="$content"/>
+        <return description="Contains keys: 'type', 'to', 'from', 'subject','content', 'plainContent', 'attachedFiles'," type="array">'customHeaders', 'htmlContent', 'inlineImages'</return>
+      </docblock>
+      <parameter name="to" byreference="false" type="{unknown}"/>
+      <parameter name="from" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="subject" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="content" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="assertEmailSent" start="561" end="576" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Assert that the matching email was sent since the last call to clearEmails() All of the parameters can either be a string, or, if they start with &quot;/&quot;, a PREG-compatible regular expression."/>
+        <param variable="$to"/>
+        <param variable="$from"/>
+        <param variable="$subject"/>
+        <param variable="$content"/>
+        <return description="Contains the keys: 'type', 'to', 'from', 'subject', 'content', 'plainContent', 'attachedFiles'," type="array">'customHeaders', 'htmlContent', inlineImages'</return>
+      </docblock>
+      <parameter name="to" byreference="false" type="{unknown}"/>
+      <parameter name="from" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="subject" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="content" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="assertDOSContains" start="599" end="622" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Assert that the given {@link SS_List} includes DataObjects matching the given key-value pairs.  Each match must correspond to 1 distinct record."/>
+        <param description="patterns to match.  Each pattern is a map of key-value pairs.  You can" variable="$matches" type="object">either pass a single pattern or an array of patterns.<type full="The" namespace="" name="The"/></param>
+        <param description="{@link SS_List} to test." variable="$dataObjectSet" type="object">Examples
+--------
+Check that $members includes an entry with Email = sam@example.com:
+     $this-&gt;assertDOSContains(array('Email' =&gt; '...@example.com'), $members);
+
+Check that $members includes entries with Email = sam@example.com and with
+Email = ingo@example.com:
+     $this-&gt;assertDOSContains(array(
+        array('Email' =&gt; '...@example.com'),
+        array('Email' =&gt; 'i...@example.com'),
+     ), $members);<type full="The" namespace="" name="The"/></param>
+      </docblock>
+      <parameter name="matches" byreference="false" type="{unknown}"/>
+      <parameter name="dataObjectSet" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Remove it from $extracted so that we don't get duplicate mapping." line="607"/>
+        <comment value="We couldn't find a match - assertion failed" line="614"/>
+      </inline>
+    </method>
+    <method name="assertDOSEquals" start="641" end="674" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Assert that the given {@link SS_List} includes only DataObjects matching the given key-value pairs.  Each match must correspond to 1 distinct record."/>
+        <param description="patterns to match.  Each pattern is a map of key-value pairs.  You can" variable="$matches" type="object">either pass a single pattern or an array of patterns.<type full="The" namespace="" name="The"/></param>
+        <param description="{@link SS_List} to test." variable="$dataObjectSet" type="object">Example
+--------
+Check that *only* the entries Sam Minnee and Ingo Schommer exist in $members.  Order doesn't
+matter:
+    $this-&gt;assertDOSEquals(array(
+       array('FirstName' =&gt;'Sam', 'Surname' =&gt; 'Minnee'),
+       array('FirstName' =&gt; 'Ingo', 'Surname' =&gt; 'Schommer'),
+     ), $members);<type full="The" namespace="" name="The"/></param>
+      </docblock>
+      <parameter name="matches" byreference="false" type="{unknown}"/>
+      <parameter name="dataObjectSet" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Remove it from $extracted so that we don't get duplicate mapping." line="651"/>
+        <comment value="We couldn't find a match - assertion failed" line="658"/>
+        <comment value="If we have leftovers than the DOS has extra data that shouldn't be there" line="667"/>
+      </inline>
+    </method>
+    <method name="assertDOSAllMatch" start="688" end="699" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Assert that the every record in the given {@link SS_List} matches the given key-value pairs."/>
+        <param description="pattern to match.  The pattern is a map of key-value pairs." variable="$match" type="object">
+          <type full="The" namespace="" name="The"/>
+        </param>
+        <param description="{@link SS_List} to test." variable="$dataObjectSet" type="object">Example
+--------
+Check that every entry in $members has a Status of 'Active':
+    $this-&gt;assertDOSAllMatch(array('Status' =&gt; 'Active'), $members);<type full="The" namespace="" name="The"/></param>
+      </docblock>
+      <parameter name="match" byreference="false" type="{unknown}"/>
+      <parameter name="dataObjectSet" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="using_temp_db" start="723" end="728" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Returns true if we are currently using a temporary database"/>
+      </docblock>
+    </method>
+    <method name="kill_temp_db" start="730" end="747" abstract="false" final="false" static="true" visibility="public">
+      <inline>
+        <comment value="Delete our temporary database" line="731"/>
+        <comment value="Some DataExtensions keep a static cache of information that needs to" line="736"/>
+        <comment value="be reset whenever the database is killed" line="737"/>
+        <comment value="echo &quot;Deleted temp database &quot; . $dbConn-&gt;currentDatabase() . &quot;\n&quot;;" line="743"/>
+      </inline>
+    </method>
+    <method name="empty_temp_db" start="752" end="765" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Remove all content from the temporary database."/>
+      </docblock>
+      <inline>
+        <comment value="Some DataExtensions keep a static cache of information that needs to" line="757"/>
+        <comment value="be reset whenever the database is cleaned out" line="758"/>
+      </inline>
+    </method>
+    <method name="create_temp_db" start="767" end="792" abstract="false" final="false" static="true" visibility="public">
+      <inline>
+        <comment value="Disable PHPUnit error handling" line="768"/>
+        <comment value="Create a temporary database, and force the connection to use UTC for time" line="771"/>
+        <comment value="Reinstate PHPUnit error handling" line="788"/>
+      </inline>
+    </method>
+    <method name="delete_all_temp_dbs" start="794" end="807" abstract="false" final="false" static="true" visibility="public"/>
+    <method name="resetDBSchema" start="813" end="848" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Reset the testing database's schema."/>
+        <param description="true, the extraDataObjects tables will also be included" variable="$includeExtraDataObjects" type="object">
+          <type full="If" namespace="" name="If"/>
+        </param>
+      </docblock>
+      <parameter name="includeExtraDataObjects" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="clear singletons, they're caching old extension info which is used in DatabaseAdmin-&gt;doBuild()" line="817"/>
+        <comment value="Check if class exists before trying to instantiate - this sidesteps any manifest weirdness" line="828"/>
+        <comment value="If we have additional dataobjects which need schema, do so here:" line="835"/>
+      </inline>
+    </method>
+    <method name="logInWithPermission" start="854" end="879" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Create a member and group with the given permission code, and log in with it.">Returns the member ID.</description>
+      </docblock>
+      <parameter name="permCode" byreference="false" type="string" default="&quot;ADMIN&quot;"/>
+    </method>
+  </parent>
+  <parent full="PHPUnit_Framework_TestCase" namespace="" name="PHPUnit_Framework_TestCase"/>
+</class>

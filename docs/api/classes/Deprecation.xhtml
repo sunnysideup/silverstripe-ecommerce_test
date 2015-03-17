@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Deprecation</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Deprecation</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/dev/Deprecation.php.xhtml#line33">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Deprecation</h1>
+        <h4>Handles raising an notice when accessing a deprecated method</h4>
+        <p>A pattern used in SilverStripe when deprecating a method is to add something like<br/>user_error('This method is deprecated', E_USER_NOTICE);<br/>to the method<br/><br/>However sometimes we want to mark that a method will be deprecated in some future version and shouldn't be used in<br/>new code, but not forbid in the current version - for instance when that method is still heavily used in framework<br/>or cms.<br/><br/>This class abstracts the above pattern and adds a way to do that.<br/><br/>Each call to notice passes a version that the notice will be valid from. Additionally this class has a notion of the<br/>version it should use when deciding whether to raise the notice. If that version is equal to or greater than the<br/>notices version (and SilverStripe is in dev mode) a deprecation message will be raised.<br/><br/>Normally the checking version will be the release version of SilverStripe, but a developer can choose to set it to a<br/>future version, to see how their code will behave in future versions.<br/><br/>Modules can also set the version for calls they make - either setting it to a future version in order to ensure<br/>forwards compatibility or setting it backwards if a module has not yet removed references to deprecated methods.<br/><br/>When set per-module, only direct calls to deprecated methods from those modules are considered - if the module<br/>calls a non-module method which then calls a deprecated method, that call will use the global check version, not<br/>the module specific check version.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Deprecation
+            {<br/><ul class="none"><li>// constants</li><li>const SCOPE_METHOD = 1;</li><li>const SCOPE_CLASS = 2;</li><li>const SCOPE_GLOBAL = 4;</li></ul><ul class="none"><li>// members</li><li>protected string <a href="#members">$version</a>;
+                    </li><li>protected array <a href="#members">$module_version_overrides</a>;
+                    </li><li>public int <a href="#members">$notice_level</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="Deprecation" href="../classes/Deprecation/notification_version.xhtml">notification_version</a>()
+                    </li><li>protected static string <a title="Deprecation" href="../classes/Deprecation/get_calling_module_from_trace.xhtml">get_calling_module_from_trace</a>()
+                    </li><li>protected static string <a title="Deprecation" href="../classes/Deprecation/get_called_method_from_trace.xhtml">get_called_method_from_trace</a>()
+                    </li><li>public static void <a title="Deprecation" href="../classes/Deprecation/notice.xhtml">notice</a>()
+                    </li><li>public static array <a title="Deprecation" href="../classes/Deprecation/dump_settings.xhtml">dump_settings</a>()
+                    </li><li>public static void <a title="Deprecation" href="../classes/Deprecation/restore_settings.xhtml">restore_settings</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/DeprecationTest_Deprecation.xhtml">DeprecationTest_Deprecation</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="SCOPE_METHOD">SCOPE_METHOD</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td id="SCOPE_CLASS">SCOPE_CLASS</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td id="SCOPE_GLOBAL">SCOPE_GLOBAL</td>
+              <td>4</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="module_version_overrides"><strong>$module_version_overrides</strong>
+                —
+                array</li>
+            <li id="version"><strong>$version</strong>
+                —
+                string</li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="notice_level"><strong>$notice_level</strong>
+                —
+                int</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="get_called_method_from_trace"><a title="Deprecation" href="../classes/Deprecation/get_called_method_from_trace.xhtml">get_called_method_from_trace()</a>
+                — Given a backtrace, get the method name from the immediate parent caller (the caller of #notice)</li>
+            <li id="get_calling_module_from_trace"><a title="Deprecation" href="../classes/Deprecation/get_calling_module_from_trace.xhtml">get_calling_module_from_trace()</a>
+                — Given a backtrace, get the module name from the caller two removed (the caller of the method that called #notice)</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="dump_settings"><a title="Deprecation" href="../classes/Deprecation/dump_settings.xhtml">dump_settings()</a>
+                — Method for when testing. Dump all the current version settings to a variable for later passing to restore</li>
+            <li id="notice"><a title="Deprecation" href="../classes/Deprecation/notice.xhtml">notice()</a>
+                — Raise a notice indicating the method is deprecated if the version passed as the second argument is greater than or equal to the check version set via ::notification_version</li>
+            <li id="notification_version"><a title="Deprecation" href="../classes/Deprecation/notification_version.xhtml">notification_version()</a>
+                — Set the version that is used to check against the version passed to notice. If the ::notice version is greater than or equal to this version, a message will be raised</li>
+            <li id="restore_settings"><a title="Deprecation" href="../classes/Deprecation/restore_settings.xhtml">restore_settings()</a>
+                — Method for when testing. Restore all the current version settings from a variable</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

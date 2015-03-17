@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_ConfigStaticManifest" namespace="" name="SS_ConfigStaticManifest" abstract="false" final="false" start="15" end="145">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/core/manifest" file="ConfigStaticManifest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/core/manifest/ConfigStaticManifest.php" size="10269" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="5d8d92db821a8ccb6a18dff609cb96268eafec97" relative="framework/core/manifest/ConfigStaticManifest.php"/>
+  <docblock>
+    <description compact="A utility class which builds a manifest of the statics defined in all classes, along with their access levels and values">We use this to make the statics that the Config system uses as default values be truely immutable.
+
+It has the side effect of allowing Config to avoid private-level access restrictions, so we can
+optionally catch attempts to modify the config statics (otherwise the modification will appear
+to work, but won't actually have any effect - the equvilent of failing silently)</description>
+    <package value="framework"/>
+    <subpackage value="manifest"/>
+  </docblock>
+  <member name="base" type="{unknown}" visibility="protected" line="17"/>
+  <member name="tests" type="{unknown}" visibility="protected" line="18"/>
+  <member name="cache" type="{unknown}" visibility="protected" line="20"/>
+  <member name="key" type="{unknown}" visibility="protected" line="21"/>
+  <member name="index" type="{unknown}" visibility="protected" line="23"/>
+  <member name="statics" type="{unknown}" visibility="protected" line="24"/>
+  <member name="initial_classes" type="array" visibility="protected" line="26"/>
+  <constructor name="__construct" start="39" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs and initialises a new config static manifest, either loading the data from the cache or re-scanning for classes."/>
+      <param description="The manifest base path." type="string" variable="$base"/>
+      <param description="Include the contents of &quot;tests&quot; directories." type="object" variable="$includeTests">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param description="Force the manifest to be regenerated." type="object" variable="$forceRegen">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param description="If the manifest is regenerated, cache it." type="object" variable="$cache">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="base" byreference="false" type="{unknown}"/>
+    <parameter name="includeTests" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="forceRegen" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </constructor>
+  <method name="get" start="60" end="92" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Don't warn more than once per static" line="84"/>
+    </inline>
+  </method>
+  <method name="regenerate" start="97" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Completely regenerates the manifest file."/>
+    </docblock>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="handleFile" start="134" end="140" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="basename" byreference="false" type="{unknown}"/>
+    <parameter name="pathname" byreference="false" type="{unknown}"/>
+    <parameter name="depth" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getStatics" start="142" end="144" abstract="false" final="false" static="false" visibility="public"/>
+</class>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldDeleteAction" namespace="" name="GridFieldDeleteAction" abstract="false" final="false" start="21" end="161">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldDeleteAction.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldDeleteAction.php" size="4338" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="0390225a84cd7d89c244b8ed20bf9741fadbb5a4" relative="framework/forms/gridfield/GridFieldDeleteAction.php"/>
+  <docblock>
+    <description compact="This class is a {@link GridField} component that adds a delete action for objects.">This component also supports unlinking a relation instead of deleting the
+object.
+Use the <link xmlns="http://xml.phpdox.net/src" value="$removeRelation"/> property set in the constructor.
+&lt;code&gt;
+$action = new GridFieldDeleteAction(); // delete objects permanently
+// removes the relation to object instead of deleting
+$action = new GridFieldDeleteAction(true);
+&lt;/code&gt;
+</description>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <implements full="GridField_ColumnProvider" namespace="" name="GridField_ColumnProvider"/>
+  <implements full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider"/>
+  <member name="removeRelation" type="{unknown}" default="false" visibility="protected" line="32">
+    <docblock>
+      <description compact="If this is set to true, this {@link GridField_ActionProvider} will remove the object from the list, instead of deleting.">In the case of a has one, has many or many many list it will uncouple
+the item from the list.</description>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="38" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="- true if removing the item from the list, but not deleting it" type="boolean" variable="$removeRelation"/>
+    </docblock>
+    <parameter name="removeRelation" byreference="false" type="{unknown}" default="false"/>
+  </constructor>
+  <method name="augmentColumns" start="48" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a column 'Delete'"/>
+      <param type="object" variable="$gridField">
+        <type full="type" namespace="" name="type"/>
+      </param>
+      <param type="array" variable="$columns"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="columns" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="getColumnAttributes" start="62" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return any special attributes that will be used for FormField::create_tag()"/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="object" variable="$record">
+        <type full="DataObject" namespace="" name="DataObject"/>
+      </param>
+      <param type="string" variable="$columnName"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+    <parameter name="columnName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getColumnMetadata" start="73" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the title"/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="string" variable="$columnName"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="columnName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getColumnsHandled" start="85" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Which columns are handled by this component"/>
+      <param type="object" variable="$gridField">
+        <type full="type" namespace="" name="type"/>
+      </param>
+      <return type="object">
+        <type full="type" namespace="" name="type"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getActions" start="95" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Which GridField actions are this component handling"/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getColumnContent" start="106" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="object" variable="$record">
+        <type full="DataObject" namespace="" name="DataObject"/>
+      </param>
+      <param type="string" variable="$columnName"/>
+      <return description="- the HTML for the column" type="string"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+    <parameter name="columnName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handleAction" start="137" end="160" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle the actions and apply any changes to the GridField"/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="string" variable="$actionName"/>
+      <param type="mixed" variable="$arguments"/>
+      <param description="- form data" type="array" variable="$data"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="actionName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <interface full="GridField_ColumnProvider" namespace="" name="GridField_ColumnProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="augmentColumns" start="60" end="60" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Modify the list of columns displayed in the table."/>
+        <see value="{@link GridFieldDataColumns-&gt;getDisplayFields()}"/>
+        <see value="{@link GridFieldDataColumns}."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="- List reference of all column names." type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="columns" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="getColumnsHandled" start="68" end="68" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Names of all columns which are affected by this component."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getColumnContent" start="78" end="78" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="HTML for the column, content of the &lt;td&gt; element."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="- Record displayed in this row" type="object" variable="$record">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </param>
+        <param type="string" variable="$columnName"/>
+        <return description="- HTML for the column. Return NULL to skip." type="string"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="record" byreference="false" type="{unknown}"/>
+      <parameter name="columnName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getColumnAttributes" start="88" end="88" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Attributes for the element containing the content returned by {@link getColumnContent()}."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="displayed in this row" type="object" variable="$record">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </param>
+        <param type="string" variable="$columnName"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="record" byreference="false" type="{unknown}"/>
+      <parameter name="columnName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getColumnMetadata" start="98" end="98" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Additional metadata about the column which can be used by other components, e.g. to set a title for a search column header."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param type="string" variable="$columnName"/>
+        <return description="- Map of arbitrary metadata identifiers to their values." type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="columnName" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getActions" start="129" end="129" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a list of the actions handled by this action provider.">Used to identify the action later on through the $actionName parameter
+in <link xmlns="http://xml.phpdox.net/src" value="handleAction"/>.
+There is no namespacing on these actions, so you need to ensure that
+they don't conflict with other components.
+</description>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <return description="with action identifier strings." type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </return>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="handleAction" start="142" end="142" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Handle an action on the given {@link GridField}.">Calls ALL components for every action handled, so the component needs
+to ensure it only accepts actions it is actually supposed to handle.</description>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="Action identifier, see {@link getActions()}." type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <param description="Arguments relevant for this" type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </param>
+        <param description="All form data" type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </param>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="object">
+        <type full="\\GridField" namespace="\" name="GridField"/>
+      </parameter>
+      <parameter name="actionName" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Permission_Group" namespace="" name="Permission_Group" abstract="false" final="false" start="668" end="723">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/security" file="Permission.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/security/Permission.php" size="21435" time="2015-03-14T10:41:01+13:00" unixtime="1426282861" sha1="3c58c2d573c8e7688f81deee58f5bd6180258623" relative="framework/security/Permission.php"/>
+  <docblock>
+    <description compact="Permission_Group class">This class is used to group permissions together for showing on an
+interface.</description>
+    <package value="framework"/>
+    <subpackage value="security"/>
+  </docblock>
+  <member name="name" type="{unknown}" visibility="protected" line="674">
+    <docblock>
+      <description compact="Name of the permission group (can be used as label in an interface)"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="permissions" type="array" visibility="protected" line="683">
+    <docblock>
+      <description compact="Associative array of permissions in this permission group. The array indicies are the permission codes as used in {@link Permission::check()}. The value is suitable for using in an interface."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="697" end="700" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor"/>
+      <param description="Text that could be used as label used in an" type="string" variable="$name">interface</param>
+      <param description="Associative array of permissions in this" type="array" variable="$permissions">permission group. The array indicies are the
+                          permission codes as used in
+                          <link xmlns="http://xml.phpdox.net/src" value="Permission::check()"/>. The value is
+                          suitable for using in an interface.
+</param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="permissions" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="getName" start="707" end="709" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the name of the permission group"/>
+      <return description="Name (label) of the permission group" type="string"/>
+    </docblock>
+  </method>
+  <method name="getPermissions" start="720" end="722" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get permissions"/>
+      <return description="Associative array of permissions in this permission" type="array">group. The array indicies are the permission codes as
+              used in <link xmlns="http://xml.phpdox.net/src" value="Permission::check()"/>. The value is
+              suitable for using in an interface.
+</return>
+    </docblock>
+  </method>
+</class>

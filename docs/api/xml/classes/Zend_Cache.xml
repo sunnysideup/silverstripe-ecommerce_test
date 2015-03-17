@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Cache" namespace="" name="Zend_Cache" abstract="true" final="false" start="28" end="250">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend" file="Cache.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Cache.php" size="9708" time="2015-03-14T10:41:13+13:00" unixtime="1426282873" sha1="5395320c073703aa529c4bd7d334a7b6b4b24dcd" relative="framework/thirdparty/Zend/Cache.php"/>
+  <docblock>
+    <description/>
+    <package value="Zend_Cache"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <member name="standardFrontends" type="array" visibility="public" line="36">
+    <docblock>
+      <description compact="Standard frontends"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="standardBackends" type="array" visibility="public" line="43">
+    <docblock>
+      <description compact="Standard backends"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="standardExtendedBackends" type="array" visibility="public" line="51">
+    <docblock>
+      <description compact="Standard backends which implement the ExtendedInterface"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="availableFrontends" type="array" visibility="public" line="59">
+    <docblock>
+      <description compact="Only for backward compatibility (may be removed in next major release)"/>
+      <var type="array"/>
+      <deprecated/>
+    </docblock>
+  </member>
+  <member name="availableBackends" type="array" visibility="public" line="67">
+    <docblock>
+      <description compact="Only for backward compatibility (may be removed in next major release)"/>
+      <var type="array"/>
+      <deprecated/>
+    </docblock>
+  </member>
+  <constant name="CLEANING_MODE_ALL" value="'all'">
+    <docblock>
+      <description compact="Consts for clean() method"/>
+    </docblock>
+  </constant>
+  <constant name="CLEANING_MODE_OLD" value="'old'"/>
+  <constant name="CLEANING_MODE_MATCHING_TAG" value="'matchingTag'"/>
+  <constant name="CLEANING_MODE_NOT_MATCHING_TAG" value="'notMatchingTag'"/>
+  <constant name="CLEANING_MODE_MATCHING_ANY_TAG" value="'matchingAnyTag'"/>
+  <method name="factory" start="91" end="113" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Factory"/>
+      <param description="frontend name (string) or Zend_Cache_Frontend_ object" type="mixed" variable="$frontend"/>
+      <param description="backend name (string) or Zend_Cache_Backend_ object" type="mixed" variable="$backend"/>
+      <param description="associative array of options for the corresponding frontend constructor" type="array" variable="$frontendOptions"/>
+      <param description="associative array of options for the corresponding backend constructor" type="array" variable="$backendOptions"/>
+      <param description="if true, the frontend argument is used as a complete class name ; if false, the frontend argument is used as the end of &quot;Zend_Cache_Frontend_[...]&quot; class name" type="boolean" variable="$customFrontendNaming"/>
+      <param description="if true, the backend argument is used as a complete class name ; if false, the backend argument is used as the end of &quot;Zend_Cache_Backend_[...]&quot; class name" type="boolean" variable="$customBackendNaming"/>
+      <param description="if true, there will no require_once for backend and frontend (useful only for custom backends/frontends)" type="boolean" variable="$autoload"/>
+      <throws type="object">
+        <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+      </throws>
+      <return type="object">
+        <type full="Zend_Cache_Core|Zend_Cache_Frontend" namespace="" name="Zend_Cache_Core|Zend_Cache_Frontend"/>
+      </return>
+    </docblock>
+    <parameter name="frontend" byreference="false" type="{unknown}"/>
+    <parameter name="backend" byreference="false" type="{unknown}"/>
+    <parameter name="frontendOptions" byreference="false" type="array"/>
+    <parameter name="backendOptions" byreference="false" type="array"/>
+    <parameter name="customFrontendNaming" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="customBackendNaming" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="autoload" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="_makeBackend" start="124" end="154" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Backend Constructor"/>
+      <param type="string" variable="$backend"/>
+      <param type="array" variable="$backendOptions"/>
+      <param type="boolean" variable="$customBackendNaming"/>
+      <param type="boolean" variable="$autoload"/>
+      <return type="object">
+        <type full="Zend_Cache_Backend" namespace="" name="Zend_Cache_Backend"/>
+      </return>
+    </docblock>
+    <parameter name="backend" byreference="false" type="{unknown}"/>
+    <parameter name="backendOptions" byreference="false" type="{unknown}"/>
+    <parameter name="customBackendNaming" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="autoload" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="we use a standard backend" line="130"/>
+      <comment value="security controls are explicit" line="132"/>
+    </inline>
+  </method>
+  <method name="_makeFrontend" start="165" end="196" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Frontend Constructor"/>
+      <param type="string" variable="$frontend"/>
+      <param type="array" variable="$frontendOptions"/>
+      <param type="boolean" variable="$customFrontendNaming"/>
+      <param type="boolean" variable="$autoload"/>
+      <return type="object">
+        <type full="Zend_Cache_Core|Zend_Cache_Frontend" namespace="" name="Zend_Cache_Core|Zend_Cache_Frontend"/>
+      </return>
+    </docblock>
+    <parameter name="frontend" byreference="false" type="{unknown}"/>
+    <parameter name="frontendOptions" byreference="false" type="array"/>
+    <parameter name="customFrontendNaming" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="autoload" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="we use a standard frontend" line="171"/>
+      <comment value="For perfs reasons, with frontend == 'Core', we can interact with the Core itself" line="172"/>
+      <comment value="security controls are explicit" line="174"/>
+    </inline>
+  </method>
+  <method name="throwException" start="205" end="210" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Throw an exception">Note : for perf reasons, the "load" of Zend/Cache/Exception is dynamic</description>
+      <param description="Message for the exception" type="string" variable="$msg"/>
+      <throws type="object">
+        <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+    <parameter name="e" byreference="false" type="object" default="null">
+      <type full="\\Exception" namespace="\" name="Exception"/>
+    </parameter>
+    <inline>
+      <comment value="For perfs reasons, we use this dynamic inclusion" line="207"/>
+    </inline>
+  </method>
+  <method name="_normalizeName" start="218" end="229" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Normalize frontend and backend names to allow multiple words TitleCased"/>
+      <param description="Name to normalize" type="string" variable="$name"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_isReadable" start="241" end="248" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Returns TRUE if the $filename is readable, or FALSE otherwise.">This function uses the PHP include_path, where PHP's is_readable()
+does not.
+
+Note : this method comes from Zend_Loader (see #ZF-2891 for details)</description>
+      <param type="string" variable="$filename"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}"/>
+  </method>
+</class>

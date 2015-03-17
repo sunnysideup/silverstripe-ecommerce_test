@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - ClassInfo</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">ClassInfo</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/core/ClassInfo.php.xhtml#line13">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>ClassInfo</h1>
+        <h4>Provides introspection information about the class tree.</h4>
+        <p>It's a cached wrapper around the built-in class functions. SilverStripe uses<br/>class introspection heavily and without the caching it creates an unfortunate<br/>performance hit.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class ClassInfo
+            {<br/><ul class="none"><li>// members</li><li>private <a href="#members">$_cache_all_tables</a>;
+                    </li><li>private <span title="Array">Array</span> <a href="#members">$_cache_ancestry</a>;
+                    </li><li>private array <a href="#members">$method_from_cache</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="ClassInfo" href="../classes/ClassInfo/allClasses.xhtml">allClasses</a>()
+                    </li><li>public static void <a title="ClassInfo" href="../classes/ClassInfo/exists.xhtml">exists</a>()
+                    </li><li>public static void <a title="ClassInfo" href="../classes/ClassInfo/hasTable.xhtml">hasTable</a>()
+                    </li><li>public static void <a title="ClassInfo" href="../classes/ClassInfo/reset_db_cache.xhtml">reset_db_cache</a>()
+                    </li><li>public static void <a title="ClassInfo" href="../classes/ClassInfo/getValidSubClasses.xhtml">getValidSubClasses</a>()
+                    </li><li>public static array <a title="ClassInfo" href="../classes/ClassInfo/dataClassesFor.xhtml">dataClassesFor</a>()
+                    </li><li>public static string <a title="ClassInfo" href="../classes/ClassInfo/baseDataClass.xhtml">baseDataClass</a>()
+                    </li><li>public static array <a title="ClassInfo" href="../classes/ClassInfo/subclassesFor.xhtml">subclassesFor</a>()
+                    </li><li>public static array <a title="ClassInfo" href="../classes/ClassInfo/ancestry.xhtml">ancestry</a>()
+                    </li><li>public static array <a title="ClassInfo" href="../classes/ClassInfo/implementorsOf.xhtml">implementorsOf</a>()
+                    </li><li>public static void <a title="ClassInfo" href="../classes/ClassInfo/classImplements.xhtml">classImplements</a>()
+                    </li><li>public static array <a title="ClassInfo" href="../classes/ClassInfo/classes_for_file.xhtml">classes_for_file</a>()
+                    </li><li>public static array <a title="ClassInfo" href="../classes/ClassInfo/classes_for_folder.xhtml">classes_for_folder</a>()
+                    </li><li>public static void <a title="ClassInfo" href="../classes/ClassInfo/has_method_from.xhtml">has_method_from</a>()
+                    </li><li>public static string <a title="ClassInfo" href="../classes/ClassInfo/table_for_object_field.xhtml">table_for_object_field</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">25+</td>
+            <td>Improve documentation</td>
+          </tr>
+          <tr>
+            <td class="nummeric">42+</td>
+            <td>Move this to SS_Database or DB</td>
+          </tr>
+          <tr>
+            <td class="nummeric">79+</td>
+            <td>Move this into data object</td>
+          </tr>
+          <tr>
+            <td class="nummeric">200+</td>
+            <td>Doesn't return additional classes that only begin</td>
+          </tr>
+          <tr>
+            <td class="nummeric">221+</td>
+            <td>Doesn't return additional classes that only begin</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="_cache_all_tables">
+              <strong>$_cache_all_tables</strong>
+              <br/>
+              <span class="indent">Cache for {@link hasTable()}</span>
+            </li>
+            <li id="_cache_ancestry"><strong>$_cache_ancestry</strong>
+                —
+                <a href="#">Array</a></li>
+            <li id="method_from_cache">
+              <strong>$method_from_cache</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="allClasses"><a title="ClassInfo" href="../classes/ClassInfo/allClasses.xhtml">allClasses()</a>
+                — Wrapper for classes getter.</li>
+            <li id="ancestry"><a title="ClassInfo" href="../classes/ClassInfo/ancestry.xhtml">ancestry()</a>
+                — Returns the passed class name along with all its parent class names in an array, sorted with the root class first.</li>
+            <li id="baseDataClass"><a title="ClassInfo" href="../classes/ClassInfo/baseDataClass.xhtml">baseDataClass()</a>
+                — Returns the root class (the first to extend from DataObject) for the passed class.</li>
+            <li id="classImplements"><a title="ClassInfo" href="../classes/ClassInfo/classImplements.xhtml">classImplements()</a>
+                — Returns true if the given class implements the given interface</li>
+            <li id="classes_for_file"><a title="ClassInfo" href="../classes/ClassInfo/classes_for_file.xhtml">classes_for_file()</a>
+                — Get all classes contained in a file.</li>
+            <li id="classes_for_folder"><a title="ClassInfo" href="../classes/ClassInfo/classes_for_folder.xhtml">classes_for_folder()</a>
+                — Returns all classes contained in a certain folder.</li>
+            <li id="dataClassesFor"><a title="ClassInfo" href="../classes/ClassInfo/dataClassesFor.xhtml">dataClassesFor()</a>
+                — Returns an array of the current class and all its ancestors and children which have a DB table.</li>
+            <li id="exists">
+              <a title="ClassInfo" href="../classes/ClassInfo/exists.xhtml">exists()</a>
+            </li>
+            <li id="getValidSubClasses"><a title="ClassInfo" href="../classes/ClassInfo/getValidSubClasses.xhtml">getValidSubClasses()</a>
+                — Returns the manifest of all classes which are present in the database.</li>
+            <li id="hasTable">
+              <a title="ClassInfo" href="../classes/ClassInfo/hasTable.xhtml">hasTable()</a>
+            </li>
+            <li id="has_method_from">
+              <a title="ClassInfo" href="../classes/ClassInfo/has_method_from.xhtml">has_method_from()</a>
+            </li>
+            <li id="implementorsOf">
+              <a title="ClassInfo" href="../classes/ClassInfo/implementorsOf.xhtml">implementorsOf()</a>
+            </li>
+            <li id="reset_db_cache">
+              <a title="ClassInfo" href="../classes/ClassInfo/reset_db_cache.xhtml">reset_db_cache()</a>
+            </li>
+            <li id="subclassesFor"><a title="ClassInfo" href="../classes/ClassInfo/subclassesFor.xhtml">subclassesFor()</a>
+                — Returns a list of classes that inherit from the given class.</li>
+            <li id="table_for_object_field"><a title="ClassInfo" href="../classes/ClassInfo/table_for_object_field.xhtml">table_for_object_field()</a>
+                — Returns the table name in the class hierarchy which contains a given field column for a {@link DataObject}. If the field does not exist, this will return null.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

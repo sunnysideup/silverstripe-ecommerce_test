@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldDetailForm" namespace="" name="GridFieldDetailForm" abstract="false" final="false" start="19" end="199">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldDetailForm.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldDetailForm.php" size="18897" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="2361921770070caaa8666f0989a2963164338cbb" relative="framework/forms/gridfield/GridFieldDetailForm.php"/>
+  <docblock>
+    <description compact="Provides view and edit forms at GridField-specific URLs.">These can be placed into pop-ups by an appropriate front-end.
+Usually added to a <link xmlns="http://xml.phpdox.net/src" value="GridField"/> alongside of a
+<link xmlns="http://xml.phpdox.net/src" value="GridFieldEditButton"/> which takes care of linking the
+individual rows to their edit view.
+The URLs provided will be off the following form:
+ - &lt;FormURL&gt;/field/&lt;GridFieldName&gt;/item/&lt;RecordID&gt;
+ - &lt;FormURL&gt;/field/&lt;GridFieldName&gt;/item/&lt;RecordID&gt;/edit
+</description>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <implements full="GridField_URLHandler" namespace="" name="GridField_URLHandler"/>
+  <member name="template" type="string" default="'GridFieldDetailForm'" visibility="protected" line="24">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="String" namespace="" name="String"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="name" type="{unknown}" visibility="protected" line="30">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="validator" type="{unknown}" visibility="protected" line="35">
+    <docblock>
+      <description/>
+      <var description="The form validator used for both add and edit fields." type="object">
+        <type full="Validator" namespace="" name="Validator"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="fields" type="{unknown}" visibility="protected" line="40">
+    <docblock>
+      <description/>
+      <var description="Falls back to {@link DataObject-&gt;getCMSFields()} if not defined." type="object">
+        <type full="FieldList" namespace="" name="FieldList"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="itemRequestClass" type="{unknown}" visibility="protected" line="45">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="String" namespace="" name="String"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="itemEditFormCallback" type="{unknown}" visibility="protected" line="50">
+    <docblock>
+      <description/>
+      <var description="With two parameters: $form and $component" type="object">
+        <type full="function" namespace="" name="function"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getURLHandlers" start="52" end="57" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <constructor name="__construct" start="69" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a popup component. The two arguments will specify how the popup form's HTML and behaviour is created.  The given controller will be customised, putting the edit form into the template with the given name.">The arguments are experimental API's to support partial content to be passed back to whatever
+controller who wants to display the getCMSFields</description>
+      <param description="The name of the edit form to place into the pop-up form" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="string" default="'DetailForm'"/>
+  </constructor>
+  <method name="handleItem" start="79" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$gridField">
+        <type full="type" namespace="" name="type"/>
+      </param>
+      <param type="object" variable="$request">
+        <type full="type" namespace="" name="type"/>
+      </param>
+      <return type="object">
+        <type full="GridFieldDetailForm_ItemRequest" namespace="" name="GridFieldDetailForm_ItemRequest"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Our getController could either give us a true Controller, if this is the top-level GridField." line="80"/>
+      <comment value="It could also give us a RequestHandler in the form of GridFieldDetailForm_ItemRequest if this is a" line="81"/>
+      <comment value="nested GridField." line="82"/>
+      <comment value="if no validator has been set on the GridField and the record has a" line="96"/>
+      <comment value="CMS validator, use that." line="97"/>
+    </inline>
+  </method>
+  <method name="setTemplate" start="108" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+    </docblock>
+    <parameter name="template" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTemplate" start="116" end="118" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setName" start="123" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getName" start="131" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setValidator" start="138" end="141" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$validator">
+        <type full="Validator" namespace="" name="Validator"/>
+      </param>
+    </docblock>
+    <parameter name="validator" byreference="false" type="object">
+      <type full="\\Validator" namespace="\" name="Validator"/>
+    </parameter>
+  </method>
+  <method name="getValidator" start="146" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Validator" namespace="" name="Validator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setFields" start="153" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$fields">
+        <type full="FieldList" namespace="" name="FieldList"/>
+      </param>
+    </docblock>
+    <parameter name="fields" byreference="false" type="object">
+      <type full="\\FieldList" namespace="\" name="FieldList"/>
+    </parameter>
+  </method>
+  <method name="getFields" start="161" end="163" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="FieldList" namespace="" name="FieldList"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setItemRequestClass" start="168" end="171" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getItemRequestClass" start="176" end="184" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setItemEditFormCallback" start="189" end="191" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="Make changes on the edit form after constructing it." type="object" variable="$cb">
+        <type full="Closure" namespace="" name="Closure"/>
+      </param>
+    </docblock>
+    <parameter name="cb" byreference="false" type="object">
+      <type full="\\Closure" namespace="\" name="Closure"/>
+    </parameter>
+  </method>
+  <method name="getItemEditFormCallback" start="196" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Closure" namespace="" name="Closure"/>
+      </return>
+    </docblock>
+  </method>
+  <interface full="GridField_URLHandler" namespace="" name="GridField_URLHandler">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getURLHandlers" start="192" end="192" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return URLs to be handled by this grid field, in an array the same form as $url_handlers.">Handler methods will be called on the component, rather than the
+{@link GridField}.</description>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

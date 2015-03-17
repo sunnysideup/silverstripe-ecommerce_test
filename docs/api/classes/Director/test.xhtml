@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Director" href="../../classes/Director.xhtml">Director</a>
+          </li>
+          <li class="separator">test</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="../../source/framework/control/Director.php.xhtml#line221">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Director::</small>test</h1>
+        <h4>Test a URL request, returning a response object.</h4>
+        <p>This method is the counterpart of Director::direct() that is used in functional testing.  It will execute the
+URL given, and return the result as an SS_HTTPResponse object.</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function test(string
+        $url,
+            [array&amp;
+        $postVars = null,
+            [<a title="Session" href="../../classes/Session.xhtml">Session</a>&amp;
+        $session = null,
+            [string&amp;
+        $httpMethod = null,
+            [string&amp;
+        $body = null,
+            [array&amp;
+        $headers = null,
+            [array&amp;
+        $cookies = null,
+            [<a title="HTTP_Request" href="../../classes/HTTP_Request.xhtml">HTTP_Request</a>&amp;
+        $request = null]]]]]]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$url</code>
+                —
+                string</dt>
+          <dd>The URL to visit</dd>
+          <dt><code>$postVars</code>
+                —
+                array</dt>
+          <dd>The $_POST &amp; $_FILES variables</dd>
+          <dt><code>$session</code>
+                —
+                object</dt>
+          <dd>The {@link Session} object representing the current session.  By passing the same<br/>object to multiple  calls of Director::test(), you can simulate a persisted session.</dd>
+          <dt><code>$httpMethod</code>
+                —
+                string</dt>
+          <dd>The HTTP method, such as GET or POST.  It will default to POST if postVars is set,<br/>GET otherwise. Overwritten by $postVars['_method'] if present.</dd>
+          <dt><code>$body</code>
+                —
+                string</dt>
+          <dd>The HTTP body</dd>
+          <dt><code>$headers</code>
+                —
+                array</dt>
+          <dd>HTTP headers with key-value pairs</dd>
+          <dt><code>$cookies</code>
+                —
+                array</dt>
+          <dd>to populate $_COOKIE</dd>
+          <dt><code>$request</code>
+                —
+                object</dt>
+          <dd>The {@see HTTP_Request} object generated as a part of this request<br/><br/><br/>      </dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>SS_HTTPResponse</dt>
+          <dd><br/>
+        </dd>
+        </dl>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">286</td>
+            <td>Need to NOT proceed with the request in an elegant manner</td>
+          </tr>
+          <tr>
+            <td class="nummeric">290</td>
+            <td>Pass in the DataModel</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

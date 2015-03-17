@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleTagGroup" namespace="" name="SimpleTagGroup" abstract="false" final="false" start="1063" end="1146">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="tag.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/tag.php" size="38668" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="b6ec8fd28ab462e15250383e6dc74f1754d57b35" relative="framework/thirdparty/simpletest/tag.php"/>
+  <docblock>
+    <description compact="A group of multiple widgets with some shared behaviour.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <member name="_widgets" type="array" visibility="public" line="1064"/>
+  <method name="addWidget" start="1071" end="1073" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a tag to the group.">@param SimpleWidget $widget
+   @access public</description>
+    </docblock>
+    <parameter name="widget" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_getWidgets" start="1080" end="1082" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor to widget set.">@return array        All widgets.
+   @access protected</description>
+    </docblock>
+  </method>
+  <method name="getAttribute" start="1090" end="1092" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for an attribute.">@param string $label    Attribute name.
+   @return boolean         Always false.
+   @access public</description>
+    </docblock>
+    <parameter name="label" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getName" start="1100" end="1104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Fetches the name for the widget from the first    member.">@return string        Name of widget.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="isId" start="1113" end="1120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Scans the widgets for one with the appropriate    ID field.">@param string $id        ID value to try.
+   @return boolean          True if matched.
+   @access public</description>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isLabel" start="1129" end="1136" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Scans the widgets for one with the appropriate    attached label.">@param string $label     Attached label to try.
+   @return boolean          True if matched.
+   @access public</description>
+    </docblock>
+    <parameter name="label" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="write" start="1143" end="1145" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Dispatches the value into the form encoded packet.">@param SimpleEncoding $encoding    Form packet.
+   @access public</description>
+    </docblock>
+    <parameter name="encoding" byreference="true" type="{unknown}"/>
+  </method>
+  <extender full="SimpleCheckboxGroup" namespace="" name="SimpleCheckboxGroup"/>
+  <extender full="SimpleRadioGroup" namespace="" name="SimpleRadioGroup"/>
+</class>

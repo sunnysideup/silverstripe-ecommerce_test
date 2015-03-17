@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SSObjectCreator" namespace="" name="SSObjectCreator" abstract="false" final="false" start="835" end="851">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/injector" file="InjectorTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/injector/InjectorTest.php" size="24284" time="2015-03-14T10:41:10+13:00" unixtime="1426282870" sha1="b46f89bbc471373061789202ea51ab3099684b71" relative="framework/tests/injector/InjectorTest.php"/>
+  <docblock>
+    <description compact="An example object creator that uses the SilverStripe class(arguments) mechanism for creating new objects"/>
+    <see value="https://github.com/silverstripe/sapphire"/>
+  </docblock>
+  <extends full="InjectionCreator" namespace="" name="InjectionCreator"/>
+  <member name="injector" type="{unknown}" visibility="private" line="836"/>
+  <constructor name="__construct" start="838" end="840" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="injector" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="create" start="842" end="850" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="params" byreference="false" type="array"/>
+  </method>
+  <parent full="InjectionCreator" namespace="" name="InjectionCreator">
+    <method name="create" start="13" end="21" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="params" byreference="false" type="array"/>
+    </method>
+  </parent>
+  <interface full="SilverStripe\Framework\Injector\Factory" namespace="SilverStripe\Framework\Injector" name="Factory">
+    <method name="create" start="17" end="17" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Creates a new service instance."/>
+        <param description="The class name of the service." type="string" variable="$service"/>
+        <param description="The constructor parameters." type="array" variable="$params"/>
+        <return description="The created service instances." type="object"/>
+      </docblock>
+      <parameter name="service" byreference="false" type="{unknown}"/>
+      <parameter name="params" byreference="false" type="array"/>
+    </method>
+  </interface>
+</class>

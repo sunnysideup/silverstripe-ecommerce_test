@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_Cache" namespace="" name="SS_Cache" abstract="false" final="false" start="12" end="193">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/cache" file="Cache.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/cache/Cache.php" size="5147" time="2015-03-14T10:39:28+13:00" unixtime="1426282768" sha1="02d21dcb96fd23f219230dfca61c3cb25c9df925" relative="framework/cache/Cache.php"/>
+  <docblock>
+    <description compact="The `[api:SS_Cache]` class provides a bunch of static functions wrapping the Zend_Cache system in something a little more easy to use with the SilverStripe config system."/>
+    <see value="http://doc.silverstripe.org/framework/en/topics/caching"/>
+    <package value="framework"/>
+    <subpackage value="core"/>
+  </docblock>
+  <member name="backends" type="array" visibility="protected" line="17">
+    <docblock>
+      <description/>
+      <var description="$backends" type="array"/>
+    </docblock>
+  </member>
+  <member name="backend_picks" type="array" visibility="protected" line="22">
+    <docblock>
+      <description/>
+      <var description="$backend_picks" type="array"/>
+    </docblock>
+  </member>
+  <member name="cache_lifetime" type="array" visibility="protected" line="27">
+    <docblock>
+      <description/>
+      <var description="$cache_lifetime" type="array"/>
+    </docblock>
+  </member>
+  <method name="init" start="32" end="52" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Initialize the 'default' named cache backend."/>
+    </docblock>
+  </method>
+  <method name="add_backend" start="65" end="68" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Add a new named cache backend."/>
+      <see value="http://framework.zend.com/manual/en/zend.cache.html"/>
+      <param description="The name of this backend as a freeform string" type="string" variable="$name"/>
+      <param description="The Zend_Cache backend ('File' or 'Sqlite' or ...)" type="string" variable="$type"/>
+      <param description="The Zend_Cache backend options" type="array" variable="$options"/>
+      <return type="object">
+        <type full="none" namespace="" name="none"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="options" byreference="false" type="array"/>
+  </method>
+  <method name="pick_backend" start="83" end="98" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Pick a named cache backend for a particular named cache.">The priority call with the highest number will be the actual backend
+picked. A backend picked for a specific cache name will always be used
+instead of 'any' if it exists, no matter the priority.</description>
+      <param description="The name of the backend, as passed as the first argument to add_backend" type="string" variable="$name"/>
+      <param description="The name of the cache to pick this backend for (or 'any' for any backend)" type="string" variable="$for"/>
+      <param description="The priority of this pick" type="integer" variable="$priority"/>
+      <return type="object">
+        <type full="none" namespace="" name="none"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="for" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="get_cache_lifetime" start="107" end="113" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the cache lifetime for a particular named cache."/>
+      <param type="string" variable="$for"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="for" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="set_cache_lifetime" start="123" end="138" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the cache lifetime for a particular named cache"/>
+      <param description="The name of the cache to set this lifetime for (or 'any' for all backends)" type="string" variable="$for"/>
+      <param description="The lifetime of an item of the cache, in seconds, or -1 to disable caching" type="integer" variable="$lifetime"/>
+      <param description="The priority. The highest priority setting is used. Unlike backends, 'any' is not" type="integer" variable="$priority">special in terms of priority.</param>
+    </docblock>
+    <parameter name="for" byreference="false" type="{unknown}"/>
+    <parameter name="lifetime" byreference="false" type="integer" default="600"/>
+    <parameter name="priority" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="factory" start="151" end="192" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Build a cache object."/>
+      <see value="http://framework.zend.com/manual/en/zend.cache.html"/>
+      <param description="The name of the cache to build" type="string" variable="$for"/>
+      <param description="(optional) The type of Zend_Cache frontend" type="string" variable="$frontend"/>
+      <param description="(optional) Any frontend options to use." type="array" variable="$frontendOptions"/>
+      <return description="The cache object" type="object">
+        <type full="Zend_Cache_Frontend" namespace="" name="Zend_Cache_Frontend"/>
+      </return>
+    </docblock>
+    <parameter name="for" byreference="false" type="{unknown}"/>
+    <parameter name="frontend" byreference="false" type="string" default="'Output'"/>
+    <parameter name="frontendOptions" byreference="false" type="{unknown}" default="null"/>
+  </method>
+</class>

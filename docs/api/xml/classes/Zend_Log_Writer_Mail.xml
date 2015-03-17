@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Log_Writer_Mail" namespace="" name="Zend_Log_Writer_Mail" abstract="false" final="false" start="46" end="430">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Log/Writer" file="Mail.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Log/Writer/Mail.php" size="13754" time="2015-03-14T10:41:30+13:00" unixtime="1426282890" sha1="542418b0362cdd8e0fd63165ad88be7659ff78d8" relative="framework/thirdparty/Zend/Log/Writer/Mail.php"/>
+  <docblock>
+    <description compact="Class used for writing log messages to email via Zend_Mail.">Allows for emailing log messages at and above a certain level via a
+Zend_Mail object.  Note that this class only sends the email upon
+completion, so any log entries accumulated are sent in a single email.</description>
+    <category value="Zend"/>
+    <package value="Zend_Log"/>
+    <subpackage value="Writer"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+    <version value="$Id: Mail.php 23775 2011-03-01 17:25:24Z ralph $"/>
+  </docblock>
+  <extends full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+  <member name="_eventsToMail" type="array" visibility="protected" line="53">
+    <docblock>
+      <description compact="Array of formatted events to include in message body."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_layoutEventsToMail" type="array" visibility="protected" line="62">
+    <docblock>
+      <description compact="Array of formatted lines for use in an HTML email body; these events are formatted with an optional formatter if the caller is using Zend_Layout."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_mail" type="{unknown}" visibility="protected" line="69">
+    <docblock>
+      <description compact="Zend_Mail instance to use"/>
+      <var type="object">
+        <type full="Zend_Mail" namespace="" name="Zend_Mail"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_layout" type="{unknown}" visibility="protected" line="76">
+    <docblock>
+      <description compact="Zend_Layout instance to use; optional."/>
+      <var type="object">
+        <type full="Zend_Layout" namespace="" name="Zend_Layout"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_layoutFormatter" type="{unknown}" visibility="protected" line="83">
+    <docblock>
+      <description compact="Optional formatter for use when rendering with Zend_Layout."/>
+      <var type="object">
+        <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_numEntriesPerPriority" type="array" visibility="protected" line="90">
+    <docblock>
+      <description compact="Array keeping track of the number of entries per priority level."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_subjectPrependText" type="{unknown}" visibility="protected" line="101">
+    <docblock>
+      <description compact="Subject prepend text.">Can only be used of the Zend_Mail object has not already had its
+subject line set.  Using this will cause the subject to have the entry
+counts per-priority level appended to it.</description>
+      <var type="object">
+        <type full="string|null" namespace="" name="string|null"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_methodMapHeaders" type="array" visibility="protected" line="108">
+    <docblock>
+      <description compact="MethodMap for Zend_Mail's headers"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="126" end="133" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Class constructor.">Constructs the mail writer; requires a Zend_Mail instance, and takes an
+optional Zend_Layout instance.  If Zend_Layout is being used,
+$this-&gt;_layout-&gt;events will be set for use in the layout template.</description>
+      <param description="Mail instance" type="object" variable="$mail">
+        <type full="Zend_Mail" namespace="" name="Zend_Mail"/>
+      </param>
+      <param description="Layout instance; optional" type="object" variable="$layout">
+        <type full="Zend_Layout" namespace="" name="Zend_Layout"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="mail" byreference="false" type="object">
+      <type full="\\Zend_Mail" namespace="\" name="Zend_Mail"/>
+    </parameter>
+    <parameter name="layout" byreference="false" type="object" default="null">
+      <type full="\\Zend_Layout" namespace="\" name="Zend_Layout"/>
+    </parameter>
+  </constructor>
+  <method name="factory" start="141" end="159" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new instance of Zend_Log_Writer_Mail"/>
+      <param type="object" variable="$config">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Writer_Mail" namespace="" name="Zend_Log_Writer_Mail"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setLayout" start="168" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the layout"/>
+      <param type="object" variable="$layout">
+        <type full="Zend_Layout|array" namespace="" name="Zend_Layout|array"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Writer_Mail" namespace="" name="Zend_Log_Writer_Mail"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="layout" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_constructMailFromConfig" start="190" end="230" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Construct a Zend_Mail instance based on a configuration array"/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="Zend_Mail" namespace="" name="Zend_Mail"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="_constructLayoutFromConfig" start="239" end="253" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Construct a Zend_Layout instance based on a configuration array"/>
+      <param type="array" variable="$config"/>
+      <return type="object">
+        <type full="Zend_Layout" namespace="" name="Zend_Layout"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+  </method>
+  <method name="_write" start="264" end="289" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Places event line into array of lines to be used as message body.">Handles the formatting of both plaintext entries, as well as those
+rendered with Zend_Layout.</description>
+      <param description="Event data" type="array" variable="$event"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Track the number of entries per priority level." line="266"/>
+      <comment value="All plaintext events are to use the standard formatter." line="275"/>
+      <comment value="If we have a Zend_Layout instance, use a specific formatter for the" line="278"/>
+      <comment value="layout if one exists.  Otherwise, just use the event with its" line="279"/>
+      <comment value="default format." line="280"/>
+    </inline>
+  </method>
+  <method name="getLayoutFormatter" start="297" end="300" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets instance of Zend_Log_Formatter_Instance used for formatting a message using Zend_Layout, if applicable."/>
+      <return description="The formatter, or null." type="object">
+        <type full="Zend_Log_Formatter_Interface|null" namespace="" name="Zend_Log_Formatter_Interface|null"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setLayoutFormatter" start="313" end="323" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a specific formatter for use with Zend_Layout events.">Allows use of a second formatter on lines that will be rendered with
+Zend_Layout.  In the event that Zend_Layout is not being used, this
+formatter cannot be set, so an exception will be thrown.</description>
+      <param type="object" variable="$formatter">
+        <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Writer_Mail" namespace="" name="Zend_Log_Writer_Mail"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="formatter" byreference="false" type="object">
+      <type full="\\Zend_Log_Formatter_Interface" namespace="\" name="Zend_Log_Formatter_Interface"/>
+    </parameter>
+  </method>
+  <method name="setSubjectPrependText" start="338" end="348" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Allows caller to have the mail subject dynamically set to contain the entry counts per-priority level.">Sets the text for use in the subject, with entry counts per-priority
+level appended to the end.  Since a Zend_Mail subject can only be set
+once, this method cannot be used if the Zend_Mail object already has a
+subject set.</description>
+      <param description="Subject prepend text." type="string" variable="$subject"/>
+      <return type="object">
+        <type full="Zend_Log_Writer_Mail" namespace="" name="Zend_Log_Writer_Mail"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shutdown" start="356" end="412" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sends mail to recipient(s) if log entries are present.  Note that both plaintext and HTML portions of email are handled here."/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="If there are events to mail, use them as message body.  Otherwise," line="358"/>
+      <comment value="there is no mail to be sent." line="359"/>
+      <comment value="Tack on the summary of entries per-priority to the subject" line="365"/>
+      <comment value="line and set it on the Zend_Mail object." line="366"/>
+      <comment value="Always provide events to mail as plaintext." line="373"/>
+      <comment value="If a Zend_Layout instance is being used, set its &quot;events&quot;" line="376"/>
+      <comment value="value to the lines formatted for use with the layout." line="377"/>
+      <comment value="Set the required &quot;messages&quot; value for the layout.  Here we" line="379"/>
+      <comment value="are assuming that the layout is for use with HTML." line="380"/>
+      <comment value="If an exception occurs during rendering, convert it to a notice" line="384"/>
+      <comment value="so we can avoid an exception thrown without a stack frame." line="385"/>
+      <comment value="Finally, send the mail.  If an exception occurs, convert it into a" line="399"/>
+      <comment value="warning-level message so we can avoid an exception thrown without a" line="400"/>
+      <comment value="stack frame." line="401"/>
+    </inline>
+  </method>
+  <method name="_getFormattedNumEntriesPerPriority" start="420" end="429" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Gets a string of number of entries per-priority level that occurred, or an emptry string if none occurred."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <parent full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract">
+    <member name="_filters" type="array" visibility="protected" line="39">
+      <docblock>
+        <description/>
+        <var description="of Zend_Log_Filter_Interface" type="array"/>
+      </docblock>
+    </member>
+    <member name="_formatter" type="{unknown}" visibility="protected" line="46">
+      <docblock>
+        <description compact="Formats the log message before writing."/>
+        <var type="object">
+          <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="addFilter" start="54" end="68" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add a filter specific to this writer."/>
+        <param type="object" variable="$filter">
+          <type full="Zend_Log_Filter_Interface" namespace="" name="Zend_Log_Filter_Interface"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="filter" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="@see Zend_Log_Exception" line="61"/>
+      </inline>
+    </method>
+    <method name="write" start="76" end="86" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Log a message to this writer."/>
+        <param description="log data event" type="array" variable="$event"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="exception occurs on error" line="84"/>
+      </inline>
+    </method>
+    <method name="setFormatter" start="94" end="98" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a new formatter for this writer"/>
+        <param type="object" variable="$formatter">
+          <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="formatter" byreference="false" type="object">
+        <type full="\\Zend_Log_Formatter_Interface" namespace="\" name="Zend_Log_Formatter_Interface"/>
+      </parameter>
+    </method>
+    <method name="shutdown" start="105" end="106" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Perform shutdown activites such as closing open resources"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="_write" start="114" end="114" abstract="true" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Write a message to the log."/>
+        <param description="log data event" type="array" variable="$event"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_parseConfig" start="123" end="137" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="Validate and optionally convert the config to array"/>
+        <param description="Zend_Config or Array" type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="array"/>
+        <throws type="object">
+          <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface">
+    <method name="factory" start="37" end="37" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct a Zend_Log driver"/>
+        <param type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface"/>
+        </return>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

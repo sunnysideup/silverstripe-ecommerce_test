@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleSaxListener" namespace="" name="SimpleSaxListener" abstract="false" final="false" start="725" end="763">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="parser.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/parser.php" size="25738" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="e4607f7477e6361d65714d9315478fe8a6a5ff2e" relative="framework/thirdparty/simpletest/parser.php"/>
+  <docblock>
+    <description compact="SAX event handler.">@package SimpleTest
+   @subpackage WebTester
+   @abstract</description>
+  </docblock>
+  <method name="SimpleSaxListener" start="731" end="732" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the document to write to.">@access public</description>
+    </docblock>
+  </method>
+  <method name="startElement" start="743" end="744" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start of element event.">@param string $name        Element name.
+   @param hash $attributes    Name value pairs.
+                              Attributes without content
+                              are marked as true.
+   @return boolean            False on parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="endElement" start="752" end="753" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="End of element event.">@param string $name        Element name.
+   @return boolean            False on parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addContent" start="761" end="762" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unparsed, but relevant data.">@param string $text        May include unparsed tags.
+   @return boolean            False on parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+  <extender full="SimplePageBuilder" namespace="" name="SimplePageBuilder"/>
+</class>

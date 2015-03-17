@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ShortcodeParser" namespace="" name="ShortcodeParser" abstract="false" final="false" start="12" end="574">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/parsers" file="ShortcodeParser.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/parsers/ShortcodeParser.php" size="17393" time="2015-03-14T10:40:58+13:00" unixtime="1426282858" sha1="35c01e3c4ee8d4c23933802c732d8338efeeb2f0" relative="framework/parsers/ShortcodeParser.php"/>
+  <docblock>
+    <description compact="A simple parser that allows you to map BBCode-like &quot;shortcodes&quot; to an arbitrary callback.">It is a simple regex based parser that allows you to replace simple bbcode-like tags
+within a HTMLText or HTMLVarchar field when rendered into a template. The API is inspired by and very similar to the
+[Wordpress implementation](http://codex.wordpress.org/Shortcode_API) of shortcodes.</description>
+    <see value="http://doc.silverstripe.org/framework/en/reference/shortcodes"/>
+    <package value="framework"/>
+    <subpackage value="misc"/>
+  </docblock>
+  <method name="img_shortcode" start="14" end="16" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="attrs" byreference="false" type="{unknown}"/>
+  </method>
+  <member name="instances" type="array" visibility="private" line="18"/>
+  <member name="active_instance" type="string" default="'default'" visibility="private" line="20"/>
+  <member name="shortcodes" type="array" visibility="protected" line="24"/>
+  <method name="get" start="34" end="40" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the {@link ShortcodeParser} instance that is attached to a particular identifier."/>
+      <param description="Defaults to &quot;default&quot;." type="string" variable="$identifier"/>
+      <return type="object">
+        <type full="ShortcodeParser" namespace="" name="ShortcodeParser"/>
+      </return>
+    </docblock>
+    <parameter name="identifier" byreference="false" type="string" default="'default'"/>
+  </method>
+  <method name="get_active" start="47" end="49" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the currently active/default {@link ShortcodeParser} instance."/>
+      <return type="object">
+        <type full="ShortcodeParser" namespace="" name="ShortcodeParser"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="set_active" start="56" end="58" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the identifier to use for the current active/default {@link ShortcodeParser} instance."/>
+      <param type="string" variable="$identifier"/>
+    </docblock>
+    <parameter name="identifier" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="register" start="76" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register a shortcode, and attach it to a PHP callback.">The callback for a shortcode will have the following arguments passed to it:
+  - Any parameters attached to the shortcode as an associative array (keys are lower-case).
+  - Any content enclosed within the shortcode (if it is an enclosing shortcode). Note that any content within
+    this will not have been parsed, and can optionally be fed back into the parser.
+  - The <link xmlns="http://xml.phpdox.net/src" value="ShortcodeParser"/> instance used to parse the content.
+  - The shortcode tag name that was matched within the parsed content.
+  - An associative array of extra information about the shortcode being parsed.
+</description>
+      <param description="The shortcode tag to map to the callback - normally in lowercase_underscore format." type="string" variable="$shortcode"/>
+      <param description="The callback to replace the shortcode with." type="object" variable="$callback">
+        <type full="callback" namespace="" name="callback"/>
+      </param>
+    </docblock>
+    <parameter name="shortcode" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registered" start="86" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if a shortcode has been registered."/>
+      <param type="string" variable="$shortcode"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="shortcode" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="unregister" start="95" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove a specific registered shortcode."/>
+      <param type="string" variable="$shortcode"/>
+    </docblock>
+    <parameter name="shortcode" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clear" start="102" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove all registered shortcodes."/>
+    </docblock>
+  </method>
+  <method name="callShortcode" start="106" end="109" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="tag" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="extra" byreference="false" type="array"/>
+  </method>
+  <method name="removeNode" start="113" end="115" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="node" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="insertAfter" start="117" end="126" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="new" byreference="false" type="{unknown}"/>
+    <parameter name="after" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="insertListAfter" start="128" end="141" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="new" byreference="false" type="{unknown}"/>
+    <parameter name="after" byreference="false" type="{unknown}"/>
+  </method>
+  <member name="marker_class" type="string" default="'--ss-shortcode-marker'" visibility="private" line="143"/>
+  <member name="block_level_elements" type="array" visibility="private" line="145"/>
+  <member name="attrrx" type="string" default="'&#10;&#9;&#9;([^\s\/\'&quot;=,]+)       # Name  &#10;&#9;&#9;\s* = \s*&#10;&#9;&#9;(?:&#10;&#9;&#9;&#9;(?:\'([^\']+)\') | # Value surrounded by \'&#10;&#9;&#9;&#9;(?:&quot;([^&quot;]+)&quot;)    | # Value surrounded by &quot;&#10;&#9;&#9;&#9;([^\s,\]]+)          # Bare value&#10;&#9;&#9;)&#10;'" visibility="private" line="151"/>
+  <method name="attrrx" start="161" end="163" abstract="false" final="false" static="true" visibility="private"/>
+  <member name="tagrx" type="string" default="'&#10;&#9;&#9;# HTML Tag&#10;&#9;&#9;&lt;(?&lt;element&gt;(?:&quot;[^&quot;]*&quot;[\'&quot;]*|\'[^\']*\'[\'&quot;]*|[^\'&quot;&gt;])+)&gt;&#10;&#9;&#9; &#10;&#9;&#9;| # Opening tag&#10;&#9;&#9;(?&lt;oesc&gt;\[?) &#10;&#9;&#9;\[ &#10;&#9;&#9;&#9;(?&lt;open&gt;\w+) &#10;&#9;&#9;&#9;[\s,]*&#10;&#9;&#9;&#9;(?&lt;attrs&gt; (?: %s [\s,]*)* ) &#10;&#9;&#9;\/?\] &#10;&#9;&#9;(?&lt;cesc1&gt;\]?)&#10;&#9;&#9; &#10;&#9;&#9;| # Closing tag&#10;&#9;&#9;\[\/ &#10;&#9;&#9;&#9;(?&lt;close&gt;\w+) &#10;&#9;&#9;\] &#10;&#9;&#9;(?&lt;cesc2&gt;\]?)  &#10;'" visibility="private" line="165"/>
+  <method name="tagrx" start="185" end="187" abstract="false" final="false" static="true" visibility="private"/>
+  <constant name="WARN" value="'warn'"/>
+  <constant name="STRIP" value="'strip'"/>
+  <constant name="LEAVE" value="'leave'"/>
+  <constant name="ERROR" value="'error'"/>
+  <member name="error_behavior" type="{unknown}" default="self::LEAVE" visibility="public" line="194"/>
+  <method name="extractTags" start="207" end="287" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Look through a string that contains shortcode tags and pull out the locations and details of those tags">Doesn't support nested shortcode tags</description>
+      <param type="string" variable="$content"/>
+      <return description="- The list of tags found. When using an open/close pair, only one item will be in the array," type="array">with "content" set to the text between the tags</return>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Ignore any elements" line="212"/>
+      <comment value="Pull the attributes out into a key/value hash" line="215"/>
+      <comment value="And store the indexes, tag details, etc" line="227"/>
+      <comment value="If the tag just before this one isn't the related opening tag, throw an error" line="244"/>
+    </inline>
+  </method>
+  <method name="replaceTagsWithText" start="297" end="319" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Replaces the shortcode tags extracted by extractTags with HTML element &quot;markers&quot;, so that we can parse the resulting string as HTML and easily mutate the shortcodes in the DOM"/>
+      <param description="- The HTML string with [tag] style shortcodes embedded" type="string" variable="$content"/>
+      <param description="- The tags extracted by extractTags" type="array" variable="$tags"/>
+      <return description="- The HTML string with [tag] style shortcodes replaced by markers" type="string"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <parameter name="tags" byreference="false" type="{unknown}"/>
+    <parameter name="generator" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="The string with tags replaced with markers" line="298"/>
+      <comment value="The start index of the next tag, remembered as we step backwards through the list" line="300"/>
+    </inline>
+  </method>
+  <method name="replaceAttributeTagsWithContent" start="329" end="359" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Replace the shortcodes in attribute values with the calculated content">We don't use markers with attributes because there's no point, it's easier to do all the matching
+in-DOM after the XML parse</description>
+      <param type="object" variable="$doc">
+        <type full="DOMDocument" namespace="" name="DOMDocument"/>
+      </param>
+    </docblock>
+    <parameter name="htmlvalue" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="replaceElementTagsWithMarkers" start="366" end="378" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Replace the element-scoped tags with markers"/>
+      <param type="string" variable="$content"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findParentsForMarkers" start="380" end="397" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="nodes" byreference="false" type="{unknown}"/>
+  </method>
+  <constant name="BEFORE" value="'before'"/>
+  <constant name="AFTER" value="'after'"/>
+  <constant name="SPLIT" value="'split'"/>
+  <constant name="INLINE" value="'inline'"/>
+  <method name="moveMarkerToCompliantHome" start="429" end="470" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given a node with represents a shortcode marker and a location string, mutates the DOM to put the marker in the compliant location">For shortcodes inserted BEFORE, that location is just before the block container that
+the marker is in
+
+For shortcodes inserted AFTER, that location is just after the block container that
+the marker is in
+
+For shortcodes inserted SPLIT, that location is where the marker is, but the DOM
+is split around it up to the block container the marker is in - for instance,
+
+  &lt;p&gt;A&lt;span&gt;B&lt;marker /&gt;C&lt;/span&gt;D&lt;/p&gt;
+
+becomes
+
+  &lt;p&gt;A&lt;span&gt;B&lt;/span&gt;&lt;/p&gt;&lt;marker /&gt;&lt;p&gt;&lt;span&gt;C&lt;/span&gt;D&lt;/p&gt;
+
+For shortcodes inserted INLINE, no modification is needed (but in that case the shortcode handler needs to
+generate only inline blocks)</description>
+      <param type="object" variable="$node">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <param description="- ShortcodeParser::BEFORE, ShortcodeParser::SPLIT or ShortcodeParser::INLINE" type="int" variable="$location"/>
+    </docblock>
+    <parameter name="node" byreference="false" type="{unknown}"/>
+    <parameter name="parent" byreference="false" type="{unknown}"/>
+    <parameter name="location" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Move before block parent" line="430"/>
+    </inline>
+  </method>
+  <method name="replaceMarkerWithContent" start="479" end="505" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Given a node with represents a shortcode marker and some information about the shortcode, call the shortcode handler &amp; replace the marker with the actual content"/>
+      <param type="object" variable="$node">
+        <type full="DOMElement" namespace="" name="DOMElement"/>
+      </param>
+      <param type="array" variable="$tag"/>
+    </docblock>
+    <parameter name="node" byreference="false" type="{unknown}"/>
+    <parameter name="tag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="parse" start="513" end="571" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Parse a string, and replace any registered shortcodes within it with the result of the mapped callback."/>
+      <param type="string" variable="$content"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="content" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If no shortcodes defined, don't try and parse any" line="514"/>
+      <comment value="If no content, don't try and parse it" line="517"/>
+      <comment value="First we operate in text mode, replacing any shortcodes with marker elements so that later we can" line="520"/>
+      <comment value="use a proper DOM" line="521"/>
+      <comment value="Now parse the result into a DOM" line="526"/>
+      <comment value="First, replace any shortcodes that are in attributes" line="536"/>
+      <comment value="Find all the element scoped shortcode markers" line="539"/>
+      <comment value="Find the parents. Do this before DOM modification, since SPLIT might cause parents to move otherwise" line="542"/>
+    </inline>
+  </method>
+</class>

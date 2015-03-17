@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - HasManyList</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">HasManyList</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/model/HasManyList.php.xhtml#line9">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>HasManyList</h1>
+        <h4>Subclass of {@link DataList} representing a has_many relation.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class HasManyList
+                extends <a title="RelationList" href="../classes/RelationList.xhtml">RelationList</a>
+            {<br/><ul class="none"><li>// members</li><li>protected <a href="#members">$foreignKey</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="DataList">DataList</span></li><li>protected string <a href="#members">$dataClass</a>;
+                        </li><li>protected <span title="DataQuery">DataQuery</span> <a href="#members">$dataQuery</a>;
+                        </li><li>protected <span title="DataModel">DataModel</span> <a href="#members">$model</a>;
+                        </li><li>protected <span title="bool">bool</span> <a href="#members">$inAlterDataQueryCall</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="ViewableData">ViewableData</span></li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$failover</a>;
+                        </li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$customisedObject</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="Object">Object</span></li><li>public string <a href="#members">$class</a>;
+                        </li><li>protected array <a href="#members">$extension_instances</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$beforeExtendCallbacks</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$afterExtendCallbacks</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public void <a title="HasManyList" href="../classes/HasManyList/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="HasManyList" href="../classes/HasManyList/getForeignKey.xhtml">getForeignKey</a>()
+                    </li><li>protected void <a title="HasManyList" href="../classes/HasManyList/foreignIDFilter.xhtml">foreignIDFilter</a>()
+                    </li><li>public void <a title="HasManyList" href="../classes/HasManyList/add.xhtml">add</a>()
+                    </li><li>public void <a title="HasManyList" href="../classes/HasManyList/removeByID.xhtml">removeByID</a>()
+                    </li><li>public void <a title="HasManyList" href="../classes/HasManyList/remove.xhtml">remove</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="RelationList">RelationList</span></li><li>public void <a title="RelationList" href="../classes/RelationList/getForeignID.xhtml">getForeignID</a>()
+                        </li><li>public void <a title="RelationList" href="../classes/RelationList/forForeignID.xhtml">forForeignID</a>()
+                        </li><li>protected abstract void <a title="RelationList" href="../classes/RelationList/foreignIDFilter.xhtml">foreignIDFilter</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="DataList">DataList</span></li><li>public void <a title="DataList" href="../classes/DataList/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/setDataModel.xhtml">setDataModel</a>()
+                        </li><li>public string <a title="DataList" href="../classes/DataList/dataClass.xhtml">dataClass</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/__clone.xhtml">__clone</a>()
+                        </li><li>public DataQuery <a title="DataList" href="../classes/DataList/dataQuery.xhtml">dataQuery</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/alterDataQuery.xhtml">alterDataQuery</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/setDataQuery.xhtml">setDataQuery</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/setDataQueryParam.xhtml">setDataQueryParam</a>()
+                        </li><li>public SQLQuery <a title="DataList" href="../classes/DataList/sql.xhtml">sql</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/where.xhtml">where</a>()
+                        </li><li>public boolean <a title="DataList" href="../classes/DataList/canSortBy.xhtml">canSortBy</a>()
+                        </li><li>public boolean <a title="DataList" href="../classes/DataList/canFilterBy.xhtml">canFilterBy</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/limit.xhtml">limit</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/distinct.xhtml">distinct</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/sort.xhtml">sort</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/filter.xhtml">filter</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/addFilter.xhtml">addFilter</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/filterAny.xhtml">filterAny</a>()
+                        </li><li>public ArrayList <a title="DataList" href="../classes/DataList/filterByCallback.xhtml">filterByCallback</a>()
+                        </li><li>public string <a title="DataList" href="../classes/DataList/getRelationName.xhtml">getRelationName</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/exclude.xhtml">exclude</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/subtract.xhtml">subtract</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/innerJoin.xhtml">innerJoin</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/leftJoin.xhtml">leftJoin</a>()
+                        </li><li>public array <a title="DataList" href="../classes/DataList/toArray.xhtml">toArray</a>()
+                        </li><li>public type <a title="DataList" href="../classes/DataList/toNestedArray.xhtml">toNestedArray</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/each.xhtml">each</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/debug.xhtml">debug</a>()
+                        </li><li>public SS_Map <a title="DataList" href="../classes/DataList/map.xhtml">map</a>()
+                        </li><li>protected DataObject <a title="DataList" href="../classes/DataList/createDataObject.xhtml">createDataObject</a>()
+                        </li><li>public ArrayIterator <a title="DataList" href="../classes/DataList/getIterator.xhtml">getIterator</a>()
+                        </li><li>public int <a title="DataList" href="../classes/DataList/count.xhtml">count</a>()
+                        </li><li>public mixed <a title="DataList" href="../classes/DataList/max.xhtml">max</a>()
+                        </li><li>public mixed <a title="DataList" href="../classes/DataList/min.xhtml">min</a>()
+                        </li><li>public mixed <a title="DataList" href="../classes/DataList/avg.xhtml">avg</a>()
+                        </li><li>public mixed <a title="DataList" href="../classes/DataList/sum.xhtml">sum</a>()
+                        </li><li>public DataObject <a title="DataList" href="../classes/DataList/first.xhtml">first</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/last.xhtml">last</a>()
+                        </li><li>public bool <a title="DataList" href="../classes/DataList/exists.xhtml">exists</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/getRange.xhtml">getRange</a>()
+                        </li><li>public DataObject|null <a title="DataList" href="../classes/DataList/find.xhtml">find</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/setQueriedColumns.xhtml">setQueriedColumns</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/byIDs.xhtml">byIDs</a>()
+                        </li><li>public DataObject <a title="DataList" href="../classes/DataList/byID.xhtml">byID</a>()
+                        </li><li>public array <a title="DataList" href="../classes/DataList/column.xhtml">column</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/setByIDList.xhtml">setByIDList</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/getIDList.xhtml">getIDList</a>()
+                        </li><li>public HasManyList|ManyManyList <a title="DataList" href="../classes/DataList/relation.xhtml">relation</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/dbObject.xhtml">dbObject</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/addMany.xhtml">addMany</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/removeMany.xhtml">removeMany</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/removeByFilter.xhtml">removeByFilter</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/removeAll.xhtml">removeAll</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/add.xhtml">add</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/newObject.xhtml">newObject</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/remove.xhtml">remove</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/removeByID.xhtml">removeByID</a>()
+                        </li><li>public DataList <a title="DataList" href="../classes/DataList/reverse.xhtml">reverse</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/push.xhtml">push</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/insertFirst.xhtml">insertFirst</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/shift.xhtml">shift</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/replace.xhtml">replace</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/merge.xhtml">merge</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/removeDuplicates.xhtml">removeDuplicates</a>()
+                        </li><li>public bool <a title="DataList" href="../classes/DataList/offsetExists.xhtml">offsetExists</a>()
+                        </li><li>public DataObject <a title="DataList" href="../classes/DataList/offsetGet.xhtml">offsetGet</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/offsetSet.xhtml">offsetSet</a>()
+                        </li><li>public void <a title="DataList" href="../classes/DataList/offsetUnset.xhtml">offsetUnset</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="ViewableData">ViewableData</span></li><li>public static string <a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator</a>()
+                        </li><li>public static array <a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>public ViewableData_Customised <a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache</a>()
+                        </li><li>public HTMLText <a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues</a>()
+                        </li><li>public ArrayIterator <a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator</a>()
+                        </li><li>public ViewableData <a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses</a>()
+                        </li><li>public ViewableData_Debugger <a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="Object">Object</span></li><li>public static Config_ForClass|null <a title="Object" href="../classes/Object/config.xhtml">config</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/create.xhtml">create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/strong_create.xhtml">strong_create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass</a>()
+                        </li><li>public static string <a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass</a>()
+                        </li><li>public static any <a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/get_static.xhtml">get_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/set_static.xhtml">set_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/combined_static.xhtml">combined_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/has_extension.xhtml">has_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_extension.xhtml">add_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension</a>()
+                        </li><li>public static array <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/__construct.xhtml">__construct</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/__call.xhtml">__call</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/createMethod.xhtml">createMethod</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/stat.xhtml">stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/exists.xhtml">exists</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/is_a.xhtml">is_a</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/__toString.xhtml">__toString</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/extend.xhtml">extend</a>()
+                        </li><li>public Extension <a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/clearCache.xhtml">clearCache</a>()
+                        </li><li>protected mixed <a title="Object" href="../classes/Object/loadCache.xhtml">loadCache</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/saveCache.xhtml">saveCache</a>()
+                        </li><li>protected string <a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/RelationList.xhtml">RelationList</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">102+</td>
+            <td>Maybe we should delete the object instead?</td>
+          </tr>
+          <tr>
+            <td class="nummeric">327+</td>
+            <td>extract the sql from $customQuery into a SQLGenerator class</td>
+          </tr>
+          <tr>
+            <td class="nummeric">381+</td>
+            <td>extract the sql from this method into a SQLGenerator class</td>
+          </tr>
+          <tr>
+            <td class="nummeric">516+</td>
+            <td>extract the sql from this method into a SQLGenerator class</td>
+          </tr>
+          <tr>
+            <td class="nummeric">991+</td>
+            <td>This doesn't factor in filters.</td>
+          </tr>
+          <tr>
+            <td class="nummeric">1003+</td>
+            <td>Allow for amendment of this behaviour - for example, we can remove an item from</td>
+          </tr>
+          <tr>
+            <td class="nummeric">584+</td>
+            <td>Add support for removing extensions with parameters</td>
+          </tr>
+          <tr>
+            <td class="nummeric">966+</td>
+            <td>integrate inheritance rules</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="afterExtendCallbacks"><strong>$afterExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call after extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="beforeExtendCallbacks"><strong>$beforeExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call prior to extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="customisedObject"><strong>$customisedObject</strong>
+                —
+                <a href="#">ViewableData</a></li>
+            <li id="dataClass"><strong>$dataClass</strong>
+                —
+                string<br/><span class="indent">The DataObject class name that this data list is querying</span></li>
+            <li id="dataQuery"><strong>$dataQuery</strong>
+                —
+                <a href="#">DataQuery</a><br/><span class="indent">The {@link DataQuery} object responsible for getting this DataList's records</span></li>
+            <li id="extension_instances"><strong>$extension_instances</strong>
+                —
+                array</li>
+            <li id="failover"><strong>$failover</strong>
+                —
+                <a href="#">ViewableData</a><br/><span class="indent">A failover object to attempt to get data from if it is not present on this object.</span></li>
+            <li id="foreignKey">
+              <strong>$foreignKey</strong>
+            </li>
+            <li id="inAlterDataQueryCall"><strong>$inAlterDataQueryCall</strong>
+                —
+                <a href="#">bool</a></li>
+            <li id="model"><strong>$model</strong>
+                —
+                <a href="#">DataModel</a><br/><span class="indent">The DataModel from which this DataList comes.</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="class"><strong>$class</strong>
+                —
+                string</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="foreignIDFilter">
+              <a title="HasManyList" href="../classes/HasManyList/foreignIDFilter.xhtml">foreignIDFilter()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="HasManyList" href="../classes/HasManyList/__construct.xhtml">__construct()</a>
+                — Create a new HasManyList object.</li>
+            <li id="add"><a title="HasManyList" href="../classes/HasManyList/add.xhtml">add()</a>
+                — Adds the item to this relation.</li>
+            <li id="getForeignKey"><a title="HasManyList" href="../classes/HasManyList/getForeignKey.xhtml">getForeignKey()</a>
+                — Gets the field name which holds the related object ID.</li>
+            <li id="remove"><a title="HasManyList" href="../classes/HasManyList/remove.xhtml">remove()</a>
+                — Remove an item from this relation.</li>
+            <li id="removeByID"><a title="HasManyList" href="../classes/HasManyList/removeByID.xhtml">removeByID()</a>
+                — Remove an item from this relation.</li>
+          </ul>
+          <h3>Inherited from <a title="RelationList" href="../classes/RelationList.xhtml">RelationList</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="foreignIDFilter"><a title="RelationList" href="../classes/RelationList/foreignIDFilter.xhtml">foreignIDFilter()</a>
+                — Returns a where clause that filters the members of this relationship to just the related items.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="forForeignID"><a title="RelationList" href="../classes/RelationList/forForeignID.xhtml">forForeignID()</a>
+                — Returns a copy of this list with the ManyMany relationship linked to the given foreign ID.</li>
+            <li id="getForeignID">
+              <a title="RelationList" href="../classes/RelationList/getForeignID.xhtml">getForeignID()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="DataList" href="../classes/DataList.xhtml">DataList</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="createDataObject"><a title="DataList" href="../classes/DataList/createDataObject.xhtml">createDataObject()</a>
+                — Create a DataObject from the given SQL row</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__clone"><a title="DataList" href="../classes/DataList/__clone.xhtml">__clone()</a>
+                — When cloning this object, clone the dataQuery object as well</li>
+            <li id="add"><a title="DataList" href="../classes/DataList/add.xhtml">add()</a>
+                — This method are overloaded by HasManyList and ManyMany list to perform more sophisticated list manipulation</li>
+            <li id="addFilter"><a title="DataList" href="../classes/DataList/addFilter.xhtml">addFilter()</a>
+                — Return a new instance of the list with an added filter</li>
+            <li id="addMany"><a title="DataList" href="../classes/DataList/addMany.xhtml">addMany()</a>
+                — Add a number of items to the component set.</li>
+            <li id="alterDataQuery"><a title="DataList" href="../classes/DataList/alterDataQuery.xhtml">alterDataQuery()</a>
+                — Return a new DataList instance with the underlying {@link DataQuery} object altered</li>
+            <li id="avg"><a title="DataList" href="../classes/DataList/avg.xhtml">avg()</a>
+                — Return the average value of the given field in this DataList</li>
+            <li id="byID"><a title="DataList" href="../classes/DataList/byID.xhtml">byID()</a>
+                — Return the first DataObject with the given ID</li>
+            <li id="byIDs"><a title="DataList" href="../classes/DataList/byIDs.xhtml">byIDs()</a>
+                — Filter this list to only contain the given Primary IDs</li>
+            <li id="canFilterBy">
+              <a title="DataList" href="../classes/DataList/canFilterBy.xhtml">canFilterBy()</a>
+            </li>
+            <li id="canSortBy"><a title="DataList" href="../classes/DataList/canSortBy.xhtml">canSortBy()</a>
+                — Returns true if this DataList can be sorted by the given field.</li>
+            <li id="column"><a title="DataList" href="../classes/DataList/column.xhtml">column()</a>
+                — Returns an array of a single field value for all items in the list.</li>
+            <li id="count"><a title="DataList" href="../classes/DataList/count.xhtml">count()</a>
+                — Return the number of items in this DataList</li>
+            <li id="dataClass"><a title="DataList" href="../classes/DataList/dataClass.xhtml">dataClass()</a>
+                — Get the dataClass name for this DataList, ie the DataObject ClassName</li>
+            <li id="dataQuery"><a title="DataList" href="../classes/DataList/dataQuery.xhtml">dataQuery()</a>
+                — Return a copy of the internal {@link DataQuery} object</li>
+            <li id="dbObject">
+              <a title="DataList" href="../classes/DataList/dbObject.xhtml">dbObject()</a>
+            </li>
+            <li id="debug">
+              <a title="DataList" href="../classes/DataList/debug.xhtml">debug()</a>
+            </li>
+            <li id="distinct"><a title="DataList" href="../classes/DataList/distinct.xhtml">distinct()</a>
+                — Return a new DataList instance with distinct records or not</li>
+            <li id="each"><a title="DataList" href="../classes/DataList/each.xhtml">each()</a>
+                — Walks the list using the specified callback</li>
+            <li id="exclude"><a title="DataList" href="../classes/DataList/exclude.xhtml">exclude()</a>
+                — Return a copy of this list which does not contain any items with these charactaristics</li>
+            <li id="exists"><a title="DataList" href="../classes/DataList/exists.xhtml">exists()</a>
+                — Returns true if this DataList has items</li>
+            <li id="filter"><a title="DataList" href="../classes/DataList/filter.xhtml">filter()</a>
+                — Return a copy of this list which only includes items with these charactaristics</li>
+            <li id="filterAny"><a title="DataList" href="../classes/DataList/filterAny.xhtml">filterAny()</a>
+                — Return a copy of this list which contains items matching any of these charactaristics.</li>
+            <li id="filterByCallback"><a title="DataList" href="../classes/DataList/filterByCallback.xhtml">filterByCallback()</a>
+                — Note that, in the current implementation, the filtered list will be an ArrayList, but this may change in a future implementation.</li>
+            <li id="find"><a title="DataList" href="../classes/DataList/find.xhtml">find()</a>
+                — Find the first DataObject of this DataList where the given key = value</li>
+            <li id="first"><a title="DataList" href="../classes/DataList/first.xhtml">first()</a>
+                — Returns the first item in this DataList</li>
+            <li id="getIDList"><a title="DataList" href="../classes/DataList/getIDList.xhtml">getIDList()</a>
+                — Returns an array with both the keys and values set to the IDs of the records in this list.</li>
+            <li id="getIterator"><a title="DataList" href="../classes/DataList/getIterator.xhtml">getIterator()</a>
+                — Returns an Iterator for this DataList.</li>
+            <li id="getRange"><a title="DataList" href="../classes/DataList/getRange.xhtml">getRange()</a>
+                — Get a sub-range of this dataobjectset as an array</li>
+            <li id="getRelationName"><a title="DataList" href="../classes/DataList/getRelationName.xhtml">getRelationName()</a>
+                — Translates a {@link Object} relation name to a Database name and apply the relation join to the query.  Throws an InvalidArgumentException if the $field doesn't correspond to a relation.</li>
+            <li id="innerJoin"><a title="DataList" href="../classes/DataList/innerJoin.xhtml">innerJoin()</a>
+                — Return a new DataList instance with an inner join clause added to this list's query.</li>
+            <li id="insertFirst"><a title="DataList" href="../classes/DataList/insertFirst.xhtml">insertFirst()</a>
+                — This method won't function on DataLists due to the specific query that it represent</li>
+            <li id="last"><a title="DataList" href="../classes/DataList/last.xhtml">last()</a>
+                — Returns the last item in this DataList</li>
+            <li id="leftJoin"><a title="DataList" href="../classes/DataList/leftJoin.xhtml">leftJoin()</a>
+                — Return a new DataList instance with a left join clause added to this list's query.</li>
+            <li id="limit"><a title="DataList" href="../classes/DataList/limit.xhtml">limit()</a>
+                — Return a new DataList instance with the records returned in this query restricted by a limit clause.</li>
+            <li id="map"><a title="DataList" href="../classes/DataList/map.xhtml">map()</a>
+                — Returns a map of this list</li>
+            <li id="max"><a title="DataList" href="../classes/DataList/max.xhtml">max()</a>
+                — Return the maximum value of the given field in this DataList</li>
+            <li id="merge"><a title="DataList" href="../classes/DataList/merge.xhtml">merge()</a>
+                — This method won't function on DataLists due to the specific query that it represent</li>
+            <li id="min"><a title="DataList" href="../classes/DataList/min.xhtml">min()</a>
+                — Return the minimum value of the given field in this DataList</li>
+            <li id="newObject"><a title="DataList" href="../classes/DataList/newObject.xhtml">newObject()</a>
+                — Return a new item to add to this DataList.</li>
+            <li id="offsetExists"><a title="DataList" href="../classes/DataList/offsetExists.xhtml">offsetExists()</a>
+                — Returns whether an item with $key exists</li>
+            <li id="offsetGet"><a title="DataList" href="../classes/DataList/offsetGet.xhtml">offsetGet()</a>
+                — Returns item stored in list with index $key</li>
+            <li id="offsetSet"><a title="DataList" href="../classes/DataList/offsetSet.xhtml">offsetSet()</a>
+                — Set an item with the key in $key</li>
+            <li id="offsetUnset"><a title="DataList" href="../classes/DataList/offsetUnset.xhtml">offsetUnset()</a>
+                — Unset an item with the key in $key</li>
+            <li id="push"><a title="DataList" href="../classes/DataList/push.xhtml">push()</a>
+                — This method won't function on DataLists due to the specific query that it represent</li>
+            <li id="relation"><a title="DataList" href="../classes/DataList/relation.xhtml">relation()</a>
+                — Returns a HasManyList or ManyMany list representing the querying of a relation across all objects in this data list.  For it to work, the relation must be defined on the data class that you used to create this DataList.</li>
+            <li id="remove"><a title="DataList" href="../classes/DataList/remove.xhtml">remove()</a>
+                — Remove this item by deleting it</li>
+            <li id="removeAll"><a title="DataList" href="../classes/DataList/removeAll.xhtml">removeAll()</a>
+                — Remove every element in this DataList.</li>
+            <li id="removeByFilter"><a title="DataList" href="../classes/DataList/removeByFilter.xhtml">removeByFilter()</a>
+                — Remove every element in this DataList matching the given $filter.</li>
+            <li id="removeByID"><a title="DataList" href="../classes/DataList/removeByID.xhtml">removeByID()</a>
+                — Remove an item from this DataList by ID</li>
+            <li id="removeDuplicates"><a title="DataList" href="../classes/DataList/removeDuplicates.xhtml">removeDuplicates()</a>
+                — This method won't function on DataLists due to the specific query that it represent</li>
+            <li id="removeMany"><a title="DataList" href="../classes/DataList/removeMany.xhtml">removeMany()</a>
+                — Remove the items from this list with the given IDs</li>
+            <li id="replace"><a title="DataList" href="../classes/DataList/replace.xhtml">replace()</a>
+                — This method won't function on DataLists due to the specific query that it represent</li>
+            <li id="reverse"><a title="DataList" href="../classes/DataList/reverse.xhtml">reverse()</a>
+                — Reverses a list of items.</li>
+            <li id="setByIDList"><a title="DataList" href="../classes/DataList/setByIDList.xhtml">setByIDList()</a>
+                — Sets the ComponentSet to be the given ID list.</li>
+            <li id="setDataModel"><a title="DataList" href="../classes/DataList/setDataModel.xhtml">setDataModel()</a>
+                — Set the DataModel</li>
+            <li id="setDataQuery"><a title="DataList" href="../classes/DataList/setDataQuery.xhtml">setDataQuery()</a>
+                — Return a new DataList instance with the underlying {@link DataQuery} object changed</li>
+            <li id="setDataQueryParam">
+              <a title="DataList" href="../classes/DataList/setDataQueryParam.xhtml">setDataQueryParam()</a>
+            </li>
+            <li id="setQueriedColumns"><a title="DataList" href="../classes/DataList/setQueriedColumns.xhtml">setQueriedColumns()</a>
+                — Restrict the columns to fetch into this DataList</li>
+            <li id="shift"><a title="DataList" href="../classes/DataList/shift.xhtml">shift()</a>
+                — This method won't function on DataLists due to the specific query that it represent</li>
+            <li id="sort"><a title="DataList" href="../classes/DataList/sort.xhtml">sort()</a>
+                — Return a new DataList instance as a copy of this data list with the sort order set.</li>
+            <li id="sql"><a title="DataList" href="../classes/DataList/sql.xhtml">sql()</a>
+                — Returns the SQL query that will be used to get this DataList's records.  Good for debugging. :-)</li>
+            <li id="subtract"><a title="DataList" href="../classes/DataList/subtract.xhtml">subtract()</a>
+                — This method returns a copy of this list that does not contain any DataObjects that exists in $list</li>
+            <li id="sum"><a title="DataList" href="../classes/DataList/sum.xhtml">sum()</a>
+                — Return the sum of the values of the given field in this DataList</li>
+            <li id="toArray"><a title="DataList" href="../classes/DataList/toArray.xhtml">toArray()</a>
+                — Return an array of the actual items that this DataList contains at this stage.</li>
+            <li id="toNestedArray"><a title="DataList" href="../classes/DataList/toNestedArray.xhtml">toNestedArray()</a>
+                — Return this list as an array and every object it as an sub array as well</li>
+            <li id="where"><a title="DataList" href="../classes/DataList/where.xhtml">where()</a>
+                — Return a new DataList instance with a WHERE clause added to this list's query.</li>
+          </ul>
+          <h3>Inherited from <a title="ViewableData" href="../classes/ViewableData.xhtml">ViewableData</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="ATT_val"><a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val()</a>
+                — Return the value of a field escaped suitable to be inserted into an XML node attribute.</li>
+            <li id="CSSClasses"><a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses()</a>
+                — Get part of the current classes ancestry to be used as a CSS class.</li>
+            <li id="Debug"><a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug()</a>
+                — Return debug information about this object that can be rendered into a template</li>
+            <li id="JS_val"><a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val()</a>
+                — Return the value of a field in a JavaScript-save format.</li>
+            <li id="Me"><a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me()</a>
+                — When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself.</li>
+            <li id="RAW_val"><a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val()</a>
+                — Return the value of the field without any escaping being applied.</li>
+            <li id="SQL_val"><a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val()</a>
+                — Return the value of a field in an SQL-safe format.</li>
+            <li id="ThemeDir"><a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir()</a>
+                — Return the directory if the current active theme (relative to the site root).</li>
+            <li id="XML_val"><a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val()</a>
+                — Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template.</li>
+            <li id="__get"><a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get()</a>
+                — Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object.</li>
+            <li id="__isset"><a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset()</a>
+                — Check if a field exists on this object or its failover.</li>
+            <li id="__set"><a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set()</a>
+                — Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method.</li>
+            <li id="buildCastingCache"><a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache()</a>
+                — Save the casting cache for this object (including data from any failovers) into a variable</li>
+            <li id="cachedCall"><a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall()</a>
+                — A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method.</li>
+            <li id="castingClass"><a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass()</a>
+                — Get the class name a field on this object will be casted to</li>
+            <li id="castingHelper"><a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper()</a>
+                — Return the "casting helper" (a piece of PHP code that when evaluated creates a casted value object) for a field on this object.</li>
+            <li id="castingHelperPair"><a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair()</a>
+                — Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).</li>
+            <li id="castingObjectCreator"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator()</a>
+                — Converts a field spec into an object creator. For example: "Int" becomes "new Int($fieldName);" and "Varchar(50)" becomes "new Varchar($fieldName, 50);".</li>
+            <li id="castingObjectCreatorPair"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair()</a>
+                — Convert a field schema (e.g. "Varchar(50)") into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor.</li>
+            <li id="customise"><a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise()</a>
+                — Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.</li>
+            <li id="defineMethods"><a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods()</a>
+                — Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}.</li>
+            <li id="escapeTypeForField"><a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField()</a>
+                — Return the string-format type for the given field.</li>
+            <li id="getField"><a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField()</a>
+                — Get the value of a field on this object. This should be overloaded in child classes.</li>
+            <li id="getIterator"><a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator()</a>
+                — Return a single-item iterator so you can iterate over the fields of a single record.</li>
+            <li id="getXMLValues"><a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues()</a>
+                — Get an array of XML-escaped values by field name</li>
+            <li id="hasField"><a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField()</a>
+                — Check if a field exists on this object. This should be overloaded in child classes.</li>
+            <li id="hasValue"><a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue()</a>
+                — Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag.</li>
+            <li id="obj"><a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj()</a>
+                — Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified.</li>
+            <li id="renderWith"><a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith()</a>
+                — Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance</li>
+            <li id="setCustomisedObj">
+              <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj()</a>
+            </li>
+            <li id="setField"><a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField()</a>
+                — Set a field on this object. This should be overloaded in child classes.</li>
+          </ul>
+          <h3>Inherited from <a title="Object" href="../classes/Object.xhtml">Object</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="addMethodsFrom"><a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom()</a>
+                — Add all the methods from an object property (which is an {@link Extension}) to this object.</li>
+            <li id="addWrapperMethod"><a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod()</a>
+                — Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)</li>
+            <li id="afterExtending"><a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending()</a>
+                — Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="beforeExtending"><a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending()</a>
+                — Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="createMethod"><a title="Object" href="../classes/Object/createMethod.xhtml">createMethod()</a>
+                — Add an extra method using raw PHP code passed as a string</li>
+            <li id="defineMethods"><a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods()</a>
+                — Adds any methods from {@link Extension} instances attached to this object.</li>
+            <li id="loadCache"><a title="Object" href="../classes/Object/loadCache.xhtml">loadCache()</a>
+                — Loads a cache from the filesystem if a valid on is present and within the specified lifetime</li>
+            <li id="sanitiseCachename"><a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename()</a>
+                — Strip a file name of special characters so it is suitable for use as a cache file name</li>
+            <li id="saveCache"><a title="Object" href="../classes/Object/saveCache.xhtml">saveCache()</a>
+                — Save a piece of cached data to the file system</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__call"><a title="Object" href="../classes/Object/__call.xhtml">__call()</a>
+                — Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located</li>
+            <li id="__toString">
+              <a title="Object" href="../classes/Object/__toString.xhtml">__toString()</a>
+            </li>
+            <li id="addStaticVars"><a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars()</a>
+                — Merge in a set of additional static variables</li>
+            <li id="add_extension"><a title="Object" href="../classes/Object/add_extension.xhtml">add_extension()</a>
+                — Add an extension to a specific class.</li>
+            <li id="add_static_var"><a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var()</a>
+                — Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.</li>
+            <li id="allMethodNames"><a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames()</a>
+                — Return the names of all the methods available on this object</li>
+            <li id="cacheToFile"><a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile()</a>
+                — Cache the results of an instance method in this object to a file, or if it is already cache return the cached results</li>
+            <li id="clearCache"><a title="Object" href="../classes/Object/clearCache.xhtml">clearCache()</a>
+                — Clears the cache for the given cacheToFile call</li>
+            <li id="combined_static"><a title="Object" href="../classes/Object/combined_static.xhtml">combined_static()</a>
+                — Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable</li>
+            <li id="config"><a title="Object" href="../classes/Object/config.xhtml">config()</a>
+                — Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....).</li>
+            <li id="create"><a title="Object" href="../classes/Object/create.xhtml">create()</a>
+                — An implementation of the factory method, allows you to create an instance of a class</li>
+            <li id="create_from_string"><a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string()</a>
+                — Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().</li>
+            <li id="exists"><a title="Object" href="../classes/Object/exists.xhtml">exists()</a>
+                — Return true if this object "exists" i.e. has a sensible value</li>
+            <li id="extend"><a title="Object" href="../classes/Object/extend.xhtml">extend()</a>
+                — Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed</li>
+            <li id="getCustomClass"><a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass()</a>
+                — If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name</li>
+            <li id="getExtensionInstance"><a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance()</a>
+                — Get an extension instance attached to this object by name.</li>
+            <li id="getExtensionInstances"><a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances()</a>
+                — Get all extension instances for this specific object instance.</li>
+            <li id="get_extensions">
+              <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions()</a>
+            </li>
+            <li id="get_extra_config_sources">
+              <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources()</a>
+            </li>
+            <li id="get_static"><a title="Object" href="../classes/Object/get_static.xhtml">get_static()</a>
+                — Get a static variable, taking into account SS's inbuild static caches and pseudo-statics</li>
+            <li id="hasExtension"><a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension()</a>
+                — Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.</li>
+            <li id="hasMethod"><a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod()</a>
+                — Return TRUE if a method exists on this object</li>
+            <li id="has_extension"><a title="Object" href="../classes/Object/has_extension.xhtml">has_extension()</a>
+                — Return TRUE if a class has a specified extension.</li>
+            <li id="invokeWithExtensions"><a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions()</a>
+                — Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array</li>
+            <li id="is_a"><a title="Object" href="../classes/Object/is_a.xhtml">is_a()</a>
+                — Check if this class is an instance of a specific class, or has that class as one of its parents</li>
+            <li id="parentClass">
+              <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass()</a>
+            </li>
+            <li id="parse_class_spec"><a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec()</a>
+                — Parses a class-spec, such as "Versioned('Stage','Live')", as passed to create_from_string().</li>
+            <li id="remove_extension"><a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension()</a>
+                — Remove an extension from a class.</li>
+            <li id="set_stat">
+              <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat()</a>
+            </li>
+            <li id="set_static"><a title="Object" href="../classes/Object/set_static.xhtml">set_static()</a>
+                — Set a static variable</li>
+            <li id="stat">
+              <a title="Object" href="../classes/Object/stat.xhtml">stat()</a>
+            </li>
+            <li id="static_lookup"><a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup()</a>
+                — Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class.</li>
+            <li id="strong_create"><a title="Object" href="../classes/Object/strong_create.xhtml">strong_create()</a>
+                — Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}</li>
+            <li id="uninherited">
+              <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited()</a>
+            </li>
+            <li id="uninherited_static"><a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static()</a>
+                — Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class.</li>
+            <li id="useCustomClass"><a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass()</a>
+                — This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

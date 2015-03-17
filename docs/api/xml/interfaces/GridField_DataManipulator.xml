@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="GridField_DataManipulator" namespace="" name="GridField_DataManipulator" abstract="false" final="false" start="157" end="167">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldComponent.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldComponent.php" size="6076" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="026a1c40c146e02df07a741dec8113859b0384a5" relative="framework/forms/gridfield/GridFieldComponent.php"/>
+  <docblock>
+    <description compact="Can modify the data list.">For example, a paginating component can apply a limit, or a sorting
+component can apply a sort.
+Generally, the data manipulator will make use of to <link xmlns="http://xml.phpdox.net/src" value="GridState"/>variables to decide how to modify the <link xmlns="http://xml.phpdox.net/src" value="DataList"/>.
+</description>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+  <method name="getManipulatedData" start="166" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Manipulate the {@link DataList} as needed by this grid modifier."/>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="object">
+        <type full="SS_List" namespace="" name="SS_List"/>
+      </param>
+      <return type="object">
+        <type full="DataList" namespace="" name="DataList"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="dataList" byreference="false" type="object">
+      <type full="\\SS_List" namespace="\" name="SS_List"/>
+    </parameter>
+  </method>
+  <implementor full="GridFieldTest_Component2" namespace="" name="GridFieldTest_Component2"/>
+  <implementor full="GridFieldPaginator" namespace="" name="GridFieldPaginator"/>
+  <implementor full="GridFieldAddExistingAutocompleter" namespace="" name="GridFieldAddExistingAutocompleter"/>
+  <implementor full="GridFieldSortableHeader" namespace="" name="GridFieldSortableHeader"/>
+  <parent full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+  <implementor full="GridFieldFilterHeader" namespace="" name="GridFieldFilterHeader"/>
+</interface>

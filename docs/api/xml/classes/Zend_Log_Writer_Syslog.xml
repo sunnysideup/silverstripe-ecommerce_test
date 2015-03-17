@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Log_Writer_Syslog" namespace="" name="Zend_Log_Writer_Syslog" abstract="false" final="false" start="38" end="267">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Log/Writer" file="Syslog.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Log/Writer/Syslog.php" size="6950" time="2015-03-14T10:41:30+13:00" unixtime="1426282890" sha1="fd47d5d72e3aad026965d95c4a656c98880574a5" relative="framework/thirdparty/Zend/Log/Writer/Syslog.php"/>
+  <docblock>
+    <description compact="Writes log messages to syslog"/>
+    <category value="Zend"/>
+    <package value="Zend_Log"/>
+    <subpackage value="Writer"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+  <member name="_priorities" type="array" visibility="protected" line="45">
+    <docblock>
+      <description compact="Maps Zend_Log priorities to PHP's syslog priorities"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="_defaultPriority" type="{unknown}" default="LOG_NOTICE" visibility="protected" line="61">
+    <docblock>
+      <description compact="The default log priority - for unmapped custom priorities"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_lastApplication" type="{unknown}" visibility="protected" line="68">
+    <docblock>
+      <description compact="Last application name set by a syslog-writer instance"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_lastFacility" type="{unknown}" visibility="protected" line="75">
+    <docblock>
+      <description compact="Last facility name set by a syslog-writer instance"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_application" type="string" default="'Zend_Log'" visibility="protected" line="82">
+    <docblock>
+      <description compact="Application name used by this syslog-writer instance"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_facility" type="{unknown}" default="LOG_USER" visibility="protected" line="89">
+    <docblock>
+      <description compact="Facility used by this syslog-writer instance"/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="_validFacilities" type="array" visibility="protected" line="96">
+    <docblock>
+      <description compact="Types of program available to logging of message"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="104" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Class constructor"/>
+      <param description="Array of options; may include &quot;application&quot; and &quot;facility&quot; keys" type="array" variable="$params"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="params" byreference="false" type="array"/>
+  </constructor>
+  <method name="factory" start="127" end="130" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new instance of Zend_Log_Writer_Syslog"/>
+      <param type="object" variable="$config">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Writer_Syslog" namespace="" name="Zend_Log_Writer_Syslog"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_initializeValidFacilities" start="137" end="166" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Initialize values facilities"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="_initializeSyslog" start="173" end="178" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Initialize syslog / set application name and facility"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setFacility" start="187" end="212" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set syslog facility"/>
+      <param description="Syslog facility" type="int" variable="$facility"/>
+      <return type="object">
+        <type full="Zend_Log_Writer_Syslog" namespace="" name="Zend_Log_Writer_Syslog"/>
+      </return>
+      <throws description="for invalid log facility" type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="facility" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setApplicationName" start="220" end="228" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set application name"/>
+      <param description="Application name" type="string" variable="$application"/>
+      <return type="object">
+        <type full="Zend_Log_Writer_Syslog" namespace="" name="Zend_Log_Writer_Syslog"/>
+      </return>
+    </docblock>
+    <parameter name="application" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="shutdown" start="235" end="238" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Close syslog."/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="_write" start="246" end="266" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Write a message to syslog."/>
+      <param description="event data" type="array" variable="$event"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract">
+    <member name="_filters" type="array" visibility="protected" line="39">
+      <docblock>
+        <description/>
+        <var description="of Zend_Log_Filter_Interface" type="array"/>
+      </docblock>
+    </member>
+    <member name="_formatter" type="{unknown}" visibility="protected" line="46">
+      <docblock>
+        <description compact="Formats the log message before writing."/>
+        <var type="object">
+          <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="addFilter" start="54" end="68" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add a filter specific to this writer."/>
+        <param type="object" variable="$filter">
+          <type full="Zend_Log_Filter_Interface" namespace="" name="Zend_Log_Filter_Interface"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="filter" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="@see Zend_Log_Exception" line="61"/>
+      </inline>
+    </method>
+    <method name="write" start="76" end="86" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Log a message to this writer."/>
+        <param description="log data event" type="array" variable="$event"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="exception occurs on error" line="84"/>
+      </inline>
+    </method>
+    <method name="setFormatter" start="94" end="98" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a new formatter for this writer"/>
+        <param type="object" variable="$formatter">
+          <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="formatter" byreference="false" type="object">
+        <type full="\\Zend_Log_Formatter_Interface" namespace="\" name="Zend_Log_Formatter_Interface"/>
+      </parameter>
+    </method>
+    <method name="shutdown" start="105" end="106" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Perform shutdown activites such as closing open resources"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="_write" start="114" end="114" abstract="true" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Write a message to the log."/>
+        <param description="log data event" type="array" variable="$event"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_parseConfig" start="123" end="137" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="Validate and optionally convert the config to array"/>
+        <param description="Zend_Config or Array" type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="array"/>
+        <throws type="object">
+          <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface">
+    <method name="factory" start="37" end="37" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct a Zend_Log driver"/>
+        <param type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface"/>
+        </return>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

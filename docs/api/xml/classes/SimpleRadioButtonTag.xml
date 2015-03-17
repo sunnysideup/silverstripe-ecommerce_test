@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleRadioButtonTag" namespace="" name="SimpleRadioButtonTag" abstract="false" final="false" start="942" end="992">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="tag.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/tag.php" size="38668" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="b6ec8fd28ab462e15250383e6dc74f1754d57b35" relative="framework/thirdparty/simpletest/tag.php"/>
+  <docblock>
+    <description compact="Radio button.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <extends full="SimpleWidget" namespace="" name="SimpleWidget"/>
+  <method name="SimpleRadioButtonTag" start="948" end="953" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stashes the attributes.">@param array $attributes        Hash of attributes.</description>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="expectEndTag" start="960" end="962" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Tag contains no content.">@return boolean        False.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="setValue" start="971" end="979" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The only allowed value sn the one in the    &quot;value&quot; attribute.">@param string $value      New value.
+   @return boolean           True if allowed.
+   @access public</description>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDefault" start="986" end="991" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for starting value.">@return string        Parsed value.
+   @access public</description>
+    </docblock>
+  </method>
+  <parent full="SimpleWidget" namespace="" name="SimpleWidget">
+    <extends full="SimpleTag" namespace="" name="SimpleTag"/>
+    <member name="_value" type="{unknown}" visibility="public" line="232"/>
+    <member name="_label" type="{unknown}" visibility="public" line="233"/>
+    <member name="_is_set" type="{unknown}" visibility="public" line="234"/>
+    <method name="SimpleWidget" start="242" end="247" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Starts with a named tag with attributes only.">@param string $name        Tag name.
+   @param hash $attributes    Attribute names and
+                              string values.</description>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="attributes" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getName" start="255" end="257" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for name submitted as the key in    GET/POST variables hash.">@return string        Parsed value.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="getDefault" start="264" end="266" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for default value parsed with the tag.">@return string        Parsed value.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="getValue" start="275" end="280" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for currently set value or default if    none.">@return string      Value set by form or default
+                       if none.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="setValue" start="288" end="292" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the current form element value.">@param string $value       New value.
+   @return boolean            True if allowed.
+   @access public</description>
+      </docblock>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="resetValue" start="299" end="301" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Resets the form element value back to the    default.">@access public</description>
+      </docblock>
+    </method>
+    <method name="setLabel" start="309" end="311" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Allows setting of a label externally, say by a    label tag.">@param string $label    Label to attach.
+   @access public</description>
+      </docblock>
+      <parameter name="label" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="isLabel" start="319" end="321" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Reads external or internal label.">@param string $label    Label to test.
+   @return boolean         True is match.
+   @access public</description>
+      </docblock>
+      <parameter name="label" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="write" start="328" end="332" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Dispatches the value into the form encoded packet.">@param SimpleEncoding $encoding    Form packet.
+   @access public</description>
+      </docblock>
+      <parameter name="encoding" byreference="true" type="{unknown}"/>
+      <parameter name="x" byreference="false" type="{unknown}"/>
+      <parameter name="y" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <parent full="SimpleTag" namespace="" name="SimpleTag">
+    <member name="_name" type="{unknown}" visibility="public" line="22"/>
+    <member name="_attributes" type="{unknown}" visibility="public" line="23"/>
+    <member name="_content" type="{unknown}" visibility="public" line="24"/>
+    <method name="SimpleTag" start="34" end="38" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Starts with a named tag with attributes only.">@param string $name        Tag name.
+   @param hash $attributes    Attribute names and
+                              string values. Note that
+                              the keys must have been
+                              converted to lower case.</description>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="attributes" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="expectEndTag" start="46" end="48" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check to see if the tag can have both start and    end tags with content in between.">@return boolean        True if content allowed.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="isPrivateContent" start="59" end="61" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="The current tag should not swallow all content for    itself as it's searchable page content. Private    content tags are usually widgets that contain default    values.">@return boolean        False as content is available
+                          to other tags by default.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="addContent" start="68" end="70" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Appends string content to the current content.">@param string $content        Additional text.
+   @access public</description>
+      </docblock>
+      <parameter name="content" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="addTag" start="77" end="78" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Adds an enclosed tag to the content.">@param SimpleTag $tag    New tag.
+   @access public</description>
+      </docblock>
+      <parameter name="tag" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="getTagName" start="85" end="87" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for tag name.">@return string       Name of tag.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="getChildElements" start="94" end="96" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="List of legal child elements.">@return array        List of element names.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="getAttribute" start="104" end="110" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for an attribute.">@param string $label    Attribute name.
+   @return string          Attribute value.
+   @access public</description>
+      </docblock>
+      <parameter name="label" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_setAttribute" start="118" end="120" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets an attribute.">@param string $label    Attribute name.
+   @return string $value   New attribute value.
+   @access protected</description>
+      </docblock>
+      <parameter name="label" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getContent" start="127" end="129" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for the whole content so far.">@return string       Content as big raw string.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="getText" start="138" end="140" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for content reduced to visible text. Acts    like a text mode browser, normalising space and    reducing images to their alt text.">@return string       Content as plain text.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="isId" start="148" end="150" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Test to see if id attribute matches.">@param string $id        ID to test against.
+   @return boolean          True on match.
+   @access public</description>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

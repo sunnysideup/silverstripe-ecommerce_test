@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="i18nTextCollector_Writer" namespace="" name="i18nTextCollector_Writer" abstract="false" final="false" start="486" end="497">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/i18n" file="i18nTextCollector.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/i18n/i18nTextCollector.php" size="23836" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="cbc6c963c6f11f410985e088937018f09150a493" relative="framework/i18n/i18nTextCollector.php"/>
+  <docblock>
+    <description compact="Allows serialization of entity definitions collected through {@link i18nTextCollector} into a persistent format, usually on the filesystem."/>
+    <package value="framework"/>
+    <subpackage value="i18n"/>
+  </docblock>
+  <method name="write" start="496" end="496" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="Map of entity names (incl. namespace) to an numeric array, with at least one element," type="object" variable="$entities">the original string, and an optional second element, the context.<type full="Array" namespace="" name="Array"/></param>
+      <param type="object" variable="$locale">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="The directory base on which the collector should create new lang folders and files." type="object" variable="$path">Usually the webroot set through <link xmlns="http://xml.phpdox.net/src" value="Director::baseFolder()"/>. Can be overwritten for
+                    testing or export purposes.
+<type full="String" namespace="" name="String"/></param>
+      <return description="success" type="object">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="entities" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <implementor full="i18nTextCollector_Writer_Php" namespace="" name="i18nTextCollector_Writer_Php"/>
+  <implementor full="i18nTextCollector_Writer_RailsYaml" namespace="" name="i18nTextCollector_Writer_RailsYaml"/>
+</interface>

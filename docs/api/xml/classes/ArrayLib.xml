@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ArrayLib" namespace="" name="ArrayLib" abstract="false" final="false" start="9" end="231">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/core" file="ArrayLib.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/core/ArrayLib.php" size="4738" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="5a9d15cc5d46c63c9690be3ada6c39899a9269b8" relative="framework/core/ArrayLib.php"/>
+  <docblock>
+    <description compact="Library of static methods for manipulating arrays."/>
+    <package value="framework"/>
+    <subpackage value="misc"/>
+  </docblock>
+  <method name="invert" start="47" end="61" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Inverses the first and second level keys of an associative array, keying the result by the second level, and combines all first level entries within them.">Before:
+&lt;example&gt;
+array(
+	'row1' =&gt; array(
+		'col1' =&gt;'val1',
+		'col2' =&gt; 'val2'
+	),
+	'row2' =&gt; array(
+		'col1' =&gt; 'val3',
+		'col2' =&gt; 'val4'
+	)
+)
+&lt;/example&gt;
+
+After:
+&lt;example&gt;
+array(
+	'col1' =&gt; array(
+		'row1' =&gt; 'val1',
+		'row2' =&gt; 'val3',
+	),
+	'col2' =&gt; array(
+		'row1' =&gt; 'val2',
+		'row2' =&gt; 'val4',
+	),
+)
+&lt;/example&gt;</description>
+      <param type="array" variable="$arr"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="arr" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="valuekey" start="69" end="71" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return an array where the keys are all equal to the values."/>
+      <param variable="$arr" type="array"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="arr" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="array_values_recursive" start="76" end="91" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <todo value="Improve documentation"/>
+    </docblock>
+    <parameter name="arr" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="filter_keys" start="102" end="110" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Filter an array by keys (useful for only allowing certain form-input to be saved)."/>
+      <param variable="$arr" type="array"/>
+      <param variable="$keys" type="array"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="arr" byreference="false" type="{unknown}"/>
+    <parameter name="keys" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="is_associative" start="122" end="134" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determines if an array is associative by checking for existing keys via array_key_exists()."/>
+      <see value="http://nz.php.net/manual/en/function.is-array.php#76188"/>
+      <param type="array" variable="$arr"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="arr" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="in_array_recursive" start="148" end="164" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Recursively searches an array $haystack for the value(s) $needle.">Assumes that all values in $needle (if $needle is an array) are at
+the SAME level, not spread across multiple dimensions of the $haystack.</description>
+      <param type="mixed" variable="$needle"/>
+      <param type="array" variable="$haystack"/>
+      <param type="boolean" variable="$strict"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="needle" byreference="false" type="{unknown}"/>
+    <parameter name="haystack" byreference="false" type="{unknown}"/>
+    <parameter name="strict" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="array_merge_recursive" start="178" end="208" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Recursively merges two or more arrays.">Behaves similar to array_merge_recursive(), however it only merges
+values when both are arrays rather than creating a new array with
+both values, as the PHP version does. The same behaviour also occurs
+with numeric keys, to match that of what PHP does to generate $_REQUEST.</description>
+      <param type="array" variable="$array"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="array" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="flatten" start="218" end="230" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Takes an multi dimension array and returns the flattened version."/>
+      <param type="array" variable="$array"/>
+      <param type="boolean" variable="$preserveKeys"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="array" byreference="false" type="{unknown}"/>
+    <parameter name="preserveKeys" byreference="false" type="{unknown}" default="true"/>
+    <parameter name="out" byreference="true" type="array"/>
+  </method>
+</class>

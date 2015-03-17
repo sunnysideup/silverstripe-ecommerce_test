@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Upload_Validator</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Upload_Validator</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/filesystem/Upload.php.xhtml#line306">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Upload_Validator</h1>
+        <h4/>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Upload_Validator
+            {<br/><ul class="none"><li>// members</li><li>protected array <a href="#members">$tmpFile</a>;
+                    </li><li>protected array <a href="#members">$errors</a>;
+                    </li><li>public array <a href="#members">$allowedMaxFileSize</a>;
+                    </li><li>public array <a href="#members">$allowedExtensions</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public array <a title="Upload_Validator" href="../classes/Upload_Validator/getErrors.xhtml">getErrors</a>()
+                    </li><li>public void <a title="Upload_Validator" href="../classes/Upload_Validator/setTmpFile.xhtml">setTmpFile</a>()
+                    </li><li>public int <a title="Upload_Validator" href="../classes/Upload_Validator/getAllowedMaxFileSize.xhtml">getAllowedMaxFileSize</a>()
+                    </li><li>public void <a title="Upload_Validator" href="../classes/Upload_Validator/setAllowedMaxFileSize.xhtml">setAllowedMaxFileSize</a>()
+                    </li><li>public array <a title="Upload_Validator" href="../classes/Upload_Validator/getAllowedExtensions.xhtml">getAllowedExtensions</a>()
+                    </li><li>public void <a title="Upload_Validator" href="../classes/Upload_Validator/setAllowedExtensions.xhtml">setAllowedExtensions</a>()
+                    </li><li>public boolean <a title="Upload_Validator" href="../classes/Upload_Validator/isValidSize.xhtml">isValidSize</a>()
+                    </li><li>public boolean <a title="Upload_Validator" href="../classes/Upload_Validator/isValidExtension.xhtml">isValidExtension</a>()
+                    </li><li>public boolean <a title="Upload_Validator" href="../classes/Upload_Validator/validate.xhtml">validate</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/UploadTest_Validator.xhtml">UploadTest_Validator</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="errors">
+              <strong>$errors</strong>
+            </li>
+            <li id="tmpFile"><strong>$tmpFile</strong>
+                —
+                array<br/><span class="indent">Information about the temporary file produced by the PHP-runtime.</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="allowedExtensions"><strong>$allowedExtensions</strong>
+                —
+                array</li>
+            <li id="allowedMaxFileSize"><strong>$allowedMaxFileSize</strong>
+                —
+                array<br/><span class="indent">Restrict filesize for either all filetypes or a specific extension, with extension-name as array-key and the size-restriction in bytes as array-value.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="getAllowedExtensions">
+              <a title="Upload_Validator" href="../classes/Upload_Validator/getAllowedExtensions.xhtml">getAllowedExtensions()</a>
+            </li>
+            <li id="getAllowedMaxFileSize"><a title="Upload_Validator" href="../classes/Upload_Validator/getAllowedMaxFileSize.xhtml">getAllowedMaxFileSize()</a>
+                — Get maximum file size for all or specified file extension.</li>
+            <li id="getErrors"><a title="Upload_Validator" href="../classes/Upload_Validator/getErrors.xhtml">getErrors()</a>
+                — Return all errors that occurred while validating the temporary file.</li>
+            <li id="isValidExtension"><a title="Upload_Validator" href="../classes/Upload_Validator/isValidExtension.xhtml">isValidExtension()</a>
+                — Determines if the temporary file has a valid extension An empty string in the validation map indicates files without an extension.</li>
+            <li id="isValidSize"><a title="Upload_Validator" href="../classes/Upload_Validator/isValidSize.xhtml">isValidSize()</a>
+                — Determines if the bytesize of an uploaded file is valid - can be defined on an extension-by-extension basis in {@link $allowedMaxFileSize}</li>
+            <li id="setAllowedExtensions"><a title="Upload_Validator" href="../classes/Upload_Validator/setAllowedExtensions.xhtml">setAllowedExtensions()</a>
+                — Limit allowed file extensions. Empty by default, allowing all extensions.</li>
+            <li id="setAllowedMaxFileSize"><a title="Upload_Validator" href="../classes/Upload_Validator/setAllowedMaxFileSize.xhtml">setAllowedMaxFileSize()</a>
+                — Set filesize maximums (in bytes).</li>
+            <li id="setTmpFile"><a title="Upload_Validator" href="../classes/Upload_Validator/setTmpFile.xhtml">setTmpFile()</a>
+                — Set information about temporary file produced by PHP.</li>
+            <li id="validate"><a title="Upload_Validator" href="../classes/Upload_Validator/validate.xhtml">validate()</a>
+                — Run through the rules for this validator checking against the temporary file set by {@link setTmpFile()} to see if the file is deemed valid or not.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

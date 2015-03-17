@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldEditButton" namespace="" name="GridFieldEditButton" abstract="false" final="false" start="16" end="105">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldEditButton.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldEditButton.php" size="2570" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="55cc7bbeff1e08b2f0b0e9f0031d73e943e68c26" relative="framework/forms/gridfield/GridFieldEditButton.php"/>
+  <docblock>
+    <description compact="Provides the entry point to editing a single record presented by the {@link GridField}.">Doesn't show an edit view on its own or modifies the record, but rather
+relies on routing conventions established in <link xmlns="http://xml.phpdox.net/src" value="getColumnContent()"/>.
+The default routing applies to the <link xmlns="http://xml.phpdox.net/src" value="GridFieldDetailForm"/> component,
+which has to be added separately to the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> configuration.
+</description>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <implements full="GridField_ColumnProvider" namespace="" name="GridField_ColumnProvider"/>
+  <method name="augmentColumns" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a column 'Delete'"/>
+      <param type="object" variable="$gridField">
+        <type full="type" namespace="" name="type"/>
+      </param>
+      <param type="array" variable="$columns"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="columns" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="getColumnAttributes" start="37" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return any special attributes that will be used for FormField::create_tag()"/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="object" variable="$record">
+        <type full="DataObject" namespace="" name="DataObject"/>
+      </param>
+      <param type="string" variable="$columnName"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+    <parameter name="columnName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getColumnMetadata" start="48" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the title"/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="string" variable="$columnName"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="columnName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getColumnsHandled" start="60" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Which columns are handled by this component"/>
+      <param type="object" variable="$gridField">
+        <type full="type" namespace="" name="type"/>
+      </param>
+      <return type="object">
+        <type full="type" namespace="" name="type"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getActions" start="70" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Which GridField actions are this component handling."/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getColumnContent" start="81" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="object" variable="$record">
+        <type full="DataObject" namespace="" name="DataObject"/>
+      </param>
+      <param type="string" variable="$columnName"/>
+      <return description="- the HTML for the column" type="string"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <parameter name="record" byreference="false" type="{unknown}"/>
+    <parameter name="columnName" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="No permission checks, handled through GridFieldDetailForm," line="82"/>
+      <comment value="which can make the form readonly if no edit permissions are available." line="83"/>
+    </inline>
+  </method>
+  <method name="handleAction" start="102" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle the actions and apply any changes to the GridField."/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="string" variable="$actionName"/>
+      <param type="mixed" variable="$arguments"/>
+      <param description="- form data" type="array" variable="$data"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="actionName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <extender full="GridFieldEditButtonOriginalPage" namespace="" name="GridFieldEditButtonOriginalPage"/>
+  <interface full="GridField_ColumnProvider" namespace="" name="GridField_ColumnProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="augmentColumns" start="60" end="60" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Modify the list of columns displayed in the table."/>
+        <see value="{@link GridFieldDataColumns-&gt;getDisplayFields()}"/>
+        <see value="{@link GridFieldDataColumns}."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="- List reference of all column names." type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="columns" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="getColumnsHandled" start="68" end="68" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Names of all columns which are affected by this component."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getColumnContent" start="78" end="78" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="HTML for the column, content of the &lt;td&gt; element."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="- Record displayed in this row" type="object" variable="$record">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </param>
+        <param type="string" variable="$columnName"/>
+        <return description="- HTML for the column. Return NULL to skip." type="string"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="record" byreference="false" type="{unknown}"/>
+      <parameter name="columnName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getColumnAttributes" start="88" end="88" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Attributes for the element containing the content returned by {@link getColumnContent()}."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="displayed in this row" type="object" variable="$record">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </param>
+        <param type="string" variable="$columnName"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="record" byreference="false" type="{unknown}"/>
+      <parameter name="columnName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getColumnMetadata" start="98" end="98" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Additional metadata about the column which can be used by other components, e.g. to set a title for a search column header."/>
+        <param type="object" variable="$gridField">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param type="string" variable="$columnName"/>
+        <return description="- Map of arbitrary metadata identifiers to their values." type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <parameter name="columnName" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

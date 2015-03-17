@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ViewableData" namespace="" name="ViewableData" abstract="false" final="false" start="12" end="572">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/view" file="ViewableData.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/view/ViewableData.php" size="22110" time="2015-03-14T10:42:30+13:00" unixtime="1426282950" sha1="dd593cdc3df9f61c5cc0a96f140a881f28147f78" relative="framework/view/ViewableData.php"/>
+  <docblock>
+    <description compact="A ViewableData object is any object that can be rendered into a template/view.">A view interrogates the object being currently rendered in order to get data to render into the template. This data
+is provided and automatically escaped by ViewableData. Any class that needs to be available to a view (controllers,
+{@link DataObject}s, page controls) should inherit from this class.</description>
+    <package value="framework"/>
+    <subpackage value="view"/>
+  </docblock>
+  <extends full="Object" namespace="" name="Object"/>
+  <implements full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <member name="casting" type="array" visibility="private" line="26">
+    <docblock>
+      <description compact="An array of objects to cast certain fields to. This is set up as an array in the format:">&lt;code&gt;
+public static $casting = array (
+    'FieldName' =&gt; 'ClassToCastTo(Arguments)'
+);
+&lt;/code&gt;</description>
+      <var type="array"/>
+      <config/>
+    </docblock>
+  </member>
+  <member name="default_cast" type="string" default="'Text'" visibility="private" line="37">
+    <docblock>
+      <description compact="The default object to cast scalar fields to if casting information is not specified, and casting to an object is required."/>
+      <var type="string"/>
+      <config/>
+    </docblock>
+  </member>
+  <member name="casting_cache" type="array" visibility="private" line="42">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="failover" type="{unknown}" visibility="protected" line="51">
+    <docblock>
+      <description compact="A failover object to attempt to get data from if it is not present on this object."/>
+      <var type="object">
+        <type full="ViewableData" namespace="" name="ViewableData"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="customisedObject" type="{unknown}" visibility="protected" line="56">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="ViewableData" namespace="" name="ViewableData"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="objCache" type="array" visibility="private" line="61">
+    <docblock>
+      <description/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <method name="castingObjectCreator" start="72" end="74" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Converts a field spec into an object creator. For example: &quot;Int&quot; becomes &quot;new Int($fieldName);&quot; and &quot;Varchar(50)&quot; becomes &quot;new Varchar($fieldName, 50);&quot;."/>
+      <param description="The field spec" type="string" variable="$fieldSchema"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="castingObjectCreatorPair" start="83" end="85" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Convert a field schema (e.g. &quot;Varchar(50)&quot;) into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor."/>
+      <param type="string" variable="$fieldSchema"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__isset" start="95" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if a field exists on this object or its failover."/>
+      <param type="string" variable="$property"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__get" start="106" end="114" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object."/>
+      <param type="string" variable="$property"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__set" start="123" end="129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method."/>
+      <param type="string" variable="$property"/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="property" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hasField" start="137" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if a field exists on this object. This should be overloaded in child classes."/>
+      <param type="string" variable="$field"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getField" start="147" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value of a field on this object. This should be overloaded in child classes."/>
+      <param type="string" variable="$field"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setField" start="157" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a field on this object. This should be overloaded in child classes."/>
+      <param type="string" variable="$field"/>
+      <param type="mixed" variable="$value"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="defineMethods" start="167" end="186" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}."/>
+    </docblock>
+  </method>
+  <method name="customise" start="197" end="209" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.">Note that any fields you specify will take precedence over the fields on this object.</description>
+      <param type="object" variable="$data">
+        <type full="array|ViewableData" namespace="" name="array|ViewableData"/>
+      </param>
+      <return type="object">
+        <type full="ViewableData_Customised" namespace="" name="ViewableData_Customised"/>
+      </return>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setCustomisedObj" start="214" end="216" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$object">
+        <type full="ViewableData" namespace="" name="ViewableData"/>
+      </param>
+    </docblock>
+    <parameter name="object" byreference="false" type="object">
+      <type full="\\ViewableData" namespace="\" name="ViewableData"/>
+    </parameter>
+  </method>
+  <method name="castingHelperPair" start="231" end="234" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).">The returned array contains two keys:
+ - className: the class the field would be casted to (e.g. "Varchar")
+ - castingHelper: the casting helper for casting the field (e.g. "return new Varchar($fieldName)")</description>
+      <param type="string" variable="$field"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="castingHelper" start="243" end="252" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the &quot;casting helper&quot; (a piece of PHP code that when evaluated creates a casted value object) for a field on this object."/>
+      <param type="string" variable="$field"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="castingClass" start="260" end="267" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the class name a field on this object will be casted to"/>
+      <param type="string" variable="$field"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="escapeTypeForField" start="275" end="279" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the string-format type for the given field."/>
+      <param type="string" variable="$field"/>
+      <return description="'xml'|'raw'" type="string"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="buildCastingCache" start="286" end="308" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save the casting cache for this object (including data from any failovers) into a variable"/>
+      <param type="object" variable="$cache">
+        <type full="reference" namespace="" name="reference"/>
+      </param>
+    </docblock>
+    <parameter name="cache" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="renderWith" start="323" end="340" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance"/>
+      <param description="the template to render into" type="object" variable="$template">
+        <type full="string|array|SSViewer" namespace="" name="string|array|SSViewer"/>
+      </param>
+      <param description="fields to customise() the object with before rendering" type="array" variable="$customFields"/>
+      <return type="object">
+        <type full="HTMLText" namespace="" name="HTMLText"/>
+      </return>
+    </docblock>
+    <parameter name="template" byreference="false" type="{unknown}"/>
+    <parameter name="customFields" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="obj" start="352" end="390" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified."/>
+      <param type="string" variable="$fieldName"/>
+      <param type="array" variable="$arguments"/>
+      <param description="if TRUE, the value will ALWAYS be casted to an object before being returned," type="object" variable="$forceReturnedObject">even if there is no explicit casting information<type full="bool" namespace="" name="bool"/></param>
+      <param description="a custom cache name" type="string" variable="$cacheName"/>
+    </docblock>
+    <parameter name="fieldName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="forceReturnedObject" byreference="false" type="{unknown}" default="true"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="cacheName" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="HACK: Don't call the deprecated FormField::Name() method" line="356"/>
+    </inline>
+  </method>
+  <method name="cachedCall" start="400" end="402" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method."/>
+      <param type="string" variable="$field"/>
+      <param type="array" variable="$arguments"/>
+      <param description="an optional custom cache identifier" type="string" variable="$identifier"/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="identifier" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="hasValue" start="413" end="422" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag."/>
+      <param type="string" variable="$field"/>
+      <param type="array" variable="$arguments"/>
+      <param type="object" variable="$cache">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="XML_val" start="435" end="438" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="RAW_val" start="443" end="445" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the value of the field without any escaping being applied."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="SQL_val" start="450" end="452" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the value of a field in an SQL-safe format."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="JS_val" start="457" end="459" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the value of a field in a JavaScript-save format."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="ATT_val" start="464" end="466" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the value of a field escaped suitable to be inserted into an XML node attribute."/>
+    </docblock>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="getXMLValues" start="476" end="484" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get an array of XML-escaped values by field name"/>
+      <param description="an array of field names" type="array" variable="$elements"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="fields" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIterator" start="496" end="498" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a single-item iterator so you can iterate over the fields of a single record.">This is useful so you can use a single record inside a &lt;% control %&gt; block in a template - and then use
+to access individual fields on this object.</description>
+      <return type="object">
+        <type full="ArrayIterator" namespace="" name="ArrayIterator"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="Me" start="508" end="510" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself."/>
+      <return type="object">
+        <type full="ViewableData" namespace="" name="ViewableData"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="ThemeDir" start="524" end="533" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the directory if the current active theme (relative to the site root).">This method is useful for things such as accessing theme images from your template without hardcoding the theme
+page - e.g. &lt;img src="$ThemeDir/images/something.gif"&gt;.
+
+This method should only be used when a theme is currently active. However, it will fall over to the current
+project directory.</description>
+      <param description="the subtheme path to get" type="string" variable="$subtheme"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="subtheme" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="CSSClasses" start="545" end="561" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get part of the current classes ancestry to be used as a CSS class.">This method returns an escaped string of CSS classes representing the current classes ancestry until it hits a
+stop point - e.g. "Page DataObject ViewableData".</description>
+      <param description="the class to stop at (default: ViewableData)" type="string" variable="$stopAtClass"/>
+      <return type="string"/>
+      <uses value="ClassInfo"/>
+    </docblock>
+    <parameter name="stopAtClass" byreference="false" type="string" default="'ViewableData'"/>
+    <inline>
+      <comment value="optionally add template identifier" line="555"/>
+    </inline>
+  </method>
+  <method name="Debug" start="568" end="570" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return debug information about this object that can be rendered into a template"/>
+      <return type="object">
+        <type full="ViewableData_Debugger" namespace="" name="ViewableData_Debugger"/>
+      </return>
+    </docblock>
+  </method>
+  <extender full="EcommercePaymentController" namespace="" name="EcommercePaymentController"/>
+  <extender full="ShoppingCart_Controller" namespace="" name="ShoppingCart_Controller"/>
+  <extender full="EcommerceTemplateTest" namespace="" name="EcommerceTemplateTest"/>
+  <extender full="CartPage" namespace="" name="CartPage"/>
+  <extender full="CartPage_Controller" namespace="" name="CartPage_Controller"/>
+  <extender full="Order_ErrorEmail" namespace="" name="Order_ErrorEmail"/>
+  <extender full="Order_InvoiceEmail" namespace="" name="Order_InvoiceEmail"/>
+  <extender full="Order_ReceiptEmail" namespace="" name="Order_ReceiptEmail"/>
+  <extender full="Order_StatusEmail" namespace="" name="Order_StatusEmail"/>
+  <extender full="Order_Email" namespace="" name="Order_Email"/>
+  <extender full="SearchReplacement" namespace="" name="SearchReplacement"/>
+  <extender full="Product_Image" namespace="" name="Product_Image"/>
+  <extender full="Order" namespace="" name="Order"/>
+  <extender full="SearchHistory" namespace="" name="SearchHistory"/>
+  <extender full="Product_OrderItem" namespace="" name="Product_OrderItem"/>
+  <extender full="OrderAttribute" namespace="" name="OrderAttribute"/>
+  <extender full="OrderAttribute_Group" namespace="" name="OrderAttribute_Group"/>
+  <extender full="ShippingAddress" namespace="" name="ShippingAddress"/>
+  <extender full="OrderAddress" namespace="" name="OrderAddress"/>
+  <extender full="EcommerceRegion" namespace="" name="EcommerceRegion"/>
+  <extender full="BillingAddress" namespace="" name="BillingAddress"/>
+  <extender full="EcommerceCountry" namespace="" name="EcommerceCountry"/>
+  <extender full="OrderModifier" namespace="" name="OrderModifier"/>
+  <extender full="OrderModifier_Descriptor" namespace="" name="OrderModifier_Descriptor"/>
+  <extender full="OrderItem" namespace="" name="OrderItem"/>
+  <extender full="OrderEmailRecord" namespace="" name="OrderEmailRecord"/>
+  <extender full="OrderEmailRecord_Review" namespace="" name="OrderEmailRecord_Review"/>
+  <extender full="OrderStatusLog" namespace="" name="OrderStatusLog"/>
+  <extender full="OrderStatusLog_Submitted" namespace="" name="OrderStatusLog_Submitted"/>
+  <extender full="OrderStatusLog_Cancel" namespace="" name="OrderStatusLog_Cancel"/>
+  <extender full="OrderStatusLog_Dispatch" namespace="" name="OrderStatusLog_Dispatch"/>
+  <extender full="OrderStatusLog_DispatchElectronicOrder" namespace="" name="OrderStatusLog_DispatchElectronicOrder"/>
+  <extender full="OrderStatusLog_DispatchPhysicalOrder" namespace="" name="OrderStatusLog_DispatchPhysicalOrder"/>
+  <extender full="OrderStatusLog_PaymentCheck" namespace="" name="OrderStatusLog_PaymentCheck"/>
+  <extender full="OrderStatusLog_Archived" namespace="" name="OrderStatusLog_Archived"/>
+  <extender full="OrderStep" namespace="" name="OrderStep"/>
+  <extender full="OrderStep_Created" namespace="" name="OrderStep_Created"/>
+  <extender full="OrderStep_Submitted" namespace="" name="OrderStep_Submitted"/>
+  <extender full="OrderStep_SentInvoice" namespace="" name="OrderStep_SentInvoice"/>
+  <extender full="OrderStep_Paid" namespace="" name="OrderStep_Paid"/>
+  <extender full="OrderStep_Confirmed" namespace="" name="OrderStep_Confirmed"/>
+  <extender full="OrderStep_SentReceipt" namespace="" name="OrderStep_SentReceipt"/>
+  <extender full="OrderStep_Sent" namespace="" name="OrderStep_Sent"/>
+  <extender full="OrderStep_Archived" namespace="" name="OrderStep_Archived"/>
+  <extender full="CheckoutPage_StepDescription" namespace="" name="CheckoutPage_StepDescription"/>
+  <extender full="EcommercePayment" namespace="" name="EcommercePayment"/>
+  <extender full="EcommercePayment_Test" namespace="" name="EcommercePayment_Test"/>
+  <extender full="EcommercePayment_TestSuccess" namespace="" name="EcommercePayment_TestSuccess"/>
+  <extender full="EcommercePayment_TestPending" namespace="" name="EcommercePayment_TestPending"/>
+  <extender full="EcommercePayment_TestFailure" namespace="" name="EcommercePayment_TestFailure"/>
+  <extender full="EcommerceCurrency" namespace="" name="EcommerceCurrency"/>
+  <extender full="EcommerceDBConfig" namespace="" name="EcommerceDBConfig"/>
+  <extender full="OrderForm_Payment" namespace="" name="OrderForm_Payment"/>
+  <extender full="ShopAccountForm" namespace="" name="ShopAccountForm"/>
+  <extender full="ProductSearchForm" namespace="" name="ProductSearchForm"/>
+  <extender full="ProductSearchForm_Short" namespace="" name="ProductSearchForm_Short"/>
+  <extender full="OrderFormAddress" namespace="" name="OrderFormAddress"/>
+  <extender full="OrderStatusLogForm" namespace="" name="OrderStatusLogForm"/>
+  <extender full="OrderStatusLogForm_Controller" namespace="" name="OrderStatusLogForm_Controller"/>
+  <extender full="OrderForm" namespace="" name="OrderForm"/>
+  <extender full="ExpiryDateField" namespace="" name="ExpiryDateField"/>
+  <extender full="EcommerceClassNameOrTypeDropdownField" namespace="" name="EcommerceClassNameOrTypeDropdownField"/>
+  <extender full="OrderStepField" namespace="" name="OrderStepField"/>
+  <extender full="OptionalTreeDropdownField" namespace="" name="OptionalTreeDropdownField"/>
+  <extender full="EcomQuantityField" namespace="" name="EcomQuantityField"/>
+  <extender full="EcommerceSearchHistoryFormField" namespace="" name="EcommerceSearchHistoryFormField"/>
+  <extender full="Product_ProductImageUploadField" namespace="" name="Product_ProductImageUploadField"/>
+  <extender full="BuyableSelectField" namespace="" name="BuyableSelectField"/>
+  <extender full="BuyableSelectField_DataList" namespace="" name="BuyableSelectField_DataList"/>
+  <extender full="SelectOrderAddressField" namespace="" name="SelectOrderAddressField"/>
+  <extender full="OrderForm_Cancel" namespace="" name="OrderForm_Cancel"/>
+  <extender full="OrderModifierForm" namespace="" name="OrderModifierForm"/>
+  <extender full="OrderModifierForm_Controller" namespace="" name="OrderModifierForm_Controller"/>
+  <extender full="EcommerceSideReport_EcommercePages" namespace="" name="EcommerceSideReport_EcommercePages"/>
+  <extender full="EcommerceSideReport_FeaturedProducts" namespace="" name="EcommerceSideReport_FeaturedProducts"/>
+  <extender full="EcommerceSideReport_AllProducts" namespace="" name="EcommerceSideReport_AllProducts"/>
+  <extender full="EcommerceSideReport_NoImageProducts" namespace="" name="EcommerceSideReport_NoImageProducts"/>
+  <extender full="EcommerceSideReport_NoInternalIDProducts" namespace="" name="EcommerceSideReport_NoInternalIDProducts"/>
+  <extender full="EcommerceSideReport_NoPriceProducts" namespace="" name="EcommerceSideReport_NoPriceProducts"/>
+  <extender full="EcommerceSideReport_NotForSale" namespace="" name="EcommerceSideReport_NotForSale"/>
+  <extender full="EcommerceSideReport_ProductsWithVariations" namespace="" name="EcommerceSideReport_ProductsWithVariations"/>
+  <extender full="CheckoutPage" namespace="" name="CheckoutPage"/>
+  <extender full="CheckoutPage_Controller" namespace="" name="CheckoutPage_Controller"/>
+  <extender full="ProductGroupSearchPage" namespace="" name="ProductGroupSearchPage"/>
+  <extender full="ProductGroupSearchPage_Controller" namespace="" name="ProductGroupSearchPage_Controller"/>
+  <extender full="Product" namespace="" name="Product"/>
+  <extender full="Product_Controller" namespace="" name="Product_Controller"/>
+  <extender full="EcommerceDatabaseAdmin" namespace="" name="EcommerceDatabaseAdmin"/>
+  <extender full="SalesAdmin" namespace="" name="SalesAdmin"/>
+  <extender full="ModelAdminEcommerceBaseClass" namespace="" name="ModelAdminEcommerceBaseClass"/>
+  <extender full="ProductsAndGroupsModelAdmin" namespace="" name="ProductsAndGroupsModelAdmin"/>
+  <extender full="StoreAdmin" namespace="" name="StoreAdmin"/>
+  <extender full="ProductConfigModelAdmin" namespace="" name="ProductConfigModelAdmin"/>
+  <extender full="CMSPageAddController_Products" namespace="" name="CMSPageAddController_Products"/>
+  <extender full="ProductGroup" namespace="" name="ProductGroup"/>
+  <extender full="ProductGroup_Controller" namespace="" name="ProductGroup_Controller"/>
+  <extender full="AccountPage" namespace="" name="AccountPage"/>
+  <extender full="AccountPage_Controller" namespace="" name="AccountPage_Controller"/>
+  <extender full="OrderConfirmationPage" namespace="" name="OrderConfirmationPage"/>
+  <extender full="OrderConfirmationPage_Controller" namespace="" name="OrderConfirmationPage_Controller"/>
+  <extender full="EcommerceConfigAjaxDefinitions" namespace="" name="EcommerceConfigAjaxDefinitions"/>
+  <extender full="ElectronicDelivery_OrderLog" namespace="" name="ElectronicDelivery_OrderLog"/>
+  <extender full="ElectronicDelivery_OrderStep" namespace="" name="ElectronicDelivery_OrderStep"/>
+  <extender full="ElectronicDownloadProduct" namespace="" name="ElectronicDownloadProduct"/>
+  <extender full="ElectronicDownloadProduct_Controller" namespace="" name="ElectronicDownloadProduct_Controller"/>
+  <extender full="GSTTaxModifierOptions" namespace="" name="GSTTaxModifierOptions"/>
+  <extender full="GSTTaxModifier" namespace="" name="GSTTaxModifier"/>
+  <extender full="CreateEcommerceVariations" namespace="" name="CreateEcommerceVariations"/>
+  <extender full="CreateEcommerceVariations_Field" namespace="" name="CreateEcommerceVariations_Field"/>
+  <extender full="ProductAttributeType" namespace="" name="ProductAttributeType"/>
+  <extender full="ProductVariation" namespace="" name="ProductVariation"/>
+  <extender full="ProductVariation_OrderItem" namespace="" name="ProductVariation_OrderItem"/>
+  <extender full="ProductAttributeValue" namespace="" name="ProductAttributeValue"/>
+  <extender full="TaskRunner" namespace="" name="TaskRunner"/>
+  <extender full="SapphireREPL" namespace="" name="SapphireREPL"/>
+  <extender full="InstallerTest" namespace="" name="InstallerTest"/>
+  <extender full="BulkLoader" namespace="" name="BulkLoader"/>
+  <extender full="DevBuildController" namespace="" name="DevBuildController"/>
+  <extender full="JSTestRunner" namespace="" name="JSTestRunner"/>
+  <extender full="TestRunner" namespace="" name="TestRunner"/>
+  <extender full="SapphireInfo" namespace="" name="SapphireInfo"/>
+  <extender full="DevelopmentAdmin" namespace="" name="DevelopmentAdmin"/>
+  <extender full="CsvBulkLoader" namespace="" name="CsvBulkLoader"/>
+  <extender full="FixtureFactoryTest_DataObject" namespace="" name="FixtureFactoryTest_DataObject"/>
+  <extender full="FixtureFactoryTest_DataObjectRelation" namespace="" name="FixtureFactoryTest_DataObjectRelation"/>
+  <extender full="CsvBulkLoaderTest_CustomLoader" namespace="" name="CsvBulkLoaderTest_CustomLoader"/>
+  <extender full="CsvBulkLoaderTest_Team" namespace="" name="CsvBulkLoaderTest_Team"/>
+  <extender full="CsvBulkLoaderTest_Player" namespace="" name="CsvBulkLoaderTest_Player"/>
+  <extender full="CsvBulkLoaderTest_PlayerContract" namespace="" name="CsvBulkLoaderTest_PlayerContract"/>
+  <extender full="DevAdminControllerTest_Controller1" namespace="" name="DevAdminControllerTest_Controller1"/>
+  <extender full="ClassInfoTest_BaseClass" namespace="" name="ClassInfoTest_BaseClass"/>
+  <extender full="ClassInfoTest_ChildClass" namespace="" name="ClassInfoTest_ChildClass"/>
+  <extender full="ClassInfoTest_GrandChildClass" namespace="" name="ClassInfoTest_GrandChildClass"/>
+  <extender full="ClassInfoTest_BaseDataClass" namespace="" name="ClassInfoTest_BaseDataClass"/>
+  <extender full="ClassInfoTest_NoFields" namespace="" name="ClassInfoTest_NoFields"/>
+  <extender full="ClassInfoTest_HasFields" namespace="" name="ClassInfoTest_HasFields"/>
+  <extender full="ClassInfoTest_WithRelation" namespace="" name="ClassInfoTest_WithRelation"/>
+  <extender full="RequestHandlingTest_Controller" namespace="" name="RequestHandlingTest_Controller"/>
+  <extender full="RequestHandlingTest_FormActionController" namespace="" name="RequestHandlingTest_FormActionController"/>
+  <extender full="RequestHandlingTest_AllowedController" namespace="" name="RequestHandlingTest_AllowedController"/>
+  <extender full="RequestHandlingTest_ControllerFailover" namespace="" name="RequestHandlingTest_ControllerFailover"/>
+  <extender full="RequestHandlingTest_Form" namespace="" name="RequestHandlingTest_Form"/>
+  <extender full="RequestHandlingTest_ControllerFormWithAllowedActions" namespace="" name="RequestHandlingTest_ControllerFormWithAllowedActions"/>
+  <extender full="RequestHandlingTest_FormWithAllowedActions" namespace="" name="RequestHandlingTest_FormWithAllowedActions"/>
+  <extender full="RequestHandlingTest_FormField" namespace="" name="RequestHandlingTest_FormField"/>
+  <extender full="RequestHandlingTest_SubclassedFormField" namespace="" name="RequestHandlingTest_SubclassedFormField"/>
+  <extender full="RequestHandlingFieldTest_Controller" namespace="" name="RequestHandlingFieldTest_Controller"/>
+  <extender full="RequestHandlingTest_HandlingField" namespace="" name="RequestHandlingTest_HandlingField"/>
+  <extender full="DirectorTestRequest_Controller" namespace="" name="DirectorTestRequest_Controller"/>
+  <extender full="ControllerTest_Controller" namespace="" name="ControllerTest_Controller"/>
+  <extender full="ControllerTest_UnsecuredController" namespace="" name="ControllerTest_UnsecuredController"/>
+  <extender full="ControllerTest_AccessBaseController" namespace="" name="ControllerTest_AccessBaseController"/>
+  <extender full="ControllerTest_AccessSecuredController" namespace="" name="ControllerTest_AccessSecuredController"/>
+  <extender full="ControllerTest_AccessWildcardSecuredController" namespace="" name="ControllerTest_AccessWildcardSecuredController"/>
+  <extender full="ControllerTest_IndexSecuredController" namespace="" name="ControllerTest_IndexSecuredController"/>
+  <extender full="ControllerTest_HasAction" namespace="" name="ControllerTest_HasAction"/>
+  <extender full="ControllerTest_HasAction_Unsecured" namespace="" name="ControllerTest_HasAction_Unsecured"/>
+  <extender full="TestSetterInjections" namespace="" name="TestSetterInjections"/>
+  <extender full="ViewableDataTest_Castable" namespace="" name="ViewableDataTest_Castable"/>
+  <extender full="ViewableDataTest_RequiresCasting" namespace="" name="ViewableDataTest_RequiresCasting"/>
+  <extender full="ViewableData_UnescaptedCaster" namespace="" name="ViewableData_UnescaptedCaster"/>
+  <extender full="ViewableData_Caster" namespace="" name="ViewableData_Caster"/>
+  <extender full="ViewableDataTest_Container" namespace="" name="ViewableDataTest_Container"/>
+  <extender full="ViewableDataTest_CastingClass" namespace="" name="ViewableDataTest_CastingClass"/>
+  <extender full="ViewableDataTest_NoCastingInformation" namespace="" name="ViewableDataTest_NoCastingInformation"/>
+  <extender full="SSViewerCacheBlockTest_Model" namespace="" name="SSViewerCacheBlockTest_Model"/>
+  <extender full="SSViewerCacheBlockTest_VersionedModel" namespace="" name="SSViewerCacheBlockTest_VersionedModel"/>
+  <extender full="SSViewerTestFixture" namespace="" name="SSViewerTestFixture"/>
+  <extender full="SSViewerTest_ViewableData" namespace="" name="SSViewerTest_ViewableData"/>
+  <extender full="SSViewerTest_Controller" namespace="" name="SSViewerTest_Controller"/>
+  <extender full="SSViewerTest_Object" namespace="" name="SSViewerTest_Object"/>
+  <extender full="SSViewerTest_LevelTest" namespace="" name="SSViewerTest_LevelTest"/>
+  <extender full="BasicAuthTest_ControllerSecuredWithPermission" namespace="" name="BasicAuthTest_ControllerSecuredWithPermission"/>
+  <extender full="BasicAuthTest_ControllerSecuredWithoutPermission" namespace="" name="BasicAuthTest_ControllerSecuredWithoutPermission"/>
+  <extender full="MemberTest_ValidatorForm" namespace="" name="MemberTest_ValidatorForm"/>
+  <extender full="GroupTest_Member" namespace="" name="GroupTest_Member"/>
+  <extender full="GroupTest_MemberForm" namespace="" name="GroupTest_MemberForm"/>
+  <extender full="SecurityTest_SecuredController" namespace="" name="SecurityTest_SecuredController"/>
+  <extender full="SearchFilterApplyRelationTest_DO" namespace="" name="SearchFilterApplyRelationTest_DO"/>
+  <extender full="SearchFilterApplyRelationTest_HasOneParent" namespace="" name="SearchFilterApplyRelationTest_HasOneParent"/>
+  <extender full="SearchFilterApplyRelationTest_HasOneChild" namespace="" name="SearchFilterApplyRelationTest_HasOneChild"/>
+  <extender full="SearchFilterApplyRelationTest_HasOneGrantChild" namespace="" name="SearchFilterApplyRelationTest_HasOneGrantChild"/>
+  <extender full="SearchFilterApplyRelationTest_HasManyParent" namespace="" name="SearchFilterApplyRelationTest_HasManyParent"/>
+  <extender full="SearchFilterApplyRelationTest_HasManyChild" namespace="" name="SearchFilterApplyRelationTest_HasManyChild"/>
+  <extender full="SearchFilterApplyRelationTest_HasManyGrantChild" namespace="" name="SearchFilterApplyRelationTest_HasManyGrantChild"/>
+  <extender full="SearchFilterApplyRelationTest_ManyManyParent" namespace="" name="SearchFilterApplyRelationTest_ManyManyParent"/>
+  <extender full="SearchFilterApplyRelationTest_ManyManyChild" namespace="" name="SearchFilterApplyRelationTest_ManyManyChild"/>
+  <extender full="SearchFilterApplyRelationTest_ManyManyGrantChild" namespace="" name="SearchFilterApplyRelationTest_ManyManyGrantChild"/>
+  <extender full="SearchContextTest_Person" namespace="" name="SearchContextTest_Person"/>
+  <extender full="SearchContextTest_Book" namespace="" name="SearchContextTest_Book"/>
+  <extender full="SearchContextTest_Company" namespace="" name="SearchContextTest_Company"/>
+  <extender full="SearchContextTest_Project" namespace="" name="SearchContextTest_Project"/>
+  <extender full="SearchContextTest_Deadline" namespace="" name="SearchContextTest_Deadline"/>
+  <extender full="SearchContextTest_Action" namespace="" name="SearchContextTest_Action"/>
+  <extender full="SearchContextTest_AllFilterTypes" namespace="" name="SearchContextTest_AllFilterTypes"/>
+  <extender full="FileTest_MyCustomFile" namespace="" name="FileTest_MyCustomFile"/>
+  <extender full="VersionedLazy_DataObject" namespace="" name="VersionedLazy_DataObject"/>
+  <extender full="VersionedLazySub_DataObject" namespace="" name="VersionedLazySub_DataObject"/>
+  <extender full="MoneyTest_DataObject" namespace="" name="MoneyTest_DataObject"/>
+  <extender full="MoneyTest_SubClass" namespace="" name="MoneyTest_SubClass"/>
+  <extender full="DataDifferencerTest_Object" namespace="" name="DataDifferencerTest_Object"/>
+  <extender full="DataDifferencerTest_HasOneRelationObject" namespace="" name="DataDifferencerTest_HasOneRelationObject"/>
+  <extender full="DataDifferencerTest_MockImage" namespace="" name="DataDifferencerTest_MockImage"/>
+  <extender full="HierarchyTest_Object" namespace="" name="HierarchyTest_Object"/>
+  <extender full="DataQueryTest_A" namespace="" name="DataQueryTest_A"/>
+  <extender full="DataQueryTest_B" namespace="" name="DataQueryTest_B"/>
+  <extender full="DataQueryTest_C" namespace="" name="DataQueryTest_C"/>
+  <extender full="DataQueryTest_D" namespace="" name="DataQueryTest_D"/>
+  <extender full="DataQueryTest_E" namespace="" name="DataQueryTest_E"/>
+  <extender full="DataQueryTest_F" namespace="" name="DataQueryTest_F"/>
+  <extender full="DataObjectTest\NamespacedClass" namespace="DataObjectTest" name="NamespacedClass"/>
+  <extender full="MySQLDatabaseTest_DO" namespace="" name="MySQLDatabaseTest_DO"/>
+  <extender full="SQLQueryTest_DO" namespace="" name="SQLQueryTest_DO"/>
+  <extender full="SQLQueryTestBase" namespace="" name="SQLQueryTestBase"/>
+  <extender full="SQLQueryTestChild" namespace="" name="SQLQueryTestChild"/>
+  <extender full="DataObjectDuplicateTestClass1" namespace="" name="DataObjectDuplicateTestClass1"/>
+  <extender full="DataObjectDuplicateTestClass2" namespace="" name="DataObjectDuplicateTestClass2"/>
+  <extender full="DataObjectDuplicateTestClass3" namespace="" name="DataObjectDuplicateTestClass3"/>
+  <extender full="AggregateTest_Foo" namespace="" name="AggregateTest_Foo"/>
+  <extender full="AggregateTest_Fab" namespace="" name="AggregateTest_Fab"/>
+  <extender full="AggregateTest_Fac" namespace="" name="AggregateTest_Fac"/>
+  <extender full="AggregateTest_Bar" namespace="" name="AggregateTest_Bar"/>
+  <extender full="AggregateTest_Baz" namespace="" name="AggregateTest_Baz"/>
+  <extender full="ComponentSetTest_Player" namespace="" name="ComponentSetTest_Player"/>
+  <extender full="ComponentSetTest_Team" namespace="" name="ComponentSetTest_Team"/>
+  <extender full="DbDateTimeTest_Team" namespace="" name="DbDateTimeTest_Team"/>
+  <extender full="DataExtensionTest_Member" namespace="" name="DataExtensionTest_Member"/>
+  <extender full="DataExtensionTest_Player" namespace="" name="DataExtensionTest_Player"/>
+  <extender full="DataExtensionTest_RelatedObject" namespace="" name="DataExtensionTest_RelatedObject"/>
+  <extender full="DataExtensionTest_MyObject" namespace="" name="DataExtensionTest_MyObject"/>
+  <extender full="DataExtensionTest_CMSFieldsBase" namespace="" name="DataExtensionTest_CMSFieldsBase"/>
+  <extender full="DataExtensionTest_CMSFieldsChild" namespace="" name="DataExtensionTest_CMSFieldsChild"/>
+  <extender full="DataExtensionTest_CMSFieldsGrandchild" namespace="" name="DataExtensionTest_CMSFieldsGrandchild"/>
+  <extender full="DataObjectTest_Player" namespace="" name="DataObjectTest_Player"/>
+  <extender full="DataObjectTest_Team" namespace="" name="DataObjectTest_Team"/>
+  <extender full="DataObjectTest_Fixture" namespace="" name="DataObjectTest_Fixture"/>
+  <extender full="DataObjectTest_SubTeam" namespace="" name="DataObjectTest_SubTeam"/>
+  <extender full="OtherSubclassWithSameField" namespace="" name="OtherSubclassWithSameField"/>
+  <extender full="DataObjectTest_FieldlessTable" namespace="" name="DataObjectTest_FieldlessTable"/>
+  <extender full="DataObjectTest_FieldlessSubTable" namespace="" name="DataObjectTest_FieldlessSubTable"/>
+  <extender full="DataObjectTest_ValidatedObject" namespace="" name="DataObjectTest_ValidatedObject"/>
+  <extender full="DataObjectTest_Company" namespace="" name="DataObjectTest_Company"/>
+  <extender full="DataObjectTest_Staff" namespace="" name="DataObjectTest_Staff"/>
+  <extender full="DataObjectTest_CEO" namespace="" name="DataObjectTest_CEO"/>
+  <extender full="DataObjectTest_TeamComment" namespace="" name="DataObjectTest_TeamComment"/>
+  <extender full="DataObjectTest_ExtendedTeamComment" namespace="" name="DataObjectTest_ExtendedTeamComment"/>
+  <extender full="ManyManyListTest_ExtraFields" namespace="" name="ManyManyListTest_ExtraFields"/>
+  <extender full="DataObjectSchemaGenerationTest_DO" namespace="" name="DataObjectSchemaGenerationTest_DO"/>
+  <extender full="DataObjectSchemaGenerationTest_IndexDO" namespace="" name="DataObjectSchemaGenerationTest_IndexDO"/>
+  <extender full="UnsavedRelationListTest_DataObject" namespace="" name="UnsavedRelationListTest_DataObject"/>
+  <extender full="CompositeDBFieldTest_DataObject" namespace="" name="CompositeDBFieldTest_DataObject"/>
+  <extender full="SubclassedDBFieldObject" namespace="" name="SubclassedDBFieldObject"/>
+  <extender full="TransactionTest_Object" namespace="" name="TransactionTest_Object"/>
+  <extender full="DecimalTest_DataObject" namespace="" name="DecimalTest_DataObject"/>
+  <extender full="DatabaseTest_MyObject" namespace="" name="DatabaseTest_MyObject"/>
+  <extender full="StringFieldTest_MyStringField" namespace="" name="StringFieldTest_MyStringField"/>
+  <extender full="VersionedTest_DataObject" namespace="" name="VersionedTest_DataObject"/>
+  <extender full="VersionedTest_RelatedWithoutVersion" namespace="" name="VersionedTest_RelatedWithoutVersion"/>
+  <extender full="VersionedTest_Subclass" namespace="" name="VersionedTest_Subclass"/>
+  <extender full="VersionedTest_AnotherSubclass" namespace="" name="VersionedTest_AnotherSubclass"/>
+  <extender full="VersionedTest_UnversionedWithField" namespace="" name="VersionedTest_UnversionedWithField"/>
+  <extender full="VersionedTest_SingleStage" namespace="" name="VersionedTest_SingleStage"/>
+  <extender full="RestfulServiceTest_Controller" namespace="" name="RestfulServiceTest_Controller"/>
+  <extender full="RestfulServiceTest_MockRestfulService" namespace="" name="RestfulServiceTest_MockRestfulService"/>
+  <extender full="RestfulServiceTest_MockErrorService" namespace="" name="RestfulServiceTest_MockErrorService"/>
+  <extender full="RSSFeedTest_ItemA" namespace="" name="RSSFeedTest_ItemA"/>
+  <extender full="RSSFeedTest_ItemB" namespace="" name="RSSFeedTest_ItemB"/>
+  <extender full="RSSFeedTest_ItemC" namespace="" name="RSSFeedTest_ItemC"/>
+  <extender full="RSSFeedTest_ItemD" namespace="" name="RSSFeedTest_ItemD"/>
+  <extender full="XMLDataFormatterTest_DataObject" namespace="" name="XMLDataFormatterTest_DataObject"/>
+  <extender full="HtmlEditorFieldTest_Object" namespace="" name="HtmlEditorFieldTest_Object"/>
+  <extender full="GridFieldExportButtonTest_Team" namespace="" name="GridFieldExportButtonTest_Team"/>
+  <extender full="GridFieldExportButtonTest_NoView" namespace="" name="GridFieldExportButtonTest_NoView"/>
+  <extender full="GridField_URLHandlerTest_Controller" namespace="" name="GridField_URLHandlerTest_Controller"/>
+  <extender full="GridField_URLHandlerTest_Component" namespace="" name="GridField_URLHandlerTest_Component"/>
+  <extender full="GridField_URLHandlerTest_Component_ItemRequest" namespace="" name="GridField_URLHandlerTest_Component_ItemRequest"/>
+  <extender full="GridFieldAction_Edit_Team" namespace="" name="GridFieldAction_Edit_Team"/>
+  <extender full="GridFieldAddExistingAutocompleterTest_Controller" namespace="" name="GridFieldAddExistingAutocompleterTest_Controller"/>
+  <extender full="GridFieldSortableHeaderTest_Team" namespace="" name="GridFieldSortableHeaderTest_Team"/>
+  <extender full="GridFieldSortableHeaderTest_Cheerleader" namespace="" name="GridFieldSortableHeaderTest_Cheerleader"/>
+  <extender full="GridFieldSortableHeaderTest_CheerleaderHat" namespace="" name="GridFieldSortableHeaderTest_CheerleaderHat"/>
+  <extender full="GridFieldDetailFormTest_Person" namespace="" name="GridFieldDetailFormTest_Person"/>
+  <extender full="GridFieldDetailFormTest_PeopleGroup" namespace="" name="GridFieldDetailFormTest_PeopleGroup"/>
+  <extender full="GridFieldDetailFormTest_Category" namespace="" name="GridFieldDetailFormTest_Category"/>
+  <extender full="GridFieldDetailFormTest_Controller" namespace="" name="GridFieldDetailFormTest_Controller"/>
+  <extender full="GridFieldDetailFormTest_GroupController" namespace="" name="GridFieldDetailFormTest_GroupController"/>
+  <extender full="GridFieldDetailFormTest_CategoryController" namespace="" name="GridFieldDetailFormTest_CategoryController"/>
+  <extender full="GridFieldDetailFormTest_ItemRequest" namespace="" name="GridFieldDetailFormTest_ItemRequest"/>
+  <extender full="GridFieldAction_Delete_Team" namespace="" name="GridFieldAction_Delete_Team"/>
+  <extender full="ListboxFieldTest_DataObject" namespace="" name="ListboxFieldTest_DataObject"/>
+  <extender full="ListboxFieldTest_Article" namespace="" name="ListboxFieldTest_Article"/>
+  <extender full="ListboxFieldTest_Tag" namespace="" name="ListboxFieldTest_Tag"/>
+  <extender full="DatetimeFieldTest_Model" namespace="" name="DatetimeFieldTest_Model"/>
+  <extender full="FormScaffolderTest_Article" namespace="" name="FormScaffolderTest_Article"/>
+  <extender full="FormScaffolderTest_Author" namespace="" name="FormScaffolderTest_Author"/>
+  <extender full="FormScaffolderTest_Tag" namespace="" name="FormScaffolderTest_Tag"/>
+  <extender full="MoneyFieldTest_Object" namespace="" name="MoneyFieldTest_Object"/>
+  <extender full="MoneyFieldTest_CustomSetter_Object" namespace="" name="MoneyFieldTest_CustomSetter_Object"/>
+  <extender full="CheckboxFieldTest_Article" namespace="" name="CheckboxFieldTest_Article"/>
+  <extender full="CheckboxSetFieldTest_Article" namespace="" name="CheckboxSetFieldTest_Article"/>
+  <extender full="CheckboxSetFieldTest_Tag" namespace="" name="CheckboxSetFieldTest_Tag"/>
+  <extender full="MemberDatetimeOptionsetFieldTest_Controller" namespace="" name="MemberDatetimeOptionsetFieldTest_Controller"/>
+  <extender full="GridFieldTest_Team" namespace="" name="GridFieldTest_Team"/>
+  <extender full="GridFieldTest_Player" namespace="" name="GridFieldTest_Player"/>
+  <extender full="GridFieldTest_Cheerleader" namespace="" name="GridFieldTest_Cheerleader"/>
+  <extender full="GridFieldTest_Permissions" namespace="" name="GridFieldTest_Permissions"/>
+  <extender full="FormTest_Player" namespace="" name="FormTest_Player"/>
+  <extender full="FormTest_Team" namespace="" name="FormTest_Team"/>
+  <extender full="FormTest_Controller" namespace="" name="FormTest_Controller"/>
+  <extender full="FormTest_ControllerWithSecurityToken" namespace="" name="FormTest_ControllerWithSecurityToken"/>
+  <extender full="FormTest_ControllerWithStrictPostCheck" namespace="" name="FormTest_ControllerWithStrictPostCheck"/>
+  <extender full="NumericFieldTest_Object" namespace="" name="NumericFieldTest_Object"/>
+  <extender full="UploadFieldTest_Record" namespace="" name="UploadFieldTest_Record"/>
+  <extender full="UploadFieldTest_ExtendedFile" namespace="" name="UploadFieldTest_ExtendedFile"/>
+  <extender full="UploadFieldTestForm" namespace="" name="UploadFieldTestForm"/>
+  <extender full="UploadFieldTest_Controller" namespace="" name="UploadFieldTest_Controller"/>
+  <extender full="EmailFieldTest_Controller" namespace="" name="EmailFieldTest_Controller"/>
+  <extender full="YamlFixtureTest_DataObject" namespace="" name="YamlFixtureTest_DataObject"/>
+  <extender full="YamlFixtureTest_DataObjectRelation" namespace="" name="YamlFixtureTest_DataObjectRelation"/>
+  <extender full="i18nTest_DataObject" namespace="" name="i18nTest_DataObject"/>
+  <extender full="i18nTextCollectorTestMyObject" namespace="" name="i18nTextCollectorTestMyObject"/>
+  <extender full="i18nTestModule" namespace="" name="i18nTestModule"/>
+  <extender full="i18nTextCollectorTestMySubObject" namespace="" name="i18nTextCollectorTestMySubObject"/>
+  <extender full="FakeController" namespace="" name="FakeController"/>
+  <extender full="PaginatedList" namespace="" name="PaginatedList"/>
+  <extender full="Controller" namespace="" name="Controller"/>
+  <extender full="RequestHandler" namespace="" name="RequestHandler"/>
+  <extender full="LeftAndMainTest_Controller" namespace="" name="LeftAndMainTest_Controller"/>
+  <extender full="LeftAndMainTest_Object" namespace="" name="LeftAndMainTest_Object"/>
+  <extender full="CMSMenuTest_LeftAndMainController" namespace="" name="CMSMenuTest_LeftAndMainController"/>
+  <extender full="ModelAdminTest_Admin" namespace="" name="ModelAdminTest_Admin"/>
+  <extender full="ModelAdminTest_PlayerAdmin" namespace="" name="ModelAdminTest_PlayerAdmin"/>
+  <extender full="ModelAdminTest_Contact" namespace="" name="ModelAdminTest_Contact"/>
+  <extender full="ModelAdminTest_Player" namespace="" name="ModelAdminTest_Player"/>
+  <extender full="CMSFormTest_Controller" namespace="" name="CMSFormTest_Controller"/>
+  <extender full="ModelAdmin" namespace="" name="ModelAdmin"/>
+  <extender full="LeftAndMain" namespace="" name="LeftAndMain"/>
+  <extender full="LeftAndMain_TreeNode" namespace="" name="LeftAndMain_TreeNode"/>
+  <extender full="CMSBatchActionHandler" namespace="" name="CMSBatchActionHandler"/>
+  <extender full="MemberImportForm" namespace="" name="MemberImportForm"/>
+  <extender full="CMSForm" namespace="" name="CMSForm"/>
+  <extender full="CMSProfileController" namespace="" name="CMSProfileController"/>
+  <extender full="AdminRootController" namespace="" name="AdminRootController"/>
+  <extender full="GroupImportForm" namespace="" name="GroupImportForm"/>
+  <extender full="SecurityAdmin" namespace="" name="SecurityAdmin"/>
+  <parent full="Object" namespace="" name="Object">
+    <member name="class" type="{unknown}" visibility="public" line="54">
+      <docblock>
+        <description/>
+        <var description="the class name" type="string"/>
+      </docblock>
+    </member>
+    <member name="extension_instances" type="array" visibility="protected" line="67">
+      <docblock>
+        <description/>
+        <var description="all current extension instances." type="array"/>
+      </docblock>
+    </member>
+    <member name="beforeExtendCallbacks" type="array" visibility="protected" line="75">
+      <docblock>
+        <description compact="List of callbacks to call prior to extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="afterExtendCallbacks" type="array" visibility="protected" line="98">
+      <docblock>
+        <description compact="List of callbacks to call after extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="config" start="60" end="62" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....)."/>
+        <return type="object">
+          <type full="Config_ForClass|null" namespace="" name="Config_ForClass|null"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="beforeExtending" start="85" end="90" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="afterExtending" start="108" end="113" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="create" start="132" end="143" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="An implementation of the factory method, allows you to create an instance of a class">This method first for strong class overloads (singletons &amp; DB interaction), then custom class overloads. If an
+overload is found, an instance of this is returned rather than the original class. To overload a class, use
+{@link Object::useCustomClass()}
+
+This can be called in one of two ways - either calling via the class directly,
+or calling on Object and passing the class name as the first parameter. The following
+are equivalent:
+   $list = DataList::create('SiteTree');
+  $list = SiteTree::get();</description>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="Class to create should be the calling class if not Object," line="135"/>
+        <comment value="otherwise the first parameter" line="136"/>
+      </inline>
+    </method>
+    <method name="create_from_string" start="169" end="188" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().">Construction itself is done with Object::create(), so that Object::useCustomClass() calls
+are respected.
+
+`Object::create_from_string("Versioned('Stage','Live')")` will return the result of
+`Versioned::create('Stage', 'Live);`
+
+It is designed for simple, clonable objects.  The first time this method is called for a given
+string it is cached, and clones of that object are returned.
+
+If you pass the $firstArg argument, this will be prepended to the constructor arguments. It's
+impossible to pass null as the firstArg argument.
+
+`Object::create_from_string("Varchar(50)", "MyField")` will return the result of
+`Vachar::create('MyField', '50');`
+
+Arguments are always strings, although this is a quirk of the current implementation rather
+than something that can be relied upon.</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <parameter name="firstArg" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="an $extension value can contain parameters as a string," line="171"/>
+        <comment value="e.g. &quot;Versioned('Stage','Live')&quot;" line="172"/>
+      </inline>
+    </method>
+    <method name="parse_class_spec" start="194" end="274" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Parses a class-spec, such as &quot;Versioned('Stage','Live')&quot;, as passed to create_from_string().">Returns a 2-elemnent array, with classname and arguments</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Keep track of the current bucket that we're putting data into" line="200"/>
+        <comment value="Get the class naem" line="207"/>
+      </inline>
+    </method>
+    <method name="strong_create" start="284" end="293" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}"/>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="useCustomClass" start="304" end="310" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}"/>
+        <param description="the class to replace" type="string" variable="$oldClass"/>
+        <param description="the class to replace it with" type="string" variable="$newClass"/>
+        <param description="allows you to enforce a certain class replacement under all circumstances. This is used in" type="object" variable="$strong">singletons and DB interaction classes<type full="bool" namespace="" name="bool"/></param>
+      </docblock>
+      <parameter name="oldClass" byreference="false" type="{unknown}"/>
+      <parameter name="newClass" byreference="false" type="{unknown}"/>
+      <parameter name="strong" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="getCustomClass" start="318" end="326" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name"/>
+        <param description="the class to check" type="string" variable="$class"/>
+        <return description="the class that would be created if you called {@link Object::create()} with the class" type="string"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="static_lookup" start="339" end="374" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class."/>
+        <static/>
+        <param description="The class to get the static from" variable="$class" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="The property to get from the class" variable="$name" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="- The value to return if property doesn't exist on class" type="object" variable="$default">
+          <type full="null" namespace="" name="null"/>
+        </param>
+        <return description="- The value of the static property $name on class $class, or $default if that property is not" type="object">defined<type full="any" namespace="" name="any"/></return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="default" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="get_static" start="391" end="394" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a static variable, taking into account SS's inbuild static caches and pseudo-statics">This method first checks for any extra values added by <link xmlns="http://xml.phpdox.net/src" value="Object::add_static_var()"/>, and attemps to traverse
+up the extra static var chain until it reaches the top, or it reaches a replacement static.
+If any extra values are discovered, they are then merged with the default PHP static values, or in some cases
+completely replace the default PHP static when you set $replace = true, and do not define extra data on any
+child classes
+</description>
+        <param type="string" variable="$class"/>
+        <param description="the property name" type="string" variable="$name"/>
+        <param description="if set to TRUE, force a regeneration of the static cache" type="object" variable="$uncached">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_static" start="403" end="406" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set a static variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the property name to set" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited_static" start="415" end="418" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class."/>
+        <param type="string" variable="$class"/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="combined_static" start="430" end="435" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param description="an optional parent class name to begin merging statics down from, rather than traversing" type="string" variable="$ceiling">the entire hierarchy</param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="ceiling" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="addStaticVars" start="444" end="447" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Merge in a set of additional static variables"/>
+        <param type="string" variable="$class"/>
+        <param description="in a [property name] =&gt; [value] format" type="array" variable="$properties"/>
+        <param description="replace existing static vars" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="properties" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="add_static_var" start="465" end="470" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.">Documentation from http://php.net/array_merge_recursive:
+If the input arrays have the same string keys, then the values for these keys are merged together
+into an array, and this is done recursively, so that if one of the values is an array itself,
+the function will merge it with a corresponding entry in another array too.
+If, however, the arrays have the same numeric key, the later value will not overwrite the original value,
+but will be appended.</description>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+        <param description="completely replace existing static values" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="has_extension" start="481" end="503" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a class has a specified extension.">This supports backwards-compatible format (static Object::has_extension($requiredExtension))
+and new format ($object-&gt;has_extension($class, $requiredExtension))</description>
+        <param description="if 1 argument supplied, the class name of the extension to" type="string" variable="$classOrExtension">check for; if 2 supplied, the class name to test</param>
+        <param description="used only if 2 arguments supplied" type="string" variable="$requiredExtension"/>
+        <param description="if the extension has to match the required extension and not be a subclass" type="boolean" variable="$strict"/>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="requiredExtension" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="strict" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="BC support" line="482"/>
+      </inline>
+    </method>
+    <method name="add_extension" start="523" end="565" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add an extension to a specific class.">The preferred method for adding extensions is through YAML config,
+since it avoids autoloading the class, and is easier to override in
+more specific configurations.
+As an alternative, extensions can be added to a specific class
+directly in the <link xmlns="http://xml.phpdox.net/src" value="Object::$extensions"/> array.
+See <link xmlns="http://xml.phpdox.net/src" value="SiteTree::$extensions"/> for examples.
+Keep in mind that the extension will only be applied to new
+instances, not existing ones (including all instances created through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>).
+</description>
+        <see value="http://doc.silverstripe.org/framework/en/trunk/reference/dataextension"/>
+        <param description="Class that should be extended - has to be a subclass of {@link Object}" type="string" variable="$class"/>
+        <param description="Subclass of {@link Extension} with optional parameters" type="string" variable="$extension">as a string, e.g. "Versioned" or "Translatable('Param')"</param>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="extension" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="unset some caches" line="545"/>
+        <comment value="load statics now for DataObject classes" line="559"/>
+      </inline>
+    </method>
+    <method name="remove_extension" start="584" end="614" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Remove an extension from a class.">Keep in mind that this won't revert any datamodel additions
+of the extension at runtime, unless its used before the
+schema building kicks in (in your _config.php).
+Doesn't remove the extension from any <link xmlns="http://xml.phpdox.net/src" value="Object"/>instances which are already created, but will have an
+effect on new extensions.
+Clears any previously created singletons through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>to avoid side-effects from stale extension information.
+</description>
+        <todo value="Add support for removing extensions with parameters"/>
+        <param description="Classname of an {@link Extension} subclass, without parameters" type="string" variable="$extension"/>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="remove any instances of the extension with parameters" line="589"/>
+        <comment value="extensions with parameters will be stored in config as" line="594"/>
+        <comment value="ExtensionName(&quot;Param&quot;)." line="595"/>
+        <comment value="unset singletons to avoid side-effects" line="604"/>
+        <comment value="unset some caches" line="607"/>
+      </inline>
+    </method>
+    <method name="get_extensions" start="623" end="635" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$class"/>
+        <param description="Include the argument string in the return array," type="object" variable="$includeArgumentString">FALSE would return array("Versioned"), TRUE returns array("Versioned('Stage','Live')").<type full="bool" namespace="" name="bool"/></param>
+        <return description="Numeric array of either {@link DataExtension} classnames," type="array">or eval'ed classname strings with constructor arguments.</return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="includeArgumentString" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="get_extra_config_sources" start="641" end="678" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="If this class is unextendable, NOP" line="644"/>
+        <comment value="Get a list of extensions" line="650"/>
+        <comment value="Build a list of all sources;" line="654"/>
+      </inline>
+    </method>
+    <constructor name="__construct" start="680" end="699" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="__call" start="711" end="765" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located">You can add extra methods to a class using <link xmlns="http://xml.phpdox.net/src" value="Extensions"/>, <link xmlns="http://xml.phpdox.net/src" value="Object::createMethod()"/> or
+<link xmlns="http://xml.phpdox.net/src" value="Object::addWrapperMethod()"/></description>
+        <param type="string" variable="$method"/>
+        <param type="array" variable="$arguments"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="If the method cache was cleared by an an Object::add_extension() / Object::remove_extension()" line="712"/>
+        <comment value="call, then we should rebuild it." line="713"/>
+      </inline>
+    </method>
+    <method name="hasMethod" start="778" end="780" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a method exists on this object">This should be used rather than PHP's inbuild method_exists() as it takes into account methods added via
+extensions</description>
+        <param type="string" variable="$method"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="allMethodNames" start="788" end="798" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the names of all the methods available on this object"/>
+        <param description="include methods added dynamically at runtime" type="object" variable="$custom">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="array"/>
+      </docblock>
+      <parameter name="custom" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="defineMethods" start="807" end="821" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Adds any methods from {@link Extension} instances attached to this object.">All these methods can then be called directly on the instance (transparently
+mapped through <link xmlns="http://xml.phpdox.net/src" value="__call()"/>), or called explicitly through <link xmlns="http://xml.phpdox.net/src" value="extend()"/>.
+</description>
+        <uses value="addMethodsFrom()"/>
+      </docblock>
+    </method>
+    <method name="addMethodsFrom" start="829" end="864" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add all the methods from an object property (which is an {@link Extension}) to this object."/>
+        <param description="the property name" type="string" variable="$property"/>
+        <param description="an index to use if the property is an array" type="object" variable="$index">
+          <type full="string|int" namespace="" name="string|int"/>
+        </param>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <parameter name="index" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="addWrapperMethod" start="873" end="878" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)"/>
+        <param description="the method name to wrap" type="string" variable="$method"/>
+        <param description="the method name to wrap to" type="string" variable="$wrap"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="wrap" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="createMethod" start="888" end="892" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add an extra method using raw PHP code passed as a string"/>
+        <param description="the method name" type="string" variable="$method"/>
+        <param description="the PHP code - arguments will be in an array called $args, while you can access this object" type="string" variable="$code">by using $obj. Note that you cannot call protected methods, as the method is actually an external
+       function</param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="code" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="stat" start="899" end="901" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::get_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_stat" start="906" end="908" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::set_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited" start="913" end="915" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::uninherited_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="exists" start="927" end="929" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return true if this object &quot;exists&quot; i.e. has a sensible value">This method should be overriden in subclasses to provide more context about the classes state. For example, a
+{@link DataObject} class could return false when it is deleted from the database</description>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="parentClass" start="934" end="936" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="this classes parent class" type="string"/>
+      </docblock>
+    </method>
+    <method name="is_a" start="944" end="946" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if this class is an instance of a specific class, or has that class as one of its parents"/>
+        <param type="string" variable="$class"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="951" end="953" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="the class name" type="string"/>
+      </docblock>
+    </method>
+    <method name="invokeWithExtensions" start="966" end="971" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array"/>
+        <param description="the method name to call" type="string" variable="$method"/>
+        <param description="a single argument to pass" type="mixed" variable="$argument"/>
+        <return type="mixed"/>
+        <todo value="integrate inheritance rules"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="argument" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="extend" start="988" end="1017" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed">Currently returns an array, with an index resulting every time the function is called. Only adds returns if
+they're not NULL, to avoid bogus results from methods just defined on the parent extension. This is important for
+permission-checks through extend, as they use min() to determine if any of the returns is FALSE. As min() doesn't
+do type checking, an included NULL return would fail the permission checks.
+The extension methods are defined during <link xmlns="http://xml.phpdox.net/src" value="__construct()"/> in <link xmlns="http://xml.phpdox.net/src" value="defineMethods()"/>.
+</description>
+        <param description="the name of the method to call on each extension" type="string" variable="$method"/>
+        <param description="... up to 7 arguments to be passed to the method" type="mixed" variable="$a1"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="a1" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a2" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a3" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a4" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a5" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a6" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a7" byreference="true" type="{unknown}" default="null"/>
+    </method>
+    <method name="getExtensionInstance" start="1027" end="1029" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an extension instance attached to this object by name."/>
+        <uses value="hasExtension()"/>
+        <param type="string" variable="$extension"/>
+        <return type="object">
+          <type full="Extension" namespace="" name="Extension"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasExtension" start="1045" end="1047" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.">Caution: Don't use singleton(&lt;class&gt;)-&gt;hasExtension() as it will
+give you inconsistent results based on when the singleton was first
+accessed.</description>
+        <param description="Classname of an {@link Extension} subclass without parameters" type="string" variable="$extension"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getExtensionInstances" start="1056" end="1058" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get all extension instances for this specific object instance.">See <link xmlns="http://xml.phpdox.net/src" value="get_extensions()"/> to get all applied extension classes
+for this class (not the instance).
+</description>
+        <return description="Map of {@link DataExtension} instances, keyed by classname." type="array"/>
+      </docblock>
+    </method>
+    <method name="cacheToFile" start="1072" end="1092" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Cache the results of an instance method in this object to a file, or if it is already cache return the cached results"/>
+        <param description="the method name to cache" type="string" variable="$method"/>
+        <param description="the cache lifetime in seconds" type="int" variable="$lifetime"/>
+        <param description="custom cache ID to use" type="string" variable="$ID"/>
+        <param description="an optional array of arguments" type="array" variable="$arguments"/>
+        <return description="the cached data" type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="clearCache" start="1097" end="1105" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Clears the cache for the given cacheToFile call"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="loadCache" start="1114" end="1122" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Loads a cache from the filesystem if a valid on is present and within the specified lifetime"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="the lifetime (in seconds) of the cache before it is invalid" type="int" variable="$lifetime"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+    </method>
+    <method name="saveCache" start="1130" end="1132" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Save a piece of cached data to the file system"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="data to save (must be serializable)" type="mixed" variable="$data"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="sanitiseCachename" start="1140" end="1142" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Strip a file name of special characters so it is suitable for use as a cache file name"/>
+        <param type="string" variable="$name"/>
+        <return description="the name with all special cahracters replaced with underscores" type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="IteratorAggregate" namespace="" name="IteratorAggregate">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="getIterator" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Retrieve an external iterator"/>
+      <return type="Traversable"/>
+    </docblock>
+  </method>
+  </interface>
+  <extender full="ViewableData_Customised" namespace="" name="ViewableData_Customised"/>
+  <extender full="ViewableData_Debugger" namespace="" name="ViewableData_Debugger"/>
+  <extender full="ArrayData" namespace="" name="ArrayData"/>
+  <extender full="CliController" namespace="" name="CliController"/>
+  <extender full="GroupCsvBulkLoader" namespace="" name="GroupCsvBulkLoader"/>
+  <extender full="Group" namespace="" name="Group"/>
+  <extender full="Member" namespace="" name="Member"/>
+  <extender full="Member_GroupSet" namespace="" name="Member_GroupSet"/>
+  <extender full="Member_ChangePasswordEmail" namespace="" name="Member_ChangePasswordEmail"/>
+  <extender full="Member_ForgotPasswordEmail" namespace="" name="Member_ForgotPasswordEmail"/>
+  <extender full="MemberPassword" namespace="" name="MemberPassword"/>
+  <extender full="PermissionCheckboxSetField" namespace="" name="PermissionCheckboxSetField"/>
+  <extender full="PermissionCheckboxSetField_Readonly" namespace="" name="PermissionCheckboxSetField_Readonly"/>
+  <extender full="CMSSecurity" namespace="" name="CMSSecurity"/>
+  <extender full="LoginForm" namespace="" name="LoginForm"/>
+  <extender full="MemberCsvBulkLoader" namespace="" name="MemberCsvBulkLoader"/>
+  <extender full="CMSMemberLoginForm" namespace="" name="CMSMemberLoginForm"/>
+  <extender full="ChangePasswordForm" namespace="" name="ChangePasswordForm"/>
+  <extender full="Security" namespace="" name="Security"/>
+  <extender full="LoginAttempt" namespace="" name="LoginAttempt"/>
+  <extender full="MemberLoginForm" namespace="" name="MemberLoginForm"/>
+  <extender full="Permission" namespace="" name="Permission"/>
+  <extender full="PermissionRoleCode" namespace="" name="PermissionRoleCode"/>
+  <extender full="PermissionRole" namespace="" name="PermissionRole"/>
+  <extender full="Email" namespace="" name="Email"/>
+  <extender full="Folder" namespace="" name="Folder"/>
+  <extender full="File" namespace="" name="File"/>
+  <extender full="Upload" namespace="" name="Upload"/>
+  <extender full="SS_HTMLValue" namespace="" name="SS_HTMLValue"/>
+  <extender full="SS_HTML4Value" namespace="" name="SS_HTML4Value"/>
+  <extender full="Versioned_Version" namespace="" name="Versioned_Version"/>
+  <extender full="DataList" namespace="" name="DataList"/>
+  <extender full="Image" namespace="" name="Image"/>
+  <extender full="Image_Cached" namespace="" name="Image_Cached"/>
+  <extender full="GroupedList" namespace="" name="GroupedList"/>
+  <extender full="ManyManyList" namespace="" name="ManyManyList"/>
+  <extender full="HasManyList" namespace="" name="HasManyList"/>
+  <extender full="RelationList" namespace="" name="RelationList"/>
+  <extender full="UnsavedRelationList" namespace="" name="UnsavedRelationList"/>
+  <extender full="DataObject" namespace="" name="DataObject"/>
+  <extender full="DataDifferencer" namespace="" name="DataDifferencer"/>
+  <extender full="ArrayList" namespace="" name="ArrayList"/>
+  <extender full="SS_ListDecorator" namespace="" name="SS_ListDecorator"/>
+  <extender full="Aggregate" namespace="" name="Aggregate"/>
+  <extender full="Aggregate_Relationship" namespace="" name="Aggregate_Relationship"/>
+  <extender full="Boolean" namespace="" name="Boolean"/>
+  <extender full="PrimaryKey" namespace="" name="PrimaryKey"/>
+  <extender full="Date" namespace="" name="Date"/>
+  <extender full="HTMLText" namespace="" name="HTMLText"/>
+  <extender full="SS_Datetime" namespace="" name="SS_Datetime"/>
+  <extender full="DBLocale" namespace="" name="DBLocale"/>
+  <extender full="StringField" namespace="" name="StringField"/>
+  <extender full="Percentage" namespace="" name="Percentage"/>
+  <extender full="Year" namespace="" name="Year"/>
+  <extender full="Int" namespace="" name="Int"/>
+  <extender full="Text" namespace="" name="Text"/>
+  <extender full="Float" namespace="" name="Float"/>
+  <extender full="Currency" namespace="" name="Currency"/>
+  <extender full="DBField" namespace="" name="DBField"/>
+  <extender full="Decimal" namespace="" name="Decimal"/>
+  <extender full="Double" namespace="" name="Double"/>
+  <extender full="ForeignKey" namespace="" name="ForeignKey"/>
+  <extender full="Time" namespace="" name="Time"/>
+  <extender full="MultiEnum" namespace="" name="MultiEnum"/>
+  <extender full="HTMLVarchar" namespace="" name="HTMLVarchar"/>
+  <extender full="Varchar" namespace="" name="Varchar"/>
+  <extender full="Money" namespace="" name="Money"/>
+  <extender full="Enum" namespace="" name="Enum"/>
+  <extender full="DatabaseAdmin" namespace="" name="DatabaseAdmin"/>
+  <extender full="RestfulService" namespace="" name="RestfulService"/>
+  <extender full="RSSFeed" namespace="" name="RSSFeed"/>
+  <extender full="RSSFeed_Entry" namespace="" name="RSSFeed_Entry"/>
+  <extender full="MoneyField" namespace="" name="MoneyField"/>
+  <extender full="CreditCardField" namespace="" name="CreditCardField"/>
+  <extender full="GridField" namespace="" name="GridField"/>
+  <extender full="GridField_FormAction" namespace="" name="GridField_FormAction"/>
+  <extender full="GridFieldDetailForm_ItemRequest" namespace="" name="GridFieldDetailForm_ItemRequest"/>
+  <extender full="GridState" namespace="" name="GridState"/>
+  <extender full="TabSet" namespace="" name="TabSet"/>
+  <extender full="SelectionGroup" namespace="" name="SelectionGroup"/>
+  <extender full="SelectionGroup_Item" namespace="" name="SelectionGroup_Item"/>
+  <extender full="LiteralField" namespace="" name="LiteralField"/>
+  <extender full="HtmlEditorField" namespace="" name="HtmlEditorField"/>
+  <extender full="HtmlEditorField_Readonly" namespace="" name="HtmlEditorField_Readonly"/>
+  <extender full="HtmlEditorField_Toolbar" namespace="" name="HtmlEditorField_Toolbar"/>
+  <extender full="HtmlEditorField_File" namespace="" name="HtmlEditorField_File"/>
+  <extender full="HtmlEditorField_Embed" namespace="" name="HtmlEditorField_Embed"/>
+  <extender full="HtmlEditorField_Image" namespace="" name="HtmlEditorField_Image"/>
+  <extender full="ListboxField" namespace="" name="ListboxField"/>
+  <extender full="Tab" namespace="" name="Tab"/>
+  <extender full="DatetimeField" namespace="" name="DatetimeField"/>
+  <extender full="DatetimeField_Readonly" namespace="" name="DatetimeField_Readonly"/>
+  <extender full="TextareaField" namespace="" name="TextareaField"/>
+  <extender full="CompositeField" namespace="" name="CompositeField"/>
+  <extender full="FormField" namespace="" name="FormField"/>
+  <extender full="Form" namespace="" name="Form"/>
+  <extender full="Form_FieldMap" namespace="" name="Form_FieldMap"/>
+  <extender full="DateField" namespace="" name="DateField"/>
+  <extender full="DateField_Disabled" namespace="" name="DateField_Disabled"/>
+  <extender full="GroupedDropdownField" namespace="" name="GroupedDropdownField"/>
+  <extender full="HeaderField" namespace="" name="HeaderField"/>
+  <extender full="CheckboxField" namespace="" name="CheckboxField"/>
+  <extender full="CheckboxField_Readonly" namespace="" name="CheckboxField_Readonly"/>
+  <extender full="TreeMultiselectField" namespace="" name="TreeMultiselectField"/>
+  <extender full="TreeMultiselectField_Readonly" namespace="" name="TreeMultiselectField_Readonly"/>
+  <extender full="LabelField" namespace="" name="LabelField"/>
+  <extender full="TabularStyle" namespace="" name="TabularStyle"/>
+  <extender full="MemberDatetimeOptionsetField" namespace="" name="MemberDatetimeOptionsetField"/>
+  <extender full="TreeDropdownField" namespace="" name="TreeDropdownField"/>
+  <extender full="TreeDropdownField_Readonly" namespace="" name="TreeDropdownField_Readonly"/>
+  <extender full="CountryDropdownField" namespace="" name="CountryDropdownField"/>
+  <extender full="ToggleCompositeField" namespace="" name="ToggleCompositeField"/>
+  <extender full="InlineFormAction" namespace="" name="InlineFormAction"/>
+  <extender full="InlineFormAction_ReadOnly" namespace="" name="InlineFormAction_ReadOnly"/>
+  <extender full="UploadField" namespace="" name="UploadField"/>
+  <extender full="UploadField_ItemHandler" namespace="" name="UploadField_ItemHandler"/>
+  <extender full="UploadField_SelectHandler" namespace="" name="UploadField_SelectHandler"/>
+  <extender full="ReadonlyField" namespace="" name="ReadonlyField"/>
+  <extender full="EmailField" namespace="" name="EmailField"/>
+  <extender full="DatalessField" namespace="" name="DatalessField"/>
+  <extender full="AjaxUniqueTextField" namespace="" name="AjaxUniqueTextField"/>
+  <extender full="ToggleField" namespace="" name="ToggleField"/>
+  <extender full="DropdownField" namespace="" name="DropdownField"/>
+  <extender full="CurrencyField" namespace="" name="CurrencyField"/>
+  <extender full="CurrencyField_Readonly" namespace="" name="CurrencyField_Readonly"/>
+  <extender full="CurrencyField_Disabled" namespace="" name="CurrencyField_Disabled"/>
+  <extender full="TimeField" namespace="" name="TimeField"/>
+  <extender full="TimeField_Readonly" namespace="" name="TimeField_Readonly"/>
+  <extender full="FieldList" namespace="" name="FieldList"/>
+  <extender full="CheckboxSetField" namespace="" name="CheckboxSetField"/>
+  <extender full="PrintableTransformation_TabSet" namespace="" name="PrintableTransformation_TabSet"/>
+  <extender full="FileField" namespace="" name="FileField"/>
+  <extender full="OptionsetField" namespace="" name="OptionsetField"/>
+  <extender full="HiddenField" namespace="" name="HiddenField"/>
+  <extender full="LookupField" namespace="" name="LookupField"/>
+  <extender full="PhoneNumberField" namespace="" name="PhoneNumberField"/>
+  <extender full="FieldGroup" namespace="" name="FieldGroup"/>
+  <extender full="PasswordField" namespace="" name="PasswordField"/>
+  <extender full="ConfirmedPasswordField" namespace="" name="ConfirmedPasswordField"/>
+  <extender full="FormAction" namespace="" name="FormAction"/>
+  <extender full="TextField" namespace="" name="TextField"/>
+  <extender full="NumericField" namespace="" name="NumericField"/>
+  <extender full="NumericField_Readonly" namespace="" name="NumericField_Readonly"/>
+  <extender full="NullableField" namespace="" name="NullableField"/>
+  <extender full="NestedForm" namespace="" name="NestedForm"/>
+  <extender full="ResetFormAction" namespace="" name="ResetFormAction"/>
+  <extender full="HourlyTask" namespace="" name="HourlyTask"/>
+  <extender full="YearlyTask" namespace="" name="YearlyTask"/>
+  <extender full="WeeklyTask" namespace="" name="WeeklyTask"/>
+  <extender full="MonthlyTask" namespace="" name="MonthlyTask"/>
+  <extender full="DailyTask" namespace="" name="DailyTask"/>
+  <extender full="QuarterHourlyTask" namespace="" name="QuarterHourlyTask"/>
+  <extender full="ScheduledTask" namespace="" name="ScheduledTask"/>
+  <extender full="Oembed_Result" namespace="" name="Oembed_Result"/>
+  <extender full="PayPalExpressCheckoutPayment" namespace="" name="PayPalExpressCheckoutPayment"/>
+  <extender full="PayPalExpressCheckoutPayment_Handler" namespace="" name="PayPalExpressCheckoutPayment_Handler"/>
+  <extender full="PickUpOrDeliveryModifierOptions" namespace="" name="PickUpOrDeliveryModifierOptions"/>
+  <extender full="PickUpOrDeliveryModifierOptions_WeightBracket" namespace="" name="PickUpOrDeliveryModifierOptions_WeightBracket"/>
+  <extender full="CountryRegionDeliveryModifier" namespace="" name="CountryRegionDeliveryModifier"/>
+  <extender full="PickUpOrDeliveryModifier" namespace="" name="PickUpOrDeliveryModifier"/>
+  <extender full="PickUpOrDeliveryModifier_Form" namespace="" name="PickUpOrDeliveryModifier_Form"/>
+  <extender full="SiteTreeActionsTest_Page" namespace="" name="SiteTreeActionsTest_Page"/>
+  <extender full="VirtualPageTest_ClassA" namespace="" name="VirtualPageTest_ClassA"/>
+  <extender full="VirtualPageTest_ClassB" namespace="" name="VirtualPageTest_ClassB"/>
+  <extender full="VirtualPageTest_ClassC" namespace="" name="VirtualPageTest_ClassC"/>
+  <extender full="VirtualPageTest_NotRoot" namespace="" name="VirtualPageTest_NotRoot"/>
+  <extender full="VirtualPageTest_TestDBField" namespace="" name="VirtualPageTest_TestDBField"/>
+  <extender full="VirtualPageTest_VirtualPageSub" namespace="" name="VirtualPageTest_VirtualPageSub"/>
+  <extender full="SiteTreeTest_PageNode" namespace="" name="SiteTreeTest_PageNode"/>
+  <extender full="SiteTreeTest_PageNode_Controller" namespace="" name="SiteTreeTest_PageNode_Controller"/>
+  <extender full="SiteTreeTest_Conflicted" namespace="" name="SiteTreeTest_Conflicted"/>
+  <extender full="SiteTreeTest_Conflicted_Controller" namespace="" name="SiteTreeTest_Conflicted_Controller"/>
+  <extender full="SiteTreeTest_ClassA" namespace="" name="SiteTreeTest_ClassA"/>
+  <extender full="SiteTreeTest_ClassB" namespace="" name="SiteTreeTest_ClassB"/>
+  <extender full="SiteTreeTest_ClassC" namespace="" name="SiteTreeTest_ClassC"/>
+  <extender full="SiteTreeTest_ClassD" namespace="" name="SiteTreeTest_ClassD"/>
+  <extender full="SiteTreeTest_ClassCext" namespace="" name="SiteTreeTest_ClassCext"/>
+  <extender full="SiteTreeTest_NotRoot" namespace="" name="SiteTreeTest_NotRoot"/>
+  <extender full="SiteTreeTest_StageStatusInherit" namespace="" name="SiteTreeTest_StageStatusInherit"/>
+  <extender full="SilverStripeNavigatorTest_TestItem" namespace="" name="SilverStripeNavigatorTest_TestItem"/>
+  <extender full="SilverStripeNavigatorTest_ProtectedTestItem" namespace="" name="SilverStripeNavigatorTest_ProtectedTestItem"/>
+  <extender full="CMSMainTest_ClassA" namespace="" name="CMSMainTest_ClassA"/>
+  <extender full="CMSMainTest_ClassB" namespace="" name="CMSMainTest_ClassB"/>
+  <extender full="CMSMainTest_NotRoot" namespace="" name="CMSMainTest_NotRoot"/>
+  <extender full="CMSMainTest_HiddenClass" namespace="" name="CMSMainTest_HiddenClass"/>
+  <extender full="ContentControllerTest_Page" namespace="" name="ContentControllerTest_Page"/>
+  <extender full="ContentControllerTest_Page_Controller" namespace="" name="ContentControllerTest_Page_Controller"/>
+  <extender full="ReportTest_FakeTest" namespace="" name="ReportTest_FakeTest"/>
+  <extender full="ReportTest_FakeTest2" namespace="" name="ReportTest_FakeTest2"/>
+  <extender full="ReportTest_FakeTest_Abstract" namespace="" name="ReportTest_FakeTest_Abstract"/>
+  <extender full="SearchForm" namespace="" name="SearchForm"/>
+  <extender full="ErrorPage" namespace="" name="ErrorPage"/>
+  <extender full="ErrorPage_Controller" namespace="" name="ErrorPage_Controller"/>
+  <extender full="VirtualPage" namespace="" name="VirtualPage"/>
+  <extender full="VirtualPage_Controller" namespace="" name="VirtualPage_Controller"/>
+  <extender full="SiteTree" namespace="" name="SiteTree"/>
+  <extender full="SiteConfig" namespace="" name="SiteConfig"/>
+  <extender full="RedirectorPage" namespace="" name="RedirectorPage"/>
+  <extender full="RedirectorPage_Controller" namespace="" name="RedirectorPage_Controller"/>
+  <extender full="Folder_UnusedAssetsField" namespace="" name="Folder_UnusedAssetsField"/>
+  <extender full="SiteTreeURLSegmentField" namespace="" name="SiteTreeURLSegmentField"/>
+  <extender full="RootURLController" namespace="" name="RootURLController"/>
+  <extender full="CMSMain" namespace="" name="CMSMain"/>
+  <extender full="AssetAdmin" namespace="" name="AssetAdmin"/>
+  <extender full="CMSPageEditController" namespace="" name="CMSPageEditController"/>
+  <extender full="ModelAsController" namespace="" name="ModelAsController"/>
+  <extender full="SilverStripeNavigator" namespace="" name="SilverStripeNavigator"/>
+  <extender full="SilverStripeNavigatorItem" namespace="" name="SilverStripeNavigatorItem"/>
+  <extender full="SilverStripeNavigatorItem_CMSLink" namespace="" name="SilverStripeNavigatorItem_CMSLink"/>
+  <extender full="SilverStripeNavigatorItem_StageLink" namespace="" name="SilverStripeNavigatorItem_StageLink"/>
+  <extender full="SilverStripeNavigatorItem_LiveLink" namespace="" name="SilverStripeNavigatorItem_LiveLink"/>
+  <extender full="SilverStripeNavigatorItem_ArchiveLink" namespace="" name="SilverStripeNavigatorItem_ArchiveLink"/>
+  <extender full="ContentController" namespace="" name="ContentController"/>
+  <extender full="CMSFileAddController" namespace="" name="CMSFileAddController"/>
+  <extender full="CMSPageSettingsController" namespace="" name="CMSPageSettingsController"/>
+  <extender full="CMSSettingsController" namespace="" name="CMSSettingsController"/>
+  <extender full="CMSPageHistoryController" namespace="" name="CMSPageHistoryController"/>
+  <extender full="ReportAdmin" namespace="" name="ReportAdmin"/>
+  <extender full="CMSPageAddController" namespace="" name="CMSPageAddController"/>
+  <extender full="CMSPagesController" namespace="" name="CMSPagesController"/>
+  <extender full="BrokenLinksReport" namespace="" name="BrokenLinksReport"/>
+  <extender full="SideReportView" namespace="" name="SideReportView"/>
+  <extender full="SideReportWrapper" namespace="" name="SideReportWrapper"/>
+  <extender full="SideReport_EmptyPages" namespace="" name="SideReport_EmptyPages"/>
+  <extender full="SideReport_RecentlyEdited" namespace="" name="SideReport_RecentlyEdited"/>
+  <extender full="SideReport_BrokenLinks" namespace="" name="SideReport_BrokenLinks"/>
+  <extender full="SideReport_BrokenFiles" namespace="" name="SideReport_BrokenFiles"/>
+  <extender full="SideReport_BrokenVirtualPages" namespace="" name="SideReport_BrokenVirtualPages"/>
+  <extender full="SideReport_BrokenRedirectorPages" namespace="" name="SideReport_BrokenRedirectorPages"/>
+  <extender full="SS_Report" namespace="" name="SS_Report"/>
+  <extender full="SS_ReportWrapper" namespace="" name="SS_ReportWrapper"/>
+  <extender full="RemoveOrphanedPagesTask" namespace="" name="RemoveOrphanedPagesTask"/>
+  <extender full="SiteTreeMaintenanceTask" namespace="" name="SiteTreeMaintenanceTask"/>
+  <extender full="Page" namespace="" name="Page"/>
+  <extender full="Page_Controller" namespace="" name="Page_Controller"/>
+  <extender full="CompleteSetupRecord" namespace="" name="CompleteSetupRecord"/>
+  <extender full="DownloadPage" namespace="" name="DownloadPage"/>
+  <extender full="DownloadPage_Controller" namespace="" name="DownloadPage_Controller"/>
+  <extender full="GoogleAddressField" namespace="" name="GoogleAddressField"/>
+</class>

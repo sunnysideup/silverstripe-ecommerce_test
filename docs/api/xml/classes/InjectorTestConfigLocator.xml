@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="InjectorTestConfigLocator" namespace="" name="InjectorTestConfigLocator" abstract="false" final="false" start="682" end="702">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/injector" file="InjectorTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/injector/InjectorTest.php" size="24284" time="2015-03-14T10:41:10+13:00" unixtime="1426282870" sha1="b46f89bbc471373061789202ea51ab3099684b71" relative="framework/tests/injector/InjectorTest.php"/>
+  <extends full="SilverStripeServiceConfigurationLocator" namespace="" name="SilverStripeServiceConfigurationLocator"/>
+  <implements full="TestOnly" namespace="" name="TestOnly"/>
+  <method name="configFor" start="684" end="701" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="SilverStripeServiceConfigurationLocator" namespace="" name="SilverStripeServiceConfigurationLocator">
+    <extends full="ServiceConfigurationLocator" namespace="" name="ServiceConfigurationLocator"/>
+    <member name="configs" type="array" visibility="protected" line="19">
+      <docblock>
+        <description compact="List of Injector configurations cached from Config in class =&gt; config format.">If any config is false, this denotes that this class and all its parents
+have no configuration specified.</description>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <method name="locateConfigFor" start="21" end="46" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Check direct or cached result" line="23"/>
+        <comment value="do parent lookup if it's a class" line="27"/>
+        <comment value="have we already got for this?" line="33"/>
+        <comment value="Cache this result" line="36"/>
+        <comment value="there is no parent config, so we'll record that as false so we don't do the expensive" line="43"/>
+        <comment value="lookup through parents again" line="44"/>
+      </inline>
+    </method>
+    <method name="configFor" start="56" end="70" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Retrieves the config for a named service without performing a hierarchy walk"/>
+        <param description="Name of service" type="string" variable="$name"/>
+        <return description="Returns either the configuration data, if there is any. A missing config is denoted" type="mixed">by a value of either null (there is no direct config assigned and a hierarchy walk is necessary)
+or false (there is no config for this class, nor within the hierarchy for this class).</return>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Return cached result" line="58"/>
+      </inline>
+    </method>
+  </parent>
+  <parent full="ServiceConfigurationLocator" namespace="" name="ServiceConfigurationLocator">
+    <method name="locateConfigFor" start="20" end="20" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Finds the Injector config for a named service."/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+</class>

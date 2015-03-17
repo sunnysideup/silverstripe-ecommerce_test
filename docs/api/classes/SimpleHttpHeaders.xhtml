@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SimpleHttpHeaders</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SimpleHttpHeaders</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/simpletest/http.php.xhtml#line295">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SimpleHttpHeaders</h1>
+        <h4>Collection of header lines in the response.</h4>
+        <p>@package SimpleTest<br/>   @subpackage WebTester</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SimpleHttpHeaders
+            {<br/><ul class="none"><li>// members</li><li>public <a href="#members">$_raw_headers</a>;
+                    </li><li>public <a href="#members">$_response_code</a>;
+                    </li><li>public <a href="#members">$_http_version</a>;
+                    </li><li>public <a href="#members">$_mime_type</a>;
+                    </li><li>public <a href="#members">$_location</a>;
+                    </li><li>public <a href="#members">$_cookies</a>;
+                    </li><li>public <a href="#members">$_authentication</a>;
+                    </li><li>public <a href="#members">$_realm</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/SimpleHttpHeaders.xhtml">SimpleHttpHeaders</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getHttpVersion.xhtml">getHttpVersion</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getRaw.xhtml">getRaw</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getResponseCode.xhtml">getResponseCode</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getLocation.xhtml">getLocation</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/isRedirect.xhtml">isRedirect</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/isChallenge.xhtml">isChallenge</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getMimeType.xhtml">getMimeType</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getAuthentication.xhtml">getAuthentication</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getRealm.xhtml">getRealm</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/writeCookiesToJar.xhtml">writeCookiesToJar</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/_parseHeaderLine.xhtml">_parseHeaderLine</a>()
+                    </li><li>public void <a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/_parseCookie.xhtml">_parseCookie</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>public</h4>
+          <ul class="members">
+            <li id="_authentication">
+              <strong>$_authentication</strong>
+            </li>
+            <li id="_cookies">
+              <strong>$_cookies</strong>
+            </li>
+            <li id="_http_version">
+              <strong>$_http_version</strong>
+            </li>
+            <li id="_location">
+              <strong>$_location</strong>
+            </li>
+            <li id="_mime_type">
+              <strong>$_mime_type</strong>
+            </li>
+            <li id="_raw_headers">
+              <strong>$_raw_headers</strong>
+            </li>
+            <li id="_realm">
+              <strong>$_realm</strong>
+            </li>
+            <li id="_response_code">
+              <strong>$_response_code</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="SimpleHttpHeaders"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/SimpleHttpHeaders.xhtml">SimpleHttpHeaders()</a>
+                — Parses the incoming header block.</li>
+            <li id="_parseCookie"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/_parseCookie.xhtml">_parseCookie()</a>
+                — Parse the Set-cookie content.</li>
+            <li id="_parseHeaderLine"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/_parseHeaderLine.xhtml">_parseHeaderLine()</a>
+                — Called on each header line to accumulate the held    data within the class.</li>
+            <li id="getAuthentication"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getAuthentication.xhtml">getAuthentication()</a>
+                — Accessor for authentication type.</li>
+            <li id="getHttpVersion"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getHttpVersion.xhtml">getHttpVersion()</a>
+                — Accessor for parsed HTTP protocol version.</li>
+            <li id="getLocation"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getLocation.xhtml">getLocation()</a>
+                — Returns the redirected URL or false if    no redirection.</li>
+            <li id="getMimeType"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getMimeType.xhtml">getMimeType()</a>
+                — Accessor for MIME type header information.</li>
+            <li id="getRaw"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getRaw.xhtml">getRaw()</a>
+                — Accessor for raw header block.</li>
+            <li id="getRealm"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getRealm.xhtml">getRealm()</a>
+                — Accessor for security realm.</li>
+            <li id="getResponseCode"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/getResponseCode.xhtml">getResponseCode()</a>
+                — Accessor for parsed HTTP error code.</li>
+            <li id="isChallenge"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/isChallenge.xhtml">isChallenge()</a>
+                — Test to see if the response is an authentication    challenge.</li>
+            <li id="isRedirect"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/isRedirect.xhtml">isRedirect()</a>
+                — Test to see if the response is a valid redirect.</li>
+            <li id="writeCookiesToJar"><a title="SimpleHttpHeaders" href="../classes/SimpleHttpHeaders/writeCookiesToJar.xhtml">writeCookiesToJar()</a>
+                — Writes new cookies to the cookie jar.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

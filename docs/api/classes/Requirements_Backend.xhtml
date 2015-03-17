@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Requirements_Backend</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Requirements_Backend</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/view/Requirements.php.xhtml#line346">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Requirements_Backend</h1>
+        <h4/>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Requirements_Backend
+            {<br/><ul class="none"><li>// members</li><li>protected <span title="bool">bool</span> <a href="#members">$suffix_requirements</a>;
+                    </li><li>protected boolean <a href="#members">$combined_files_enabled</a>;
+                    </li><li>protected array <a href="#members">$javascript</a>;
+                    </li><li>protected array <a href="#members">$css</a>;
+                    </li><li>protected array <a href="#members">$customScript</a>;
+                    </li><li>protected array <a href="#members">$customCSS</a>;
+                    </li><li>protected array <a href="#members">$customHeadTags</a>;
+                    </li><li>protected array <a href="#members">$disabled</a>;
+                    </li><li>protected array <a href="#members">$blocked</a>;
+                    </li><li>public array <a href="#members">$combine_files</a>;
+                    </li><li>public boolean <a href="#members">$combine_js_with_jsmin</a>;
+                    </li><li>public boolean <a href="#members">$write_header_comment</a>;
+                    </li><li>protected string <a href="#members">$combinedFilesFolder</a>;
+                    </li><li>public boolean <a href="#members">$write_js_to_body</a>;
+                    </li><li>protected boolean <a href="#members">$force_js_to_bottom</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/set_combined_files_enabled.xhtml">set_combined_files_enabled</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_combined_files_enabled.xhtml">get_combined_files_enabled</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/setCombinedFilesFolder.xhtml">setCombinedFilesFolder</a>()
+                    </li><li>public String <a title="Requirements_Backend" href="../classes/Requirements_Backend/getCombinedFilesFolder.xhtml">getCombinedFilesFolder</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/set_suffix_requirements.xhtml">set_suffix_requirements</a>()
+                    </li><li>public bool <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_suffix_requirements.xhtml">get_suffix_requirements</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/set_write_js_to_body.xhtml">set_write_js_to_body</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/set_force_js_to_bottom.xhtml">set_force_js_to_bottom</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/javascript.xhtml">javascript</a>()
+                    </li><li>public array <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_javascript.xhtml">get_javascript</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/customScript.xhtml">customScript</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/customCSS.xhtml">customCSS</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/insertHeadTags.xhtml">insertHeadTags</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/javascriptTemplate.xhtml">javascriptTemplate</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/css.xhtml">css</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_css.xhtml">get_css</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/block.xhtml">block</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/clear.xhtml">clear</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/unblock.xhtml">unblock</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/unblock_all.xhtml">unblock_all</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/restore.xhtml">restore</a>()
+                    </li><li>public string <a title="Requirements_Backend" href="../classes/Requirements_Backend/includeInHTML.xhtml">includeInHTML</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/include_in_response.xhtml">include_in_response</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/add_i18n_javascript.xhtml">add_i18n_javascript</a>()
+                    </li><li>protected string|boolean <a title="Requirements_Backend" href="../classes/Requirements_Backend/path_for_file.xhtml">path_for_file</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/combine_files.xhtml">combine_files</a>()
+                    </li><li>public array <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_combine_files.xhtml">get_combine_files</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/delete_combined_files.xhtml">delete_combined_files</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/delete_all_combined_files.xhtml">delete_all_combined_files</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/clear_combined_files.xhtml">clear_combined_files</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/process_combined_files.xhtml">process_combined_files</a>()
+                    </li><li>protected void <a title="Requirements_Backend" href="../classes/Requirements_Backend/minifyFile.xhtml">minifyFile</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_custom_scripts.xhtml">get_custom_scripts</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/themedCSS.xhtml">themedCSS</a>()
+                    </li><li>public void <a title="Requirements_Backend" href="../classes/Requirements_Backend/debug.xhtml">debug</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">555+</td>
+            <td>Make Requirements automatically put this into a separate file :-)</td>
+          </tr>
+          <tr>
+            <td class="nummeric">700+</td>
+            <td>Calculate $prefix properly</td>
+          </tr>
+          <tr>
+            <td class="nummeric">955+</td>
+            <td>Should we enforce unique inclusion of files, or leave it to the developer? Can auto-detection cause</td>
+          </tr>
+          <tr>
+            <td class="nummeric">1184</td>
+            <td>Alters the original information, which means you can't call this</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="blocked"><strong>$blocked</strong>
+                —
+                array<br/><span class="indent">The filepaths (relative to webroot) or uniquenessIDs of any included requirements which should be blocked when executing {@link inlcudeInHTML()}.</span></li>
+            <li id="combinedFilesFolder"><strong>$combinedFilesFolder</strong>
+                —
+                string</li>
+            <li id="combined_files_enabled"><strong>$combined_files_enabled</strong>
+                —
+                boolean<br/><span class="indent">Enable combining of css/javascript files.</span></li>
+            <li id="css"><strong>$css</strong>
+                —
+                array<br/><span class="indent">Paths to all required .css files relative to the webroot.</span></li>
+            <li id="customCSS"><strong>$customCSS</strong>
+                —
+                array<br/><span class="indent">All custom CSS rules which are inserted directly at the bottom of the HTML &lt;head&gt; tag.</span></li>
+            <li id="customHeadTags">
+              <strong>$customHeadTags</strong>
+              <br/>
+              <span class="indent">All custom HTML markup which is added before the closing &lt;head&gt; tag, e.g. additional metatags.</span>
+            </li>
+            <li id="customScript"><strong>$customScript</strong>
+                —
+                array<br/><span class="indent">All custom javascript code that is inserted directly at the bottom of the HTML &lt;head&gt; tag.</span></li>
+            <li id="disabled"><strong>$disabled</strong>
+                —
+                array<br/><span class="indent">Remembers the filepaths of all cleared Requirements through {@link clear()}.</span></li>
+            <li id="force_js_to_bottom"><strong>$force_js_to_bottom</strong>
+                —
+                boolean<br/><span class="indent">Force the javascripts to the bottom of the page, even if there's a &lt;script&gt; tag in the body already</span></li>
+            <li id="javascript"><strong>$javascript</strong>
+                —
+                array<br/><span class="indent">Paths to all required .js files relative to the webroot.</span></li>
+            <li id="suffix_requirements"><strong>$suffix_requirements</strong>
+                —
+                <a href="#">bool</a><br/><span class="indent">Do we want requirements to suffix onto the requirement link tags for caching or is it disabled. Getter / Setter available through {@link Requirements::set_suffix_requirements()}</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="combine_files"><strong>$combine_files</strong>
+                —
+                array<br/><span class="indent">See {@link combine_files()}.</span></li>
+            <li id="combine_js_with_jsmin"><strong>$combine_js_with_jsmin</strong>
+                —
+                boolean<br/><span class="indent">Using the JSMin library to minify any javascript file passed to {@link combine_files()}.</span></li>
+            <li id="write_header_comment"><strong>$write_header_comment</strong>
+                —
+                boolean<br/><span class="indent">Setting for whether or not a file header should be written when combining files.</span></li>
+            <li id="write_js_to_body"><strong>$write_js_to_body</strong>
+                —
+                boolean<br/><span class="indent">Put all javascript includes at the bottom of the template before the closing &lt;body&gt; tag instead of the &lt;head&gt; tag.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="minifyFile">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/minifyFile.xhtml">minifyFile()</a>
+            </li>
+            <li id="path_for_file"><a title="Requirements_Backend" href="../classes/Requirements_Backend/path_for_file.xhtml">path_for_file()</a>
+                — Finds the path for specified file.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="add_i18n_javascript"><a title="Requirements_Backend" href="../classes/Requirements_Backend/add_i18n_javascript.xhtml">add_i18n_javascript()</a>
+                — Add i18n files from the given javascript directory.  SilverStripe expects that the given directory will contain a number of java script files named by language: en_US.js, de_DE.js, etc.</li>
+            <li id="block"><a title="Requirements_Backend" href="../classes/Requirements_Backend/block.xhtml">block()</a>
+                — Needed to actively prevent the inclusion of a file, e.g. when using your own jQuery version.</li>
+            <li id="clear"><a title="Requirements_Backend" href="../classes/Requirements_Backend/clear.xhtml">clear()</a>
+                — Clear either a single or all requirements.</li>
+            <li id="clear_combined_files">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/clear_combined_files.xhtml">clear_combined_files()</a>
+            </li>
+            <li id="combine_files"><a title="Requirements_Backend" href="../classes/Requirements_Backend/combine_files.xhtml">combine_files()</a>
+                — Concatenate several css or javascript files into a single dynamically generated file (stored in {@link Director::baseFolder()}). This increases performance by fewer HTTP requests.</li>
+            <li id="css"><a title="Requirements_Backend" href="../classes/Requirements_Backend/css.xhtml">css()</a>
+                — Register the given stylesheet file as required.</li>
+            <li id="customCSS"><a title="Requirements_Backend" href="../classes/Requirements_Backend/customCSS.xhtml">customCSS()</a>
+                — Include custom CSS styling to the header of the page.</li>
+            <li id="customScript"><a title="Requirements_Backend" href="../classes/Requirements_Backend/customScript.xhtml">customScript()</a>
+                — Add the javascript code to the header of the page</li>
+            <li id="debug">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/debug.xhtml">debug()</a>
+            </li>
+            <li id="delete_all_combined_files"><a title="Requirements_Backend" href="../classes/Requirements_Backend/delete_all_combined_files.xhtml">delete_all_combined_files()</a>
+                — Deletes all generated combined files in the configured combined files directory, but doesn't delete the directory itself.</li>
+            <li id="delete_combined_files"><a title="Requirements_Backend" href="../classes/Requirements_Backend/delete_combined_files.xhtml">delete_combined_files()</a>
+                — Deletes all dynamically generated combined files from the filesystem.</li>
+            <li id="getCombinedFilesFolder">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/getCombinedFilesFolder.xhtml">getCombinedFilesFolder()</a>
+            </li>
+            <li id="get_combine_files"><a title="Requirements_Backend" href="../classes/Requirements_Backend/get_combine_files.xhtml">get_combine_files()</a>
+                — Returns all combined files.</li>
+            <li id="get_combined_files_enabled">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_combined_files_enabled.xhtml">get_combined_files_enabled()</a>
+            </li>
+            <li id="get_css">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_css.xhtml">get_css()</a>
+            </li>
+            <li id="get_custom_scripts">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/get_custom_scripts.xhtml">get_custom_scripts()</a>
+            </li>
+            <li id="get_javascript"><a title="Requirements_Backend" href="../classes/Requirements_Backend/get_javascript.xhtml">get_javascript()</a>
+                — Returns an array of all included javascript</li>
+            <li id="get_suffix_requirements"><a title="Requirements_Backend" href="../classes/Requirements_Backend/get_suffix_requirements.xhtml">get_suffix_requirements()</a>
+                — Return whether we want to suffix requirements</li>
+            <li id="includeInHTML"><a title="Requirements_Backend" href="../classes/Requirements_Backend/includeInHTML.xhtml">includeInHTML()</a>
+                — Update the given HTML content with the appropriate include tags for the registered requirements. Needs to receive a valid HTML/XHTML template in the $content parameter, including a &lt;head&gt; tag. The requirements will insert before the closing &lt;head&gt; tag automatically.</li>
+            <li id="include_in_response"><a title="Requirements_Backend" href="../classes/Requirements_Backend/include_in_response.xhtml">include_in_response()</a>
+                — Attach requirements inclusion to X-Include-JS and X-Include-CSS headers on the HTTP response</li>
+            <li id="insertHeadTags"><a title="Requirements_Backend" href="../classes/Requirements_Backend/insertHeadTags.xhtml">insertHeadTags()</a>
+                — Add the following custom code to the &lt;head&gt; section of the page.</li>
+            <li id="javascript"><a title="Requirements_Backend" href="../classes/Requirements_Backend/javascript.xhtml">javascript()</a>
+                — Register the given javascript file as required.</li>
+            <li id="javascriptTemplate"><a title="Requirements_Backend" href="../classes/Requirements_Backend/javascriptTemplate.xhtml">javascriptTemplate()</a>
+                — Load the given javascript template with the page.</li>
+            <li id="process_combined_files"><a title="Requirements_Backend" href="../classes/Requirements_Backend/process_combined_files.xhtml">process_combined_files()</a>
+                — See {@link combine_files()}</li>
+            <li id="restore"><a title="Requirements_Backend" href="../classes/Requirements_Backend/restore.xhtml">restore()</a>
+                — Restore requirements cleared by call to Requirements::clear</li>
+            <li id="setCombinedFilesFolder">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/setCombinedFilesFolder.xhtml">setCombinedFilesFolder()</a>
+            </li>
+            <li id="set_combined_files_enabled">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/set_combined_files_enabled.xhtml">set_combined_files_enabled()</a>
+            </li>
+            <li id="set_force_js_to_bottom"><a title="Requirements_Backend" href="../classes/Requirements_Backend/set_force_js_to_bottom.xhtml">set_force_js_to_bottom()</a>
+                — Forces the javascript to the end of the body, just before the closing body-tag.</li>
+            <li id="set_suffix_requirements"><a title="Requirements_Backend" href="../classes/Requirements_Backend/set_suffix_requirements.xhtml">set_suffix_requirements()</a>
+                — Set whether we want to suffix requirements with the time / location on to the requirements</li>
+            <li id="set_write_js_to_body"><a title="Requirements_Backend" href="../classes/Requirements_Backend/set_write_js_to_body.xhtml">set_write_js_to_body()</a>
+                — Set whether you want the files written to the head or the body. It writes to the body by default which can break some scripts</li>
+            <li id="themedCSS">
+              <a title="Requirements_Backend" href="../classes/Requirements_Backend/themedCSS.xhtml">themedCSS()</a>
+            </li>
+            <li id="unblock"><a title="Requirements_Backend" href="../classes/Requirements_Backend/unblock.xhtml">unblock()</a>
+                — Removes an item from the blocking-list.</li>
+            <li id="unblock_all"><a title="Requirements_Backend" href="../classes/Requirements_Backend/unblock_all.xhtml">unblock_all()</a>
+                — Removes all items from the blocking-list.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

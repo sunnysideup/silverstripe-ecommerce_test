@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Translate</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Translate</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Translate.php.xhtml#line39">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Translate</h1>
+        <h4/>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Translate
+            {<br/><ul class="none"><li>// constants</li><li>const AN_ARRAY = 'Array';</li><li>const AN_CSV = 'Csv';</li><li>const AN_GETTEXT = 'Gettext';</li><li>const AN_INI = 'Ini';</li><li>const AN_QT = 'Qt';</li><li>const AN_TBX = 'Tbx';</li><li>const AN_TMX = 'Tmx';</li><li>const AN_XLIFF = 'Xliff';</li><li>const AN_XMLTM = 'XmlTm';</li><li>const LOCALE_DIRECTORY = 'directory';</li><li>const LOCALE_FILENAME = 'filename';</li></ul><ul class="none"><li>// members</li><li>private <span title="Zend_Translate_Adapter">Zend_Translate_Adapter</span> <a href="#members">$_adapter</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Zend_Translate" href="../classes/Zend_Translate/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="Zend_Translate" href="../classes/Zend_Translate/setAdapter.xhtml">setAdapter</a>()
+                    </li><li>public Zend_Translate_Adapter <a title="Zend_Translate" href="../classes/Zend_Translate/getAdapter.xhtml">getAdapter</a>()
+                    </li><li>public static Zend_Cache_Core <a title="Zend_Translate" href="../classes/Zend_Translate/getCache.xhtml">getCache</a>()
+                    </li><li>public static void <a title="Zend_Translate" href="../classes/Zend_Translate/setCache.xhtml">setCache</a>()
+                    </li><li>public static boolean <a title="Zend_Translate" href="../classes/Zend_Translate/hasCache.xhtml">hasCache</a>()
+                    </li><li>public static void <a title="Zend_Translate" href="../classes/Zend_Translate/removeCache.xhtml">removeCache</a>()
+                    </li><li>public static void <a title="Zend_Translate" href="../classes/Zend_Translate/clearCache.xhtml">clearCache</a>()
+                    </li><li>public void <a title="Zend_Translate" href="../classes/Zend_Translate/__call.xhtml">__call</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="AN_ARRAY">AN_ARRAY</td>
+              <td>'Array'</td>
+            </tr>
+            <tr>
+              <td id="AN_CSV">AN_CSV</td>
+              <td>'Csv'</td>
+            </tr>
+            <tr>
+              <td id="AN_GETTEXT">AN_GETTEXT</td>
+              <td>'Gettext'</td>
+            </tr>
+            <tr>
+              <td id="AN_INI">AN_INI</td>
+              <td>'Ini'</td>
+            </tr>
+            <tr>
+              <td id="AN_QT">AN_QT</td>
+              <td>'Qt'</td>
+            </tr>
+            <tr>
+              <td id="AN_TBX">AN_TBX</td>
+              <td>'Tbx'</td>
+            </tr>
+            <tr>
+              <td id="AN_TMX">AN_TMX</td>
+              <td>'Tmx'</td>
+            </tr>
+            <tr>
+              <td id="AN_XLIFF">AN_XLIFF</td>
+              <td>'Xliff'</td>
+            </tr>
+            <tr>
+              <td id="AN_XMLTM">AN_XMLTM</td>
+              <td>'XmlTm'</td>
+            </tr>
+            <tr>
+              <td id="LOCALE_DIRECTORY">LOCALE_DIRECTORY</td>
+              <td>'directory'</td>
+            </tr>
+            <tr>
+              <td id="LOCALE_FILENAME">LOCALE_FILENAME</td>
+              <td>'filename'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="_adapter"><strong>$_adapter</strong>
+                —
+                <a href="#">Zend_Translate_Adapter</a><br/><span class="indent">Adapter</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Translate" href="../classes/Zend_Translate/__construct.xhtml">__construct()</a>
+                — Generates the standard translation object</li>
+            <li id="__call"><a title="Zend_Translate" href="../classes/Zend_Translate/__call.xhtml">__call()</a>
+                — Calls all methods from the adapter</li>
+            <li id="clearCache"><a title="Zend_Translate" href="../classes/Zend_Translate/clearCache.xhtml">clearCache()</a>
+                — Clears all set cache data</li>
+            <li id="getAdapter"><a title="Zend_Translate" href="../classes/Zend_Translate/getAdapter.xhtml">getAdapter()</a>
+                — Returns the adapters name and it's options</li>
+            <li id="getCache"><a title="Zend_Translate" href="../classes/Zend_Translate/getCache.xhtml">getCache()</a>
+                — Returns the set cache</li>
+            <li id="hasCache"><a title="Zend_Translate" href="../classes/Zend_Translate/hasCache.xhtml">hasCache()</a>
+                — Returns true when a cache is set</li>
+            <li id="removeCache"><a title="Zend_Translate" href="../classes/Zend_Translate/removeCache.xhtml">removeCache()</a>
+                — Removes any set cache</li>
+            <li id="setAdapter"><a title="Zend_Translate" href="../classes/Zend_Translate/setAdapter.xhtml">setAdapter()</a>
+                — Sets a new adapter</li>
+            <li id="setCache"><a title="Zend_Translate" href="../classes/Zend_Translate/setCache.xhtml">setCache()</a>
+                — Sets a cache for all instances of Zend_Translate</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="SSHTMLBBCodeParser_Filter_Images" href="../../classes/SSHTMLBBCodeParser_Filter_Images.xhtml">SSHTMLBBCodeParser_Filter_Images</a>
+          </li>
+          <li class="separator">_preparse</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="#overrides">Overrides</a>
+          </li>
+          <li>
+            <a href="../../source/framework/parsers/HTML/BBCodeParser/Filter/Images.php.xhtml#line75">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>SSHTMLBBCodeParser_Filter_Images::</small>_preparse</h1>
+        <h4>Executes statements before the actual array building starts</h4>
+        <p>This method should be overwritten in a filter if you want to do
+something before the parsing process starts. This can be useful to
+allow certain short alternative tags which then can be converted into
+proper tags with preg_replace() calls.
+The main class walks through all the filters and and calls this
+method if it exists. The filters should modify their private $_text
+variable.</p>
+        <ul>
+          <li>Author: Stijn de Reede  &lt;sjr@gmx.co.uk&gt;</li>
+        </ul>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function _preparse()
+            </code>
+        </div>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>none</dt>
+          <dd><br/>
+        </dd>
+        </dl>
+        <h2 id="overrides">Parent Implementation</h2>
+        <ul class="styled">
+          <li>
+            <code>
+              <a title="SSHTMLBBCodeParser" href="../../classes/SSHTMLBBCodeParser/_preparse.xhtml">SSHTMLBBCodeParser</a>
+            </code>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Log_Filter_Priority" namespace="" name="Zend_Log_Filter_Priority" abstract="false" final="false" start="34" end="101">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Log/Filter" file="Priority.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Log/Filter/Priority.php" size="3038" time="2015-03-14T10:41:29+13:00" unixtime="1426282889" sha1="6f45934be021795c0ec59e3e3fb2b286c1d4a5ad" relative="framework/thirdparty/Zend/Log/Filter/Priority.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Log"/>
+    <subpackage value="Filter"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+    <version value="$Id: Priority.php 23775 2011-03-01 17:25:24Z ralph $"/>
+  </docblock>
+  <extends full="Zend_Log_Filter_Abstract" namespace="" name="Zend_Log_Filter_Abstract"/>
+  <member name="_priority" type="{unknown}" visibility="protected" line="39">
+    <docblock>
+      <description/>
+      <var type="integer"/>
+    </docblock>
+  </member>
+  <member name="_operator" type="{unknown}" visibility="protected" line="44">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="55" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Filter logging by $priority.  By default, it will accept any log event whose priority value is less than or equal to $priority."/>
+      <param description="Priority" type="integer" variable="$priority"/>
+      <param description="Comparison operator" type="string" variable="$operator"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="priority" byreference="false" type="{unknown}"/>
+    <parameter name="operator" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="factory" start="72" end="89" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new instance of Zend_Log_Filter_Priority"/>
+      <param type="object" variable="$config">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Filter_Priority" namespace="" name="Zend_Log_Filter_Priority"/>
+      </return>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Add support for constants" line="80"/>
+    </inline>
+  </method>
+  <method name="accept" start="97" end="100" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns TRUE to accept the message, FALSE to block it."/>
+      <param description="event data" type="array" variable="$event"/>
+      <return description="accepted?" type="boolean"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Zend_Log_Filter_Abstract" namespace="" name="Zend_Log_Filter_Abstract">
+    <method name="_parseConfig" start="47" end="59" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="Validate and optionally convert the config to array"/>
+        <param description="Zend_Config or Array" type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="array"/>
+        <throws type="object">
+          <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="Zend_Log_Filter_Interface" namespace="" name="Zend_Log_Filter_Interface">
+    <method name="accept" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE to accept the message, FALSE to block it."/>
+        <param description="event data" type="array" variable="$event"/>
+        <return description="accepted?" type="boolean"/>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface">
+    <method name="factory" start="37" end="37" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct a Zend_Log driver"/>
+        <param type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface"/>
+        </return>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

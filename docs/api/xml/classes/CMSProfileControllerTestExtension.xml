@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="CMSProfileControllerTestExtension" namespace="" name="CMSProfileControllerTestExtension" abstract="false" final="false" start="87" end="93">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/control" file="CMSProfileControllerTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/control/CMSProfileControllerTest.php" size="2734" time="2015-03-14T10:41:06+13:00" unixtime="1426282866" sha1="c370aba5d5e0628b3c996d497c39889e06707299" relative="framework/tests/control/CMSProfileControllerTest.php"/>
+  <docblock>
+    <description/>
+    <package value="framework"/>
+    <subpackage value="tests"/>
+  </docblock>
+  <extends full="DataExtension" namespace="" name="DataExtension"/>
+  <method name="canEdit" start="89" end="91" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <parent full="DataExtension" namespace="" name="DataExtension">
+    <extends full="Extension" namespace="" name="Extension"/>
+    <method name="get_extra_config" start="10" end="25" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+      <parameter name="args" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="unload_extra_statics" start="27" end="29" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="validate" start="37" end="38" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Hook for extension-specific validation."/>
+        <param description="validation result" variable="$validationResult" type="object">
+          <type full="Local" namespace="" name="Local"/>
+        </param>
+        <throws type="object">
+          <type full="ValidationException" namespace="" name="ValidationException"/>
+        </throws>
+      </docblock>
+      <parameter name="validationResult" byreference="false" type="object">
+        <type full="\\ValidationResult" namespace="\" name="ValidationResult"/>
+      </parameter>
+    </method>
+    <method name="augmentSQL" start="45" end="46" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Edit the given query object to support queries for this extension"/>
+        <param description="Query to augment." type="object" variable="$query">
+          <type full="SQLQuery" namespace="" name="SQLQuery"/>
+        </param>
+      </docblock>
+      <parameter name="query" byreference="true" type="object">
+        <type full="\\SQLQuery" namespace="\" name="SQLQuery"/>
+      </parameter>
+    </method>
+    <method name="augmentDatabase" start="54" end="55" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Update the database schema as required by this extension.">When duplicating a table's structure, remember to duplicate the create options
+as well. See <link xmlns="http://xml.phpdox.net/src" value="Versioned-&gt;augmentDatabase"/> for an example.
+</description>
+      </docblock>
+    </method>
+    <method name="augmentWrite" start="62" end="63" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Augment a write-record request."/>
+        <param description="Query to augment." type="object" variable="$manipulation">
+          <type full="SQLQuery" namespace="" name="SQLQuery"/>
+        </param>
+      </docblock>
+      <parameter name="manipulation" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="onBeforeWrite" start="65" end="66" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="onAfterWrite" start="68" end="69" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="onBeforeDelete" start="71" end="72" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="onAfterDelete" start="74" end="75" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="requireDefaultRecords" start="77" end="78" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="populateDefaults" start="80" end="81" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="can" start="83" end="84" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="member" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="canEdit" start="86" end="87" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="member" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="canDelete" start="89" end="90" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="member" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="canCreate" start="92" end="93" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="member" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="extraStatics" start="107" end="109" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Define extra database fields">Return a map where the keys are db, has_one, etc, and the values are
+additional fields/relations to be defined.</description>
+        <param description="this method might be called on the class directly" variable="$class" type="object">
+          <type full="since" namespace="" name="since"/>
+        </param>
+        <param description="this can help to extract parameters to help set indexes" variable="$extension" type="object">
+          <type full="since" namespace="" name="since"/>
+        </param>
+        <return description="Returns a map where the keys are db, has_one, etc, and" type="array">the values are additional fields/relations to be defined.</return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="extension" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="updateCMSFields" start="124" end="125" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="This function is used to provide modifications to the form in the CMS by the extension. By default, no changes are made. {@link DataObject-&gt;getCMSFields()}.">Please consider using <link xmlns="http://xml.phpdox.net/src" value="updateFormFields()"/> to globally add
+formfields to the record. The method <link xmlns="http://xml.phpdox.net/src" value="updateCMSFields()"/>should just be used to add or modify tabs, or fields which
+are specific to the CMS-context.
+Caution: Use <link xmlns="http://xml.phpdox.net/src" value="FieldList-&gt;addFieldToTab()"/> to add fields.
+</description>
+        <param description="FieldList with a contained TabSet" type="object" variable="$fields">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </param>
+      </docblock>
+      <parameter name="fields" byreference="false" type="object">
+        <type full="\\FieldList" namespace="\" name="FieldList"/>
+      </parameter>
+    </method>
+    <method name="updateFrontEndFields" start="135" end="136" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="This function is used to provide modifications to the form used for front end forms. {@link DataObject-&gt;getFrontEndFields()}">Caution: Use <link xmlns="http://xml.phpdox.net/src" value="FieldList-&gt;push()"/> to add fields.
+</description>
+        <param description="FieldList without TabSet nesting" type="object" variable="$fields">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </param>
+      </docblock>
+      <parameter name="fields" byreference="false" type="object">
+        <type full="\\FieldList" namespace="\" name="FieldList"/>
+      </parameter>
+    </method>
+    <method name="updateCMSActions" start="144" end="145" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="This is used to provide modifications to the form actions used in the CMS. {@link DataObject-&gt;getCMSActions()}."/>
+        <param description="FieldList" type="object" variable="$actions">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </param>
+      </docblock>
+      <parameter name="actions" byreference="false" type="object">
+        <type full="\\FieldList" namespace="\" name="FieldList"/>
+      </parameter>
+    </method>
+    <method name="updateSummaryFields" start="155" end="165" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="this function is used to provide modifications to the summary fields in CMS by the extension By default, the summaryField() of its owner will merge more fields defined in the extension's $extra_fields['summary_fields']"/>
+        <param description="Array of field names" type="array" variable="$fields"/>
+      </docblock>
+      <parameter name="fields" byreference="true" type="{unknown}"/>
+      <inline>
+        <comment value="if summary_fields were passed in numeric array," line="158"/>
+        <comment value="convert to an associative array" line="159"/>
+      </inline>
+    </method>
+    <method name="updateFieldLabels" start="175" end="180" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="this function is used to provide modifications to the fields labels in CMS by the extension By default, the fieldLabels() of its owner will merge more fields defined in the extension's $extra_fields['field_labels']"/>
+        <param description="Array of field labels" type="array" variable="$labels"/>
+      </docblock>
+      <parameter name="labels" byreference="true" type="{unknown}"/>
+    </method>
+  </parent>
+  <parent full="Extension" namespace="" name="Extension">
+    <member name="owner" type="{unknown}" visibility="protected" line="26">
+      <docblock>
+        <description compact="The object this extension is applied to."/>
+        <var type="object">
+          <type full="Object" namespace="" name="Object"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="ownerBaseClass" type="{unknown}" visibility="protected" line="32">
+      <docblock>
+        <description compact="The base class that this extension was applied to; $this-&gt;owner must be one of these"/>
+        <var type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="class" type="{unknown}" visibility="public" line="40"/>
+    <constructor name="__construct" start="42" end="44" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="add_to_class" start="52" end="54" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Called when this extension is added to a particular class"/>
+        <static/>
+        <param variable="$class"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="extensionClass" byreference="false" type="{unknown}"/>
+      <parameter name="args" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="setOwner" start="64" end="70" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the owner of this extension."/>
+        <param description="The owner object," type="object" variable="$owner">
+          <type full="Object" namespace="" name="Object"/>
+        </param>
+        <param description="The base class that the extension is applied to; this may be" type="string" variable="$ownerBaseClass">the class of owner, or it may be a parent.  For example, if Versioned was applied to SiteTree,
+and then a Page object was instantiated, $owner would be a Page object, but $ownerBaseClass
+would be 'SiteTree'.</param>
+      </docblock>
+      <parameter name="owner" byreference="false" type="{unknown}"/>
+      <parameter name="ownerBaseClass" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="clearOwner" start="72" end="76" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="getOwner" start="83" end="85" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the owner of this extension."/>
+        <return type="object">
+          <type full="Object" namespace="" name="Object"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="get_classname_without_arguments" start="95" end="97" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Helper method to strip eval'ed arguments from a string thats passed to {@link DataObject::$extensions} or {@link Object::add_extension()}."/>
+        <param description="E.g. &quot;Versioned('Stage','Live')&quot;" type="string" variable="$extensionStr"/>
+        <return description="Extension classname, e.g. &quot;Versioned&quot;" type="string"/>
+      </docblock>
+      <parameter name="extensionStr" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

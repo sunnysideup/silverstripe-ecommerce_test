@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="HTTP" href="../../classes/HTTP.xhtml">HTTP</a>
+          </li>
+          <li class="separator">urlRewriter</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="../../source/framework/control/HTTP.php.xhtml#line104">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>HTTP::</small>urlRewriter</h1>
+        <h4>Rewrite all the URLs in the given content, evaluating the given string as PHP code.</h4>
+        <p>Put $URL where you want the URL to appear, however, you can't embed $URL in strings
+Some example code:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;'"../../" . $URL'&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'myRewriter($URL)'&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'(substr($URL,0,1)=="/") ? "../" . substr($URL,1) : $URL'&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+As of 3.2 $code should be a callable which takes a single parameter and returns
+the rewritten URL. e.g.
+
+&lt;code&gt;
+function($url) {
+	return Director::absoluteURL($url, true);
+}
+&lt;/code&gt;</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function urlRewriter(string
+        $content,
+            <a title="string|callable" href="../../classes/string|callable.xhtml">string|callable</a>
+        $code )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$content</code>
+                —
+                string</dt>
+          <dd>The HTML to search for links to rewrite</dd>
+          <dt><code>$code</code>
+                —
+                object</dt>
+          <dd>Either a string that can evaluate to an expression<br/>to rewrite links (depreciated), or a callable that takes a single<br/>parameter and returns the rewritten URL</dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>The</dt>
+          <dd>content with all links rewritten as per the logic specified in $code<br/>
+        </dd>
+        </dl>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">120</td>
+            <td>- http://www.css3.info/preview/multiple-backgrounds/</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

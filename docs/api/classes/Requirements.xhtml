@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Requirements</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Requirements</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/view/Requirements.php.xhtml#line10">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Requirements</h1>
+        <h4>Requirements tracker, for javascript and css.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Requirements
+                implements
+                <a title="Flushable" href="../interfaces/Flushable.xhtml">Flushable</a>
+            {<br/><ul class="none"><li>// members</li><li>private <span title="Requirements">Requirements</span> <a href="#members">$backend</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="Requirements" href="../classes/Requirements/flush.xhtml">flush</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/set_combined_files_enabled.xhtml">set_combined_files_enabled</a>()
+                    </li><li>public static boolean <a title="Requirements" href="../classes/Requirements/get_combined_files_enabled.xhtml">get_combined_files_enabled</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/set_combined_files_folder.xhtml">set_combined_files_folder</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/set_suffix_requirements.xhtml">set_suffix_requirements</a>()
+                    </li><li>public static bool <a title="Requirements" href="../classes/Requirements/get_suffix_requirements.xhtml">get_suffix_requirements</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/backend.xhtml">backend</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/set_backend.xhtml">set_backend</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/javascript.xhtml">javascript</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/customScript.xhtml">customScript</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/customCSS.xhtml">customCSS</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/insertHeadTags.xhtml">insertHeadTags</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/javascriptTemplate.xhtml">javascriptTemplate</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/css.xhtml">css</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/themedCSS.xhtml">themedCSS</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/clear.xhtml">clear</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/block.xhtml">block</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/unblock.xhtml">unblock</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/unblock_all.xhtml">unblock_all</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/restore.xhtml">restore</a>()
+                    </li><li>public static string <a title="Requirements" href="../classes/Requirements/includeInHTML.xhtml">includeInHTML</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/include_in_response.xhtml">include_in_response</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/add_i18n_javascript.xhtml">add_i18n_javascript</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/combine_files.xhtml">combine_files</a>()
+                    </li><li>public static array <a title="Requirements" href="../classes/Requirements/get_combine_files.xhtml">get_combine_files</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/delete_combined_files.xhtml">delete_combined_files</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/delete_all_combined_files.xhtml">delete_all_combined_files</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/clear_combined_files.xhtml">clear_combined_files</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/process_combined_files.xhtml">process_combined_files</a>()
+                    </li><li>public static array <a title="Requirements" href="../classes/Requirements/get_custom_scripts.xhtml">get_custom_scripts</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/set_write_js_to_body.xhtml">set_write_js_to_body</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/set_force_js_to_bottom.xhtml">set_force_js_to_bottom</a>()
+                    </li><li>public static void <a title="Requirements" href="../classes/Requirements/debug.xhtml">debug</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/Flushable.xhtml">Flushable</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">10+</td>
+            <td>Document the requirements tracker, and discuss it with the others.</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="backend"><strong>$backend</strong>
+                —
+                <a href="#">Requirements</a><br/><span class="indent">Instance of requirements for storage</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="add_i18n_javascript"><a title="Requirements" href="../classes/Requirements/add_i18n_javascript.xhtml">add_i18n_javascript()</a>
+                — Add i18n files from the given javascript directory.</li>
+            <li id="backend">
+              <a title="Requirements" href="../classes/Requirements/backend.xhtml">backend()</a>
+            </li>
+            <li id="block"><a title="Requirements" href="../classes/Requirements/block.xhtml">block()</a>
+                — Blocks inclusion of a specific file See {@link Requirements_Backend::block()}</li>
+            <li id="clear"><a title="Requirements" href="../classes/Requirements/clear.xhtml">clear()</a>
+                — Clear either a single or all requirements.</li>
+            <li id="clear_combined_files"><a title="Requirements" href="../classes/Requirements/clear_combined_files.xhtml">clear_combined_files()</a>
+                — Re-sets the combined files definition. See {@link Requirements_Backend::clear_combined_files()}</li>
+            <li id="combine_files"><a title="Requirements" href="../classes/Requirements/combine_files.xhtml">combine_files()</a>
+                — Concatenate several css or javascript files into a single dynamically generated file.</li>
+            <li id="css"><a title="Requirements" href="../classes/Requirements/css.xhtml">css()</a>
+                — Register the given stylesheet file as required.</li>
+            <li id="customCSS"><a title="Requirements" href="../classes/Requirements/customCSS.xhtml">customCSS()</a>
+                — Include custom CSS styling to the header of the page.</li>
+            <li id="customScript"><a title="Requirements" href="../classes/Requirements/customScript.xhtml">customScript()</a>
+                — Add the javascript code to the header of the page</li>
+            <li id="debug">
+              <a title="Requirements" href="../classes/Requirements/debug.xhtml">debug()</a>
+            </li>
+            <li id="delete_all_combined_files"><a title="Requirements" href="../classes/Requirements/delete_all_combined_files.xhtml">delete_all_combined_files()</a>
+                — Deletes all generated combined files in the configured combined files directory, but doesn't delete the directory itself.</li>
+            <li id="delete_combined_files"><a title="Requirements" href="../classes/Requirements/delete_combined_files.xhtml">delete_combined_files()</a>
+                — Deletes all dynamically generated combined files from the filesystem.</li>
+            <li id="flush"><a title="Requirements" href="../classes/Requirements/flush.xhtml">flush()</a>
+                — Triggered early in the request when someone requests a flush.</li>
+            <li id="get_combine_files"><a title="Requirements" href="../classes/Requirements/get_combine_files.xhtml">get_combine_files()</a>
+                — Returns all combined files.</li>
+            <li id="get_combined_files_enabled"><a title="Requirements" href="../classes/Requirements/get_combined_files_enabled.xhtml">get_combined_files_enabled()</a>
+                — Checks whether combining of css/javascript files is enabled.</li>
+            <li id="get_custom_scripts"><a title="Requirements" href="../classes/Requirements/get_custom_scripts.xhtml">get_custom_scripts()</a>
+                — Returns all custom scripts See {@link Requirements_Backend::get_custom_scripts()}</li>
+            <li id="get_suffix_requirements"><a title="Requirements" href="../classes/Requirements/get_suffix_requirements.xhtml">get_suffix_requirements()</a>
+                — Return whether we want to suffix requirements</li>
+            <li id="includeInHTML"><a title="Requirements" href="../classes/Requirements/includeInHTML.xhtml">includeInHTML()</a>
+                — Update the given HTML content with the appropriate include tags for the registered requirements.</li>
+            <li id="include_in_response">
+              <a title="Requirements" href="../classes/Requirements/include_in_response.xhtml">include_in_response()</a>
+            </li>
+            <li id="insertHeadTags"><a title="Requirements" href="../classes/Requirements/insertHeadTags.xhtml">insertHeadTags()</a>
+                — Add the following custom code to the &lt;head&gt; section of the page.</li>
+            <li id="javascript"><a title="Requirements" href="../classes/Requirements/javascript.xhtml">javascript()</a>
+                — Register the given javascript file as required.</li>
+            <li id="javascriptTemplate"><a title="Requirements" href="../classes/Requirements/javascriptTemplate.xhtml">javascriptTemplate()</a>
+                — Load the given javascript template with the page.</li>
+            <li id="process_combined_files"><a title="Requirements" href="../classes/Requirements/process_combined_files.xhtml">process_combined_files()</a>
+                — See {@link combine_files()}.</li>
+            <li id="restore"><a title="Requirements" href="../classes/Requirements/restore.xhtml">restore()</a>
+                — Restore requirements cleared by call to Requirements::clear See {@link Requirements_Backend::restore()}</li>
+            <li id="set_backend"><a title="Requirements" href="../classes/Requirements/set_backend.xhtml">set_backend()</a>
+                — Setter method for changing the Requirements backend</li>
+            <li id="set_combined_files_enabled"><a title="Requirements" href="../classes/Requirements/set_combined_files_enabled.xhtml">set_combined_files_enabled()</a>
+                — Enable combining of css/javascript files.</li>
+            <li id="set_combined_files_folder"><a title="Requirements" href="../classes/Requirements/set_combined_files_folder.xhtml">set_combined_files_folder()</a>
+                — Set the relative folder e.g. "assets" for where to store combined files</li>
+            <li id="set_force_js_to_bottom"><a title="Requirements" href="../classes/Requirements/set_force_js_to_bottom.xhtml">set_force_js_to_bottom()</a>
+                — Set the javascript to be forced to end of the HTML, or use the default.</li>
+            <li id="set_suffix_requirements"><a title="Requirements" href="../classes/Requirements/set_suffix_requirements.xhtml">set_suffix_requirements()</a>
+                — Set whether we want to suffix requirements with the time / location on to the requirements</li>
+            <li id="set_write_js_to_body"><a title="Requirements" href="../classes/Requirements/set_write_js_to_body.xhtml">set_write_js_to_body()</a>
+                — Set whether you want to write the JS to the body of the page or in the head section</li>
+            <li id="themedCSS"><a title="Requirements" href="../classes/Requirements/themedCSS.xhtml">themedCSS()</a>
+                — Registers the given themeable stylesheet as required.</li>
+            <li id="unblock"><a title="Requirements" href="../classes/Requirements/unblock.xhtml">unblock()</a>
+                — Removes an item from the blocking-list.</li>
+            <li id="unblock_all"><a title="Requirements" href="../classes/Requirements/unblock_all.xhtml">unblock_all()</a>
+                — Removes all items from the blocking-list.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

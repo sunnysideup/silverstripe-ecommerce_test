@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleByLabel" namespace="" name="SimpleByLabel" abstract="false" final="false" start="53" end="76">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="selector.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/selector.php" size="3258" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="6ef919c7b8e1edbaa1f5bf43af0243385ba01d51" relative="framework/thirdparty/simpletest/selector.php"/>
+  <docblock>
+    <description compact="Used to extract form elements for testing against.">Searches by visible label or alt text.
+   @package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <member name="_label" type="{unknown}" visibility="public" line="54"/>
+  <method name="SimpleByLabel" start="60" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stashes the name for later comparison.">@param string $label     Visible text to match.</description>
+    </docblock>
+    <parameter name="label" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isMatch" start="70" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Comparison. Compares visible text of widget or    related label.">@param SimpleWidget $widget    Control to compare.
+   @access public</description>
+    </docblock>
+    <parameter name="widget" byreference="false" type="{unknown}"/>
+  </method>
+</class>

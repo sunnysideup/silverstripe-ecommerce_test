@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/parsers" file="TextParser.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/parsers/TextParser.php" size="1838" time="2015-03-14T10:40:58+13:00" unixtime="1426282858" sha1="354d715bb0558683a5bc081a0497bfd141a2b5f3" relative="framework/parsers/TextParser.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * Parses text in a variety of ways.</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * </token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * Called from a template by $Content.Parse(SubClassName), similar to $Content.XML.</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> * This will work on any Text database field (Or a sub-class, such as HTMLText, </token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * although it's usefulness in this situation is more limited).</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> * </token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * Any sub-classes of TextParser must implement a parse() method. </token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * This should take $this-&gt;content and parse it however you want. For an example</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * of the implementation, @see BBCodeParser.</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> * </token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * Your sub-class will be initialized with a string of text, then parse() will be called.</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> * parse() should (after processing) return the formatted string.</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> * </token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT"> * Note: $this-&gt;content will have NO conversions applied to it. </token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT"> * You should run Covert::raw2xml or whatever is appropriate before using it. </token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT"> * </token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT"> * Optionally (but recommended), is creating a static usable_tags method, </token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT"> * which will return a SS_List of all the usable tags that can be parsed.</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT"> * This will (mostly) be used to create helper blocks - telling users what things will be parsed.</token>
+  </line>
+  <line no="22">
+    <token name="T_DOC_COMMENT"> * Again, @see BBCodeParser for an example of the syntax</token>
+  </line>
+  <line no="23">
+    <token name="T_DOC_COMMENT"> * </token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT"> * @todo Define a proper syntax for (or refactor) usable_tags that can be extended as needed.</token>
+  </line>
+  <line no="25">
+    <token name="T_DOC_COMMENT"> * @package framework</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT"> * @subpackage misc</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="28">
+    <token name="T_ABSTRACT">abstract</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">TextParser</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Object</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="29">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PROTECTED">protected</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$content</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="30">
+    <token name="T_WHITESPACE">	</token>
+  </line>
+  <line no="31">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="32">
+    <token name="T_DOC_COMMENT">	 * Creates a new TextParser object.</token>
+  </line>
+  <line no="33">
+    <token name="T_DOC_COMMENT">	 * </token>
+  </line>
+  <line no="34">
+    <token name="T_DOC_COMMENT">	 * @param string $content The contents of the dbfield</token>
+  </line>
+  <line no="35">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="36">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">__construct</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$content</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="37">
+    <token name="T_WHITESPACE">		</token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">content</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$content</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="38">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="39">
+    <token name="T_WHITESPACE">	</token>
+  </line>
+  <line no="40">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="41">
+    <token name="T_DOC_COMMENT">	 * Convenience method, shouldn't really be used, but it's here if you want it</token>
+  </line>
+  <line no="42">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="43">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">setContent</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$content</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">""</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="44">
+    <token name="T_WHITESPACE">		</token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">content</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$content</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="45">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="46">
+    <token name="T_WHITESPACE">	</token>
+  </line>
+  <line no="47">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="48">
+    <token name="T_DOC_COMMENT">	 * Define your own parse method to parse $this-&gt;content appropriately.</token>
+  </line>
+  <line no="49">
+    <token name="T_DOC_COMMENT">	 * See the class doc-block for more implementation details.</token>
+  </line>
+  <line no="50">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="51">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_ABSTRACT">abstract</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">parse</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="52">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="53"/>
+</source>

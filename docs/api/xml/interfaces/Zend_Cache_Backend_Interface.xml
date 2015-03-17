@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Zend_Cache_Backend_Interface" namespace="" name="Zend_Cache_Backend_Interface" abstract="false" final="false" start="30" end="99">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Cache/Backend" file="Interface.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Cache/Backend/Interface.php" size="3904" time="2015-03-14T10:41:13+13:00" unixtime="1426282873" sha1="fb4b3d1e8d1e4ec17d29131cf070ce972635a572" relative="framework/thirdparty/Zend/Cache/Backend/Interface.php"/>
+  <docblock>
+    <description/>
+    <package value="Zend_Cache"/>
+    <subpackage value="Zend_Cache_Backend"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <method name="setDirectives" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the frontend directives"/>
+      <param description="assoc of directives" type="array" variable="$directives"/>
+    </docblock>
+    <parameter name="directives" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="load" start="48" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test if a cache is available for the given id and (if yes) return it (false else)">Note : return value is always "string" (unserialization is done by the core not by the backend)</description>
+      <param description="Cache id" type="string" variable="$id"/>
+      <param description="If set to true, the cache validity won't be tested" type="boolean" variable="$doNotTestCacheValidity"/>
+      <return description="cached datas" type="object">
+        <type full="string|false" namespace="" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="doNotTestCacheValidity" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="test" start="56" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test if a cache is available or not (for the given id)"/>
+      <param description="cache id" type="string" variable="$id"/>
+      <return description="(a cache is not available) or &quot;last modified&quot; timestamp (int) of the available cache record" type="object">
+        <type full="mixed|false" namespace="" name="mixed|false"/>
+      </return>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="save" start="70" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save some string datas into a cache record">Note : $data is always "string" (serialization is done by the
+core not by the backend)</description>
+      <param description="Datas to cache" type="string" variable="$data"/>
+      <param description="Cache id" type="string" variable="$id"/>
+      <param description="Array of strings, the cache record will be tagged by each string entry" type="array" variable="$tags"/>
+      <param description="If != false, set a specific lifetime for this cache record (null =&gt; infinite lifetime)" type="int" variable="$specificLifetime"/>
+      <return description="true if no problem" type="boolean"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="tags" byreference="false" type="array"/>
+    <parameter name="specificLifetime" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="remove" start="78" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Remove a cache record"/>
+      <param description="Cache id" type="string" variable="$id"/>
+      <return description="True if no problem" type="boolean"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clean" start="97" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clean some cache records">Available modes are :
+Zend_Cache::CLEANING_MODE_ALL (default)    =&gt; remove all cache entries ($tags is not used)
+Zend_Cache::CLEANING_MODE_OLD              =&gt; remove too old cache entries ($tags is not used)
+Zend_Cache::CLEANING_MODE_MATCHING_TAG     =&gt; remove cache entries matching all given tags
+                                              ($tags can be an array of strings or a single string)
+Zend_Cache::CLEANING_MODE_NOT_MATCHING_TAG =&gt; remove cache entries not {matching one of the given tags}
+                                              ($tags can be an array of strings or a single string)
+Zend_Cache::CLEANING_MODE_MATCHING_ANY_TAG =&gt; remove cache entries matching any given tags
+                                              ($tags can be an array of strings or a single string)</description>
+      <param description="Clean mode" type="string" variable="$mode"/>
+      <param description="Array of tags" type="array" variable="$tags"/>
+      <return description="true if no problem" type="boolean"/>
+    </docblock>
+    <parameter name="mode" byreference="false" type="{unknown}" default="Zend_Cache::CLEANING_MODE_ALL"/>
+    <parameter name="tags" byreference="false" type="array"/>
+  </method>
+  <implementor full="Zend_Cache_Backend_Xcache" namespace="" name="Zend_Cache_Backend_Xcache"/>
+  <extender full="Zend_Cache_Backend_ExtendedInterface" namespace="" name="Zend_Cache_Backend_ExtendedInterface"/>
+  <implementor full="Zend_Cache_Backend_ZendServer" namespace="" name="Zend_Cache_Backend_ZendServer"/>
+  <implementor full="Zend_Cache_Backend_Static" namespace="" name="Zend_Cache_Backend_Static"/>
+  <implementor full="Zend_Cache_Backend_ZendServer_Disk" namespace="" name="Zend_Cache_Backend_ZendServer_Disk"/>
+  <implementor full="Zend_Cache_Backend_ZendServer_ShMem" namespace="" name="Zend_Cache_Backend_ZendServer_ShMem"/>
+  <implementor full="Zend_Cache_Backend_ZendPlatform" namespace="" name="Zend_Cache_Backend_ZendPlatform"/>
+</interface>

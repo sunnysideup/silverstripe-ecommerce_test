@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Mailer" href="../../classes/Mailer.xhtml">Mailer</a>
+          </li>
+          <li class="separator">encodeFileForEmail</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="../../source/framework/email/Mailer.php.xhtml#line318">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Mailer::</small>encodeFileForEmail</h1>
+        <h4>Encode the contents of a file for emailing, including headers</h4>
+        <p>$file can be an array, in which case it expects these members:
+  'filename'        - the filename of the file
+  'contents'        - the raw binary contents of the file as a string
+ and can optionally include these members:
+  'mimetype'        - the mimetype of the file (calculated from filename if missing)
+  'contentLocation' - the 'Content-Location' header value for the file
+
+$file can also be a string, in which case it is assumed to be the filename
+
+h5. contentLocation
+
+Content Location is one of the two methods allowed for embedding images into an html email.
+It's also the simplest, and best supported.
+
+Assume we have an email with this in the body:
+
+  &lt;img src="http://example.com/image.gif" /&gt;
+
+To display the image, an email viewer would have to download the image from the web every time
+it is displayed. Due to privacy issues, most viewers will not display any images unless
+the user clicks 'Show images in this email'. Not optimal.
+
+However, we can also include a copy of this image as an attached file in the email.
+By giving it a contentLocation of "http://example.com/image.gif" most email viewers
+will use this attached copy instead of downloading it. Better,
+most viewers will show it without a 'Show images in this email' conformation.
+
+Here is an example of passing this information through Email.php:
+
+  $email = new Email();
+  $email-&gt;attachments[] = array(
+    'filename' =&gt; BASE_PATH . "/themes/mytheme/images/header.gif",
+    'contents' =&gt; file_get_contents(BASE_PATH . "/themes/mytheme/images/header.gif"),
+    'mimetype' =&gt; 'image/gif',
+    'contentLocation' =&gt; Director::absoluteBaseURL() . "/themes/mytheme/images/header.gif"
+  );</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function encodeFileForEmail(
+        $file,
+            [
+        $destFileName = false,
+            [
+        $disposition = NULL,
+            [string
+        $extraHeaders = ""]]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$file</code>
+                —
+                </dt>
+          <dd/>
+          <dt><code>$destFileName</code>
+                —
+                </dt>
+          <dd/>
+          <dt><code>$disposition</code>
+                —
+                </dt>
+          <dd/>
+          <dt><code>$extraHeaders</code>
+                —
+                string</dt>
+          <dd/>
+        </dl>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">318+</td>
+            <td>Make visibility protected in 3.2</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

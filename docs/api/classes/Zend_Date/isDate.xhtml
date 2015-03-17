@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Zend_Date" href="../../classes/Zend_Date.xhtml">Zend_Date</a>
+          </li>
+          <li class="separator">isDate</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="../../source/framework/thirdparty/Zend/Date.php.xhtml#line4742">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Zend_Date::</small>isDate</h1>
+        <h4>Checks if the given date is a real date or datepart.</h4>
+        <p>Returns false if a expected datepart is missing or a datepart exceeds its possible border.
+But the check will only be done for the expected dateparts which are given by format.
+If no format is given the standard dateformat for the actual locale is used.
+f.e. 30.February.2007 will return false if format is 'dd.MMMM.YYYY'</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function isDate(<a title="string|array|Zend_Date" href="../../classes/string|array|Zend_Date.xhtml">string|array|Zend_Date</a>
+        $date,
+            [string
+        $format = null,
+            [<a title="string|Zend_Locale" href="../../classes/string|Zend_Locale.xhtml">string|Zend_Locale</a>
+        $locale = null]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$date</code>
+                —
+                object</dt>
+          <dd>Date to parse for correctness<br/><br/><br/>      </dd>
+          <dt><code>$format</code>
+                —
+                string</dt>
+          <dd>(Optional) Format for parsing the date string</dd>
+          <dt><code>$locale</code>
+                —
+                object</dt>
+          <dd>(Optional) Locale for parsing date parts<br/><br/><br/>      </dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>boolean</dt>
+          <dd>True when all date parts are correct</dd>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

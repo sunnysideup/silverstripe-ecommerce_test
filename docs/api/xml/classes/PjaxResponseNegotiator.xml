@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PjaxResponseNegotiator" namespace="" name="PjaxResponseNegotiator" abstract="false" final="false" start="20" end="128">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control" file="PjaxResponseNegotiator.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/PjaxResponseNegotiator.php" size="3795" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="c397aa2a8dc8f15116f7f4de88d96d007448a635" relative="framework/control/PjaxResponseNegotiator.php"/>
+  <docblock>
+    <description compact="Handle the X-Pjax header that AJAX responses may provide, returning the fragment, or, in the case of non-AJAX form submissions, redirecting back to the submitter.">X-Pjax ensures that users won't end up seeing the unstyled form HTML in
+their browser.
+
+If a JS error prevents the Ajax overriding of form submissions from happening.
+
+It also provides better non-JS operation.
+
+Caution: This API is volatile, and might eventually be replaced by a generic
+action helper system for controllers.</description>
+    <package value="framework"/>
+    <subpackage value="control"/>
+  </docblock>
+  <member name="callbacks" type="array" visibility="protected" line="25">
+    <docblock>
+      <description/>
+      <var description="See {@link respond()}" type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="response" type="{unknown}" default="null" visibility="protected" line="30"/>
+  <member name="fragmentOverride" type="{unknown}" default="null" visibility="protected" line="35">
+    <docblock>
+      <description compact="Overriden fragments (if any). Otherwise uses fragments from the request."/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="42" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$controller">
+        <type full="RequestHandler" namespace="" name="RequestHandler"/>
+      </param>
+      <param description="An existing response to reuse (optional)" type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </param>
+      <param type="object" variable="$callbacks">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+    </docblock>
+    <parameter name="callbacks" byreference="false" type="array"/>
+    <parameter name="response" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="getResponse" start="47" end="50" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setResponse" start="52" end="54" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="response" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="respond" start="67" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Out of the box, the handler &quot;CurrentForm&quot; value, which will return the rendered form.">Non-Ajax calls will redirect back.</description>
+      <param type="object" variable="$request">
+        <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+      </param>
+      <param description="List of anonymous functions or callables returning either a string" type="array" variable="$extraCallbacks">or SS_HTTPResponse, keyed by their fragment identifier. The 'default' key can
+be used as a fallback for non-ajax responses.</param>
+      <param description="Change the response fragments." type="array" variable="$fragmentOverride"/>
+      <return type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <parameter name="extraCallbacks" byreference="false" type="array"/>
+    <inline>
+      <comment value="Prepare the default options and combine with the others" line="68"/>
+      <comment value="Execute the fragment callbacks and build the response." line="86"/>
+    </inline>
+  </method>
+  <method name="setCallback" start="105" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$fragment">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param type="object" variable="$callback">
+        <type full="Callable" namespace="" name="Callable"/>
+      </param>
+    </docblock>
+    <parameter name="fragment" byreference="false" type="{unknown}"/>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setFragmentOverride" start="114" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set up fragment overriding - will completely replace the incoming fragments."/>
+      <param description="Fragments to insert." type="array" variable="$fragments"/>
+    </docblock>
+    <parameter name="fragments" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFragmentOverride" start="125" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

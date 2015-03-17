@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="DatabaseAdapterRegistry" namespace="" name="DatabaseAdapterRegistry" abstract="false" final="false" start="11" end="84">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev/install" file="DatabaseAdapterRegistry.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/install/DatabaseAdapterRegistry.php" size="2377" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="d3f69c2deeed222c7abc1a97a3e4e2d978f0dc5b" relative="framework/dev/install/DatabaseAdapterRegistry.php"/>
+  <docblock>
+    <description compact="This class keeps track of the available database adapters and provides a meaning of registering community built adapters in to the installer process."/>
+    <package value="framework"/>
+    <author value="Tom Rix"/>
+  </docblock>
+  <member name="default_fields" type="array" visibility="private" line="13"/>
+  <member name="adapters" type="array" visibility="private" line="41">
+    <docblock>
+      <description compact="Internal array of registered database adapters"/>
+    </docblock>
+  </member>
+  <method name="register" start="47" end="66" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Add new adapter to the registry"/>
+      <param description="Associative array of configuration details" type="array" variable="$config"/>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="set default fields if none are defined already" line="62"/>
+    </inline>
+  </method>
+  <method name="unregister" start="68" end="70" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="autodiscover" start="72" end="78" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="get_adapters" start="80" end="82" abstract="false" final="false" static="true" visibility="public"/>
+</class>

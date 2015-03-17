@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SimplePageBuilder</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SimplePageBuilder</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/simpletest/page.php.xhtml#line121">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SimplePageBuilder</h1>
+        <h4>SAX event handler. Maintains a list of    open tags and dispatches them as they close.</h4>
+        <p>@package SimpleTest<br/>   @subpackage WebTester</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SimplePageBuilder
+                extends <a title="SimpleSaxListener" href="../classes/SimpleSaxListener.xhtml">SimpleSaxListener</a>
+            {<br/><ul class="none"><li>// members</li><li>public <a href="#members">$_tags</a>;
+                    </li><li>public <a href="#members">$_page</a>;
+                    </li><li>public <a href="#members">$_private_content_tag</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/SimplePageBuilder.xhtml">SimplePageBuilder</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/free.xhtml">free</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/parse.xhtml">parse</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_createPage.xhtml">_createPage</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_createParser.xhtml">_createParser</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/startElement.xhtml">startElement</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/endElement.xhtml">endElement</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_hasNamedTagOnOpenTagStack.xhtml">_hasNamedTagOnOpenTagStack</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/addContent.xhtml">addContent</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_addContentToAllOpenTags.xhtml">_addContentToAllOpenTags</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_addContentTagToOpenTags.xhtml">_addContentTagToOpenTags</a>()
+                    </li><li>public void <a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_openTag.xhtml">_openTag</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="SimpleSaxListener">SimpleSaxListener</span></li><li>public void <a title="SimpleSaxListener" href="../classes/SimpleSaxListener/SimpleSaxListener.xhtml">SimpleSaxListener</a>()
+                        </li><li>public void <a title="SimpleSaxListener" href="../classes/SimpleSaxListener/startElement.xhtml">startElement</a>()
+                        </li><li>public void <a title="SimpleSaxListener" href="../classes/SimpleSaxListener/endElement.xhtml">endElement</a>()
+                        </li><li>public void <a title="SimpleSaxListener" href="../classes/SimpleSaxListener/addContent.xhtml">addContent</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/SimpleSaxListener.xhtml">SimpleSaxListener</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>public</h4>
+          <ul class="members">
+            <li id="_page">
+              <strong>$_page</strong>
+            </li>
+            <li id="_private_content_tag">
+              <strong>$_private_content_tag</strong>
+            </li>
+            <li id="_tags">
+              <strong>$_tags</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="SimplePageBuilder"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/SimplePageBuilder.xhtml">SimplePageBuilder()</a>
+                — Sets the builder up empty.</li>
+            <li id="_addContentTagToOpenTags"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_addContentTagToOpenTags.xhtml">_addContentTagToOpenTags()</a>
+                — Parsed data in tag form. The parsed tag is added    to every open tag. Used for adding options to select    fields only.</li>
+            <li id="_addContentToAllOpenTags"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_addContentToAllOpenTags.xhtml">_addContentToAllOpenTags()</a>
+                — Any content fills all currently open tags unless it    is part of an option tag.</li>
+            <li id="_createPage"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_createPage.xhtml">_createPage()</a>
+                — Creates an empty page.</li>
+            <li id="_createParser"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_createParser.xhtml">_createParser()</a>
+                — Creates the parser used with the builder.</li>
+            <li id="_hasNamedTagOnOpenTagStack"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_hasNamedTagOnOpenTagStack.xhtml">_hasNamedTagOnOpenTagStack()</a>
+                — Test to see if there are any open tags awaiting    closure that match the tag name.</li>
+            <li id="_openTag"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/_openTag.xhtml">_openTag()</a>
+                — Opens a tag for receiving content. Multiple tags    will be receiving input at the same time.</li>
+            <li id="addContent"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/addContent.xhtml">addContent()</a>
+                — Unparsed, but relevant data. The data is added    to every open tag.</li>
+            <li id="endElement"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/endElement.xhtml">endElement()</a>
+                — End of element event.</li>
+            <li id="free"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/free.xhtml">free()</a>
+                — Frees up any references so as to allow the PHP garbage    collection from unset() to work.</li>
+            <li id="parse"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/parse.xhtml">parse()</a>
+                — Reads the raw content and send events    into the page to be built.</li>
+            <li id="startElement"><a title="SimplePageBuilder" href="../classes/SimplePageBuilder/startElement.xhtml">startElement()</a>
+                — Start of element event. Opens a new tag.</li>
+          </ul>
+          <h3>Inherited from <a title="SimpleSaxListener" href="../classes/SimpleSaxListener.xhtml">SimpleSaxListener</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="SimpleSaxListener"><a title="SimpleSaxListener" href="../classes/SimpleSaxListener/SimpleSaxListener.xhtml">SimpleSaxListener()</a>
+                — Sets the document to write to.</li>
+            <li id="addContent"><a title="SimpleSaxListener" href="../classes/SimpleSaxListener/addContent.xhtml">addContent()</a>
+                — Unparsed, but relevant data.</li>
+            <li id="endElement"><a title="SimpleSaxListener" href="../classes/SimpleSaxListener/endElement.xhtml">endElement()</a>
+                — End of element event.</li>
+            <li id="startElement"><a title="SimpleSaxListener" href="../classes/SimpleSaxListener/startElement.xhtml">startElement()</a>
+                — Start of element event.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

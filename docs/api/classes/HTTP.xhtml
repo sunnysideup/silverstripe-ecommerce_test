@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - HTTP</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">HTTP</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/control/HTTP.php.xhtml#line10">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>HTTP</h1>
+        <h4>A class with HTTP-related helpers.</h4>
+        <p>Like Debug, this is more a bundle of methods than a class ;-)</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class HTTP
+            {<br/><ul class="none"><li>// members</li><li>protected integer <a href="#members">$cache_age</a>;
+                    </li><li>protected <span title="timestamp">timestamp</span> <a href="#members">$modification_date</a>;
+                    </li><li>protected string <a href="#members">$etag</a>;
+                    </li><li>private <a href="#members">$cache_ajax_requests</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="HTTP" href="../classes/HTTP/filename2url.xhtml">filename2url</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/absoluteURLs.xhtml">absoluteURLs</a>()
+                    </li><li>public static The <a title="HTTP" href="../classes/HTTP/urlRewriter.xhtml">urlRewriter</a>()
+                    </li><li>public static String <a title="HTTP" href="../classes/HTTP/setGetVar.xhtml">setGetVar</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/RAW_setGetVar.xhtml">RAW_setGetVar</a>()
+                    </li><li>public static array <a title="HTTP" href="../classes/HTTP/findByTagAndAttribute.xhtml">findByTagAndAttribute</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/getLinksIn.xhtml">getLinksIn</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/getImagesIn.xhtml">getImagesIn</a>()
+                    </li><li>public static string <a title="HTTP" href="../classes/HTTP/get_mime_type.xhtml">get_mime_type</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/set_cache_age.xhtml">set_cache_age</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/register_modification_date.xhtml">register_modification_date</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/register_modification_timestamp.xhtml">register_modification_timestamp</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/register_etag.xhtml">register_etag</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/add_cache_headers.xhtml">add_cache_headers</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/gmt_date.xhtml">gmt_date</a>()
+                    </li><li>public static void <a title="HTTP" href="../classes/HTTP/get_cache_age.xhtml">get_cache_age</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">120</td>
+            <td>- http://www.css3.info/preview/multiple-backgrounds/</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="cache_ajax_requests">
+              <strong>$cache_ajax_requests</strong>
+            </li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="cache_age"><strong>$cache_age</strong>
+                —
+                int</li>
+            <li id="etag"><strong>$etag</strong>
+                —
+                string</li>
+            <li id="modification_date"><strong>$modification_date</strong>
+                —
+                <a href="#">timestamp</a></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="RAW_setGetVar">
+              <a title="HTTP" href="../classes/HTTP/RAW_setGetVar.xhtml">RAW_setGetVar()</a>
+            </li>
+            <li id="absoluteURLs"><a title="HTTP" href="../classes/HTTP/absoluteURLs.xhtml">absoluteURLs()</a>
+                — Turn all relative URLs in the content to absolute URLs</li>
+            <li id="add_cache_headers"><a title="HTTP" href="../classes/HTTP/add_cache_headers.xhtml">add_cache_headers()</a>
+                — Add the appropriate caching headers to the response, including If-Modified-Since / 304 handling.</li>
+            <li id="filename2url"><a title="HTTP" href="../classes/HTTP/filename2url.xhtml">filename2url()</a>
+                — Turns a local system filename into a URL by comparing it to the script filename.</li>
+            <li id="findByTagAndAttribute"><a title="HTTP" href="../classes/HTTP/findByTagAndAttribute.xhtml">findByTagAndAttribute()</a>
+                — Search for all tags with a specific attribute, then return the value of that attribute in a flat array.</li>
+            <li id="getImagesIn">
+              <a title="HTTP" href="../classes/HTTP/getImagesIn.xhtml">getImagesIn()</a>
+            </li>
+            <li id="getLinksIn">
+              <a title="HTTP" href="../classes/HTTP/getLinksIn.xhtml">getLinksIn()</a>
+            </li>
+            <li id="get_cache_age">
+              <a title="HTTP" href="../classes/HTTP/get_cache_age.xhtml">get_cache_age()</a>
+            </li>
+            <li id="get_mime_type"><a title="HTTP" href="../classes/HTTP/get_mime_type.xhtml">get_mime_type()</a>
+                — Get the MIME type based on a file's extension.</li>
+            <li id="gmt_date"><a title="HTTP" href="../classes/HTTP/gmt_date.xhtml">gmt_date()</a>
+                — Return an {@link http://www.faqs.org/rfcs/rfc2822 RFC 2822} date in the GMT timezone (a timestamp is always in GMT: the number of seconds since January 1 1970 00:00:00 GMT)</li>
+            <li id="register_etag">
+              <a title="HTTP" href="../classes/HTTP/register_etag.xhtml">register_etag()</a>
+            </li>
+            <li id="register_modification_date">
+              <a title="HTTP" href="../classes/HTTP/register_modification_date.xhtml">register_modification_date()</a>
+            </li>
+            <li id="register_modification_timestamp">
+              <a title="HTTP" href="../classes/HTTP/register_modification_timestamp.xhtml">register_modification_timestamp()</a>
+            </li>
+            <li id="setGetVar"><a title="HTTP" href="../classes/HTTP/setGetVar.xhtml">setGetVar()</a>
+                — Will try to include a GET parameter for an existing URL, preserving existing parameters and fragments.</li>
+            <li id="set_cache_age"><a title="HTTP" href="../classes/HTTP/set_cache_age.xhtml">set_cache_age()</a>
+                — Set the maximum age of this page in web caches, in seconds</li>
+            <li id="urlRewriter"><a title="HTTP" href="../classes/HTTP/urlRewriter.xhtml">urlRewriter()</a>
+                — Rewrite all the URLs in the given content, evaluating the given string as PHP code.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

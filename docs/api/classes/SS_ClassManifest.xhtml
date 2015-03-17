@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_ClassManifest</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_ClassManifest</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/core/manifest/ClassManifest.php.xhtml#line15">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_ClassManifest</h1>
+        <h4>A utility class which builds a manifest of all classes, interfaces and some additional items present in a directory, and caches it.</h4>
+        <p>It finds the following information:<br/>- Class and interface names and paths.<br/>- All direct and indirect descendants of a class.<br/>- All implementors of an interface.<br/>  - All module configuration files.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_ClassManifest
+            {<br/><ul class="none"><li>// constants</li><li>const CONF_FILE = '_config.php';</li><li>const CONF_DIR = '_config';</li></ul><ul class="none"><li>// members</li><li>protected <a href="#members">$base</a>;
+                    </li><li>protected <a href="#members">$tests</a>;
+                    </li><li>protected <a href="#members">$cache</a>;
+                    </li><li>protected <a href="#members">$cacheKey</a>;
+                    </li><li>protected array <a href="#members">$classes</a>;
+                    </li><li>protected array <a href="#members">$roots</a>;
+                    </li><li>protected array <a href="#members">$children</a>;
+                    </li><li>protected array <a href="#members">$descendants</a>;
+                    </li><li>protected array <a href="#members">$interfaces</a>;
+                    </li><li>protected array <a href="#members">$implementors</a>;
+                    </li><li>protected array <a href="#members">$configs</a>;
+                    </li><li>protected array <a href="#members">$configDirs</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static TokenisedRegularExpression <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_class_parser.xhtml">get_class_parser</a>()
+                    </li><li>public static TokenisedRegularExpression <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_namespaced_class_parser.xhtml">get_namespaced_class_parser</a>()
+                    </li><li>public static TokenisedRegularExpression <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_namespace_parser.xhtml">get_namespace_parser</a>()
+                    </li><li>public static TokenisedRegularExpression <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_interface_parser.xhtml">get_interface_parser</a>()
+                    </li><li>public void <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/__construct.xhtml">__construct</a>()
+                    </li><li>public string|null <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getItemPath.xhtml">getItemPath</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getClasses.xhtml">getClasses</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getClassNames.xhtml">getClassNames</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getDescendants.xhtml">getDescendants</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getDescendantsOf.xhtml">getDescendantsOf</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getInterfaces.xhtml">getInterfaces</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getImplementors.xhtml">getImplementors</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getImplementorsOf.xhtml">getImplementorsOf</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getConfigs.xhtml">getConfigs</a>()
+                    </li><li>public array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getModules.xhtml">getModules</a>()
+                    </li><li>protected void <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/setDefaults.xhtml">setDefaults</a>()
+                    </li><li>public void <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/regenerate.xhtml">regenerate</a>()
+                    </li><li>public void <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/handleDir.xhtml">handleDir</a>()
+                    </li><li>public void <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/handleFile.xhtml">handleFile</a>()
+                    </li><li>protected array <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/coalesceDescendants.xhtml">coalesceDescendants</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="CONF_FILE">CONF_FILE</td>
+              <td>'_config.php'</td>
+            </tr>
+            <tr>
+              <td id="CONF_DIR">CONF_DIR</td>
+              <td>'_config'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="base">
+              <strong>$base</strong>
+            </li>
+            <li id="cache">
+              <strong>$cache</strong>
+            </li>
+            <li id="cacheKey">
+              <strong>$cacheKey</strong>
+            </li>
+            <li id="children">
+              <strong>$children</strong>
+            </li>
+            <li id="classes">
+              <strong>$classes</strong>
+            </li>
+            <li id="configDirs">
+              <strong>$configDirs</strong>
+            </li>
+            <li id="configs">
+              <strong>$configs</strong>
+            </li>
+            <li id="descendants">
+              <strong>$descendants</strong>
+            </li>
+            <li id="implementors">
+              <strong>$implementors</strong>
+            </li>
+            <li id="interfaces">
+              <strong>$interfaces</strong>
+            </li>
+            <li id="roots">
+              <strong>$roots</strong>
+            </li>
+            <li id="tests">
+              <strong>$tests</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="coalesceDescendants"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/coalesceDescendants.xhtml">coalesceDescendants()</a>
+                — Recursively coalesces direct child information into full descendant information.</li>
+            <li id="setDefaults"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/setDefaults.xhtml">setDefaults()</a>
+                — Used to set up files that we want to exclude from parsing for performance reasons.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/__construct.xhtml">__construct()</a>
+                — Constructs and initialises a new class manifest, either loading the data from the cache or re-scanning for classes.</li>
+            <li id="getClassNames"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getClassNames.xhtml">getClassNames()</a>
+                — Returns a lowercase array of all the class names in the manifest.</li>
+            <li id="getClasses"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getClasses.xhtml">getClasses()</a>
+                — Returns a map of lowercased class names to file paths.</li>
+            <li id="getConfigs"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getConfigs.xhtml">getConfigs()</a>
+                — Returns an array of paths to module config files.</li>
+            <li id="getDescendants"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getDescendants.xhtml">getDescendants()</a>
+                — Returns an array of all the descendant data.</li>
+            <li id="getDescendantsOf"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getDescendantsOf.xhtml">getDescendantsOf()</a>
+                — Returns an array containing all the descendants (direct and indirect) of a class.</li>
+            <li id="getImplementors"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getImplementors.xhtml">getImplementors()</a>
+                — Returns a map of lowercased interface names to the classes the implement them.</li>
+            <li id="getImplementorsOf"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getImplementorsOf.xhtml">getImplementorsOf()</a>
+                — Returns an array containing the class names that implement a certain interface.</li>
+            <li id="getInterfaces"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getInterfaces.xhtml">getInterfaces()</a>
+                — Returns a map of lowercased interface names to file locations.</li>
+            <li id="getItemPath"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getItemPath.xhtml">getItemPath()</a>
+                — Returns the file path to a class or interface if it exists in the manifest.</li>
+            <li id="getModules"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/getModules.xhtml">getModules()</a>
+                — Returns an array of module names mapped to their paths.</li>
+            <li id="get_class_parser">
+              <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_class_parser.xhtml">get_class_parser()</a>
+            </li>
+            <li id="get_interface_parser">
+              <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_interface_parser.xhtml">get_interface_parser()</a>
+            </li>
+            <li id="get_namespace_parser">
+              <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_namespace_parser.xhtml">get_namespace_parser()</a>
+            </li>
+            <li id="get_namespaced_class_parser">
+              <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/get_namespaced_class_parser.xhtml">get_namespaced_class_parser()</a>
+            </li>
+            <li id="handleDir">
+              <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/handleDir.xhtml">handleDir()</a>
+            </li>
+            <li id="handleFile">
+              <a title="SS_ClassManifest" href="../classes/SS_ClassManifest/handleFile.xhtml">handleFile()</a>
+            </li>
+            <li id="regenerate"><a title="SS_ClassManifest" href="../classes/SS_ClassManifest/regenerate.xhtml">regenerate()</a>
+                — Completely regenerates the manifest file.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

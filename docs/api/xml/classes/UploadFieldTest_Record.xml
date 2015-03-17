@@ -1,0 +1,2346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="UploadFieldTest_Record" namespace="" name="UploadFieldTest_Record" abstract="false" final="false" start="902" end="926">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/forms/uploadfield" file="UploadFieldTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/forms/uploadfield/UploadFieldTest.php" size="40022" time="2015-03-14T10:41:09+13:00" unixtime="1426282869" sha1="21d01828e2a553607c2cc9c21b6859f977963901" relative="framework/tests/forms/uploadfield/UploadFieldTest.php"/>
+  <extends full="DataObject" namespace="" name="DataObject"/>
+  <implements full="TestOnly" namespace="" name="TestOnly"/>
+  <member name="db" type="array" visibility="private" line="904"/>
+  <member name="has_one" type="array" visibility="private" line="908"/>
+  <member name="has_many" type="array" visibility="private" line="915"/>
+  <member name="many_many" type="array" visibility="private" line="922"/>
+  <parent full="DataObject" namespace="" name="DataObject">
+    <extends full="ViewableData" namespace="" name="ViewableData"/>
+    <member name="destroyed" type="{unknown}" default="false" visibility="public" line="101">
+      <docblock>
+        <description compact="True if this DataObject has been destroyed."/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <member name="model" type="{unknown}" visibility="protected" line="106">
+      <docblock>
+        <description compact="The DataModel from this this object comes"/>
+      </docblock>
+    </member>
+    <member name="record" type="{unknown}" visibility="protected" line="116">
+      <docblock>
+        <description compact="Data stored in this objects database record. An array indexed by fieldname.">Use <link xmlns="http://xml.phpdox.net/src" value="toMap()"/> if you want an array representation
+of this object, as the $record array might contain lazy loaded field aliases.
+</description>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="original" type="{unknown}" visibility="protected" line="132">
+      <docblock>
+        <description compact="The database record (in the same format as $record), before any changes."/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="brokenOnDelete" type="{unknown}" default="false" visibility="protected" line="138">
+      <docblock>
+        <description compact="Used by onBeforeDelete() to ensure child classes call parent::onBeforeDelete()"/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <member name="brokenOnWrite" type="{unknown}" default="false" visibility="protected" line="144">
+      <docblock>
+        <description compact="Used by onBeforeWrite() to ensure child classes call parent::onBeforeWrite()"/>
+        <var type="boolean"/>
+      </docblock>
+    </member>
+    <member name="cache_has_own_table" type="array" visibility="public" line="158">
+      <docblock>
+        <description compact="Static caches used by relevant functions."/>
+      </docblock>
+    </member>
+    <member name="cache_has_own_table_field" type="array" visibility="public" line="159"/>
+    <member name="_cache_db" type="array" visibility="protected" line="160"/>
+    <member name="_cache_get_one" type="{unknown}" visibility="protected" line="161"/>
+    <member name="_cache_get_class_ancestry" type="{unknown}" visibility="protected" line="162"/>
+    <member name="_cache_composite_fields" type="array" visibility="protected" line="163"/>
+    <member name="_cache_custom_database_fields" type="array" visibility="protected" line="164"/>
+    <member name="_cache_field_labels" type="array" visibility="protected" line="165"/>
+    <member name="components" type="{unknown}" visibility="protected" line="178">
+      <docblock>
+        <description compact="Non-static relationship cache, indexed by component name."/>
+      </docblock>
+    </member>
+    <member name="unsavedRelations" type="{unknown}" visibility="protected" line="183">
+      <docblock>
+        <description compact="Non-static cache of has_many and many_many relations that can't be written until this object is saved."/>
+      </docblock>
+    </member>
+    <member name="sourceQueryParams" type="{unknown}" visibility="protected" line="3005">
+      <docblock>
+        <description/>
+        <var description="Parameters used in the query that built this object." type="object">This can be used by decorators (e.g. lazy loading) to
+run additional queries using the same context.<type full="Array" namespace="" name="Array"/></var>
+      </docblock>
+    </member>
+    <member name="allowed_actions" type="{unknown}" default="null" visibility="public" line="3641">
+      <docblock>
+        <description compact="Provides a list of allowed methods that can be called via RESTful api."/>
+      </docblock>
+    </member>
+    <method name="get_validation_enabled" start="191" end="194" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Returns when validation on DataObjects is enabled."/>
+        <deprecated value="3.2 Use the &quot;DataObject.validation_enabled&quot; config setting instead"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="set_validation_enabled" start="207" end="210" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set whether DataObjects should be validated before they are written.">Caution: Validation can contain safeguards against invalid/malicious data,
+and check permission levels (e.g. on <link xmlns="http://xml.phpdox.net/src" value="Group"/>). Therefore it is recommended
+to only disable validation for very specific use cases.
+</description>
+        <param variable="$enable" type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <see value="DataObject::validate()"/>
+        <deprecated value="3.2 Use the &quot;DataObject.validation_enabled&quot; config setting instead"/>
+      </docblock>
+      <parameter name="enable" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="clear_classname_spec_cache" start="221" end="223" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Clear all cached classname specs. It's necessary to clear all cached subclassed names for any classes if a new class manifest is generated."/>
+      </docblock>
+    </method>
+    <method name="database_fields" start="232" end="259" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return the complete map of fields on this object, including &quot;Created&quot;, &quot;LastEdited&quot; and &quot;ClassName&quot;.">See <link xmlns="http://xml.phpdox.net/src" value="custom_database_fields()"/> for a getter that excludes these "base fields".
+</description>
+        <param type="string" variable="$class"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="custom_database_fields" start="275" end="304" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get all database columns explicitly defined on a class in {@link DataObject::$db} and {@link DataObject::$has_one}. Resolves instances of {@link CompositeDBField} into the actual database fields, rather than the name of the field which might not equate a database column.">Does not include "base fields" like "ID", "ClassName", "Created", "LastEdited",
+see <link xmlns="http://xml.phpdox.net/src" value="database_fields()"/>.
+</description>
+        <uses value="CompositeDBField-&gt;compositeDatabaseFields()"/>
+        <param type="string" variable="$class"/>
+        <return description="Map of fieldname to specification, similiar to {@link DataObject::$db}." type="array"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Remove the original fieldname, it's not an actual database column" line="283"/>
+        <comment value="Add all composite columns" line="286"/>
+        <comment value="Add has_one relationships" line="293"/>
+      </inline>
+    </method>
+    <method name="is_composite_field" start="310" end="319" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Returns the field class if the given db field on the class is a composite field.">Will check all applicable ancestor classes and aggregate results.</description>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="aggregated" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="composite_fields" start="325" end="336" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Returns a list of all the composite if the given db field on the class is a composite field.">Will check all applicable ancestor classes and aggregate results.</description>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="aggregated" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <constructor name="__construct" start="369" end="434" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Construct a new DataObject."/>
+        <param description="This will be null for a new database record.  Alternatively, you can pass an array of" type="object" variable="$record">field values.  Normally this contructor is only used by the internal systems that get objects from the database.<type full="array|null" namespace="" name="array|null"/></param>
+        <param description="This this to true if this is a singleton() object, a stub for calling methods." type="boolean" variable="$isSingleton">Singletons don't have their defaults set.</param>
+      </docblock>
+      <parameter name="record" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="isSingleton" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="model" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Set the fields data." line="372"/>
+        <comment value="Set $this-&gt;record to $record, but ignore NULLs" line="391"/>
+        <comment value="Ensure that ID is stored as a number and not a string" line="394"/>
+        <comment value="To do: this kind of clean-up should be done on all numeric fields, in some relatively" line="395"/>
+        <comment value="performant manner" line="396"/>
+        <comment value="Identify fields that should be lazy loaded, but only on existing records" line="403"/>
+        <comment value="Keep track of the modification date of all the data sourced to make this page" line="417"/>
+        <comment value="From this we create a Last-Modified HTTP header" line="418"/>
+        <comment value="this must be called before populateDefaults(), as field getters on a DataObject" line="423"/>
+        <comment value="may call getComponent() and others, which rely on $this-&gt;model being set." line="424"/>
+        <comment value="Must be called after parent constructor" line="427"/>
+        <comment value="prevent populateDefaults() and setField() from marking overwritten defaults as changed" line="432"/>
+      </inline>
+    </constructor>
+    <method name="setDataModel" start="441" end="444" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the DataModel"/>
+        <param type="object" variable="$model">
+          <type full="DataModel" namespace="" name="DataModel"/>
+        </param>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="model" byreference="false" type="object">
+        <type full="\\DataModel" namespace="\" name="DataModel"/>
+      </parameter>
+    </method>
+    <method name="destroy" start="450" end="454" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Destroy all of this objects dependant objects and local caches.">You'll need to call this to get the memory of an object that has components or extensions freed.</description>
+      </docblock>
+      <inline>
+        <comment value="$this-&gt;destroyed = true;" line="451"/>
+      </inline>
+    </method>
+    <method name="duplicate" start="464" end="477" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Create a duplicate of this node.">Note: now also duplicates relations.</description>
+        <param description="a write() operation before returning the object.  If this is true, it will create the" variable="$doWrite" type="object">duplicate in the database.<type full="Perform" namespace="" name="Perform"/></param>
+        <return description="A duplicate of this node. The exact type will be the type of this node." type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="doWrite" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="duplicateManyManyRelations" start="488" end="507" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Copies the many_many and belongs_many_many relations from one object to another instance of the name of object The destinationObject must be written to the database already and have an ID. Writing is performed automatically when adding the new relations."/>
+        <param description="source object to duplicate from" variable="$sourceObject" type="object">
+          <type full="the" namespace="" name="the"/>
+        </param>
+        <param description="destination object to populate with the duplicated relations" variable="$destinationObject" type="object">
+          <type full="the" namespace="" name="the"/>
+        </param>
+        <return description="with the new many_many relations copied in" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="sourceObject" byreference="false" type="{unknown}"/>
+      <parameter name="destinationObject" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="duplicate complex relations" line="494"/>
+        <comment value="DO NOT copy has_many relations, because copying the relation would result in us changing the has_one" line="495"/>
+        <comment value="relation on the other side of this relation to point at the copy and no longer the original (being a" line="496"/>
+        <comment value="has_one, it can only point at one thing at a time). So, all relations except has_many can and are copied" line="497"/>
+        <comment value="many_many include belongs_many_many" line="502"/>
+      </inline>
+    </method>
+    <method name="getObsoleteClassName" start="530" end="533" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="getClassName" start="535" end="539" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="setClassName" start="551" end="558" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the ClassName attribute. {@link $class} is also updated.">Warning: This will produce an inconsistent record, as the object
+instance will not automatically switch to the new subclass.
+Please use <link xmlns="http://xml.phpdox.net/src" value="newClassInstance()"/> for this purpose,
+or destroy and reinstanciate the record.
+</description>
+        <param description="The new ClassName attribute (a subclass of {@link DataObject})" type="string" variable="$className"/>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="className" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="newClassInstance" start="576" end="593" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Create a new instance of a different class from this object's record.">This is useful when dynamically changing the type of an instance. Specifically,
+it ensures that the instance of the class is a match for the className of the
+record. Don't set the <link xmlns="http://xml.phpdox.net/src" value="DataObject-&gt;class"/> or <link xmlns="http://xml.phpdox.net/src" value="DataObject-&gt;ClassName"/>property manually before calling this method, as it will confuse change detection.
+If the new class is different to the original class, defaults are populated again
+because this will only occur automatically on instantiation of a DataObject if
+there is no record, or the record has no ID. In this case, we do have an ID but
+we still need to repopulate the defaults.
+</description>
+        <param description="The name of the new class" type="string" variable="$newClassName"/>
+        <return description="The new instance of the new class, The exact type will be of the class name provided." type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="newClassName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="defineMethods" start="599" end="637" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Adds methods from the extensions.">Called by Object::__construct() once per class.</description>
+      </docblock>
+      <inline>
+        <comment value="Define the extra db fields - this is only necessary for extensions added in the" line="602"/>
+        <comment value="class definition.  Object::add_extension() will call this at definition time for" line="603"/>
+        <comment value="those objects, which is a better mechanism.  Perhaps extensions defined inside the" line="604"/>
+        <comment value="class def can somehow be applied at definiton time also?" line="605"/>
+        <comment value="Set up accessors for joined items" line="616"/>
+      </inline>
+    </method>
+    <method name="exists" start="646" end="648" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if this object &quot;exists&quot;, i.e., has a sensible value.">The default behaviour for a DataObject is to return true if
+the object exists in the database, you can override this in subclasses.</description>
+        <return description="true if this object exists" type="boolean"/>
+      </docblock>
+    </method>
+    <method name="isEmpty" start="659" end="672" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE if all values (other than &quot;ID&quot;) are considered empty (by weak boolean comparison).">Only checks for fields listed in <link xmlns="http://xml.phpdox.net/src" value="custom_database_fields()"/></description>
+        <todo value="Use DBField-&gt;hasValue()"/>
+        <return type="boolean"/>
+      </docblock>
+      <inline>
+        <comment value="only look at custom fields" line="664"/>
+      </inline>
+    </method>
+    <method name="singular_name" start="681" end="687" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the user friendly singular name of this DataObject.">If the name is not defined (by redefining $singular_name in the subclass),
+this returns the class name.</description>
+        <return description="User friendly singular name of this DataObject" type="string"/>
+      </docblock>
+    </method>
+    <method name="i18n_singular_name" start="700" end="702" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the translated user friendly singular name of this DataObject same as singular_name() but runs it through the translating function">Translating string is in the form:
+    $this-&gt;class.SINGULARNAME
+Example:
+    Page.SINGULARNAME</description>
+        <return description="User friendly translated singular name of this DataObject" type="string"/>
+      </docblock>
+    </method>
+    <method name="plural_name" start="711" end="719" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the user friendly plural name of this DataObject If the name is not defined (by renaming $plural_name in the subclass), this returns a pluralised version of the class name."/>
+        <return description="User friendly plural name of this DataObject" type="string"/>
+      </docblock>
+    </method>
+    <method name="i18n_plural_name" start="731" end="735" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the translated user friendly plural name of this DataObject Same as plural_name but runs it through the translation function Translation string is in the form:      $this-&gt;class.PLURALNAME Example:      Page.PLURALNAME"/>
+        <return description="User friendly translated plural name of this DataObject" type="string"/>
+      </docblock>
+    </method>
+    <method name="getTitle" start="754" end="759" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Standard implementation of a title/label for a specific record. Tries to find properties 'Title' or 'Name', and falls back to the 'ID'. Useful to provide user-friendly identification of a record, e.g. in errormessages or UI-selections.">Overload this method to have a more specialized implementation,
+e.g. for an Address record this could be:
+&lt;code&gt;
+function getTitle() {
+  return "{$this-&gt;StreetNumber} {$this-&gt;StreetName} {$this-&gt;City}";
+}
+&lt;/code&gt;</description>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="data" start="767" end="769" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the associated database record - in this case, the object itself.">This is included so that you can call $dataOrController-&gt;data() and get a DataObject all the time.</description>
+        <return description="Associated database record" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="toMap" start="776" end="779" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Convert this object to a map."/>
+        <return description="The data as a map." type="array"/>
+      </docblock>
+    </method>
+    <method name="getQueriedDatabaseFields" start="789" end="791" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return all currently fetched database fields.">This function is similar to toMap() but doesn't trigger the lazy-loading of all unfetched fields.
+Obviously, this makes it a lot faster.</description>
+        <return description="The data as a map." type="array"/>
+      </docblock>
+    </method>
+    <method name="update" start="805" end="851" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Update a number of fields on this object, given a map of the desired changes.">The field names can be simple names, or you can use a dot syntax to access $has_one relations.
+For example, array("Author.FirstName" =&gt; "Jim") will set $this-&gt;Author()-&gt;FirstName to "Jim".
+
+update() doesn't write the main object, but if you use the dot syntax, it will write()
+the related objects that it alters.</description>
+        <param description="A map of field name to data values to update." type="array" variable="$data"/>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Implement dot syntax for updates" line="807"/>
+        <comment value="no support for has_many or many_many relationships," line="813"/>
+        <comment value="as the updater wouldn't know which object to write to (or create)" line="814"/>
+        <comment value="If the intermediate relationship objects have been created, then write them" line="818"/>
+      </inline>
+    </method>
+    <method name="castedUpdate" start="862" end="867" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Pass changes as a map, and try to get automatic casting for these fields.">Doesn't write to the database. To write the data,
+use the write() method.</description>
+        <param description="A map of field name to data values to update." type="array" variable="$data"/>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="merge" start="890" end="958" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Merges data and relations from another object of same class, without conflict resolution. Allows to specify which dataset takes priority in case its not empty.">has_one-relations are just transferred with priority 'right'.
+has_many and many_many-relations are added regardless of priority.
+
+Caution: has_many/many_many relations are moved rather than duplicated,
+meaning they are not connected to the merged object any longer.
+Caution: Just saves updated has_many/many_many relations to the database,
+doesn't write the updated object itself (just writes the object-properties).
+Caution: Does not delete the merged object.
+Caution: Does now overwrite Created date on the original object.</description>
+        <param variable="$obj" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </param>
+        <param description="left|right Determines who wins in case of a conflict (optional)" variable="$priority" type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <param description="Merge any existing relations (optional)" variable="$includeRelations" type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </param>
+        <param description="Overwrite existing left values with empty right values." variable="$overwriteWithEmpty" type="object">Only applicable with $priority='right'. (optional)<type full="Boolean" namespace="" name="Boolean"/></param>
+        <return type="object">
+          <type full="Boolean" namespace="" name="Boolean"/>
+        </return>
+      </docblock>
+      <parameter name="rightObj" byreference="false" type="{unknown}"/>
+      <parameter name="priority" byreference="false" type="string" default="'right'"/>
+      <parameter name="includeRelations" byreference="false" type="{unknown}" default="true"/>
+      <parameter name="overwriteWithEmpty" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="we can't merge similiar subclasses because they might have additional relations" line="894"/>
+        <comment value="makes sure we don't merge data like ID or ClassName" line="906"/>
+        <comment value="don't merge conflicting values if priority is 'left'" line="911"/>
+        <comment value="don't overwrite existing left values with empty right values (if $overwriteWithEmpty is set)" line="914"/>
+        <todo value="remove redundant merge of has_one fields" line="917"/>
+        <comment value="merge relations" line="921"/>
+      </inline>
+    </method>
+    <method name="forceChange" start="967" end="985" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Forces the record to think that all its data has changed.">Doesn't write to the database. Only sets fields as changed
+if they are not already marked as changed.</description>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="Ensure lazy fields loaded" line="968"/>
+        <comment value="$this-&gt;record might not contain the blank values so we loop on $this-&gt;inheritedDatabaseFields() as well" line="971"/>
+        <comment value="Populate the null values in record so that they actually get written" line="978"/>
+        <todo value="Find better way to allow versioned to write a new version after forceChange" line="982"/>
+      </inline>
+    </method>
+    <method name="validate" start="1002" end="1006" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Validate the current object.">By default, there is no validation - objects are always valid!  However, you can overload this method in your
+DataObject sub-classes to specify custom validation, or use the hook through DataExtension.
+
+Invalid objects won't be able to be written - a warning will be thrown and no write will occur.  onBeforeWrite()
+and onAfterWrite() won't get called either.
+
+It is expected that you call validate() in your own application to test that an object is valid before
+attempting a write, and respond appropriately if it isn't.</description>
+        <see value="{@link ValidationResult}"/>
+        <return type="object">
+          <type full="ValidationResult" namespace="" name="ValidationResult"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="onBeforeWrite" start="1017" end="1022" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Event handler called before writing to the database.">You can overload this to clean up or otherwise process data before writing it to the
+database.  Don't forget to call parent::onBeforeWrite(), though!
+This called after <link xmlns="http://xml.phpdox.net/src" value="$this-&gt;validate()"/>, so you can be sure that your data is valid.
+</description>
+        <uses value="DataExtension-&gt;onBeforeWrite()"/>
+      </docblock>
+    </method>
+    <method name="onAfterWrite" start="1032" end="1035" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Event handler called after writing to the database.">You can overload this to act upon changes made to the data after it is written.
+$this-&gt;changed will have a record
+database.  Don't forget to call parent::onAfterWrite(), though!</description>
+        <uses value="DataExtension-&gt;onAfterWrite()"/>
+      </docblock>
+    </method>
+    <method name="onBeforeDelete" start="1044" end="1049" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Event handler called before deleting from the database.">You can overload this to clean up or otherwise process data before delete this
+record.  Don't forget to call parent::onBeforeDelete(), though!</description>
+        <uses value="DataExtension-&gt;onBeforeDelete()"/>
+      </docblock>
+    </method>
+    <method name="onAfterDelete" start="1051" end="1053" abstract="false" final="false" static="false" visibility="protected"/>
+    <method name="populateDefaults" start="1063" end="1093" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Load the default values in from the self::$defaults array.">Will traverse the defaults of the current class and all its parent classes.
+Called by the constructor when creating new records.</description>
+        <uses value="DataExtension-&gt;populateDefaults()"/>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="SRM 2007-03-06: Stricter check" line="1076"/>
+        <comment value="Set many-many defaults with an array of ids" line="1080"/>
+      </inline>
+    </method>
+    <method name="write" start="1113" end="1304" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Writes all changes to this object to the database.">- It will insert a record whenever ID isn't set, otherwise update.
+ - All relevant tables will be updated.
+ - $this-&gt;onBeforeWrite() gets called beforehand.
+ - Extensions such as Versioned will ammend the database-write to ensure that a version is saved.
+
+ @uses DataExtension-&gt;augmentWrite()</description>
+        <param description="Show debugging information" type="boolean" variable="$showDebug"/>
+        <param description="Run INSERT command rather than UPDATE, even if record already exists" type="boolean" variable="$forceInsert"/>
+        <param description="Write to database even if there are no changes" type="boolean" variable="$forceWrite"/>
+        <param description="Call write() on all associated component instances which were previously" type="boolean" variable="$writeComponents">retrieved through <link xmlns="http://xml.phpdox.net/src" value="getComponent()"/>, <link xmlns="http://xml.phpdox.net/src" value="getComponents()"/> or
+                                <link xmlns="http://xml.phpdox.net/src" value="getManyManyComponents()"/> (Default: false)
+</param>
+        <return description="The ID of the record" type="int"/>
+        <throws description="Exception that can be caught and handled by the calling function" type="object">
+          <type full="ValidationException" namespace="" name="ValidationException"/>
+        </throws>
+      </docblock>
+      <parameter name="showDebug" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="forceInsert" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="forceWrite" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="writeComponents" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="Used by DODs to clean up after themselves, eg, Versioned" line="1139"/>
+        <comment value="New record = everything has changed" line="1151"/>
+        <comment value="Update the changed array with references to changed obj-fields" line="1156"/>
+        <comment value="No changes made" line="1174"/>
+        <comment value="Look for some changes to make" line="1181"/>
+        <comment value="New records have their insert into the base data table done first, so that they can pass the" line="1195"/>
+        <comment value="generated primary key on to the rest of the manipulation" line="1196"/>
+        <comment value="Divvy up field saving into a number of database manipulations" line="1208"/>
+        <comment value="if database column doesn't correlate to a DBField instance..." line="1221"/>
+        <comment value="Both CompositeDBFields and regular fields need to be repopulated" line="1226"/>
+        <comment value="Add the class name to the base object" line="1234"/>
+        <comment value="echo &quot;&lt;li&gt;$this-&gt;class - &quot; .get_class($this);" line="1245"/>
+        <comment value="In cases where there are no fields, this 'stub' will get picked up on" line="1251"/>
+        <comment value="New records have their insert into the base data table done first, so that they can pass the" line="1262"/>
+        <comment value="generated ID on to the rest of the manipulation" line="1263"/>
+        <comment value="If there's any relations that couldn't be saved before, save them now (we have an ID here)" line="1270"/>
+        <comment value="Clears the cache for this object so get_one returns the correct object." line="1287"/>
+        <comment value="Write relations as necessary" line="1299"/>
+      </inline>
+    </method>
+    <method name="writeComponents" start="1313" end="1320" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Write the cached components to the database. Cached components could refer to two different instances of the same record."/>
+        <param description="write components" variable="$recursive" type="object">
+          <type full="Recursively" namespace="" name="Recursively"/>
+        </param>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="recursive" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="delete" start="1328" end="1357" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Delete this data object.">$this-&gt;onBeforeDelete() gets called.
+Note that in Versioned objects, both Stage and Live will be deleted.
+ @uses DataExtension-&gt;augmentSQL()</description>
+      </docblock>
+      <inline>
+        <comment value="Deleting a record without an ID shouldn't do anything" line="1336"/>
+        <todo value="This is quite ugly.  To improve:" line="1339"/>
+        <comment value="- move the details of the delete code in the DataQuery system" line="1340"/>
+        <comment value="- update the code to just delete the base table, and rely on cascading deletes in the DB to do the rest" line="1341"/>
+        <comment value="obviously, that means getting requireTable() to configure cascading deletes ;-)" line="1342"/>
+        <comment value="Remove this item out of any caches" line="1350"/>
+      </inline>
+    </method>
+    <method name="delete_by_id" start="1365" end="1372" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Delete the record with the given ID."/>
+        <param description="The class name of the record to be deleted" type="string" variable="$className"/>
+        <param description="ID of record to be deleted" type="int" variable="$id"/>
+      </docblock>
+      <parameter name="className" byreference="false" type="{unknown}"/>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getClassAncestry" start="1382" end="1390" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the class ancestry, including the current class name.">The ancestry will be returned as an array of class names, where the 0th element
+will be the class that inherits directly from DataObject, and the last element
+will be the current class.</description>
+        <return description="Class ancestry" type="array"/>
+      </docblock>
+    </method>
+    <method name="getComponent" start="1400" end="1434" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a component object from a one to one relationship, as a DataObject.">If no component is available, an 'empty component' will be returned.</description>
+        <param description="Name of the component" type="string" variable="$componentName"/>
+        <return description="The component object. It's exact type will be that of the component." type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="componentName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getComponents" start="1448" end="1480" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a one-to-many relation as a HasManyList"/>
+        <param description="Name of the component" type="string" variable="$componentName"/>
+        <param description="A filter to be inserted into the WHERE clause" type="string" variable="$filter"/>
+        <param description="A sort expression to be inserted into the ORDER BY clause. If omitted, the static" type="object" variable="$sort">field $default_sort on the component class will be used.<type full="string|array" namespace="" name="string|array"/></param>
+        <param description="Deprecated, use leftJoin($table, $joinClause) instead" type="string" variable="$join"/>
+        <param description="A limit expression to be inserted into the LIMIT clause" type="object" variable="$limit">
+          <type full="string|array" namespace="" name="string|array"/>
+        </param>
+        <return description="The components of the one-to-many relationship." type="object">
+          <type full="HasManyList" namespace="" name="HasManyList"/>
+        </return>
+      </docblock>
+      <parameter name="componentName" byreference="false" type="{unknown}"/>
+      <parameter name="filter" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="sort" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="join" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="limit" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="If we haven't been written yet, we can't save these relations, so use a list that handles this case" line="1462"/>
+      </inline>
+    </method>
+    <method name="getComponentsQuery" start="1485" end="1488" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <deprecated value="3.1 Use getComponents to get a filtered DataList for an object's relation"/>
+      </docblock>
+      <parameter name="componentName" byreference="false" type="{unknown}"/>
+      <parameter name="filter" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="sort" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="join" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="limit" byreference="false" type="string" default="&quot;&quot;"/>
+    </method>
+    <method name="getRelationClass" start="1496" end="1519" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Find the foreign class of a relation on this DataObject, regardless of the relation type."/>
+        <param description="name." variable="$relationName" type="object">
+          <type full="Relation" namespace="" name="Relation"/>
+        </param>
+        <return description="Class name, or null if not found." type="string"/>
+      </docblock>
+      <parameter name="relationName" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Go through all relationship configuration fields." line="1497"/>
+        <comment value="If dot notation is present, extract just the first part that contains the class." line="1509"/>
+        <comment value="Otherwise just return the class" line="1514"/>
+      </inline>
+    </method>
+    <method name="getRemoteJoinField" start="1529" end="1563" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Tries to find the database key on another object that is used to store a relationship to this class. If no join field can be found it defaults to 'ParentID'."/>
+        <param type="string" variable="$component"/>
+        <param description="the join type - either 'has_many' or 'belongs_to'" type="string" variable="$type"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="component" byreference="false" type="{unknown}"/>
+      <parameter name="type" byreference="false" type="string" default="'has_many'"/>
+      <inline>
+        <comment value="look for remote has_one joins on this class or any parent classes" line="1551"/>
+        <comment value="include a hint for has_many that is missing a has_one" line="1558"/>
+      </inline>
+    </method>
+    <method name="getManyManyComponents" start="1572" end="1593" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a many-to-many component, as a ManyManyList."/>
+        <param description="Name of the many-many component" type="string" variable="$componentName"/>
+        <return description="The set of components" type="object">
+          <type full="ManyManyList" namespace="" name="ManyManyList"/>
+        </return>
+        <todo value="Implement query-params"/>
+      </docblock>
+      <parameter name="componentName" byreference="false" type="{unknown}"/>
+      <parameter name="filter" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="sort" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="join" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="limit" byreference="false" type="string" default="&quot;&quot;"/>
+      <inline>
+        <comment value="If we haven't been written yet, we can't save these relations, so use a list that handles this case" line="1575"/>
+        <comment value="If this is called on a singleton, then we return an 'orphaned relation' that can have the" line="1588"/>
+        <comment value="foreignID set elsewhere." line="1589"/>
+      </inline>
+    </method>
+    <method name="has_one" start="1604" end="1631" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the class of a one-to-one component.  If $component is null, return all of the one-to-one components and their classes."/>
+        <param description="Name of component" type="string" variable="$component"/>
+        <return description="The class of the one-to-one component, or an array of all one-to-one components and their" type="object">classes.<type full="string|array" namespace="" name="string|array"/></return>
+      </docblock>
+      <parameter name="component" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Wait until after we reach DataObject" line="1608"/>
+      </inline>
+    </method>
+    <method name="belongs_to" start="1642" end="1658" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the class of a remote belongs_to relationship. If no component is specified a map of all components and their class name will be returned."/>
+        <param type="string" variable="$component"/>
+        <param description="If this is TRUE, than any has_many relationships in the form &quot;ClassName.Field&quot; will have" type="object" variable="$classOnly">the field data stripped off. It defaults to TRUE.<type full="bool" namespace="" name="bool"/></param>
+        <return type="object">
+          <type full="string|array" namespace="" name="string|array"/>
+        </return>
+      </docblock>
+      <parameter name="component" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="classOnly" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="db" start="1667" end="1703" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return all of the database fields defined in self::$db and all the parent classes.">Doesn't include any fields specified by self::$has_one.  Use $this-&gt;has_one() to get these fields</description>
+        <param description="Limit the output to a specific field name" type="string" variable="$fieldName"/>
+        <return description="The database fields" type="array"/>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="If we're looking for a specific field, we want to hit subclasses first as they may override field types" line="1670"/>
+      </inline>
+    </method>
+    <method name="has_many" start="1714" end="1730" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the class of a one-to-many relationship. If no $component is specified then an array of all the one-to-many relationships and their classes will be returned."/>
+        <param description="Name of component" type="string" variable="$component"/>
+        <param description="If this is TRUE, than any has_many relationships in the form &quot;ClassName.Field&quot; will have" type="object" variable="$classOnly">the field data stripped off. It defaults to TRUE.<type full="bool" namespace="" name="bool"/></param>
+        <return type="object">
+          <type full="string|array" namespace="" name="string|array"/>
+        </return>
+      </docblock>
+      <parameter name="component" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="classOnly" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="many_many_extraFields" start="1741" end="1819" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the many-to-many extra fields specification.">If you don't specify a component name, it returns all
+extra fields for all components available.</description>
+        <param description="Name of component" type="string" variable="$component"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="component" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Find extra fields for one component" line="1748"/>
+        <comment value="Extra fields are immediately available on this class" line="1753"/>
+        <comment value="Find the relation given the class" line="1764"/>
+        <comment value="Find the relation given the class" line="1786"/>
+      </inline>
+    </method>
+    <method name="many_many" start="1830" end="1896" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return information about a many-to-many component.">The return value is an array of (parentclass, childclass).  If $component is null, then all many-many
+components are returned.</description>
+        <param description="Name of component" type="string" variable="$component"/>
+        <return description="An array of (parentclass, childclass), or an array of all many-many components" type="array"/>
+      </docblock>
+      <parameter name="component" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Wait until after we reach DataObject" line="1834"/>
+        <comment value="Try many_many" line="1839"/>
+        <comment value="Try belongs_many_many" line="1847"/>
+        <comment value="We need to find the inverse component name" line="1853"/>
+      </inline>
+    </method>
+    <method name="database_extensions" start="1905" end="1912" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="This returns an array (if it exists) describing the database extensions that are required, or false if none">This is experimental, and is currently only a Postgres-specific enhancement.</description>
+        <return description="or false" type="array"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getDefaultSearchContext" start="1920" end="1926" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Generates a SearchContext to be used for building and processing a generic search form for properties on this object."/>
+        <return type="object">
+          <type full="SearchContext" namespace="" name="SearchContext"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="scaffoldSearchFields" start="1943" end="1989" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Determine which properties on the DataObject are searchable, and map them to their default {@link FormField} representations. Used for scaffolding a searchform for {@link ModelAdmin}.">Some additional logic is included for switching field labels, based on
+how generic or specific the field type is.
+Used by <link xmlns="http://xml.phpdox.net/src" value="SearchContext"/>.
+</description>
+        <param type="array" variable="$_params">'fieldClasses': Associative array of field names as keys and FormField classes as values
+  'restrictFields': Numeric array of a field name whitelist</param>
+        <return type="object">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </return>
+      </docblock>
+      <parameter name="_params" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="If a custom fieldclass is provided as a string, use it" line="1955"/>
+      </inline>
+    </method>
+    <method name="scaffoldFormFields" start="2001" end="2021" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Scaffold a simple edit form for all properties on this dataobject, based on default {@link FormField} mapping in {@link DBField::scaffoldFormField()}.">Field labels/titles will be auto generated from <link xmlns="http://xml.phpdox.net/src" value="DataObject::fieldLabels()"/>.
+</description>
+        <uses value="FormScaffolder"/>
+        <param description="Associative array passing through properties to {@link FormScaffolder}." type="array" variable="$_params"/>
+        <return type="object">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </return>
+      </docblock>
+      <parameter name="_params" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="beforeUpdateCMSFields" start="2029" end="2031" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into DataObject::getCMSFields prior to updateCMSFields being called on extensions"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getCMSFields" start="2056" end="2067" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Centerpiece of every data administration interface in Silverstripe, which returns a {@link FieldList} suitable for a {@link Form} object.">If not overloaded, we're using <link xmlns="http://xml.phpdox.net/src" value="scaffoldFormFields()"/> to automatically
+generate this set. To customize, overload this method in a subclass
+or extended onto it by using <link xmlns="http://xml.phpdox.net/src" value="DataExtension-&gt;updateCMSFields()}.&#10;&#10;&lt;code&gt;&#10;class MyCustomClass extends DataObject {&#10; static $db = array('CustomProperty'=&gt;'Boolean');&#10;&#10; function getCMSFields() {&#10;   $fields = parent::getCMSFields();&#10;   $fields-&gt;addFieldToTab('Root.Content',new CheckboxField('CustomProperty'));&#10;   return $fields;&#10; }"/>&lt;/code&gt;
+</description>
+        <see value="Good example of complex FormField building: SiteTree::getCMSFields()"/>
+        <return description="Returns a TabSet for usage within the CMS - don't use for frontend forms." type="object">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getCMSActions" start="2075" end="2079" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="need to be overload by solid dataobject, so that the customised actions of that dataobject, including that dataobject's extensions customised actions could be added to the EditForm."/>
+        <return description="Empty FieldList(); need to be overload by solid subclass" type="object">
+          <type full="an" namespace="" name="an"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getFrontEndFields" start="2093" end="2098" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Used for simple frontend forms without relation editing or {@link TabSet} behaviour. Uses {@link scaffoldFormFields()} by default. To customize, either overload this method in your subclass, or extend it by {@link DataExtension-&gt;updateFrontEndFields()}."/>
+        <todo value="Decide on naming for &quot;website|frontend|site|page&quot; and stick with it in the API"/>
+        <param description="See {@link scaffoldFormFields()}" type="array" variable="$params"/>
+        <return description="Always returns a simple field collection without TabSet." type="object">
+          <type full="FieldList" namespace="" name="FieldList"/>
+        </return>
+      </docblock>
+      <parameter name="params" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="getField" start="2108" end="2142" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the value of a field.">Called by <link xmlns="http://xml.phpdox.net/src" value="__get()"/> and any getFieldName() methods you might create.
+</description>
+        <param description="The name of the field" type="string" variable="$field"/>
+        <return description="The field value" type="mixed"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="If we already have an object in $this-&gt;record, then we should just return that" line="2109"/>
+        <comment value="Do we have a field that needs to be lazy loaded?" line="2112"/>
+        <comment value="Otherwise, we need to determine if this is a complex field" line="2118"/>
+        <comment value="write value only if either the field value exists," line="2131"/>
+        <comment value="or a valid record has been loaded from the database" line="2132"/>
+      </inline>
+    </method>
+    <method name="loadLazyFields" start="2150" end="2218" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Loads all the stub fields that an initial lazy load didn't load fully."/>
+        <param description="Base table to load the values from. Others are joined as required." type="object">Not specifying a tableClass will load all lazy fields from all tables.<type full="tableClass" namespace="" name="tableClass"/></param>
+      </docblock>
+      <parameter name="tableClass" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Reset query parameter context to that of this DataObject" line="2166"/>
+        <comment value="TableField sets the record ID to &quot;new&quot; on new row data, so don't try doing anything in that case" line="2171"/>
+        <comment value="Limit query to the current record, unless it has the Versioned extension," line="2174"/>
+        <comment value="in which case it requires special handling through augmentLoadLazyFields()" line="2175"/>
+        <comment value="Add SQL for fields, both simple &amp; multi-value" line="2182"/>
+        <todo value="This is copy &amp; pasted from buildSQL(), it could be moved into a method" line="2183"/>
+        <comment value="Load the data into record" line="2199"/>
+      </inline>
+    </method>
+    <method name="getChangedFields" start="2239" end="2278" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the fields that have changed.">The change level affects what the functions defines as "changed":
+- Level 1 will return strict changes, even !== ones.
+- Level 2 is more lenient, it will only return real data changes, for example a change from 0 to null
+would not be included.
+
+Example return:
+&lt;code&gt;
+array(
+  'Title' = array('before' =&gt; 'Home', 'after' =&gt; 'Home-Changed', 'level' =&gt; 2)
+)
+&lt;/code&gt;</description>
+        <param description="Get only database fields that have changed" type="boolean" variable="$databaseFieldsOnly"/>
+        <param description="The strictness of what is defined as change" type="int" variable="$changeLevel"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="databaseFieldsOnly" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="changeLevel" byreference="false" type="integer" default="1"/>
+      <inline>
+        <comment value="Update the changed array with references to changed obj-fields" line="2242"/>
+        <comment value="Filter the list to those of a certain change level" line="2260"/>
+      </inline>
+    </method>
+    <method name="isChanged" start="2288" end="2296" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Uses {@link getChangedFields()} to determine if fields have been changed since loading them from the database."/>
+        <param description="Name of the database field to check, will check for any if not given" type="string" variable="$fieldName"/>
+        <param description="See {@link getChangedFields()}" type="int" variable="$changeLevel"/>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="changeLevel" byreference="false" type="integer" default="1"/>
+    </method>
+    <method name="setField" start="2306" end="2348" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the value of the field Called by {@link __set()} and any setFieldName() methods you might create."/>
+        <param description="Name of the field" type="string" variable="$fieldName"/>
+        <param description="New field value" type="mixed" variable="$val"/>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <parameter name="val" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Situation 1: Passing an DBField" line="2307"/>
+        <comment value="If we've just lazy-loaded the column, then we need to populate the $original array by" line="2311"/>
+        <comment value="called getField(). Too much overhead? Could this be done by a quicker method? Maybe only" line="2312"/>
+        <comment value="on a call to getChanged()?" line="2313"/>
+      </inline>
+    </method>
+    <method name="setCastedField" start="2360" end="2373" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the value of the field, using a casting object.">This is useful when you aren't sure that a date is in SQL format, for example.
+setCastedField() can also be used, by forms, to set related data.  For example, uploaded images
+can be saved into the Image table.</description>
+        <param description="Name of the field" type="string" variable="$fieldName"/>
+        <param description="New field value" type="mixed" variable="$value"/>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <parameter name="val" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasField" start="2383" end="2390" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if the given field exists in a database column on any of the objects tables and optionally look up a dynamic getter with get&lt;fieldName&gt;()."/>
+        <param description="Name of the field" type="string" variable="$field"/>
+        <return description="True if the given field exists" type="boolean"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasDatabaseField" start="2399" end="2403" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if the given field exists as a database column"/>
+        <param description="Name of the field" type="string" variable="$field"/>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasOwnTableDatabaseField" start="2412" end="2455" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the field type of the given field, if it belongs to this class, and not a parent.">Note that the field type will not include constructor arguments in round brackets, only the classname.</description>
+        <param description="Name of the field" type="string" variable="$field"/>
+        <return description="The field type of the given field" type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Add base fields which are not defined in static $db" line="2413"/>
+        <comment value="Add fields from Versioned extension" line="2419"/>
+        <comment value="get cached fieldmap" line="2423"/>
+        <comment value="if no fieldmap is cached, get all fields" line="2427"/>
+        <comment value="all $db fields on this specific class (no parents)" line="2431"/>
+        <comment value="all has_one relations on this specific class," line="2439"/>
+        <comment value="add foreign key" line="2440"/>
+        <comment value="set cached fieldmap" line="2446"/>
+        <comment value="Remove string-based &quot;constructor-arguments&quot; from the DBField definition" line="2450"/>
+      </inline>
+    </method>
+    <method name="has_own_table" start="2464" end="2477" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Returns true if given class has its own table. Uses the rules for whether the table should exist rather than actually looking in the database."/>
+        <param type="string" variable="$dataClass"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="dataClass" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="can" start="2489" end="2547" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if the member is allowed to do the given action.">See <link xmlns="http://xml.phpdox.net/src" value="extendedCan()"/> for a more versatile tri-state permission control.
+</description>
+        <param description="The permission to be checked, such as 'View'." type="string" variable="$perm"/>
+        <param description="The member whose permissions need checking.  Defaults to the currently logged" type="object" variable="$member">in user.<type full="Member" namespace="" name="Member"/></param>
+        <return description="True if the the member is allowed to do the given action" type="boolean"/>
+      </docblock>
+      <parameter name="perm" byreference="false" type="{unknown}"/>
+      <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="extendedCan" start="2569" end="2579" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Process tri-state responses from permission-alterting extensions.  The extensions are expected to return one of three values:">- false: Disallow this permission, regardless of what other extensions say
+ - true: Allow this permission, as long as no other extensions return false
+ - NULL: Don't affect the outcome
+
+This method itself returns a tri-state value, and is designed to be used like this:
+
+&lt;code&gt;
+$extended = $this-&gt;extendedCan('canDoSomething', $member);
+if($extended !== null) return $extended;
+else return $normalValue;
+&lt;/code&gt;</description>
+        <param description="Method on the same object, e.g. {@link canEdit()}" type="object" variable="$methodName">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <param type="object" variable="$member">
+          <type full="Member|int" namespace="" name="Member|int"/>
+        </param>
+        <return type="object">
+          <type full="boolean|null" namespace="" name="boolean|null"/>
+        </return>
+      </docblock>
+      <parameter name="methodName" byreference="false" type="{unknown}"/>
+      <parameter name="member" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Remove NULLs" line="2572"/>
+        <comment value="If there are any non-NULL responses, then return the lowest one of them." line="2574"/>
+        <comment value="If any explicitly deny the permission, then we don't get access" line="2575"/>
+      </inline>
+    </method>
+    <method name="canView" start="2585" end="2591" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$member">
+          <type full="Member" namespace="" name="Member"/>
+        </param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="canEdit" start="2597" end="2603" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$member">
+          <type full="Member" namespace="" name="Member"/>
+        </param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="canDelete" start="2609" end="2615" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$member">
+          <type full="Member" namespace="" name="Member"/>
+        </param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="canCreate" start="2623" end="2629" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <todo value="Should canCreate be a static method?"/>
+        <param type="object" variable="$member">
+          <type full="Member" namespace="" name="Member"/>
+        </param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="debug" start="2636" end="2643" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Debugging used by Debug::show()"/>
+        <return description="HTML data representing this object" type="string"/>
+      </docblock>
+    </method>
+    <method name="dbObject" start="2655" end="2683" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the DBField object that represents the given field.">This works similarly to obj() with 2 key differences:
+  - it still returns an object even when the field has no value.
+  - it only matches fields and not methods
+  - it matches foreign keys generated by has_one relationships, eg, "ParentID"</description>
+        <param description="Name of the field" type="string" variable="$fieldName"/>
+        <return description="The field as a DBField object" type="object">
+          <type full="DBField" namespace="" name="DBField"/>
+        </return>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="If we have a CompositeDBField object in $this-&gt;record, then return that" line="2656"/>
+      </inline>
+    </method>
+    <method name="relObject" start="2695" end="2724" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Traverses to a DBField referenced by relationships between data objects.">The path to the related field is specified with dot separated syntax
+(eg: Parent.Child.Child.FieldName).</description>
+        <param type="string" variable="$fieldPath"/>
+        <return description="DBField of the field on the object or a DataList instance." type="mixed"/>
+      </docblock>
+      <parameter name="fieldPath" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Traverse dot syntax" line="2702"/>
+      </inline>
+    </method>
+    <method name="relField" start="2733" end="2767" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Traverses to a field referenced by relationships between data objects, returning the value The path to the related field is specified with dot separated syntax (eg: Parent.Child.Child.FieldName)"/>
+        <param variable="$fieldPath" type="string"/>
+        <return description="| null - will return null on a missing value" type="string"/>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="We're dealing with relations here so we traverse the dot syntax" line="2736"/>
+        <comment value="Inspect $component for element $relation" line="2741"/>
+        <comment value="Check nested method" line="2743"/>
+        <comment value="Bail if the component is null" line="2759"/>
+      </inline>
+    </method>
+    <method name="getReverseAssociation" start="2775" end="2790" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Temporary hack to return an association name, based on class, to get around the mangle of having to deal with reverse lookup of relationships to determine autogenerated foreign keys."/>
+        <return type="object">
+          <type full="String" namespace="" name="String"/>
+        </return>
+      </docblock>
+      <parameter name="className" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="get" start="2806" end="2842" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return all objects matching the filter sub-classes are automatically selected and included"/>
+        <param description="The class of objects to be returned" type="string" variable="$callerClass"/>
+        <param description="A filter to be inserted into the WHERE clause." type="string" variable="$filter"/>
+        <param description="A sort expression to be inserted into the ORDER BY clause.  If omitted," type="object" variable="$sort">self::$default_sort will be used.<type full="string|array" namespace="" name="string|array"/></param>
+        <param description="Deprecated 3.0 Join clause. Use leftJoin($table, $joinClause) instead." type="string" variable="$join"/>
+        <param description="A limit expression to be inserted into the LIMIT clause." type="object" variable="$limit">
+          <type full="string|array" namespace="" name="string|array"/>
+        </param>
+        <param description="The container class to return the results in." type="string" variable="$containerClass"/>
+        <return type="object">
+          <type full="DataList" namespace="" name="DataList"/>
+        </return>
+      </docblock>
+      <parameter name="callerClass" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="filter" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="sort" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="join" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="limit" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="containerClass" byreference="false" type="string" default="'DataList'"/>
+    </method>
+    <method name="Aggregate" start="2847" end="2863" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <deprecated value="3.1 Use DataList::create and DataList to do your querying"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="RelationshipAggregate" start="2868" end="2872" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <deprecated value="3.1 Use DataList::create and DataList to do your querying"/>
+      </docblock>
+      <parameter name="relationship" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="get_one" start="2885" end="2913" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return the first item matching the given query.">All calls to get_one() are cached.</description>
+        <param description="The class of objects to be returned" type="string" variable="$callerClass"/>
+        <param description="A filter to be inserted into the WHERE clause" type="string" variable="$filter"/>
+        <param description="Use caching" type="boolean" variable="$cache"/>
+        <param description="A sort expression to be inserted into the ORDER BY clause." type="string" variable="$orderby"/>
+        <return description="The first item matching the query" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="callerClass" byreference="false" type="{unknown}"/>
+      <parameter name="filter" byreference="false" type="string" default="&quot;&quot;"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+      <parameter name="orderby" byreference="false" type="string" default="&quot;&quot;"/>
+      <inline>
+        <comment value="Flush destroyed items out of the cache" line="2894"/>
+      </inline>
+    </method>
+    <method name="flushCache" start="2923" end="2940" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Flush the cached results for all relations (has_one, has_many, many_many) Also clears any cached aggregate data."/>
+        <param description="When true will also clear persistent data stored in the Cache system." type="boolean" variable="$persistent">When false will just clear session-local cached data</param>
+        <return description="$this" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="persistent" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="flush_and_destroy_cache" start="2945" end="2952" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Flush the get_one global cache and destroy associated objects."/>
+      </docblock>
+    </method>
+    <method name="reset" start="2957" end="2966" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Reset all global caches associated with DataObject."/>
+      </docblock>
+    </method>
+    <method name="get_by_id" start="2977" end="2990" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return the given element, searching by ID"/>
+        <param description="The class of the object to be returned" type="string" variable="$callerClass"/>
+        <param description="The id of the element" type="int" variable="$id"/>
+        <param description="See {@link get_one()}" type="boolean" variable="$cache"/>
+        <return description="The element" type="object">
+          <type full="DataObject" namespace="" name="DataObject"/>
+        </return>
+      </docblock>
+      <parameter name="callerClass" byreference="false" type="{unknown}"/>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="baseTable" start="2995" end="2998" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the name of the base table for this object"/>
+      </docblock>
+    </method>
+    <method name="getSourceQueryParams" start="3011" end="3013" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="$sourceQueryParams"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="setSourceQueryParams" start="3019" end="3021" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="$sourceQueryParams"/>
+        <param type="array"/>
+      </docblock>
+      <parameter name="array" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setSourceQueryParam" start="3027" end="3029" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="$sourceQueryParams"/>
+        <param type="array"/>
+      </docblock>
+      <parameter name="key" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getSourceQueryParam" start="3035" end="3038" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="$sourceQueryParams"/>
+        <return type="object">
+          <type full="Mixed" namespace="" name="Mixed"/>
+        </return>
+      </docblock>
+      <parameter name="key" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="databaseIndexes" start="3047" end="3071" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the database indexes on this table.">This array is indexed by the name of the field with the index, and
+the value is the type of index.</description>
+      </docblock>
+      <inline>
+        <comment value="$fileIndexes = $this-&gt;uninherited('fileIndexes', true);" line="3050"/>
+      </inline>
+    </method>
+    <method name="requireTable" start="3078" end="3119" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check the database schema and update it as necessary."/>
+        <uses value="DataExtension-&gt;augmentDatabase()"/>
+      </docblock>
+      <inline>
+        <comment value="Only build the table if we've actually got fields" line="3079"/>
+        <comment value="Build any child tables for many_many items" line="3093"/>
+        <comment value="Build field list" line="3097"/>
+        <comment value="Build index list" line="3106"/>
+        <comment value="Let any extentions make their own database fields" line="3117"/>
+      </inline>
+    </method>
+    <method name="requireDefaultRecords" start="3129" end="3146" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add default records to database. This function is called whenever the database is built, after the database tables have all been created. Overload this to add default records when the database is built, but make sure you call parent::requireDefaultRecords()."/>
+        <uses value="DataExtension-&gt;requireDefaultRecords()"/>
+      </docblock>
+      <inline>
+        <comment value="Let any extentions make their own database default data" line="3144"/>
+      </inline>
+    </method>
+    <method name="inheritedDatabaseFields" start="3158" end="3168" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns fields bu traversing the class heirachy in a bottom-up direction.">Needed to avoid getCMSFields being empty when customDatabaseFields overlooks
+the inheritance chain of the $db array, where a child data object has no $db array,
+but still needs to know the properties of its parent. This should be merged into databaseFields or
+customDatabaseFields.</description>
+        <todo value="review whether this is still needed after recent API changes"/>
+      </docblock>
+    </method>
+    <method name="searchableFields" start="3177" end="3250" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the default searchable fields for this object, as defined in the $searchable_fields list. If searchable fields are not defined on the data object, uses a default selection of summary fields."/>
+        <return type="array"/>
+      </docblock>
+      <inline>
+        <comment value="can have mixed format, need to make consistent in most verbose form" line="3178"/>
+        <comment value="fallback to summary fields (unless empty array is explicitly specified)" line="3182"/>
+        <comment value="remove the custom getters as the search should not include them" line="3187"/>
+        <comment value="Extract field name in case this is a method called on a field (e.g. &quot;Date.Nice&quot;)" line="3192"/>
+        <comment value="we need to make sure the format is unified before" line="3206"/>
+        <comment value="augmenting fields, so extensions can apply consistent checks" line="3207"/>
+        <comment value="but also after augmenting fields, because the extension" line="3208"/>
+        <comment value="might use the shorthand notation as well" line="3209"/>
+        <comment value="rewrite array, if it is using shorthand syntax" line="3211"/>
+        <comment value="Format: array('MyFieldName')" line="3217"/>
+        <comment value="apply DataExtensions if present" line="3246"/>
+      </inline>
+    </method>
+    <method name="fieldLabels" start="3274" end="3308" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get any user defined searchable fields labels that exist. Allows overriding of default field names in the form interface actually presented to the user.">The reason for keeping this separate from searchable_fields,
+which would be a logical place for this functionality, is to
+avoid bloating and complicating the configuration array. Currently
+much of this system is based on sensible defaults, and this property
+would generally only be set in the case of more complex relationships
+between data object being required in the search interface.
+
+Generates labels based on name of the field itself, if no static property
+{@link self::field_labels} exists.</description>
+        <uses value="$field_labels"/>
+        <uses value="FormField::name_to_label()"/>
+        <param description="a boolean value to indicate if the labels returned include relation fields" type="boolean" variable="$includerelations"/>
+        <return description="Array of all element labels if no argument given, otherwise the label of the field" type="object">
+          <type full="array|string" namespace="" name="array|string"/>
+        </return>
+      </docblock>
+      <parameter name="includerelations" byreference="false" type="{unknown}" default="true"/>
+      <inline>
+        <comment value="get all translated static properties as defined in i18nCollectStatics()" line="3281"/>
+      </inline>
+    </method>
+    <method name="fieldLabel" start="3320" end="3323" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get a human-readable label for a single field, see {@link fieldLabels()} for more details."/>
+        <uses value="fieldLabels()"/>
+        <uses value="FormField::name_to_label()"/>
+        <param description="Name of the field" type="string" variable="$name"/>
+        <return description="Label of the field" type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="summaryFields" start="3332" end="3364" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the default summary fields for this object."/>
+        <todo value="use the translation apparatus to return a default field selection for the language"/>
+        <return type="array"/>
+      </docblock>
+      <inline>
+        <comment value="if fields were passed in numeric array," line="3335"/>
+        <comment value="convert to an associative array" line="3336"/>
+        <comment value="try to scaffold a couple of usual suspects" line="3343"/>
+        <comment value="Final fail-over, just list ID field" line="3351"/>
+        <comment value="Localize fields (if possible)" line="3354"/>
+        <comment value="only attempt to localize if the label definition is the same as the field name." line="3356"/>
+        <comment value="this will preserve any custom labels set in the summary_fields configuration" line="3357"/>
+      </inline>
+    </method>
+    <method name="defaultSearchFilters" start="3377" end="3397" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Defines a default list of filters for the search context.">If a filter class mapping is defined on the data object,
+it is constructed here. Otherwise, the default filter specified in
+{@link DBField} is used.</description>
+        <todo value="error handling/type checking for valid FormField and SearchFilter subclasses?"/>
+        <return type="array"/>
+      </docblock>
+    </method>
+    <method name="isInDB" start="3402" end="3404" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="True if the object is in the database" type="boolean"/>
+      </docblock>
+    </method>
+    <method name="disable_subclass_access" start="3414" end="3416" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Temporarily disable subclass access in data object qeur"/>
+      </docblock>
+    </method>
+    <method name="enable_subclass_access" start="3417" end="3419" abstract="false" final="false" static="true" visibility="public"/>
+    <method name="provideI18nEntities" start="3652" end="3669" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Collect all static properties on the object which contain natural language, and need to be translated.">The full entity name is composed from the class name and a custom identifier.</description>
+        <return description="A numerical array which contains one or more entities in array-form." type="array">Each numeric entity array contains the "arguments" for a _t() call as array values:
+$entity, $string, $priority, $context.</return>
+      </docblock>
+    </method>
+    <method name="hasValue" start="3680" end="3687" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns true if the given method/parameter has a value (Uses the DBField::hasValue if the parameter is a database field)"/>
+        <param description="The field name" type="string" variable="$field"/>
+        <param type="array" variable="$arguments"/>
+        <param type="object" variable="$cache">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="boolean"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+  </parent>
+  <parent full="ViewableData" namespace="" name="ViewableData">
+    <extends full="Object" namespace="" name="Object"/>
+    <member name="failover" type="{unknown}" visibility="protected" line="51">
+      <docblock>
+        <description compact="A failover object to attempt to get data from if it is not present on this object."/>
+        <var type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="customisedObject" type="{unknown}" visibility="protected" line="56">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="castingObjectCreator" start="72" end="74" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Converts a field spec into an object creator. For example: &quot;Int&quot; becomes &quot;new Int($fieldName);&quot; and &quot;Varchar(50)&quot; becomes &quot;new Varchar($fieldName, 50);&quot;."/>
+        <param description="The field spec" type="string" variable="$fieldSchema"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingObjectCreatorPair" start="83" end="85" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Convert a field schema (e.g. &quot;Varchar(50)&quot;) into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor."/>
+        <param type="string" variable="$fieldSchema"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="fieldSchema" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__isset" start="95" end="97" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if a field exists on this object or its failover."/>
+        <param type="string" variable="$property"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__get" start="106" end="114" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object."/>
+        <param type="string" variable="$property"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__set" start="123" end="129" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method."/>
+        <param type="string" variable="$property"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasField" start="137" end="139" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if a field exists on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getField" start="147" end="149" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a field on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setField" start="157" end="159" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a field on this object. This should be overloaded in child classes."/>
+        <param type="string" variable="$field"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="defineMethods" start="167" end="186" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}."/>
+      </docblock>
+    </method>
+    <method name="customise" start="197" end="209" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.">Note that any fields you specify will take precedence over the fields on this object.</description>
+        <param type="object" variable="$data">
+          <type full="array|ViewableData" namespace="" name="array|ViewableData"/>
+        </param>
+        <return type="object">
+          <type full="ViewableData_Customised" namespace="" name="ViewableData_Customised"/>
+        </return>
+      </docblock>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setCustomisedObj" start="214" end="216" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </param>
+      </docblock>
+      <parameter name="object" byreference="false" type="object">
+        <type full="\\ViewableData" namespace="\" name="ViewableData"/>
+      </parameter>
+    </method>
+    <method name="castingHelperPair" start="231" end="234" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).">The returned array contains two keys:
+ - className: the class the field would be casted to (e.g. "Varchar")
+ - castingHelper: the casting helper for casting the field (e.g. "return new Varchar($fieldName)")</description>
+        <param type="string" variable="$field"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingHelper" start="243" end="252" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the &quot;casting helper&quot; (a piece of PHP code that when evaluated creates a casted value object) for a field on this object."/>
+        <param type="string" variable="$field"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="castingClass" start="260" end="267" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the class name a field on this object will be casted to"/>
+        <param type="string" variable="$field"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="escapeTypeForField" start="275" end="279" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the string-format type for the given field."/>
+        <param type="string" variable="$field"/>
+        <return description="'xml'|'raw'" type="string"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="buildCastingCache" start="286" end="308" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Save the casting cache for this object (including data from any failovers) into a variable"/>
+        <param type="object" variable="$cache">
+          <type full="reference" namespace="" name="reference"/>
+        </param>
+      </docblock>
+      <parameter name="cache" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="renderWith" start="323" end="340" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance"/>
+        <param description="the template to render into" type="object" variable="$template">
+          <type full="string|array|SSViewer" namespace="" name="string|array|SSViewer"/>
+        </param>
+        <param description="fields to customise() the object with before rendering" type="array" variable="$customFields"/>
+        <return type="object">
+          <type full="HTMLText" namespace="" name="HTMLText"/>
+        </return>
+      </docblock>
+      <parameter name="template" byreference="false" type="{unknown}"/>
+      <parameter name="customFields" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="obj" start="352" end="390" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified."/>
+        <param type="string" variable="$fieldName"/>
+        <param type="array" variable="$arguments"/>
+        <param description="if TRUE, the value will ALWAYS be casted to an object before being returned," type="object" variable="$forceReturnedObject">even if there is no explicit casting information<type full="bool" namespace="" name="bool"/></param>
+        <param description="a custom cache name" type="string" variable="$cacheName"/>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="forceReturnedObject" byreference="false" type="{unknown}" default="true"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="cacheName" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="HACK: Don't call the deprecated FormField::Name() method" line="356"/>
+      </inline>
+    </method>
+    <method name="cachedCall" start="400" end="402" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method."/>
+        <param type="string" variable="$field"/>
+        <param type="array" variable="$arguments"/>
+        <param description="an optional custom cache identifier" type="string" variable="$identifier"/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="identifier" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="hasValue" start="413" end="422" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag."/>
+        <param type="string" variable="$field"/>
+        <param type="array" variable="$arguments"/>
+        <param type="object" variable="$cache">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="XML_val" start="435" end="438" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="RAW_val" start="443" end="445" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of the field without any escaping being applied."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="SQL_val" start="450" end="452" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field in an SQL-safe format."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="JS_val" start="457" end="459" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field in a JavaScript-save format."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="ATT_val" start="464" end="466" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the value of a field escaped suitable to be inserted into an XML node attribute."/>
+      </docblock>
+      <parameter name="field" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="getXMLValues" start="476" end="484" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an array of XML-escaped values by field name"/>
+        <param description="an array of field names" type="array" variable="$elements"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="fields" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getIterator" start="496" end="498" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a single-item iterator so you can iterate over the fields of a single record.">This is useful so you can use a single record inside a &lt;% control %&gt; block in a template - and then use
+to access individual fields on this object.</description>
+        <return type="object">
+          <type full="ArrayIterator" namespace="" name="ArrayIterator"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="Me" start="508" end="510" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself."/>
+        <return type="object">
+          <type full="ViewableData" namespace="" name="ViewableData"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="ThemeDir" start="524" end="533" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the directory if the current active theme (relative to the site root).">This method is useful for things such as accessing theme images from your template without hardcoding the theme
+page - e.g. &lt;img src="$ThemeDir/images/something.gif"&gt;.
+
+This method should only be used when a theme is currently active. However, it will fall over to the current
+project directory.</description>
+        <param description="the subtheme path to get" type="string" variable="$subtheme"/>
+        <return type="string"/>
+      </docblock>
+      <parameter name="subtheme" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="CSSClasses" start="545" end="561" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get part of the current classes ancestry to be used as a CSS class.">This method returns an escaped string of CSS classes representing the current classes ancestry until it hits a
+stop point - e.g. "Page DataObject ViewableData".</description>
+        <param description="the class to stop at (default: ViewableData)" type="string" variable="$stopAtClass"/>
+        <return type="string"/>
+        <uses value="ClassInfo"/>
+      </docblock>
+      <parameter name="stopAtClass" byreference="false" type="string" default="'ViewableData'"/>
+      <inline>
+        <comment value="optionally add template identifier" line="555"/>
+      </inline>
+    </method>
+    <method name="Debug" start="568" end="570" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return debug information about this object that can be rendered into a template"/>
+        <return type="object">
+          <type full="ViewableData_Debugger" namespace="" name="ViewableData_Debugger"/>
+        </return>
+      </docblock>
+    </method>
+  </parent>
+  <parent full="Object" namespace="" name="Object">
+    <member name="class" type="{unknown}" visibility="public" line="54">
+      <docblock>
+        <description/>
+        <var description="the class name" type="string"/>
+      </docblock>
+    </member>
+    <member name="extension_instances" type="array" visibility="protected" line="67">
+      <docblock>
+        <description/>
+        <var description="all current extension instances." type="array"/>
+      </docblock>
+    </member>
+    <member name="beforeExtendCallbacks" type="array" visibility="protected" line="75">
+      <docblock>
+        <description compact="List of callbacks to call prior to extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="afterExtendCallbacks" type="array" visibility="protected" line="98">
+      <docblock>
+        <description compact="List of callbacks to call after extensions having extend called on them, each grouped by methodName."/>
+        <var type="object">
+          <type full="array[callable]" namespace="" name="array[callable]"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="config" start="60" end="62" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....)."/>
+        <return type="object">
+          <type full="Config_ForClass|null" namespace="" name="Config_ForClass|null"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="beforeExtending" start="85" end="90" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="afterExtending" start="108" end="113" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called."/>
+        <param description="The name of the method to hook into" type="string" variable="$method"/>
+        <param description="The callback to execute" type="object" variable="$callback">
+          <type full="callable" namespace="" name="callable"/>
+        </param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="callback" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="create" start="132" end="143" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="An implementation of the factory method, allows you to create an instance of a class">This method first for strong class overloads (singletons &amp; DB interaction), then custom class overloads. If an
+overload is found, an instance of this is returned rather than the original class. To overload a class, use
+{@link Object::useCustomClass()}
+
+This can be called in one of two ways - either calling via the class directly,
+or calling on Object and passing the class name as the first parameter. The following
+are equivalent:
+   $list = DataList::create('SiteTree');
+  $list = SiteTree::get();</description>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="Class to create should be the calling class if not Object," line="135"/>
+        <comment value="otherwise the first parameter" line="136"/>
+      </inline>
+    </method>
+    <method name="create_from_string" start="169" end="188" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().">Construction itself is done with Object::create(), so that Object::useCustomClass() calls
+are respected.
+
+`Object::create_from_string("Versioned('Stage','Live')")` will return the result of
+`Versioned::create('Stage', 'Live);`
+
+It is designed for simple, clonable objects.  The first time this method is called for a given
+string it is cached, and clones of that object are returned.
+
+If you pass the $firstArg argument, this will be prepended to the constructor arguments. It's
+impossible to pass null as the firstArg argument.
+
+`Object::create_from_string("Varchar(50)", "MyField")` will return the result of
+`Vachar::create('MyField', '50');`
+
+Arguments are always strings, although this is a quirk of the current implementation rather
+than something that can be relied upon.</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <parameter name="firstArg" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="an $extension value can contain parameters as a string," line="171"/>
+        <comment value="e.g. &quot;Versioned('Stage','Live')&quot;" line="172"/>
+      </inline>
+    </method>
+    <method name="parse_class_spec" start="194" end="274" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Parses a class-spec, such as &quot;Versioned('Stage','Live')&quot;, as passed to create_from_string().">Returns a 2-elemnent array, with classname and arguments</description>
+      </docblock>
+      <parameter name="classSpec" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Keep track of the current bucket that we're putting data into" line="200"/>
+        <comment value="Get the class naem" line="207"/>
+      </inline>
+    </method>
+    <method name="strong_create" start="284" end="293" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}"/>
+        <param description="the class name" type="string" variable="$class"/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="static" namespace="" name="static"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="useCustomClass" start="304" end="310" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}"/>
+        <param description="the class to replace" type="string" variable="$oldClass"/>
+        <param description="the class to replace it with" type="string" variable="$newClass"/>
+        <param description="allows you to enforce a certain class replacement under all circumstances. This is used in" type="object" variable="$strong">singletons and DB interaction classes<type full="bool" namespace="" name="bool"/></param>
+      </docblock>
+      <parameter name="oldClass" byreference="false" type="{unknown}"/>
+      <parameter name="newClass" byreference="false" type="{unknown}"/>
+      <parameter name="strong" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="getCustomClass" start="318" end="326" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name"/>
+        <param description="the class to check" type="string" variable="$class"/>
+        <return description="the class that would be created if you called {@link Object::create()} with the class" type="string"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="static_lookup" start="339" end="374" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class."/>
+        <static/>
+        <param description="The class to get the static from" variable="$class" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="The property to get from the class" variable="$name" type="object">
+          <type full="-" namespace="" name="-"/>
+        </param>
+        <param description="- The value to return if property doesn't exist on class" type="object" variable="$default">
+          <type full="null" namespace="" name="null"/>
+        </param>
+        <return description="- The value of the static property $name on class $class, or $default if that property is not" type="object">defined<type full="any" namespace="" name="any"/></return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="default" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="get_static" start="391" end="394" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a static variable, taking into account SS's inbuild static caches and pseudo-statics">This method first checks for any extra values added by <link xmlns="http://xml.phpdox.net/src" value="Object::add_static_var()"/>, and attemps to traverse
+up the extra static var chain until it reaches the top, or it reaches a replacement static.
+If any extra values are discovered, they are then merged with the default PHP static values, or in some cases
+completely replace the default PHP static when you set $replace = true, and do not define extra data on any
+child classes
+</description>
+        <param type="string" variable="$class"/>
+        <param description="the property name" type="string" variable="$name"/>
+        <param description="if set to TRUE, force a regeneration of the static cache" type="object" variable="$uncached">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_static" start="403" end="406" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set a static variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the property name to set" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited_static" start="415" end="418" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class."/>
+        <param type="string" variable="$class"/>
+        <param type="string" variable="$name"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="combined_static" start="430" end="435" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable"/>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param description="an optional parent class name to begin merging statics down from, rather than traversing" type="string" variable="$ceiling">the entire hierarchy</param>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="ceiling" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="addStaticVars" start="444" end="447" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Merge in a set of additional static variables"/>
+        <param type="string" variable="$class"/>
+        <param description="in a [property name] =&gt; [value] format" type="array" variable="$properties"/>
+        <param description="replace existing static vars" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="properties" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="add_static_var" start="465" end="470" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.">Documentation from http://php.net/array_merge_recursive:
+If the input arrays have the same string keys, then the values for these keys are merged together
+into an array, and this is done recursively, so that if one of the values is an array itself,
+the function will merge it with a corresponding entry in another array too.
+If, however, the arrays have the same numeric key, the later value will not overwrite the original value,
+but will be appended.</description>
+        <param type="string" variable="$class"/>
+        <param description="the static name" type="string" variable="$name"/>
+        <param type="mixed" variable="$value"/>
+        <param description="completely replace existing static values" type="object" variable="$replace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+      <parameter name="replace" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="has_extension" start="481" end="503" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a class has a specified extension.">This supports backwards-compatible format (static Object::has_extension($requiredExtension))
+and new format ($object-&gt;has_extension($class, $requiredExtension))</description>
+        <param description="if 1 argument supplied, the class name of the extension to" type="string" variable="$classOrExtension">check for; if 2 supplied, the class name to test</param>
+        <param description="used only if 2 arguments supplied" type="string" variable="$requiredExtension"/>
+        <param description="if the extension has to match the required extension and not be a subclass" type="boolean" variable="$strict"/>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="requiredExtension" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="strict" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="BC support" line="482"/>
+      </inline>
+    </method>
+    <method name="add_extension" start="523" end="565" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Add an extension to a specific class.">The preferred method for adding extensions is through YAML config,
+since it avoids autoloading the class, and is easier to override in
+more specific configurations.
+As an alternative, extensions can be added to a specific class
+directly in the <link xmlns="http://xml.phpdox.net/src" value="Object::$extensions"/> array.
+See <link xmlns="http://xml.phpdox.net/src" value="SiteTree::$extensions"/> for examples.
+Keep in mind that the extension will only be applied to new
+instances, not existing ones (including all instances created through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>).
+</description>
+        <see value="http://doc.silverstripe.org/framework/en/trunk/reference/dataextension"/>
+        <param description="Class that should be extended - has to be a subclass of {@link Object}" type="string" variable="$class"/>
+        <param description="Subclass of {@link Extension} with optional parameters" type="string" variable="$extension">as a string, e.g. "Versioned" or "Translatable('Param')"</param>
+      </docblock>
+      <parameter name="classOrExtension" byreference="false" type="{unknown}"/>
+      <parameter name="extension" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="unset some caches" line="545"/>
+        <comment value="load statics now for DataObject classes" line="559"/>
+      </inline>
+    </method>
+    <method name="remove_extension" start="584" end="614" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Remove an extension from a class.">Keep in mind that this won't revert any datamodel additions
+of the extension at runtime, unless its used before the
+schema building kicks in (in your _config.php).
+Doesn't remove the extension from any <link xmlns="http://xml.phpdox.net/src" value="Object"/>instances which are already created, but will have an
+effect on new extensions.
+Clears any previously created singletons through <link xmlns="http://xml.phpdox.net/src" value="singleton()"/>to avoid side-effects from stale extension information.
+</description>
+        <todo value="Add support for removing extensions with parameters"/>
+        <param description="Classname of an {@link Extension} subclass, without parameters" type="string" variable="$extension"/>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="remove any instances of the extension with parameters" line="589"/>
+        <comment value="extensions with parameters will be stored in config as" line="594"/>
+        <comment value="ExtensionName(&quot;Param&quot;)." line="595"/>
+        <comment value="unset singletons to avoid side-effects" line="604"/>
+        <comment value="unset some caches" line="607"/>
+      </inline>
+    </method>
+    <method name="get_extensions" start="623" end="635" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param type="string" variable="$class"/>
+        <param description="Include the argument string in the return array," type="object" variable="$includeArgumentString">FALSE would return array("Versioned"), TRUE returns array("Versioned('Stage','Live')").<type full="bool" namespace="" name="bool"/></param>
+        <return description="Numeric array of either {@link DataExtension} classnames," type="array">or eval'ed classname strings with constructor arguments.</return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="includeArgumentString" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="get_extra_config_sources" start="641" end="678" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="If this class is unextendable, NOP" line="644"/>
+        <comment value="Get a list of extensions" line="650"/>
+        <comment value="Build a list of all sources;" line="654"/>
+      </inline>
+    </method>
+    <constructor name="__construct" start="680" end="699" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="__call" start="711" end="765" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located">You can add extra methods to a class using <link xmlns="http://xml.phpdox.net/src" value="Extensions"/>, <link xmlns="http://xml.phpdox.net/src" value="Object::createMethod()"/> or
+<link xmlns="http://xml.phpdox.net/src" value="Object::addWrapperMethod()"/></description>
+        <param type="string" variable="$method"/>
+        <param type="array" variable="$arguments"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="If the method cache was cleared by an an Object::add_extension() / Object::remove_extension()" line="712"/>
+        <comment value="call, then we should rebuild it." line="713"/>
+      </inline>
+    </method>
+    <method name="hasMethod" start="778" end="780" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return TRUE if a method exists on this object">This should be used rather than PHP's inbuild method_exists() as it takes into account methods added via
+extensions</description>
+        <param type="string" variable="$method"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="allMethodNames" start="788" end="798" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the names of all the methods available on this object"/>
+        <param description="include methods added dynamically at runtime" type="object" variable="$custom">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return type="array"/>
+      </docblock>
+      <parameter name="custom" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="defineMethods" start="807" end="821" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Adds any methods from {@link Extension} instances attached to this object.">All these methods can then be called directly on the instance (transparently
+mapped through <link xmlns="http://xml.phpdox.net/src" value="__call()"/>), or called explicitly through <link xmlns="http://xml.phpdox.net/src" value="extend()"/>.
+</description>
+        <uses value="addMethodsFrom()"/>
+      </docblock>
+    </method>
+    <method name="addMethodsFrom" start="829" end="864" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add all the methods from an object property (which is an {@link Extension}) to this object."/>
+        <param description="the property name" type="string" variable="$property"/>
+        <param description="an index to use if the property is an array" type="object" variable="$index">
+          <type full="string|int" namespace="" name="string|int"/>
+        </param>
+      </docblock>
+      <parameter name="property" byreference="false" type="{unknown}"/>
+      <parameter name="index" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="addWrapperMethod" start="873" end="878" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)"/>
+        <param description="the method name to wrap" type="string" variable="$method"/>
+        <param description="the method name to wrap to" type="string" variable="$wrap"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="wrap" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="createMethod" start="888" end="892" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Add an extra method using raw PHP code passed as a string"/>
+        <param description="the method name" type="string" variable="$method"/>
+        <param description="the PHP code - arguments will be in an array called $args, while you can access this object" type="string" variable="$code">by using $obj. Note that you cannot call protected methods, as the method is actually an external
+       function</param>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="code" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="stat" start="899" end="901" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::get_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="uncached" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="set_stat" start="906" end="908" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::set_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="uninherited" start="913" end="915" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <see value="Object::uninherited_static()"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="exists" start="927" end="929" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return true if this object &quot;exists&quot; i.e. has a sensible value">This method should be overriden in subclasses to provide more context about the classes state. For example, a
+{@link DataObject} class could return false when it is deleted from the database</description>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="parentClass" start="934" end="936" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="this classes parent class" type="string"/>
+      </docblock>
+    </method>
+    <method name="is_a" start="944" end="946" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Check if this class is an instance of a specific class, or has that class as one of its parents"/>
+        <param type="string" variable="$class"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="__toString" start="951" end="953" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="the class name" type="string"/>
+      </docblock>
+    </method>
+    <method name="invokeWithExtensions" start="966" end="971" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array"/>
+        <param description="the method name to call" type="string" variable="$method"/>
+        <param description="a single argument to pass" type="mixed" variable="$argument"/>
+        <return type="mixed"/>
+        <todo value="integrate inheritance rules"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="argument" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="extend" start="988" end="1017" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed">Currently returns an array, with an index resulting every time the function is called. Only adds returns if
+they're not NULL, to avoid bogus results from methods just defined on the parent extension. This is important for
+permission-checks through extend, as they use min() to determine if any of the returns is FALSE. As min() doesn't
+do type checking, an included NULL return would fail the permission checks.
+The extension methods are defined during <link xmlns="http://xml.phpdox.net/src" value="__construct()"/> in <link xmlns="http://xml.phpdox.net/src" value="defineMethods()"/>.
+</description>
+        <param description="the name of the method to call on each extension" type="string" variable="$method"/>
+        <param description="... up to 7 arguments to be passed to the method" type="mixed" variable="$a1"/>
+        <return type="array"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="a1" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a2" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a3" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a4" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a5" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a6" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="a7" byreference="true" type="{unknown}" default="null"/>
+    </method>
+    <method name="getExtensionInstance" start="1027" end="1029" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an extension instance attached to this object by name."/>
+        <uses value="hasExtension()"/>
+        <param type="string" variable="$extension"/>
+        <return type="object">
+          <type full="Extension" namespace="" name="Extension"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="hasExtension" start="1045" end="1047" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.">Caution: Don't use singleton(&lt;class&gt;)-&gt;hasExtension() as it will
+give you inconsistent results based on when the singleton was first
+accessed.</description>
+        <param description="Classname of an {@link Extension} subclass without parameters" type="string" variable="$extension"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+      <parameter name="extension" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getExtensionInstances" start="1056" end="1058" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get all extension instances for this specific object instance.">See <link xmlns="http://xml.phpdox.net/src" value="get_extensions()"/> to get all applied extension classes
+for this class (not the instance).
+</description>
+        <return description="Map of {@link DataExtension} instances, keyed by classname." type="array"/>
+      </docblock>
+    </method>
+    <method name="cacheToFile" start="1072" end="1092" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Cache the results of an instance method in this object to a file, or if it is already cache return the cached results"/>
+        <param description="the method name to cache" type="string" variable="$method"/>
+        <param description="the cache lifetime in seconds" type="int" variable="$lifetime"/>
+        <param description="custom cache ID to use" type="string" variable="$ID"/>
+        <param description="an optional array of arguments" type="array" variable="$arguments"/>
+        <return description="the cached data" type="mixed"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="clearCache" start="1097" end="1105" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Clears the cache for the given cacheToFile call"/>
+      </docblock>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="ID" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="arguments" byreference="false" type="array"/>
+    </method>
+    <method name="loadCache" start="1114" end="1122" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Loads a cache from the filesystem if a valid on is present and within the specified lifetime"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="the lifetime (in seconds) of the cache before it is invalid" type="int" variable="$lifetime"/>
+        <return type="mixed"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="lifetime" byreference="false" type="integer" default="3600"/>
+    </method>
+    <method name="saveCache" start="1130" end="1132" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Save a piece of cached data to the file system"/>
+        <param description="the cache name" type="string" variable="$cache"/>
+        <param description="data to save (must be serializable)" type="mixed" variable="$data"/>
+      </docblock>
+      <parameter name="cache" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="sanitiseCachename" start="1140" end="1142" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Strip a file name of special characters so it is suitable for use as a cache file name"/>
+        <param type="string" variable="$name"/>
+        <return description="the name with all special cahracters replaced with underscores" type="string"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="IteratorAggregate" namespace="" name="IteratorAggregate">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="getIterator" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Retrieve an external iterator"/>
+      <return type="Traversable"/>
+    </docblock>
+  </method>
+  </interface>
+  <interface full="DataObjectInterface" namespace="" name="DataObjectInterface">
+    <constructor name="__construct" start="15" end="15" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Create a new data object, not yet in the database.  To load an object into the database, a null object should be constructed, its fields set, and the write() method called."/>
+      </docblock>
+    </constructor>
+    <method name="write" start="22" end="22" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Write the current object back to the database.  It should know whether this is a new object, in which case this would be an insert command, or if this is an existing object queried from the database, in which case thes would be"/>
+      </docblock>
+    </method>
+    <method name="delete" start="27" end="27" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Remove this object from the database.  Doesn't do anything if this object isn't in the database."/>
+      </docblock>
+    </method>
+    <method name="__get" start="34" end="34" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the named field.">This function is sometimes called explicitly by the form system, so you need to define it, even if you use the
+default field system.</description>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setCastedField" start="40" end="40" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Save content from a form into a field on this data object.">Since the data comes straight from a form it can't be trusted and will need to be validated / escaped.'</description>
+      </docblock>
+      <parameter name="fieldName" byreference="false" type="{unknown}"/>
+      <parameter name="val" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="i18nEntityProvider" namespace="" name="i18nEntityProvider">
+    <method name="provideI18nEntities" start="68" end="68" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Example usage: &lt;code&gt; class MyTestClass implements i18nEntityProvider { function provideI18nEntities() { &#9;$entities = array(); &#9;foreach($this-&gt;stat('my_static_array) as $key =&gt; $value) { &#9;&#9;$entities[&quot;MyTestClass.my_static_array_{$key}&quot;] = array( &#9;&#9;&#9;$value,">'My context description'
+		);
+	}
+	return $entities;
+}
+public static function my_static_array() {
+	$t_my_static_array = array();
+	foreach(self::$my_static_array as $k =&gt; $v) {
+		$t_my_static_array[$k] = _t("MyTestClass.my_static_array_{$key}", $v);
+	}
+	return $t_my_static_array;
+}
+}
+&lt;/code&gt;
+Example usage in <link xmlns="http://xml.phpdox.net/src" value="DataObject-&gt;provideI18nEntities()}.&#10;&#10;You can ask textcollector to add the provided entity to a different module&#10;than the class is contained in by adding a 4th argument to the array:&#10;&lt;code&gt;&#10;class MyTestClass implements i18nEntityProvider {&#10;function provideI18nEntities() {&#10;&#9;$entities = array();&#10;&#9;&#9;$entities[&quot;MyOtherModuleClass.MYENTITY&quot;] = array(&#10;&#9;&#9;&#9;$value,&#10;&#10;&#9;&#9;&#9;'My context description',&#10;&#9;&#9;&#9;'myothermodule'&#10;&#9;&#9;);&#10;&#9;}&#10;&#9;return $entities;"/>&lt;/code&gt;
+</description>
+        <return description="All entites in an associative array, with" type="array">entity name as the key, and a numerical array of pseudo-arguments
+for _t() as a value.</return>
+      </docblock>
+    </method>
+  </interface>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+</class>

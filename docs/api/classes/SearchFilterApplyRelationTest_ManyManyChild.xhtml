@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SearchFilterApplyRelationTest_ManyManyChild</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SearchFilterApplyRelationTest_ManyManyChild</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/tests/search/SearchFilterApplyRelationTest.php.xhtml#line212">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SearchFilterApplyRelationTest_ManyManyChild</h1>
+        <h4/>
+        <p/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SearchFilterApplyRelationTest_ManyManyChild
+                extends <a title="SearchFilterApplyRelationTest_ManyManyParent" href="../classes/SearchFilterApplyRelationTest_ManyManyParent.xhtml">SearchFilterApplyRelationTest_ManyManyParent</a>
+                implements
+                <a title="TestOnly" href="../interfaces/TestOnly.xhtml">TestOnly</a>
+            {<br/><ul class="none"><li>// members</li><li>private array <a href="#members">$db</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="DataObject">DataObject</span></li><li>public boolean <a href="#members">$destroyed</a>;
+                        </li><li>protected <a href="#members">$model</a>;
+                        </li><li>protected array <a href="#members">$record</a>;
+                        </li><li>protected array <a href="#members">$original</a>;
+                        </li><li>protected boolean <a href="#members">$brokenOnDelete</a>;
+                        </li><li>protected boolean <a href="#members">$brokenOnWrite</a>;
+                        </li><li>public array <a href="#members">$cache_has_own_table</a>;
+                        </li><li>public array <a href="#members">$cache_has_own_table_field</a>;
+                        </li><li>protected array <a href="#members">$_cache_db</a>;
+                        </li><li>protected <a href="#members">$_cache_get_one</a>;
+                        </li><li>protected <a href="#members">$_cache_get_class_ancestry</a>;
+                        </li><li>protected array <a href="#members">$_cache_composite_fields</a>;
+                        </li><li>protected array <a href="#members">$_cache_custom_database_fields</a>;
+                        </li><li>protected array <a href="#members">$_cache_field_labels</a>;
+                        </li><li>protected <a href="#members">$components</a>;
+                        </li><li>protected <a href="#members">$unsavedRelations</a>;
+                        </li><li>protected <span title="Array">Array</span> <a href="#members">$sourceQueryParams</a>;
+                        </li><li>public <a href="#members">$allowed_actions</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="ViewableData">ViewableData</span></li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$failover</a>;
+                        </li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$customisedObject</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="Object">Object</span></li><li>public string <a href="#members">$class</a>;
+                        </li><li>protected array <a href="#members">$extension_instances</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$beforeExtendCallbacks</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$afterExtendCallbacks</a>;
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="DataObject">DataObject</span></li><li>public static bool <a title="DataObject" href="../classes/DataObject/get_validation_enabled.xhtml">get_validation_enabled</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/set_validation_enabled.xhtml">set_validation_enabled</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/clear_classname_spec_cache.xhtml">clear_classname_spec_cache</a>()
+                        </li><li>public static array <a title="DataObject" href="../classes/DataObject/database_fields.xhtml">database_fields</a>()
+                        </li><li>public static array <a title="DataObject" href="../classes/DataObject/custom_database_fields.xhtml">custom_database_fields</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/is_composite_field.xhtml">is_composite_field</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/composite_fields.xhtml">composite_fields</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/__construct.xhtml">__construct</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/setDataModel.xhtml">setDataModel</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/destroy.xhtml">destroy</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/duplicate.xhtml">duplicate</a>()
+                        </li><li>protected DataObject <a title="DataObject" href="../classes/DataObject/duplicateManyManyRelations.xhtml">duplicateManyManyRelations</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/getObsoleteClassName.xhtml">getObsoleteClassName</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/getClassName.xhtml">getClassName</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/setClassName.xhtml">setClassName</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/newClassInstance.xhtml">newClassInstance</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/exists.xhtml">exists</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/isEmpty.xhtml">isEmpty</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/singular_name.xhtml">singular_name</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/i18n_singular_name.xhtml">i18n_singular_name</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/plural_name.xhtml">plural_name</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/i18n_plural_name.xhtml">i18n_plural_name</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/getTitle.xhtml">getTitle</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/data.xhtml">data</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/toMap.xhtml">toMap</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/getQueriedDatabaseFields.xhtml">getQueriedDatabaseFields</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/update.xhtml">update</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/castedUpdate.xhtml">castedUpdate</a>()
+                        </li><li>public Boolean <a title="DataObject" href="../classes/DataObject/merge.xhtml">merge</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/forceChange.xhtml">forceChange</a>()
+                        </li><li>protected ValidationResult <a title="DataObject" href="../classes/DataObject/validate.xhtml">validate</a>()
+                        </li><li>protected void <a title="DataObject" href="../classes/DataObject/onBeforeWrite.xhtml">onBeforeWrite</a>()
+                        </li><li>protected void <a title="DataObject" href="../classes/DataObject/onAfterWrite.xhtml">onAfterWrite</a>()
+                        </li><li>protected void <a title="DataObject" href="../classes/DataObject/onBeforeDelete.xhtml">onBeforeDelete</a>()
+                        </li><li>protected void <a title="DataObject" href="../classes/DataObject/onAfterDelete.xhtml">onAfterDelete</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/populateDefaults.xhtml">populateDefaults</a>()
+                        </li><li>public int <a title="DataObject" href="../classes/DataObject/write.xhtml">write</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/writeComponents.xhtml">writeComponents</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/delete.xhtml">delete</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/delete_by_id.xhtml">delete_by_id</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/getClassAncestry.xhtml">getClassAncestry</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/getComponent.xhtml">getComponent</a>()
+                        </li><li>public HasManyList <a title="DataObject" href="../classes/DataObject/getComponents.xhtml">getComponents</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/getComponentsQuery.xhtml">getComponentsQuery</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/getRelationClass.xhtml">getRelationClass</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/getRemoteJoinField.xhtml">getRemoteJoinField</a>()
+                        </li><li>public ManyManyList <a title="DataObject" href="../classes/DataObject/getManyManyComponents.xhtml">getManyManyComponents</a>()
+                        </li><li>public string|array <a title="DataObject" href="../classes/DataObject/has_one.xhtml">has_one</a>()
+                        </li><li>public string|array <a title="DataObject" href="../classes/DataObject/belongs_to.xhtml">belongs_to</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/db.xhtml">db</a>()
+                        </li><li>public string|array <a title="DataObject" href="../classes/DataObject/has_many.xhtml">has_many</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/many_many_extraFields.xhtml">many_many_extraFields</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/many_many.xhtml">many_many</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/database_extensions.xhtml">database_extensions</a>()
+                        </li><li>public SearchContext <a title="DataObject" href="../classes/DataObject/getDefaultSearchContext.xhtml">getDefaultSearchContext</a>()
+                        </li><li>public FieldList <a title="DataObject" href="../classes/DataObject/scaffoldSearchFields.xhtml">scaffoldSearchFields</a>()
+                        </li><li>public FieldList <a title="DataObject" href="../classes/DataObject/scaffoldFormFields.xhtml">scaffoldFormFields</a>()
+                        </li><li>protected void <a title="DataObject" href="../classes/DataObject/beforeUpdateCMSFields.xhtml">beforeUpdateCMSFields</a>()
+                        </li><li>public FieldList <a title="DataObject" href="../classes/DataObject/getCMSFields.xhtml">getCMSFields</a>()
+                        </li><li>public an <a title="DataObject" href="../classes/DataObject/getCMSActions.xhtml">getCMSActions</a>()
+                        </li><li>public FieldList <a title="DataObject" href="../classes/DataObject/getFrontEndFields.xhtml">getFrontEndFields</a>()
+                        </li><li>public mixed <a title="DataObject" href="../classes/DataObject/getField.xhtml">getField</a>()
+                        </li><li>protected void <a title="DataObject" href="../classes/DataObject/loadLazyFields.xhtml">loadLazyFields</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/getChangedFields.xhtml">getChangedFields</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/isChanged.xhtml">isChanged</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/setField.xhtml">setField</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/setCastedField.xhtml">setCastedField</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/hasField.xhtml">hasField</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/hasDatabaseField.xhtml">hasDatabaseField</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/hasOwnTableDatabaseField.xhtml">hasOwnTableDatabaseField</a>()
+                        </li><li>public static bool <a title="DataObject" href="../classes/DataObject/has_own_table.xhtml">has_own_table</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/can.xhtml">can</a>()
+                        </li><li>public boolean|null <a title="DataObject" href="../classes/DataObject/extendedCan.xhtml">extendedCan</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/canView.xhtml">canView</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/canEdit.xhtml">canEdit</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/canDelete.xhtml">canDelete</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/canCreate.xhtml">canCreate</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/debug.xhtml">debug</a>()
+                        </li><li>public DBField <a title="DataObject" href="../classes/DataObject/dbObject.xhtml">dbObject</a>()
+                        </li><li>public mixed <a title="DataObject" href="../classes/DataObject/relObject.xhtml">relObject</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/relField.xhtml">relField</a>()
+                        </li><li>public String <a title="DataObject" href="../classes/DataObject/getReverseAssociation.xhtml">getReverseAssociation</a>()
+                        </li><li>public static DataList <a title="DataObject" href="../classes/DataObject/get.xhtml">get</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/Aggregate.xhtml">Aggregate</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/RelationshipAggregate.xhtml">RelationshipAggregate</a>()
+                        </li><li>public static DataObject <a title="DataObject" href="../classes/DataObject/get_one.xhtml">get_one</a>()
+                        </li><li>public DataObject <a title="DataObject" href="../classes/DataObject/flushCache.xhtml">flushCache</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/flush_and_destroy_cache.xhtml">flush_and_destroy_cache</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/reset.xhtml">reset</a>()
+                        </li><li>public static DataObject <a title="DataObject" href="../classes/DataObject/get_by_id.xhtml">get_by_id</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/baseTable.xhtml">baseTable</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/getSourceQueryParams.xhtml">getSourceQueryParams</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/setSourceQueryParams.xhtml">setSourceQueryParams</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/setSourceQueryParam.xhtml">setSourceQueryParam</a>()
+                        </li><li>public Mixed <a title="DataObject" href="../classes/DataObject/getSourceQueryParam.xhtml">getSourceQueryParam</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/databaseIndexes.xhtml">databaseIndexes</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/requireTable.xhtml">requireTable</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/requireDefaultRecords.xhtml">requireDefaultRecords</a>()
+                        </li><li>public void <a title="DataObject" href="../classes/DataObject/inheritedDatabaseFields.xhtml">inheritedDatabaseFields</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/searchableFields.xhtml">searchableFields</a>()
+                        </li><li>public array|string <a title="DataObject" href="../classes/DataObject/fieldLabels.xhtml">fieldLabels</a>()
+                        </li><li>public string <a title="DataObject" href="../classes/DataObject/fieldLabel.xhtml">fieldLabel</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/summaryFields.xhtml">summaryFields</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/defaultSearchFilters.xhtml">defaultSearchFilters</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/isInDB.xhtml">isInDB</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/disable_subclass_access.xhtml">disable_subclass_access</a>()
+                        </li><li>public static void <a title="DataObject" href="../classes/DataObject/enable_subclass_access.xhtml">enable_subclass_access</a>()
+                        </li><li>public array <a title="DataObject" href="../classes/DataObject/provideI18nEntities.xhtml">provideI18nEntities</a>()
+                        </li><li>public boolean <a title="DataObject" href="../classes/DataObject/hasValue.xhtml">hasValue</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="ViewableData">ViewableData</span></li><li>public static string <a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator</a>()
+                        </li><li>public static array <a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>public ViewableData_Customised <a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache</a>()
+                        </li><li>public HTMLText <a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues</a>()
+                        </li><li>public ArrayIterator <a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator</a>()
+                        </li><li>public ViewableData <a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses</a>()
+                        </li><li>public ViewableData_Debugger <a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="Object">Object</span></li><li>public static Config_ForClass|null <a title="Object" href="../classes/Object/config.xhtml">config</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/create.xhtml">create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/strong_create.xhtml">strong_create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass</a>()
+                        </li><li>public static string <a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass</a>()
+                        </li><li>public static any <a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/get_static.xhtml">get_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/set_static.xhtml">set_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/combined_static.xhtml">combined_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/has_extension.xhtml">has_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_extension.xhtml">add_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension</a>()
+                        </li><li>public static array <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/__construct.xhtml">__construct</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/__call.xhtml">__call</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/createMethod.xhtml">createMethod</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/stat.xhtml">stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/exists.xhtml">exists</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/is_a.xhtml">is_a</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/__toString.xhtml">__toString</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/extend.xhtml">extend</a>()
+                        </li><li>public Extension <a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/clearCache.xhtml">clearCache</a>()
+                        </li><li>protected mixed <a title="Object" href="../classes/Object/loadCache.xhtml">loadCache</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/saveCache.xhtml">saveCache</a>()
+                        </li><li>protected string <a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/SearchFilterApplyRelationTest_ManyManyParent.xhtml">SearchFilterApplyRelationTest_ManyManyParent</a>
+            </li>
+          </ul>
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/SearchFilterApplyRelationTest_ManyManyGrantChild.xhtml">SearchFilterApplyRelationTest_ManyManyGrantChild</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/TestOnly.xhtml">TestOnly</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">659+</td>
+            <td>Use DBField-&gt;hasValue()</td>
+          </tr>
+          <tr>
+            <td class="nummeric">917</td>
+            <td>remove redundant merge of has_one fields</td>
+          </tr>
+          <tr>
+            <td class="nummeric">982</td>
+            <td>Find better way to allow versioned to write a new version after forceChange</td>
+          </tr>
+          <tr>
+            <td class="nummeric">1339</td>
+            <td>This is quite ugly.  To improve:</td>
+          </tr>
+          <tr>
+            <td class="nummeric">1572+</td>
+            <td>Implement query-params</td>
+          </tr>
+          <tr>
+            <td class="nummeric">2093+</td>
+            <td>Decide on naming for "website|frontend|site|page" and stick with it in the API</td>
+          </tr>
+          <tr>
+            <td class="nummeric">2183</td>
+            <td>This is copy &amp; pasted from buildSQL(), it could be moved into a method</td>
+          </tr>
+          <tr>
+            <td class="nummeric">2623+</td>
+            <td>Should canCreate be a static method?</td>
+          </tr>
+          <tr>
+            <td class="nummeric">3158+</td>
+            <td>review whether this is still needed after recent API changes</td>
+          </tr>
+          <tr>
+            <td class="nummeric">3332+</td>
+            <td>use the translation apparatus to return a default field selection for the language</td>
+          </tr>
+          <tr>
+            <td class="nummeric">3377+</td>
+            <td>error handling/type checking for valid FormField and SearchFilter subclasses?</td>
+          </tr>
+          <tr>
+            <td class="nummeric">584+</td>
+            <td>Add support for removing extensions with parameters</td>
+          </tr>
+          <tr>
+            <td class="nummeric">966+</td>
+            <td>integrate inheritance rules</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="db">
+              <strong>$db</strong>
+            </li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_cache_composite_fields">
+              <strong>$_cache_composite_fields</strong>
+            </li>
+            <li id="_cache_custom_database_fields">
+              <strong>$_cache_custom_database_fields</strong>
+            </li>
+            <li id="_cache_db">
+              <strong>$_cache_db</strong>
+            </li>
+            <li id="_cache_field_labels">
+              <strong>$_cache_field_labels</strong>
+            </li>
+            <li id="_cache_get_class_ancestry">
+              <strong>$_cache_get_class_ancestry</strong>
+            </li>
+            <li id="_cache_get_one">
+              <strong>$_cache_get_one</strong>
+            </li>
+            <li id="afterExtendCallbacks"><strong>$afterExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call after extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="beforeExtendCallbacks"><strong>$beforeExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call prior to extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="brokenOnDelete"><strong>$brokenOnDelete</strong>
+                —
+                boolean<br/><span class="indent">Used by onBeforeDelete() to ensure child classes call parent::onBeforeDelete()</span></li>
+            <li id="brokenOnWrite"><strong>$brokenOnWrite</strong>
+                —
+                boolean<br/><span class="indent">Used by onBeforeWrite() to ensure child classes call parent::onBeforeWrite()</span></li>
+            <li id="components">
+              <strong>$components</strong>
+              <br/>
+              <span class="indent">Non-static relationship cache, indexed by component name.</span>
+            </li>
+            <li id="customisedObject"><strong>$customisedObject</strong>
+                —
+                <a href="#">ViewableData</a></li>
+            <li id="extension_instances"><strong>$extension_instances</strong>
+                —
+                array</li>
+            <li id="failover"><strong>$failover</strong>
+                —
+                <a href="#">ViewableData</a><br/><span class="indent">A failover object to attempt to get data from if it is not present on this object.</span></li>
+            <li id="model">
+              <strong>$model</strong>
+              <br/>
+              <span class="indent">The DataModel from this this object comes</span>
+            </li>
+            <li id="original"><strong>$original</strong>
+                —
+                array<br/><span class="indent">The database record (in the same format as $record), before any changes.</span></li>
+            <li id="record"><strong>$record</strong>
+                —
+                array<br/><span class="indent">Data stored in this objects database record. An array indexed by fieldname.</span></li>
+            <li id="sourceQueryParams"><strong>$sourceQueryParams</strong>
+                —
+                <a href="#">Array</a></li>
+            <li id="unsavedRelations">
+              <strong>$unsavedRelations</strong>
+              <br/>
+              <span class="indent">Non-static cache of has_many and many_many relations that can't be written until this object is saved.</span>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="allowed_actions">
+              <strong>$allowed_actions</strong>
+              <br/>
+              <span class="indent">Provides a list of allowed methods that can be called via RESTful api.</span>
+            </li>
+            <li id="cache_has_own_table">
+              <strong>$cache_has_own_table</strong>
+              <br/>
+              <span class="indent">Static caches used by relevant functions.</span>
+            </li>
+            <li id="cache_has_own_table_field">
+              <strong>$cache_has_own_table_field</strong>
+            </li>
+            <li id="class"><strong>$class</strong>
+                —
+                string</li>
+            <li id="destroyed"><strong>$destroyed</strong>
+                —
+                boolean<br/><span class="indent">True if this DataObject has been destroyed.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h3>Inherited from <a title="DataObject" href="../classes/DataObject.xhtml">DataObject</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="beforeUpdateCMSFields"><a title="DataObject" href="../classes/DataObject/beforeUpdateCMSFields.xhtml">beforeUpdateCMSFields()</a>
+                — Allows user code to hook into DataObject::getCMSFields prior to updateCMSFields being called on extensions</li>
+            <li id="duplicateManyManyRelations"><a title="DataObject" href="../classes/DataObject/duplicateManyManyRelations.xhtml">duplicateManyManyRelations()</a>
+                — Copies the many_many and belongs_many_many relations from one object to another instance of the name of object The destinationObject must be written to the database already and have an ID. Writing is performed automatically when adding the new relations.</li>
+            <li id="loadLazyFields"><a title="DataObject" href="../classes/DataObject/loadLazyFields.xhtml">loadLazyFields()</a>
+                — Loads all the stub fields that an initial lazy load didn't load fully.</li>
+            <li id="onAfterDelete">
+              <a title="DataObject" href="../classes/DataObject/onAfterDelete.xhtml">onAfterDelete()</a>
+            </li>
+            <li id="onAfterWrite"><a title="DataObject" href="../classes/DataObject/onAfterWrite.xhtml">onAfterWrite()</a>
+                — Event handler called after writing to the database.</li>
+            <li id="onBeforeDelete"><a title="DataObject" href="../classes/DataObject/onBeforeDelete.xhtml">onBeforeDelete()</a>
+                — Event handler called before deleting from the database.</li>
+            <li id="onBeforeWrite"><a title="DataObject" href="../classes/DataObject/onBeforeWrite.xhtml">onBeforeWrite()</a>
+                — Event handler called before writing to the database.</li>
+            <li id="validate"><a title="DataObject" href="../classes/DataObject/validate.xhtml">validate()</a>
+                — Validate the current object.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="Aggregate">
+              <a title="DataObject" href="../classes/DataObject/Aggregate.xhtml">Aggregate()</a>
+            </li>
+            <li id="RelationshipAggregate">
+              <a title="DataObject" href="../classes/DataObject/RelationshipAggregate.xhtml">RelationshipAggregate()</a>
+            </li>
+            <li id="baseTable"><a title="DataObject" href="../classes/DataObject/baseTable.xhtml">baseTable()</a>
+                — Get the name of the base table for this object</li>
+            <li id="belongs_to"><a title="DataObject" href="../classes/DataObject/belongs_to.xhtml">belongs_to()</a>
+                — Returns the class of a remote belongs_to relationship. If no component is specified a map of all components and their class name will be returned.</li>
+            <li id="can"><a title="DataObject" href="../classes/DataObject/can.xhtml">can()</a>
+                — Returns true if the member is allowed to do the given action.</li>
+            <li id="canCreate">
+              <a title="DataObject" href="../classes/DataObject/canCreate.xhtml">canCreate()</a>
+            </li>
+            <li id="canDelete">
+              <a title="DataObject" href="../classes/DataObject/canDelete.xhtml">canDelete()</a>
+            </li>
+            <li id="canEdit">
+              <a title="DataObject" href="../classes/DataObject/canEdit.xhtml">canEdit()</a>
+            </li>
+            <li id="canView">
+              <a title="DataObject" href="../classes/DataObject/canView.xhtml">canView()</a>
+            </li>
+            <li id="castedUpdate"><a title="DataObject" href="../classes/DataObject/castedUpdate.xhtml">castedUpdate()</a>
+                — Pass changes as a map, and try to get automatic casting for these fields.</li>
+            <li id="clear_classname_spec_cache"><a title="DataObject" href="../classes/DataObject/clear_classname_spec_cache.xhtml">clear_classname_spec_cache()</a>
+                — Clear all cached classname specs. It's necessary to clear all cached subclassed names for any classes if a new class manifest is generated.</li>
+            <li id="composite_fields"><a title="DataObject" href="../classes/DataObject/composite_fields.xhtml">composite_fields()</a>
+                — Returns a list of all the composite if the given db field on the class is a composite field.</li>
+            <li id="custom_database_fields"><a title="DataObject" href="../classes/DataObject/custom_database_fields.xhtml">custom_database_fields()</a>
+                — Get all database columns explicitly defined on a class in {@link DataObject::$db} and {@link DataObject::$has_one}. Resolves instances of {@link CompositeDBField} into the actual database fields, rather than the name of the field which might not equate a database column.</li>
+            <li id="data"><a title="DataObject" href="../classes/DataObject/data.xhtml">data()</a>
+                — Returns the associated database record - in this case, the object itself.</li>
+            <li id="databaseIndexes"><a title="DataObject" href="../classes/DataObject/databaseIndexes.xhtml">databaseIndexes()</a>
+                — Return the database indexes on this table.</li>
+            <li id="database_extensions"><a title="DataObject" href="../classes/DataObject/database_extensions.xhtml">database_extensions()</a>
+                — This returns an array (if it exists) describing the database extensions that are required, or false if none</li>
+            <li id="database_fields"><a title="DataObject" href="../classes/DataObject/database_fields.xhtml">database_fields()</a>
+                — Return the complete map of fields on this object, including "Created", "LastEdited" and "ClassName".</li>
+            <li id="db"><a title="DataObject" href="../classes/DataObject/db.xhtml">db()</a>
+                — Return all of the database fields defined in self::$db and all the parent classes.</li>
+            <li id="dbObject"><a title="DataObject" href="../classes/DataObject/dbObject.xhtml">dbObject()</a>
+                — Return the DBField object that represents the given field.</li>
+            <li id="debug"><a title="DataObject" href="../classes/DataObject/debug.xhtml">debug()</a>
+                — Debugging used by Debug::show()</li>
+            <li id="defaultSearchFilters"><a title="DataObject" href="../classes/DataObject/defaultSearchFilters.xhtml">defaultSearchFilters()</a>
+                — Defines a default list of filters for the search context.</li>
+            <li id="defineMethods"><a title="DataObject" href="../classes/DataObject/defineMethods.xhtml">defineMethods()</a>
+                — Adds methods from the extensions.</li>
+            <li id="delete"><a title="DataObject" href="../classes/DataObject/delete.xhtml">delete()</a>
+                — Delete this data object.</li>
+            <li id="delete_by_id"><a title="DataObject" href="../classes/DataObject/delete_by_id.xhtml">delete_by_id()</a>
+                — Delete the record with the given ID.</li>
+            <li id="destroy"><a title="DataObject" href="../classes/DataObject/destroy.xhtml">destroy()</a>
+                — Destroy all of this objects dependant objects and local caches.</li>
+            <li id="disable_subclass_access"><a title="DataObject" href="../classes/DataObject/disable_subclass_access.xhtml">disable_subclass_access()</a>
+                — Temporarily disable subclass access in data object qeur</li>
+            <li id="duplicate"><a title="DataObject" href="../classes/DataObject/duplicate.xhtml">duplicate()</a>
+                — Create a duplicate of this node.</li>
+            <li id="enable_subclass_access">
+              <a title="DataObject" href="../classes/DataObject/enable_subclass_access.xhtml">enable_subclass_access()</a>
+            </li>
+            <li id="exists"><a title="DataObject" href="../classes/DataObject/exists.xhtml">exists()</a>
+                — Returns true if this object "exists", i.e., has a sensible value.</li>
+            <li id="extendedCan"><a title="DataObject" href="../classes/DataObject/extendedCan.xhtml">extendedCan()</a>
+                — Process tri-state responses from permission-alterting extensions.  The extensions are expected to return one of three values:</li>
+            <li id="fieldLabel"><a title="DataObject" href="../classes/DataObject/fieldLabel.xhtml">fieldLabel()</a>
+                — Get a human-readable label for a single field, see {@link fieldLabels()} for more details.</li>
+            <li id="fieldLabels"><a title="DataObject" href="../classes/DataObject/fieldLabels.xhtml">fieldLabels()</a>
+                — Get any user defined searchable fields labels that exist. Allows overriding of default field names in the form interface actually presented to the user.</li>
+            <li id="flushCache"><a title="DataObject" href="../classes/DataObject/flushCache.xhtml">flushCache()</a>
+                — Flush the cached results for all relations (has_one, has_many, many_many) Also clears any cached aggregate data.</li>
+            <li id="flush_and_destroy_cache"><a title="DataObject" href="../classes/DataObject/flush_and_destroy_cache.xhtml">flush_and_destroy_cache()</a>
+                — Flush the get_one global cache and destroy associated objects.</li>
+            <li id="forceChange"><a title="DataObject" href="../classes/DataObject/forceChange.xhtml">forceChange()</a>
+                — Forces the record to think that all its data has changed.</li>
+            <li id="get"><a title="DataObject" href="../classes/DataObject/get.xhtml">get()</a>
+                — Return all objects matching the filter sub-classes are automatically selected and included</li>
+            <li id="getCMSActions"><a title="DataObject" href="../classes/DataObject/getCMSActions.xhtml">getCMSActions()</a>
+                — need to be overload by solid dataobject, so that the customised actions of that dataobject, including that dataobject's extensions customised actions could be added to the EditForm.</li>
+            <li id="getCMSFields"><a title="DataObject" href="../classes/DataObject/getCMSFields.xhtml">getCMSFields()</a>
+                — Centerpiece of every data administration interface in Silverstripe, which returns a {@link FieldList} suitable for a {@link Form} object.</li>
+            <li id="getChangedFields"><a title="DataObject" href="../classes/DataObject/getChangedFields.xhtml">getChangedFields()</a>
+                — Return the fields that have changed.</li>
+            <li id="getClassAncestry"><a title="DataObject" href="../classes/DataObject/getClassAncestry.xhtml">getClassAncestry()</a>
+                — Get the class ancestry, including the current class name.</li>
+            <li id="getClassName">
+              <a title="DataObject" href="../classes/DataObject/getClassName.xhtml">getClassName()</a>
+            </li>
+            <li id="getComponent"><a title="DataObject" href="../classes/DataObject/getComponent.xhtml">getComponent()</a>
+                — Return a component object from a one to one relationship, as a DataObject.</li>
+            <li id="getComponents"><a title="DataObject" href="../classes/DataObject/getComponents.xhtml">getComponents()</a>
+                — Returns a one-to-many relation as a HasManyList</li>
+            <li id="getComponentsQuery">
+              <a title="DataObject" href="../classes/DataObject/getComponentsQuery.xhtml">getComponentsQuery()</a>
+            </li>
+            <li id="getDefaultSearchContext"><a title="DataObject" href="../classes/DataObject/getDefaultSearchContext.xhtml">getDefaultSearchContext()</a>
+                — Generates a SearchContext to be used for building and processing a generic search form for properties on this object.</li>
+            <li id="getField"><a title="DataObject" href="../classes/DataObject/getField.xhtml">getField()</a>
+                — Gets the value of a field.</li>
+            <li id="getFrontEndFields"><a title="DataObject" href="../classes/DataObject/getFrontEndFields.xhtml">getFrontEndFields()</a>
+                — Used for simple frontend forms without relation editing or {@link TabSet} behaviour. Uses {@link scaffoldFormFields()} by default. To customize, either overload this method in your subclass, or extend it by {@link DataExtension-&gt;updateFrontEndFields()}.</li>
+            <li id="getManyManyComponents"><a title="DataObject" href="../classes/DataObject/getManyManyComponents.xhtml">getManyManyComponents()</a>
+                — Returns a many-to-many component, as a ManyManyList.</li>
+            <li id="getObsoleteClassName">
+              <a title="DataObject" href="../classes/DataObject/getObsoleteClassName.xhtml">getObsoleteClassName()</a>
+            </li>
+            <li id="getQueriedDatabaseFields"><a title="DataObject" href="../classes/DataObject/getQueriedDatabaseFields.xhtml">getQueriedDatabaseFields()</a>
+                — Return all currently fetched database fields.</li>
+            <li id="getRelationClass"><a title="DataObject" href="../classes/DataObject/getRelationClass.xhtml">getRelationClass()</a>
+                — Find the foreign class of a relation on this DataObject, regardless of the relation type.</li>
+            <li id="getRemoteJoinField"><a title="DataObject" href="../classes/DataObject/getRemoteJoinField.xhtml">getRemoteJoinField()</a>
+                — Tries to find the database key on another object that is used to store a relationship to this class. If no join field can be found it defaults to 'ParentID'.</li>
+            <li id="getReverseAssociation"><a title="DataObject" href="../classes/DataObject/getReverseAssociation.xhtml">getReverseAssociation()</a>
+                — Temporary hack to return an association name, based on class, to get around the mangle of having to deal with reverse lookup of relationships to determine autogenerated foreign keys.</li>
+            <li id="getSourceQueryParam">
+              <a title="DataObject" href="../classes/DataObject/getSourceQueryParam.xhtml">getSourceQueryParam()</a>
+            </li>
+            <li id="getSourceQueryParams">
+              <a title="DataObject" href="../classes/DataObject/getSourceQueryParams.xhtml">getSourceQueryParams()</a>
+            </li>
+            <li id="getTitle"><a title="DataObject" href="../classes/DataObject/getTitle.xhtml">getTitle()</a>
+                — Standard implementation of a title/label for a specific record. Tries to find properties 'Title' or 'Name', and falls back to the 'ID'. Useful to provide user-friendly identification of a record, e.g. in errormessages or UI-selections.</li>
+            <li id="get_by_id"><a title="DataObject" href="../classes/DataObject/get_by_id.xhtml">get_by_id()</a>
+                — Return the given element, searching by ID</li>
+            <li id="get_one"><a title="DataObject" href="../classes/DataObject/get_one.xhtml">get_one()</a>
+                — Return the first item matching the given query.</li>
+            <li id="get_validation_enabled"><a title="DataObject" href="../classes/DataObject/get_validation_enabled.xhtml">get_validation_enabled()</a>
+                — Returns when validation on DataObjects is enabled.</li>
+            <li id="hasDatabaseField"><a title="DataObject" href="../classes/DataObject/hasDatabaseField.xhtml">hasDatabaseField()</a>
+                — Returns true if the given field exists as a database column</li>
+            <li id="hasField"><a title="DataObject" href="../classes/DataObject/hasField.xhtml">hasField()</a>
+                — Returns true if the given field exists in a database column on any of the objects tables and optionally look up a dynamic getter with get&lt;fieldName&gt;().</li>
+            <li id="hasOwnTableDatabaseField"><a title="DataObject" href="../classes/DataObject/hasOwnTableDatabaseField.xhtml">hasOwnTableDatabaseField()</a>
+                — Returns the field type of the given field, if it belongs to this class, and not a parent.</li>
+            <li id="hasValue"><a title="DataObject" href="../classes/DataObject/hasValue.xhtml">hasValue()</a>
+                — Returns true if the given method/parameter has a value (Uses the DBField::hasValue if the parameter is a database field)</li>
+            <li id="has_many"><a title="DataObject" href="../classes/DataObject/has_many.xhtml">has_many()</a>
+                — Gets the class of a one-to-many relationship. If no $component is specified then an array of all the one-to-many relationships and their classes will be returned.</li>
+            <li id="has_one"><a title="DataObject" href="../classes/DataObject/has_one.xhtml">has_one()</a>
+                — Return the class of a one-to-one component.  If $component is null, return all of the one-to-one components and their classes.</li>
+            <li id="has_own_table"><a title="DataObject" href="../classes/DataObject/has_own_table.xhtml">has_own_table()</a>
+                — Returns true if given class has its own table. Uses the rules for whether the table should exist rather than actually looking in the database.</li>
+            <li id="i18n_plural_name"><a title="DataObject" href="../classes/DataObject/i18n_plural_name.xhtml">i18n_plural_name()</a>
+                — Get the translated user friendly plural name of this DataObject Same as plural_name but runs it through the translation function Translation string is in the form:      $this-&gt;class.PLURALNAME Example:      Page.PLURALNAME</li>
+            <li id="i18n_singular_name"><a title="DataObject" href="../classes/DataObject/i18n_singular_name.xhtml">i18n_singular_name()</a>
+                — Get the translated user friendly singular name of this DataObject same as singular_name() but runs it through the translating function</li>
+            <li id="inheritedDatabaseFields"><a title="DataObject" href="../classes/DataObject/inheritedDatabaseFields.xhtml">inheritedDatabaseFields()</a>
+                — Returns fields bu traversing the class heirachy in a bottom-up direction.</li>
+            <li id="isChanged"><a title="DataObject" href="../classes/DataObject/isChanged.xhtml">isChanged()</a>
+                — Uses {@link getChangedFields()} to determine if fields have been changed since loading them from the database.</li>
+            <li id="isEmpty"><a title="DataObject" href="../classes/DataObject/isEmpty.xhtml">isEmpty()</a>
+                — Returns TRUE if all values (other than "ID") are considered empty (by weak boolean comparison).</li>
+            <li id="isInDB">
+              <a title="DataObject" href="../classes/DataObject/isInDB.xhtml">isInDB()</a>
+            </li>
+            <li id="is_composite_field"><a title="DataObject" href="../classes/DataObject/is_composite_field.xhtml">is_composite_field()</a>
+                — Returns the field class if the given db field on the class is a composite field.</li>
+            <li id="many_many"><a title="DataObject" href="../classes/DataObject/many_many.xhtml">many_many()</a>
+                — Return information about a many-to-many component.</li>
+            <li id="many_many_extraFields"><a title="DataObject" href="../classes/DataObject/many_many_extraFields.xhtml">many_many_extraFields()</a>
+                — Return the many-to-many extra fields specification.</li>
+            <li id="merge"><a title="DataObject" href="../classes/DataObject/merge.xhtml">merge()</a>
+                — Merges data and relations from another object of same class, without conflict resolution. Allows to specify which dataset takes priority in case its not empty.</li>
+            <li id="newClassInstance"><a title="DataObject" href="../classes/DataObject/newClassInstance.xhtml">newClassInstance()</a>
+                — Create a new instance of a different class from this object's record.</li>
+            <li id="plural_name"><a title="DataObject" href="../classes/DataObject/plural_name.xhtml">plural_name()</a>
+                — Get the user friendly plural name of this DataObject If the name is not defined (by renaming $plural_name in the subclass), this returns a pluralised version of the class name.</li>
+            <li id="populateDefaults"><a title="DataObject" href="../classes/DataObject/populateDefaults.xhtml">populateDefaults()</a>
+                — Load the default values in from the self::$defaults array.</li>
+            <li id="provideI18nEntities"><a title="DataObject" href="../classes/DataObject/provideI18nEntities.xhtml">provideI18nEntities()</a>
+                — Collect all static properties on the object which contain natural language, and need to be translated.</li>
+            <li id="relField"><a title="DataObject" href="../classes/DataObject/relField.xhtml">relField()</a>
+                — Traverses to a field referenced by relationships between data objects, returning the value The path to the related field is specified with dot separated syntax (eg: Parent.Child.Child.FieldName)</li>
+            <li id="relObject"><a title="DataObject" href="../classes/DataObject/relObject.xhtml">relObject()</a>
+                — Traverses to a DBField referenced by relationships between data objects.</li>
+            <li id="requireDefaultRecords"><a title="DataObject" href="../classes/DataObject/requireDefaultRecords.xhtml">requireDefaultRecords()</a>
+                — Add default records to database. This function is called whenever the database is built, after the database tables have all been created. Overload this to add default records when the database is built, but make sure you call parent::requireDefaultRecords().</li>
+            <li id="requireTable"><a title="DataObject" href="../classes/DataObject/requireTable.xhtml">requireTable()</a>
+                — Check the database schema and update it as necessary.</li>
+            <li id="reset"><a title="DataObject" href="../classes/DataObject/reset.xhtml">reset()</a>
+                — Reset all global caches associated with DataObject.</li>
+            <li id="scaffoldFormFields"><a title="DataObject" href="../classes/DataObject/scaffoldFormFields.xhtml">scaffoldFormFields()</a>
+                — Scaffold a simple edit form for all properties on this dataobject, based on default {@link FormField} mapping in {@link DBField::scaffoldFormField()}.</li>
+            <li id="scaffoldSearchFields"><a title="DataObject" href="../classes/DataObject/scaffoldSearchFields.xhtml">scaffoldSearchFields()</a>
+                — Determine which properties on the DataObject are searchable, and map them to their default {@link FormField} representations. Used for scaffolding a searchform for {@link ModelAdmin}.</li>
+            <li id="searchableFields"><a title="DataObject" href="../classes/DataObject/searchableFields.xhtml">searchableFields()</a>
+                — Get the default searchable fields for this object, as defined in the $searchable_fields list. If searchable fields are not defined on the data object, uses a default selection of summary fields.</li>
+            <li id="setCastedField"><a title="DataObject" href="../classes/DataObject/setCastedField.xhtml">setCastedField()</a>
+                — Set the value of the field, using a casting object.</li>
+            <li id="setClassName"><a title="DataObject" href="../classes/DataObject/setClassName.xhtml">setClassName()</a>
+                — Set the ClassName attribute. {@link $class} is also updated.</li>
+            <li id="setDataModel"><a title="DataObject" href="../classes/DataObject/setDataModel.xhtml">setDataModel()</a>
+                — Set the DataModel</li>
+            <li id="setField"><a title="DataObject" href="../classes/DataObject/setField.xhtml">setField()</a>
+                — Set the value of the field Called by {@link __set()} and any setFieldName() methods you might create.</li>
+            <li id="setSourceQueryParam">
+              <a title="DataObject" href="../classes/DataObject/setSourceQueryParam.xhtml">setSourceQueryParam()</a>
+            </li>
+            <li id="setSourceQueryParams">
+              <a title="DataObject" href="../classes/DataObject/setSourceQueryParams.xhtml">setSourceQueryParams()</a>
+            </li>
+            <li id="set_validation_enabled"><a title="DataObject" href="../classes/DataObject/set_validation_enabled.xhtml">set_validation_enabled()</a>
+                — Set whether DataObjects should be validated before they are written.</li>
+            <li id="singular_name"><a title="DataObject" href="../classes/DataObject/singular_name.xhtml">singular_name()</a>
+                — Get the user friendly singular name of this DataObject.</li>
+            <li id="summaryFields"><a title="DataObject" href="../classes/DataObject/summaryFields.xhtml">summaryFields()</a>
+                — Get the default summary fields for this object.</li>
+            <li id="toMap"><a title="DataObject" href="../classes/DataObject/toMap.xhtml">toMap()</a>
+                — Convert this object to a map.</li>
+            <li id="update"><a title="DataObject" href="../classes/DataObject/update.xhtml">update()</a>
+                — Update a number of fields on this object, given a map of the desired changes.</li>
+            <li id="write"><a title="DataObject" href="../classes/DataObject/write.xhtml">write()</a>
+                — Writes all changes to this object to the database.</li>
+            <li id="writeComponents"><a title="DataObject" href="../classes/DataObject/writeComponents.xhtml">writeComponents()</a>
+                — Write the cached components to the database. Cached components could refer to two different instances of the same record.</li>
+          </ul>
+          <h3>Inherited from <a title="ViewableData" href="../classes/ViewableData.xhtml">ViewableData</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="ATT_val"><a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val()</a>
+                — Return the value of a field escaped suitable to be inserted into an XML node attribute.</li>
+            <li id="CSSClasses"><a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses()</a>
+                — Get part of the current classes ancestry to be used as a CSS class.</li>
+            <li id="Debug"><a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug()</a>
+                — Return debug information about this object that can be rendered into a template</li>
+            <li id="JS_val"><a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val()</a>
+                — Return the value of a field in a JavaScript-save format.</li>
+            <li id="Me"><a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me()</a>
+                — When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself.</li>
+            <li id="RAW_val"><a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val()</a>
+                — Return the value of the field without any escaping being applied.</li>
+            <li id="SQL_val"><a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val()</a>
+                — Return the value of a field in an SQL-safe format.</li>
+            <li id="ThemeDir"><a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir()</a>
+                — Return the directory if the current active theme (relative to the site root).</li>
+            <li id="XML_val"><a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val()</a>
+                — Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template.</li>
+            <li id="__get"><a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get()</a>
+                — Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object.</li>
+            <li id="__isset"><a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset()</a>
+                — Check if a field exists on this object or its failover.</li>
+            <li id="__set"><a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set()</a>
+                — Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method.</li>
+            <li id="buildCastingCache"><a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache()</a>
+                — Save the casting cache for this object (including data from any failovers) into a variable</li>
+            <li id="cachedCall"><a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall()</a>
+                — A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method.</li>
+            <li id="castingClass"><a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass()</a>
+                — Get the class name a field on this object will be casted to</li>
+            <li id="castingHelper"><a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper()</a>
+                — Return the "casting helper" (a piece of PHP code that when evaluated creates a casted value object) for a field on this object.</li>
+            <li id="castingHelperPair"><a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair()</a>
+                — Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).</li>
+            <li id="castingObjectCreator"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator()</a>
+                — Converts a field spec into an object creator. For example: "Int" becomes "new Int($fieldName);" and "Varchar(50)" becomes "new Varchar($fieldName, 50);".</li>
+            <li id="castingObjectCreatorPair"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair()</a>
+                — Convert a field schema (e.g. "Varchar(50)") into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor.</li>
+            <li id="customise"><a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise()</a>
+                — Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.</li>
+            <li id="defineMethods"><a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods()</a>
+                — Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}.</li>
+            <li id="escapeTypeForField"><a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField()</a>
+                — Return the string-format type for the given field.</li>
+            <li id="getField"><a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField()</a>
+                — Get the value of a field on this object. This should be overloaded in child classes.</li>
+            <li id="getIterator"><a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator()</a>
+                — Return a single-item iterator so you can iterate over the fields of a single record.</li>
+            <li id="getXMLValues"><a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues()</a>
+                — Get an array of XML-escaped values by field name</li>
+            <li id="hasField"><a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField()</a>
+                — Check if a field exists on this object. This should be overloaded in child classes.</li>
+            <li id="hasValue"><a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue()</a>
+                — Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag.</li>
+            <li id="obj"><a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj()</a>
+                — Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified.</li>
+            <li id="renderWith"><a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith()</a>
+                — Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance</li>
+            <li id="setCustomisedObj">
+              <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj()</a>
+            </li>
+            <li id="setField"><a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField()</a>
+                — Set a field on this object. This should be overloaded in child classes.</li>
+          </ul>
+          <h3>Inherited from <a title="Object" href="../classes/Object.xhtml">Object</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="addMethodsFrom"><a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom()</a>
+                — Add all the methods from an object property (which is an {@link Extension}) to this object.</li>
+            <li id="addWrapperMethod"><a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod()</a>
+                — Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)</li>
+            <li id="afterExtending"><a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending()</a>
+                — Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="beforeExtending"><a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending()</a>
+                — Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="createMethod"><a title="Object" href="../classes/Object/createMethod.xhtml">createMethod()</a>
+                — Add an extra method using raw PHP code passed as a string</li>
+            <li id="defineMethods"><a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods()</a>
+                — Adds any methods from {@link Extension} instances attached to this object.</li>
+            <li id="loadCache"><a title="Object" href="../classes/Object/loadCache.xhtml">loadCache()</a>
+                — Loads a cache from the filesystem if a valid on is present and within the specified lifetime</li>
+            <li id="sanitiseCachename"><a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename()</a>
+                — Strip a file name of special characters so it is suitable for use as a cache file name</li>
+            <li id="saveCache"><a title="Object" href="../classes/Object/saveCache.xhtml">saveCache()</a>
+                — Save a piece of cached data to the file system</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__call"><a title="Object" href="../classes/Object/__call.xhtml">__call()</a>
+                — Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located</li>
+            <li id="__toString">
+              <a title="Object" href="../classes/Object/__toString.xhtml">__toString()</a>
+            </li>
+            <li id="addStaticVars"><a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars()</a>
+                — Merge in a set of additional static variables</li>
+            <li id="add_extension"><a title="Object" href="../classes/Object/add_extension.xhtml">add_extension()</a>
+                — Add an extension to a specific class.</li>
+            <li id="add_static_var"><a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var()</a>
+                — Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.</li>
+            <li id="allMethodNames"><a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames()</a>
+                — Return the names of all the methods available on this object</li>
+            <li id="cacheToFile"><a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile()</a>
+                — Cache the results of an instance method in this object to a file, or if it is already cache return the cached results</li>
+            <li id="clearCache"><a title="Object" href="../classes/Object/clearCache.xhtml">clearCache()</a>
+                — Clears the cache for the given cacheToFile call</li>
+            <li id="combined_static"><a title="Object" href="../classes/Object/combined_static.xhtml">combined_static()</a>
+                — Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable</li>
+            <li id="config"><a title="Object" href="../classes/Object/config.xhtml">config()</a>
+                — Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....).</li>
+            <li id="create"><a title="Object" href="../classes/Object/create.xhtml">create()</a>
+                — An implementation of the factory method, allows you to create an instance of a class</li>
+            <li id="create_from_string"><a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string()</a>
+                — Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().</li>
+            <li id="exists"><a title="Object" href="../classes/Object/exists.xhtml">exists()</a>
+                — Return true if this object "exists" i.e. has a sensible value</li>
+            <li id="extend"><a title="Object" href="../classes/Object/extend.xhtml">extend()</a>
+                — Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed</li>
+            <li id="getCustomClass"><a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass()</a>
+                — If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name</li>
+            <li id="getExtensionInstance"><a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance()</a>
+                — Get an extension instance attached to this object by name.</li>
+            <li id="getExtensionInstances"><a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances()</a>
+                — Get all extension instances for this specific object instance.</li>
+            <li id="get_extensions">
+              <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions()</a>
+            </li>
+            <li id="get_extra_config_sources">
+              <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources()</a>
+            </li>
+            <li id="get_static"><a title="Object" href="../classes/Object/get_static.xhtml">get_static()</a>
+                — Get a static variable, taking into account SS's inbuild static caches and pseudo-statics</li>
+            <li id="hasExtension"><a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension()</a>
+                — Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.</li>
+            <li id="hasMethod"><a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod()</a>
+                — Return TRUE if a method exists on this object</li>
+            <li id="has_extension"><a title="Object" href="../classes/Object/has_extension.xhtml">has_extension()</a>
+                — Return TRUE if a class has a specified extension.</li>
+            <li id="invokeWithExtensions"><a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions()</a>
+                — Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array</li>
+            <li id="is_a"><a title="Object" href="../classes/Object/is_a.xhtml">is_a()</a>
+                — Check if this class is an instance of a specific class, or has that class as one of its parents</li>
+            <li id="parentClass">
+              <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass()</a>
+            </li>
+            <li id="parse_class_spec"><a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec()</a>
+                — Parses a class-spec, such as "Versioned('Stage','Live')", as passed to create_from_string().</li>
+            <li id="remove_extension"><a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension()</a>
+                — Remove an extension from a class.</li>
+            <li id="set_stat">
+              <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat()</a>
+            </li>
+            <li id="set_static"><a title="Object" href="../classes/Object/set_static.xhtml">set_static()</a>
+                — Set a static variable</li>
+            <li id="stat">
+              <a title="Object" href="../classes/Object/stat.xhtml">stat()</a>
+            </li>
+            <li id="static_lookup"><a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup()</a>
+                — Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class.</li>
+            <li id="strong_create"><a title="Object" href="../classes/Object/strong_create.xhtml">strong_create()</a>
+                — Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}</li>
+            <li id="uninherited">
+              <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited()</a>
+            </li>
+            <li id="uninherited_static"><a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static()</a>
+                — Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class.</li>
+            <li id="useCustomClass"><a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass()</a>
+                — This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

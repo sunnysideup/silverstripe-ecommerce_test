@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SSViewer</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SSViewer</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/view/SSViewer.php.xhtml#line566">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SSViewer</h1>
+        <h4>Parses a template file with an *.ss file extension.</h4>
+        <p>In addition to a full template in the templates/ folder, a template in<br/>templates/Content or templates/Layout will be rendered into $Content and<br/>$Layout, respectively.<br/>A single template can be parsed by multiple nested instances<br/>through $Layout/$Content placeholders, as well as &lt;% include MyTemplateFile %&gt; template commands.<br/>&lt;b&gt;Themes&lt;/b&gt;<br/>See http://doc.silverstripe.org/themes and http://doc.silverstripe.org/themes:developing<br/>&lt;b&gt;Caching&lt;/b&gt;<br/>Compiled templates are cached via , usually on the filesystem.<br/>If you put ?flush=1 on your URL, it will force the template to be recompiled.<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SSViewer
+                implements
+                <a title="Flushable" href="../interfaces/Flushable.xhtml">Flushable</a>
+            {<br/><ul class="none"><li>// members</li><li>private boolean <a href="#members">$source_file_comments</a>;
+                    </li><li>private <a href="#members">$template_cache_flushed</a>;
+                    </li><li>private <a href="#members">$cacheblock_cache_flushed</a>;
+                    </li><li>private array <a href="#members">$chosenTemplates</a>;
+                    </li><li>protected boolean <a href="#members">$rewriteHashlinks</a>;
+                    </li><li>private string <a href="#members">$theme</a>;
+                    </li><li>private boolean <a href="#members">$theme_enabled</a>;
+                    </li><li>protected boolean <a href="#members">$includeRequirements</a>;
+                    </li><li>protected <span title="TemplateParser">TemplateParser</span> <a href="#members">$parser</a>;
+                    </li><li>private string <a href="#members">$global_key</a>;
+                    </li><li>private boolean <a href="#members">$rewrite_hash_links</a>;
+                    </li><li>protected array <a href="#members">$topLevel</a>;
+                    </li><li>protected <span title="Zend_Cache_Core">Zend_Cache_Core</span> <a href="#members">$partialCacheStore</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="SSViewer" href="../classes/SSViewer/set_source_file_comments.xhtml">set_source_file_comments</a>()
+                    </li><li>public static boolean <a title="SSViewer" href="../classes/SSViewer/get_source_file_comments.xhtml">get_source_file_comments</a>()
+                    </li><li>public static void <a title="SSViewer" href="../classes/SSViewer/flush.xhtml">flush</a>()
+                    </li><li>public static SSViewer <a title="SSViewer" href="../classes/SSViewer/fromString.xhtml">fromString</a>()
+                    </li><li>public static void <a title="SSViewer" href="../classes/SSViewer/set_theme.xhtml">set_theme</a>()
+                    </li><li>public static string <a title="SSViewer" href="../classes/SSViewer/current_theme.xhtml">current_theme</a>()
+                    </li><li>public static string <a title="SSViewer" href="../classes/SSViewer/get_theme_folder.xhtml">get_theme_folder</a>()
+                    </li><li>public static array <a title="SSViewer" href="../classes/SSViewer/get_themes.xhtml">get_themes</a>()
+                    </li><li>public static string <a title="SSViewer" href="../classes/SSViewer/current_custom_theme.xhtml">current_custom_theme</a>()
+                    </li><li>public static array <a title="SSViewer" href="../classes/SSViewer/get_templates_by_class.xhtml">get_templates_by_class</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/setParser.xhtml">setParser</a>()
+                    </li><li>public TemplateParser <a title="SSViewer" href="../classes/SSViewer/getParser.xhtml">getParser</a>()
+                    </li><li>public static boolean <a title="SSViewer" href="../classes/SSViewer/hasTemplate.xhtml">hasTemplate</a>()
+                    </li><li>public static void <a title="SSViewer" href="../classes/SSViewer/setOption.xhtml">setOption</a>()
+                    </li><li>public static mixed <a title="SSViewer" href="../classes/SSViewer/getOption.xhtml">getOption</a>()
+                    </li><li>public static void <a title="SSViewer" href="../classes/SSViewer/topLevel.xhtml">topLevel</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/dontRewriteHashlinks.xhtml">dontRewriteHashlinks</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/exists.xhtml">exists</a>()
+                    </li><li>public static string <a title="SSViewer" href="../classes/SSViewer/getTemplateFileByType.xhtml">getTemplateFileByType</a>()
+                    </li><li>public static void <a title="SSViewer" href="../classes/SSViewer/flush_template_cache.xhtml">flush_template_cache</a>()
+                    </li><li>public static void <a title="SSViewer" href="../classes/SSViewer/flush_cacheblock_cache.xhtml">flush_cacheblock_cache</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/setPartialCacheStore.xhtml">setPartialCacheStore</a>()
+                    </li><li>public Zend_Cache_Core <a title="SSViewer" href="../classes/SSViewer/getPartialCacheStore.xhtml">getPartialCacheStore</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/includeRequirements.xhtml">includeRequirements</a>()
+                    </li><li>protected string <a title="SSViewer" href="../classes/SSViewer/includeGeneratedTemplate.xhtml">includeGeneratedTemplate</a>()
+                    </li><li>public HTMLText <a title="SSViewer" href="../classes/SSViewer/process.xhtml">process</a>()
+                    </li><li>public static string <a title="SSViewer" href="../classes/SSViewer/execute_template.xhtml">execute_template</a>()
+                    </li><li>public static string <a title="SSViewer" href="../classes/SSViewer/execute_string.xhtml">execute_string</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/parseTemplateContent.xhtml">parseTemplateContent</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/templates.xhtml">templates</a>()
+                    </li><li>public void <a title="SSViewer" href="../classes/SSViewer/setTemplateFile.xhtml">setTemplateFile</a>()
+                    </li><li>public static void <a title="SSViewer" href="../classes/SSViewer/get_base_tag.xhtml">get_base_tag</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/SSViewer_FromString.xhtml">SSViewer_FromString</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/Flushable.xhtml">Flushable</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="cacheblock_cache_flushed">
+              <strong>$cacheblock_cache_flushed</strong>
+            </li>
+            <li id="chosenTemplates"><strong>$chosenTemplates</strong>
+                —
+                array</li>
+            <li id="global_key">
+              <strong>$global_key</strong>
+            </li>
+            <li id="rewrite_hash_links"><strong>$rewrite_hash_links</strong>
+                —
+                boolean</li>
+            <li id="source_file_comments"><strong>$source_file_comments</strong>
+                —
+                boolean</li>
+            <li id="template_cache_flushed">
+              <strong>$template_cache_flushed</strong>
+            </li>
+            <li id="theme"><strong>$theme</strong>
+                —
+                string</li>
+            <li id="theme_enabled"><strong>$theme_enabled</strong>
+                —
+                boolean</li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="includeRequirements"><strong>$includeRequirements</strong>
+                —
+                boolean</li>
+            <li id="parser"><strong>$parser</strong>
+                —
+                <a href="#">TemplateParser</a></li>
+            <li id="partialCacheStore"><strong>$partialCacheStore</strong>
+                —
+                <a href="#">Zend_Cache_Core</a></li>
+            <li id="rewriteHashlinks"><strong>$rewriteHashlinks</strong>
+                —
+                boolean</li>
+            <li id="topLevel">
+              <strong>$topLevel</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="includeGeneratedTemplate"><a title="SSViewer" href="../classes/SSViewer/includeGeneratedTemplate.xhtml">includeGeneratedTemplate()</a>
+                — An internal utility function to set up variables in preparation for including a compiled template, then do the include</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="SSViewer" href="../classes/SSViewer/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="current_custom_theme">
+              <a title="SSViewer" href="../classes/SSViewer/current_custom_theme.xhtml">current_custom_theme()</a>
+            </li>
+            <li id="current_theme">
+              <a title="SSViewer" href="../classes/SSViewer/current_theme.xhtml">current_theme()</a>
+            </li>
+            <li id="dontRewriteHashlinks"><a title="SSViewer" href="../classes/SSViewer/dontRewriteHashlinks.xhtml">dontRewriteHashlinks()</a>
+                — Call this to disable rewriting of &lt;a href="#xxx"&gt; links.  This is useful in Ajax applications.</li>
+            <li id="execute_string"><a title="SSViewer" href="../classes/SSViewer/execute_string.xhtml">execute_string()</a>
+                — Execute the evaluated string, passing it the given data.</li>
+            <li id="execute_template"><a title="SSViewer" href="../classes/SSViewer/execute_template.xhtml">execute_template()</a>
+                — Execute the given template, passing it the given data.</li>
+            <li id="exists">
+              <a title="SSViewer" href="../classes/SSViewer/exists.xhtml">exists()</a>
+            </li>
+            <li id="flush"><a title="SSViewer" href="../classes/SSViewer/flush.xhtml">flush()</a>
+                — Triggered early in the request when someone requests a flush.</li>
+            <li id="flush_cacheblock_cache"><a title="SSViewer" href="../classes/SSViewer/flush_cacheblock_cache.xhtml">flush_cacheblock_cache()</a>
+                — Clears all partial cache blocks.</li>
+            <li id="flush_template_cache"><a title="SSViewer" href="../classes/SSViewer/flush_template_cache.xhtml">flush_template_cache()</a>
+                — Clears all parsed template files in the cache folder.</li>
+            <li id="fromString"><a title="SSViewer" href="../classes/SSViewer/fromString.xhtml">fromString()</a>
+                — Create a template from a string instead of a .ss file</li>
+            <li id="getOption">
+              <a title="SSViewer" href="../classes/SSViewer/getOption.xhtml">getOption()</a>
+            </li>
+            <li id="getParser"><a title="SSViewer" href="../classes/SSViewer/getParser.xhtml">getParser()</a>
+                — Returns the parser that is set for template generation</li>
+            <li id="getPartialCacheStore"><a title="SSViewer" href="../classes/SSViewer/getPartialCacheStore.xhtml">getPartialCacheStore()</a>
+                — Get the cache object to use when storing / retrieving partial cache blocks.</li>
+            <li id="getTemplateFileByType">
+              <a title="SSViewer" href="../classes/SSViewer/getTemplateFileByType.xhtml">getTemplateFileByType()</a>
+            </li>
+            <li id="get_base_tag"><a title="SSViewer" href="../classes/SSViewer/get_base_tag.xhtml">get_base_tag()</a>
+                — Return an appropriate base tag for the given template.</li>
+            <li id="get_source_file_comments">
+              <a title="SSViewer" href="../classes/SSViewer/get_source_file_comments.xhtml">get_source_file_comments()</a>
+            </li>
+            <li id="get_templates_by_class"><a title="SSViewer" href="../classes/SSViewer/get_templates_by_class.xhtml">get_templates_by_class()</a>
+                — Traverses the given the given class context looking for templates with the relevant name.</li>
+            <li id="get_theme_folder"><a title="SSViewer" href="../classes/SSViewer/get_theme_folder.xhtml">get_theme_folder()</a>
+                — Returns the path to the theme folder</li>
+            <li id="get_themes"><a title="SSViewer" href="../classes/SSViewer/get_themes.xhtml">get_themes()</a>
+                — Returns an array of theme names present in a directory.</li>
+            <li id="hasTemplate"><a title="SSViewer" href="../classes/SSViewer/hasTemplate.xhtml">hasTemplate()</a>
+                — Returns true if at least one of the listed templates exists.</li>
+            <li id="includeRequirements"><a title="SSViewer" href="../classes/SSViewer/includeRequirements.xhtml">includeRequirements()</a>
+                — Flag whether to include the requirements in this response.</li>
+            <li id="parseTemplateContent">
+              <a title="SSViewer" href="../classes/SSViewer/parseTemplateContent.xhtml">parseTemplateContent()</a>
+            </li>
+            <li id="process"><a title="SSViewer" href="../classes/SSViewer/process.xhtml">process()</a>
+                — The process() method handles the "meat" of the template processing.</li>
+            <li id="setOption"><a title="SSViewer" href="../classes/SSViewer/setOption.xhtml">setOption()</a>
+                — Set a global rendering option.</li>
+            <li id="setParser"><a title="SSViewer" href="../classes/SSViewer/setParser.xhtml">setParser()</a>
+                — Set the template parser that will be used in template generation</li>
+            <li id="setPartialCacheStore"><a title="SSViewer" href="../classes/SSViewer/setPartialCacheStore.xhtml">setPartialCacheStore()</a>
+                — Set the cache object to use when storing / retrieving partial cache blocks.</li>
+            <li id="setTemplateFile">
+              <a title="SSViewer" href="../classes/SSViewer/setTemplateFile.xhtml">setTemplateFile()</a>
+            </li>
+            <li id="set_source_file_comments"><a title="SSViewer" href="../classes/SSViewer/set_source_file_comments.xhtml">set_source_file_comments()</a>
+                — Set whether HTML comments indicating the source .SS file used to render this page should be included in the output.  This is enabled by default</li>
+            <li id="set_theme">
+              <a title="SSViewer" href="../classes/SSViewer/set_theme.xhtml">set_theme()</a>
+            </li>
+            <li id="templates"><a title="SSViewer" href="../classes/SSViewer/templates.xhtml">templates()</a>
+                — Returns the filenames of the template that will be rendered.  It is a map that may contain 'Content' &amp; 'Layout', and will have to contain 'main'</li>
+            <li id="topLevel">
+              <a title="SSViewer" href="../classes/SSViewer/topLevel.xhtml">topLevel()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

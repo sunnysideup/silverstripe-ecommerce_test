@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Cache_Frontend_Output" namespace="" name="Zend_Cache_Frontend_Output" abstract="false" final="false" start="36" end="105">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Cache/Frontend" file="Output.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Cache/Frontend/Output.php" size="3459" time="2015-03-14T10:41:13+13:00" unixtime="1426282873" sha1="ad18b7c4ce2b99e9b93fd3e0c2d0cdb3c9fea750" relative="framework/thirdparty/Zend/Cache/Frontend/Output.php"/>
+  <docblock>
+    <description/>
+    <package value="Zend_Cache"/>
+    <subpackage value="Zend_Cache_Frontend"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <extends full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+  <member name="_idStack" type="array" visibility="private" line="39"/>
+  <constructor name="__construct" start="47" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor"/>
+      <param description="Associative array of options" type="array" variable="$options"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="options" byreference="false" type="array"/>
+  </constructor>
+  <method name="start" start="61" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start the cache"/>
+      <param description="Cache id" type="string" variable="$id"/>
+      <param description="If set to true, the cache validity won't be tested" type="boolean" variable="$doNotTestCacheValidity"/>
+      <param description="If set to true, datas are sent to the browser if the cache is hit (simpy returned else)" type="boolean" variable="$echoData"/>
+      <return description="True if the cache is hit (false else) with $echoData=true (default) ; string else (datas)" type="mixed"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="doNotTestCacheValidity" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="echoData" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="end" start="88" end="103" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stop the cache"/>
+      <param description="Tags array" type="array" variable="$tags"/>
+      <param description="If != false, set a specific lifetime for this cache record (null =&gt; infinite lifetime)" type="int" variable="$specificLifetime"/>
+      <param description="If not null, force written datas with this" type="string" variable="$forcedDatas"/>
+      <param description="If set to true, datas are sent to the browser" type="boolean" variable="$echoData"/>
+      <param description="integer between 0 (very low priority) and 10 (maximum priority) used by some particular backends" type="int" variable="$priority"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="tags" byreference="false" type="array"/>
+    <parameter name="specificLifetime" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="forcedDatas" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="echoData" byreference="false" type="{unknown}" default="true"/>
+    <parameter name="priority" byreference="false" type="integer" default="8"/>
+  </method>
+  <parent full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core">
+    <constant name="BACKEND_NOT_SUPPORTS_TAG" value="'tags are not supported by the current backend'">
+      <docblock>
+        <description compact="Messages"/>
+      </docblock>
+    </constant>
+    <constant name="BACKEND_NOT_IMPLEMENTS_EXTENDED_IF" value="'Current backend doesn\'t implement the Zend_Cache_Backend_ExtendedInterface, so this method is not available'"/>
+    <member name="_backend" type="{unknown}" default="null" visibility="protected" line="41">
+      <docblock>
+        <description compact="Backend Object"/>
+        <var description="$_backend" type="object">
+          <type full="Zend_Cache_Backend_Interface" namespace="" name="Zend_Cache_Backend_Interface"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="_options" type="array" visibility="protected" line="83">
+      <docblock>
+        <description compact="Available options">====&gt; (boolean) write_control :
+- Enable / disable write control (the cache is read just after writing to detect corrupt entries)
+- Enable write control will lightly slow the cache writing but not the cache reading
+Write control can detect some corrupt cache files but maybe it's not a perfect control
+
+====&gt; (boolean) caching :
+- Enable / disable caching
+(can be very useful for the debug of cached scripts)
+
+=====&gt; (string) cache_id_prefix :
+- prefix for cache ids (namespace)
+
+====&gt; (boolean) automatic_serialization :
+- Enable / disable automatic serialization
+- It can be used to save directly datas which aren't strings (but it's slower)
+
+====&gt; (int) automatic_cleaning_factor :
+- Disable / Tune the automatic cleaning process
+- The automatic cleaning process destroy too old (for the given life time)
+  cache files when a new cache file is written :
+    0               =&gt; no automatic cache cleaning
+    1               =&gt; systematic cache cleaning
+    x (integer) &gt; 1 =&gt; automatic cleaning randomly 1 times on x cache write
+
+====&gt; (int) lifetime :
+- Cache lifetime (in seconds)
+- If null, the cache is valid forever.
+
+====&gt; (boolean) logging :
+- If set to true, logging is activated (but the system is slower)
+
+====&gt; (boolean) ignore_user_abort
+- If set to true, the core will set the ignore_user_abort PHP flag inside the
+  save() method to avoid cache corruptions in some cases (default false)</description>
+        <var description="$_options available options" type="array"/>
+      </docblock>
+    </member>
+    <member name="_directivesList" type="array" visibility="protected" line="100">
+      <docblock>
+        <description compact="Array of options which have to be transfered to backend"/>
+        <var description="$_directivesList" type="array"/>
+      </docblock>
+    </member>
+    <member name="_specificOptions" type="array" visibility="protected" line="107">
+      <docblock>
+        <description compact="Not used for the core, just a sort a hint to get a common setOption() method (for the core and for frontends)"/>
+        <var description="$_specificOptions" type="array"/>
+      </docblock>
+    </member>
+    <member name="_extendedBackend" type="{unknown}" default="false" visibility="protected" line="121">
+      <docblock>
+        <description compact="True if the backend implements Zend_Cache_Backend_ExtendedInterface"/>
+        <var description="$_extendedBackend" type="boolean"/>
+      </docblock>
+    </member>
+    <member name="_backendCapabilities" type="array" visibility="protected" line="128">
+      <docblock>
+        <description compact="Array of capabilities of the backend (only if it implements Zend_Cache_Backend_ExtendedInterface)"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="137" end="150" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Constructor"/>
+        <param description="Associative array of options or Zend_Config instance" type="object" variable="$options">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="options" byreference="false" type="array"/>
+    </constructor>
+    <method name="setConfig" start="158" end="165" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set options using an instance of type Zend_Config"/>
+        <param type="object" variable="$config">
+          <type full="Zend_Config" namespace="" name="Zend_Config"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+        </return>
+      </docblock>
+      <parameter name="config" byreference="false" type="object">
+        <type full="\\Zend_Config" namespace="\" name="Zend_Config"/>
+      </parameter>
+    </method>
+    <method name="setBackend" start="174" end="189" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the backend"/>
+        <param type="object" variable="$backendObject">
+          <type full="Zend_Cache_Backend" namespace="" name="Zend_Cache_Backend"/>
+        </param>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="backendObject" byreference="false" type="object">
+        <type full="\\Zend_Cache_Backend" namespace="\" name="Zend_Cache_Backend"/>
+      </parameter>
+      <inline>
+        <comment value="some options (listed in $_directivesList) have to be given" line="177"/>
+        <comment value="to the backend too (even if they are not &quot;backend specific&quot;)" line="178"/>
+      </inline>
+    </method>
+    <method name="getBackend" start="196" end="199" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the backend"/>
+        <return description="backend object" type="object">
+          <type full="Zend_Cache_Backend" namespace="" name="Zend_Cache_Backend"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="setOption" start="211" end="227" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Public frontend to set an option">There is an additional validation (relatively to the protected _setOption method)</description>
+        <param description="Name of the option" type="string" variable="$name"/>
+        <param description="Value of the option" type="mixed" variable="$value"/>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="This is a Core option" line="218"/>
+        <comment value="This a specic option of this frontend" line="223"/>
+      </inline>
+    </method>
+    <method name="getOption" start="236" end="250" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Public frontend to get an option value"/>
+        <param description="Name of the option" type="string" variable="$name"/>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return description="option value" type="mixed"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="This is a Core option" line="241"/>
+        <comment value="This a specic option of this frontend" line="245"/>
+      </inline>
+    </method>
+    <method name="setLifetime" start="279" end="285" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Force a new lifetime">The new value is set for the core/frontend but for the backend too (directive)</description>
+        <param description="New lifetime (in seconds)" type="int" variable="$newLifetime"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="newLifetime" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="load" start="295" end="315" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Test if a cache is available for the given id and (if yes) return it (false else)"/>
+        <param description="Cache id" type="string" variable="$id"/>
+        <param description="If set to true, the cache validity won't be tested" type="boolean" variable="$doNotTestCacheValidity"/>
+        <param description="Do not serialize (even if automatic_serialization is true) =&gt; for internal use" type="boolean" variable="$doNotUnserialize"/>
+        <return description="Cached datas" type="object">
+          <type full="mixed|false" namespace="" name="mixed|false"/>
+        </return>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+      <parameter name="doNotTestCacheValidity" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="doNotUnserialize" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="cache id may need prefix" line="300"/>
+        <comment value="no cache available" line="307"/>
+        <comment value="we need to unserialize before sending the result" line="311"/>
+      </inline>
+    </method>
+    <method name="test" start="323" end="334" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Test if a cache is available for the given id"/>
+        <param description="Cache id" type="string" variable="$id"/>
+        <return description="Last modified time of cache entry if it is available, false otherwise" type="object">
+          <type full="int|false" namespace="" name="int|false"/>
+        </return>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="cache id may need prefix" line="328"/>
+      </inline>
+    </method>
+    <method name="save" start="347" end="412" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Save some data in a cache"/>
+        <param description="Data to put in cache (can be another type than string if automatic_serialization is on)" type="mixed" variable="$data"/>
+        <param description="Cache id (if not set, the last cache id will be used)" type="string" variable="$id"/>
+        <param description="Cache tags" type="array" variable="$tags"/>
+        <param description="If != false, set a specific lifetime for this cache record (null =&gt; infinite lifetime)" type="int" variable="$specificLifetime"/>
+        <param description="integer between 0 (very low priority) and 10 (maximum priority) used by some particular backends" type="int" variable="$priority"/>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return description="True if no problem" type="boolean"/>
+      </docblock>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+      <parameter name="id" byreference="false" type="{unknown}" default="null"/>
+      <parameter name="tags" byreference="false" type="array"/>
+      <parameter name="specificLifetime" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="priority" byreference="false" type="integer" default="8"/>
+      <inline>
+        <comment value="we need to serialize datas before storing them" line="360"/>
+        <comment value="automatic cleaning" line="368"/>
+        <comment value="new way                 || deprecated way" line="372"/>
+        <comment value="maybe the cache is corrupted, so we remove it !" line="396"/>
+      </inline>
+    </method>
+    <method name="remove" start="420" end="430" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Remove a cache"/>
+        <param description="Cache id to remove" type="string" variable="$id"/>
+        <return description="True if ok" type="boolean"/>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="cache id may need prefix" line="425"/>
+      </inline>
+    </method>
+    <method name="clean" start="450" end="465" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Clean cache entries">Available modes are :
+'all' (default)  =&gt; remove all cache entries ($tags is not used)
+'old'            =&gt; remove too old cache entries ($tags is not used)
+'matchingTag'    =&gt; remove cache entries matching all given tags
+                    ($tags can be an array of strings or a single string)
+'notMatchingTag' =&gt; remove cache entries not matching one of the given tags
+                    ($tags can be an array of strings or a single string)
+'matchingAnyTag' =&gt; remove cache entries matching any given tags
+                    ($tags can be an array of strings or a single string)</description>
+        <param type="string" variable="$mode"/>
+        <param type="object" variable="$tags">
+          <type full="array|string" namespace="" name="array|string"/>
+        </param>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return description="True if ok" type="boolean"/>
+      </docblock>
+      <parameter name="mode" byreference="false" type="string" default="'all'"/>
+      <parameter name="tags" byreference="false" type="array"/>
+    </method>
+    <method name="getIdsMatchingTags" start="475" end="498" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return an array of stored cache ids which match given tags">In case of multiple tags, a logical AND is made between tags</description>
+        <param description="array of tags" type="array" variable="$tags"/>
+        <return description="array of matching cache ids (string)" type="array"/>
+      </docblock>
+      <parameter name="tags" byreference="false" type="array"/>
+      <inline>
+        <comment value="we need to remove cache_id_prefix from ids (see #ZF-6178, #ZF-7600)" line="486"/>
+      </inline>
+    </method>
+    <method name="getIdsNotMatchingTags" start="508" end="531" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return an array of stored cache ids which don't match given tags">In case of multiple tags, a logical OR is made between tags</description>
+        <param description="array of tags" type="array" variable="$tags"/>
+        <return description="array of not matching cache ids (string)" type="array"/>
+      </docblock>
+      <parameter name="tags" byreference="false" type="array"/>
+      <inline>
+        <comment value="we need to remove cache_id_prefix from ids (see #ZF-6178, #ZF-7600)" line="519"/>
+      </inline>
+    </method>
+    <method name="getIdsMatchingAnyTags" start="541" end="564" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return an array of stored cache ids which match any given tags">In case of multiple tags, a logical OR is made between tags</description>
+        <param description="array of tags" type="array" variable="$tags"/>
+        <return description="array of matching any cache ids (string)" type="array"/>
+      </docblock>
+      <parameter name="tags" byreference="false" type="array"/>
+      <inline>
+        <comment value="we need to remove cache_id_prefix from ids (see #ZF-6178, #ZF-7600)" line="552"/>
+      </inline>
+    </method>
+    <method name="getIds" start="571" end="591" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return an array of stored cache ids"/>
+        <return description="array of stored cache ids (string)" type="array"/>
+      </docblock>
+      <inline>
+        <comment value="we need to remove cache_id_prefix from ids (see #ZF-6178, #ZF-7600)" line="579"/>
+      </inline>
+    </method>
+    <method name="getTags" start="598" end="607" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return an array of stored tags"/>
+        <return description="array of stored tags (string)" type="array"/>
+      </docblock>
+    </method>
+    <method name="getFillingPercentage" start="614" end="620" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return the filling percentage of the backend storage"/>
+        <return description="integer between 0 and 100" type="int"/>
+      </docblock>
+    </method>
+    <method name="getMetadatas" start="633" end="640" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return an array of metadatas for the given cache id">The array will include these keys :
+- expire : the expire timestamp
+- tags : a string array of tags
+- mtime : timestamp of last modification time</description>
+        <param description="cache id" type="string" variable="$id"/>
+        <return description="array of metadatas (false if the cache id is not found)" type="array"/>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="cache id may need prefix" line="638"/>
+      </inline>
+    </method>
+    <method name="touch" start="649" end="658" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Give (if possible) an extra lifetime to the given cache id"/>
+        <param description="cache id" type="string" variable="$id"/>
+        <param type="int" variable="$extraLifetime"/>
+        <return description="true if ok" type="boolean"/>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+      <parameter name="extraLifetime" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="cache id may need prefix" line="654"/>
+      </inline>
+    </method>
+    <method name="_validateIdOrTag" start="669" end="680" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="Validate a cache id or a tag (security, reliable filenames, reserved prefixes...)">Throw an exception if a problem is found</description>
+        <param description="Cache id or tag" type="string" variable="$string"/>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="string" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_validateTagsArray" start="691" end="700" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="Validate a tags array (security, reliable filenames, reserved prefixes...)">Throw an exception if a problem is found</description>
+        <param description="Array of tags" type="array" variable="$tags"/>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="tags" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_loggerSanity" start="710" end="727" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Make sure if we enable logging that the Zend_Log class is available.">Create a default log object if none is set.</description>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <inline>
+        <comment value="Create a default logger to the standard output stream" line="720"/>
+      </inline>
+    </method>
+    <method name="_log" start="736" end="746" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Log a message at the WARN (4) priority."/>
+        <param type="string" variable="$message"/>
+        <throws type="object">
+          <type full="Zend_Cache_Exception" namespace="" name="Zend_Cache_Exception"/>
+        </throws>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="message" byreference="false" type="{unknown}"/>
+      <parameter name="priority" byreference="false" type="integer" default="4"/>
+    </method>
+    <method name="_id" start="756" end="762" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Make and return a cache id">Checks 'cache_id_prefix' and returns new id with prefix or simply the id if null</description>
+        <param description="Cache id" type="string" variable="$id"/>
+        <return description="Cache id (with or without prefix)" type="string"/>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

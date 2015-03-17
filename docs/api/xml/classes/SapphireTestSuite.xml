@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SapphireTestSuite" namespace="" name="SapphireTestSuite" abstract="false" final="false" start="11" end="23">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev" file="SapphireTestSuite.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/SapphireTestSuite.php" size="627" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="b541e1d24c39c5fb6d00f33f8bbc817a9412717d" relative="framework/dev/SapphireTestSuite.php"/>
+  <docblock>
+    <description compact="Light wrapper around {@link PHPUnit_Framework_TestSuite} which allows to have {@link setUp()} and {@link tearDown()} methods which are called just once per suite, not once per test method in each suite/case."/>
+    <package value="framework"/>
+    <subpackage value="testing"/>
+  </docblock>
+  <extends full="PHPUnit_Framework_TestSuite" namespace="" name="PHPUnit_Framework_TestSuite"/>
+  <method name="setUp" start="12" end="16" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="tearDown" start="18" end="22" abstract="false" final="false" static="false" visibility="public"/>
+</class>

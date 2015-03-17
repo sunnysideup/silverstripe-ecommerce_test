@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="RequestProcessor" namespace="" name="RequestProcessor" abstract="false" final="false" start="9" end="48">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control" file="RequestProcessor.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/RequestProcessor.php" size="1066" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="892f0c5685a4c1d647ec5a42404205528b6de6ca" relative="framework/control/RequestProcessor.php"/>
+  <docblock>
+    <description compact="Represents a request processer that delegates pre and post request handling to nested request filters"/>
+    <package value="framework"/>
+    <subpackage value="control"/>
+  </docblock>
+  <implements full="RequestFilter" namespace="" name="RequestFilter"/>
+  <member name="filters" type="array" visibility="private" line="16">
+    <docblock>
+      <description compact="List of currently assigned request filters"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="18" end="20" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="filters" byreference="false" type="array"/>
+  </constructor>
+  <method name="setFilters" start="27" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Assign a list of request filters"/>
+      <param type="array" variable="$filters"/>
+    </docblock>
+    <parameter name="filters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="preRequest" start="31" end="38" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <parameter name="session" byreference="false" type="object">
+      <type full="\\Session" namespace="\" name="Session"/>
+    </parameter>
+    <parameter name="model" byreference="false" type="object">
+      <type full="\\DataModel" namespace="\" name="DataModel"/>
+    </parameter>
+  </method>
+  <method name="postRequest" start="40" end="47" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <parameter name="response" byreference="false" type="object">
+      <type full="\\SS_HTTPResponse" namespace="\" name="SS_HTTPResponse"/>
+    </parameter>
+    <parameter name="model" byreference="false" type="object">
+      <type full="\\DataModel" namespace="\" name="DataModel"/>
+    </parameter>
+  </method>
+  <interface full="RequestFilter" namespace="" name="RequestFilter">
+    <method name="preRequest" start="23" end="23" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Filter executed before a request processes"/>
+        <param description="Request container object" type="object" variable="$request">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </param>
+        <param description="Request session" type="object" variable="$session">
+          <type full="Session" namespace="" name="Session"/>
+        </param>
+        <param description="Current DataModel" type="object" variable="$model">
+          <type full="DataModel" namespace="" name="DataModel"/>
+        </param>
+        <return description="Whether to continue processing other filters. Null or true will continue processing (optional)" type="boolean"/>
+      </docblock>
+      <parameter name="request" byreference="false" type="object">
+        <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+      </parameter>
+      <parameter name="session" byreference="false" type="object">
+        <type full="\\Session" namespace="\" name="Session"/>
+      </parameter>
+      <parameter name="model" byreference="false" type="object">
+        <type full="\\DataModel" namespace="\" name="DataModel"/>
+      </parameter>
+    </method>
+    <method name="postRequest" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Filter executed AFTER a request"/>
+        <param description="Request container object" type="object" variable="$request">
+          <type full="SS_HTTPRequest" namespace="" name="SS_HTTPRequest"/>
+        </param>
+        <param description="Response output object" type="object" variable="$response">
+          <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+        </param>
+        <param description="Current DataModel" type="object" variable="$model">
+          <type full="DataModel" namespace="" name="DataModel"/>
+        </param>
+        <return description="Whether to continue processing other filters. Null or true will continue processing (optional)" type="boolean"/>
+      </docblock>
+      <parameter name="request" byreference="false" type="object">
+        <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+      </parameter>
+      <parameter name="response" byreference="false" type="object">
+        <type full="\\SS_HTTPResponse" namespace="\" name="SS_HTTPResponse"/>
+      </parameter>
+      <parameter name="model" byreference="false" type="object">
+        <type full="\\DataModel" namespace="\" name="DataModel"/>
+      </parameter>
+    </method>
+  </interface>
+</class>

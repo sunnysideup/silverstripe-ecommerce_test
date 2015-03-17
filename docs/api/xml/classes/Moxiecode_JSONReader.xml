@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Moxiecode_JSONReader" namespace="" name="Moxiecode_JSONReader" abstract="false" final="false" start="26" end="355">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/tinymce-spellchecker/classes/utils" file="JSON.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/tinymce-spellchecker/classes/utils/JSON.php" size="11877" time="2015-03-14T10:41:59+13:00" unixtime="1426282919" sha1="4df3f7656852a8bbfa795b86dc79a3c5e6ab6b17" relative="framework/thirdparty/tinymce-spellchecker/classes/utils/JSON.php"/>
+  <member name="_data" type="{unknown}" visibility="public" line="27"/>
+  <member name="_value" type="{unknown}" visibility="public" line="28"/>
+  <member name="_location" type="{unknown}" visibility="public" line="29"/>
+  <member name="_needProp" type="{unknown}" visibility="public" line="30"/>
+  <method name="Moxiecode_JSONReader" start="32" end="39" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getToken" start="41" end="43" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getLocation" start="45" end="47" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getTokenName" start="49" end="83" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getValue" start="85" end="87" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="readToken" start="89" end="157" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="_readBool" start="159" end="174" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="chr" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="alse" line="166"/>
+    </inline>
+  </method>
+  <method name="_readNull" start="176" end="187" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="ull" line="180"/>
+    </inline>
+  </method>
+  <method name="_readString" start="189" end="268" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="quote" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="String terminated" line="249"/>
+      <comment value="Needed a property" line="257"/>
+    </inline>
+  </method>
+  <method name="_int2utf8" start="270" end="289" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="int" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_readNumber" start="291" end="320" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="start" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="readAway" start="322" end="329" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="read" start="331" end="343" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="len" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="skip" start="345" end="347" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="len" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="peek" start="349" end="354" abstract="false" final="false" static="false" visibility="public"/>
+</class>

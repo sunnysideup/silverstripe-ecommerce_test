@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="TestSession" namespace="" name="TestSession" abstract="false" final="false" start="9" end="232">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev" file="TestSession.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/TestSession.php" size="7364" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="782ff6813d4b8d19bee54747abc1d70c65b3e3f6" relative="framework/dev/TestSession.php"/>
+  <docblock>
+    <description compact="Represents a test usage session of a web-app It will maintain session-state from request to request"/>
+    <package value="framework"/>
+    <subpackage value="testing"/>
+  </docblock>
+  <member name="session" type="{unknown}" visibility="private" line="14">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Session" namespace="" name="Session"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastResponse" type="{unknown}" visibility="private" line="19">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="controller" type="{unknown}" visibility="protected" line="28">
+    <docblock>
+      <description compact="Necessary to use the mock session created in {@link session} in the normal controller stack, e.g. to overwrite Member::currentUser() with custom login data."/>
+      <var type="object">
+        <type full="Controller" namespace="" name="Controller"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastUrl" type="{unknown}" visibility="private" line="35">
+    <docblock>
+      <description compact="Fake HTTP Referer Tracking, set in {@link get()} and {@link post()}."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="37" end="42" abstract="false" final="false" static="false" visibility="public"/>
+  <destructor name="__destruct" start="44" end="50" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Shift off anything else that's on the stack.  This can happen if something throws" line="45"/>
+      <comment value="an exception that causes a premature TestSession::__destruct() call" line="46"/>
+    </inline>
+  </destructor>
+  <method name="get" start="62" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Submit a get request"/>
+      <uses value="Director::test()"/>
+      <param type="string" variable="$url"/>
+      <param type="object" variable="$session">
+        <type full="Session" namespace="" name="Session"/>
+      </param>
+      <param type="array" variable="$headers"/>
+      <param type="array" variable="$cookies"/>
+      <return type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </return>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="session" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="headers" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cookies" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="post" start="84" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Submit a post request"/>
+      <uses value="Director::test()"/>
+      <param type="string" variable="$url"/>
+      <param type="array" variable="$data"/>
+      <param type="array" variable="$headers"/>
+      <param type="object" variable="$session">
+        <type full="Session" namespace="" name="Session"/>
+      </param>
+      <param type="string" variable="$body"/>
+      <param type="array" variable="$cookies"/>
+      <return type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </return>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="headers" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="session" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="body" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cookies" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="submitForm" start="113" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Submit the form with the given HTML ID, filling it out with the given data.">Acts on the most recent response.
+
+Any data parameters have to be present in the form, with exact form field name
+and values, otherwise they are removed from the submission.
+
+Caution: Parameter names have to be formatted
+as they are in the form submission, not as they are interpreted by PHP.
+Wrong: array('mycheckboxvalues' =&gt; array(1 =&gt; 'one', 2 =&gt; 'two'))
+Right: array('mycheckboxvalues[1]' =&gt; 'one', 'mycheckboxvalues[2]' =&gt; 'two')</description>
+      <see value="http://www.simpletest.org/en/form_testing_documentation.html"/>
+      <param description="HTML 'id' attribute of a form (loaded through a previous response)" type="string" variable="$formID"/>
+      <param description="HTML 'name' attribute of the button (NOT the 'id' attribute)" type="string" variable="$button"/>
+      <param description="Map of GET/POST data." type="array" variable="$data"/>
+      <return type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </return>
+    </docblock>
+    <parameter name="formID" byreference="false" type="{unknown}"/>
+    <parameter name="button" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="data" byreference="false" type="array"/>
+  </method>
+  <method name="followRedirection" start="149" end="155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="If the last request was a 3xx response, then follow the redirection"/>
+      <return description="The response given, or null if no redirect occurred" type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="wasRedirected" start="162" end="165" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if the last response was a 3xx redirection"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="lastResponse" start="172" end="174" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the most recent response"/>
+      <return type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="lastUrl" start="181" end="183" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the fake HTTP_REFERER; set each time get() or post() is called."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="lastContent" start="190" end="193" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the most recent response's content"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="cssParser" start="200" end="202" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a CSSContentParser containing the most recent response"/>
+      <return type="object">
+        <type full="CSSContentParser" namespace="" name="CSSContentParser"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="lastPage" start="209" end="222" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the last response as a SimplePage object"/>
+      <return description="The response if available" type="object">
+        <type full="SimplePage" namespace="" name="SimplePage"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="session" start="229" end="231" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the current session, as a Session object"/>
+      <return type="object">
+        <type full="Session" namespace="" name="Session"/>
+      </return>
+    </docblock>
+  </method>
+</class>

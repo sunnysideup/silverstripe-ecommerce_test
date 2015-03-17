@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_ClassLoader</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_ClassLoader</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/core/manifest/ClassLoader.php.xhtml#line9">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_ClassLoader</h1>
+        <h4>A class that handles loading classes and interfaces from a class manifest instance.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_ClassLoader
+            {<br/><ul class="none"><li>// members</li><li>private <span title="SS_ClassLoader">SS_ClassLoader</span> <a href="#members">$instance</a>;
+                    </li><li>protected array <a href="#members">$manifests</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static SS_ClassLoader <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/instance.xhtml">instance</a>()
+                    </li><li>public SS_ClassManifest <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/getManifest.xhtml">getManifest</a>()
+                    </li><li>public void <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/hasManifest.xhtml">hasManifest</a>()
+                    </li><li>public void <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/pushManifest.xhtml">pushManifest</a>()
+                    </li><li>public SS_ClassManifest <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/popManifest.xhtml">popManifest</a>()
+                    </li><li>public void <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/registerAutoloader.xhtml">registerAutoloader</a>()
+                    </li><li>public String <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/loadClass.xhtml">loadClass</a>()
+                    </li><li>public String <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/getItemPath.xhtml">getItemPath</a>()
+                    </li><li>public bool <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/classExists.xhtml">classExists</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="instance"><strong>$instance</strong>
+                —
+                <a href="#">SS_ClassLoader</a></li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="manifests"><strong>$manifests</strong>
+                —
+                array</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="classExists"><a title="SS_ClassLoader" href="../classes/SS_ClassLoader/classExists.xhtml">classExists()</a>
+                — Returns true if a class or interface name exists in the manifest.</li>
+            <li id="getItemPath"><a title="SS_ClassLoader" href="../classes/SS_ClassLoader/getItemPath.xhtml">getItemPath()</a>
+                — Returns the path for a class or interface in the currently active manifest, or any previous ones if later manifests aren't set to "exclusive".</li>
+            <li id="getManifest"><a title="SS_ClassLoader" href="../classes/SS_ClassLoader/getManifest.xhtml">getManifest()</a>
+                — Returns the currently active class manifest instance that is used for loading classes.</li>
+            <li id="hasManifest"><a title="SS_ClassLoader" href="../classes/SS_ClassLoader/hasManifest.xhtml">hasManifest()</a>
+                — Returns true if this class loader has a manifest.</li>
+            <li id="instance">
+              <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/instance.xhtml">instance()</a>
+            </li>
+            <li id="loadClass"><a title="SS_ClassLoader" href="../classes/SS_ClassLoader/loadClass.xhtml">loadClass()</a>
+                — Loads a class or interface if it is present in the currently active manifest.</li>
+            <li id="popManifest">
+              <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/popManifest.xhtml">popManifest()</a>
+            </li>
+            <li id="pushManifest"><a title="SS_ClassLoader" href="../classes/SS_ClassLoader/pushManifest.xhtml">pushManifest()</a>
+                — Pushes a class manifest instance onto the top of the stack.</li>
+            <li id="registerAutoloader">
+              <a title="SS_ClassLoader" href="../classes/SS_ClassLoader/registerAutoloader.xhtml">registerAutoloader()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

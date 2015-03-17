@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - DB</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">DB</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/model/DB.php.xhtml#line9">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>DB</h1>
+        <h4>Global database interface, complete with static methods.</h4>
+        <p>Use this class for interacting with the database.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class DB
+            {<br/><ul class="none"><li>// constants</li><li>const USE_ANSI_SQL = ;</li></ul><ul class="none"><li>// members</li><li>private <span title="SS_Database">SS_Database</span> <a href="#members">$connections</a>;
+                    </li><li>public string <a href="#members">$lastQuery</a>;
+                    </li><li>private <a href="#members">$connection_attempted</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="DB" href="../classes/DB/setConn.xhtml">setConn</a>()
+                    </li><li>public static SS_Database <a title="DB" href="../classes/DB/getConn.xhtml">getConn</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/set_alternative_database_name.xhtml">set_alternative_database_name</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/get_alternative_database_name.xhtml">get_alternative_database_name</a>()
+                    </li><li>public static Boolean <a title="DB" href="../classes/DB/valid_alternative_database_name.xhtml">valid_alternative_database_name</a>()
+                    </li><li>public static SS_Database <a title="DB" href="../classes/DB/connect.xhtml">connect</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/connection_attempted.xhtml">connection_attempted</a>()
+                    </li><li>public static string <a title="DB" href="../classes/DB/getConnect.xhtml">getConnect</a>()
+                    </li><li>public static SS_Query <a title="DB" href="../classes/DB/query.xhtml">query</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/manipulate.xhtml">manipulate</a>()
+                    </li><li>public static int <a title="DB" href="../classes/DB/getGeneratedID.xhtml">getGeneratedID</a>()
+                    </li><li>public static boolean <a title="DB" href="../classes/DB/isActive.xhtml">isActive</a>()
+                    </li><li>public static boolean <a title="DB" href="../classes/DB/createDatabase.xhtml">createDatabase</a>()
+                    </li><li>public static The <a title="DB" href="../classes/DB/createTable.xhtml">createTable</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/createField.xhtml">createField</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/requireTable.xhtml">requireTable</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/requireField.xhtml">requireField</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/requireIndex.xhtml">requireIndex</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/dontRequireTable.xhtml">dontRequireTable</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/dontRequireField.xhtml">dontRequireField</a>()
+                    </li><li>public static boolean <a title="DB" href="../classes/DB/checkAndRepairTable.xhtml">checkAndRepairTable</a>()
+                    </li><li>public static int <a title="DB" href="../classes/DB/affectedRows.xhtml">affectedRows</a>()
+                    </li><li>public static array <a title="DB" href="../classes/DB/tableList.xhtml">tableList</a>()
+                    </li><li>public static array <a title="DB" href="../classes/DB/fieldList.xhtml">fieldList</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/quiet.xhtml">quiet</a>()
+                    </li><li>public static void <a title="DB" href="../classes/DB/alteration_message.xhtml">alteration_message</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="USE_ANSI_SQL">USE_ANSI_SQL</td>
+              <td/>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="connection_attempted">
+              <strong>$connection_attempted</strong>
+              <br/>
+              <span class="indent">Internal flag to keep track of when db connection was attempted.</span>
+            </li>
+            <li id="connections"><strong>$connections</strong>
+                —
+                <a href="#">SS_Database</a><br/><span class="indent">The global database connection.</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="lastQuery"><strong>$lastQuery</strong>
+                —
+                string<br/><span class="indent">The last SQL query run.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="affectedRows"><a title="DB" href="../classes/DB/affectedRows.xhtml">affectedRows()</a>
+                — Return the number of rows affected by the previous operation.</li>
+            <li id="alteration_message"><a title="DB" href="../classes/DB/alteration_message.xhtml">alteration_message()</a>
+                — Show a message about database alteration.</li>
+            <li id="checkAndRepairTable"><a title="DB" href="../classes/DB/checkAndRepairTable.xhtml">checkAndRepairTable()</a>
+                — Checks a table's integrity and repairs it if necessary.</li>
+            <li id="connect"><a title="DB" href="../classes/DB/connect.xhtml">connect()</a>
+                — Connect to a database.</li>
+            <li id="connection_attempted"><a title="DB" href="../classes/DB/connection_attempted.xhtml">connection_attempted()</a>
+                — Returns true if a database connection has been attempted.</li>
+            <li id="createDatabase"><a title="DB" href="../classes/DB/createDatabase.xhtml">createDatabase()</a>
+                — Create the database and connect to it. This can be called if the initial database connection is not successful because the database does not exist.</li>
+            <li id="createField"><a title="DB" href="../classes/DB/createField.xhtml">createField()</a>
+                — Create a new field on a table.</li>
+            <li id="createTable"><a title="DB" href="../classes/DB/createTable.xhtml">createTable()</a>
+                — Create a new table.</li>
+            <li id="dontRequireField"><a title="DB" href="../classes/DB/dontRequireField.xhtml">dontRequireField()</a>
+                — See {@link SS_Database-&gt;dontRequireField()}.</li>
+            <li id="dontRequireTable"><a title="DB" href="../classes/DB/dontRequireTable.xhtml">dontRequireTable()</a>
+                — If the given table exists, move it out of the way by renaming it to _obsolete_(tablename).</li>
+            <li id="fieldList"><a title="DB" href="../classes/DB/fieldList.xhtml">fieldList()</a>
+                — Get a list of all the fields for the given table.</li>
+            <li id="getConn"><a title="DB" href="../classes/DB/getConn.xhtml">getConn()</a>
+                — Get the global database connection.</li>
+            <li id="getConnect"><a title="DB" href="../classes/DB/getConnect.xhtml">getConnect()</a>
+                — Build the connection string from input.</li>
+            <li id="getGeneratedID"><a title="DB" href="../classes/DB/getGeneratedID.xhtml">getGeneratedID()</a>
+                — Get the autogenerated ID from the previous INSERT query.</li>
+            <li id="get_alternative_database_name"><a title="DB" href="../classes/DB/get_alternative_database_name.xhtml">get_alternative_database_name()</a>
+                — Get the name of the database in use</li>
+            <li id="isActive"><a title="DB" href="../classes/DB/isActive.xhtml">isActive()</a>
+                — Check if the connection to the database is active.</li>
+            <li id="manipulate"><a title="DB" href="../classes/DB/manipulate.xhtml">manipulate()</a>
+                — Execute a complex manipulation on the database.</li>
+            <li id="query"><a title="DB" href="../classes/DB/query.xhtml">query()</a>
+                — Execute the given SQL query.</li>
+            <li id="quiet"><a title="DB" href="../classes/DB/quiet.xhtml">quiet()</a>
+                — Enable supression of database messages.</li>
+            <li id="requireField"><a title="DB" href="../classes/DB/requireField.xhtml">requireField()</a>
+                — Generate the given field on the table, modifying whatever already exists as necessary.</li>
+            <li id="requireIndex"><a title="DB" href="../classes/DB/requireIndex.xhtml">requireIndex()</a>
+                — Generate the given index in the database, modifying whatever already exists as necessary.</li>
+            <li id="requireTable"><a title="DB" href="../classes/DB/requireTable.xhtml">requireTable()</a>
+                — Generate the following table in the database, modifying whatever already exists as necessary.</li>
+            <li id="setConn"><a title="DB" href="../classes/DB/setConn.xhtml">setConn()</a>
+                — Set the global database connection.</li>
+            <li id="set_alternative_database_name"><a title="DB" href="../classes/DB/set_alternative_database_name.xhtml">set_alternative_database_name()</a>
+                — Set an alternative database in a browser cookie, with the cookie lifetime set to the browser session.</li>
+            <li id="tableList"><a title="DB" href="../classes/DB/tableList.xhtml">tableList()</a>
+                — Returns a list of all tables in the database.</li>
+            <li id="valid_alternative_database_name"><a title="DB" href="../classes/DB/valid_alternative_database_name.xhtml">valid_alternative_database_name()</a>
+                — Determines if the name is valid, as a security measure against setting arbitrary databases.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

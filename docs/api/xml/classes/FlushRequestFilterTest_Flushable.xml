@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FlushRequestFilterTest_Flushable" namespace="" name="FlushRequestFilterTest_Flushable" abstract="false" final="false" start="18" end="26">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/control" file="FlushRequestFilterTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/control/FlushRequestFilterTest.php" size="517" time="2015-03-14T10:41:06+13:00" unixtime="1426282866" sha1="1ddeaa1412bd68e9a10d681a458c8e0d90c9521e" relative="framework/tests/control/FlushRequestFilterTest.php"/>
+  <implements full="Flushable" namespace="" name="Flushable"/>
+  <implements full="TestOnly" namespace="" name="TestOnly"/>
+  <member name="flushed" type="{unknown}" default="false" visibility="public" line="20"/>
+  <method name="flush" start="22" end="24" abstract="false" final="false" static="true" visibility="public"/>
+  <interface full="Flushable" namespace="" name="Flushable">
+    <method name="flush" start="18" end="18" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="This function is triggered early in the request if the &quot;flush&quot; query parameter has been set. Each class that implements Flushable implements this function which looks after it's own specific flushing functionality."/>
+        <see value="FlushRequestFilter"/>
+      </docblock>
+    </method>
+  </interface>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+</class>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldTest_Component2" namespace="" name="GridFieldTest_Component2" abstract="false" final="false" start="460" end="466">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/forms" file="GridFieldTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/forms/GridFieldTest.php" size="17051" time="2015-03-14T10:41:09+13:00" unixtime="1426282869" sha1="e2418a918c500fe098579e362a0f1849ea86d288" relative="framework/tests/forms/GridFieldTest.php"/>
+  <implements full="GridField_DataManipulator" namespace="" name="GridField_DataManipulator"/>
+  <implements full="TestOnly" namespace="" name="TestOnly"/>
+  <method name="getManipulatedData" start="461" end="465" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="dataList" byreference="false" type="object">
+      <type full="\\SS_List" namespace="\" name="SS_List"/>
+    </parameter>
+  </method>
+  <interface full="GridField_DataManipulator" namespace="" name="GridField_DataManipulator">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getManipulatedData" start="166" end="166" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Manipulate the {@link DataList} as needed by this grid modifier."/>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param type="object">
+          <type full="SS_List" namespace="" name="SS_List"/>
+        </param>
+        <return type="object">
+          <type full="DataList" namespace="" name="DataList"/>
+        </return>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="object">
+        <type full="\\GridField" namespace="\" name="GridField"/>
+      </parameter>
+      <parameter name="dataList" byreference="false" type="object">
+        <type full="\\SS_List" namespace="\" name="SS_List"/>
+      </parameter>
+    </method>
+  </interface>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+</class>

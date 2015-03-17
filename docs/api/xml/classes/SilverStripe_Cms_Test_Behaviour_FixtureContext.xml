@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SilverStripe\Cms\Test\Behaviour\FixtureContext" namespace="SilverStripe\Cms\Test\Behaviour" name="FixtureContext" abstract="false" final="false" start="22" end="68">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../cms/tests/behat/features/bootstrap/SilverStripe/Cms/Test/Behaviour" file="FixtureContext.php" realpath="/var/www/_modules/ecommerce_test/trunk/cms/tests/behat/features/bootstrap/SilverStripe/Cms/Test/Behaviour/FixtureContext.php" size="2222" time="2015-03-14T10:42:39+13:00" unixtime="1426282959" sha1="7e6d99e35ffd35434e4b2e65c46e8e5cd0e425ae" relative="cms/tests/behat/features/bootstrap/SilverStripe/Cms/Test/Behaviour/FixtureContext.php"/>
+  <docblock>
+    <description compact="Context used to create fixtures in the SilverStripe ORM."/>
+  </docblock>
+  <extends full="SilverStripe\BehatExtension\Context\FixtureContext" namespace="SilverStripe\BehatExtension\Context" name="FixtureContext"/>
+  <method name="stepCreateRedirectorPage" start="30" end="46" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find or create a redirector page and link to another existing page.">Example: Given a "page" "My Redirect" which redirects to a "page" "Page 1"</description>
+      <given value="/^(?:(an|a|the) )&quot;(?&lt;type&gt;[^&quot;]+)&quot; &quot;(?&lt;id&gt;[^&quot;]+)&quot; (:?which )?redirects to (?:(an|a|the) )&quot;(?&lt;targetType&gt;[^&quot;]+)&quot; &quot;(?&lt;targetId&gt;[^&quot;]+)&quot;$/"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+    <parameter name="targetType" byreference="false" type="{unknown}"/>
+    <parameter name="targetId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="pagesShouldBeEditableBy" start="57" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if the user can edit a page">Example: Then pages should be editable by "Admin"
+Then pages should not be editable by "Admin"</description>
+      <then value="/^pages should( not? |\s*)be editable by &quot;([^&quot;]*)&quot;$/"/>
+    </docblock>
+    <parameter name="negative" byreference="false" type="{unknown}"/>
+    <parameter name="member" byreference="false" type="{unknown}"/>
+  </method>
+</class>

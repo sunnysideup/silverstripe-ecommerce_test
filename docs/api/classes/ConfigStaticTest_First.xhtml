@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - ConfigStaticTest_First</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">ConfigStaticTest_First</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/tests/core/ConfigTest.php.xhtml#line20">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>ConfigStaticTest_First</h1>
+        <h4/>
+        <p/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class ConfigStaticTest_First
+                extends <a title="Config" href="../classes/Config.xhtml">Config</a>
+                implements
+                <a title="TestOnly" href="../interfaces/TestOnly.xhtml">TestOnly</a>
+            {<br/><ul class="none"><li>// Inherited constants from <a title="Config" href="../classes/Config.xhtml">Config</a></li><li>const <a href="#INHERITED">INHERITED</a> = 0;</li><li>const <a href="#UNINHERITED">UNINHERITED</a> = 1;</li><li>const <a href="#FIRST_SET">FIRST_SET</a> = 2;</li><li>const <a href="#EXCLUDE_EXTRA_SOURCES">EXCLUDE_EXTRA_SOURCES</a> = 4;</li><li>const <a href="#ISNT_ARRAY">ISNT_ARRAY</a> = 1;</li><li>const <a href="#IS_ARRAY">IS_ARRAY</a> = 2;</li></ul><ul class="none"><li>// members</li><li>private array <a href="#members">$first</a>;
+                    </li><li>private array <a href="#members">$second</a>;
+                    </li><li>private string <a href="#members">$third</a>;
+                    </li><li>private <a href="#members">$bool</a>;
+                    </li><li>private integer <a href="#members">$int</a>;
+                    </li><li>private string <a href="#members">$string</a>;
+                    </li><li>private string <a href="#members">$nullable</a>;
+                    </li><li>private <a href="#members">$default_false</a>;
+                    </li><li>private <a href="#members">$default_null</a>;
+                    </li><li>private integer <a href="#members">$default_zero</a>;
+                    </li><li>public string <a href="#members">$default_emtpy_string</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="Config">Config</span></li><li>protected <a href="#members">$instance</a>;
+                        </li><li>protected array <a href="#members">$cache</a>;
+                        </li><li>protected <span title="Config">Config</span> <a href="#members">$nestedFrom</a>;
+                        </li><li>protected array <a href="#members">$overrides</a>;
+                        </li><li>protected array <a href="#members">$suppresses</a>;
+                        </li><li>protected array <a href="#members">$staticManifests</a>;
+                        </li><li>protected <span title="[array]">[array]</span> <a href="#members">$manifests</a>;
+                        </li><li>protected <span title="[Config_ForClass]">[Config_ForClass]</span> <a href="#members">$for_class_instances</a>;
+                        </li><li>protected array <a href="#members">$extraConfigSources</a>;
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="Config">Config</span></li><li>public static Object <a title="Config" href="../classes/Config/anything.xhtml">anything</a>()
+                        </li><li>protected static int <a title="Config" href="../classes/Config/get_value_type.xhtml">get_value_type</a>()
+                        </li><li>protected static void <a title="Config" href="../classes/Config/type_mismatch.xhtml">type_mismatch</a>()
+                        </li><li>public static Config <a title="Config" href="../classes/Config/inst.xhtml">inst</a>()
+                        </li><li>public static Config <a title="Config" href="../classes/Config/set_instance.xhtml">set_instance</a>()
+                        </li><li>public static Config <a title="Config" href="../classes/Config/nest.xhtml">nest</a>()
+                        </li><li>public static Config <a title="Config" href="../classes/Config/unnest.xhtml">unnest</a>()
+                        </li><li>public void <a title="Config" href="../classes/Config/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="Config" href="../classes/Config/__clone.xhtml">__clone</a>()
+                        </li><li>public void <a title="Config" href="../classes/Config/pushConfigStaticManifest.xhtml">pushConfigStaticManifest</a>()
+                        </li><li>public void <a title="Config" href="../classes/Config/pushConfigYamlManifest.xhtml">pushConfigYamlManifest</a>()
+                        </li><li>public Config_ForClass <a title="Config" href="../classes/Config/forClass.xhtml">forClass</a>()
+                        </li><li>public static void <a title="Config" href="../classes/Config/merge_array_low_into_high.xhtml">merge_array_low_into_high</a>()
+                        </li><li>public static void <a title="Config" href="../classes/Config/merge_array_high_into_low.xhtml">merge_array_high_into_low</a>()
+                        </li><li>public static void <a title="Config" href="../classes/Config/merge_high_into_low.xhtml">merge_high_into_low</a>()
+                        </li><li>public static void <a title="Config" href="../classes/Config/merge_low_into_high.xhtml">merge_low_into_high</a>()
+                        </li><li>public static void <a title="Config" href="../classes/Config/check_value_contained_in_suppress_array.xhtml">check_value_contained_in_suppress_array</a>()
+                        </li><li>protected static void <a title="Config" href="../classes/Config/check_key_or_value_contained_in_suppress_array.xhtml">check_key_or_value_contained_in_suppress_array</a>()
+                        </li><li>protected static void <a title="Config" href="../classes/Config/filter_array_by_suppress_array.xhtml">filter_array_by_suppress_array</a>()
+                        </li><li>public void <a title="Config" href="../classes/Config/extraConfigSourcesChanged.xhtml">extraConfigSourcesChanged</a>()
+                        </li><li>protected void <a title="Config" href="../classes/Config/getUncached.xhtml">getUncached</a>()
+                        </li><li>public array|scalar <a title="Config" href="../classes/Config/get.xhtml">get</a>()
+                        </li><li>public void <a title="Config" href="../classes/Config/update.xhtml">update</a>()
+                        </li><li>public void <a title="Config" href="../classes/Config/remove.xhtml">remove</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Config.xhtml">Config</a>
+            </li>
+          </ul>
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/ConfigStaticTest_Second.xhtml">ConfigStaticTest_Second</a>
+            </li>
+            <li>
+              <a href="../classes/ConfigStaticTest_Third.xhtml">ConfigStaticTest_Third</a>
+            </li>
+            <li>
+              <a href="../classes/ConfigStaticTest_Fourth.xhtml">ConfigStaticTest_Fourth</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/TestOnly.xhtml">TestOnly</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">+</td>
+            <td>If we can, replace next static &amp; static methods with DI once that's in</td>
+          </tr>
+          <tr>
+            <td class="nummeric">311</td>
+            <td>Do anything with these. They're for caching after config.php has executed</td>
+          </tr>
+        </table>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="INHERITED">INHERITED</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td id="UNINHERITED">UNINHERITED</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td id="FIRST_SET">FIRST_SET</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td id="EXCLUDE_EXTRA_SOURCES">EXCLUDE_EXTRA_SOURCES</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td id="ISNT_ARRAY">ISNT_ARRAY</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td id="IS_ARRAY">IS_ARRAY</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="bool">
+              <strong>$bool</strong>
+            </li>
+            <li id="default_false">
+              <strong>$default_false</strong>
+            </li>
+            <li id="default_null">
+              <strong>$default_null</strong>
+            </li>
+            <li id="default_zero">
+              <strong>$default_zero</strong>
+            </li>
+            <li id="first">
+              <strong>$first</strong>
+            </li>
+            <li id="int">
+              <strong>$int</strong>
+            </li>
+            <li id="nullable">
+              <strong>$nullable</strong>
+            </li>
+            <li id="second">
+              <strong>$second</strong>
+            </li>
+            <li id="string">
+              <strong>$string</strong>
+            </li>
+            <li id="third">
+              <strong>$third</strong>
+            </li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="cache"><strong>$cache</strong>
+                —
+                array</li>
+            <li id="extraConfigSources">
+              <strong>$extraConfigSources</strong>
+            </li>
+            <li id="for_class_instances"><strong>$for_class_instances</strong>
+                —
+                <a href="#">[Config_ForClass]</a></li>
+            <li id="instance">
+              <strong>$instance</strong>
+            </li>
+            <li id="manifests"><strong>$manifests</strong>
+                —
+                <a href="#">[array]</a></li>
+            <li id="nestedFrom"><strong>$nestedFrom</strong>
+                —
+                <a href="#">Config</a></li>
+            <li id="overrides"><strong>$overrides</strong>
+                —
+                array</li>
+            <li id="staticManifests"><strong>$staticManifests</strong>
+                —
+                array</li>
+            <li id="suppresses"><strong>$suppresses</strong>
+                —
+                array</li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="default_emtpy_string">
+              <strong>$default_emtpy_string</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h3>Inherited from <a title="Config" href="../classes/Config.xhtml">Config</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="check_key_or_value_contained_in_suppress_array">
+              <a title="Config" href="../classes/Config/check_key_or_value_contained_in_suppress_array.xhtml">check_key_or_value_contained_in_suppress_array()</a>
+            </li>
+            <li id="filter_array_by_suppress_array">
+              <a title="Config" href="../classes/Config/filter_array_by_suppress_array.xhtml">filter_array_by_suppress_array()</a>
+            </li>
+            <li id="getUncached">
+              <a title="Config" href="../classes/Config/getUncached.xhtml">getUncached()</a>
+            </li>
+            <li id="get_value_type"><a title="Config" href="../classes/Config/get_value_type.xhtml">get_value_type()</a>
+                — Get whether the value is an array or not. Used to be more complicated, but still nice sugar to have an enum to compare and not just a true / false value.</li>
+            <li id="type_mismatch"><a title="Config" href="../classes/Config/type_mismatch.xhtml">type_mismatch()</a>
+                — What to do if there's a type mismatch.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__clone">
+              <a title="Config" href="../classes/Config/__clone.xhtml">__clone()</a>
+            </li>
+            <li id="anything"><a title="Config" href="../classes/Config/anything.xhtml">anything()</a>
+                — Get a marker class instance that is used to do a "remove anything with this key" by adding $key =&gt; Config::anything() to the suppress array</li>
+            <li id="check_value_contained_in_suppress_array">
+              <a title="Config" href="../classes/Config/check_value_contained_in_suppress_array.xhtml">check_value_contained_in_suppress_array()</a>
+            </li>
+            <li id="extraConfigSourcesChanged">
+              <a title="Config" href="../classes/Config/extraConfigSourcesChanged.xhtml">extraConfigSourcesChanged()</a>
+            </li>
+            <li id="forClass"><a title="Config" href="../classes/Config/forClass.xhtml">forClass()</a>
+                — Get an accessor that returns results by class by default.</li>
+            <li id="get"><a title="Config" href="../classes/Config/get.xhtml">get()</a>
+                — Get the config value associated for a given class and property</li>
+            <li id="inst"><a title="Config" href="../classes/Config/inst.xhtml">inst()</a>
+                — Get the current active Config instance.</li>
+            <li id="merge_array_high_into_low"><a title="Config" href="../classes/Config/merge_array_high_into_low.xhtml">merge_array_high_into_low()</a>
+                — Merge a higher priority assocative array into an existing lower priority associative array, as per the class docblock rules.</li>
+            <li id="merge_array_low_into_high"><a title="Config" href="../classes/Config/merge_array_low_into_high.xhtml">merge_array_low_into_high()</a>
+                — Merge a lower priority associative array into an existing higher priority associative array, as per the class docblock rules</li>
+            <li id="merge_high_into_low">
+              <a title="Config" href="../classes/Config/merge_high_into_low.xhtml">merge_high_into_low()</a>
+            </li>
+            <li id="merge_low_into_high">
+              <a title="Config" href="../classes/Config/merge_low_into_high.xhtml">merge_low_into_high()</a>
+            </li>
+            <li id="nest"><a title="Config" href="../classes/Config/nest.xhtml">nest()</a>
+                — Make the newly active {@link Config} be a copy of the current active {@link Config} instance.</li>
+            <li id="pushConfigStaticManifest">
+              <a title="Config" href="../classes/Config/pushConfigStaticManifest.xhtml">pushConfigStaticManifest()</a>
+            </li>
+            <li id="pushConfigYamlManifest"><a title="Config" href="../classes/Config/pushConfigYamlManifest.xhtml">pushConfigYamlManifest()</a>
+                — Add another manifest to the list of config manifests to search through.</li>
+            <li id="remove"><a title="Config" href="../classes/Config/remove.xhtml">remove()</a>
+                — Remove a configuration value</li>
+            <li id="set_instance"><a title="Config" href="../classes/Config/set_instance.xhtml">set_instance()</a>
+                — Set the current active {@link Config} instance.</li>
+            <li id="unnest"><a title="Config" href="../classes/Config/unnest.xhtml">unnest()</a>
+                — Change the active Config back to the Config instance the current active Config object was copied from.</li>
+            <li id="update"><a title="Config" href="../classes/Config/update.xhtml">update()</a>
+                — Update a configuration value</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

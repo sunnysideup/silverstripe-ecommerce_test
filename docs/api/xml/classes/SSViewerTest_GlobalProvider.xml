@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SSViewerTest_GlobalProvider" namespace="" name="SSViewerTest_GlobalProvider" abstract="false" final="false" start="1529" end="1562">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/view" file="SSViewerTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/view/SSViewerTest.php" size="56092" time="2015-03-14T10:41:12+13:00" unixtime="1426282872" sha1="bb223c25460ee4c64fd1a7fd390d8c4f14ace84d" relative="framework/tests/view/SSViewerTest.php"/>
+  <implements full="TemplateGlobalProvider" namespace="" name="TemplateGlobalProvider"/>
+  <implements full="TestOnly" namespace="" name="TestOnly"/>
+  <method name="get_template_global_variables" start="1531" end="1543" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="get_html" start="1545" end="1547" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="SSViewerTest_GlobalAutomatic" start="1549" end="1551" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="get_reference" start="1553" end="1555" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="get_argmix" start="1557" end="1560" abstract="false" final="false" static="true" visibility="public"/>
+  <interface full="TemplateGlobalProvider" namespace="" name="TemplateGlobalProvider">
+    <method name="get_template_global_variables" start="33" end="33" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Called by SSViewer to get a list of global variables to expose to the template, the static method to call on this class to get the value for those variables, and the class to use for casting the returned value for use in a template">If the method to call is not included for a particular template variable, a method named the same as the
+template variable will be called
+
+If the casting class is not specified for a particular template variable, ViewableData::$default_cast is used
+
+The first letter of the template variable is case-insensitive. However the method name is always case sensitive.</description>
+        <abstract/>
+        <return description="Returns an array of items. Each key =&gt; value pair is one of three forms:" type="array">- template name (no key)
+ - template name =&gt; method name
+ - template name =&gt; array(), where the array can contain these key =&gt; value pairs
+    - "method" =&gt; method name
+    - "casting" =&gt; casting class to use (i.e., Varchar, HTMLText, etc)</return>
+      </docblock>
+    </method>
+  </interface>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+</class>

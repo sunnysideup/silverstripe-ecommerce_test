@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="SS_Filterable" namespace="" name="SS_Filterable" abstract="false" final="false" start="13" end="58">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/model" file="Filterable.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/model/Filterable.php" size="2390" time="2015-03-14T10:40:57+13:00" unixtime="1426282857" sha1="bd23ac8e735df77c834ff93d375a72efd1a71b63" relative="framework/model/Filterable.php"/>
+  <docblock>
+    <description compact="Additional interface for {@link SS_List} classes that are filterable.">All methods in this interface are immutable - they should return new instances with the filter
+applied, rather than applying the filter in place</description>
+    <see value="SS_List, SS_Sortable, SS_Limitable"/>
+    <package value="framework"/>
+    <subpackage value="model"/>
+  </docblock>
+  <method name="canFilterBy" start="21" end="21" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns TRUE if the list can be filtered by a given field expression."/>
+      <param type="string" variable="$by"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="by" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="filter" start="34" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new instance of this list that only includes items with these charactaristics"/>
+      <return type="object">
+        <type full="SS_Filterable" namespace="" name="SS_Filterable"/>
+      </return>
+      <example value="$list = $list-&gt;filter('Name', 'bob'); // only bob in the list"/>
+      <example value="$list = $list-&gt;filter('Name', array('aziz', 'bob'); // aziz and bob in list"/>
+      <example value="$list = $list-&gt;filter(array('Name'=&gt;'bob, 'Age'=&gt;21)); // bob with the age 21"/>
+      <example value="$list = $list-&gt;filter(array('Name'=&gt;'bob, 'Age'=&gt;array(21, 43))); // bob with the Age 21 or 43"/>
+      <example value="$list = $list-&gt;filter(array('Name'=&gt;array('aziz','bob'), 'Age'=&gt;array(21, 43)));">// aziz with the age 21 or 43 and bob with the Age 21 or 43</example>
+    </docblock>
+  </method>
+  <method name="exclude" start="47" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new instance of this list that excludes any items with these charactaristics"/>
+      <return type="object">
+        <type full="SS_Filterable" namespace="" name="SS_Filterable"/>
+      </return>
+      <example value="$list = $list-&gt;exclude('Name', 'bob'); // exclude bob from list"/>
+      <example value="$list = $list-&gt;exclude('Name', array('aziz', 'bob'); // exclude aziz and bob from list"/>
+      <example value="$list = $list-&gt;exclude(array('Name'=&gt;'bob, 'Age'=&gt;21)); // exclude bob that has Age 21"/>
+      <example value="$list = $list-&gt;exclude(array('Name'=&gt;'bob, 'Age'=&gt;array(21, 43))); // exclude bob with Age 21 or 43"/>
+      <example value="$list = $list-&gt;exclude(array('Name'=&gt;array('bob','phil'), 'Age'=&gt;array(21, 43)));">// bob age 21 or 43, phil age 21 or 43 would be excluded</example>
+    </docblock>
+  </method>
+  <method name="filterByCallback" start="57" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a new instance of this list that excludes any items with these charactaristics Filter this List by a callback function. The function will be passed each record of the List in turn, and must return true for the record to be included. Returns the filtered list."/>
+      <example value="$list = $list-&gt;filterByCallback(function($item, $list) { return $item-&gt;Age == 9; })"/>
+      <return type="object">
+        <type full="SS_Filterable" namespace="" name="SS_Filterable"/>
+      </return>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <implementor full="PaginatedList" namespace="" name="PaginatedList"/>
+  <implementor full="Member_GroupSet" namespace="" name="Member_GroupSet"/>
+  <implementor full="DataList" namespace="" name="DataList"/>
+  <implementor full="GroupedList" namespace="" name="GroupedList"/>
+  <implementor full="ManyManyList" namespace="" name="ManyManyList"/>
+  <implementor full="HasManyList" namespace="" name="HasManyList"/>
+  <implementor full="RelationList" namespace="" name="RelationList"/>
+  <implementor full="UnsavedRelationList" namespace="" name="UnsavedRelationList"/>
+  <implementor full="ArrayList" namespace="" name="ArrayList"/>
+  <implementor full="SS_ListDecorator" namespace="" name="SS_ListDecorator"/>
+  <implementor full="FieldList" namespace="" name="FieldList"/>
+</interface>

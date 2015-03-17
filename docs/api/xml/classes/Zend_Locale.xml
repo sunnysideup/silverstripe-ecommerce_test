@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Locale" namespace="" name="Zend_Locale" abstract="false" final="false" start="30" end="1111">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend" file="Locale.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Locale.php" size="43085" time="2015-03-14T10:41:29+13:00" unixtime="1426282889" sha1="cd8149fb2e1e8eb3100ebb6108de9316ca244d1f" relative="framework/thirdparty/Zend/Locale.php"/>
+  <docblock>
+    <description compact="Base class for localization"/>
+    <category value="Zend"/>
+    <package value="Zend_Locale"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <member name="_localeData" type="array" visibility="private" line="37">
+    <docblock>
+      <description compact="Class wide Locale Constants"/>
+      <var description="$_localeData" type="array"/>
+    </docblock>
+  </member>
+  <member name="_territoryData" type="array" visibility="private" line="131">
+    <docblock>
+      <description compact="Class wide Locale Constants"/>
+      <var description="$_territoryData" type="array"/>
+    </docblock>
+  </member>
+  <constant name="BROWSER" value="'browser'">
+    <docblock>
+      <description compact="Autosearch constants"/>
+    </docblock>
+  </constant>
+  <constant name="ENVIRONMENT" value="'environment'"/>
+  <constant name="ZFDEFAULT" value="'default'"/>
+  <member name="compatibilityMode" type="{unknown}" default="false" visibility="public" line="201">
+    <docblock>
+      <description compact="Defines if old behaviour should be supported Old behaviour throws notices and will be deleted in future releases"/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="_breakChain" type="{unknown}" default="false" visibility="private" line="208">
+    <docblock>
+      <description compact="Internal variable"/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="_locale" type="{unknown}" visibility="protected" line="215">
+    <docblock>
+      <description compact="Actual set locale"/>
+      <var description="Locale" type="string"/>
+    </docblock>
+  </member>
+  <member name="_auto" type="{unknown}" visibility="protected" line="222">
+    <docblock>
+      <description compact="Automatic detected locale"/>
+      <var description="Locales" type="string"/>
+    </docblock>
+  </member>
+  <member name="_browser" type="{unknown}" visibility="protected" line="229">
+    <docblock>
+      <description compact="Browser detected locale"/>
+      <var description="Locales" type="string"/>
+    </docblock>
+  </member>
+  <member name="_environment" type="{unknown}" visibility="protected" line="236">
+    <docblock>
+      <description compact="Environment detected locale"/>
+      <var description="Locales" type="string"/>
+    </docblock>
+  </member>
+  <member name="_default" type="array" visibility="protected" line="243">
+    <docblock>
+      <description compact="Default locale"/>
+      <var description="Locales" type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="258" end="261" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generates a locale object If no locale is given a automatic search is done Then the most probable locale will be automatically set Search order is  1. Given Locale  2. HTTP Client  3. Server Environment  4. Framework Standard"/>
+      <param description="(Optional) Locale for parsing input" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <throws description="When autodetection has been failed" type="object">
+        <type full="Zend_Locale_Exception" namespace="" name="Zend_Locale_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="serialize" start="268" end="271" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Serialization Interface"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="toString" start="278" end="281" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a string representation of the object"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="__toString" start="289" end="292" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a string representation of the object Alias for toString"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getDefault" start="299" end="317" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the default locale"/>
+      <return description="Returns an array of all locale string" type="array"/>
+    </docblock>
+  </method>
+  <method name="setDefault" start="331" end="362" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Sets a new default locale which will be used when no locale can be detected If provided you can set a quality between 0 and 1 (or 2 and 100) which represents the percent of quality the browser requested within HTTP"/>
+      <param description="Locale to set" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <param description="The quality to set from 0 to 1" type="float" variable="$quality"/>
+      <throws description="When a autolocale was given" type="object">
+        <type full="Zend_Locale_Exception" namespace="" name="Zend_Locale_Exception"/>
+      </throws>
+      <throws description="When a unknown locale was given" type="object">
+        <type full="Zend_Locale_Exception" namespace="" name="Zend_Locale_Exception"/>
+      </throws>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="quality" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="getEnvironment" start="373" end="421" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Expects the Systems standard locale">For Windows:
+f.e.: LC_COLLATE=C;LC_CTYPE=German_Austria.1252;LC_MONETARY=C
+would be recognised as de_AT</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getBrowser" start="432" end="486" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return an array of all accepted languages of the client Expects RFC compilant Header !!">The notation can be :
+de,en-UK-US;q=0.5,fr-FR;q=0.2</description>
+      <return description="- list of accepted languages including quality" type="array"/>
+    </docblock>
+  </method>
+  <method name="setLocale" start="494" end="514" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets a new locale"/>
+      <param description="(Optional) New locale to set" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getLanguage" start="521" end="525" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the language part of the locale"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getRegion" start="532" end="540" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the region part of the locale if available"/>
+      <return description="- Regionstring" type="object">
+        <type full="string|false" namespace="" name="string|false"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getHttpCharset" start="547" end="573" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the accepted charset of the client"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="equals" start="581" end="588" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns true if both locales are equal"/>
+      <param description="Locale to check for equality" type="object" variable="$object">
+        <type full="Zend_Locale" namespace="" name="Zend_Locale"/>
+      </param>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="object" byreference="false" type="object">
+      <type full="\\Zend_Locale" namespace="\" name="Zend_Locale"/>
+    </parameter>
+  </method>
+  <method name="getTranslationList" start="600" end="610" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns localized informations as array, supported are several types of informations.">For detailed information about the types look into the documentation</description>
+      <param description="(Optional) Type of information to return" type="string" variable="$path"/>
+      <param description="(Optional) Locale|Language for which this informations should be returned" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <param description="(Optional) Value for detail list" type="string" variable="$value"/>
+      <return description="Array with the wished information in the given language" type="array"/>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getLanguageTranslationList" start="619" end="623" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns an array with the name of all languages translated to the given language"/>
+      <param description="(Optional) Locale for language translation" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getScriptTranslationList" start="632" end="636" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns an array with the name of all scripts translated to the given language"/>
+      <param description="(Optional) Locale for script translation" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getCountryTranslationList" start="645" end="649" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns an array with the name of all countries translated to the given language"/>
+      <param description="(Optional) Locale for country translation" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getTerritoryTranslationList" start="659" end="663" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns an array with the name of all territories translated to the given language All territories contains other countries."/>
+      <param description="(Optional) Locale for territory translation" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getTranslation" start="674" end="684" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a localized information string, supported are several types of informations.">For detailed information about the types look into the documentation</description>
+      <param description="Name to get detailed information about" type="string" variable="$value"/>
+      <param description="(Optional) Type of information to return" type="string" variable="$path"/>
+      <param description="(Optional) Locale|Language for which this informations should be returned" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return description="The wished information in the given language" type="object">
+        <type full="string|false" namespace="" name="string|false"/>
+      </return>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="path" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getLanguageTranslation" start="694" end="698" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the localized language name"/>
+      <param description="Name to get detailed information about" type="string" variable="$value"/>
+      <param description="(Optional) Locale for language translation" type="string" variable="$locale"/>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getScriptTranslation" start="708" end="712" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the localized script name"/>
+      <param description="Name to get detailed information about" type="string" variable="$value"/>
+      <param description="(Optional) locale for script translation" type="string" variable="$locale"/>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getCountryTranslation" start="722" end="726" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the localized country name"/>
+      <param description="Name to get detailed information about" type="string" variable="$value"/>
+      <param description="(Optional) Locale for country translation" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getTerritoryTranslation" start="737" end="741" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the localized territory name All territories contains other countries."/>
+      <param description="Name to get detailed information about" type="string" variable="$value"/>
+      <param description="(Optional) Locale for territory translation" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="array"/>
+      <deprecated/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getQuestion" start="749" end="764" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns an array with translated yes strings"/>
+      <param description="(Optional) Locale for language translation (defaults to $this locale)" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="_prepareQuestionString" start="772" end="808" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Internal function for preparing the returned question regex string"/>
+      <param description="Regex to parse" type="string" variable="$input"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isLocale" start="821" end="861" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks if a locale identifier is a real locale or not Examples: &quot;en_XX&quot; refers to &quot;en&quot;, which returns true &quot;XX_yy&quot; refers to &quot;root&quot;, which returns false"/>
+      <param description="Locale to check for" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <param description="(Optional) If true, no rerouting will be done when checking" type="boolean" variable="$strict"/>
+      <param description="(DEPRECATED) Only for internal usage, brakes compatibility mode" type="boolean" variable="$compatible"/>
+      <return description="If the locale is known dependend on the settings" type="boolean"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="strict" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="compatible" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="findLocale" start="873" end="901" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Finds the proper locale based on the input Checks if it exists, degrades it when necessary Detects registry locale and when all fails tries to detect a automatic locale Returns the found locale as string"/>
+      <param type="string" variable="$locale"/>
+      <throws description="When the given locale is no locale or the autodetection fails" type="object">
+        <type full="Zend_Locale_Exception" namespace="" name="Zend_Locale_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="getLocaleToTerritory" start="909" end="917" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the expected locale for a given territory"/>
+      <param description="Territory for which the locale is being searched" type="string" variable="$territory"/>
+      <return description="Locale string or null when no locale has been found" type="object">
+        <type full="string|null" namespace="" name="string|null"/>
+      </return>
+    </docblock>
+    <parameter name="territory" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLocaleList" start="926" end="934" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a list of all known locales where the locale is the key Only real locales are returned, the internal locales 'root', 'auto', 'browser' and 'environment' are suppressed"/>
+      <return description="List of all Locales" type="array"/>
+    </docblock>
+  </method>
+  <method name="getCache" start="941" end="945" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the set cache"/>
+      <return description="The set cache" type="object">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setCache" start="953" end="957" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Sets a cache"/>
+      <param description="Cache to set" type="object" variable="$cache">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="cache" byreference="false" type="object">
+      <type full="\\Zend_Cache_Core" namespace="\" name="Zend_Cache_Core"/>
+    </parameter>
+  </method>
+  <method name="hasCache" start="964" end="968" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns true when a cache is set"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="removeCache" start="975" end="979" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Removes any set cache"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="clearCache" start="987" end="991" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clears all set cache data"/>
+      <param description="Tag to clear when the default tag name is not used" type="string" variable="$tag"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="tag" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="disableCache" start="999" end="1003" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Disables the set cache"/>
+      <param description="True disables any set cache, default is false" type="boolean" variable="$flag"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_prepareLocale" start="1013" end="1079" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Internal function, returns a single locale on detection"/>
+      <param description="(Optional) Locale to work on" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <param description="(Optional) Strict preparation" type="boolean" variable="$strict"/>
+      <throws description="When no locale is set which is only possible when the class was wrong extended" type="object">
+        <type full="Zend_Locale_Exception" namespace="" name="Zend_Locale_Exception"/>
+      </throws>
+      <return type="string"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="strict" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="This can only happen when someone extends Zend_Locale and erases the default" line="1052"/>
+    </inline>
+  </method>
+  <method name="getOrder" start="1090" end="1110" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Search the locale automatically and return all used locales ordered by quality">Standard Searchorder is Browser, Environment, Default</description>
+      <param description="(Optional) Searchorder" type="string" variable="$searchorder"/>
+      <return description="Returns an array of all detected locales" type="array"/>
+    </docblock>
+    <parameter name="order" byreference="false" type="{unknown}" default="null"/>
+  </method>
+</class>

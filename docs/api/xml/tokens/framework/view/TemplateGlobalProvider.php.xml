@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/view" file="TemplateGlobalProvider.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/view/TemplateGlobalProvider.php" size="1351" time="2015-03-14T10:42:30+13:00" unixtime="1426282950" sha1="de4467b741e19d65ce1117751c55e973443c2e2b" relative="framework/view/TemplateGlobalProvider.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * Interface that is implemented by any classes that want to expose a method that can be called in any </token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * scope in a template.</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> * Director::AbsoluteBaseURL is an example of this.</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> * @package framework</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * @subpackage core</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="11">
+    <token name="T_INTERFACE">interface</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">TemplateGlobalProvider</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="12"/>
+  <line no="13">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT">	 * Called by SSViewer to get a list of global variables to expose to the template, the static method to call on</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT">	 * this class to get the value for those variables, and the class to use for casting the returned value for use</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT">	 * in a template</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT">	 * If the method to call is not included for a particular template variable, a method named the same as the</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT">	 * template variable will be called</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT">	 * If the casting class is not specified for a particular template variable, ViewableData::$default_cast is used</token>
+  </line>
+  <line no="22">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="23">
+    <token name="T_DOC_COMMENT">	 * The first letter of the template variable is case-insensitive. However the method name is always case sensitive.</token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="25">
+    <token name="T_DOC_COMMENT">	 * @abstract</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT">	 * @return array Returns an array of items. Each key =&gt; value pair is one of three forms:</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT">	 *  - template name (no key)</token>
+  </line>
+  <line no="28">
+    <token name="T_DOC_COMMENT">	 *  - template name =&gt; method name</token>
+  </line>
+  <line no="29">
+    <token name="T_DOC_COMMENT">	 *  - template name =&gt; array(), where the array can contain these key =&gt; value pairs</token>
+  </line>
+  <line no="30">
+    <token name="T_DOC_COMMENT">	 *     - "method" =&gt; method name</token>
+  </line>
+  <line no="31">
+    <token name="T_DOC_COMMENT">	 *     - "casting" =&gt; casting class to use (i.e., Varchar, HTMLText, etc)</token>
+  </line>
+  <line no="32">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="33">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STATIC">static</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">get_template_global_variables</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="34">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="35"/>
+  <line no="36"/>
+</source>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleHttpResponse" namespace="" name="SimpleHttpResponse" abstract="false" final="false" start="481" end="623">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="http.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/http.php" size="19269" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="938602ec5a9aec6e2eeea863aa271d7c5c3297b9" relative="framework/thirdparty/simpletest/http.php"/>
+  <docblock>
+    <description compact="Basic HTTP response.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <extends full="SimpleStickyError" namespace="" name="SimpleStickyError"/>
+  <member name="_url" type="{unknown}" visibility="public" line="482"/>
+  <member name="_encoding" type="{unknown}" visibility="public" line="483"/>
+  <member name="_sent" type="{unknown}" visibility="public" line="484"/>
+  <member name="_content" type="{unknown}" visibility="public" line="485"/>
+  <member name="_headers" type="{unknown}" visibility="public" line="486"/>
+  <method name="SimpleHttpResponse" start="497" end="509" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor. Reads and parses the incoming    content and headers.">@param SimpleSocket $socket   Network connection to fetch
+                                 response text from.
+   @param SimpleUrl $url         Resource name.
+   @param mixed $encoding        Record of content sent.
+   @access public</description>
+    </docblock>
+    <parameter name="socket" byreference="true" type="{unknown}"/>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="encoding" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_parse" start="516" end="527" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Splits up the headers and the rest of the content.">@param string $raw    Content to parse.
+   @access private</description>
+    </docblock>
+    <parameter name="raw" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMethod" start="534" end="536" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Original request method.">@return string        GET, POST or HEAD.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getUrl" start="543" end="545" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Resource name.">@return SimpleUrl        Current url.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getRequestData" start="552" end="554" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Original request data.">@return mixed              Sent content.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getSent" start="561" end="563" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Raw request that was sent down the wire.">@return string        Bytes actually sent.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getContent" start="571" end="573" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for the content after the last    header line.">@return string           All content.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getHeaders" start="581" end="583" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for header block. The response is the    combination of this and the content.">@return SimpleHeaders        Wrapped header block.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getNewCookies" start="590" end="592" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for any new cookies.">@return array       List of new cookies.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="_readAll" start="602" end="608" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reads the whole of the socket output into a    single string.">@param SimpleSocket $socket  Unread socket.
+   @return string               Raw output if successful
+                                else false.
+   @access private</description>
+    </docblock>
+    <parameter name="socket" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_isLastPacket" start="617" end="622" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test to see if the packet from the socket is the    last one.">@param string $packet    Chunk to interpret.
+   @return boolean          True if empty or EOF.
+   @access private</description>
+    </docblock>
+    <parameter name="packet" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="SimpleStickyError" namespace="" name="SimpleStickyError">
+    <member name="_error" type="string" default="'Constructor not chained'" visibility="public" line="22"/>
+    <method name="SimpleStickyError" start="28" end="30" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the error to empty.">@access public</description>
+      </docblock>
+    </method>
+    <method name="isError" start="37" end="39" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Test for an outstanding error.">@return boolean           True if there is an error.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="getError" start="47" end="49" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for an outstanding error.">@return string     Empty string if no error otherwise
+                      the error message.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="_setError" start="56" end="58" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the internal error.">@param string       Error message to stash.
+   @access protected</description>
+      </docblock>
+      <parameter name="error" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_clearError" start="64" end="66" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Resets the error state to no error.">@access protected</description>
+      </docblock>
+    </method>
+  </parent>
+</class>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - GridFieldAddExistingAutocompleter</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">GridFieldAddExistingAutocompleter</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/forms/gridfield/GridFieldAddExistingAutocompleter.php.xhtml#line21">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>GridFieldAddExistingAutocompleter</h1>
+        <h4>This class is is responsible for adding objects to another object's has_many and many_many relation, as defined by the {@link RelationList} passed to the {@link GridField} constructor.</h4>
+        <p>Objects can be searched through an input field (partially matching one or<br/>more fields).<br/>Selecting from the results will add the object to the relation.<br/>Often used alongside for detaching existing<br/>records from a relationship.<br/>For easier setup, have a look at a sample configuration in<br/>.<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class GridFieldAddExistingAutocompleter
+                implements
+                <a title="GridField_HTMLProvider" href="../interfaces/GridField_HTMLProvider.xhtml">GridField_HTMLProvider</a>,<a title="GridField_ActionProvider" href="../interfaces/GridField_ActionProvider.xhtml">GridField_ActionProvider</a>,<a title="GridField_DataManipulator" href="../interfaces/GridField_DataManipulator.xhtml">GridField_DataManipulator</a>,<a title="GridField_URLHandler" href="../interfaces/GridField_URLHandler.xhtml">GridField_URLHandler</a>
+            {<br/><ul class="none"><li>// members</li><li>protected string <a href="#members">$itemClass</a>;
+                    </li><li>protected <a href="#members">$targetFragment</a>;
+                    </li><li>protected <span title="SS_List">SS_List</span> <a href="#members">$searchList</a>;
+                    </li><li>protected <span title="Array">Array</span> <a href="#members">$searchFields</a>;
+                    </li><li>protected string <a href="#members">$resultsFormat</a>;
+                    </li><li>protected <span title="String">String</span> <a href="#members">$placeholderText</a>;
+                    </li><li>protected integer <a href="#members">$resultsLimit</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getHTMLFragments.xhtml">getHTMLFragments</a>()
+                    </li><li>public array <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getActions.xhtml">getActions</a>()
+                    </li><li>public string <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/handleAction.xhtml">handleAction</a>()
+                    </li><li>public SS_List <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getManipulatedData.xhtml">getManipulatedData</a>()
+                    </li><li>public array <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getURLHandlers.xhtml">getURLHandlers</a>()
+                    </li><li>public void <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/doSearch.xhtml">doSearch</a>()
+                    </li><li>public void <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setResultsFormat.xhtml">setResultsFormat</a>()
+                    </li><li>public String <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getResultsFormat.xhtml">getResultsFormat</a>()
+                    </li><li>public void <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setSearchList.xhtml">setSearchList</a>()
+                    </li><li>public void <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setSearchFields.xhtml">setSearchFields</a>()
+                    </li><li>public Array <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getSearchFields.xhtml">getSearchFields</a>()
+                    </li><li>public Array|null <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/scaffoldSearchFields.xhtml">scaffoldSearchFields</a>()
+                    </li><li>public String <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getPlaceholderText.xhtml">getPlaceholderText</a>()
+                    </li><li>public void <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setPlaceholderText.xhtml">setPlaceholderText</a>()
+                    </li><li>public int <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getResultsLimit.xhtml">getResultsLimit</a>()
+                    </li><li>public void <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setResultsLimit.xhtml">setResultsLimit</a>()
+                    </li><li>protected string <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/findSingleEntry.xhtml">findSingleEntry</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/GridField_HTMLProvider.xhtml">GridField_HTMLProvider</a>
+            </li>
+            <li>
+              <a href="../interfaces/GridField_ActionProvider.xhtml">GridField_ActionProvider</a>
+            </li>
+            <li>
+              <a href="../interfaces/GridField_DataManipulator.xhtml">GridField_DataManipulator</a>
+            </li>
+            <li>
+              <a href="../interfaces/GridField_URLHandler.xhtml">GridField_URLHandler</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="itemClass"><strong>$itemClass</strong>
+                —
+                string<br/><span class="indent">Which template to use for rendering</span></li>
+            <li id="placeholderText"><strong>$placeholderText</strong>
+                —
+                <a href="#">String</a></li>
+            <li id="resultsFormat"><strong>$resultsFormat</strong>
+                —
+                string</li>
+            <li id="resultsLimit"><strong>$resultsLimit</strong>
+                —
+                int</li>
+            <li id="searchFields"><strong>$searchFields</strong>
+                —
+                <a href="#">Array</a><br/><span class="indent">Define column names which should be included in the search.</span></li>
+            <li id="searchList"><strong>$searchList</strong>
+                —
+                <a href="#">SS_List</a></li>
+            <li id="targetFragment">
+              <strong>$targetFragment</strong>
+              <br/>
+              <span class="indent">The HTML fragment to write this component into</span>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="findSingleEntry"><a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/findSingleEntry.xhtml">findSingleEntry()</a>
+                — This will provide a StartsWith search that only returns a value if we are matching ONE object only. We wouldn't want to attach used any object to the list.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="doSearch"><a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/doSearch.xhtml">doSearch()</a>
+                — Returns a json array of a search results that can be used by for example Jquery.ui.autosuggestion</li>
+            <li id="getActions">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getActions.xhtml">getActions()</a>
+            </li>
+            <li id="getHTMLFragments">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getHTMLFragments.xhtml">getHTMLFragments()</a>
+            </li>
+            <li id="getManipulatedData"><a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getManipulatedData.xhtml">getManipulatedData()</a>
+                — If an object ID is set, add the object to the list</li>
+            <li id="getPlaceholderText">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getPlaceholderText.xhtml">getPlaceholderText()</a>
+            </li>
+            <li id="getResultsFormat">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getResultsFormat.xhtml">getResultsFormat()</a>
+            </li>
+            <li id="getResultsLimit"><a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getResultsLimit.xhtml">getResultsLimit()</a>
+                — Gets the maximum number of autocomplete results to display.</li>
+            <li id="getSearchFields">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getSearchFields.xhtml">getSearchFields()</a>
+            </li>
+            <li id="getURLHandlers">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/getURLHandlers.xhtml">getURLHandlers()</a>
+            </li>
+            <li id="handleAction"><a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/handleAction.xhtml">handleAction()</a>
+                — Manipulate the state to either add a new relation, or doing a small search</li>
+            <li id="scaffoldSearchFields"><a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/scaffoldSearchFields.xhtml">scaffoldSearchFields()</a>
+                — Detect searchable fields and searchable relations.</li>
+            <li id="setPlaceholderText">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setPlaceholderText.xhtml">setPlaceholderText()</a>
+            </li>
+            <li id="setResultsFormat">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setResultsFormat.xhtml">setResultsFormat()</a>
+            </li>
+            <li id="setResultsLimit">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setResultsLimit.xhtml">setResultsLimit()</a>
+            </li>
+            <li id="setSearchFields">
+              <a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setSearchFields.xhtml">setSearchFields()</a>
+            </li>
+            <li id="setSearchList"><a title="GridFieldAddExistingAutocompleter" href="../classes/GridFieldAddExistingAutocompleter/setSearchList.xhtml">setSearchList()</a>
+                — Sets the base list instance which will be used for the autocomplete search.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

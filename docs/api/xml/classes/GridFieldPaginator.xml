@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldPaginator" namespace="" name="GridFieldPaginator" abstract="false" final="false" start="9" end="273">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldPaginator.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldPaginator.php" size="8449" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="c43f759a370d7ce9660da3517bffc51f1891cfdf" relative="framework/forms/gridfield/GridFieldPaginator.php"/>
+  <docblock>
+    <description compact="GridFieldPaginator paginates the {@link GridField} list and adds controls to the bottom of the {@link GridField}."/>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <implements full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider"/>
+  <implements full="GridField_DataManipulator" namespace="" name="GridField_DataManipulator"/>
+  <implements full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider"/>
+  <member name="default_items_per_page" type="integer" default="15" visibility="private" line="17">
+    <docblock>
+      <description compact="Specifies default items per page"/>
+      <config/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="itemsPerPage" type="{unknown}" visibility="protected" line="22">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="itemClass" type="string" default="'GridFieldPaginator_Row'" visibility="protected" line="29">
+    <docblock>
+      <description compact="Which template to use for rendering"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="throwExceptionOnBadDataType" type="{unknown}" default="true" visibility="protected" line="34">
+    <docblock>
+      <description compact="See {@link setThrowExceptionOnBadDataType()}"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="40" end="43" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="- How many items should be displayed per page" type="int" variable="$itemsPerPage"/>
+    </docblock>
+    <parameter name="itemsPerPage" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="setThrowExceptionOnBadDataType" start="54" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determine what happens when this component is used with a list that isn't {@link SS_Filterable}.">- true: An exception is thrown
+ - false: This component will be ignored - it won't make any changes to the GridField.
+
+By default, this is set to true so that it's clearer what's happening, but the predefined
+{@link GridFieldConfig} subclasses set this to false for flexibility.</description>
+    </docblock>
+    <parameter name="throwExceptionOnBadDataType" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getThrowExceptionOnBadDataType" start="61" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="See {@link setThrowExceptionOnBadDataType()}"/>
+    </docblock>
+  </method>
+  <method name="checkDataType" start="69" end="79" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Check that this dataList is of the right data type.">Returns false if it's a bad data type, and if appropriate, throws an exception.</description>
+    </docblock>
+    <parameter name="dataList" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getActions" start="86" end="90" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handleAction" start="100" end="108" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="string" variable="$actionName"/>
+      <param type="string" variable="$arguments"/>
+      <param type="array" variable="$data"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="actionName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <member name="totalItems" type="integer" default="0" visibility="protected" line="110"/>
+  <method name="getGridPagerState" start="118" end="125" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Retrieves/Sets up the state object used to store and retrieve information about the current paging details of this GridField"/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="object">
+        <type full="GridState_Data" namespace="" name="GridState_Data"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <inline>
+      <comment value="Force the state to the initial page if none is set" line="121"/>
+    </inline>
+  </method>
+  <method name="getManipulatedData" start="133" end="148" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param type="object" variable="$dataList">
+        <type full="SS_List" namespace="" name="SS_List"/>
+      </param>
+      <return type="object">
+        <type full="SS_List" namespace="" name="SS_List"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="dataList" byreference="false" type="object">
+      <type full="\\SS_List" namespace="\" name="SS_List"/>
+    </parameter>
+    <inline>
+      <comment value="Update item count prior to filter. GridFieldPageCount will rely on this value" line="139"/>
+    </inline>
+  </method>
+  <method name="getTemplateParameters" start="167" end="240" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Determines arguments to be passed to the template for building this field"/>
+      <return description="If paging is available this will be an ArrayData" type="object">object of paging details with these parameters:
+&lt;ul&gt;
+&lt;li&gt;OnlyOnePage:				boolean - Is there only one page?&lt;/li&gt;
+ &lt;li&gt;FirstShownRecord:			integer - Number of the first record displayed&lt;/li&gt;
+ &lt;li&gt;LastShownRecord:			integer - Number of the last record displayed&lt;/li&gt;
+ &lt;li&gt;NumRecords:					integer - Total number of records&lt;/li&gt;
+&lt;li&gt;NumPages:					integer - The number of pages&lt;/li&gt;
+&lt;li&gt;CurrentPageNum (optional):	integer - If OnlyOnePage is false, the number of the current page&lt;/li&gt;
+ &lt;li&gt;FirstPage (optional):		GridField_FormAction - Button to go to the first page&lt;/li&gt;
+&lt;li&gt;PreviousPage (optional):	GridField_FormAction - Button to go to the previous page&lt;/li&gt;
+&lt;li&gt;NextPage (optional):		GridField_FormAction - Button to go to the next page&lt;/li&gt;
+&lt;li&gt;LastPage (optional):		GridField_FormAction - Button to go to last page&lt;/li&gt;
+&lt;/ul&gt;<type full="ArrayData|null" namespace="" name="ArrayData|null"/></return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <inline>
+      <comment value="Figure out which page and record range we're on" line="172"/>
+      <comment value="If there is only 1 page for all the records in list, we don't need to go further" line="186"/>
+      <comment value="to sort out those first page, last page, pre and next pages, etc" line="187"/>
+      <comment value="we are not render those in to the paginator." line="188"/>
+    </inline>
+  </method>
+  <method name="getHTMLFragments" start="247" end="256" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$gridField">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setItemsPerPage" start="261" end="264" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </param>
+    </docblock>
+    <parameter name="num" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getItemsPerPage" start="269" end="271" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </return>
+    </docblock>
+  </method>
+  <interface full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getHTMLFragments" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a map where the keys are fragment names and the values are pieces of HTML to add to these fragments.">Here are 4 built-in fragments: 'header', 'footer', 'before', and
+'after', but components may also specify fragments of their own.
+To specify a new fragment, specify a new fragment by including the
+text "$DefineFragment(fragmentname)" in the HTML that you return.
+Fragment names should only contain alphanumerics, -, and _.
+If you attempt to return HTML for a fragment that doesn't exist, an
+exception will be thrown when the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> is rendered.
+</description>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="GridField_DataManipulator" namespace="" name="GridField_DataManipulator">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getManipulatedData" start="166" end="166" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Manipulate the {@link DataList} as needed by this grid modifier."/>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param type="object">
+          <type full="SS_List" namespace="" name="SS_List"/>
+        </param>
+        <return type="object">
+          <type full="DataList" namespace="" name="DataList"/>
+        </return>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="object">
+        <type full="\\GridField" namespace="\" name="GridField"/>
+      </parameter>
+      <parameter name="dataList" byreference="false" type="object">
+        <type full="\\SS_List" namespace="\" name="SS_List"/>
+      </parameter>
+    </method>
+  </interface>
+  <interface full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getActions" start="129" end="129" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return a list of the actions handled by this action provider.">Used to identify the action later on through the $actionName parameter
+in <link xmlns="http://xml.phpdox.net/src" value="handleAction"/>.
+There is no namespacing on these actions, so you need to ensure that
+they don't conflict with other components.
+</description>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <return description="with action identifier strings." type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </return>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="handleAction" start="142" end="142" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Handle an action on the given {@link GridField}.">Calls ALL components for every action handled, so the component needs
+to ensure it only accepts actions it is actually supposed to handle.</description>
+        <param type="object">
+          <type full="GridField" namespace="" name="GridField"/>
+        </param>
+        <param description="Action identifier, see {@link getActions()}." type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <param description="Arguments relevant for this" type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </param>
+        <param description="All form data" type="object">
+          <type full="Array" namespace="" name="Array"/>
+        </param>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="object">
+        <type full="\\GridField" namespace="\" name="GridField"/>
+      </parameter>
+      <parameter name="actionName" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleEncodedPair" namespace="" name="SimpleEncodedPair" abstract="false" final="false" start="20" end="82">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="encoding.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/encoding.php" size="14740" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="96549781f8d4a973b53ff223129315e4558390a6" relative="framework/thirdparty/simpletest/encoding.php"/>
+  <docblock>
+    <description compact="Single post parameter.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <member name="_key" type="{unknown}" visibility="public" line="21"/>
+  <member name="_value" type="{unknown}" visibility="public" line="22"/>
+  <method name="SimpleEncodedPair" start="29" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Stashes the data for rendering later.">@param string $key       Form element name.
+   @param string $value     Data to send.</description>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asRequest" start="39" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The pair as a single string.">@return string        Encoded pair.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="asMime" start="48" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The MIME part as a string.">@return string        MIME part encoding.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="isKey" start="61" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is this the value we are looking for?    @param string $key    Identifier.">@return boolean       True if matched.
+   @access public</description>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getKey" start="70" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is this the value we are looking for?    @return string       Identifier.">@access public</description>
+    </docblock>
+  </method>
+  <method name="getValue" start="79" end="81" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Is this the value we are looking for?    @return string       Content.">@access public</description>
+    </docblock>
+  </method>
+</class>

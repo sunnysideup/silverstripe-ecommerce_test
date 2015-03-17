@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleSocket" namespace="" name="SimpleSocket" abstract="false" final="false" start="74" end="183">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="socket.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/socket.php" size="6310" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="519b3bb2df32102d2d8a470f2d4f8b359d12850d" relative="framework/thirdparty/simpletest/socket.php"/>
+  <docblock>
+    <description compact="Wrapper for TCP/IP socket.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <extends full="SimpleStickyError" namespace="" name="SimpleStickyError"/>
+  <member name="_handle" type="{unknown}" visibility="public" line="75"/>
+  <member name="_is_open" type="{unknown}" default="false" visibility="public" line="76"/>
+  <member name="_sent" type="string" default="''" visibility="public" line="77"/>
+  <member name="lock_size" type="{unknown}" visibility="public" line="78"/>
+  <method name="SimpleSocket" start="88" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Opens a socket for reading and writing.">@param string $host          Hostname to send request to.
+   @param integer $port         Port on remote machine to open.
+   @param integer $timeout      Connection timeout in seconds.
+   @param integer $block_size   Size of chunk to read.
+   @access public</description>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="{unknown}"/>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+    <parameter name="block_size" byreference="false" type="integer" default="255"/>
+  </method>
+  <method name="write" start="105" end="120" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes some data to the socket and saves alocal copy.">@param string $message       String to send to socket.
+   @return boolean              True if successful.
+   @access public</description>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="read" start="130" end="140" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reads data from the socket. The error suppresion    is a workaround for PHP4 always throwing a warning    with a secure socket.">@return integer/boolean           Incoming bytes. False
+                                    on error.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="isOpen" start="147" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for socket open state.">@return boolean           True if open.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="close" start="157" end="160" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Closes the socket preventing further reads.">Cannot be reopened once closed.
+   @return boolean           True if successful.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getSent" start="167" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for content so far.">@return string        Bytes sent only.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="_openSocket" start="180" end="182" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Actually opens the low level socket.">@param string $host          Host to connect to.
+   @param integer $port         Port on host.
+   @param integer $error_number Recipient of error code.
+   @param string $error         Recipoent of error message.
+   @param integer $timeout      Maximum time to wait for connection.
+   @access protected</description>
+    </docblock>
+    <parameter name="host" byreference="false" type="{unknown}"/>
+    <parameter name="port" byreference="false" type="{unknown}"/>
+    <parameter name="error_number" byreference="true" type="{unknown}"/>
+    <parameter name="error" byreference="true" type="{unknown}"/>
+    <parameter name="timeout" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="SimpleStickyError" namespace="" name="SimpleStickyError">
+    <member name="_error" type="string" default="'Constructor not chained'" visibility="public" line="22"/>
+    <method name="SimpleStickyError" start="28" end="30" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the error to empty.">@access public</description>
+      </docblock>
+    </method>
+    <method name="isError" start="37" end="39" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Test for an outstanding error.">@return boolean           True if there is an error.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="getError" start="47" end="49" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Accessor for an outstanding error.">@return string     Empty string if no error otherwise
+                      the error message.
+   @access public</description>
+      </docblock>
+    </method>
+    <method name="_setError" start="56" end="58" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the internal error.">@param string       Error message to stash.
+   @access protected</description>
+      </docblock>
+      <parameter name="error" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_clearError" start="64" end="66" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Resets the error state to no error.">@access protected</description>
+      </docblock>
+    </method>
+  </parent>
+  <extender full="SimpleSecureSocket" namespace="" name="SimpleSecureSocket"/>
+</class>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_Map</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_Map</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/model/Map.php.xhtml#line9">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_Map</h1>
+        <h4>Creates a map from an SS_List by defining a key column and a value column.</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_Map
+                implements
+                <a title="ArrayAccess" href="../interfaces/ArrayAccess.xhtml">ArrayAccess</a>,<a title="Countable" href="../interfaces/Countable.xhtml">Countable</a>,<a title="IteratorAggregate" href="../interfaces/IteratorAggregate.xhtml">IteratorAggregate</a>
+            {<br/><ul class="none"><li>// members</li><li>protected <a href="#members">$list</a>;
+                    </li><li>protected array <a href="#members">$firstItems</a>;
+                    </li><li>protected array <a href="#members">$lastItems</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SS_Map" href="../classes/SS_Map/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="SS_Map" href="../classes/SS_Map/setKeyField.xhtml">setKeyField</a>()
+                    </li><li>public void <a title="SS_Map" href="../classes/SS_Map/setValueField.xhtml">setValueField</a>()
+                    </li><li>public array <a title="SS_Map" href="../classes/SS_Map/toArray.xhtml">toArray</a>()
+                    </li><li>public array <a title="SS_Map" href="../classes/SS_Map/keys.xhtml">keys</a>()
+                    </li><li>public array <a title="SS_Map" href="../classes/SS_Map/values.xhtml">values</a>()
+                    </li><li>public void <a title="SS_Map" href="../classes/SS_Map/unshift.xhtml">unshift</a>()
+                    </li><li>public void <a title="SS_Map" href="../classes/SS_Map/push.xhtml">push</a>()
+                    </li><li>public boolean <a title="SS_Map" href="../classes/SS_Map/offsetExists.xhtml">offsetExists</a>()
+                    </li><li>public mixed <a title="SS_Map" href="../classes/SS_Map/offsetGet.xhtml">offsetGet</a>()
+                    </li><li>public void <a title="SS_Map" href="../classes/SS_Map/offsetSet.xhtml">offsetSet</a>()
+                    </li><li>public void <a title="SS_Map" href="../classes/SS_Map/offsetUnset.xhtml">offsetUnset</a>()
+                    </li><li>public SS_Map_Iterator <a title="SS_Map" href="../classes/SS_Map/getIterator.xhtml">getIterator</a>()
+                    </li><li>public int <a title="SS_Map" href="../classes/SS_Map/count.xhtml">count</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/ArrayAccess.xhtml">ArrayAccess</a>
+            </li>
+            <li>
+              <a href="../interfaces/Countable.xhtml">Countable</a>
+            </li>
+            <li>
+              <a href="../interfaces/IteratorAggregate.xhtml">IteratorAggregate</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="firstItems"><strong>$firstItems</strong>
+                —
+                array</li>
+            <li id="lastItems"><strong>$lastItems</strong>
+                —
+                array</li>
+            <li id="list">
+              <strong>$list</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="SS_Map" href="../classes/SS_Map/__construct.xhtml">__construct()</a>
+                — Construct a new map around an SS_list.</li>
+            <li id="count"><a title="SS_Map" href="../classes/SS_Map/count.xhtml">count()</a>
+                — Returns the count of items in the list including the additional items set through {@link SS_Map::push()} and {@link SS_Map::unshift}.</li>
+            <li id="getIterator"><a title="SS_Map" href="../classes/SS_Map/getIterator.xhtml">getIterator()</a>
+                — Returns an SS_Map_Iterator instance for iterating over the complete set of items in the map.</li>
+            <li id="keys"><a title="SS_Map" href="../classes/SS_Map/keys.xhtml">keys()</a>
+                — Return all the keys of this map.</li>
+            <li id="offsetExists">
+              <a title="SS_Map" href="../classes/SS_Map/offsetExists.xhtml">offsetExists()</a>
+            </li>
+            <li id="offsetGet">
+              <a title="SS_Map" href="../classes/SS_Map/offsetGet.xhtml">offsetGet()</a>
+            </li>
+            <li id="offsetSet"><a title="SS_Map" href="../classes/SS_Map/offsetSet.xhtml">offsetSet()</a>
+                — Sets a value in the map by a given key that has been set via {@link SS_Map::push()} or {@link SS_Map::unshift()}</li>
+            <li id="offsetUnset"><a title="SS_Map" href="../classes/SS_Map/offsetUnset.xhtml">offsetUnset()</a>
+                — Removes a value in the map by a given key which has been added to the map via {@link SS_Map::push()} or {@link SS_Map::unshift()}</li>
+            <li id="push"><a title="SS_Map" href="../classes/SS_Map/push.xhtml">push()</a>
+                — Pushes an item onto the end of the map.</li>
+            <li id="setKeyField"><a title="SS_Map" href="../classes/SS_Map/setKeyField.xhtml">setKeyField()</a>
+                — Set the key field for this map.</li>
+            <li id="setValueField"><a title="SS_Map" href="../classes/SS_Map/setValueField.xhtml">setValueField()</a>
+                — Set the value field for this map.</li>
+            <li id="toArray"><a title="SS_Map" href="../classes/SS_Map/toArray.xhtml">toArray()</a>
+                — Return an array equivalent to this map.</li>
+            <li id="unshift"><a title="SS_Map" href="../classes/SS_Map/unshift.xhtml">unshift()</a>
+                — Unshift an item onto the start of the map.</li>
+            <li id="values"><a title="SS_Map" href="../classes/SS_Map/values.xhtml">values()</a>
+                — Return all the values of this map.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

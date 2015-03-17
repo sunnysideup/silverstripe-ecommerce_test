@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_ConfigStaticManifest_Parser</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_ConfigStaticManifest_Parser</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/core/manifest/ConfigStaticManifest.php.xhtml#line158">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_ConfigStaticManifest_Parser</h1>
+        <h4>A parser that processes a PHP file, using PHP's built in parser to get a string of tokens, then processing them to find the static class variables, their access levels &amp; values</h4>
+        <p>We can't do this using TokenisedRegularExpression because we need to keep track of state<br/>as we process the token list (when we enter and leave a namespace or class, when we see<br/>an access level keyword, etc)</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_ConfigStaticManifest_Parser
+            {<br/><ul class="none"><li>// members</li><li>protected array <a href="#members">$info</a>;
+                    </li><li>protected array <a href="#members">$statics</a>;
+                    </li><li>protected <a href="#members">$path</a>;
+                    </li><li>protected <a href="#members">$tokens</a>;
+                    </li><li>protected <a href="#members">$length</a>;
+                    </li><li>protected <a href="#members">$pos</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/getInfo.xhtml">getInfo</a>()
+                    </li><li>public void <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/getStatics.xhtml">getStatics</a>()
+                    </li><li>protected null <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/next.xhtml">next</a>()
+                    </li><li>protected null|string <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/nextString.xhtml">nextString</a>()
+                    </li><li>public void <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/parse.xhtml">parse</a>()
+                    </li><li>public void <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/parseStatic.xhtml">parseStatic</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/ConfigStaticManifestTest_Parser.xhtml">ConfigStaticManifestTest_Parser</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="info">
+              <strong>$info</strong>
+            </li>
+            <li id="length">
+              <strong>$length</strong>
+            </li>
+            <li id="path">
+              <strong>$path</strong>
+            </li>
+            <li id="pos">
+              <strong>$pos</strong>
+            </li>
+            <li id="statics">
+              <strong>$statics</strong>
+            </li>
+            <li id="tokens">
+              <strong>$tokens</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="next"><a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/next.xhtml">next()</a>
+                — Get the next token to process, incrementing the pointer</li>
+            <li id="nextString"><a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/nextString.xhtml">nextString()</a>
+                — Get the next set of tokens that form a string to process, incrementing the pointer</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="getInfo">
+              <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/getInfo.xhtml">getInfo()</a>
+            </li>
+            <li id="getStatics">
+              <a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/getStatics.xhtml">getStatics()</a>
+            </li>
+            <li id="parse"><a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/parse.xhtml">parse()</a>
+                — Parse the given file to find the static variables declared in it, along with their access &amp; values</li>
+            <li id="parseStatic"><a title="SS_ConfigStaticManifest_Parser" href="../classes/SS_ConfigStaticManifest_Parser/parseStatic.xhtml">parseStatic()</a>
+                — During parsing we've found a "static" keyword. Parse out the variable names and value assignments that follow.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

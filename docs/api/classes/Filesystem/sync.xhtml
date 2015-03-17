@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Filesystem" href="../../classes/Filesystem.xhtml">Filesystem</a>
+          </li>
+          <li class="separator">sync</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="../../source/framework/filesystem/Filesystem.php.xhtml#line160">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Filesystem::</small>sync</h1>
+        <h4>This function ensures the file table is correct with the files in the assets folder.</h4>
+        <p>If a Folder record ID is given, all of that folder's children will be synchronised.
+If the given Folder ID isn't found, or not specified at all, then everything will
+be synchronised from the root folder (singleton Folder).
+See  to sync properties of a single database record
+back to the equivalent filesystem record.
+</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function sync([int
+        $folderID = null,
+            [<a title="Boolean" href="../../classes/Boolean.xhtml">Boolean</a>
+        $syncLinkTracking = true]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$folderID</code>
+                —
+                int</dt>
+          <dd>Folder ID to sync along with all it's children</dd>
+          <dt><code>$syncLinkTracking</code>
+                —
+                object</dt>
+          <dd>Determines if the link tracking data should also<br/>be updated via . Setting this to FALSE<br/>means that broken links inside page content are not noticed, at least until the next<br/>call to on this page.<br/></dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>string</dt>
+          <dd>Localized status message</dd>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

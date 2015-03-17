@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="SS_List" namespace="" name="SS_List" abstract="false" final="false" start="8" end="88">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/model" file="List.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/model/List.php" size="1664" time="2015-03-14T10:40:57+13:00" unixtime="1426282857" sha1="b181cd047da48c8ba6cd26dd73c7b708dbedcb42" relative="framework/model/List.php"/>
+  <docblock>
+    <description compact="An interface that a class can implement to be treated as a list container."/>
+    <package value="framework"/>
+    <subpackage value="model"/>
+  </docblock>
+  <extends full="ArrayAccess" namespace="" name="ArrayAccess"/>
+  <extends full="Countable" namespace="" name="Countable"/>
+  <extends full="IteratorAggregate" namespace="" name="IteratorAggregate"/>
+  <method name="toArray" start="15" end="15" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns all the items in the list in an array."/>
+      <return type="object">
+        <type full="arary" namespace="" name="arary"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="toNestedArray" start="22" end="22" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the contents of the list as an array of maps."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="add" start="30" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an item to the list, making no guarantees about where it will appear."/>
+      <param type="mixed" variable="$item"/>
+    </docblock>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="remove" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Removes an item from the list."/>
+      <param type="mixed" variable="$item"/>
+    </docblock>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="first" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the first item in the list."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="last" start="51" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the last item in the list."/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="map" start="61" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a map of a key field to a value field of all the items in the list."/>
+      <param type="string" variable="$keyfield"/>
+      <param type="string" variable="$titlefield"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="keyfield" byreference="false" type="string" default="'ID'"/>
+    <parameter name="titlefield" byreference="false" type="string" default="'Title'"/>
+  </method>
+  <method name="find" start="71" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the first item in the list where the key field is equal to the value."/>
+      <param type="string" variable="$key"/>
+      <param type="mixed" variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="column" start="79" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns an array of a single field value for all items in the list."/>
+      <param type="string" variable="$colName"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="colName" byreference="false" type="string" default="&quot;ID&quot;"/>
+  </method>
+  <method name="each" start="87" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Walks the list using the specified callback"/>
+      <param type="object" variable="$callback">
+        <type full="callable" namespace="" name="callable"/>
+      </param>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="callback" byreference="false" type="{unknown}"/>
+  </method>
+  <implementor full="PaginatedList" namespace="" name="PaginatedList"/>
+  <implementor full="Member_GroupSet" namespace="" name="Member_GroupSet"/>
+  <implementor full="DataList" namespace="" name="DataList"/>
+  <parent full="ArrayAccess" namespace="" name="ArrayAccess">
+    <method name="offsetExists" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Whether a offset exists">Whether or not an offset exists.</description>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+    <method name="offsetGet" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Offset to retrieve">Returns the value at specified offset.</description>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+    <method name="offsetSet" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Offset to set"/>
+      <return type="void"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+    <parameter name="value" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+    <method name="offsetUnset" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Offset to unset">Unsets an offset.</description>
+      <return type="void"/>
+    </docblock>
+    <parameter name="offset" optional="false" byreference="false" type="object" class="mixed"/>
+  </method>
+  </parent>
+  <parent full="Countable" namespace="" name="Countable">
+    <method name="count" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Count elements of an object"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  </parent>
+  <parent full="IteratorAggregate" namespace="" name="IteratorAggregate">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="getIterator" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Retrieve an external iterator"/>
+      <return type="Traversable"/>
+    </docblock>
+  </method>
+  </parent>
+  <parent full="Traversable" namespace="" name="Traversable"/>
+  <implementor full="GroupedList" namespace="" name="GroupedList"/>
+  <implementor full="ManyManyList" namespace="" name="ManyManyList"/>
+  <implementor full="HasManyList" namespace="" name="HasManyList"/>
+  <implementor full="RelationList" namespace="" name="RelationList"/>
+  <implementor full="UnsavedRelationList" namespace="" name="UnsavedRelationList"/>
+  <implementor full="ArrayList" namespace="" name="ArrayList"/>
+  <implementor full="SS_ListDecorator" namespace="" name="SS_ListDecorator"/>
+  <implementor full="FieldList" namespace="" name="FieldList"/>
+</interface>

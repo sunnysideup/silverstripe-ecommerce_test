@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Config_ForClass" namespace="" name="Config_ForClass" abstract="false" final="false" start="794" end="841">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/core" file="Config.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/core/Config.php" size="25724" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="66347d587c6907fdc82e8257db4b3586280dae60" relative="framework/core/Config.php"/>
+  <docblock>
+    <description/>
+    <package value="framework"/>
+    <subpackage value="core"/>
+  </docblock>
+  <member name="class" type="{unknown}" visibility="protected" line="799">
+    <docblock>
+      <description/>
+      <var description="$class" type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="804" end="806" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$class"/>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="__get" start="811" end="813" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="__set" start="819" end="821" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="mixed" variable="$val"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="val" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="829" end="831" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string" variable="$name"/>
+      <param type="int" variable="$sourceOptions"/>
+      <return type="object">
+        <type full="array|scalar" namespace="" name="array|scalar"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="sourceOptions" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="forClass" start="838" end="840" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="string"/>
+      <return type="object">
+        <type full="Config_ForClass" namespace="" name="Config_ForClass"/>
+      </return>
+    </docblock>
+    <parameter name="class" byreference="false" type="{unknown}"/>
+  </method>
+</class>

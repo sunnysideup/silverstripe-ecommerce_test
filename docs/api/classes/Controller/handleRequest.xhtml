@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Controller" href="../../classes/Controller.xhtml">Controller</a>
+          </li>
+          <li class="separator">handleRequest</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="#overrides">Overrides</a>
+          </li>
+          <li>
+            <a href="../../source/framework/control/Controller.php.xhtml#line126">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Controller::</small>handleRequest</h1>
+        <h4>Executes this controller, and return an {@link SS_HTTPResponse} object with the result.</h4>
+        <p>This method first does a few set-up activities:
+ - Push this controller ont to the controller stack -
+   see  for information about this.
+ - Call  - Defer to  to determine which action
+   should be executed
+Note: $requestParams['executeForm'] support was removed,
+make the following change in your URLs:
+"/?executeForm=FooBar" -&gt; "/FooBar"
+Also make sure "FooBar" is in the $allowed_actions of your controller class.
+Note: You should rarely need to overload run() -
+this kind of change is only really appropriate for things like nested
+controllers -  and are two examples here.  If you want to make more
+orthodox functionality, it's better to overload  or .
+Important: If you are going to overload handleRequest,
+make sure that you start the method with $this-&gt;pushCurrent()
+and end the method with $this-&gt;popCurrent().
+Failure to do this will create weird session errors.
+</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function handleRequest(<a title="\\SS_HTTPRequest" href="../../classes/__SS_HTTPRequest.xhtml">SS_HTTPRequest</a>
+        $request,
+            <a title="\\DataModel" href="../../classes/__DataModel.xhtml">DataModel</a>
+        $model )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$request</code>
+                —
+                <a href="#">The</a></dt>
+          <dd>{@link SS_HTTPRequest} object that is responsible<br/>for distributing request parsing.</dd>
+          <dt><code>$model</code>
+                —
+                <a href="#"/></dt>
+          <dd/>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>SS_HTTPResponse</dt>
+          <dd>The response that this controller produces,<br/>including HTTP headers such as redirection info</dd>
+        </dl>
+        <h2 id="overrides">Parent Implementation</h2>
+        <ul class="styled">
+          <li>
+            <code>
+              <a title="RequestHandler" href="../../classes/RequestHandler/handleRequest.xhtml">RequestHandler</a>
+            </code>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

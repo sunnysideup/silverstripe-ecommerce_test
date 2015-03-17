@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Moxiecode_Logger" namespace="" name="Moxiecode_Logger" abstract="false" final="false" start="21" end="266">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/tinymce-spellchecker/classes/utils" file="Logger.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/tinymce-spellchecker/classes/utils/Logger.php" size="5733" time="2015-03-14T10:41:59+13:00" unixtime="1426282919" sha1="a62f925c556af5b5e27922cd182c1c13906095bc" relative="framework/thirdparty/tinymce-spellchecker/classes/utils/Logger.php"/>
+  <docblock>
+    <description compact="Logging utility class. This class handles basic logging with levels, log rotation and custom log formats. It's designed to be compact but still powerful and flexible."/>
+  </docblock>
+  <member name="_path" type="{unknown}" visibility="public" line="23"/>
+  <member name="_filename" type="{unknown}" visibility="public" line="24"/>
+  <member name="_maxSize" type="{unknown}" visibility="public" line="25"/>
+  <member name="_maxFiles" type="{unknown}" visibility="public" line="26"/>
+  <member name="_maxSizeBytes" type="{unknown}" visibility="public" line="27"/>
+  <member name="_level" type="{unknown}" visibility="public" line="28"/>
+  <member name="_format" type="{unknown}" visibility="public" line="29"/>
+  <method name="Moxiecode_Logger" start="34" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs a new logger instance."/>
+    </docblock>
+  </method>
+  <method name="setLevel" start="48" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the current log level, use the MC_LOGGER constants."/>
+      <param description="Log level instance for example MC_LOGGER_DEBUG." type="int" variable="$level"/>
+    </docblock>
+    <parameter name="level" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getLevel" start="85" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the current log level for example MC_LOGGER_DEBUG."/>
+      <return description="Current log level for example MC_LOGGER_DEBUG." type="int"/>
+    </docblock>
+  </method>
+  <method name="setPath" start="89" end="91" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getPath" start="93" end="95" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setFileName" start="97" end="99" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="file_name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFileName" start="101" end="103" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setFormat" start="105" end="107" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="format" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFormat" start="109" end="111" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setMaxSize" start="113" end="127" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="size" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Fix log max size" line="114"/>
+      <comment value="Is KB" line="117"/>
+      <comment value="Is MB" line="121"/>
+    </inline>
+  </method>
+  <method name="getMaxSize" start="129" end="131" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="setMaxFiles" start="133" end="135" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="max_files" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getMaxFiles" start="137" end="139" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="debug" start="141" end="144" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="info" start="146" end="149" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="warn" start="151" end="154" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="error" start="156" end="159" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fatal" start="161" end="164" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="msg" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isDebugEnabled" start="166" end="168" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isInfoEnabled" start="170" end="172" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isWarnEnabled" start="174" end="176" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isErrorEnabled" start="178" end="180" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isFatalEnabled" start="182" end="184" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="_logMsg" start="186" end="256" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="level" byreference="false" type="{unknown}"/>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Check filesize" line="224"/>
+      <comment value="Roll if the size is right" line="232"/>
+      <comment value="Delete last logfile" line="244"/>
+      <comment value="Append log line" line="250"/>
+    </inline>
+  </method>
+  <method name="toOSPath" start="263" end="265" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Converts a Unix path to OS specific path."/>
+      <param description="Unix path to convert." type="object" variable="$path">
+        <type full="String" namespace="" name="String"/>
+      </param>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+</class>

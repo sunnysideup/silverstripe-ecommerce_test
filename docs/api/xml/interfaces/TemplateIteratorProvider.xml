@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="TemplateIteratorProvider" namespace="" name="TemplateIteratorProvider" abstract="false" final="false" start="11" end="46">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/view" file="TemplateIteratorProvider.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/view/TemplateIteratorProvider.php" size="1909" time="2015-03-14T10:42:30+13:00" unixtime="1426282950" sha1="ee8d6ed1322ff5584304a6046f4eb62ae1ddff31" relative="framework/view/TemplateIteratorProvider.php"/>
+  <docblock>
+    <description compact="Interface that is implemented by any classes that want to expose a method that can be called in any scope in a template that returns values dependant on the state of the iterator of the current scope.">SSViewer_BasicIteratorSupport is an example of this. See also @TemplateGlobalProvider</description>
+    <package value="framework"/>
+    <subpackage value="core"/>
+  </docblock>
+  <method name="get_template_iterator_variables" start="33" end="33" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Called by SSViewer to get a list of iterator variables to expose to the template, the instance method to call on an instance of this class to get the value for those variables, and the class to use for casting the returned value for use in a template">If the method to call is not included for a particular template variable, a method named the same as the
+template variable will be called
+
+If the casting class is not specified for a particular template variable, ViewableData::$default_cast is used
+
+The first letter of the template variable is case-insensitive. However the method name is always case sensitive.</description>
+      <abstract/>
+      <return description="Returns an array of items. Each key =&gt; value pair is one of three forms:" type="array">- template name (no key)
+ - template name =&gt; method name
+ - template name =&gt; array(), where the array can contain these key =&gt; value pairs
+    - "method" =&gt; method name
+    - "casting" =&gt; casting class to use (i.e., Varchar, HTMLText, etc)</return>
+    </docblock>
+  </method>
+  <method name="iteratorProperties" start="45" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the current iterator properties - where we are on the iterator.">This is called by SSViewer prior to calling any of the variables exposed to the template (that is, as returned
+from a call to get_template_iterator_variables)</description>
+      <abstract/>
+      <param description="position in iterator" type="int" variable="$pos"/>
+      <param description="total number of items" type="int" variable="$totalItems"/>
+    </docblock>
+    <parameter name="pos" byreference="false" type="{unknown}"/>
+    <parameter name="totalItems" byreference="false" type="{unknown}"/>
+  </method>
+  <implementor full="SSViewer_BasicIteratorSupport" namespace="" name="SSViewer_BasicIteratorSupport"/>
+</interface>

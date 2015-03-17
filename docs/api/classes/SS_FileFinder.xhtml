@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_FileFinder</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_FileFinder</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/filesystem/FileFinder.php.xhtml#line30">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_FileFinder</h1>
+        <h4>A utility class that finds any files matching a set of rules that are present within a directory tree.</h4>
+        <p>Each file finder instance can have several options set on it:<br/>- name_regex (string): A regular expression that file basenames must match.<br/>- accept_callback (callback): A callback that is called to accept a file.<br/>If it returns false the item will be skipped. The callback is passed the<br/>basename, pathname and depth.<br/>- accept_dir_callback (callback): The same as accept_callback, but only<br/>called for directories.<br/>- accept_file_callback (callback): The same as accept_callback, but only<br/>called for files.<br/>- file_callback (callback): A callback that is called when a file i<br/>succesfully matched. It is passed the basename, pathname and depth.<br/>- dir_callback (callback): The same as file_callback, but called for<br/>directories.<br/>- ignore_files (array): An array of file names to skip.<br/>- ignore_dirs (array): An array of directory names to skip.<br/>- ignore_vcs (bool): Skip over commonly used VCS dirs (svn, git, hg, bzr).<br/>This is enabled by default. The names of VCS directories to skip over<br/>are defined in .<br/>- max_depth (int): The maxmium depth to traverse down the folder tree,<br/>default to unlimited.<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_FileFinder
+            {<br/><ul class="none"><li>// members</li><li>protected array <a href="#members">$vcs_dirs</a>;
+                    </li><li>protected array <a href="#members">$default_options</a>;
+                    </li><li>protected array <a href="#members">$options</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SS_FileFinder" href="../classes/SS_FileFinder/__construct.xhtml">__construct</a>()
+                    </li><li>public mixed <a title="SS_FileFinder" href="../classes/SS_FileFinder/getOption.xhtml">getOption</a>()
+                    </li><li>public void <a title="SS_FileFinder" href="../classes/SS_FileFinder/setOption.xhtml">setOption</a>()
+                    </li><li>public void <a title="SS_FileFinder" href="../classes/SS_FileFinder/setOptions.xhtml">setOptions</a>()
+                    </li><li>public array <a title="SS_FileFinder" href="../classes/SS_FileFinder/find.xhtml">find</a>()
+                    </li><li>protected bool <a title="SS_FileFinder" href="../classes/SS_FileFinder/acceptDir.xhtml">acceptDir</a>()
+                    </li><li>protected bool <a title="SS_FileFinder" href="../classes/SS_FileFinder/acceptFile.xhtml">acceptFile</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/ManifestFileFinder.xhtml">ManifestFileFinder</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="default_options"><strong>$default_options</strong>
+                —
+                array<br/><span class="indent">The default options that are set on a new finder instance. Options not present in this array cannot be set.</span></li>
+            <li id="options"><strong>$options</strong>
+                —
+                array</li>
+            <li id="vcs_dirs"><strong>$vcs_dirs</strong>
+                —
+                array</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="acceptDir"><a title="SS_FileFinder" href="../classes/SS_FileFinder/acceptDir.xhtml">acceptDir()</a>
+                — Returns TRUE if the directory should be traversed. This can be overloaded to customise functionality, or extended with callbacks.</li>
+            <li id="acceptFile"><a title="SS_FileFinder" href="../classes/SS_FileFinder/acceptFile.xhtml">acceptFile()</a>
+                — Returns TRUE if the file should be included in the results. This can be overloaded to customise functionality, or extended via callbacks.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="SS_FileFinder" href="../classes/SS_FileFinder/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="find"><a title="SS_FileFinder" href="../classes/SS_FileFinder/find.xhtml">find()</a>
+                — Finds all files matching the options within a directory. The search is performed depth first.</li>
+            <li id="getOption"><a title="SS_FileFinder" href="../classes/SS_FileFinder/getOption.xhtml">getOption()</a>
+                — Returns an option value set on this instance.</li>
+            <li id="setOption"><a title="SS_FileFinder" href="../classes/SS_FileFinder/setOption.xhtml">setOption()</a>
+                — Set an option on this finder instance. See {@link SS_FileFinder} for the list of options available.</li>
+            <li id="setOptions"><a title="SS_FileFinder" href="../classes/SS_FileFinder/setOptions.xhtml">setOptions()</a>
+                — Sets several options at once.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

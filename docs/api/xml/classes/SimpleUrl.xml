@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleUrl" namespace="" name="SimpleUrl" abstract="false" final="false" start="25" end="527">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="url.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/url.php" size="16625" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="c806835f34c2b2dddb28b05c2a455fda000af772" relative="framework/thirdparty/simpletest/url.php"/>
+  <docblock>
+    <description compact="URL parser to replace parse_url() PHP function which    got broken in PHP 4.3.0. Adds some browser specific    functionality such as expandomatics.">Guesses a bit trying to separate the host from
+   the path and tries to keep a raw, possibly unparsable,
+   request string as long as possible.
+   @package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <member name="_scheme" type="{unknown}" visibility="public" line="26"/>
+  <member name="_username" type="{unknown}" visibility="public" line="27"/>
+  <member name="_password" type="{unknown}" visibility="public" line="28"/>
+  <member name="_host" type="{unknown}" visibility="public" line="29"/>
+  <member name="_port" type="{unknown}" visibility="public" line="30"/>
+  <member name="_path" type="{unknown}" visibility="public" line="31"/>
+  <member name="_request" type="{unknown}" visibility="public" line="32"/>
+  <member name="_fragment" type="{unknown}" visibility="public" line="33"/>
+  <member name="_x" type="{unknown}" visibility="public" line="34"/>
+  <member name="_y" type="{unknown}" visibility="public" line="35"/>
+  <member name="_target" type="{unknown}" visibility="public" line="36"/>
+  <member name="_raw" type="{unknown}" default="false" visibility="public" line="37"/>
+  <method name="SimpleUrl" start="44" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor. Parses URL into sections.">@param string $url        Incoming URL.
+   @access public</description>
+    </docblock>
+    <parameter name="url" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="_chompCoordinates" start="68" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Extracts the X, Y coordinate pair from an image map.">@param string $url   URL so far. The coordinates will be
+                        removed.
+   @return array        X, Y as a pair of integers.
+   @access private</description>
+    </docblock>
+    <parameter name="url" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_chompScheme" start="83" end="89" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Extracts the scheme part of an incoming URL.">@param string $url   URL so far. The scheme will be
+                        removed.
+   @return string       Scheme part or false.
+   @access private</description>
+    </docblock>
+    <parameter name="url" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_chompLogin" start="101" end="116" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Extracts the username and password from the    incoming URL. The // prefix will be reattached    to the URL after the doublet is extracted.">@param string $url    URL so far. The username and
+                         password are removed.
+   @return array         Two item list of username and
+                         password. Will urldecode() them.
+   @access private</description>
+    </docblock>
+    <parameter name="url" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_chompHost" start="129" end="145" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Extracts the host part of an incoming URL.">Includes the port number part. Will extract
+   the host if it starts with // or it has
+   a top level domain or it has at least two
+   dots.
+   @param string $url    URL so far. The host will be
+                         removed.
+   @return string        Host part guess or false.
+   @access private</description>
+    </docblock>
+    <parameter name="url" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_chompPath" start="155" end="161" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Extracts the path information from the incoming    URL. Strips this path from the URL.">@param string $url     URL so far. The host will be
+                          removed.
+   @return string         Path part or '/'.
+   @access private</description>
+    </docblock>
+    <parameter name="url" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_chompRequest" start="170" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Strips off the request data.">@param string $url  URL so far. The request will be
+                       removed.
+   @return string      Raw request part.
+   @access private</description>
+    </docblock>
+    <parameter name="url" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_parseRequest" start="184" end="195" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Breaks the request down into an object.">@param string $raw           Raw request.
+   @return SimpleFormEncoding    Parsed data.
+   @access private</description>
+    </docblock>
+    <parameter name="raw" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getScheme" start="203" end="205" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for protocol part.">@param string $default    Value to use if not present.
+   @return string            Scheme name, e.g "http".
+   @access public</description>
+    </docblock>
+    <parameter name="default" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getUsername" start="212" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for user name.">@return string    Username preceding host.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getPassword" start="221" end="223" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for password.">@return string    Password preceding host.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getHost" start="231" end="233" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for hostname and port.">@param string $default    Value to use if not present.
+   @return string            Hostname only.
+   @access public</description>
+    </docblock>
+    <parameter name="default" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getTld" start="240" end="243" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for top level domain.">@return string       Last part of host.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getPort" start="250" end="252" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for port number.">@return integer    TCP/IP port number.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getPath" start="259" end="264" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for path.">@return string    Full path including leading slash if implied.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getPage" start="272" end="277" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for page if any. This may be a    directory name if ambiguious.">@return            Page name.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getBasePath" start="284" end="289" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the path to the page.">@return string       Path less the page.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getFragment" start="296" end="298" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for fragment at end of URL after the &quot;#&quot;.">@return string    Part after "#".
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="setCoordinates" start="307" end="314" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets image coordinates. Set to false to clear    them.">@param integer $x    Horizontal position.
+   @param integer $y    Vertical position.
+   @access public</description>
+    </docblock>
+    <parameter name="x" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="y" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getX" start="321" end="323" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for horizontal image coordinate.">@return integer        X value.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getY" start="330" end="332" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for vertical image coordinate.">@return integer        Y value.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="getEncodedRequest" start="342" end="352" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accessor for current request parameters    in URL string form. Will return teh original request    if at all possible even if it doesn't make much    sense.">@return string   Form is string "?a=1&amp;b=2", etc.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="addRequestParameter" start="360" end="363" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds an additional parameter to the request.">@param string $key            Name of parameter.
+   @param string $value          Value as string.
+   @access public</description>
+    </docblock>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addRequestParameters" start="371" end="374" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds additional parameters to the request.">@param hash/SimpleFormEncoding $parameters   Additional
+                                               parameters.
+   @access public</description>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clearRequest" start="380" end="383" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clears down all parameters.">@access public</description>
+    </docblock>
+  </method>
+  <method name="getTarget" start="392" end="394" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the frame target if present. Although    not strictly part of the URL specification it    acts as similarily to the browser.">@return boolean/string    Frame name or false if none.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="setTarget" start="401" end="404" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Attaches a frame target.">@param string $frame        Name of frame.
+   @access public</description>
+    </docblock>
+    <parameter name="frame" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="asString" start="411" end="429" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Renders the URL back into a string.">@return string        URL in canonical form.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="makeAbsolute" start="438" end="461" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Replaces unknown sections to turn a relative    URL into an absolute one. The base URL can    be either a string or a SimpleUrl object.">@param string/SimpleUrl $base       Base URL.
+   @access public</description>
+    </docblock>
+    <parameter name="base" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_extractAbsolutePath" start="470" end="481" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Replaces unknown sections of the path with base parts    to return a complete absolute one.">@param string/SimpleUrl $base       Base URL.
+   @param string                       Absolute path.
+   @access private</description>
+    </docblock>
+    <parameter name="base" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_isRelativePath" start="489" end="491" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Simple test to see if a path part is relative.">@param string $path        Path to test.
+   @return boolean            True if starts with a "/".
+   @access private</description>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getIdentity" start="499" end="504" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Extracts the username and password for use in rendering    a URL.">@return string/boolean    Form of username:password or false.
+   @access public</description>
+    </docblock>
+  </method>
+  <method name="normalisePath" start="512" end="515" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Replaces . and .. sections of the path.">@param string $path    Unoptimised path.
+   @return string         Path with dots removed if possible.
+   @access public</description>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAllTopLevelDomains" start="524" end="526" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A pipe seperated list of all TLDs that result in two part    domain names.">@return string        Pipe separated list.
+   @access public
+   @static</description>
+    </docblock>
+  </method>
+</class>

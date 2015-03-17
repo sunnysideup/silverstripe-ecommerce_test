@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - MySQLDatabase</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">MySQLDatabase</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/model/MySQLDatabase.php.xhtml#line10">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>MySQLDatabase</h1>
+        <h4>MySQL connector class.</h4>
+        <p>Supported indexes for :<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class MySQLDatabase
+                extends <a title="SS_Database" href="../classes/SS_Database.xhtml">SS_Database</a>
+            {<br/><ul class="none"><li>// members</li><li>protected resource <a href="#members">$dbConn</a>;
+                    </li><li>protected boolean <a href="#members">$active</a>;
+                    </li><li>protected string <a href="#members">$database</a>;
+                    </li><li>private <span title="String">String</span> <a href="#members">$connection_charset</a>;
+                    </li><li>protected <a href="#members">$supportsTransactions</a>;
+                    </li><li>private array <a href="#members">$_cache_collation_info</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="SS_Database">SS_Database</span></li><li>protected <a href="#members">$supressOutput</a>;
+                        </li><li>protected array <a href="#members">$tableList</a>;
+                        </li><li>protected array <a href="#members">$fieldList</a>;
+                        </li><li>protected array <a href="#members">$indexList</a>;
+                        </li><li>protected <a href="#members">$schemaIsUpdating</a>;
+                        </li><li>protected <a href="#members">$schemaUpdateTransaction</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="MySQLDatabase" href="../classes/MySQLDatabase/set_connection_charset.xhtml">set_connection_charset</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/__destruct.xhtml">__destruct</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/getConnect.xhtml">getConnect</a>()
+                    </li><li>public boolean <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsCollations.xhtml">supportsCollations</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsTimezoneOverride.xhtml">supportsTimezoneOverride</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/getVersion.xhtml">getVersion</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/getDatabaseServer.xhtml">getDatabaseServer</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/query.xhtml">query</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/getGeneratedID.xhtml">getGeneratedID</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/isActive.xhtml">isActive</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/createDatabase.xhtml">createDatabase</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/dropDatabase.xhtml">dropDatabase</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/dropDatabaseByName.xhtml">dropDatabaseByName</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/currentDatabase.xhtml">currentDatabase</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/selectDatabase.xhtml">selectDatabase</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/databaseExists.xhtml">databaseExists</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/allDatabaseNames.xhtml">allDatabaseNames</a>()
+                    </li><li>public The <a title="MySQLDatabase" href="../classes/MySQLDatabase/createTable.xhtml">createTable</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/alterTable.xhtml">alterTable</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/isView.xhtml">isView</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/renameTable.xhtml">renameTable</a>()
+                    </li><li>public boolean <a title="MySQLDatabase" href="../classes/MySQLDatabase/checkAndRepairTable.xhtml">checkAndRepairTable</a>()
+                    </li><li>protected boolean <a title="MySQLDatabase" href="../classes/MySQLDatabase/runTableCheckCommand.xhtml">runTableCheckCommand</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/createField.xhtml">createField</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/alterField.xhtml">alterField</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/renameField.xhtml">renameField</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/fieldList.xhtml">fieldList</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/createIndex.xhtml">createIndex</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/convertIndexSpec.xhtml">convertIndexSpec</a>()
+                    </li><li>protected string <a title="MySQLDatabase" href="../classes/MySQLDatabase/getIndexSqlDefinition.xhtml">getIndexSqlDefinition</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/getDbSqlDefinition.xhtml">getDbSqlDefinition</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/alterIndex.xhtml">alterIndex</a>()
+                    </li><li>public array <a title="MySQLDatabase" href="../classes/MySQLDatabase/indexList.xhtml">indexList</a>()
+                    </li><li>public array <a title="MySQLDatabase" href="../classes/MySQLDatabase/tableList.xhtml">tableList</a>()
+                    </li><li>public int <a title="MySQLDatabase" href="../classes/MySQLDatabase/affectedRows.xhtml">affectedRows</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/databaseError.xhtml">databaseError</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/boolean.xhtml">boolean</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/date.xhtml">date</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/decimal.xhtml">decimal</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/enum.xhtml">enum</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/set.xhtml">set</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/float.xhtml">float</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/int.xhtml">int</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/ss_datetime.xhtml">ss_datetime</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/text.xhtml">text</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/time.xhtml">time</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/varchar.xhtml">varchar</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/year.xhtml">year</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/IdColumn.xhtml">IdColumn</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/allTablesSQL.xhtml">allTablesSQL</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/hasTable.xhtml">hasTable</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/enumValuesForField.xhtml">enumValuesForField</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/searchEngine.xhtml">searchEngine</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/now.xhtml">now</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/random.xhtml">random</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/dbDataType.xhtml">dbDataType</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/addslashes.xhtml">addslashes</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/modifyIndex.xhtml">modifyIndex</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/fullTextSearchSQL.xhtml">fullTextSearchSQL</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsTransactions.xhtml">supportsTransactions</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsExtensions.xhtml">supportsExtensions</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionStart.xhtml">transactionStart</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionSavepoint.xhtml">transactionSavepoint</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionRollback.xhtml">transactionRollback</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionEnd.xhtml">transactionEnd</a>()
+                    </li><li>public String <a title="MySQLDatabase" href="../classes/MySQLDatabase/comparisonClause.xhtml">comparisonClause</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/formattedDatetimeClause.xhtml">formattedDatetimeClause</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/datetimeIntervalClause.xhtml">datetimeIntervalClause</a>()
+                    </li><li>public string <a title="MySQLDatabase" href="../classes/MySQLDatabase/datetimeDifferenceClause.xhtml">datetimeDifferenceClause</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsLocks.xhtml">supportsLocks</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/canLock.xhtml">canLock</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/getLock.xhtml">getLock</a>()
+                    </li><li>public void <a title="MySQLDatabase" href="../classes/MySQLDatabase/releaseLock.xhtml">releaseLock</a>()
+                    </li><li>protected void <a title="MySQLDatabase" href="../classes/MySQLDatabase/getLockIdentifier.xhtml">getLockIdentifier</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="SS_Database">SS_Database</span></li><li>public abstract SS_Query <a title="SS_Database" href="../classes/SS_Database/query.xhtml">query</a>()
+                        </li><li>public abstract int <a title="SS_Database" href="../classes/SS_Database/getGeneratedID.xhtml">getGeneratedID</a>()
+                        </li><li>public abstract boolean <a title="SS_Database" href="../classes/SS_Database/isActive.xhtml">isActive</a>()
+                        </li><li>public abstract boolean <a title="SS_Database" href="../classes/SS_Database/createDatabase.xhtml">createDatabase</a>()
+                        </li><li>public abstract string <a title="SS_Database" href="../classes/SS_Database/getConnect.xhtml">getConnect</a>()
+                        </li><li>public abstract The <a title="SS_Database" href="../classes/SS_Database/createTable.xhtml">createTable</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/alterTable.xhtml">alterTable</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/renameTable.xhtml">renameTable</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/createField.xhtml">createField</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/renameField.xhtml">renameField</a>()
+                        </li><li>protected abstract array <a title="SS_Database" href="../classes/SS_Database/fieldList.xhtml">fieldList</a>()
+                        </li><li>public boolean <a title="SS_Database" href="../classes/SS_Database/clearCachedFieldlist.xhtml">clearCachedFieldlist</a>()
+                        </li><li>protected abstract void <a title="SS_Database" href="../classes/SS_Database/tableList.xhtml">tableList</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/hasTable.xhtml">hasTable</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/enumValuesForField.xhtml">enumValuesForField</a>()
+                        </li><li>public abstract string <a title="SS_Database" href="../classes/SS_Database/addslashes.xhtml">addslashes</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/beginSchemaUpdate.xhtml">beginSchemaUpdate</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/endSchemaUpdate.xhtml">endSchemaUpdate</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/cancelSchemaUpdate.xhtml">cancelSchemaUpdate</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/isSchemaUpdating.xhtml">isSchemaUpdating</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/doesSchemaNeedUpdating.xhtml">doesSchemaNeedUpdating</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/transCreateTable.xhtml">transCreateTable</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/transAlterTable.xhtml">transAlterTable</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/transCreateField.xhtml">transCreateField</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/transCreateIndex.xhtml">transCreateIndex</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/transAlterField.xhtml">transAlterField</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/transAlterIndex.xhtml">transAlterIndex</a>()
+                        </li><li>protected void <a title="SS_Database" href="../classes/SS_Database/transInitTable.xhtml">transInitTable</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/requireTable.xhtml">requireTable</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/dontRequireTable.xhtml">dontRequireTable</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/requireIndex.xhtml">requireIndex</a>()
+                        </li><li>public bool <a title="SS_Database" href="../classes/SS_Database/hasField.xhtml">hasField</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/requireField.xhtml">requireField</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/dontRequireField.xhtml">dontRequireField</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/manipulate.xhtml">manipulate</a>()
+                        </li><li>public static void <a title="SS_Database" href="../classes/SS_Database/replace_with_null.xhtml">replace_with_null</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/databaseError.xhtml">databaseError</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/quiet.xhtml">quiet</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/alterationMessage.xhtml">alterationMessage</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/sqlSelectToString.xhtml">sqlSelectToString</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/sqlFromToString.xhtml">sqlFromToString</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/sqlWhereToString.xhtml">sqlWhereToString</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/sqlOrderByToString.xhtml">sqlOrderByToString</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/sqlGroupByToString.xhtml">sqlGroupByToString</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/sqlHavingToString.xhtml">sqlHavingToString</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/sqlLimitToString.xhtml">sqlLimitToString</a>()
+                        </li><li>public void <a title="SS_Database" href="../classes/SS_Database/sqlQueryToString.xhtml">sqlQueryToString</a>()
+                        </li><li>public string <a title="SS_Database" href="../classes/SS_Database/prepStringForDB.xhtml">prepStringForDB</a>()
+                        </li><li>public abstract String <a title="SS_Database" href="../classes/SS_Database/comparisonClause.xhtml">comparisonClause</a>()
+                        </li><li>public abstract string <a title="SS_Database" href="../classes/SS_Database/formattedDatetimeClause.xhtml">formattedDatetimeClause</a>()
+                        </li><li>public abstract string <a title="SS_Database" href="../classes/SS_Database/datetimeIntervalClause.xhtml">datetimeIntervalClause</a>()
+                        </li><li>public abstract string <a title="SS_Database" href="../classes/SS_Database/datetimeDifferenceClause.xhtml">datetimeDifferenceClause</a>()
+                        </li><li>public abstract Boolean <a title="SS_Database" href="../classes/SS_Database/supportsTimezoneOverride.xhtml">supportsTimezoneOverride</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/supportsTransactions.xhtml">supportsTransactions</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/transactionStart.xhtml">transactionStart</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/transactionSavepoint.xhtml">transactionSavepoint</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/transactionRollback.xhtml">transactionRollback</a>()
+                        </li><li>public abstract void <a title="SS_Database" href="../classes/SS_Database/transactionEnd.xhtml">transactionEnd</a>()
+                        </li><li>public boolean <a title="SS_Database" href="../classes/SS_Database/supportsLocks.xhtml">supportsLocks</a>()
+                        </li><li>public Boolean <a title="SS_Database" href="../classes/SS_Database/canLock.xhtml">canLock</a>()
+                        </li><li>public Boolean <a title="SS_Database" href="../classes/SS_Database/getLock.xhtml">getLock</a>()
+                        </li><li>public Boolean <a title="SS_Database" href="../classes/SS_Database/releaseLock.xhtml">releaseLock</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/SS_Database.xhtml">SS_Database</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">324+</td>
+            <td>Change detection for CREATE TABLE $options other than "Engine"</td>
+          </tr>
+          <tr>
+            <td class="nummeric">484</td>
+            <td>this is starting to get extremely fragmented.</td>
+          </tr>
+          <tr>
+            <td class="nummeric">502</td>
+            <td>move this to the MySQLDatabase file, or drop it altogether?</td>
+          </tr>
+          <tr>
+            <td class="nummeric">687+</td>
+            <td>hook this into a more well-structured error handling system.</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="_cache_collation_info">
+              <strong>$_cache_collation_info</strong>
+            </li>
+            <li id="connection_charset"><strong>$connection_charset</strong>
+                —
+                <a href="#">String</a></li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="active"><strong>$active</strong>
+                —
+                boolean<br/><span class="indent">True if we are connected to a database.</span></li>
+            <li id="database"><strong>$database</strong>
+                —
+                string<br/><span class="indent">The name of the database.</span></li>
+            <li id="dbConn"><strong>$dbConn</strong>
+                —
+                resource<br/><span class="indent">Connection to the DBMS.</span></li>
+            <li id="fieldList"><strong>$fieldList</strong>
+                —
+                array<br/><span class="indent">The field list, generated by the fieldList() function.</span></li>
+            <li id="indexList"><strong>$indexList</strong>
+                —
+                array<br/><span class="indent">The index list for each table, generated by the indexList() function.</span></li>
+            <li id="schemaIsUpdating">
+              <strong>$schemaIsUpdating</strong>
+              <br/>
+              <span class="indent">Keeps track whether we are currently updating the schema.</span>
+            </li>
+            <li id="schemaUpdateTransaction">
+              <strong>$schemaUpdateTransaction</strong>
+              <br/>
+              <span class="indent">Large array structure that represents a schema update transaction</span>
+            </li>
+            <li id="supportsTransactions">
+              <strong>$supportsTransactions</strong>
+            </li>
+            <li id="supressOutput">
+              <strong>$supressOutput</strong>
+              <br/>
+              <span class="indent">If this is false, then information about database operations will be displayed, eg creation of tables.</span>
+            </li>
+            <li id="tableList"><strong>$tableList</strong>
+                —
+                array<br/><span class="indent">The table list, generated by the tableList() function.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="getIndexSqlDefinition">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/getIndexSqlDefinition.xhtml">getIndexSqlDefinition()</a>
+            </li>
+            <li id="getLockIdentifier">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/getLockIdentifier.xhtml">getLockIdentifier()</a>
+            </li>
+            <li id="runTableCheckCommand"><a title="MySQLDatabase" href="../classes/MySQLDatabase/runTableCheckCommand.xhtml">runTableCheckCommand()</a>
+                — Helper function used by checkAndRepairTable.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="MySQLDatabase" href="../classes/MySQLDatabase/__construct.xhtml">__construct()</a>
+                — Connect to a MySQL database.</li>
+            <li id="__destruct">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/__destruct.xhtml">__destruct()</a>
+            </li>
+            <li id="IdColumn"><a title="MySQLDatabase" href="../classes/MySQLDatabase/IdColumn.xhtml">IdColumn()</a>
+                — This returns the column which is the primary key for each table In Postgres, it is a SERIAL8, which is the equivalent of an auto_increment</li>
+            <li id="addslashes">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/addslashes.xhtml">addslashes()</a>
+            </li>
+            <li id="affectedRows"><a title="MySQLDatabase" href="../classes/MySQLDatabase/affectedRows.xhtml">affectedRows()</a>
+                — Return the number of rows affected by the previous operation.</li>
+            <li id="allDatabaseNames"><a title="MySQLDatabase" href="../classes/MySQLDatabase/allDatabaseNames.xhtml">allDatabaseNames()</a>
+                — Returns a column</li>
+            <li id="allTablesSQL"><a title="MySQLDatabase" href="../classes/MySQLDatabase/allTablesSQL.xhtml">allTablesSQL()</a>
+                — Returns the SQL command to get all the tables in this database</li>
+            <li id="alterField"><a title="MySQLDatabase" href="../classes/MySQLDatabase/alterField.xhtml">alterField()</a>
+                — Change the database type of the given field.</li>
+            <li id="alterIndex"><a title="MySQLDatabase" href="../classes/MySQLDatabase/alterIndex.xhtml">alterIndex()</a>
+                — Alter an index on a table.</li>
+            <li id="alterTable"><a title="MySQLDatabase" href="../classes/MySQLDatabase/alterTable.xhtml">alterTable()</a>
+                — Alter a table's schema.</li>
+            <li id="boolean"><a title="MySQLDatabase" href="../classes/MySQLDatabase/boolean.xhtml">boolean()</a>
+                — Return a boolean type-formatted string</li>
+            <li id="canLock">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/canLock.xhtml">canLock()</a>
+            </li>
+            <li id="checkAndRepairTable"><a title="MySQLDatabase" href="../classes/MySQLDatabase/checkAndRepairTable.xhtml">checkAndRepairTable()</a>
+                — Checks a table's integrity and repairs it if necessary.</li>
+            <li id="comparisonClause"><a title="MySQLDatabase" href="../classes/MySQLDatabase/comparisonClause.xhtml">comparisonClause()</a>
+                — Generate a WHERE clause for text matching.</li>
+            <li id="convertIndexSpec"><a title="MySQLDatabase" href="../classes/MySQLDatabase/convertIndexSpec.xhtml">convertIndexSpec()</a>
+                — This takes the index spec which has been provided by a class (ie static $indexes = blah blah) and turns it into a proper string.</li>
+            <li id="createDatabase">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/createDatabase.xhtml">createDatabase()</a>
+            </li>
+            <li id="createField">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/createField.xhtml">createField()</a>
+            </li>
+            <li id="createIndex"><a title="MySQLDatabase" href="../classes/MySQLDatabase/createIndex.xhtml">createIndex()</a>
+                — Create an index on a table.</li>
+            <li id="createTable"><a title="MySQLDatabase" href="../classes/MySQLDatabase/createTable.xhtml">createTable()</a>
+                — Create a new table.</li>
+            <li id="currentDatabase"><a title="MySQLDatabase" href="../classes/MySQLDatabase/currentDatabase.xhtml">currentDatabase()</a>
+                — Returns the name of the currently selected database</li>
+            <li id="databaseError">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/databaseError.xhtml">databaseError()</a>
+            </li>
+            <li id="databaseExists"><a title="MySQLDatabase" href="../classes/MySQLDatabase/databaseExists.xhtml">databaseExists()</a>
+                — Returns true if the named database exists.</li>
+            <li id="date"><a title="MySQLDatabase" href="../classes/MySQLDatabase/date.xhtml">date()</a>
+                — Return a date type-formatted string For MySQL, we simply return the word 'date', no other parameters are necessary</li>
+            <li id="datetimeDifferenceClause"><a title="MySQLDatabase" href="../classes/MySQLDatabase/datetimeDifferenceClause.xhtml">datetimeDifferenceClause()</a>
+                — function to return an SQL datetime expression that can be used with MySQL used for querying a datetime substraction</li>
+            <li id="datetimeIntervalClause"><a title="MySQLDatabase" href="../classes/MySQLDatabase/datetimeIntervalClause.xhtml">datetimeIntervalClause()</a>
+                — function to return an SQL datetime expression that can be used with MySQL used for querying a datetime addition</li>
+            <li id="dbDataType">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/dbDataType.xhtml">dbDataType()</a>
+            </li>
+            <li id="decimal"><a title="MySQLDatabase" href="../classes/MySQLDatabase/decimal.xhtml">decimal()</a>
+                — Return a decimal type-formatted string</li>
+            <li id="dropDatabase"><a title="MySQLDatabase" href="../classes/MySQLDatabase/dropDatabase.xhtml">dropDatabase()</a>
+                — Drop the database that this object is currently connected to.</li>
+            <li id="dropDatabaseByName"><a title="MySQLDatabase" href="../classes/MySQLDatabase/dropDatabaseByName.xhtml">dropDatabaseByName()</a>
+                — Drop the database that this object is currently connected to.</li>
+            <li id="enum"><a title="MySQLDatabase" href="../classes/MySQLDatabase/enum.xhtml">enum()</a>
+                — Return a enum type-formatted string</li>
+            <li id="enumValuesForField"><a title="MySQLDatabase" href="../classes/MySQLDatabase/enumValuesForField.xhtml">enumValuesForField()</a>
+                — Returns the values of the given enum field NOTE: Experimental; introduced for db-abstraction and may changed before 2.4 is released.</li>
+            <li id="fieldList">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/fieldList.xhtml">fieldList()</a>
+            </li>
+            <li id="float"><a title="MySQLDatabase" href="../classes/MySQLDatabase/float.xhtml">float()</a>
+                — Return a float type-formatted string For MySQL, we simply return the word 'date', no other parameters are necessary</li>
+            <li id="formattedDatetimeClause"><a title="MySQLDatabase" href="../classes/MySQLDatabase/formattedDatetimeClause.xhtml">formattedDatetimeClause()</a>
+                — function to return an SQL datetime expression that can be used with MySQL used for querying a datetime in a certain format</li>
+            <li id="fullTextSearchSQL"><a title="MySQLDatabase" href="../classes/MySQLDatabase/fullTextSearchSQL.xhtml">fullTextSearchSQL()</a>
+                — Returns a SQL fragment for querying a fulltext search index</li>
+            <li id="getConnect"><a title="MySQLDatabase" href="../classes/MySQLDatabase/getConnect.xhtml">getConnect()</a>
+                — Not implemented, needed for PDO</li>
+            <li id="getDatabaseServer"><a title="MySQLDatabase" href="../classes/MySQLDatabase/getDatabaseServer.xhtml">getDatabaseServer()</a>
+                — Get the database server, namely mysql.</li>
+            <li id="getDbSqlDefinition"><a title="MySQLDatabase" href="../classes/MySQLDatabase/getDbSqlDefinition.xhtml">getDbSqlDefinition()</a>
+                — MySQL does not need any transformations done on the index that's created, so we can just return it as-is</li>
+            <li id="getGeneratedID">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/getGeneratedID.xhtml">getGeneratedID()</a>
+            </li>
+            <li id="getLock">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/getLock.xhtml">getLock()</a>
+            </li>
+            <li id="getVersion"><a title="MySQLDatabase" href="../classes/MySQLDatabase/getVersion.xhtml">getVersion()</a>
+                — Get the version of MySQL.</li>
+            <li id="hasTable"><a title="MySQLDatabase" href="../classes/MySQLDatabase/hasTable.xhtml">hasTable()</a>
+                — Returns true if the given table is exists in the current database NOTE: Experimental; introduced for db-abstraction and may changed before 2.4 is released.</li>
+            <li id="indexList"><a title="MySQLDatabase" href="../classes/MySQLDatabase/indexList.xhtml">indexList()</a>
+                — Return the list of indexes in a table.</li>
+            <li id="int"><a title="MySQLDatabase" href="../classes/MySQLDatabase/int.xhtml">int()</a>
+                — Return a int type-formatted string</li>
+            <li id="isActive">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/isActive.xhtml">isActive()</a>
+            </li>
+            <li id="isView">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/isView.xhtml">isView()</a>
+            </li>
+            <li id="modifyIndex">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/modifyIndex.xhtml">modifyIndex()</a>
+            </li>
+            <li id="now"><a title="MySQLDatabase" href="../classes/MySQLDatabase/now.xhtml">now()</a>
+                — MySQL uses NOW() to return the current date/time.</li>
+            <li id="query">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/query.xhtml">query()</a>
+            </li>
+            <li id="random">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/random.xhtml">random()</a>
+            </li>
+            <li id="releaseLock">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/releaseLock.xhtml">releaseLock()</a>
+            </li>
+            <li id="renameField"><a title="MySQLDatabase" href="../classes/MySQLDatabase/renameField.xhtml">renameField()</a>
+                — Change the database column name of the given field.</li>
+            <li id="renameTable">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/renameTable.xhtml">renameTable()</a>
+            </li>
+            <li id="searchEngine"><a title="MySQLDatabase" href="../classes/MySQLDatabase/searchEngine.xhtml">searchEngine()</a>
+                — The core search engine, used by this class and its subclasses to do fun stuff.</li>
+            <li id="selectDatabase"><a title="MySQLDatabase" href="../classes/MySQLDatabase/selectDatabase.xhtml">selectDatabase()</a>
+                — Switches to the given database.</li>
+            <li id="set"><a title="MySQLDatabase" href="../classes/MySQLDatabase/set.xhtml">set()</a>
+                — Return a set type-formatted string</li>
+            <li id="set_connection_charset"><a title="MySQLDatabase" href="../classes/MySQLDatabase/set_connection_charset.xhtml">set_connection_charset()</a>
+                — Sets the character set for the MySQL database connection.</li>
+            <li id="ss_datetime"><a title="MySQLDatabase" href="../classes/MySQLDatabase/ss_datetime.xhtml">ss_datetime()</a>
+                — Return a datetime type-formatted string For MySQL, we simply return the word 'datetime', no other parameters are necessary</li>
+            <li id="supportsCollations"><a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsCollations.xhtml">supportsCollations()</a>
+                — Returns true if this database supports collations</li>
+            <li id="supportsExtensions">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsExtensions.xhtml">supportsExtensions()</a>
+            </li>
+            <li id="supportsLocks">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsLocks.xhtml">supportsLocks()</a>
+            </li>
+            <li id="supportsTimezoneOverride">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsTimezoneOverride.xhtml">supportsTimezoneOverride()</a>
+            </li>
+            <li id="supportsTransactions">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/supportsTransactions.xhtml">supportsTransactions()</a>
+            </li>
+            <li id="tableList"><a title="MySQLDatabase" href="../classes/MySQLDatabase/tableList.xhtml">tableList()</a>
+                — Returns a list of all the tables in the database.</li>
+            <li id="text"><a title="MySQLDatabase" href="../classes/MySQLDatabase/text.xhtml">text()</a>
+                — Return a text type-formatted string</li>
+            <li id="time"><a title="MySQLDatabase" href="../classes/MySQLDatabase/time.xhtml">time()</a>
+                — Return a time type-formatted string For MySQL, we simply return the word 'time', no other parameters are necessary</li>
+            <li id="transactionEnd">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionEnd.xhtml">transactionEnd()</a>
+            </li>
+            <li id="transactionRollback">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionRollback.xhtml">transactionRollback()</a>
+            </li>
+            <li id="transactionSavepoint">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionSavepoint.xhtml">transactionSavepoint()</a>
+            </li>
+            <li id="transactionStart">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/transactionStart.xhtml">transactionStart()</a>
+            </li>
+            <li id="varchar"><a title="MySQLDatabase" href="../classes/MySQLDatabase/varchar.xhtml">varchar()</a>
+                — Return a varchar type-formatted string</li>
+            <li id="year">
+              <a title="MySQLDatabase" href="../classes/MySQLDatabase/year.xhtml">year()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="SS_Database" href="../classes/SS_Database.xhtml">SS_Database</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="fieldList"><a title="SS_Database" href="../classes/SS_Database/fieldList.xhtml">fieldList()</a>
+                — Get a list of all the fields for the given table.</li>
+            <li id="tableList">
+              <a title="SS_Database" href="../classes/SS_Database/tableList.xhtml">tableList()</a>
+            </li>
+            <li id="transInitTable"><a title="SS_Database" href="../classes/SS_Database/transInitTable.xhtml">transInitTable()</a>
+                — Handler for the other transXXX methods - mark the given table as being altered if it doesn't already exist</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="addslashes"><a title="SS_Database" href="../classes/SS_Database/addslashes.xhtml">addslashes()</a>
+                — Returns an escaped string.</li>
+            <li id="alterTable"><a title="SS_Database" href="../classes/SS_Database/alterTable.xhtml">alterTable()</a>
+                — Alter a table's schema.</li>
+            <li id="alterationMessage"><a title="SS_Database" href="../classes/SS_Database/alterationMessage.xhtml">alterationMessage()</a>
+                — Show a message about database alteration</li>
+            <li id="beginSchemaUpdate"><a title="SS_Database" href="../classes/SS_Database/beginSchemaUpdate.xhtml">beginSchemaUpdate()</a>
+                — Start a schema-updating transaction.</li>
+            <li id="canLock"><a title="SS_Database" href="../classes/SS_Database/canLock.xhtml">canLock()</a>
+                — Returns if the lock is available.</li>
+            <li id="cancelSchemaUpdate"><a title="SS_Database" href="../classes/SS_Database/cancelSchemaUpdate.xhtml">cancelSchemaUpdate()</a>
+                — Cancels the schema updates requested after a beginSchemaUpdate() call.</li>
+            <li id="clearCachedFieldlist"><a title="SS_Database" href="../classes/SS_Database/clearCachedFieldlist.xhtml">clearCachedFieldlist()</a>
+                — This is a stub function.  Postgres caches the fieldlist results.</li>
+            <li id="comparisonClause"><a title="SS_Database" href="../classes/SS_Database/comparisonClause.xhtml">comparisonClause()</a>
+                — Generate a WHERE clause for text matching.</li>
+            <li id="createDatabase"><a title="SS_Database" href="../classes/SS_Database/createDatabase.xhtml">createDatabase()</a>
+                — Create the database and connect to it. This can be called if the initial database connection is not successful because the database does not exist.</li>
+            <li id="createField"><a title="SS_Database" href="../classes/SS_Database/createField.xhtml">createField()</a>
+                — Create a new field on a table.</li>
+            <li id="createTable"><a title="SS_Database" href="../classes/SS_Database/createTable.xhtml">createTable()</a>
+                — Create a new table.</li>
+            <li id="databaseError"><a title="SS_Database" href="../classes/SS_Database/databaseError.xhtml">databaseError()</a>
+                — Error handler for database errors.</li>
+            <li id="datetimeDifferenceClause"><a title="SS_Database" href="../classes/SS_Database/datetimeDifferenceClause.xhtml">datetimeDifferenceClause()</a>
+                — function to return an SQL datetime expression that can be used with the adapter in use used for querying a datetime substraction</li>
+            <li id="datetimeIntervalClause"><a title="SS_Database" href="../classes/SS_Database/datetimeIntervalClause.xhtml">datetimeIntervalClause()</a>
+                — function to return an SQL datetime expression that can be used with the adapter in use used for querying a datetime addition</li>
+            <li id="doesSchemaNeedUpdating"><a title="SS_Database" href="../classes/SS_Database/doesSchemaNeedUpdating.xhtml">doesSchemaNeedUpdating()</a>
+                — Returns true if schema modifications were requested after a beginSchemaUpdate() call.</li>
+            <li id="dontRequireField"><a title="SS_Database" href="../classes/SS_Database/dontRequireField.xhtml">dontRequireField()</a>
+                — If the given field exists, move it out of the way by renaming it to _obsolete_(fieldname).</li>
+            <li id="dontRequireTable"><a title="SS_Database" href="../classes/SS_Database/dontRequireTable.xhtml">dontRequireTable()</a>
+                — If the given table exists, move it out of the way by renaming it to _obsolete_(tablename).</li>
+            <li id="endSchemaUpdate"><a title="SS_Database" href="../classes/SS_Database/endSchemaUpdate.xhtml">endSchemaUpdate()</a>
+                — Completes a schema-updated transaction, executing all the schema chagnes.</li>
+            <li id="enumValuesForField"><a title="SS_Database" href="../classes/SS_Database/enumValuesForField.xhtml">enumValuesForField()</a>
+                — Returns the enum values available on the given field</li>
+            <li id="formattedDatetimeClause"><a title="SS_Database" href="../classes/SS_Database/formattedDatetimeClause.xhtml">formattedDatetimeClause()</a>
+                — function to return an SQL datetime expression that can be used with the adapter in use used for querying a datetime in a certain format</li>
+            <li id="getConnect"><a title="SS_Database" href="../classes/SS_Database/getConnect.xhtml">getConnect()</a>
+                — Build the connection string from input</li>
+            <li id="getGeneratedID"><a title="SS_Database" href="../classes/SS_Database/getGeneratedID.xhtml">getGeneratedID()</a>
+                — Get the autogenerated ID from the previous INSERT query.</li>
+            <li id="getLock"><a title="SS_Database" href="../classes/SS_Database/getLock.xhtml">getLock()</a>
+                — Sets an application-level lock so that no two processes can run at the same time, also called a "cooperative advisory lock".</li>
+            <li id="hasField"><a title="SS_Database" href="../classes/SS_Database/hasField.xhtml">hasField()</a>
+                — Return true if the table exists and already has a the field specified</li>
+            <li id="hasTable"><a title="SS_Database" href="../classes/SS_Database/hasTable.xhtml">hasTable()</a>
+                — Returns true if the given table exists in the database</li>
+            <li id="isActive"><a title="SS_Database" href="../classes/SS_Database/isActive.xhtml">isActive()</a>
+                — Check if the connection to the database is active.</li>
+            <li id="isSchemaUpdating"><a title="SS_Database" href="../classes/SS_Database/isSchemaUpdating.xhtml">isSchemaUpdating()</a>
+                — Returns true if we are during a schema update.</li>
+            <li id="manipulate"><a title="SS_Database" href="../classes/SS_Database/manipulate.xhtml">manipulate()</a>
+                — Execute a complex manipulation on the database.</li>
+            <li id="prepStringForDB"><a title="SS_Database" href="../classes/SS_Database/prepStringForDB.xhtml">prepStringForDB()</a>
+                — Wrap a string into DB-specific quotes. MySQL, PostgreSQL and SQLite3 only need single quotes around the string.</li>
+            <li id="query"><a title="SS_Database" href="../classes/SS_Database/query.xhtml">query()</a>
+                — Execute the given SQL query.</li>
+            <li id="quiet"><a title="SS_Database" href="../classes/SS_Database/quiet.xhtml">quiet()</a>
+                — Enable supression of database messages.</li>
+            <li id="releaseLock"><a title="SS_Database" href="../classes/SS_Database/releaseLock.xhtml">releaseLock()</a>
+                — Remove an application-level lock file to allow another process to run (if the execution aborts (e.g. due to an error) all locks are automatically released).</li>
+            <li id="renameField"><a title="SS_Database" href="../classes/SS_Database/renameField.xhtml">renameField()</a>
+                — Change the database column name of the given field.</li>
+            <li id="renameTable"><a title="SS_Database" href="../classes/SS_Database/renameTable.xhtml">renameTable()</a>
+                — Rename a table.</li>
+            <li id="replace_with_null"><a title="SS_Database" href="../classes/SS_Database/replace_with_null.xhtml">replace_with_null()</a>
+                — Replaces "\'\'" with "null", recursively walks through the given array.</li>
+            <li id="requireField"><a title="SS_Database" href="../classes/SS_Database/requireField.xhtml">requireField()</a>
+                — Generate the given field on the table, modifying whatever already exists as necessary.</li>
+            <li id="requireIndex"><a title="SS_Database" href="../classes/SS_Database/requireIndex.xhtml">requireIndex()</a>
+                — Generate the given index in the database, modifying whatever already exists as necessary.</li>
+            <li id="requireTable"><a title="SS_Database" href="../classes/SS_Database/requireTable.xhtml">requireTable()</a>
+                — Generate the following table in the database, modifying whatever already exists as necessary.</li>
+            <li id="sqlFromToString"><a title="SS_Database" href="../classes/SS_Database/sqlFromToString.xhtml">sqlFromToString()</a>
+                — Return the FROM clause ready for inserting into a query.</li>
+            <li id="sqlGroupByToString"><a title="SS_Database" href="../classes/SS_Database/sqlGroupByToString.xhtml">sqlGroupByToString()</a>
+                — Returns the GROUP BY clauses ready for inserting into a query.</li>
+            <li id="sqlHavingToString"><a title="SS_Database" href="../classes/SS_Database/sqlHavingToString.xhtml">sqlHavingToString()</a>
+                — Returns the HAVING clauses ready for inserting into a query.</li>
+            <li id="sqlLimitToString"><a title="SS_Database" href="../classes/SS_Database/sqlLimitToString.xhtml">sqlLimitToString()</a>
+                — Return the LIMIT clause ready for inserting into a query.</li>
+            <li id="sqlOrderByToString"><a title="SS_Database" href="../classes/SS_Database/sqlOrderByToString.xhtml">sqlOrderByToString()</a>
+                — Returns the ORDER BY clauses ready for inserting into a query.</li>
+            <li id="sqlQueryToString"><a title="SS_Database" href="../classes/SS_Database/sqlQueryToString.xhtml">sqlQueryToString()</a>
+                — Convert a SQLQuery object into a SQL statement Caution: Expects correctly quoted and escaped SQL fragments.</li>
+            <li id="sqlSelectToString"><a title="SS_Database" href="../classes/SS_Database/sqlSelectToString.xhtml">sqlSelectToString()</a>
+                — Returns the SELECT clauses ready for inserting into a query.</li>
+            <li id="sqlWhereToString"><a title="SS_Database" href="../classes/SS_Database/sqlWhereToString.xhtml">sqlWhereToString()</a>
+                — Returns the WHERE clauses ready for inserting into a query.</li>
+            <li id="supportsLocks"><a title="SS_Database" href="../classes/SS_Database/supportsLocks.xhtml">supportsLocks()</a>
+                — Determines if the used database supports application-level locks, which is different from table- or row-level locking.</li>
+            <li id="supportsTimezoneOverride"><a title="SS_Database" href="../classes/SS_Database/supportsTimezoneOverride.xhtml">supportsTimezoneOverride()</a>
+                — Can the database override timezone as a connection setting, or does it use the system timezone exclusively?</li>
+            <li id="supportsTransactions">
+              <a title="SS_Database" href="../classes/SS_Database/supportsTransactions.xhtml">supportsTransactions()</a>
+            </li>
+            <li id="transAlterField">
+              <a title="SS_Database" href="../classes/SS_Database/transAlterField.xhtml">transAlterField()</a>
+            </li>
+            <li id="transAlterIndex">
+              <a title="SS_Database" href="../classes/SS_Database/transAlterIndex.xhtml">transAlterIndex()</a>
+            </li>
+            <li id="transAlterTable">
+              <a title="SS_Database" href="../classes/SS_Database/transAlterTable.xhtml">transAlterTable()</a>
+            </li>
+            <li id="transCreateField">
+              <a title="SS_Database" href="../classes/SS_Database/transCreateField.xhtml">transCreateField()</a>
+            </li>
+            <li id="transCreateIndex">
+              <a title="SS_Database" href="../classes/SS_Database/transCreateIndex.xhtml">transCreateIndex()</a>
+            </li>
+            <li id="transCreateTable">
+              <a title="SS_Database" href="../classes/SS_Database/transCreateTable.xhtml">transCreateTable()</a>
+            </li>
+            <li id="transactionEnd">
+              <a title="SS_Database" href="../classes/SS_Database/transactionEnd.xhtml">transactionEnd()</a>
+            </li>
+            <li id="transactionRollback">
+              <a title="SS_Database" href="../classes/SS_Database/transactionRollback.xhtml">transactionRollback()</a>
+            </li>
+            <li id="transactionSavepoint">
+              <a title="SS_Database" href="../classes/SS_Database/transactionSavepoint.xhtml">transactionSavepoint()</a>
+            </li>
+            <li id="transactionStart">
+              <a title="SS_Database" href="../classes/SS_Database/transactionStart.xhtml">transactionStart()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

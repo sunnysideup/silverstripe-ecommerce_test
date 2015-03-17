@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Oembed" namespace="" name="Oembed" abstract="false" final="false" start="24" end="196">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/oembed" file="Oembed.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/oembed/Oembed.php" size="9032" time="2015-03-14T10:40:58+13:00" unixtime="1426282858" sha1="4012f7672c2a6cf577e11a016b554dca690c7d25" relative="framework/oembed/Oembed.php"/>
+  <docblock>
+    <description compact="Format of the Oembed config. Autodiscover allows discovery of all URLs.">Endpoint set to true means autodiscovery for this specific provider is
+allowed (even if autodiscovery in general has been disabled).
+
+&lt;code&gt;
+
+name: Oembed
+---
+Oembed:
+  providers:
+    'http://*.youtube.com/watch*':
+    'http://www.youtube.com/oembed/'
+  autodiscover:
+    true
+&lt;/code&gt;</description>
+    <package value="framework"/>
+    <subpackage value="oembed"/>
+  </docblock>
+  <method name="is_enabled" start="26" end="28" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="get_autodiscover" start="33" end="35" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Gets the autodiscover setting from the config."/>
+    </docblock>
+  </method>
+  <method name="get_providers" start="40" end="42" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Gets providers from config."/>
+    </docblock>
+  </method>
+  <method name="find_endpoint" start="50" end="64" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Returns an endpoint (a base Oembed URL) from first matching provider."/>
+      <param description="URL." variable="$url" type="object">
+        <type full="Human-readable" namespace="" name="Human-readable"/>
+      </param>
+      <returns value="string/bool URL of an endpoint, or false if no matching provider exists."/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="matches_scheme" start="73" end="95" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Checks the URL if it matches against the scheme (pattern)."/>
+      <param description="URL to be checked." variable="$url" type="object">
+        <type full="Human-readable" namespace="" name="Human-readable"/>
+      </param>
+      <param description="to be matched against." variable="$scheme" type="object">
+        <type full="Pattern" namespace="" name="Pattern"/>
+      </param>
+      <returns value="bool Whether the pattern matches or not."/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="scheme" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="autodiscover_from_url" start="104" end="128" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Performs a HTTP request to the URL and scans the response for resource links that mention oembed in their type."/>
+      <param description="readable URL." variable="$url" type="object">
+        <type full="Human" namespace="" name="Human"/>
+      </param>
+      <returns value="string/bool Oembed URL, or false."/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Fetch the URL (cache for a week by default)" line="105"/>
+      <comment value="Look within the body for an oembed link." line="113"/>
+    </inline>
+  </method>
+  <method name="get_oembed_from_url" start="139" end="180" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Takes the human-readable URL of an embeddable resource and converts it into an Oembed_Result descriptor (which contains a full Oembed resource URL)."/>
+      <param description="URL" variable="$url" type="object">
+        <type full="Human-readable" namespace="" name="Human-readable"/>
+      </param>
+      <param variable="$type" type="object">
+        <type full="?" namespace="" name="?"/>
+      </param>
+      <param description="Options to be used for constructing the resulting descriptor." variable="$options" type="array"/>
+      <returns value="Oembed_Result/bool An Oembed descriptor, or false"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="options" byreference="false" type="array"/>
+    <inline>
+      <comment value="Find or build the Oembed URL." line="142"/>
+      <comment value="If autodescovery failed the resource might be a direct link to a file" line="156"/>
+      <comment value="Inject the options into the Oembed URL." line="164"/>
+      <comment value="No matching Oembed resource found." line="178"/>
+    </inline>
+  </method>
+  <method name="handle_shortcode" start="182" end="195" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="parser" byreference="false" type="{unknown}"/>
+    <parameter name="shortcode" byreference="false" type="{unknown}"/>
+  </method>
+</class>

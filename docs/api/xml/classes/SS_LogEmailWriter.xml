@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_LogEmailWriter" namespace="" name="SS_LogEmailWriter" abstract="false" final="false" start="12" end="94">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev" file="LogEmailWriter.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/LogEmailWriter.php" size="2621" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="4c8cf68b8d9107ad158ace2bed6774d202800a3c" relative="framework/dev/LogEmailWriter.php"/>
+  <docblock>
+    <description compact="Sends an error message to an email."/>
+    <see value="SS_Log for more information on using writers."/>
+    <package value="framework"/>
+    <subpackage value="dev"/>
+  </docblock>
+  <extends full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+  <member name="send_from" type="string" default="'errors@silverstripe.com'" visibility="private" line="18">
+    <docblock>
+      <description/>
+      <config/>
+      <var description="Email address to send log information from" type="object">
+        <type full="$send_from" namespace="" name="$send_from"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="emailAddress" type="{unknown}" visibility="protected" line="20"/>
+  <member name="customSmtpServer" type="{unknown}" visibility="protected" line="22"/>
+  <constructor name="__construct" start="24" end="27" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="emailAddress" byreference="false" type="{unknown}"/>
+    <parameter name="customSmtpServer" byreference="false" type="{unknown}" default="false"/>
+  </constructor>
+  <method name="factory" start="29" end="31" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="emailAddress" byreference="false" type="{unknown}"/>
+    <parameter name="customSmtpServer" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="set_send_from" start="36" end="39" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;SS_LogEmailWriter.send_from&quot; config setting instead"/>
+    </docblock>
+    <parameter name="address" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_send_from" start="44" end="47" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <deprecated value="3.2 Use the &quot;SS_LogEmailWriter.send_from&quot; config setting instead"/>
+    </docblock>
+  </method>
+  <method name="_write" start="53" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send an email to the email address set in this writer."/>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="If no formatter set up, use the default" line="54"/>
+      <comment value="override the SMTP server with a custom one if required" line="65"/>
+      <comment value="Use plain mail() implementation to avoid complexity of Mailer implementation." line="69"/>
+      <comment value="Only use built-in mailer when we're in test mode (to allow introspection)" line="70"/>
+      <comment value="reset the SMTP server to the original" line="90"/>
+    </inline>
+  </method>
+  <parent full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract">
+    <member name="_filters" type="array" visibility="protected" line="39">
+      <docblock>
+        <description/>
+        <var description="of Zend_Log_Filter_Interface" type="array"/>
+      </docblock>
+    </member>
+    <member name="_formatter" type="{unknown}" visibility="protected" line="46">
+      <docblock>
+        <description compact="Formats the log message before writing."/>
+        <var type="object">
+          <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="addFilter" start="54" end="68" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add a filter specific to this writer."/>
+        <param type="object" variable="$filter">
+          <type full="Zend_Log_Filter_Interface" namespace="" name="Zend_Log_Filter_Interface"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="filter" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="@see Zend_Log_Exception" line="61"/>
+      </inline>
+    </method>
+    <method name="write" start="76" end="86" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Log a message to this writer."/>
+        <param description="log data event" type="array" variable="$event"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="exception occurs on error" line="84"/>
+      </inline>
+    </method>
+    <method name="setFormatter" start="94" end="98" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a new formatter for this writer"/>
+        <param type="object" variable="$formatter">
+          <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="formatter" byreference="false" type="object">
+        <type full="\\Zend_Log_Formatter_Interface" namespace="\" name="Zend_Log_Formatter_Interface"/>
+      </parameter>
+    </method>
+    <method name="shutdown" start="105" end="106" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Perform shutdown activites such as closing open resources"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="_write" start="114" end="114" abstract="true" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Write a message to the log."/>
+        <param description="log data event" type="array" variable="$event"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="event" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_parseConfig" start="123" end="137" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="Validate and optionally convert the config to array"/>
+        <param description="Zend_Config or Array" type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="array"/>
+        <throws type="object">
+          <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+        </throws>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface">
+    <method name="factory" start="37" end="37" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Construct a Zend_Log driver"/>
+        <param type="object" variable="$config">
+          <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Log_FactoryInterface" namespace="" name="Zend_Log_FactoryInterface"/>
+        </return>
+      </docblock>
+      <parameter name="config" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

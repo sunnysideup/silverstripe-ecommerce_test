@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider" abstract="false" final="false" start="116" end="143">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldComponent.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldComponent.php" size="6076" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="026a1c40c146e02df07a741dec8113859b0384a5" relative="framework/forms/gridfield/GridFieldComponent.php"/>
+  <docblock>
+    <description compact="An action is defined by two things: an action name, and zero or more named arguments.">There is no built-in notion of a record-specific or column-specific action,
+but you may choose to define an argument such as ColumnName or RecordID in
+order to implement these.
+
+Does not provide interface elements to call those actions.</description>
+    <see value="{@link GridField_FormAction}."/>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+  <method name="getActions" start="129" end="129" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a list of the actions handled by this action provider.">Used to identify the action later on through the $actionName parameter
+in <link xmlns="http://xml.phpdox.net/src" value="handleAction"/>.
+There is no namespacing on these actions, so you need to ensure that
+they don't conflict with other components.
+</description>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <return description="with action identifier strings." type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="handleAction" start="142" end="142" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Handle an action on the given {@link GridField}.">Calls ALL components for every action handled, so the component needs
+to ensure it only accepts actions it is actually supposed to handle.</description>
+      <param type="object">
+        <type full="GridField" namespace="" name="GridField"/>
+      </param>
+      <param description="Action identifier, see {@link getActions()}." type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <param description="Arguments relevant for this" type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <param description="All form data" type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+    </docblock>
+    <parameter name="gridField" byreference="false" type="object">
+      <type full="\\GridField" namespace="\" name="GridField"/>
+    </parameter>
+    <parameter name="actionName" byreference="false" type="{unknown}"/>
+    <parameter name="arguments" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <implementor full="GridFieldTest_Component" namespace="" name="GridFieldTest_Component"/>
+  <implementor full="GridFieldPaginator" namespace="" name="GridFieldPaginator"/>
+  <implementor full="GridFieldDeleteAction" namespace="" name="GridFieldDeleteAction"/>
+  <implementor full="GridFieldAddExistingAutocompleter" namespace="" name="GridFieldAddExistingAutocompleter"/>
+  <implementor full="GridFieldSortableHeader" namespace="" name="GridFieldSortableHeader"/>
+  <implementor full="GridFieldPrintButton" namespace="" name="GridFieldPrintButton"/>
+  <parent full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+  <implementor full="GridFieldExportButton" namespace="" name="GridFieldExportButton"/>
+  <implementor full="GridFieldFilterHeader" namespace="" name="GridFieldFilterHeader"/>
+</interface>

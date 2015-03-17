@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_HTTPRequest</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_HTTPRequest</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/control/HTTPRequest.php.xhtml#line20">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_HTTPRequest</h1>
+        <h4>Represents a HTTP-request, including a URL that is tokenised for parsing, and a request method (GET/POST/PUT/DELETE). This is used by {@link RequestHandler} objects to decide what to do.</h4>
+        <p>Caution: objects of this class are immutable, e.g. echo $request['a']; works as expected,<br/>but $request['a'] = '1'; has no effect.<br/><br/>The intention is that a single SS_HTTPRequest object can be passed from one object to another, each object calling<br/>match() to get the information that they need out of the URL. This is generally handled by<br/>{@link RequestHandler::handleRequest()}.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_HTTPRequest
+                implements
+                <a title="ArrayAccess" href="../interfaces/ArrayAccess.xhtml">ArrayAccess</a>
+            {<br/><ul class="none"><li>// members</li><li>protected string <a href="#members">$url</a>;
+                    </li><li>protected <a href="#members">$dirParts</a>;
+                    </li><li>protected string <a href="#members">$extension</a>;
+                    </li><li>protected string <a href="#members">$httpMethod</a>;
+                    </li><li>protected array <a href="#members">$getVars</a>;
+                    </li><li>protected array <a href="#members">$postVars</a>;
+                    </li><li>protected array <a href="#members">$headers</a>;
+                    </li><li>protected string <a href="#members">$body</a>;
+                    </li><li>protected array <a href="#members">$allParams</a>;
+                    </li><li>protected array <a href="#members">$latestParams</a>;
+                    </li><li>protected array <a href="#members">$routeParams</a>;
+                    </li><li>protected integer <a href="#members">$unshiftedButParsedParts</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/__construct.xhtml">__construct</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/setUrl.xhtml">setUrl</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isGET.xhtml">isGET</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isPOST.xhtml">isPOST</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isPUT.xhtml">isPUT</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isDELETE.xhtml">isDELETE</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isHEAD.xhtml">isHEAD</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/setBody.xhtml">setBody</a>()
+                    </li><li>public null|string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getBody.xhtml">getBody</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getVars.xhtml">getVars</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/postVars.xhtml">postVars</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/requestVars.xhtml">requestVars</a>()
+                    </li><li>public mixed <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getVar.xhtml">getVar</a>()
+                    </li><li>public mixed <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/postVar.xhtml">postVar</a>()
+                    </li><li>public mixed <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/requestVar.xhtml">requestVar</a>()
+                    </li><li>public string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getExtension.xhtml">getExtension</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isMedia.xhtml">isMedia</a>()
+                    </li><li>public void <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/addHeader.xhtml">addHeader</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getHeaders.xhtml">getHeaders</a>()
+                    </li><li>public mixed <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getHeader.xhtml">getHeader</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/removeHeader.xhtml">removeHeader</a>()
+                    </li><li>public string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getURL.xhtml">getURL</a>()
+                    </li><li>public boolean <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isAjax.xhtml">isAjax</a>()
+                    </li><li>public boolean <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetExists.xhtml">offsetExists</a>()
+                    </li><li>public unknown <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetGet.xhtml">offsetGet</a>()
+                    </li><li>public void <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetSet.xhtml">offsetSet</a>()
+                    </li><li>public void <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetUnset.xhtml">offsetUnset</a>()
+                    </li><li>public static SS_HTTPResponse <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/send_file.xhtml">send_file</a>()
+                    </li><li>public array|bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/match.xhtml">match</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/allParams.xhtml">allParams</a>()
+                    </li><li>public string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/shiftAllParams.xhtml">shiftAllParams</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/latestParams.xhtml">latestParams</a>()
+                    </li><li>public string|null <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/latestParam.xhtml">latestParam</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/routeParams.xhtml">routeParams</a>()
+                    </li><li>public SS_HTTPRequest <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/setRouteParams.xhtml">setRouteParams</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/params.xhtml">params</a>()
+                    </li><li>public string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/param.xhtml">param</a>()
+                    </li><li>public string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/remaining.xhtml">remaining</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isEmptyPattern.xhtml">isEmptyPattern</a>()
+                    </li><li>public String|Array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/shift.xhtml">shift</a>()
+                    </li><li>public bool <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/allParsed.xhtml">allParsed</a>()
+                    </li><li>public string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getIP.xhtml">getIP</a>()
+                    </li><li>public array <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getAcceptMimetypes.xhtml">getAcceptMimetypes</a>()
+                    </li><li>public string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/httpMethod.xhtml">httpMethod</a>()
+                    </li><li>public static string <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/detect_method.xhtml">detect_method</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/NullHTTPRequest.xhtml">NullHTTPRequest</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/ArrayAccess.xhtml">ArrayAccess</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">20+</td>
+            <td>Accept X_HTTP_METHOD_OVERRIDE http header and $_REQUEST['_method'] to override request types (useful for</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="allParams"><strong>$allParams</strong>
+                —
+                array</li>
+            <li id="body"><strong>$body</strong>
+                —
+                string<br/><span class="indent">Raw HTTP body, used by PUT and POST requests.</span></li>
+            <li id="dirParts">
+              <strong>$dirParts</strong>
+              <br/>
+              <span class="indent">The non-extension parts of the passed URL as an array, originally exploded by the "/" separator.</span>
+            </li>
+            <li id="extension"><strong>$extension</strong>
+                —
+                string</li>
+            <li id="getVars"><strong>$getVars</strong>
+                —
+                array</li>
+            <li id="headers"><strong>$headers</strong>
+                —
+                array<br/><span class="indent">HTTP Headers like "Content-Type: text/xml"</span></li>
+            <li id="httpMethod"><strong>$httpMethod</strong>
+                —
+                string</li>
+            <li id="latestParams"><strong>$latestParams</strong>
+                —
+                array</li>
+            <li id="postVars"><strong>$postVars</strong>
+                —
+                array</li>
+            <li id="routeParams"><strong>$routeParams</strong>
+                —
+                array</li>
+            <li id="unshiftedButParsedParts">
+              <strong>$unshiftedButParsedParts</strong>
+            </li>
+            <li id="url"><strong>$url</strong>
+                —
+                string</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/__construct.xhtml">__construct()</a>
+                — Construct a SS_HTTPRequest from a URL relative to the site root.</li>
+            <li id="addHeader"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/addHeader.xhtml">addHeader()</a>
+                — Add a HTTP header to the response, replacing any header of the same name.</li>
+            <li id="allParams">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/allParams.xhtml">allParams()</a>
+            </li>
+            <li id="allParsed"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/allParsed.xhtml">allParsed()</a>
+                — Returns true if the URL has been completely parsed.</li>
+            <li id="detect_method"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/detect_method.xhtml">detect_method()</a>
+                — Gets the "real" HTTP method for a request.</li>
+            <li id="getAcceptMimetypes"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getAcceptMimetypes.xhtml">getAcceptMimetypes()</a>
+                — Returns all mimetypes from the HTTP "Accept" header as an array.</li>
+            <li id="getBody">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getBody.xhtml">getBody()</a>
+            </li>
+            <li id="getExtension"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getExtension.xhtml">getExtension()</a>
+                — Returns a possible file extension found in parsing the URL as denoted by a "."-character near the end of the URL.</li>
+            <li id="getHeader"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getHeader.xhtml">getHeader()</a>
+                — Remove an existing HTTP header</li>
+            <li id="getHeaders">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getHeaders.xhtml">getHeaders()</a>
+            </li>
+            <li id="getIP"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getIP.xhtml">getIP()</a>
+                — Returns the client IP address which originated this request.</li>
+            <li id="getURL"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getURL.xhtml">getURL()</a>
+                — Returns the URL used to generate the page</li>
+            <li id="getVar">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getVar.xhtml">getVar()</a>
+            </li>
+            <li id="getVars">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/getVars.xhtml">getVars()</a>
+            </li>
+            <li id="httpMethod">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/httpMethod.xhtml">httpMethod()</a>
+            </li>
+            <li id="isAjax"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isAjax.xhtml">isAjax()</a>
+                — Returns true if this request an ajax request, based on custom HTTP ajax added by common JavaScript libraries, or based on an explicit "ajax" request parameter.</li>
+            <li id="isDELETE">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isDELETE.xhtml">isDELETE()</a>
+            </li>
+            <li id="isEmptyPattern"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isEmptyPattern.xhtml">isEmptyPattern()</a>
+                — Returns true if this is a URL that will match without shifting off any of the URL.</li>
+            <li id="isGET">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isGET.xhtml">isGET()</a>
+            </li>
+            <li id="isHEAD">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isHEAD.xhtml">isHEAD()</a>
+            </li>
+            <li id="isMedia"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isMedia.xhtml">isMedia()</a>
+                — Checks if the {@link SS_HTTPRequest-&gt;getExtension()} on this request matches one of the more common media types embedded into a webpage - e.g. css, png.</li>
+            <li id="isPOST">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isPOST.xhtml">isPOST()</a>
+            </li>
+            <li id="isPUT">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/isPUT.xhtml">isPUT()</a>
+            </li>
+            <li id="latestParam">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/latestParam.xhtml">latestParam()</a>
+            </li>
+            <li id="latestParams">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/latestParams.xhtml">latestParams()</a>
+            </li>
+            <li id="match"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/match.xhtml">match()</a>
+                — Matches a URL pattern The pattern can contain a number of segments, separated by / (and an extension indicated by a .)</li>
+            <li id="offsetExists"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetExists.xhtml">offsetExists()</a>
+                — Enables the existence of a key-value pair in the request to be checked using array syntax, so isset($request['title']) will check for $_POST['title'] and $_GET['title']</li>
+            <li id="offsetGet"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetGet.xhtml">offsetGet()</a>
+                — Access a request variable using array syntax. eg: $request['title'] instead of $request-&gt;postVar('title')</li>
+            <li id="offsetSet">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetSet.xhtml">offsetSet()</a>
+            </li>
+            <li id="offsetUnset">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/offsetUnset.xhtml">offsetUnset()</a>
+            </li>
+            <li id="param"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/param.xhtml">param()</a>
+                — Finds a named URL parameter (denoted by "$"-prefix in $url_handlers) from the full URL, or a parameter specified in the route table</li>
+            <li id="params">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/params.xhtml">params()</a>
+            </li>
+            <li id="postVar">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/postVar.xhtml">postVar()</a>
+            </li>
+            <li id="postVars">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/postVars.xhtml">postVars()</a>
+            </li>
+            <li id="remaining"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/remaining.xhtml">remaining()</a>
+                — Returns the unparsed part of the original URL separated by commas. This is used by {@link RequestHandler-&gt;handleRequest()} to determine if further URL processing is necessary.</li>
+            <li id="removeHeader"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/removeHeader.xhtml">removeHeader()</a>
+                — Remove an existing HTTP header by its name, e.g. "Content-Type".</li>
+            <li id="requestVar">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/requestVar.xhtml">requestVar()</a>
+            </li>
+            <li id="requestVars"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/requestVars.xhtml">requestVars()</a>
+                — Returns all combined HTTP GET and POST parameters passed into this request. If a parameter with the same name exists in both arrays, the POST value is returned.</li>
+            <li id="routeParams">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/routeParams.xhtml">routeParams()</a>
+            </li>
+            <li id="send_file"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/send_file.xhtml">send_file()</a>
+                — Construct an SS_HTTPResponse that will deliver a file to the client</li>
+            <li id="setBody">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/setBody.xhtml">setBody()</a>
+            </li>
+            <li id="setRouteParams">
+              <a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/setRouteParams.xhtml">setRouteParams()</a>
+            </li>
+            <li id="setUrl"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/setUrl.xhtml">setUrl()</a>
+                — Allow the setting of a URL</li>
+            <li id="shift"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/shift.xhtml">shift()</a>
+                — Shift one or more parts off the beginning of the URL.</li>
+            <li id="shiftAllParams"><a title="SS_HTTPRequest" href="../classes/SS_HTTPRequest/shiftAllParams.xhtml">shiftAllParams()</a>
+                — Shift all the parameter values down a key space, and return the shifted value.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

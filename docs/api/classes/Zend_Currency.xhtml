@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Currency</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Currency</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Currency.php.xhtml#line37">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Currency</h1>
+        <h4>Class for handling currency notations</h4>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Currency
+            {<br/><ul class="none"><li>// constants</li><li>const NO_SYMBOL = 1;</li><li>const USE_SYMBOL = 2;</li><li>const USE_SHORTNAME = 3;</li><li>const USE_NAME = 4;</li><li>const STANDARD = 8;</li><li>const RIGHT = 16;</li><li>const LEFT = 32;</li></ul><ul class="none"><li>// members</li><li>protected array <a href="#members">$_options</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Zend_Currency" href="../classes/Zend_Currency/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="Zend_Currency" href="../classes/Zend_Currency/toCurrency.xhtml">toCurrency</a>()
+                    </li><li>private string <a title="Zend_Currency" href="../classes/Zend_Currency/_extractPattern.xhtml">_extractPattern</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/setFormat.xhtml">setFormat</a>()
+                    </li><li>private string <a title="Zend_Currency" href="../classes/Zend_Currency/_checkParams.xhtml">_checkParams</a>()
+                    </li><li>public string <a title="Zend_Currency" href="../classes/Zend_Currency/getSymbol.xhtml">getSymbol</a>()
+                    </li><li>public string <a title="Zend_Currency" href="../classes/Zend_Currency/getShortName.xhtml">getShortName</a>()
+                    </li><li>public string <a title="Zend_Currency" href="../classes/Zend_Currency/getName.xhtml">getName</a>()
+                    </li><li>public array <a title="Zend_Currency" href="../classes/Zend_Currency/getRegionList.xhtml">getRegionList</a>()
+                    </li><li>public array <a title="Zend_Currency" href="../classes/Zend_Currency/getCurrencyList.xhtml">getCurrencyList</a>()
+                    </li><li>public string <a title="Zend_Currency" href="../classes/Zend_Currency/toString.xhtml">toString</a>()
+                    </li><li>public string <a title="Zend_Currency" href="../classes/Zend_Currency/__toString.xhtml">__toString</a>()
+                    </li><li>public static Zend_Cache_Core <a title="Zend_Currency" href="../classes/Zend_Currency/getCache.xhtml">getCache</a>()
+                    </li><li>public static void <a title="Zend_Currency" href="../classes/Zend_Currency/setCache.xhtml">setCache</a>()
+                    </li><li>public static boolean <a title="Zend_Currency" href="../classes/Zend_Currency/hasCache.xhtml">hasCache</a>()
+                    </li><li>public static void <a title="Zend_Currency" href="../classes/Zend_Currency/removeCache.xhtml">removeCache</a>()
+                    </li><li>public static void <a title="Zend_Currency" href="../classes/Zend_Currency/clearCache.xhtml">clearCache</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/setLocale.xhtml">setLocale</a>()
+                    </li><li>public string <a title="Zend_Currency" href="../classes/Zend_Currency/getLocale.xhtml">getLocale</a>()
+                    </li><li>public float <a title="Zend_Currency" href="../classes/Zend_Currency/getValue.xhtml">getValue</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/setValue.xhtml">setValue</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/add.xhtml">add</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/sub.xhtml">sub</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/div.xhtml">div</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/mul.xhtml">mul</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/mod.xhtml">mod</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/compare.xhtml">compare</a>()
+                    </li><li>public boolean <a title="Zend_Currency" href="../classes/Zend_Currency/equals.xhtml">equals</a>()
+                    </li><li>public boolean <a title="Zend_Currency" href="../classes/Zend_Currency/isMore.xhtml">isMore</a>()
+                    </li><li>public boolean <a title="Zend_Currency" href="../classes/Zend_Currency/isLess.xhtml">isLess</a>()
+                    </li><li>protected unknown <a title="Zend_Currency" href="../classes/Zend_Currency/_exchangeCurrency.xhtml">_exchangeCurrency</a>()
+                    </li><li>public Zend_Service <a title="Zend_Currency" href="../classes/Zend_Currency/getService.xhtml">getService</a>()
+                    </li><li>public Zend_Currency <a title="Zend_Currency" href="../classes/Zend_Currency/setService.xhtml">setService</a>()
+                    </li><li>protected array <a title="Zend_Currency" href="../classes/Zend_Currency/_checkOptions.xhtml">_checkOptions</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="NO_SYMBOL">NO_SYMBOL</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td id="USE_SYMBOL">USE_SYMBOL</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td id="USE_SHORTNAME">USE_SHORTNAME</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td id="USE_NAME">USE_NAME</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td id="STANDARD">STANDARD</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td id="RIGHT">RIGHT</td>
+              <td>16</td>
+            </tr>
+            <tr>
+              <td id="LEFT">LEFT</td>
+              <td>32</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_options"><strong>$_options</strong>
+                —
+                array<br/><span class="indent">Options array</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="_checkParams"><a title="Zend_Currency" href="../classes/Zend_Currency/_checkParams.xhtml">_checkParams()</a>
+                — Internal function for checking static given locale parameter</li>
+            <li id="_extractPattern"><a title="Zend_Currency" href="../classes/Zend_Currency/_extractPattern.xhtml">_extractPattern()</a>
+                — Internal method to extract the currency pattern when a choice is given based on the given value</li>
+          </ul>
+          <h4>protected</h4>
+          <ul>
+            <li id="_checkOptions"><a title="Zend_Currency" href="../classes/Zend_Currency/_checkOptions.xhtml">_checkOptions()</a>
+                — Internal method for checking the options array</li>
+            <li id="_exchangeCurrency"><a title="Zend_Currency" href="../classes/Zend_Currency/_exchangeCurrency.xhtml">_exchangeCurrency()</a>
+                — Internal method which calculates the exchanges currency</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Currency" href="../classes/Zend_Currency/__construct.xhtml">__construct()</a>
+                — Creates a currency instance. Every supressed parameter is used from the actual or the given locale.</li>
+            <li id="__toString"><a title="Zend_Currency" href="../classes/Zend_Currency/__toString.xhtml">__toString()</a>
+                — Returns the currency name</li>
+            <li id="add"><a title="Zend_Currency" href="../classes/Zend_Currency/add.xhtml">add()</a>
+                — Adds a currency</li>
+            <li id="clearCache"><a title="Zend_Currency" href="../classes/Zend_Currency/clearCache.xhtml">clearCache()</a>
+                — Clears all set cache data</li>
+            <li id="compare"><a title="Zend_Currency" href="../classes/Zend_Currency/compare.xhtml">compare()</a>
+                — Compares two currencies</li>
+            <li id="div"><a title="Zend_Currency" href="../classes/Zend_Currency/div.xhtml">div()</a>
+                — Divides a currency</li>
+            <li id="equals"><a title="Zend_Currency" href="../classes/Zend_Currency/equals.xhtml">equals()</a>
+                — Returns true when the two currencies are equal</li>
+            <li id="getCache"><a title="Zend_Currency" href="../classes/Zend_Currency/getCache.xhtml">getCache()</a>
+                — Returns the set cache</li>
+            <li id="getCurrencyList"><a title="Zend_Currency" href="../classes/Zend_Currency/getCurrencyList.xhtml">getCurrencyList()</a>
+                — Returns a list of currencies which are used in this region a region name should be 2 charachters only (f.e. EG, DE, US) If no region is given, the actual region is used</li>
+            <li id="getLocale"><a title="Zend_Currency" href="../classes/Zend_Currency/getLocale.xhtml">getLocale()</a>
+                — Returns the actual set locale</li>
+            <li id="getName"><a title="Zend_Currency" href="../classes/Zend_Currency/getName.xhtml">getName()</a>
+                — Returns the actual or details of other currency names</li>
+            <li id="getRegionList"><a title="Zend_Currency" href="../classes/Zend_Currency/getRegionList.xhtml">getRegionList()</a>
+                — Returns a list of regions where this currency is or was known</li>
+            <li id="getService"><a title="Zend_Currency" href="../classes/Zend_Currency/getService.xhtml">getService()</a>
+                — Returns the set service class</li>
+            <li id="getShortName"><a title="Zend_Currency" href="../classes/Zend_Currency/getShortName.xhtml">getShortName()</a>
+                — Returns the actual or details of other currency shortnames</li>
+            <li id="getSymbol"><a title="Zend_Currency" href="../classes/Zend_Currency/getSymbol.xhtml">getSymbol()</a>
+                — Returns the actual or details of other currency symbols, when no symbol is available it returns the currency shortname (f.e. FIM for Finnian Mark)</li>
+            <li id="getValue"><a title="Zend_Currency" href="../classes/Zend_Currency/getValue.xhtml">getValue()</a>
+                — Returns the value</li>
+            <li id="hasCache"><a title="Zend_Currency" href="../classes/Zend_Currency/hasCache.xhtml">hasCache()</a>
+                — Returns true when a cache is set</li>
+            <li id="isLess"><a title="Zend_Currency" href="../classes/Zend_Currency/isLess.xhtml">isLess()</a>
+                — Returns true when the currency is less than the given value</li>
+            <li id="isMore"><a title="Zend_Currency" href="../classes/Zend_Currency/isMore.xhtml">isMore()</a>
+                — Returns true when the currency is more than the given value</li>
+            <li id="mod"><a title="Zend_Currency" href="../classes/Zend_Currency/mod.xhtml">mod()</a>
+                — Calculates the modulo from a currency</li>
+            <li id="mul"><a title="Zend_Currency" href="../classes/Zend_Currency/mul.xhtml">mul()</a>
+                — Multiplies a currency</li>
+            <li id="removeCache"><a title="Zend_Currency" href="../classes/Zend_Currency/removeCache.xhtml">removeCache()</a>
+                — Removes any set cache</li>
+            <li id="setCache"><a title="Zend_Currency" href="../classes/Zend_Currency/setCache.xhtml">setCache()</a>
+                — Sets a cache for Zend_Currency</li>
+            <li id="setFormat"><a title="Zend_Currency" href="../classes/Zend_Currency/setFormat.xhtml">setFormat()</a>
+                — Sets the formating options of the localized currency string If no parameter is passed, the standard setting of the actual set locale will be used</li>
+            <li id="setLocale"><a title="Zend_Currency" href="../classes/Zend_Currency/setLocale.xhtml">setLocale()</a>
+                — Sets a new locale for data retreivement Example: 'de_XX' will be set to 'de' because 'de_XX' does not exist 'xx_YY' will be set to 'root' because 'xx' does not exist</li>
+            <li id="setService"><a title="Zend_Currency" href="../classes/Zend_Currency/setService.xhtml">setService()</a>
+                — Sets a new exchange service</li>
+            <li id="setValue"><a title="Zend_Currency" href="../classes/Zend_Currency/setValue.xhtml">setValue()</a>
+                — Adds a currency</li>
+            <li id="sub"><a title="Zend_Currency" href="../classes/Zend_Currency/sub.xhtml">sub()</a>
+                — Substracts a currency</li>
+            <li id="toCurrency"><a title="Zend_Currency" href="../classes/Zend_Currency/toCurrency.xhtml">toCurrency()</a>
+                — Returns a localized currency string</li>
+            <li id="toString"><a title="Zend_Currency" href="../classes/Zend_Currency/toString.xhtml">toString()</a>
+                — Returns the actual currency name</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

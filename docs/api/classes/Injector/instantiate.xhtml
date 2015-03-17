@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Injector" href="../../classes/Injector.xhtml">Injector</a>
+          </li>
+          <li class="separator">instantiate</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="../../source/framework/control/injector/Injector.php.xhtml#line535">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Injector::</small>instantiate</h1>
+        <h4>Instantiate a managed object</h4>
+        <p>Given a specification of the form
+
+array(
+	'class' =&gt; 'ClassName',
+	'properties' =&gt; array('property' =&gt; 'scalar', 'other' =&gt; '%$BeanRef')
+	'id' =&gt; 'ServiceId',
+	'type' =&gt; 'singleton|prototype'
+)
+
+will create a new object, store it in the service registry, and
+set any relevant properties
+
+Optionally, you can pass a class name directly for creation
+
+To access this from the outside, you should call -&gt;get('Name') to ensure
+the appropriate checks are made on the specific type.</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>protected function instantiate(array
+        $spec,
+            [string
+        $id = null,
+            [string
+        $type = null]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$spec</code>
+                —
+                array</dt>
+          <dd><br/>The specification of the class to instantiate</dd>
+          <dt><code>$id</code>
+                —
+                string</dt>
+          <dd><br/>The name of the object being created. If not supplied, then the id will be inferred from the<br/>			object being created</dd>
+          <dt><code>$type</code>
+                —
+                string</dt>
+          <dd><br/>Whether to create as a singleton or prototype object. Allows code to be explicit as to how it<br/>			wants the object to be returned</dd>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

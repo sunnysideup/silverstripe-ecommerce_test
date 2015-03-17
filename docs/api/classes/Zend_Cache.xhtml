@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Cache</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Cache</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Cache.php.xhtml#line28">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Cache</h1>
+        <h4/>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Cache
+            {<br/><ul class="none"><li>// constants</li><li>const CLEANING_MODE_ALL = 'all';</li><li>const CLEANING_MODE_OLD = 'old';</li><li>const CLEANING_MODE_MATCHING_TAG = 'matchingTag';</li><li>const CLEANING_MODE_NOT_MATCHING_TAG = 'notMatchingTag';</li><li>const CLEANING_MODE_MATCHING_ANY_TAG = 'matchingAnyTag';</li></ul><ul class="none"><li>// members</li><li>public array <a href="#members">$standardFrontends</a>;
+                    </li><li>public array <a href="#members">$standardBackends</a>;
+                    </li><li>public array <a href="#members">$standardExtendedBackends</a>;
+                    </li><li>public array <a href="#members">$availableFrontends</a>;
+                    </li><li>public array <a href="#members">$availableBackends</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static Zend_Cache_Core|Zend_Cache_Frontend <a title="Zend_Cache" href="../classes/Zend_Cache/factory.xhtml">factory</a>()
+                    </li><li>public static Zend_Cache_Backend <a title="Zend_Cache" href="../classes/Zend_Cache/_makeBackend.xhtml">_makeBackend</a>()
+                    </li><li>public static Zend_Cache_Core|Zend_Cache_Frontend <a title="Zend_Cache" href="../classes/Zend_Cache/_makeFrontend.xhtml">_makeFrontend</a>()
+                    </li><li>public static void <a title="Zend_Cache" href="../classes/Zend_Cache/throwException.xhtml">throwException</a>()
+                    </li><li>protected static string <a title="Zend_Cache" href="../classes/Zend_Cache/_normalizeName.xhtml">_normalizeName</a>()
+                    </li><li>private static boolean <a title="Zend_Cache" href="../classes/Zend_Cache/_isReadable.xhtml">_isReadable</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="CLEANING_MODE_ALL">CLEANING_MODE_ALL</td>
+              <td>'all'</td>
+            </tr>
+            <tr>
+              <td id="CLEANING_MODE_OLD">CLEANING_MODE_OLD</td>
+              <td>'old'</td>
+            </tr>
+            <tr>
+              <td id="CLEANING_MODE_MATCHING_TAG">CLEANING_MODE_MATCHING_TAG</td>
+              <td>'matchingTag'</td>
+            </tr>
+            <tr>
+              <td id="CLEANING_MODE_NOT_MATCHING_TAG">CLEANING_MODE_NOT_MATCHING_TAG</td>
+              <td>'notMatchingTag'</td>
+            </tr>
+            <tr>
+              <td id="CLEANING_MODE_MATCHING_ANY_TAG">CLEANING_MODE_MATCHING_ANY_TAG</td>
+              <td>'matchingAnyTag'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>public</h4>
+          <ul class="members">
+            <li id="availableBackends"><strong>$availableBackends</strong>
+                —
+                array<br/><span class="indent">Only for backward compatibility (may be removed in next major release)</span></li>
+            <li id="availableFrontends"><strong>$availableFrontends</strong>
+                —
+                array<br/><span class="indent">Only for backward compatibility (may be removed in next major release)</span></li>
+            <li id="standardBackends"><strong>$standardBackends</strong>
+                —
+                array<br/><span class="indent">Standard backends</span></li>
+            <li id="standardExtendedBackends"><strong>$standardExtendedBackends</strong>
+                —
+                array<br/><span class="indent">Standard backends which implement the ExtendedInterface</span></li>
+            <li id="standardFrontends"><strong>$standardFrontends</strong>
+                —
+                array<br/><span class="indent">Standard frontends</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="_isReadable"><a title="Zend_Cache" href="../classes/Zend_Cache/_isReadable.xhtml">_isReadable()</a>
+                — Returns TRUE if the $filename is readable, or FALSE otherwise.</li>
+          </ul>
+          <h4>protected</h4>
+          <ul>
+            <li id="_normalizeName"><a title="Zend_Cache" href="../classes/Zend_Cache/_normalizeName.xhtml">_normalizeName()</a>
+                — Normalize frontend and backend names to allow multiple words TitleCased</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="_makeBackend"><a title="Zend_Cache" href="../classes/Zend_Cache/_makeBackend.xhtml">_makeBackend()</a>
+                — Backend Constructor</li>
+            <li id="_makeFrontend"><a title="Zend_Cache" href="../classes/Zend_Cache/_makeFrontend.xhtml">_makeFrontend()</a>
+                — Frontend Constructor</li>
+            <li id="factory"><a title="Zend_Cache" href="../classes/Zend_Cache/factory.xhtml">factory()</a>
+                — Factory</li>
+            <li id="throwException"><a title="Zend_Cache" href="../classes/Zend_Cache/throwException.xhtml">throwException()</a>
+                — Throw an exception</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Session</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Session</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/control/Session.php.xhtml#line86">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Session</h1>
+        <h4>Handles all manipulation of the session.</h4>
+        <p>The static methods are used to manipulate the currently active controller's session.<br/>The instance methods are used to manipulate a particular session. There can be more than one of these created.<br/>In order to support things like testing, the session is associated with a particular Controller. In normal usage,<br/>this is loaded from and saved to the regular PHP session, but for things like static-page-generation and<br/>unit-testing, you can create multiple Controllers, each with their own session.<br/>The instance object is basically just a way of manipulating a set of nested maps, and isn't specific to session<br/>data.<br/>&lt;b&gt;Saving Data&lt;/b&gt;<br/>You can write a value to a users session from your PHP code using the static function . You<br/>can add this line in any function or file you wish to save the value.<br/>&lt;code&gt;<br/>Session::set('MyValue', 6);<br/>&lt;/code&gt;<br/>Saves the value of "6" to the MyValue session data. You can also save arrays or serialized objects in session (but<br/>note there may be size restrictions as to how much you can save)<br/>&lt;code&gt;<br/>// save a variable<br/>$var = 1;<br/>Session::set('MyVar', $var);<br/>// saves an array<br/>Session::set('MyArrayOfValues', array('1','2','3'));<br/>// saves an object (you'll have to unserialize it back)<br/>$object = new Object();<br/>Session::set('MyObject', serialize($object));<br/>&lt;/code&gt;<br/>&lt;b&gt;Accessing Data&lt;/b&gt;<br/>Once you have saved a value to the Session you can access it by using the function.<br/>Like the &lt;/code&gt;<br/>You can also get all the values in the session at once. This is useful for debugging.<br/>&lt;code&gt;<br/>Session::get_all(); // returns an array of all the session values.<br/>&lt;/code&gt;<br/>&lt;b&gt;Clearing Data&lt;/b&gt;<br/>Once you have accessed a value from the Session it doesn't automatically wipe the value from the Session, you have<br/>to specifically remove it. To clear a value you can either delete 1 session value by the name that you saved it<br/>&lt;code&gt;<br/>Session::clear('MyValue'); // MyValue is no longer 6.<br/>&lt;/code&gt;<br/>Or you can clear every single value in the session at once. Note SilverStripe stores some of its own session data<br/>including form and page comment information. None of this is vital but clear_all will clear everything.<br/>&lt;code&gt;<br/>Session::clear_all();<br/>&lt;/code&gt;<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Session
+            {<br/><ul class="none"><li>// members</li><li>private <span title="$timeout">$timeout</span> <a href="#members">$timeout</a>;
+                    </li><li>private array <a href="#members">$session_ips</a>;
+                    </li><li>private string <a href="#members">$cookie_domain</a>;
+                    </li><li>private string <a href="#members">$cookie_path</a>;
+                    </li><li>private string <a href="#members">$session_store_path</a>;
+                    </li><li>private boolean <a href="#members">$cookie_secure</a>;
+                    </li><li>protected array <a href="#members">$data</a>;
+                    </li><li>protected array <a href="#members">$changedData</a>;
+                    </li><li>protected <a href="#members">$default_session</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>protected void <a title="Session" href="../classes/Session/userAgent.xhtml">userAgent</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/__construct.xhtml">__construct</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/set_cookie_domain.xhtml">set_cookie_domain</a>()
+                    </li><li>public static string <a title="Session" href="../classes/Session/get_cookie_domain.xhtml">get_cookie_domain</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/set_cookie_path.xhtml">set_cookie_path</a>()
+                    </li><li>public static string <a title="Session" href="../classes/Session/get_cookie_path.xhtml">get_cookie_path</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/set_cookie_secure.xhtml">set_cookie_secure</a>()
+                    </li><li>public static boolean <a title="Session" href="../classes/Session/get_cookie_secure.xhtml">get_cookie_secure</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/set_session_store_path.xhtml">set_session_store_path</a>()
+                    </li><li>public static string <a title="Session" href="../classes/Session/get_session_store_path.xhtml">get_session_store_path</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/set_timeout_ips.xhtml">set_timeout_ips</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/add_to_array.xhtml">add_to_array</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/set.xhtml">set</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/get.xhtml">get</a>()
+                    </li><li>public static Array <a title="Session" href="../classes/Session/get_all.xhtml">get_all</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/clear.xhtml">clear</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/clear_all.xhtml">clear_all</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/save.xhtml">save</a>()
+                    </li><li>protected static void <a title="Session" href="../classes/Session/current_session.xhtml">current_session</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_start.xhtml">inst_start</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_destroy.xhtml">inst_destroy</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_set.xhtml">inst_set</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_addToArray.xhtml">inst_addToArray</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_get.xhtml">inst_get</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_clear.xhtml">inst_clear</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_clearAll.xhtml">inst_clearAll</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_getAll.xhtml">inst_getAll</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_finalize.xhtml">inst_finalize</a>()
+                    </li><li>public void <a title="Session" href="../classes/Session/inst_save.xhtml">inst_save</a>()
+                    </li><li>protected void <a title="Session" href="../classes/Session/recursivelyApply.xhtml">recursivelyApply</a>()
+                    </li><li>public array <a title="Session" href="../classes/Session/inst_changedData.xhtml">inst_changedData</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/setFormMessage.xhtml">setFormMessage</a>()
+                    </li><li>public static bool <a title="Session" href="../classes/Session/request_contains_session_id.xhtml">request_contains_session_id</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/start.xhtml">start</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/destroy.xhtml">destroy</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/set_timeout.xhtml">set_timeout</a>()
+                    </li><li>public static void <a title="Session" href="../classes/Session/get_timeout.xhtml">get_timeout</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">86+</td>
+            <td>This class is currently really basic and could do with a more well-thought-out implementation.</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="cookie_domain"><strong>$cookie_domain</strong>
+                —
+                string</li>
+            <li id="cookie_path"><strong>$cookie_path</strong>
+                —
+                string</li>
+            <li id="cookie_secure"><strong>$cookie_secure</strong>
+                —
+                boolean</li>
+            <li id="session_ips"><strong>$session_ips</strong>
+                —
+                array</li>
+            <li id="session_store_path"><strong>$session_store_path</strong>
+                —
+                string</li>
+            <li id="timeout"><strong>$timeout</strong>
+                —
+                <a href="#">$timeout</a></li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="changedData">
+              <strong>$changedData</strong>
+            </li>
+            <li id="data">
+              <strong>$data</strong>
+              <br/>
+              <span class="indent">Session data</span>
+            </li>
+            <li id="default_session">
+              <strong>$default_session</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="current_session">
+              <a title="Session" href="../classes/Session/current_session.xhtml">current_session()</a>
+            </li>
+            <li id="recursivelyApply"><a title="Session" href="../classes/Session/recursivelyApply.xhtml">recursivelyApply()</a>
+                — Recursively apply the changes represented in $data to $dest.</li>
+            <li id="userAgent">
+              <a title="Session" href="../classes/Session/userAgent.xhtml">userAgent()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Session" href="../classes/Session/__construct.xhtml">__construct()</a>
+                — Start PHP session, then create a new Session object with the given start data.</li>
+            <li id="add_to_array"><a title="Session" href="../classes/Session/add_to_array.xhtml">add_to_array()</a>
+                — Add a value to a specific key in the session array</li>
+            <li id="clear"><a title="Session" href="../classes/Session/clear.xhtml">clear()</a>
+                — Clear a given session key, value pair.</li>
+            <li id="clear_all"><a title="Session" href="../classes/Session/clear_all.xhtml">clear_all()</a>
+                — Clear all the values</li>
+            <li id="destroy"><a title="Session" href="../classes/Session/destroy.xhtml">destroy()</a>
+                — Destroy the active session.</li>
+            <li id="get"><a title="Session" href="../classes/Session/get.xhtml">get()</a>
+                — Return a specific value by session key</li>
+            <li id="get_all"><a title="Session" href="../classes/Session/get_all.xhtml">get_all()</a>
+                — Return all the values in session</li>
+            <li id="get_cookie_domain"><a title="Session" href="../classes/Session/get_cookie_domain.xhtml">get_cookie_domain()</a>
+                — Get the cookie domain.</li>
+            <li id="get_cookie_path"><a title="Session" href="../classes/Session/get_cookie_path.xhtml">get_cookie_path()</a>
+                — Get the path on the domain where the session cookie will work.</li>
+            <li id="get_cookie_secure"><a title="Session" href="../classes/Session/get_cookie_secure.xhtml">get_cookie_secure()</a>
+                — Get if the cookie is secure</li>
+            <li id="get_session_store_path"><a title="Session" href="../classes/Session/get_session_store_path.xhtml">get_session_store_path()</a>
+                — Get the session store path</li>
+            <li id="get_timeout">
+              <a title="Session" href="../classes/Session/get_timeout.xhtml">get_timeout()</a>
+            </li>
+            <li id="inst_addToArray">
+              <a title="Session" href="../classes/Session/inst_addToArray.xhtml">inst_addToArray()</a>
+            </li>
+            <li id="inst_changedData"><a title="Session" href="../classes/Session/inst_changedData.xhtml">inst_changedData()</a>
+                — Return the changed data, for debugging purposes.</li>
+            <li id="inst_clear">
+              <a title="Session" href="../classes/Session/inst_clear.xhtml">inst_clear()</a>
+            </li>
+            <li id="inst_clearAll">
+              <a title="Session" href="../classes/Session/inst_clearAll.xhtml">inst_clearAll()</a>
+            </li>
+            <li id="inst_destroy">
+              <a title="Session" href="../classes/Session/inst_destroy.xhtml">inst_destroy()</a>
+            </li>
+            <li id="inst_finalize">
+              <a title="Session" href="../classes/Session/inst_finalize.xhtml">inst_finalize()</a>
+            </li>
+            <li id="inst_get">
+              <a title="Session" href="../classes/Session/inst_get.xhtml">inst_get()</a>
+            </li>
+            <li id="inst_getAll">
+              <a title="Session" href="../classes/Session/inst_getAll.xhtml">inst_getAll()</a>
+            </li>
+            <li id="inst_save"><a title="Session" href="../classes/Session/inst_save.xhtml">inst_save()</a>
+                — Save data to session Only save the changes, so that anyone manipulating $_SESSION directly doesn't get burned.</li>
+            <li id="inst_set">
+              <a title="Session" href="../classes/Session/inst_set.xhtml">inst_set()</a>
+            </li>
+            <li id="inst_start">
+              <a title="Session" href="../classes/Session/inst_start.xhtml">inst_start()</a>
+            </li>
+            <li id="request_contains_session_id"><a title="Session" href="../classes/Session/request_contains_session_id.xhtml">request_contains_session_id()</a>
+                — Is there a session ID in the request?</li>
+            <li id="save"><a title="Session" href="../classes/Session/save.xhtml">save()</a>
+                — Save all the values in our session to $_SESSION</li>
+            <li id="set"><a title="Session" href="../classes/Session/set.xhtml">set()</a>
+                — Set a key/value pair in the session</li>
+            <li id="setFormMessage"><a title="Session" href="../classes/Session/setFormMessage.xhtml">setFormMessage()</a>
+                — Sets the appropriate form message in session, with type. This will be shown once, for the form specified.</li>
+            <li id="set_cookie_domain"><a title="Session" href="../classes/Session/set_cookie_domain.xhtml">set_cookie_domain()</a>
+                — Cookie domain, for example 'www.php.net'.</li>
+            <li id="set_cookie_path"><a title="Session" href="../classes/Session/set_cookie_path.xhtml">set_cookie_path()</a>
+                — Path to set on the domain where the session cookie will work.</li>
+            <li id="set_cookie_secure"><a title="Session" href="../classes/Session/set_cookie_secure.xhtml">set_cookie_secure()</a>
+                — Secure cookie, tells the browser to only send it over SSL.</li>
+            <li id="set_session_store_path"><a title="Session" href="../classes/Session/set_session_store_path.xhtml">set_session_store_path()</a>
+                — Set the session store path</li>
+            <li id="set_timeout"><a title="Session" href="../classes/Session/set_timeout.xhtml">set_timeout()</a>
+                — Set the timeout of a Session value</li>
+            <li id="set_timeout_ips"><a title="Session" href="../classes/Session/set_timeout_ips.xhtml">set_timeout_ips()</a>
+                — Provide an &lt;code&gt;array&lt;/code&gt; of rules specifing timeouts for IPv4 address ranges or individual IPv4 addresses. The key is an IP address or range and the value is the time until the session expires in seconds. For example:</li>
+            <li id="start"><a title="Session" href="../classes/Session/start.xhtml">start()</a>
+                — Initialize session.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

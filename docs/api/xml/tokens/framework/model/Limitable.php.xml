@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/model" file="Limitable.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/model/Limitable.php" size="731" time="2015-03-14T10:40:57+13:00" unixtime="1426282857" sha1="c03559c1213d8bacd23fe992662a7bea1101c933" relative="framework/model/Limitable.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2"/>
+  <line no="3">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * Additional interface for {@link SS_List} classes that are limitable - able to have a subset of the list extracted.</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> * All methods in this interface are immutable - they should return new instances with the limit</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * applied, rather than applying the limit in place</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * @see SS_List, SS_Sortable, SS_Filterable</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * @package framework</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * @subpackage model</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="13">
+    <token name="T_INTERFACE">interface</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">SS_Limitable</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="14"/>
+  <line no="15">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT">	 * Returns a new instance of this list where no more than $limit records are included.</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT">	 * If $offset is specified, then that many records at the beginning of the list will be skipped.</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT">	 * This matches the behaviour of the SQL LIMIT clause.</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT">	 * </token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT">	 * @return SS_Limitable</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="22">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">limit</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$limit</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$offset</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">0</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="23"/>
+  <line no="24">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="25"/>
+</source>

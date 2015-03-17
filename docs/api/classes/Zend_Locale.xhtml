@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Locale</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Locale</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Locale.php.xhtml#line30">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Locale</h1>
+        <h4>Base class for localization</h4>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Locale
+            {<br/><ul class="none"><li>// constants</li><li>const BROWSER = 'browser';</li><li>const ENVIRONMENT = 'environment';</li><li>const ZFDEFAULT = 'default';</li></ul><ul class="none"><li>// members</li><li>private array <a href="#members">$_localeData</a>;
+                    </li><li>private array <a href="#members">$_territoryData</a>;
+                    </li><li>public boolean <a href="#members">$compatibilityMode</a>;
+                    </li><li>private boolean <a href="#members">$_breakChain</a>;
+                    </li><li>protected string <a href="#members">$_locale</a>;
+                    </li><li>protected string <a href="#members">$_auto</a>;
+                    </li><li>protected string <a href="#members">$_browser</a>;
+                    </li><li>protected string <a href="#members">$_environment</a>;
+                    </li><li>protected array <a href="#members">$_default</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Zend_Locale" href="../classes/Zend_Locale/__construct.xhtml">__construct</a>()
+                    </li><li>public string <a title="Zend_Locale" href="../classes/Zend_Locale/serialize.xhtml">serialize</a>()
+                    </li><li>public string <a title="Zend_Locale" href="../classes/Zend_Locale/toString.xhtml">toString</a>()
+                    </li><li>public string <a title="Zend_Locale" href="../classes/Zend_Locale/__toString.xhtml">__toString</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getDefault.xhtml">getDefault</a>()
+                    </li><li>public static void <a title="Zend_Locale" href="../classes/Zend_Locale/setDefault.xhtml">setDefault</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getEnvironment.xhtml">getEnvironment</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getBrowser.xhtml">getBrowser</a>()
+                    </li><li>public void <a title="Zend_Locale" href="../classes/Zend_Locale/setLocale.xhtml">setLocale</a>()
+                    </li><li>public string <a title="Zend_Locale" href="../classes/Zend_Locale/getLanguage.xhtml">getLanguage</a>()
+                    </li><li>public string|false <a title="Zend_Locale" href="../classes/Zend_Locale/getRegion.xhtml">getRegion</a>()
+                    </li><li>public static string <a title="Zend_Locale" href="../classes/Zend_Locale/getHttpCharset.xhtml">getHttpCharset</a>()
+                    </li><li>public boolean <a title="Zend_Locale" href="../classes/Zend_Locale/equals.xhtml">equals</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getTranslationList.xhtml">getTranslationList</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getLanguageTranslationList.xhtml">getLanguageTranslationList</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getScriptTranslationList.xhtml">getScriptTranslationList</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getCountryTranslationList.xhtml">getCountryTranslationList</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getTerritoryTranslationList.xhtml">getTerritoryTranslationList</a>()
+                    </li><li>public static string|false <a title="Zend_Locale" href="../classes/Zend_Locale/getTranslation.xhtml">getTranslation</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getLanguageTranslation.xhtml">getLanguageTranslation</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getScriptTranslation.xhtml">getScriptTranslation</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getCountryTranslation.xhtml">getCountryTranslation</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getTerritoryTranslation.xhtml">getTerritoryTranslation</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getQuestion.xhtml">getQuestion</a>()
+                    </li><li>private static string <a title="Zend_Locale" href="../classes/Zend_Locale/_prepareQuestionString.xhtml">_prepareQuestionString</a>()
+                    </li><li>public static boolean <a title="Zend_Locale" href="../classes/Zend_Locale/isLocale.xhtml">isLocale</a>()
+                    </li><li>public static string <a title="Zend_Locale" href="../classes/Zend_Locale/findLocale.xhtml">findLocale</a>()
+                    </li><li>public static string|null <a title="Zend_Locale" href="../classes/Zend_Locale/getLocaleToTerritory.xhtml">getLocaleToTerritory</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getLocaleList.xhtml">getLocaleList</a>()
+                    </li><li>public static Zend_Cache_Core <a title="Zend_Locale" href="../classes/Zend_Locale/getCache.xhtml">getCache</a>()
+                    </li><li>public static void <a title="Zend_Locale" href="../classes/Zend_Locale/setCache.xhtml">setCache</a>()
+                    </li><li>public static boolean <a title="Zend_Locale" href="../classes/Zend_Locale/hasCache.xhtml">hasCache</a>()
+                    </li><li>public static void <a title="Zend_Locale" href="../classes/Zend_Locale/removeCache.xhtml">removeCache</a>()
+                    </li><li>public static void <a title="Zend_Locale" href="../classes/Zend_Locale/clearCache.xhtml">clearCache</a>()
+                    </li><li>public static void <a title="Zend_Locale" href="../classes/Zend_Locale/disableCache.xhtml">disableCache</a>()
+                    </li><li>private static string <a title="Zend_Locale" href="../classes/Zend_Locale/_prepareLocale.xhtml">_prepareLocale</a>()
+                    </li><li>public static array <a title="Zend_Locale" href="../classes/Zend_Locale/getOrder.xhtml">getOrder</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="BROWSER">BROWSER</td>
+              <td>'browser'</td>
+            </tr>
+            <tr>
+              <td id="ENVIRONMENT">ENVIRONMENT</td>
+              <td>'environment'</td>
+            </tr>
+            <tr>
+              <td id="ZFDEFAULT">ZFDEFAULT</td>
+              <td>'default'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="_breakChain"><strong>$_breakChain</strong>
+                —
+                boolean<br/><span class="indent">Internal variable</span></li>
+            <li id="_localeData"><strong>$_localeData</strong>
+                —
+                array<br/><span class="indent">Class wide Locale Constants</span></li>
+            <li id="_territoryData"><strong>$_territoryData</strong>
+                —
+                array<br/><span class="indent">Class wide Locale Constants</span></li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_auto"><strong>$_auto</strong>
+                —
+                string<br/><span class="indent">Automatic detected locale</span></li>
+            <li id="_browser"><strong>$_browser</strong>
+                —
+                string<br/><span class="indent">Browser detected locale</span></li>
+            <li id="_default"><strong>$_default</strong>
+                —
+                string<br/><span class="indent">Default locale</span></li>
+            <li id="_environment"><strong>$_environment</strong>
+                —
+                string<br/><span class="indent">Environment detected locale</span></li>
+            <li id="_locale"><strong>$_locale</strong>
+                —
+                string<br/><span class="indent">Actual set locale</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="compatibilityMode"><strong>$compatibilityMode</strong>
+                —
+                boolean<br/><span class="indent">Defines if old behaviour should be supported Old behaviour throws notices and will be deleted in future releases</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="_prepareLocale"><a title="Zend_Locale" href="../classes/Zend_Locale/_prepareLocale.xhtml">_prepareLocale()</a>
+                — Internal function, returns a single locale on detection</li>
+            <li id="_prepareQuestionString"><a title="Zend_Locale" href="../classes/Zend_Locale/_prepareQuestionString.xhtml">_prepareQuestionString()</a>
+                — Internal function for preparing the returned question regex string</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="Zend_Locale" href="../classes/Zend_Locale/__construct.xhtml">__construct()</a>
+                — Generates a locale object If no locale is given a automatic search is done Then the most probable locale will be automatically set Search order is  1. Given Locale  2. HTTP Client  3. Server Environment  4. Framework Standard</li>
+            <li id="__toString"><a title="Zend_Locale" href="../classes/Zend_Locale/__toString.xhtml">__toString()</a>
+                — Returns a string representation of the object Alias for toString</li>
+            <li id="clearCache"><a title="Zend_Locale" href="../classes/Zend_Locale/clearCache.xhtml">clearCache()</a>
+                — Clears all set cache data</li>
+            <li id="disableCache"><a title="Zend_Locale" href="../classes/Zend_Locale/disableCache.xhtml">disableCache()</a>
+                — Disables the set cache</li>
+            <li id="equals"><a title="Zend_Locale" href="../classes/Zend_Locale/equals.xhtml">equals()</a>
+                — Returns true if both locales are equal</li>
+            <li id="findLocale"><a title="Zend_Locale" href="../classes/Zend_Locale/findLocale.xhtml">findLocale()</a>
+                — Finds the proper locale based on the input Checks if it exists, degrades it when necessary Detects registry locale and when all fails tries to detect a automatic locale Returns the found locale as string</li>
+            <li id="getBrowser"><a title="Zend_Locale" href="../classes/Zend_Locale/getBrowser.xhtml">getBrowser()</a>
+                — Return an array of all accepted languages of the client Expects RFC compilant Header !!</li>
+            <li id="getCache"><a title="Zend_Locale" href="../classes/Zend_Locale/getCache.xhtml">getCache()</a>
+                — Returns the set cache</li>
+            <li id="getCountryTranslation"><a title="Zend_Locale" href="../classes/Zend_Locale/getCountryTranslation.xhtml">getCountryTranslation()</a>
+                — Returns the localized country name</li>
+            <li id="getCountryTranslationList"><a title="Zend_Locale" href="../classes/Zend_Locale/getCountryTranslationList.xhtml">getCountryTranslationList()</a>
+                — Returns an array with the name of all countries translated to the given language</li>
+            <li id="getDefault"><a title="Zend_Locale" href="../classes/Zend_Locale/getDefault.xhtml">getDefault()</a>
+                — Return the default locale</li>
+            <li id="getEnvironment"><a title="Zend_Locale" href="../classes/Zend_Locale/getEnvironment.xhtml">getEnvironment()</a>
+                — Expects the Systems standard locale</li>
+            <li id="getHttpCharset"><a title="Zend_Locale" href="../classes/Zend_Locale/getHttpCharset.xhtml">getHttpCharset()</a>
+                — Return the accepted charset of the client</li>
+            <li id="getLanguage"><a title="Zend_Locale" href="../classes/Zend_Locale/getLanguage.xhtml">getLanguage()</a>
+                — Returns the language part of the locale</li>
+            <li id="getLanguageTranslation"><a title="Zend_Locale" href="../classes/Zend_Locale/getLanguageTranslation.xhtml">getLanguageTranslation()</a>
+                — Returns the localized language name</li>
+            <li id="getLanguageTranslationList"><a title="Zend_Locale" href="../classes/Zend_Locale/getLanguageTranslationList.xhtml">getLanguageTranslationList()</a>
+                — Returns an array with the name of all languages translated to the given language</li>
+            <li id="getLocaleList"><a title="Zend_Locale" href="../classes/Zend_Locale/getLocaleList.xhtml">getLocaleList()</a>
+                — Returns a list of all known locales where the locale is the key Only real locales are returned, the internal locales 'root', 'auto', 'browser' and 'environment' are suppressed</li>
+            <li id="getLocaleToTerritory"><a title="Zend_Locale" href="../classes/Zend_Locale/getLocaleToTerritory.xhtml">getLocaleToTerritory()</a>
+                — Returns the expected locale for a given territory</li>
+            <li id="getOrder"><a title="Zend_Locale" href="../classes/Zend_Locale/getOrder.xhtml">getOrder()</a>
+                — Search the locale automatically and return all used locales ordered by quality</li>
+            <li id="getQuestion"><a title="Zend_Locale" href="../classes/Zend_Locale/getQuestion.xhtml">getQuestion()</a>
+                — Returns an array with translated yes strings</li>
+            <li id="getRegion"><a title="Zend_Locale" href="../classes/Zend_Locale/getRegion.xhtml">getRegion()</a>
+                — Returns the region part of the locale if available</li>
+            <li id="getScriptTranslation"><a title="Zend_Locale" href="../classes/Zend_Locale/getScriptTranslation.xhtml">getScriptTranslation()</a>
+                — Returns the localized script name</li>
+            <li id="getScriptTranslationList"><a title="Zend_Locale" href="../classes/Zend_Locale/getScriptTranslationList.xhtml">getScriptTranslationList()</a>
+                — Returns an array with the name of all scripts translated to the given language</li>
+            <li id="getTerritoryTranslation"><a title="Zend_Locale" href="../classes/Zend_Locale/getTerritoryTranslation.xhtml">getTerritoryTranslation()</a>
+                — Returns the localized territory name All territories contains other countries.</li>
+            <li id="getTerritoryTranslationList"><a title="Zend_Locale" href="../classes/Zend_Locale/getTerritoryTranslationList.xhtml">getTerritoryTranslationList()</a>
+                — Returns an array with the name of all territories translated to the given language All territories contains other countries.</li>
+            <li id="getTranslation"><a title="Zend_Locale" href="../classes/Zend_Locale/getTranslation.xhtml">getTranslation()</a>
+                — Returns a localized information string, supported are several types of informations.</li>
+            <li id="getTranslationList"><a title="Zend_Locale" href="../classes/Zend_Locale/getTranslationList.xhtml">getTranslationList()</a>
+                — Returns localized informations as array, supported are several types of informations.</li>
+            <li id="hasCache"><a title="Zend_Locale" href="../classes/Zend_Locale/hasCache.xhtml">hasCache()</a>
+                — Returns true when a cache is set</li>
+            <li id="isLocale"><a title="Zend_Locale" href="../classes/Zend_Locale/isLocale.xhtml">isLocale()</a>
+                — Checks if a locale identifier is a real locale or not Examples: "en_XX" refers to "en", which returns true "XX_yy" refers to "root", which returns false</li>
+            <li id="removeCache"><a title="Zend_Locale" href="../classes/Zend_Locale/removeCache.xhtml">removeCache()</a>
+                — Removes any set cache</li>
+            <li id="serialize"><a title="Zend_Locale" href="../classes/Zend_Locale/serialize.xhtml">serialize()</a>
+                — Serialization Interface</li>
+            <li id="setCache"><a title="Zend_Locale" href="../classes/Zend_Locale/setCache.xhtml">setCache()</a>
+                — Sets a cache</li>
+            <li id="setDefault"><a title="Zend_Locale" href="../classes/Zend_Locale/setDefault.xhtml">setDefault()</a>
+                — Sets a new default locale which will be used when no locale can be detected If provided you can set a quality between 0 and 1 (or 2 and 100) which represents the percent of quality the browser requested within HTTP</li>
+            <li id="setLocale"><a title="Zend_Locale" href="../classes/Zend_Locale/setLocale.xhtml">setLocale()</a>
+                — Sets a new locale</li>
+            <li id="toString"><a title="Zend_Locale" href="../classes/Zend_Locale/toString.xhtml">toString()</a>
+                — Returns a string representation of the object</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GoogleSpell" namespace="" name="GoogleSpell" abstract="false" final="false" start="10" end="117">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/tinymce-spellchecker/classes" file="GoogleSpell.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/tinymce-spellchecker/classes/GoogleSpell.php" size="4290" time="2015-03-14T10:41:59+13:00" unixtime="1426282919" sha1="9d009165028d469d9a904a674ee8952191923305" relative="framework/thirdparty/tinymce-spellchecker/classes/GoogleSpell.php"/>
+  <docblock>
+    <description compact="$Id: editor_plugin_src.js 201 2007-02-12 15:56:56Z spocke $"/>
+    <package value="MCManager.includes"/>
+    <author value="Moxiecode"/>
+    <copyright value="Copyright © 2004-2007, Moxiecode Systems AB, All rights reserved."/>
+  </docblock>
+  <extends full="SpellChecker" namespace="" name="SpellChecker"/>
+  <method name="checkWords" start="18" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Spellchecks an array of words."/>
+      <param description="Language code like sv or en." type="object" variable="$lang">
+        <type full="{String}" namespace="" name="{String}"/>
+      </param>
+      <param description="Array of words to spellcheck." type="object" variable="$words">
+        <type full="{Array}" namespace="" name="{Array}"/>
+      </param>
+      <return description="Array of misspelled words." type="object">
+        <type full="{Array}" namespace="" name="{Array}"/>
+      </return>
+    </docblock>
+    <parameter name="lang" byreference="false" type="{unknown}"/>
+    <parameter name="words" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getSuggestions" start="36" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns suggestions of for a specific word."/>
+      <param description="Language code like sv or en." type="object" variable="$lang">
+        <type full="{String}" namespace="" name="{String}"/>
+      </param>
+      <param description="Specific word to get suggestions for." type="object" variable="$word">
+        <type full="{String}" namespace="" name="{String}"/>
+      </param>
+      <return description="Array of suggestions for the specified word." type="object">
+        <type full="{Array}" namespace="" name="{Array}"/>
+      </return>
+    </docblock>
+    <parameter name="lang" byreference="false" type="{unknown}"/>
+    <parameter name="word" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Remove empty" line="44"/>
+    </inline>
+  </method>
+  <method name="_getMatches" start="53" end="106" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="lang" byreference="false" type="{unknown}"/>
+    <parameter name="str" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Setup XML request" line="60"/>
+      <comment value="Use curl if it exists" line="74"/>
+      <comment value="Use curl" line="76"/>
+      <comment value="Grab and parse content" line="101"/>
+    </inline>
+  </method>
+  <method name="_unhtmlentities" start="108" end="116" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="SpellChecker" namespace="" name="SpellChecker">
+    <method name="SpellChecker" start="16" end="18" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Constructor."/>
+        <param description="name/value array." variable="$config" type="object">
+          <type full="Configuration" namespace="" name="Configuration"/>
+        </param>
+      </docblock>
+      <parameter name="config" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="loopback" start="26" end="28" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Simple loopback function everything that gets in will be send back."/>
+        <param variable="$args.." type="object">
+          <type full="Arguments." namespace="" name="Arguments."/>
+        </param>
+        <return description="Array of all input arguments." type="object">
+          <type full="{Array}" namespace="" name="{Array}"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="checkWords" start="37" end="39" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Spellchecks an array of words."/>
+        <param description="Language code like sv or en." type="object" variable="$lang">
+          <type full="{String}" namespace="" name="{String}"/>
+        </param>
+        <param description="Array of words to spellcheck." type="object" variable="$words">
+          <type full="{Array}" namespace="" name="{Array}"/>
+        </param>
+        <return description="Array of misspelled words." type="object">
+          <type full="{Array}" namespace="" name="{Array}"/>
+        </return>
+      </docblock>
+      <parameter name="lang" byreference="false" type="{unknown}"/>
+      <parameter name="words" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getSuggestions" start="48" end="50" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns suggestions of for a specific word."/>
+        <param description="Language code like sv or en." type="object" variable="$lang">
+          <type full="{String}" namespace="" name="{String}"/>
+        </param>
+        <param description="Specific word to get suggestions for." type="object" variable="$word">
+          <type full="{String}" namespace="" name="{String}"/>
+        </param>
+        <return description="Array of suggestions for the specified word." type="object">
+          <type full="{Array}" namespace="" name="{Array}"/>
+        </return>
+      </docblock>
+      <parameter name="lang" byreference="false" type="{unknown}"/>
+      <parameter name="word" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="throwError" start="57" end="59" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Throws an error message back to the user. This will stop all execution."/>
+        <param description="Message to send back to user." type="object" variable="$str">
+          <type full="{String}" namespace="" name="{String}"/>
+        </param>
+      </docblock>
+      <parameter name="str" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldAddNewButton" namespace="" name="GridFieldAddNewButton" abstract="false" final="false" start="12" end="51">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldAddNewButton.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldAddNewButton.php" size="1274" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="ff715e747e4c252d5d025db6ef8631269052e61b" relative="framework/forms/gridfield/GridFieldAddNewButton.php"/>
+  <docblock>
+    <description compact="This component provides a button for opening the add new form provided by {@link GridFieldDetailForm}.">Only returns a button if <link xmlns="http://xml.phpdox.net/src" value="DataObject-&gt;canCreate()"/> for this record
+returns true.
+</description>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <implements full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider"/>
+  <member name="targetFragment" type="{unknown}" visibility="protected" line="14"/>
+  <member name="buttonName" type="{unknown}" visibility="protected" line="16"/>
+  <method name="setButtonName" start="18" end="22" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <constructor name="__construct" start="24" end="26" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="targetFragment" byreference="false" type="string" default="'before'"/>
+  </constructor>
+  <method name="getHTMLFragments" start="28" end="49" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="provide a default button name, can be changed by calling {@link setButtonName()} on this component" line="36"/>
+    </inline>
+  </method>
+  <extender full="GridFieldAddNewButtonOriginalPage" namespace="" name="GridFieldAddNewButtonOriginalPage"/>
+  <interface full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getHTMLFragments" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a map where the keys are fragment names and the values are pieces of HTML to add to these fragments.">Here are 4 built-in fragments: 'header', 'footer', 'before', and
+'after', but components may also specify fragments of their own.
+To specify a new fragment, specify a new fragment by including the
+text "$DefineFragment(fragmentname)" in the HTML that you return.
+Fragment names should only contain alphanumerics, -, and _.
+If you attempt to return HTML for a fragment that doesn't exist, an
+exception will be thrown when the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> is rendered.
+</description>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SSHTMLBBCodeParser_Filter_Basic" namespace="" name="SSHTMLBBCodeParser_Filter_Basic" abstract="false" final="false" start="38" end="73">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/parsers/HTML/BBCodeParser/Filter" file="Basic.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/parsers/HTML/BBCodeParser/Filter/Basic.php" size="3422" time="2015-03-14T10:40:58+13:00" unixtime="1426282858" sha1="f9c33a8797f1c812e8d7da8874a4fe9996a00c18" relative="framework/parsers/HTML/BBCodeParser/Filter/Basic.php"/>
+  <docblock>
+    <description/>
+    <package value="framework"/>
+    <subpackage value="misc"/>
+  </docblock>
+  <extends full="SSHTMLBBCodeParser_Filter" namespace="" name="SSHTMLBBCodeParser_Filter"/>
+  <member name="_definedTags" type="array" visibility="public" line="47">
+    <docblock>
+      <description compact="An array of tags parsed by the engine"/>
+      <access value="private"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <parent full="SSHTMLBBCodeParser_Filter" namespace="" name="SSHTMLBBCodeParser_Filter">
+    <extends full="SSHTMLBBCodeParser" namespace="" name="SSHTMLBBCodeParser"/>
+  </parent>
+  <parent full="SSHTMLBBCodeParser" namespace="" name="SSHTMLBBCodeParser">
+    <member name="_definedTags" type="array" visibility="public" line="64">
+      <docblock>
+        <description compact="An array of tags parsed by the engine, should be overwritten by filters"/>
+        <access value="private"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="_text" type="string" default="''" visibility="public" line="72">
+      <docblock>
+        <description compact="A string containing the input"/>
+        <access value="private"/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <member name="_preparsed" type="string" default="''" visibility="public" line="80">
+      <docblock>
+        <description compact="A string containing the preparsed input"/>
+        <access value="private"/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <member name="_tagArray" type="array" visibility="public" line="88">
+      <docblock>
+        <description compact="An array tags and texts build from the input text"/>
+        <access value="private"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="_parsed" type="string" default="''" visibility="public" line="96">
+      <docblock>
+        <description compact="A string containing the parsed version of the text"/>
+        <access value="private"/>
+        <var type="string"/>
+      </docblock>
+    </member>
+    <member name="_options" type="array" visibility="public" line="104">
+      <docblock>
+        <description compact="An array of options, filled by an ini file or through the contructor"/>
+        <access value="private"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="_filters" type="array" visibility="public" line="119">
+      <docblock>
+        <description compact="An array of filters used for parsing"/>
+        <access value="private"/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <method name="SSHTMLBBCodeParser" start="139" end="178" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Constructor, initialises the options and filters">Sets the private variable _options with base options defined with
+&amp;PEAR::getStaticProperty(), overwriting them with (if present)
+the argument to this method.
+Then it sets the extra options to properly escape the tag
+characters in preg_replace() etc. The set options are
+then stored back with &amp;PEAR::getStaticProperty(), so that the filter
+classes can use them.
+All the filters in the options are initialised and their defined tags
+are copied into the private variable _definedTags.</description>
+        <param description="options to use, can be left out" type="array"/>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="public"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <parameter name="options" byreference="false" type="array"/>
+      <inline>
+        <comment value="set the already set options" line="141"/>
+        <comment value="set the options passed as an argument" line="149"/>
+        <comment value="add escape open and close chars to the options for preg escaping" line="154"/>
+        <comment value="set the options back so that child classes can use them */" line="167"/>
+        <comment value="return if this is a subclass" line="171"/>
+        <comment value="extract the definedTags from subclasses */" line="176"/>
+      </inline>
+    </method>
+    <method name="getStaticProperty" start="180" end="190" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="var" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setOption" start="199" end="202" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Option setter"/>
+        <param description="option name" type="string"/>
+        <param description="option value" type="mixed"/>
+        <author value="Lorenzo Alberton &lt;l.alberton@quipo.it&gt;"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="addFilter" start="210" end="231" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add a new filter"/>
+        <param type="string" variable="filter"/>
+        <author value="Lorenzo Alberton &lt;l.alberton@quipo.it&gt;"/>
+      </docblock>
+      <parameter name="filter" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="removeFilter" start="239" end="254" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Remove an existing filter"/>
+        <param type="string" variable="$filter"/>
+        <author value="Lorenzo Alberton &lt;l.alberton@quipo.it&gt;"/>
+      </docblock>
+      <parameter name="filter" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="also remove the related $this-&gt;_definedTags for this filter," line="245"/>
+        <comment value="preserving the others" line="246"/>
+      </inline>
+    </method>
+    <method name="addFilters" start="263" end="283" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add new filters"/>
+        <param description="(array or string)" type="mixed"/>
+        <return description="true if all ok, false if not." type="boolean"/>
+        <author value="Lorenzo Alberton &lt;l.alberton@quipo.it&gt;"/>
+      </docblock>
+      <parameter name="filters" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="comma-separated list" line="266"/>
+        <comment value="invalid format" line="274"/>
+      </inline>
+    </method>
+    <method name="_preparse" start="301" end="317" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Executes statements before the actual array building starts">This method should be overwritten in a filter if you want to do
+something before the parsing process starts. This can be useful to
+allow certain short alternative tags which then can be converted into
+proper tags with preg_replace() calls.
+The main class walks through all the filters and and calls this
+method. The filters should modify their private $_preparsed
+variable, with input from $_text.</description>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="private"/>
+        <see value="$_text"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <inline>
+        <comment value="default: assign _text to _preparsed, to be overwritten by filters" line="303"/>
+        <comment value="return if this is a subclass" line="306"/>
+        <comment value="walk through the filters and execute _preparse" line="311"/>
+      </inline>
+    </method>
+    <method name="_buildTagArray" start="336" end="398" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Builds the tag array from the input string $_text">An array consisting of tag and text elements is contructed from the
+$_preparsed variable. The method uses _buildTag() to check if a tag is
+valid and to build the actual tag to be added to the tag array.</description>
+        <todo value="- rewrite whole method, as this one is old and probably slow">- see if a recursive method would be better than an iterative one</todo>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="private"/>
+        <see value="_buildTag()"/>
+        <see value="$_text"/>
+        <see value="$_tagArray"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <inline>
+        <comment value="new open tag before closing tag: treat as text" line="365"/>
+        <comment value="join 2 following text elements" line="388"/>
+      </inline>
+    </method>
+    <method name="_buildTag" start="414" end="468" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Builds a tag from the input string">This method builds a tag array based on the string it got as an
+argument. If the tag is invalid, &lt;false&gt; is returned. The tag
+attributes are extracted from the string and stored in the tag
+array as an associative array.</description>
+        <param description="string to build tag from" type="string"/>
+        <return description="tag in array format" type="array"/>
+        <access value="private"/>
+        <see value="_buildTagArray()"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <parameter name="str" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="closing tag" line="418"/>
+      </inline>
+    </method>
+    <method name="_validateTagArray" start="486" end="590" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Validates the tag array, regarding the allowed tags">While looping through the tag array, two following text tags are
+joined, and it is checked that the tag is allowed inside the
+last opened tag.
+By remembering what tags have been opened it is checked that
+there is correct (xml compliant) nesting.
+In the end all still opened tags are closed.</description>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="private"/>
+        <see value="_isAllowed()"/>
+        <see value="$_tagArray"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;, Seth Price &lt;seth@pricepages.org&gt;"/>
+      </docblock>
+    </method>
+    <method name="_parentNeeded" start="607" end="630" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks to see if a parent is needed">Checks to see if the current $in tag has an appropriate parent. If it
+does, then it returns false. If a parent is needed, then it returns the
+first tag in the list to add to the stack.</description>
+        <param description="tag that is on the outside" type="array"/>
+        <param description="tag that is on the inside" type="array"/>
+        <return description="false if not needed, tag if needed, true if out" type="boolean">of  our minds</return>
+        <access value="private"/>
+        <see value="_validateTagArray()"/>
+        <author value="Seth Price &lt;seth@pricepages.org&gt;"/>
+      </docblock>
+      <parameter name="out" byreference="false" type="{unknown}"/>
+      <parameter name="in" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Create a tag from the first one on the list" line="621"/>
+        <comment value="Tag is needed, we don't know which one. We could make something up," line="627"/>
+        <comment value="but it would be so random, I think that it would be worthless." line="628"/>
+      </inline>
+    </method>
+    <method name="_childNeeded" start="647" end="670" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks to see if a child is needed">Checks to see if the current $out tag has an appropriate child. If it
+does, then it returns false. If a child is needed, then it returns the
+first tag in the list to add to the stack.</description>
+        <param description="tag that is on the outside" type="array"/>
+        <param description="tag that is on the inside" type="array"/>
+        <return description="false if not needed, tag if needed, true if out" type="boolean">of our minds</return>
+        <access value="private"/>
+        <see value="_validateTagArray()"/>
+        <author value="Seth Price &lt;seth@pricepages.org&gt;"/>
+      </docblock>
+      <parameter name="out" byreference="false" type="{unknown}"/>
+      <parameter name="in" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Create a tag from the first one on the list" line="661"/>
+        <comment value="Tag is needed, we don't know which one. We could make something up," line="667"/>
+        <comment value="but it would be so random, I think that it would be worthless." line="668"/>
+      </inline>
+    </method>
+    <method name="_isAllowed" start="685" end="703" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Checks to see if a tag is allowed inside another tag">The allowed tags are extracted from the private _definedTags array.</description>
+        <param description="tag that is on the outside" type="array"/>
+        <param description="tag that is on the inside" type="array"/>
+        <return description="return true if the tag is allowed, false" type="boolean">otherwise</return>
+        <access value="private"/>
+        <see value="_validateTagArray()"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <parameter name="out" byreference="false" type="{unknown}"/>
+      <parameter name="in" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_buildParsedString" start="717" end="762" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Builds a parsed string based on the tag array">The correct html and attribute values are extracted from the private
+_definedTags array.</description>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="private"/>
+        <see value="$_tagArray"/>
+        <see value="$_parsed"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+    </method>
+    <method name="setText" start="774" end="777" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets text in the object to be parsed"/>
+        <param description="the text to set in the object" type="string"/>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="public"/>
+        <see value="getText()"/>
+        <see value="$_text"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <parameter name="str" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getText" start="788" end="791" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the unparsed text from the object"/>
+        <return description="the text set in the object" type="string"/>
+        <access value="public"/>
+        <see value="setText()"/>
+        <see value="$_text"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+    </method>
+    <method name="getPreparsed" start="802" end="805" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the preparsed text from the object"/>
+        <return description="the text set in the object" type="string"/>
+        <access value="public"/>
+        <see value="_preparse()"/>
+        <see value="$_preparsed"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+    </method>
+    <method name="getParsed" start="816" end="819" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the parsed text from the object"/>
+        <return description="the parsed text set in the object" type="string"/>
+        <access value="public"/>
+        <see value="parse()"/>
+        <see value="$_parsed"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+    </method>
+    <method name="parse" start="832" end="838" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Parses the text set in the object"/>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="public"/>
+        <see value="_preparse()"/>
+        <see value="_buildTagArray()"/>
+        <see value="_validateTagArray()"/>
+        <see value="_buildParsedString()"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+    </method>
+    <method name="qparse" start="849" end="854" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Quick method to do setText(), parse() and getParsed at once"/>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="public"/>
+        <see value="parse()"/>
+        <see value="$_text"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <parameter name="str" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="staticQparse" start="865" end="871" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Quick static method to do setText(), parse() and getParsed at once"/>
+        <return type="object">
+          <type full="none" namespace="" name="none"/>
+        </return>
+        <access value="public"/>
+        <see value="parse()"/>
+        <see value="$_text"/>
+        <author value="Stijn de Reede  &lt;sjr@gmx.co.uk&gt;"/>
+      </docblock>
+      <parameter name="str" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

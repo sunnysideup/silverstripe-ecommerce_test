@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="SS_Limitable" namespace="" name="SS_Limitable" abstract="false" final="false" start="13" end="24">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/model" file="Limitable.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/model/Limitable.php" size="731" time="2015-03-14T10:40:57+13:00" unixtime="1426282857" sha1="c03559c1213d8bacd23fe992662a7bea1101c933" relative="framework/model/Limitable.php"/>
+  <docblock>
+    <description compact="Additional interface for {@link SS_List} classes that are limitable - able to have a subset of the list extracted.">All methods in this interface are immutable - they should return new instances with the limit
+applied, rather than applying the limit in place</description>
+    <see value="SS_List, SS_Sortable, SS_Filterable"/>
+    <package value="framework"/>
+    <subpackage value="model"/>
+  </docblock>
+  <method name="limit" start="22" end="22" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a new instance of this list where no more than $limit records are included.">If $offset is specified, then that many records at the beginning of the list will be skipped.
+This matches the behaviour of the SQL LIMIT clause.</description>
+      <return type="object">
+        <type full="SS_Limitable" namespace="" name="SS_Limitable"/>
+      </return>
+    </docblock>
+    <parameter name="limit" byreference="false" type="{unknown}"/>
+    <parameter name="offset" byreference="false" type="integer" default="0"/>
+  </method>
+  <implementor full="PaginatedList" namespace="" name="PaginatedList"/>
+  <implementor full="Member_GroupSet" namespace="" name="Member_GroupSet"/>
+  <implementor full="DataList" namespace="" name="DataList"/>
+  <implementor full="GroupedList" namespace="" name="GroupedList"/>
+  <implementor full="ManyManyList" namespace="" name="ManyManyList"/>
+  <implementor full="HasManyList" namespace="" name="HasManyList"/>
+  <implementor full="RelationList" namespace="" name="RelationList"/>
+  <implementor full="UnsavedRelationList" namespace="" name="UnsavedRelationList"/>
+  <implementor full="ArrayList" namespace="" name="ArrayList"/>
+  <implementor full="SS_ListDecorator" namespace="" name="SS_ListDecorator"/>
+  <implementor full="FieldList" namespace="" name="FieldList"/>
+</interface>

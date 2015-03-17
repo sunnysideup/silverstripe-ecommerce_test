@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ConfigStaticManifestTest_Parser" namespace="" name="ConfigStaticManifestTest_Parser" abstract="false" final="false" start="262" end="269">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/core/manifest" file="ConfigStaticManifestTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/core/manifest/ConfigStaticManifestTest.php" size="6236" time="2015-03-14T10:41:06+13:00" unixtime="1426282866" sha1="ee99d862b7120d5e9afb233882c5080ebb09504a" relative="framework/tests/core/manifest/ConfigStaticManifestTest.php"/>
+  <extends full="SS_ConfigStaticManifest_Parser" namespace="" name="SS_ConfigStaticManifest_Parser"/>
+  <implements full="TestOnly" namespace="" name="TestOnly"/>
+  <constructor name="__construct" start="263" end="268" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="tokens" byreference="false" type="{unknown}"/>
+  </constructor>
+  <parent full="SS_ConfigStaticManifest_Parser" namespace="" name="SS_ConfigStaticManifest_Parser">
+    <member name="info" type="array" visibility="protected" line="160"/>
+    <member name="statics" type="array" visibility="protected" line="161"/>
+    <member name="path" type="{unknown}" visibility="protected" line="163"/>
+    <member name="tokens" type="{unknown}" visibility="protected" line="164"/>
+    <member name="length" type="{unknown}" visibility="protected" line="165"/>
+    <member name="pos" type="{unknown}" visibility="protected" line="166"/>
+    <constructor name="__construct" start="168" end="175" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="path" byreference="false" type="{unknown}"/>
+    </constructor>
+    <method name="getInfo" start="177" end="179" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="getStatics" start="181" end="183" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="next" start="191" end="199" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Get the next token to process, incrementing the pointer"/>
+        <param description="- if true will skip any whitespace tokens &amp; only return non-whitespace ones" type="object" variable="$ignoreWhitespace">
+          <type full="bool" namespace="" name="bool"/>
+        </param>
+        <return description="| mixed - Either the next token or null if there isn't one" type="object">
+          <type full="null" namespace="" name="null"/>
+        </return>
+      </docblock>
+      <parameter name="ignoreWhitespace" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="nextString" start="209" end="233" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Get the next set of tokens that form a string to process, incrementing the pointer"/>
+        <param description="- if true will skip any whitespace tokens" type="object" variable="$ignoreWhitespace">&amp; only return non-whitespace ones<type full="bool" namespace="" name="bool"/></param>
+        <return description="- Either the next string or null if there isn't one" type="object">
+          <type full="null|string" namespace="" name="null|string"/>
+        </return>
+      </docblock>
+      <parameter name="ignoreWhitespace" byreference="false" type="{unknown}" default="true"/>
+    </method>
+    <method name="parse" start="238" end="291" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Parse the given file to find the static variables declared in it, along with their access &amp; values"/>
+      </docblock>
+    </method>
+    <method name="parseStatic" start="300" end="383" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="During parsing we've found a &quot;static&quot; keyword. Parse out the variable names and value assignments that follow.">Seperated out from parse partially so that we can recurse if there are multiple statics
+being declared in a comma seperated list</description>
+      </docblock>
+      <parameter name="access" byreference="false" type="{unknown}"/>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Track array nesting depth" line="333"/>
+        <comment value="Parse out the assignment side of a static declaration," line="340"/>
+        <comment value="ending on either a ';' or a ',' outside an array" line="341"/>
+      </inline>
+    </method>
+  </parent>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+</class>

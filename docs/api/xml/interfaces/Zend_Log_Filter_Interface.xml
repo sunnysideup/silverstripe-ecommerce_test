@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Zend_Log_Filter_Interface" namespace="" name="Zend_Log_Filter_Interface" abstract="false" final="false" start="31" end="40">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Log/Filter" file="Interface.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Log/Filter/Interface.php" size="1326" time="2015-03-14T10:41:29+13:00" unixtime="1426282889" sha1="1211122af8b4e67a98c9ad5fd2fe571e160e360c" relative="framework/thirdparty/Zend/Log/Filter/Interface.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Log"/>
+    <subpackage value="Filter"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+    <version value="$Id: Interface.php 23775 2011-03-01 17:25:24Z ralph $"/>
+  </docblock>
+  <method name="accept" start="39" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns TRUE to accept the message, FALSE to block it."/>
+      <param description="event data" type="array" variable="$event"/>
+      <return description="accepted?" type="boolean"/>
+    </docblock>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <implementor full="Zend_Log_Filter_Priority" namespace="" name="Zend_Log_Filter_Priority"/>
+  <implementor full="Zend_Log_Filter_Abstract" namespace="" name="Zend_Log_Filter_Abstract"/>
+  <implementor full="Zend_Log_Filter_Message" namespace="" name="Zend_Log_Filter_Message"/>
+  <implementor full="Zend_Log_Filter_Suppress" namespace="" name="Zend_Log_Filter_Suppress"/>
+</interface>

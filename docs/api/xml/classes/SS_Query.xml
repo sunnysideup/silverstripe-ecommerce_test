@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_Query" namespace="" name="SS_Query" abstract="true" final="false" start="19" end="252">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/model" file="Query.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/model/Query.php" size="4973" time="2015-03-14T10:40:57+13:00" unixtime="1426282857" sha1="63aad5a82ec5b17b208a3d96707edbaef94486c0" relative="framework/model/Query.php"/>
+  <docblock>
+    <description compact="Abstract query-result class.">Once again, this should be subclassed by an actual database implementation
+such as <link xmlns="http://xml.phpdox.net/src" value="MySQLQuery"/>.
+It will only ever be constructed by a subclass of <link xmlns="http://xml.phpdox.net/src" value="SS_Database"/> and
+contain the result of a database query as an iteratable object.
+Primarily, the SS_Query class takes care of the iterator plumbing, letting
+the subclasses focusing on providing the specific data-access methods that
+are required: <link xmlns="http://xml.phpdox.net/src" value="nextRecord()"/>, <link xmlns="http://xml.phpdox.net/src" value="numRecords()"/> and <link xmlns="http://xml.phpdox.net/src" value="seek()"/></description>
+    <package value="framework"/>
+    <subpackage value="model"/>
+  </docblock>
+  <implements full="Iterator" namespace="" name="Iterator"/>
+  <member name="currentRecord" type="{unknown}" default="null" visibility="protected" line="26">
+    <docblock>
+      <description compact="The current record in the interator."/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="rowNum" type="integer" default="1" visibility="protected" line="33">
+    <docblock>
+      <description compact="The number of the current row in the interator."/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="queryHasBegun" type="{unknown}" default="false" visibility="protected" line="41">
+    <docblock>
+      <description compact="Flag to keep track of whether iteration has begun, to prevent unnecessary seeks."/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <method name="column" start="51" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return an array containing all the values from a specific column. If no column is set, then the first will be returned."/>
+      <param type="string" variable="$column"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="column" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="keyedColumn" start="71" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return an array containing all values in the leftmost column, where the keys are the same as the values."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="map" start="87" end="97" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return a map from the first column to the second column."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="record" start="104" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the next record in the iterator."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="value" start="113" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the first column of the first record."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="table" start="124" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return an HTML table containing the full result-set."/>
+    </docblock>
+  </method>
+  <method name="rewind" start="160" end="166" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterator function implementation. Rewind the iterator to the first item and return it.">Makes use of <link xmlns="http://xml.phpdox.net/src" value="seek()"/> and <link xmlns="http://xml.phpdox.net/src" value="numRecords()"/>, takes care of the
+plumbing.
+</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="current" start="174" end="180" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterator function implementation. Return the current item of the iterator."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="first" start="186" end="190" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterator function implementation. Return the first item of this iterator."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="key" start="198" end="200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterator function implementation. Return the row number of the current item."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="next" start="209" end="214" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterator function implementation. Return the next record in the iterator.">Makes use of <link xmlns="http://xml.phpdox.net/src" value="nextRecord()"/>, takes care of the plumbing.
+</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="valid" start="222" end="228" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Iterator function implementation. Check if the iterator is pointing to a valid item."/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="nextRecord" start="235" end="235" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the next record in the query result."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="numRecords" start="242" end="242" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the total number of items in the query result."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="seek" start="251" end="251" abstract="true" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Go to a specific row number in the query result and return the record."/>
+      <param description="Tow number to go to." type="int" variable="$rowNum"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="rowNum" byreference="false" type="{unknown}"/>
+  </method>
+  <interface full="Iterator" namespace="" name="Iterator">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="current" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Return the current element"/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+    <method name="key" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Return the key of the current element"/>
+      <return type="scalar"/>
+    </docblock>
+  </method>
+    <method name="next" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Move forward to next element">Moves the current position to the next element.</description>
+      <return type="void"/>
+    </docblock>
+  </method>
+    <method name="rewind" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Rewind the Iterator to the first element">Rewinds back to the first element of the Iterator.</description>
+      <return type="void"/>
+    </docblock>
+  </method>
+    <method name="valid" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Checks if current position is valid"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  </interface>
+  <extender full="MySQLQuery" namespace="" name="MySQLQuery"/>
+</class>

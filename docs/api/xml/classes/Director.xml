@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Director" namespace="" name="Director" abstract="false" final="false" start="17" end="1076">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control" file="Director.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/Director.php" size="36572" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="2be737b3b067ec63a4b5f48c8a3809701c2f5bed" relative="framework/control/Director.php"/>
+  <docblock>
+    <description compact="Director is responsible for processing URLs, and providing environment information.">The most important part of director is <link xmlns="http://xml.phpdox.net/src" value="Director::direct()"/>, which is passed a URL and will execute the
+appropriate controller.
+Director also has a number of static methods that provide information about the environment, such as
+<link xmlns="http://xml.phpdox.net/src" value="Director::$environment_type"/>.
+</description>
+    <package value="framework"/>
+    <subpackage value="control"/>
+    <see value="Director::direct()"/>
+    <see value="Director::$rules"/>
+    <see value="Director::$environment_type"/>
+  </docblock>
+  <implements full="TemplateGlobalProvider" namespace="" name="TemplateGlobalProvider"/>
+  <member name="urlParams" type="{unknown}" visibility="private" line="19"/>
+  <member name="rules" type="array" visibility="private" line="21"/>
+  <member name="current_page" type="{unknown}" visibility="private" line="26">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="SiteTree" namespace="" name="SiteTree"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="alternate_base_folder" type="{unknown}" visibility="private" line="32">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="dev_servers" type="array" visibility="private" line="38">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="test_servers" type="array" visibility="private" line="44">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="alternate_protocol" type="{unknown}" visibility="private" line="53">
+    <docblock>
+      <description compact="Setting this explicitly specifies the protocol (http or https) used, overriding the normal behaviour of Director::is_https introspecting it from the request"/>
+      <config/>
+      <var description="- &quot;http&quot; or &quot;https&quot; to force the protocol, or false-ish to use default introspection from request" type="string"/>
+    </docblock>
+  </member>
+  <member name="alternate_base_url" type="{unknown}" visibility="private" line="59">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="environment_type" type="{unknown}" visibility="private" line="65">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <method name="addRules" start="77" end="85" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Add URL matching rules to the Director.">The director is responsible for turning URLs into Controller objects.</description>
+      <deprecated value="3.2 Use the &quot;Director.rules&quot; config setting instead"/>
+      <param description="priority of the rules; higher values will get your rule checked first.  We recommend" variable="$priority" type="object">priority 100 for your site's rules.  The built-in rules are priority 10, standard modules are
+                 priority 50.<type full="The" namespace="" name="The"/></param>
+    </docblock>
+    <parameter name="priority" byreference="false" type="{unknown}"/>
+    <parameter name="rules" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="direct" start="106" end="198" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Process the given URL, creating the appropriate controller and executing it.">Request processing is handled as follows:
+ - Director::direct() creates a new SS_HTTPResponse object and passes this to Director::handleRequest().
+ - Director::handleRequest($request) checks each of the Director rules and identifies a controller to handle
+   this request.
+ - Controller::handleRequest($request) is then called.  This will find a rule to handle the URL, and call the
+   rule handling method.
+ - RequestHandler::handleRequest($request) is recursively called whenever a rule handling method returns a
+   RequestHandler object.
+
+In addition to request processing, Director will manage the session, and perform the output of the actual
+response to the browser.</description>
+      <param description="the URL the user is visiting, without the querystring." variable="$url" type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <uses value="handleRequest() rule-lookup logic is handled by this."/>
+      <uses value="Controller::run() Controller::run() handles the page logic for a Director::direct() call."/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="model" byreference="false" type="object">
+      <type full="\\DataModel" namespace="\" name="DataModel"/>
+    </parameter>
+    <inline>
+      <comment value="Validate $_FILES array before merging it with $_POST" line="107"/>
+      <comment value="Initiate an empty session - doesn't initialize an actual PHP session until saved (see below)" line="138"/>
+      <comment value="Only resume a session if its not started already, and a session identifier exists" line="141"/>
+      <todo value="Need to NOT proceed with the request in an elegant manner" line="149"/>
+      <comment value="Save session data. Note that inst_save() will start/resume the session if required." line="155"/>
+      <comment value="Return code for a redirection request" line="158"/>
+      <comment value="on cli, follow SilverStripe redirects automatically" line="163"/>
+    </inline>
+  </method>
+  <method name="test" start="221" end="326" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Test a URL request, returning a response object.">This method is the counterpart of Director::direct() that is used in functional testing.  It will execute the
+URL given, and return the result as an SS_HTTPResponse object.</description>
+      <param description="The URL to visit" type="string" variable="$url"/>
+      <param description="The $_POST &amp; $_FILES variables" type="array" variable="$postVars"/>
+      <param description="The {@link Session} object representing the current session.  By passing the same" type="object" variable="$session">object to multiple  calls of Director::test(), you can simulate a persisted session.<type full="Session" namespace="" name="Session"/></param>
+      <param description="The HTTP method, such as GET or POST.  It will default to POST if postVars is set," type="string" variable="$httpMethod">GET otherwise. Overwritten by $postVars['_method'] if present.</param>
+      <param description="The HTTP body" type="string" variable="$body"/>
+      <param description="HTTP headers with key-value pairs" type="array" variable="$headers"/>
+      <param description="to populate $_COOKIE" type="array" variable="$cookies"/>
+      <param description="The {@see HTTP_Request} object generated as a part of this request" type="object" variable="$request">
+        <type full="HTTP_Request" namespace="" name="HTTP_Request"/>
+      </param>
+      <return type="object">
+        <type full="SS_HTTPResponse" namespace="" name="SS_HTTPResponse"/>
+      </return>
+      <uses value="getControllerForURL() The rule-lookup logic is handled by this."/>
+      <uses value="Controller::run() Controller::run() handles the page logic for a Director::direct() call."/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="postVars" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="session" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="httpMethod" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="body" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="headers" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cookies" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="request" byreference="true" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="These are needed so that calling Director::test() doesnt muck with whoever is calling it." line="226"/>
+      <comment value="Really, it's some inappropriate coupling and should be resolved by making less use of statics" line="227"/>
+      <comment value="Back up the current values of the superglobals" line="235"/>
+      <comment value="Handle absolute URLs" line="248"/>
+      <comment value="If a port is mentioned in the absolute URL, be sure to add that into the" line="251"/>
+      <comment value="HTTP host" line="252"/>
+      <comment value="Ensure URL is properly made relative." line="260"/>
+      <comment value="Example: url passed is &quot;/ss31/my-page&quot; (prefixed with BASE_URL), this should be changed to &quot;my-page&quot;" line="261"/>
+      <comment value="Replace the superglobals with appropriate test values" line="270"/>
+      <comment value="Pre-request filtering" line="281"/>
+      <comment value="@see issue #2517" line="282"/>
+      <todo value="Need to NOT proceed with the request in an elegant manner" line="286"/>
+      <todo value="Pass in the DataModel" line="290"/>
+      <comment value="Ensure that the result is an SS_HTTPResponse object" line="293"/>
+      <comment value="Restore the superglobals" line="309"/>
+      <comment value="These are needed so that calling Director::test() doesnt muck with whoever is calling it." line="319"/>
+      <comment value="Really, it's some inappropriate coupling and should be resolved by making less use of statics" line="320"/>
+    </inline>
+  </method>
+  <method name="handleRequest" start="333" end="384" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Handle an HTTP request, defined with a SS_HTTPRequest object."/>
+      <return type="object">
+        <type full="SS_HTTPResponse|string" namespace="" name="SS_HTTPResponse|string"/>
+      </return>
+    </docblock>
+    <parameter name="request" byreference="false" type="object">
+      <type full="\\SS_HTTPRequest" namespace="\" name="SS_HTTPRequest"/>
+    </parameter>
+    <parameter name="session" byreference="false" type="object">
+      <type full="\\Session" namespace="\" name="Session"/>
+    </parameter>
+    <parameter name="model" byreference="false" type="object">
+      <type full="\\DataModel" namespace="\" name="DataModel"/>
+    </parameter>
+    <inline>
+      <comment value="controllerOptions provide some default arguments" line="349"/>
+      <comment value="Find the controller name" line="352"/>
+      <comment value="Pop additional tokens from the tokeniser if necessary" line="355"/>
+      <comment value="Handle redirections" line="360"/>
+      <comment value="No URL rules matched, so return a 404 error." line="382"/>
+    </inline>
+  </method>
+  <method name="setUrlParams" start="391" end="393" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set url parameters (should only be called internally by RequestHandler-&gt;handleRequest())."/>
+      <param variable="$params" type="array"/>
+    </docblock>
+    <parameter name="params" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_current_page" start="401" end="403" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the {@link SiteTree} object that is currently being viewed. If there is no SiteTree object to return, then this will return the current controller."/>
+      <return type="object">
+        <type full="SiteTree" namespace="" name="SiteTree"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="set_current_page" start="410" end="412" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the currently active {@link SiteTree} object that is being used to respond to the request."/>
+      <param type="object" variable="$page">
+        <type full="SiteTree" namespace="" name="SiteTree"/>
+      </param>
+    </docblock>
+    <parameter name="page" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="absoluteURL" start="423" end="437" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Turns the given URL into an absolute URL.">By default non-site root relative urls will be evaluated relative to the current request.</description>
+      <param description="URL To transform to absolute" type="string" variable="$url"/>
+      <param description="Flag indicating if non-site root relative urls should be" type="object" variable="$relativeToSiteBase">evaluated relative to the site BaseURL instead of the current url.<type full="bool" namespace="" name="bool"/></param>
+      <return description="The fully qualified URL" type="string"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="relativeToSiteBase" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="Sometimes baseURL() can return a full URL instead of just a path" line="432"/>
+    </inline>
+  </method>
+  <method name="protocolAndHost" start="445" end="468" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the part of the URL, 'http://www.mysite.com'."/>
+      <return description="The domain from the PHP environment. Returns FALSE is this environment variable isn't" type="object">set.<type full="boolean|string" namespace="" name="boolean|string"/></return>
+    </docblock>
+  </method>
+  <method name="protocol" start="475" end="477" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the current protocol that the site is running under."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="is_https" start="484" end="516" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return whether the site is running as under HTTPS."/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="baseURL" start="526" end="546" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the root URL for the site.">It will be automatically calculated unless it is overridden with
+{@link setBaseURL()}.</description>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="setBaseURL" start="554" end="557" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Sets the root URL for the website.">If the site isn't accessible from the URL you provide, weird things will happen.</description>
+      <deprecated value="3.2 Use the &quot;Director.alternate_base_url&quot; config setting instead"/>
+    </docblock>
+    <parameter name="baseURL" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="baseFolder" start="563" end="566" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the root filesystem folder for the site.">It will be automatically calculated unless it is overridden with <link xmlns="http://xml.phpdox.net/src" value="setBaseFolder()"/>.
+</description>
+    </docblock>
+  </method>
+  <method name="setBaseFolder" start="574" end="577" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Sets the root folder for the website.">If the site isn't accessible from the folder you provide, weird things will happen.</description>
+      <deprecated value="3.2 Use the &quot;Director.alternate_base_folder&quot; config setting instead"/>
+    </docblock>
+    <parameter name="baseFolder" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="makeRelative" start="588" end="634" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Turns an absolute URL or folder into one that's relative to the root of the site. This is useful when turning a URL into a filesystem reference, or vice versa."/>
+      <param description="Accepts both a URL or a filesystem path" type="string" variable="$url"/>
+      <return description="Either a relative URL if the checks succeeded, or the" type="string">original (possibly absolute) URL.</return>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Allow for the accidental inclusion whitespace and // in the URL" line="589"/>
+      <comment value="Only bother comparing the URL to the absolute version if $url looks like a URL." line="595"/>
+      <comment value="If we are already looking at baseURL, return '' (substr will return false)" line="600"/>
+      <comment value="test for base folder, e.g. /var/www" line="617"/>
+      <comment value="Test for relative base url, e.g. mywebsite/ if the full URL is http://localhost/mywebsite/" line="621"/>
+      <comment value="Test for relative base url, e.g mywebsite/ if the full url is localhost/myswebsite" line="627"/>
+      <comment value="Nothing matched, fall back to returning the original URL" line="632"/>
+    </inline>
+  </method>
+  <method name="is_absolute" start="643" end="646" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns true if a given path is absolute. Works under both *nix and windows systems"/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="is_absolute_url" start="663" end="687" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks if a given URL is absolute (e.g. starts with 'http://' etc.).">URLs beginning with "//" are treated as absolute, as browsers take this to mean
+the same protocol as currently being used.
+
+Useful to check before redirecting based on a URL from user submissions
+through $_GET or $_POST, and avoid phishing attacks by redirecting
+to an attackers server.
+
+Note: Can't solely rely on PHP's parse_url() , since it is not intended to work with relative URLs
+or for security purposes. filter_var($url, FILTER_VALIDATE_URL) has similar problems.</description>
+      <param type="string" variable="$url"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Strip off the query and fragment parts of the URL before checking" line="664"/>
+    </inline>
+  </method>
+  <method name="is_relative_url" start="695" end="697" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks if a given URL is relative by checking {@link is_absolute_url()}."/>
+      <param type="string" variable="$url"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="is_site_url" start="711" end="719" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks if the given URL is belonging to this &quot;site&quot; (not an external link).">That's the case if the URL is relative, as defined by <link xmlns="http://xml.phpdox.net/src" value="is_relative_url()"/>,
+or if the host matches <link xmlns="http://xml.phpdox.net/src" value="protocolAndHost()"/>.
+Useful to check before redirecting based on a URL from user submissions
+through $_GET or $_POST, and avoid phishing attacks by redirecting
+to an attackers server.
+</description>
+      <param type="string" variable="$url"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="extract_request_headers" start="727" end="743" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Takes a $_SERVER data array and extracts HTTP request headers."/>
+      <param type="array" variable="$data"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="server" byreference="false" type="array"/>
+  </method>
+  <method name="getAbsFile" start="751" end="753" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Given a filesystem reference relative to the site root, return the full file-system path."/>
+      <param type="string" variable="$file"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="fileExists" start="759" end="763" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns true if the given file exists."/>
+      <param description="specified relative to the site root" variable="$file" type="object">
+        <type full="Filename" namespace="" name="Filename"/>
+      </param>
+    </docblock>
+    <parameter name="file" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="replace any appended query-strings, e.g. /path/to/foo.php?bar=1 to /path/to/foo.php" line="760"/>
+    </inline>
+  </method>
+  <method name="absoluteBaseURL" start="768" end="770" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the Absolute URL of the site root."/>
+    </docblock>
+  </method>
+  <method name="absoluteBaseURLWithAuth" start="775" end="782" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the Absolute URL of the site root, embedding the current basic-auth credentials into the URL."/>
+    </docblock>
+  </method>
+  <method name="force_redirect" start="789" end="802" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Skip any further processing and immediately respond with a redirect to the passed URL."/>
+      <param description="- The URL to redirect to" type="string" variable="$destURL"/>
+    </docblock>
+    <parameter name="destURL" byreference="false" type="{unknown}"/>
+    <inline>
+      <todo value="Use an exception - ATM we can be called from _config.php, before Director#handleRequest's try block" line="799"/>
+    </inline>
+  </method>
+  <method name="forceSSL" start="834" end="877" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Force the site to run on SSL.">To use, call from _config.php. For example:
+&lt;code&gt;
+if(Director::isLive()) Director::forceSSL();
+&lt;/code&gt;
+
+If you don't want your entire site to be on SSL, you can pass an array of PCRE regular expression
+patterns for matching relative URLs. For example:
+&lt;code&gt;
+if(Director::isLive()) Director::forceSSL(array('/^admin/', '/^Security/'));
+&lt;/code&gt;
+
+If you want certain parts of your site protected under a different domain, you can specify
+the domain as an argument:
+&lt;code&gt;
+if(Director::isLive()) Director::forceSSL(array('/^admin/', '/^Security/'), 'secure.mysite.com');
+&lt;/code&gt;
+
+Note that the session data will be lost when moving from HTTP to HTTPS.
+It is your responsibility to ensure that this won't cause usability problems.
+
+CAUTION: This does not respect the site environment mode. You should check this
+as per the above examples using Director::isLive() or Director::isTest() for example.</description>
+      <param description="Array of regex patterns to match URLs that should be HTTPS" type="array" variable="$patterns"/>
+      <param description="Secure domain to redirect to. Defaults to the current domain" type="string" variable="$secureDomain"/>
+      <return description="String of URL when unit tests running, boolean FALSE if patterns don't match request URI" type="object">
+        <type full="boolean|string" namespace="" name="boolean|string"/>
+      </return>
+    </docblock>
+    <parameter name="patterns" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="secureDomain" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Calling from the command-line?" line="840"/>
+      <comment value="protect portions of the site based on the pattern" line="845"/>
+      <comment value="if an domain is specified, redirect to that instead of the current domain" line="859"/>
+      <comment value="This coupling to SapphireTest is necessary to test the destination URL and to not interfere with tests" line="868"/>
+    </inline>
+  </method>
+  <method name="forceWWW" start="882" end="889" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Force a redirect to a domain starting with &quot;www.&quot;"/>
+    </docblock>
+  </method>
+  <method name="is_ajax" start="898" end="907" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks if the current HTTP-Request is an &quot;Ajax-Request&quot; by checking for a custom header set by jQuery or wether a manually set request-parameter 'ajax' is present."/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="is_cli" start="914" end="916" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns true if this script is being run from the command line rather than the webserver."/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="set_environment_type" start="955" end="963" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the environment type of the current site.">Typically, a SilverStripe site have a number of environments:
+ - development environments, such a copy on your local machine.
+ - test sites, such as the one you show the client before going live.
+ - the live site itself.
+The behaviour of these environments often varies slightly.  For example, development sites may have errors
+dumped to the screen, and order confirmation emails might be sent to the developer instead of the client.
+To help with this, SilverStripe supports the notion of an environment type.  The environment type can be dev,
+test, or live.
+You can set it explicitly with Director::set_environment_tpye().  Or you can use
+<link xmlns="http://xml.phpdox.net/src" value="Director::$dev_servers"/> and <link xmlns="http://xml.phpdox.net/src" value="Director::$test_servers"/> to set it implicitly, based on the
+value of $_SERVER['HTTP_HOST'].  If the HTTP_HOST value is one of the servers listed, then the environment type
+will be test or dev.  Otherwise, the environment type will be live.
+Dev mode can also be forced by putting ?isDev=1 in your URL, which will ask you to log in and then push the
+site into dev mode for the remainder of the session. Putting ?isDev=0 onto the URL can turn it back.
+Test mode can also be forced by putting ?isTest=1 in your URL, which will ask you to log in and then push the
+site into test mode for the remainder of the session. Putting ?isTest=0 onto the URL can turn it back.
+Generally speaking, these methods will be called from your _config.php file.
+Once the environment type is set, it can be checked with <link xmlns="http://xml.phpdox.net/src" value="Director::isDev()"/>, <link xmlns="http://xml.phpdox.net/src" value="Director::isTest()"/>,
+and <link xmlns="http://xml.phpdox.net/src" value="Director::isLive()"/>.
+</description>
+      <deprecated value="3.2 Use the &quot;Director.environment_type&quot; config setting instead"/>
+      <param description="The environment type: dev, test, or live." variable="$et" type="string"/>
+    </docblock>
+    <parameter name="et" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get_environment_type" start="970" end="980" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Can also be checked with {@link Director::isDev()}, {@link Director::isTest()}, and {@link Director::isLive()}."/>
+      <return description="'dev', 'test' or 'live'" type="string"/>
+    </docblock>
+  </method>
+  <method name="isLive" start="986" end="988" abstract="false" final="false" static="true" visibility="public"/>
+  <method name="isDev" start="994" end="1008" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="This function will return true if the site is in a development environment.">For information about environment types, see <link xmlns="http://xml.phpdox.net/src" value="Director::set_environment_type()"/>.
+</description>
+    </docblock>
+    <inline>
+      <comment value="Check session" line="995"/>
+      <comment value="Check config" line="998"/>
+      <comment value="Check if we are running on one of the test servers" line="1001"/>
+    </inline>
+  </method>
+  <method name="isTest" start="1014" end="1031" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="This function will return true if the site is in a test environment.">For information about environment types, see <link xmlns="http://xml.phpdox.net/src" value="Director::set_environment_type()"/>.
+</description>
+    </docblock>
+    <inline>
+      <comment value="In case of isDev and isTest both being set, dev has higher priority" line="1015"/>
+      <comment value="Check saved session" line="1018"/>
+      <comment value="Check config" line="1021"/>
+      <comment value="Check if we are running on one of the test servers" line="1024"/>
+    </inline>
+  </method>
+  <method name="session_environment" start="1038" end="1061" abstract="false" final="false" static="true" visibility="protected">
+    <docblock>
+      <description compact="Check or update any temporary environment specified in the session"/>
+      <return description="'test', 'dev', or null" type="string"/>
+    </docblock>
+    <inline>
+      <comment value="Set session from querystring" line="1039"/>
+      <comment value="In case we are changing from test mode" line="1042"/>
+      <comment value="Check session" line="1053"/>
+    </inline>
+  </method>
+  <method name="get_template_global_variables" start="1067" end="1075" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description/>
+      <return description="Returns an array of strings of the method names of methods on the call that should be exposed" type="array">as global variables in the templates.</return>
+    </docblock>
+  </method>
+  <interface full="TemplateGlobalProvider" namespace="" name="TemplateGlobalProvider">
+    <method name="get_template_global_variables" start="33" end="33" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Called by SSViewer to get a list of global variables to expose to the template, the static method to call on this class to get the value for those variables, and the class to use for casting the returned value for use in a template">If the method to call is not included for a particular template variable, a method named the same as the
+template variable will be called
+
+If the casting class is not specified for a particular template variable, ViewableData::$default_cast is used
+
+The first letter of the template variable is case-insensitive. However the method name is always case sensitive.</description>
+        <abstract/>
+        <return description="Returns an array of items. Each key =&gt; value pair is one of three forms:" type="array">- template name (no key)
+ - template name =&gt; method name
+ - template name =&gt; array(), where the array can contain these key =&gt; value pairs
+    - "method" =&gt; method name
+    - "casting" =&gt; casting class to use (i.e., Varchar, HTMLText, etc)</return>
+      </docblock>
+    </method>
+  </interface>
+</class>

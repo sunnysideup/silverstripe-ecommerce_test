@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Packrat" namespace="" name="Packrat" abstract="false" final="false" start="185" end="230">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/php-peg" file="Parser.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/php-peg/Parser.php" size="8743" time="2015-03-14T10:41:57+13:00" unixtime="1426282917" sha1="f5eaf9101b2c99ebbe4c652f673c1a0ce0f9b68a" relative="framework/thirdparty/php-peg/Parser.php"/>
+  <docblock>
+    <description compact="By inheriting from Packrat instead of Parser, the parser will run in linear time (instead of exponential like Parser), but will require a lot more memory, since every match-attempt at every position is memorised.">We now use a string as a byte-array to store position information rather than a straight array for memory reasons. This
+means there is a (roughly) 8MB limit on the size of the string we can parse</description>
+    <author value="Hamish Friedlander"/>
+  </docblock>
+  <extends full="Parser" namespace="" name="Parser"/>
+  <constructor name="__construct" start="186" end="195" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="packhas" start="197" end="200" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="pos" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="packread" start="202" end="208" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="pos" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="packwrite" start="210" end="229" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="pos" byreference="false" type="{unknown}"/>
+    <parameter name="res" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Parser" namespace="" name="Parser">
+    <constructor name="__construct" start="48" end="55" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="string" byreference="false" type="{unknown}"/>
+    </constructor>
+    <method name="whitespace" start="57" end="64" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="literal" start="66" end="75" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="token" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Debugging: * / print( &quot;Looking for token '$token' @ '&quot; . substr( $this-&gt;string, $this-&gt;pos ) . &quot;'\n&quot; ) ; /*" line="67"/>
+      </inline>
+    </method>
+    <method name="rx" start="77" end="80" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="rx" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="expression" start="82" end="101" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="result" byreference="false" type="{unknown}"/>
+      <parameter name="stack" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Search backwards through the sub-expression stacks" line="85"/>
+      </inline>
+    </method>
+    <method name="packhas" start="103" end="105" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="key" byreference="false" type="{unknown}"/>
+      <parameter name="pos" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="packread" start="107" end="109" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="key" byreference="false" type="{unknown}"/>
+      <parameter name="pos" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="packwrite" start="111" end="113" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="key" byreference="false" type="{unknown}"/>
+      <parameter name="pos" byreference="false" type="{unknown}"/>
+      <parameter name="res" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="typestack" start="115" end="118" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="construct" start="120" end="133" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="matchrule" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="arguments" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="finalise" start="135" end="145" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="result" byreference="true" type="{unknown}"/>
+    </method>
+    <method name="store" start="147" end="173" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="result" byreference="true" type="{unknown}"/>
+      <parameter name="subres" byreference="false" type="{unknown}"/>
+      <parameter name="storetag" byreference="false" type="{unknown}" default="NULL"/>
+    </method>
+  </parent>
+</class>

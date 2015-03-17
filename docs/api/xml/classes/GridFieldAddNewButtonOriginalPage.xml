@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldAddNewButtonOriginalPage" namespace="" name="GridFieldAddNewButtonOriginalPage" abstract="false" final="false" start="16" end="66">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../ecommerce/code/forms/gridfield" file="GridFieldAddNewButtonOriginalPage.php" realpath="/var/www/_modules/ecommerce_test/trunk/ecommerce/code/forms/gridfield/GridFieldAddNewButtonOriginalPage.php" size="2179" time="2015-03-14T10:43:16+13:00" unixtime="1426282996" sha1="a2fe6a990f5f0d8d461ee0272462dbfa96c99b66" relative="ecommerce/code/forms/gridfield/GridFieldAddNewButtonOriginalPage.php"/>
+  <docblock>
+    <description compact="Provides the entry point to editing a single record presented by the {@link GridField}.">Doesn't show an edit view on its own or modifies the record, but rather
+relies on routing conventions established in <link xmlns="http://xml.phpdox.net/src" value="getColumnContent()"/>.
+The default routing applies to the <link xmlns="http://xml.phpdox.net/src" value="GridFieldDetailForm"/> component,
+which has to be added separately to the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> configuration.
+</description>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <extends full="GridFieldAddNewButton" namespace="" name="GridFieldAddNewButton"/>
+  <method name="getHTMLFragments" start="19" end="45" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="provide a default button name, can be changed by calling {@link setButtonName()} on this component" line="27"/>
+    </inline>
+  </method>
+  <method name="BestParentPage" start="53" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="finds the most likely root parent for the shop"/>
+      <return description="| NULL" type="object">
+        <type full="SiteTree" namespace="" name="SiteTree"/>
+      </return>
+    </docblock>
+  </method>
+  <parent full="GridFieldAddNewButton" namespace="" name="GridFieldAddNewButton">
+    <member name="targetFragment" type="{unknown}" visibility="protected" line="14"/>
+    <member name="buttonName" type="{unknown}" visibility="protected" line="16"/>
+    <method name="setButtonName" start="18" end="22" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <constructor name="__construct" start="24" end="26" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="targetFragment" byreference="false" type="string" default="'before'"/>
+    </constructor>
+    <method name="getHTMLFragments" start="28" end="49" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="provide a default button name, can be changed by calling {@link setButtonName()} on this component" line="36"/>
+      </inline>
+    </method>
+  </parent>
+  <interface full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getHTMLFragments" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a map where the keys are fragment names and the values are pieces of HTML to add to these fragments.">Here are 4 built-in fragments: 'header', 'footer', 'before', and
+'after', but components may also specify fragments of their own.
+To specify a new fragment, specify a new fragment by including the
+text "$DefineFragment(fragmentname)" in the HTML that you return.
+Fragment names should only contain alphanumerics, -, and _.
+If you attempt to return HTML for a fragment that doesn't exist, an
+exception will be thrown when the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> is rendered.
+</description>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

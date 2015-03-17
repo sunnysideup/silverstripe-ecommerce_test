@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleHtmlSaxParser" namespace="" name="SimpleHtmlSaxParser" abstract="false" final="false" start="543" end="717">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="parser.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/parser.php" size="25738" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="e4607f7477e6361d65714d9315478fe8a6a5ff2e" relative="framework/thirdparty/simpletest/parser.php"/>
+  <docblock>
+    <description compact="Converts HTML tokens into selected SAX events.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <member name="_lexer" type="{unknown}" visibility="public" line="544"/>
+  <member name="_listener" type="{unknown}" visibility="public" line="545"/>
+  <member name="_tag" type="{unknown}" visibility="public" line="546"/>
+  <member name="_attributes" type="{unknown}" visibility="public" line="547"/>
+  <member name="_current_attribute" type="{unknown}" visibility="public" line="548"/>
+  <method name="SimpleHtmlSaxParser" start="555" end="561" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the listener.">@param SimpleSaxListener $listener    SAX event handler.
+   @access public</description>
+    </docblock>
+    <parameter name="listener" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="parse" start="570" end="572" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Runs the content through the lexer which    should call back to the acceptors.">@param string $raw      Page text to parse.
+   @return boolean         False if parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="raw" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createLexer" start="581" end="584" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets up the matching lexer. Starts in 'text' mode.">@param SimpleSaxParser $parser    Event generator, usually $self.
+   @return SimpleLexer               Lexer suitable for this parser.
+   @access public
+   @static</description>
+    </docblock>
+    <parameter name="parser" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="acceptStartToken" start="597" end="615" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accepts a token from the tag mode. If the    starting element completes then the element    is dispatched and the current attributes    set back to empty. The element or attribute    name is converted to lower case.">@param string $token     Incoming characters.
+   @param integer $event    Lexer event type.
+   @return boolean          False if parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptEndToken" start="625" end="630" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Accepts a token from the end tag mode.">The element name is converted to lower case.
+   @param string $token     Incoming characters.
+   @param integer $event    Lexer event type.
+   @return boolean          False if parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptAttributeToken" start="639" end="651" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Part of the tag data.">@param string $token     Incoming characters.
+   @param integer $event    Lexer event type.
+   @return boolean          False if parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptEntityToken" start="660" end="661" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="A character entity.">@param string $token    Incoming characters.
+   @param integer $event   Lexer event type.
+   @return boolean         False if parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="acceptTextToken" start="671" end="673" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Character data between tags regarded as    important.">@param string $token     Incoming characters.
+   @param integer $event    Lexer event type.
+   @return boolean          False if parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="ignore" start="682" end="684" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Incoming data to be ignored.">@param string $token     Incoming characters.
+   @param integer $event    Lexer event type.
+   @return boolean          False if parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="token" byreference="false" type="{unknown}"/>
+    <parameter name="event" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="decodeHtml" start="693" end="695" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Decodes any HTML entities.">@param string $html    Incoming HTML.
+   @return string         Outgoing plain text.
+   @access public
+   @static</description>
+    </docblock>
+    <parameter name="html" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="normalise" start="706" end="716" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Turns HTML into text browser visible text. Images    are converted to their alt text and tags are supressed.">Entities are converted to their visible representation.
+   @param string $html        HTML to convert.
+   @return string             Plain text.
+   @access public
+   @static</description>
+    </docblock>
+    <parameter name="html" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Date_Cities" namespace="" name="Zend_Date_Cities" abstract="false" final="false" start="34" end="322">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Date" file="Cities.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Date/Cities.php" size="23787" time="2015-03-14T10:41:14+13:00" unixtime="1426282874" sha1="b74e582f1b35f56d77feef06cba1818a20618060" relative="framework/thirdparty/Zend/Date/Cities.php"/>
+  <docblock>
+    <description compact="Additional data for sunset/sunrise calculations">Holds the geographical data for all capital cities and many others worldwide
+Original data from http://www.fallingrain.com/world/</description>
+    <category value="Zend"/>
+    <package value="Zend_Date"/>
+    <subpackage value="Zend_Date_Cities"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <member name="cities" type="array" visibility="public" line="43">
+    <docblock>
+      <description compact="Array Collection of known cities">The array contains 'latitude' and 'longitude' for every known city</description>
+      <var type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="City" start="300" end="311" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the location from the selected city"/>
+      <param description="City to get location for" type="string" variable="$city"/>
+      <param description="Horizon to use :" type="string" variable="$horizon">default: effective
+                        others are civil, nautic, astronomic</param>
+      <return type="array"/>
+      <throws description="When city is unknown" type="object">
+        <type full="Zend_Date_Exception" namespace="" name="Zend_Date_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="city" byreference="false" type="{unknown}"/>
+    <parameter name="horizon" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getCityList" start="318" end="321" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return a list with all known cities"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

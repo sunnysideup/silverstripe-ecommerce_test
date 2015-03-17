@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - RequestHandler</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">RequestHandler</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/control/RequestHandler.php.xhtml#line36">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>RequestHandler</h1>
+        <h4>This class is the base class of any SilverStripe object that can be used to handle HTTP requests.</h4>
+        <p>Any RequestHandler object can be made responsible for handling its own segment of the URL namespace.<br/>The begins the URL parsing process; it will parse the beginning of the URL to identify which<br/>controller is being used. It will then call on that Controller, passing it the parameters<br/>that it parsed from the URL, and the that contains the remainder of the URL to be parsed.<br/>You can use ?debug_request=1 to view information about the different components and rule matches for a specific URL.<br/>In SilverStripe, URL parsing is distributed throughout the object graph. For example, suppose that we have a<br/>search form that contains a named "Groups". We want to use ajax to load segments of<br/>this tree as they are needed rather than downloading the tree right at the beginning. We could use this URL to get<br/>the tree segment that appears underneath<br/>Group #36: "admin/crm/SearchForm/field/Groups/treesegment/36"<br/>- Director will determine that admin/crm is controlled by a new ModelAdmin object, and pass control to that.<br/>Matching Director Rule: "admin/crm" =&gt; "ModelAdmin" (defined in mysite/_config.php)<br/>- ModelAdmin will determine that SearchForm is controlled by a Form object returned by $this-&gt;SearchForm(), and<br/>pass control to that.<br/>Matching $url_handlers: "$Action" =&gt; "$Action" (defined in RequestHandler class)<br/>- Form will determine that field/Groups is controlled by the Groups field, a TreeMultiselectField, and pass<br/>control to that.<br/>Matching $url_handlers: 'field/$FieldName!' =&gt; 'handleField' (defined in Form class)<br/>- TreeMultiselectField will determine that treesegment/36 is handled by its treesegment() method. This method<br/>will return an HTML fragment that is output to the screen.<br/>Matching $url_handlers: "$Action/$ID" =&gt; "handleItem" (defined in TreeMultiSelectField class)<br/>is where this behaviour is implemented.<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class RequestHandler
+                extends <a title="ViewableData" href="../classes/ViewableData.xhtml">ViewableData</a>
+            {<br/><ul class="none"><li>// members</li><li>protected <span title="SS_HTTPRequest">SS_HTTPRequest</span> <a href="#members">$request</a>;
+                    </li><li>protected <a href="#members">$model</a>;
+                    </li><li>protected boolean <a href="#members">$brokenOnConstruct</a>;
+                    </li><li>private array <a href="#members">$url_handlers</a>;
+                    </li><li>private <a href="#members">$allowed_actions</a>;
+                    </li><li>private boolean <a href="#members">$require_allowed_actions</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="ViewableData">ViewableData</span></li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$failover</a>;
+                        </li><li>protected <span title="ViewableData">ViewableData</span> <a href="#members">$customisedObject</a>;
+                        </li></ul><ul class="none"><li>// Inherited members from <span title="Object">Object</span></li><li>public string <a href="#members">$class</a>;
+                        </li><li>protected array <a href="#members">$extension_instances</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$beforeExtendCallbacks</a>;
+                        </li><li>protected <span title="array[callable]">array[callable]</span> <a href="#members">$afterExtendCallbacks</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/setDataModel.xhtml">setDataModel</a>()
+                    </li><li>public SS_HTTPResponse|RequestHandler|string|array <a title="RequestHandler" href="../classes/RequestHandler/handleRequest.xhtml">handleRequest</a>()
+                    </li><li>protected void <a title="RequestHandler" href="../classes/RequestHandler/findAction.xhtml">findAction</a>()
+                    </li><li>protected SS_HTTPResponse <a title="RequestHandler" href="../classes/RequestHandler/handleAction.xhtml">handleAction</a>()
+                    </li><li>public array|null <a title="RequestHandler" href="../classes/RequestHandler/allowedActions.xhtml">allowedActions</a>()
+                    </li><li>public bool <a title="RequestHandler" href="../classes/RequestHandler/hasAction.xhtml">hasAction</a>()
+                    </li><li>protected void <a title="RequestHandler" href="../classes/RequestHandler/definingClassForAction.xhtml">definingClassForAction</a>()
+                    </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/checkAccessAction.xhtml">checkAccessAction</a>()
+                    </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/httpError.xhtml">httpError</a>()
+                    </li><li>public SS_HTTPRequest|NullHTTPRequest <a title="RequestHandler" href="../classes/RequestHandler/getRequest.xhtml">getRequest</a>()
+                    </li><li>public void <a title="RequestHandler" href="../classes/RequestHandler/setRequest.xhtml">setRequest</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="ViewableData">ViewableData</span></li><li>public static string <a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator</a>()
+                        </li><li>public static array <a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField</a>()
+                        </li><li>public mixed <a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>public ViewableData_Customised <a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache</a>()
+                        </li><li>public HTMLText <a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall</a>()
+                        </li><li>public bool <a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val</a>()
+                        </li><li>public void <a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val</a>()
+                        </li><li>public array <a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues</a>()
+                        </li><li>public ArrayIterator <a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator</a>()
+                        </li><li>public ViewableData <a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir</a>()
+                        </li><li>public string <a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses</a>()
+                        </li><li>public ViewableData_Debugger <a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug</a>()
+                        </li></ul><ul class="none"><li>// Inherited methods from <span title="Object">Object</span></li><li>public static Config_ForClass|null <a title="Object" href="../classes/Object/config.xhtml">config</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/create.xhtml">create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec</a>()
+                        </li><li>public static static <a title="Object" href="../classes/Object/strong_create.xhtml">strong_create</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass</a>()
+                        </li><li>public static string <a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass</a>()
+                        </li><li>public static any <a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/get_static.xhtml">get_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/set_static.xhtml">set_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static</a>()
+                        </li><li>public static mixed <a title="Object" href="../classes/Object/combined_static.xhtml">combined_static</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/has_extension.xhtml">has_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/add_extension.xhtml">add_extension</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension</a>()
+                        </li><li>public static array <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions</a>()
+                        </li><li>public static void <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/__construct.xhtml">__construct</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/__call.xhtml">__call</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/createMethod.xhtml">createMethod</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/stat.xhtml">stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/exists.xhtml">exists</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/is_a.xhtml">is_a</a>()
+                        </li><li>public string <a title="Object" href="../classes/Object/__toString.xhtml">__toString</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/extend.xhtml">extend</a>()
+                        </li><li>public Extension <a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance</a>()
+                        </li><li>public bool <a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension</a>()
+                        </li><li>public array <a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances</a>()
+                        </li><li>public mixed <a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile</a>()
+                        </li><li>public void <a title="Object" href="../classes/Object/clearCache.xhtml">clearCache</a>()
+                        </li><li>protected mixed <a title="Object" href="../classes/Object/loadCache.xhtml">loadCache</a>()
+                        </li><li>protected void <a title="Object" href="../classes/Object/saveCache.xhtml">saveCache</a>()
+                        </li><li>protected string <a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/ViewableData.xhtml">ViewableData</a>
+            </li>
+          </ul>
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/EcommercePaymentController.xhtml">EcommercePaymentController</a>
+            </li>
+            <li>
+              <a href="../classes/ShoppingCart_Controller.xhtml">ShoppingCart_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/EcommerceTemplateTest.xhtml">EcommerceTemplateTest</a>
+            </li>
+            <li>
+              <a href="../classes/CartPage_Controller.xhtml">CartPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/OrderEmailRecord_Review.xhtml">OrderEmailRecord_Review</a>
+            </li>
+            <li>
+              <a href="../classes/OrderForm_Payment.xhtml">OrderForm_Payment</a>
+            </li>
+            <li>
+              <a href="../classes/ShopAccountForm.xhtml">ShopAccountForm</a>
+            </li>
+            <li>
+              <a href="../classes/ProductSearchForm.xhtml">ProductSearchForm</a>
+            </li>
+            <li>
+              <a href="../classes/ProductSearchForm_Short.xhtml">ProductSearchForm_Short</a>
+            </li>
+            <li>
+              <a href="../classes/OrderFormAddress.xhtml">OrderFormAddress</a>
+            </li>
+            <li>
+              <a href="../classes/OrderStatusLogForm.xhtml">OrderStatusLogForm</a>
+            </li>
+            <li>
+              <a href="../classes/OrderStatusLogForm_Controller.xhtml">OrderStatusLogForm_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/OrderForm.xhtml">OrderForm</a>
+            </li>
+            <li>
+              <a href="../classes/ExpiryDateField.xhtml">ExpiryDateField</a>
+            </li>
+            <li>
+              <a href="../classes/EcommerceClassNameOrTypeDropdownField.xhtml">EcommerceClassNameOrTypeDropdownField</a>
+            </li>
+            <li>
+              <a href="../classes/OrderStepField.xhtml">OrderStepField</a>
+            </li>
+            <li>
+              <a href="../classes/OptionalTreeDropdownField.xhtml">OptionalTreeDropdownField</a>
+            </li>
+            <li>
+              <a href="../classes/EcomQuantityField.xhtml">EcomQuantityField</a>
+            </li>
+            <li>
+              <a href="../classes/EcommerceSearchHistoryFormField.xhtml">EcommerceSearchHistoryFormField</a>
+            </li>
+            <li>
+              <a href="../classes/Product_ProductImageUploadField.xhtml">Product_ProductImageUploadField</a>
+            </li>
+            <li>
+              <a href="../classes/BuyableSelectField.xhtml">BuyableSelectField</a>
+            </li>
+            <li>
+              <a href="../classes/BuyableSelectField_DataList.xhtml">BuyableSelectField_DataList</a>
+            </li>
+            <li>
+              <a href="../classes/SelectOrderAddressField.xhtml">SelectOrderAddressField</a>
+            </li>
+            <li>
+              <a href="../classes/OrderForm_Cancel.xhtml">OrderForm_Cancel</a>
+            </li>
+            <li>
+              <a href="../classes/OrderModifierForm.xhtml">OrderModifierForm</a>
+            </li>
+            <li>
+              <a href="../classes/OrderModifierForm_Controller.xhtml">OrderModifierForm_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/CheckoutPage_Controller.xhtml">CheckoutPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/ProductGroupSearchPage_Controller.xhtml">ProductGroupSearchPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/Product_Controller.xhtml">Product_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/EcommerceDatabaseAdmin.xhtml">EcommerceDatabaseAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/SalesAdmin.xhtml">SalesAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/ModelAdminEcommerceBaseClass.xhtml">ModelAdminEcommerceBaseClass</a>
+            </li>
+            <li>
+              <a href="../classes/ProductsAndGroupsModelAdmin.xhtml">ProductsAndGroupsModelAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/StoreAdmin.xhtml">StoreAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/ProductConfigModelAdmin.xhtml">ProductConfigModelAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/CMSPageAddController_Products.xhtml">CMSPageAddController_Products</a>
+            </li>
+            <li>
+              <a href="../classes/ProductGroup_Controller.xhtml">ProductGroup_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/AccountPage_Controller.xhtml">AccountPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/OrderConfirmationPage_Controller.xhtml">OrderConfirmationPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/ElectronicDownloadProduct_Controller.xhtml">ElectronicDownloadProduct_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/CreateEcommerceVariations.xhtml">CreateEcommerceVariations</a>
+            </li>
+            <li>
+              <a href="../classes/CreateEcommerceVariations_Field.xhtml">CreateEcommerceVariations_Field</a>
+            </li>
+            <li>
+              <a href="../classes/TaskRunner.xhtml">TaskRunner</a>
+            </li>
+            <li>
+              <a href="../classes/SapphireREPL.xhtml">SapphireREPL</a>
+            </li>
+            <li>
+              <a href="../classes/InstallerTest.xhtml">InstallerTest</a>
+            </li>
+            <li>
+              <a href="../classes/DevBuildController.xhtml">DevBuildController</a>
+            </li>
+            <li>
+              <a href="../classes/JSTestRunner.xhtml">JSTestRunner</a>
+            </li>
+            <li>
+              <a href="../classes/TestRunner.xhtml">TestRunner</a>
+            </li>
+            <li>
+              <a href="../classes/SapphireInfo.xhtml">SapphireInfo</a>
+            </li>
+            <li>
+              <a href="../classes/DevelopmentAdmin.xhtml">DevelopmentAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/DevAdminControllerTest_Controller1.xhtml">DevAdminControllerTest_Controller1</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_Controller.xhtml">RequestHandlingTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_FormActionController.xhtml">RequestHandlingTest_FormActionController</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_AllowedController.xhtml">RequestHandlingTest_AllowedController</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_Form.xhtml">RequestHandlingTest_Form</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_ControllerFormWithAllowedActions.xhtml">RequestHandlingTest_ControllerFormWithAllowedActions</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_FormWithAllowedActions.xhtml">RequestHandlingTest_FormWithAllowedActions</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_FormField.xhtml">RequestHandlingTest_FormField</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_SubclassedFormField.xhtml">RequestHandlingTest_SubclassedFormField</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingFieldTest_Controller.xhtml">RequestHandlingFieldTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/RequestHandlingTest_HandlingField.xhtml">RequestHandlingTest_HandlingField</a>
+            </li>
+            <li>
+              <a href="../classes/DirectorTestRequest_Controller.xhtml">DirectorTestRequest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_Controller.xhtml">ControllerTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_UnsecuredController.xhtml">ControllerTest_UnsecuredController</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_AccessBaseController.xhtml">ControllerTest_AccessBaseController</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_AccessSecuredController.xhtml">ControllerTest_AccessSecuredController</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_AccessWildcardSecuredController.xhtml">ControllerTest_AccessWildcardSecuredController</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_IndexSecuredController.xhtml">ControllerTest_IndexSecuredController</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_HasAction.xhtml">ControllerTest_HasAction</a>
+            </li>
+            <li>
+              <a href="../classes/ControllerTest_HasAction_Unsecured.xhtml">ControllerTest_HasAction_Unsecured</a>
+            </li>
+            <li>
+              <a href="../classes/SSViewerTest_Controller.xhtml">SSViewerTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/BasicAuthTest_ControllerSecuredWithPermission.xhtml">BasicAuthTest_ControllerSecuredWithPermission</a>
+            </li>
+            <li>
+              <a href="../classes/BasicAuthTest_ControllerSecuredWithoutPermission.xhtml">BasicAuthTest_ControllerSecuredWithoutPermission</a>
+            </li>
+            <li>
+              <a href="../classes/MemberTest_ValidatorForm.xhtml">MemberTest_ValidatorForm</a>
+            </li>
+            <li>
+              <a href="../classes/GroupTest_MemberForm.xhtml">GroupTest_MemberForm</a>
+            </li>
+            <li>
+              <a href="../classes/SecurityTest_SecuredController.xhtml">SecurityTest_SecuredController</a>
+            </li>
+            <li>
+              <a href="../classes/RestfulServiceTest_Controller.xhtml">RestfulServiceTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/GridField_URLHandlerTest_Controller.xhtml">GridField_URLHandlerTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/GridField_URLHandlerTest_Component.xhtml">GridField_URLHandlerTest_Component</a>
+            </li>
+            <li>
+              <a href="../classes/GridField_URLHandlerTest_Component_ItemRequest.xhtml">GridField_URLHandlerTest_Component_ItemRequest</a>
+            </li>
+            <li>
+              <a href="../classes/GridFieldAddExistingAutocompleterTest_Controller.xhtml">GridFieldAddExistingAutocompleterTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/GridFieldDetailFormTest_Controller.xhtml">GridFieldDetailFormTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/GridFieldDetailFormTest_GroupController.xhtml">GridFieldDetailFormTest_GroupController</a>
+            </li>
+            <li>
+              <a href="../classes/GridFieldDetailFormTest_CategoryController.xhtml">GridFieldDetailFormTest_CategoryController</a>
+            </li>
+            <li>
+              <a href="../classes/GridFieldDetailFormTest_ItemRequest.xhtml">GridFieldDetailFormTest_ItemRequest</a>
+            </li>
+            <li>
+              <a href="../classes/MemberDatetimeOptionsetFieldTest_Controller.xhtml">MemberDatetimeOptionsetFieldTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/FormTest_Controller.xhtml">FormTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/FormTest_ControllerWithSecurityToken.xhtml">FormTest_ControllerWithSecurityToken</a>
+            </li>
+            <li>
+              <a href="../classes/FormTest_ControllerWithStrictPostCheck.xhtml">FormTest_ControllerWithStrictPostCheck</a>
+            </li>
+            <li>
+              <a href="../classes/UploadFieldTestForm.xhtml">UploadFieldTestForm</a>
+            </li>
+            <li>
+              <a href="../classes/UploadFieldTest_Controller.xhtml">UploadFieldTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/EmailFieldTest_Controller.xhtml">EmailFieldTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/FakeController.xhtml">FakeController</a>
+            </li>
+            <li>
+              <a href="../classes/Controller.xhtml">Controller</a>
+            </li>
+            <li>
+              <a href="../classes/LeftAndMainTest_Controller.xhtml">LeftAndMainTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/CMSMenuTest_LeftAndMainController.xhtml">CMSMenuTest_LeftAndMainController</a>
+            </li>
+            <li>
+              <a href="../classes/ModelAdminTest_Admin.xhtml">ModelAdminTest_Admin</a>
+            </li>
+            <li>
+              <a href="../classes/ModelAdminTest_PlayerAdmin.xhtml">ModelAdminTest_PlayerAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/CMSFormTest_Controller.xhtml">CMSFormTest_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/ModelAdmin.xhtml">ModelAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/LeftAndMain.xhtml">LeftAndMain</a>
+            </li>
+            <li>
+              <a href="../classes/CMSBatchActionHandler.xhtml">CMSBatchActionHandler</a>
+            </li>
+            <li>
+              <a href="../classes/MemberImportForm.xhtml">MemberImportForm</a>
+            </li>
+            <li>
+              <a href="../classes/CMSForm.xhtml">CMSForm</a>
+            </li>
+            <li>
+              <a href="../classes/CMSProfileController.xhtml">CMSProfileController</a>
+            </li>
+            <li>
+              <a href="../classes/AdminRootController.xhtml">AdminRootController</a>
+            </li>
+            <li>
+              <a href="../classes/GroupImportForm.xhtml">GroupImportForm</a>
+            </li>
+            <li>
+              <a href="../classes/SecurityAdmin.xhtml">SecurityAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/CliController.xhtml">CliController</a>
+            </li>
+            <li>
+              <a href="../classes/PermissionCheckboxSetField.xhtml">PermissionCheckboxSetField</a>
+            </li>
+            <li>
+              <a href="../classes/PermissionCheckboxSetField_Readonly.xhtml">PermissionCheckboxSetField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/CMSSecurity.xhtml">CMSSecurity</a>
+            </li>
+            <li>
+              <a href="../classes/LoginForm.xhtml">LoginForm</a>
+            </li>
+            <li>
+              <a href="../classes/CMSMemberLoginForm.xhtml">CMSMemberLoginForm</a>
+            </li>
+            <li>
+              <a href="../classes/ChangePasswordForm.xhtml">ChangePasswordForm</a>
+            </li>
+            <li>
+              <a href="../classes/Security.xhtml">Security</a>
+            </li>
+            <li>
+              <a href="../classes/MemberLoginForm.xhtml">MemberLoginForm</a>
+            </li>
+            <li>
+              <a href="../classes/Upload.xhtml">Upload</a>
+            </li>
+            <li>
+              <a href="../classes/DatabaseAdmin.xhtml">DatabaseAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/MoneyField.xhtml">MoneyField</a>
+            </li>
+            <li>
+              <a href="../classes/CreditCardField.xhtml">CreditCardField</a>
+            </li>
+            <li>
+              <a href="../classes/GridField.xhtml">GridField</a>
+            </li>
+            <li>
+              <a href="../classes/GridField_FormAction.xhtml">GridField_FormAction</a>
+            </li>
+            <li>
+              <a href="../classes/GridFieldDetailForm_ItemRequest.xhtml">GridFieldDetailForm_ItemRequest</a>
+            </li>
+            <li>
+              <a href="../classes/GridState.xhtml">GridState</a>
+            </li>
+            <li>
+              <a href="../classes/TabSet.xhtml">TabSet</a>
+            </li>
+            <li>
+              <a href="../classes/SelectionGroup.xhtml">SelectionGroup</a>
+            </li>
+            <li>
+              <a href="../classes/SelectionGroup_Item.xhtml">SelectionGroup_Item</a>
+            </li>
+            <li>
+              <a href="../classes/LiteralField.xhtml">LiteralField</a>
+            </li>
+            <li>
+              <a href="../classes/HtmlEditorField.xhtml">HtmlEditorField</a>
+            </li>
+            <li>
+              <a href="../classes/HtmlEditorField_Readonly.xhtml">HtmlEditorField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/HtmlEditorField_Toolbar.xhtml">HtmlEditorField_Toolbar</a>
+            </li>
+            <li>
+              <a href="../classes/ListboxField.xhtml">ListboxField</a>
+            </li>
+            <li>
+              <a href="../classes/Tab.xhtml">Tab</a>
+            </li>
+            <li>
+              <a href="../classes/DatetimeField.xhtml">DatetimeField</a>
+            </li>
+            <li>
+              <a href="../classes/DatetimeField_Readonly.xhtml">DatetimeField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/TextareaField.xhtml">TextareaField</a>
+            </li>
+            <li>
+              <a href="../classes/CompositeField.xhtml">CompositeField</a>
+            </li>
+            <li>
+              <a href="../classes/FormField.xhtml">FormField</a>
+            </li>
+            <li>
+              <a href="../classes/Form.xhtml">Form</a>
+            </li>
+            <li>
+              <a href="../classes/DateField.xhtml">DateField</a>
+            </li>
+            <li>
+              <a href="../classes/DateField_Disabled.xhtml">DateField_Disabled</a>
+            </li>
+            <li>
+              <a href="../classes/GroupedDropdownField.xhtml">GroupedDropdownField</a>
+            </li>
+            <li>
+              <a href="../classes/HeaderField.xhtml">HeaderField</a>
+            </li>
+            <li>
+              <a href="../classes/CheckboxField.xhtml">CheckboxField</a>
+            </li>
+            <li>
+              <a href="../classes/CheckboxField_Readonly.xhtml">CheckboxField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/TreeMultiselectField.xhtml">TreeMultiselectField</a>
+            </li>
+            <li>
+              <a href="../classes/TreeMultiselectField_Readonly.xhtml">TreeMultiselectField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/LabelField.xhtml">LabelField</a>
+            </li>
+            <li>
+              <a href="../classes/MemberDatetimeOptionsetField.xhtml">MemberDatetimeOptionsetField</a>
+            </li>
+            <li>
+              <a href="../classes/TreeDropdownField.xhtml">TreeDropdownField</a>
+            </li>
+            <li>
+              <a href="../classes/TreeDropdownField_Readonly.xhtml">TreeDropdownField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/CountryDropdownField.xhtml">CountryDropdownField</a>
+            </li>
+            <li>
+              <a href="../classes/ToggleCompositeField.xhtml">ToggleCompositeField</a>
+            </li>
+            <li>
+              <a href="../classes/InlineFormAction.xhtml">InlineFormAction</a>
+            </li>
+            <li>
+              <a href="../classes/InlineFormAction_ReadOnly.xhtml">InlineFormAction_ReadOnly</a>
+            </li>
+            <li>
+              <a href="../classes/UploadField.xhtml">UploadField</a>
+            </li>
+            <li>
+              <a href="../classes/UploadField_ItemHandler.xhtml">UploadField_ItemHandler</a>
+            </li>
+            <li>
+              <a href="../classes/UploadField_SelectHandler.xhtml">UploadField_SelectHandler</a>
+            </li>
+            <li>
+              <a href="../classes/ReadonlyField.xhtml">ReadonlyField</a>
+            </li>
+            <li>
+              <a href="../classes/EmailField.xhtml">EmailField</a>
+            </li>
+            <li>
+              <a href="../classes/DatalessField.xhtml">DatalessField</a>
+            </li>
+            <li>
+              <a href="../classes/AjaxUniqueTextField.xhtml">AjaxUniqueTextField</a>
+            </li>
+            <li>
+              <a href="../classes/ToggleField.xhtml">ToggleField</a>
+            </li>
+            <li>
+              <a href="../classes/DropdownField.xhtml">DropdownField</a>
+            </li>
+            <li>
+              <a href="../classes/CurrencyField.xhtml">CurrencyField</a>
+            </li>
+            <li>
+              <a href="../classes/CurrencyField_Readonly.xhtml">CurrencyField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/CurrencyField_Disabled.xhtml">CurrencyField_Disabled</a>
+            </li>
+            <li>
+              <a href="../classes/TimeField.xhtml">TimeField</a>
+            </li>
+            <li>
+              <a href="../classes/TimeField_Readonly.xhtml">TimeField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/CheckboxSetField.xhtml">CheckboxSetField</a>
+            </li>
+            <li>
+              <a href="../classes/PrintableTransformation_TabSet.xhtml">PrintableTransformation_TabSet</a>
+            </li>
+            <li>
+              <a href="../classes/FileField.xhtml">FileField</a>
+            </li>
+            <li>
+              <a href="../classes/OptionsetField.xhtml">OptionsetField</a>
+            </li>
+            <li>
+              <a href="../classes/HiddenField.xhtml">HiddenField</a>
+            </li>
+            <li>
+              <a href="../classes/LookupField.xhtml">LookupField</a>
+            </li>
+            <li>
+              <a href="../classes/PhoneNumberField.xhtml">PhoneNumberField</a>
+            </li>
+            <li>
+              <a href="../classes/FieldGroup.xhtml">FieldGroup</a>
+            </li>
+            <li>
+              <a href="../classes/PasswordField.xhtml">PasswordField</a>
+            </li>
+            <li>
+              <a href="../classes/ConfirmedPasswordField.xhtml">ConfirmedPasswordField</a>
+            </li>
+            <li>
+              <a href="../classes/FormAction.xhtml">FormAction</a>
+            </li>
+            <li>
+              <a href="../classes/TextField.xhtml">TextField</a>
+            </li>
+            <li>
+              <a href="../classes/NumericField.xhtml">NumericField</a>
+            </li>
+            <li>
+              <a href="../classes/NumericField_Readonly.xhtml">NumericField_Readonly</a>
+            </li>
+            <li>
+              <a href="../classes/NullableField.xhtml">NullableField</a>
+            </li>
+            <li>
+              <a href="../classes/ResetFormAction.xhtml">ResetFormAction</a>
+            </li>
+            <li>
+              <a href="../classes/HourlyTask.xhtml">HourlyTask</a>
+            </li>
+            <li>
+              <a href="../classes/YearlyTask.xhtml">YearlyTask</a>
+            </li>
+            <li>
+              <a href="../classes/WeeklyTask.xhtml">WeeklyTask</a>
+            </li>
+            <li>
+              <a href="../classes/MonthlyTask.xhtml">MonthlyTask</a>
+            </li>
+            <li>
+              <a href="../classes/DailyTask.xhtml">DailyTask</a>
+            </li>
+            <li>
+              <a href="../classes/QuarterHourlyTask.xhtml">QuarterHourlyTask</a>
+            </li>
+            <li>
+              <a href="../classes/ScheduledTask.xhtml">ScheduledTask</a>
+            </li>
+            <li>
+              <a href="../classes/PayPalExpressCheckoutPayment_Handler.xhtml">PayPalExpressCheckoutPayment_Handler</a>
+            </li>
+            <li>
+              <a href="../classes/PickUpOrDeliveryModifier_Form.xhtml">PickUpOrDeliveryModifier_Form</a>
+            </li>
+            <li>
+              <a href="../classes/SiteTreeTest_PageNode_Controller.xhtml">SiteTreeTest_PageNode_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/SiteTreeTest_Conflicted_Controller.xhtml">SiteTreeTest_Conflicted_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/ContentControllerTest_Page_Controller.xhtml">ContentControllerTest_Page_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/SearchForm.xhtml">SearchForm</a>
+            </li>
+            <li>
+              <a href="../classes/ErrorPage_Controller.xhtml">ErrorPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/VirtualPage_Controller.xhtml">VirtualPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/RedirectorPage_Controller.xhtml">RedirectorPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/Folder_UnusedAssetsField.xhtml">Folder_UnusedAssetsField</a>
+            </li>
+            <li>
+              <a href="../classes/SiteTreeURLSegmentField.xhtml">SiteTreeURLSegmentField</a>
+            </li>
+            <li>
+              <a href="../classes/RootURLController.xhtml">RootURLController</a>
+            </li>
+            <li>
+              <a href="../classes/CMSMain.xhtml">CMSMain</a>
+            </li>
+            <li>
+              <a href="../classes/AssetAdmin.xhtml">AssetAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/CMSPageEditController.xhtml">CMSPageEditController</a>
+            </li>
+            <li>
+              <a href="../classes/ModelAsController.xhtml">ModelAsController</a>
+            </li>
+            <li>
+              <a href="../classes/ContentController.xhtml">ContentController</a>
+            </li>
+            <li>
+              <a href="../classes/CMSFileAddController.xhtml">CMSFileAddController</a>
+            </li>
+            <li>
+              <a href="../classes/CMSPageSettingsController.xhtml">CMSPageSettingsController</a>
+            </li>
+            <li>
+              <a href="../classes/CMSSettingsController.xhtml">CMSSettingsController</a>
+            </li>
+            <li>
+              <a href="../classes/CMSPageHistoryController.xhtml">CMSPageHistoryController</a>
+            </li>
+            <li>
+              <a href="../classes/ReportAdmin.xhtml">ReportAdmin</a>
+            </li>
+            <li>
+              <a href="../classes/CMSPageAddController.xhtml">CMSPageAddController</a>
+            </li>
+            <li>
+              <a href="../classes/CMSPagesController.xhtml">CMSPagesController</a>
+            </li>
+            <li>
+              <a href="../classes/RemoveOrphanedPagesTask.xhtml">RemoveOrphanedPagesTask</a>
+            </li>
+            <li>
+              <a href="../classes/SiteTreeMaintenanceTask.xhtml">SiteTreeMaintenanceTask</a>
+            </li>
+            <li>
+              <a href="../classes/Page_Controller.xhtml">Page_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/DownloadPage_Controller.xhtml">DownloadPage_Controller</a>
+            </li>
+            <li>
+              <a href="../classes/GoogleAddressField.xhtml">GoogleAddressField</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">172</td>
+            <td>Fix LeftAndMain usage</td>
+          </tr>
+          <tr>
+            <td class="nummeric">584+</td>
+            <td>Add support for removing extensions with parameters</td>
+          </tr>
+          <tr>
+            <td class="nummeric">966+</td>
+            <td>integrate inheritance rules</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="allowed_actions">
+              <strong>$allowed_actions</strong>
+              <br/>
+              <span class="indent">Define a list of action handling methods that are allowed to be called directly by URLs.</span>
+            </li>
+            <li id="require_allowed_actions"><strong>$require_allowed_actions</strong>
+                —
+                boolean</li>
+            <li id="url_handlers">
+              <strong>$url_handlers</strong>
+              <br/>
+              <span class="indent">The default URL handling rules.  This specifies that the next component of the URL corresponds to a method to be called on this RequestHandlingData object.</span>
+            </li>
+          </ul>
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="afterExtendCallbacks"><strong>$afterExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call after extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="beforeExtendCallbacks"><strong>$beforeExtendCallbacks</strong>
+                —
+                <a href="#">array[callable]</a><br/><span class="indent">List of callbacks to call prior to extensions having extend called on them, each grouped by methodName.</span></li>
+            <li id="brokenOnConstruct"><strong>$brokenOnConstruct</strong>
+                —
+                boolean<br/><span class="indent">This variable records whether RequestHandler::__construct() was called or not. Useful for checking if subclasses have called parent::__construct()</span></li>
+            <li id="customisedObject"><strong>$customisedObject</strong>
+                —
+                <a href="#">ViewableData</a></li>
+            <li id="extension_instances"><strong>$extension_instances</strong>
+                —
+                array</li>
+            <li id="failover"><strong>$failover</strong>
+                —
+                <a href="#">ViewableData</a><br/><span class="indent">A failover object to attempt to get data from if it is not present on this object.</span></li>
+            <li id="model">
+              <strong>$model</strong>
+              <br/>
+              <span class="indent">The DataModel for this request</span>
+            </li>
+            <li id="request"><strong>$request</strong>
+                —
+                <a href="#">SS_HTTPRequest</a></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="class"><strong>$class</strong>
+                —
+                string</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="definingClassForAction"><a title="RequestHandler" href="../classes/RequestHandler/definingClassForAction.xhtml">definingClassForAction()</a>
+                — Return the class that defines the given action, so that we know where to check allowed_actions.</li>
+            <li id="findAction">
+              <a title="RequestHandler" href="../classes/RequestHandler/findAction.xhtml">findAction()</a>
+            </li>
+            <li id="handleAction"><a title="RequestHandler" href="../classes/RequestHandler/handleAction.xhtml">handleAction()</a>
+                — Given a request, and an action name, call that action name on this RequestHandler</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="RequestHandler" href="../classes/RequestHandler/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="allowedActions"><a title="RequestHandler" href="../classes/RequestHandler/allowedActions.xhtml">allowedActions()</a>
+                — Get a array of allowed actions defined on this controller, any parent classes or extensions.</li>
+            <li id="checkAccessAction"><a title="RequestHandler" href="../classes/RequestHandler/checkAccessAction.xhtml">checkAccessAction()</a>
+                — Check that the given action is allowed to be called from a URL.</li>
+            <li id="getRequest"><a title="RequestHandler" href="../classes/RequestHandler/getRequest.xhtml">getRequest()</a>
+                — Returns the SS_HTTPRequest object that this controller is using.</li>
+            <li id="handleRequest"><a title="RequestHandler" href="../classes/RequestHandler/handleRequest.xhtml">handleRequest()</a>
+                — Handles URL requests.</li>
+            <li id="hasAction"><a title="RequestHandler" href="../classes/RequestHandler/hasAction.xhtml">hasAction()</a>
+                — Checks if this request handler has a specific action, even if the current user cannot access it.</li>
+            <li id="httpError"><a title="RequestHandler" href="../classes/RequestHandler/httpError.xhtml">httpError()</a>
+                — Throws a HTTP error response encased in a {@link SS_HTTPResponse_Exception}, which is later caught in {@link RequestHandler::handleAction()} and returned to the user.</li>
+            <li id="setDataModel"><a title="RequestHandler" href="../classes/RequestHandler/setDataModel.xhtml">setDataModel()</a>
+                — Set the DataModel for this request.</li>
+            <li id="setRequest"><a title="RequestHandler" href="../classes/RequestHandler/setRequest.xhtml">setRequest()</a>
+                — Typically the request is set through {@link handleAction()} or {@link handleRequest()}, but in some based we want to set it manually.</li>
+          </ul>
+          <h3>Inherited from <a title="ViewableData" href="../classes/ViewableData.xhtml">ViewableData</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="ATT_val"><a title="ViewableData" href="../classes/ViewableData/ATT_val.xhtml">ATT_val()</a>
+                — Return the value of a field escaped suitable to be inserted into an XML node attribute.</li>
+            <li id="CSSClasses"><a title="ViewableData" href="../classes/ViewableData/CSSClasses.xhtml">CSSClasses()</a>
+                — Get part of the current classes ancestry to be used as a CSS class.</li>
+            <li id="Debug"><a title="ViewableData" href="../classes/ViewableData/Debug.xhtml">Debug()</a>
+                — Return debug information about this object that can be rendered into a template</li>
+            <li id="JS_val"><a title="ViewableData" href="../classes/ViewableData/JS_val.xhtml">JS_val()</a>
+                — Return the value of a field in a JavaScript-save format.</li>
+            <li id="Me"><a title="ViewableData" href="../classes/ViewableData/Me.xhtml">Me()</a>
+                — When rendering some objects it is necessary to iterate over the object being rendered, to do this, you need access to itself.</li>
+            <li id="RAW_val"><a title="ViewableData" href="../classes/ViewableData/RAW_val.xhtml">RAW_val()</a>
+                — Return the value of the field without any escaping being applied.</li>
+            <li id="SQL_val"><a title="ViewableData" href="../classes/ViewableData/SQL_val.xhtml">SQL_val()</a>
+                — Return the value of a field in an SQL-safe format.</li>
+            <li id="ThemeDir"><a title="ViewableData" href="../classes/ViewableData/ThemeDir.xhtml">ThemeDir()</a>
+                — Return the directory if the current active theme (relative to the site root).</li>
+            <li id="XML_val"><a title="ViewableData" href="../classes/ViewableData/XML_val.xhtml">XML_val()</a>
+                — Get the string value of a field on this object that has been suitable escaped to be inserted directly into a template.</li>
+            <li id="__get"><a title="ViewableData" href="../classes/ViewableData/__get.xhtml">__get()</a>
+                — Get the value of a property/field on this object. This will check if a method called get{$property} exists, then check if a field is available using {@link ViewableData::getField()}, then fall back on a failover object.</li>
+            <li id="__isset"><a title="ViewableData" href="../classes/ViewableData/__isset.xhtml">__isset()</a>
+                — Check if a field exists on this object or its failover.</li>
+            <li id="__set"><a title="ViewableData" href="../classes/ViewableData/__set.xhtml">__set()</a>
+                — Set a property/field on this object. This will check for the existence of a method called set{$property}, then use the {@link ViewableData::setField()} method.</li>
+            <li id="buildCastingCache"><a title="ViewableData" href="../classes/ViewableData/buildCastingCache.xhtml">buildCastingCache()</a>
+                — Save the casting cache for this object (including data from any failovers) into a variable</li>
+            <li id="cachedCall"><a title="ViewableData" href="../classes/ViewableData/cachedCall.xhtml">cachedCall()</a>
+                — A simple wrapper around {@link ViewableData::obj()} that automatically caches the result so it can be used again without re-running the method.</li>
+            <li id="castingClass"><a title="ViewableData" href="../classes/ViewableData/castingClass.xhtml">castingClass()</a>
+                — Get the class name a field on this object will be casted to</li>
+            <li id="castingHelper"><a title="ViewableData" href="../classes/ViewableData/castingHelper.xhtml">castingHelper()</a>
+                — Return the "casting helper" (a piece of PHP code that when evaluated creates a casted value object) for a field on this object.</li>
+            <li id="castingHelperPair"><a title="ViewableData" href="../classes/ViewableData/castingHelperPair.xhtml">castingHelperPair()</a>
+                — Get the class a field on this object would be casted to, as well as the casting helper for casting a field to an object (see {@link ViewableData::castingHelper()} for information on casting helpers).</li>
+            <li id="castingObjectCreator"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreator.xhtml">castingObjectCreator()</a>
+                — Converts a field spec into an object creator. For example: "Int" becomes "new Int($fieldName);" and "Varchar(50)" becomes "new Varchar($fieldName, 50);".</li>
+            <li id="castingObjectCreatorPair"><a title="ViewableData" href="../classes/ViewableData/castingObjectCreatorPair.xhtml">castingObjectCreatorPair()</a>
+                — Convert a field schema (e.g. "Varchar(50)") into a casting object creator array that contains both a className and castingHelper constructor code. See {@link castingObjectCreator} for more information about the constructor.</li>
+            <li id="customise"><a title="ViewableData" href="../classes/ViewableData/customise.xhtml">customise()</a>
+                — Merge some arbitrary data in with this object. This method returns a {@link ViewableData_Customised} instance with references to both this and the new custom data.</li>
+            <li id="defineMethods"><a title="ViewableData" href="../classes/ViewableData/defineMethods.xhtml">defineMethods()</a>
+                — Add methods from the {@link ViewableData::$failover} object, as well as wrapping any methods prefixed with an underscore into a {@link ViewableData::cachedCall()}.</li>
+            <li id="escapeTypeForField"><a title="ViewableData" href="../classes/ViewableData/escapeTypeForField.xhtml">escapeTypeForField()</a>
+                — Return the string-format type for the given field.</li>
+            <li id="getField"><a title="ViewableData" href="../classes/ViewableData/getField.xhtml">getField()</a>
+                — Get the value of a field on this object. This should be overloaded in child classes.</li>
+            <li id="getIterator"><a title="ViewableData" href="../classes/ViewableData/getIterator.xhtml">getIterator()</a>
+                — Return a single-item iterator so you can iterate over the fields of a single record.</li>
+            <li id="getXMLValues"><a title="ViewableData" href="../classes/ViewableData/getXMLValues.xhtml">getXMLValues()</a>
+                — Get an array of XML-escaped values by field name</li>
+            <li id="hasField"><a title="ViewableData" href="../classes/ViewableData/hasField.xhtml">hasField()</a>
+                — Check if a field exists on this object. This should be overloaded in child classes.</li>
+            <li id="hasValue"><a title="ViewableData" href="../classes/ViewableData/hasValue.xhtml">hasValue()</a>
+                — Checks if a given method/field has a valid value. If the result is an object, this will return the result of the exists method, otherwise will check if the result is not just an empty paragraph tag.</li>
+            <li id="obj"><a title="ViewableData" href="../classes/ViewableData/obj.xhtml">obj()</a>
+                — Get the value of a field on this object, automatically inserting the value into any available casting objects that have been specified.</li>
+            <li id="renderWith"><a title="ViewableData" href="../classes/ViewableData/renderWith.xhtml">renderWith()</a>
+                — Render this object into the template, and get the result as a string. You can pass one of the following as the $template parameter:  - a template name (e.g. Page)  - an array of possible template names - the first valid one will be used  - an SSViewer instance</li>
+            <li id="setCustomisedObj">
+              <a title="ViewableData" href="../classes/ViewableData/setCustomisedObj.xhtml">setCustomisedObj()</a>
+            </li>
+            <li id="setField"><a title="ViewableData" href="../classes/ViewableData/setField.xhtml">setField()</a>
+                — Set a field on this object. This should be overloaded in child classes.</li>
+          </ul>
+          <h3>Inherited from <a title="Object" href="../classes/Object.xhtml">Object</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="addMethodsFrom"><a title="Object" href="../classes/Object/addMethodsFrom.xhtml">addMethodsFrom()</a>
+                — Add all the methods from an object property (which is an {@link Extension}) to this object.</li>
+            <li id="addWrapperMethod"><a title="Object" href="../classes/Object/addWrapperMethod.xhtml">addWrapperMethod()</a>
+                — Add a wrapper method - a method which points to another method with a different name. For example, Thumbnail(x) can be wrapped to generateThumbnail(x)</li>
+            <li id="afterExtending"><a title="Object" href="../classes/Object/afterExtending.xhtml">afterExtending()</a>
+                — Allows user code to hook into Object::extend after control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="beforeExtending"><a title="Object" href="../classes/Object/beforeExtending.xhtml">beforeExtending()</a>
+                — Allows user code to hook into Object::extend prior to control being delegated to extensions. Each callback will be reset once called.</li>
+            <li id="createMethod"><a title="Object" href="../classes/Object/createMethod.xhtml">createMethod()</a>
+                — Add an extra method using raw PHP code passed as a string</li>
+            <li id="defineMethods"><a title="Object" href="../classes/Object/defineMethods.xhtml">defineMethods()</a>
+                — Adds any methods from {@link Extension} instances attached to this object.</li>
+            <li id="loadCache"><a title="Object" href="../classes/Object/loadCache.xhtml">loadCache()</a>
+                — Loads a cache from the filesystem if a valid on is present and within the specified lifetime</li>
+            <li id="sanitiseCachename"><a title="Object" href="../classes/Object/sanitiseCachename.xhtml">sanitiseCachename()</a>
+                — Strip a file name of special characters so it is suitable for use as a cache file name</li>
+            <li id="saveCache"><a title="Object" href="../classes/Object/saveCache.xhtml">saveCache()</a>
+                — Save a piece of cached data to the file system</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__call"><a title="Object" href="../classes/Object/__call.xhtml">__call()</a>
+                — Attemps to locate and call a method dynamically added to a class at runtime if a default cannot be located</li>
+            <li id="__toString">
+              <a title="Object" href="../classes/Object/__toString.xhtml">__toString()</a>
+            </li>
+            <li id="addStaticVars"><a title="Object" href="../classes/Object/addStaticVars.xhtml">addStaticVars()</a>
+                — Merge in a set of additional static variables</li>
+            <li id="add_extension"><a title="Object" href="../classes/Object/add_extension.xhtml">add_extension()</a>
+                — Add an extension to a specific class.</li>
+            <li id="add_static_var"><a title="Object" href="../classes/Object/add_static_var.xhtml">add_static_var()</a>
+                — Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.</li>
+            <li id="allMethodNames"><a title="Object" href="../classes/Object/allMethodNames.xhtml">allMethodNames()</a>
+                — Return the names of all the methods available on this object</li>
+            <li id="cacheToFile"><a title="Object" href="../classes/Object/cacheToFile.xhtml">cacheToFile()</a>
+                — Cache the results of an instance method in this object to a file, or if it is already cache return the cached results</li>
+            <li id="clearCache"><a title="Object" href="../classes/Object/clearCache.xhtml">clearCache()</a>
+                — Clears the cache for the given cacheToFile call</li>
+            <li id="combined_static"><a title="Object" href="../classes/Object/combined_static.xhtml">combined_static()</a>
+                — Traverse down a class ancestry and attempt to merge all the uninherited static values for a particular static into a single variable</li>
+            <li id="config"><a title="Object" href="../classes/Object/config.xhtml">config()</a>
+                — Get a configuration accessor for this class. Short hand for Config::inst()-&gt;get($this-&gt;class, .....).</li>
+            <li id="create"><a title="Object" href="../classes/Object/create.xhtml">create()</a>
+                — An implementation of the factory method, allows you to create an instance of a class</li>
+            <li id="create_from_string"><a title="Object" href="../classes/Object/create_from_string.xhtml">create_from_string()</a>
+                — Create an object from a string representation.  It treats it as a PHP constructor without the 'new' keyword.  It also manages to construct the object without the use of eval().</li>
+            <li id="exists"><a title="Object" href="../classes/Object/exists.xhtml">exists()</a>
+                — Return true if this object "exists" i.e. has a sensible value</li>
+            <li id="extend"><a title="Object" href="../classes/Object/extend.xhtml">extend()</a>
+                — Run the given function on all of this object's extensions. Note that this method originally returned void, so if you wanted to return results, you're hosed</li>
+            <li id="getCustomClass"><a title="Object" href="../classes/Object/getCustomClass.xhtml">getCustomClass()</a>
+                — If a class has been overloaded, get the class name it has been overloaded with - otherwise return the class name</li>
+            <li id="getExtensionInstance"><a title="Object" href="../classes/Object/getExtensionInstance.xhtml">getExtensionInstance()</a>
+                — Get an extension instance attached to this object by name.</li>
+            <li id="getExtensionInstances"><a title="Object" href="../classes/Object/getExtensionInstances.xhtml">getExtensionInstances()</a>
+                — Get all extension instances for this specific object instance.</li>
+            <li id="get_extensions">
+              <a title="Object" href="../classes/Object/get_extensions.xhtml">get_extensions()</a>
+            </li>
+            <li id="get_extra_config_sources">
+              <a title="Object" href="../classes/Object/get_extra_config_sources.xhtml">get_extra_config_sources()</a>
+            </li>
+            <li id="get_static"><a title="Object" href="../classes/Object/get_static.xhtml">get_static()</a>
+                — Get a static variable, taking into account SS's inbuild static caches and pseudo-statics</li>
+            <li id="hasExtension"><a title="Object" href="../classes/Object/hasExtension.xhtml">hasExtension()</a>
+                — Returns TRUE if this object instance has a specific extension applied in {@link $extension_instances}. Extension instances are initialized at constructor time, meaning if you use {@link add_extension()} afterwards, the added extension will just be added to new instances of the extended class. Use the static method {@link has_extension()} to check if a class (not an instance) has a specific extension.</li>
+            <li id="hasMethod"><a title="Object" href="../classes/Object/hasMethod.xhtml">hasMethod()</a>
+                — Return TRUE if a method exists on this object</li>
+            <li id="has_extension"><a title="Object" href="../classes/Object/has_extension.xhtml">has_extension()</a>
+                — Return TRUE if a class has a specified extension.</li>
+            <li id="invokeWithExtensions"><a title="Object" href="../classes/Object/invokeWithExtensions.xhtml">invokeWithExtensions()</a>
+                — Calls a method if available on both this object and all applied {@link Extensions}, and then attempts to merge all results into an array</li>
+            <li id="is_a"><a title="Object" href="../classes/Object/is_a.xhtml">is_a()</a>
+                — Check if this class is an instance of a specific class, or has that class as one of its parents</li>
+            <li id="parentClass">
+              <a title="Object" href="../classes/Object/parentClass.xhtml">parentClass()</a>
+            </li>
+            <li id="parse_class_spec"><a title="Object" href="../classes/Object/parse_class_spec.xhtml">parse_class_spec()</a>
+                — Parses a class-spec, such as "Versioned('Stage','Live')", as passed to create_from_string().</li>
+            <li id="remove_extension"><a title="Object" href="../classes/Object/remove_extension.xhtml">remove_extension()</a>
+                — Remove an extension from a class.</li>
+            <li id="set_stat">
+              <a title="Object" href="../classes/Object/set_stat.xhtml">set_stat()</a>
+            </li>
+            <li id="set_static"><a title="Object" href="../classes/Object/set_static.xhtml">set_static()</a>
+                — Set a static variable</li>
+            <li id="stat">
+              <a title="Object" href="../classes/Object/stat.xhtml">stat()</a>
+            </li>
+            <li id="static_lookup"><a title="Object" href="../classes/Object/static_lookup.xhtml">static_lookup()</a>
+                — Get the value of a static property of a class, even in that property is declared protected (but not private), without any inheritance, merging or parent lookup if it doesn't exist on the given class.</li>
+            <li id="strong_create"><a title="Object" href="../classes/Object/strong_create.xhtml">strong_create()</a>
+                — Similar to {@link Object::create()}, except that classes are only overloaded if you set the $strong parameter to TRUE when using {@link Object::useCustomClass()}</li>
+            <li id="uninherited">
+              <a title="Object" href="../classes/Object/uninherited.xhtml">uninherited()</a>
+            </li>
+            <li id="uninherited_static"><a title="Object" href="../classes/Object/uninherited_static.xhtml">uninherited_static()</a>
+                — Get an uninherited static variable - a variable that is explicity set in this class, and not in the parent class.</li>
+            <li id="useCustomClass"><a title="Object" href="../classes/Object/useCustomClass.xhtml">useCustomClass()</a>
+                — This class allows you to overload classes with other classes when they are constructed using the factory method {@link Object::create()}</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

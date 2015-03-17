@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="BeforeAfterCallTestAspect" namespace="" name="BeforeAfterCallTestAspect" abstract="false" final="false" start="81" end="107">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/injector" file="AopProxyTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/injector/AopProxyTest.php" size="2291" time="2015-03-14T10:41:10+13:00" unixtime="1426282870" sha1="f4089564e7f88087f39c15d80b818f65c0c234f5" relative="framework/tests/injector/AopProxyTest.php"/>
+  <implements full="BeforeCallAspect" namespace="" name="BeforeCallAspect"/>
+  <implements full="AfterCallAspect" namespace="" name="AfterCallAspect"/>
+  <member name="block" type="{unknown}" default="false" visibility="public" line="82"/>
+  <member name="called" type="{unknown}" visibility="public" line="84"/>
+  <member name="alternateReturn" type="{unknown}" visibility="public" line="86"/>
+  <member name="modifier" type="{unknown}" visibility="public" line="88"/>
+  <method name="beforeCall" start="90" end="99" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="proxied" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}"/>
+    <parameter name="alternateReturn" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="afterCall" start="101" end="106" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="proxied" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}"/>
+    <parameter name="result" byreference="false" type="{unknown}"/>
+  </method>
+  <interface full="BeforeCallAspect" namespace="" name="BeforeCallAspect">
+    <method name="beforeCall" start="27" end="27" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Call this aspect before a method is executed"/>
+        <param type="object" variable="$proxied">The object having the method called upon it.</param>
+        <param type="string" variable="$method">The name of the method being called</param>
+        <param type="string" variable="$args">The arguments that were passed to the method call</param>
+        <param type="mixed" variable="$alternateReturn">An alternative return value that should be passed
+			to the caller. Only has effect of beforeCall returns false</param>
+      </docblock>
+      <parameter name="proxied" byreference="false" type="{unknown}"/>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="args" byreference="false" type="{unknown}"/>
+      <parameter name="alternateReturn" byreference="true" type="{unknown}"/>
+    </method>
+  </interface>
+  <interface full="AfterCallAspect" namespace="" name="AfterCallAspect">
+    <method name="afterCall" start="28" end="28" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Call this aspect after a method is executed"/>
+        <param type="object" variable="$proxied">The object having the method called upon it.</param>
+        <param type="string" variable="$method">The name of the method being called</param>
+        <param type="string" variable="$args">The arguments that were passed to the method call</param>
+        <param type="mixed" variable="$result">The result of calling the method on the real object</param>
+      </docblock>
+      <parameter name="proxied" byreference="false" type="{unknown}"/>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="args" byreference="false" type="{unknown}"/>
+      <parameter name="result" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

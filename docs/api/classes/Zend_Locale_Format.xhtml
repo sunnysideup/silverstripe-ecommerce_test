@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Zend_Locale_Format</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Zend_Locale_Format</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/thirdparty/Zend/Locale/Format.php.xhtml#line35">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Zend_Locale_Format</h1>
+        <h4/>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)</li>
+          <li>License: http://framework.zend.com/license/new-bsd     New BSD License</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Zend_Locale_Format
+            {<br/><ul class="none"><li>// constants</li><li>const STANDARD = 'auto';</li></ul><ul class="none"><li>// members</li><li>private array <a href="#members">$_options</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static Options <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/setOptions.xhtml">setOptions</a>()
+                    </li><li>private static Options <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_checkOptions.xhtml">_checkOptions</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/convertNumerals.xhtml">convertNumerals</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getNumber.xhtml">getNumber</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/toNumber.xhtml">toNumber</a>()
+                    </li><li>private static void <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_seperateFormat.xhtml">_seperateFormat</a>()
+                    </li><li>public static boolean <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/isNumber.xhtml">isNumber</a>()
+                    </li><li>private static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_getRegexForType.xhtml">_getRegexForType</a>()
+                    </li><li>public static float <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getFloat.xhtml">getFloat</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/toFloat.xhtml">toFloat</a>()
+                    </li><li>public static boolean <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/isFloat.xhtml">isFloat</a>()
+                    </li><li>public static integer <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getInteger.xhtml">getInteger</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/toInteger.xhtml">toInteger</a>()
+                    </li><li>public static boolean <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/isInteger.xhtml">isInteger</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/convertPhpToIsoFormat.xhtml">convertPhpToIsoFormat</a>()
+                    </li><li>private static array <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_parseDate.xhtml">_parseDate</a>()
+                    </li><li>protected static int|false <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_replaceMonth.xhtml">_replaceMonth</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDateFormat.xhtml">getDateFormat</a>()
+                    </li><li>public static array <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDate.xhtml">getDate</a>()
+                    </li><li>public static boolean <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/checkDateFormat.xhtml">checkDateFormat</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getTimeFormat.xhtml">getTimeFormat</a>()
+                    </li><li>public static array <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getTime.xhtml">getTime</a>()
+                    </li><li>public static string <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDateTimeFormat.xhtml">getDateTimeFormat</a>()
+                    </li><li>public static array <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDateTime.xhtml">getDateTime</a>()
+                    </li><li>protected static boolean <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_getUniCodeSupport.xhtml">_getUniCodeSupport</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="STANDARD">STANDARD</td>
+              <td>'auto'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="_options">
+              <strong>$_options</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="_checkOptions"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_checkOptions.xhtml">_checkOptions()</a>
+                — Internal function for checking the options array of proper input values See {@link setOptions()} for details.</li>
+            <li id="_getRegexForType"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_getRegexForType.xhtml">_getRegexForType()</a>
+                — Internal method to convert cldr number syntax into regex</li>
+            <li id="_parseDate"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_parseDate.xhtml">_parseDate()</a>
+                — Parse date and split in named array fields</li>
+            <li id="_seperateFormat">
+              <a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_seperateFormat.xhtml">_seperateFormat()</a>
+            </li>
+          </ul>
+          <h4>protected</h4>
+          <ul>
+            <li id="_getUniCodeSupport"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_getUniCodeSupport.xhtml">_getUniCodeSupport()</a>
+                — Internal method to detect of Unicode supports UTF8 which should be enabled within vanilla php installations</li>
+            <li id="_replaceMonth"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/_replaceMonth.xhtml">_replaceMonth()</a>
+                — Search $number for a month name found in $monthlist, and replace if found.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="checkDateFormat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/checkDateFormat.xhtml">checkDateFormat()</a>
+                — Returns if the given datestring contains all date parts from the given format.</li>
+            <li id="convertNumerals"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/convertNumerals.xhtml">convertNumerals()</a>
+                — Changes the numbers/digits within a given string from one script to another 'Decimal' representated the stardard numbers 0-9, if a script does not exist an exception will be thrown.</li>
+            <li id="convertPhpToIsoFormat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/convertPhpToIsoFormat.xhtml">convertPhpToIsoFormat()</a>
+                — Converts a format string from PHP's date format to ISO format Remember that Zend Date always returns localized string, so a month name which returns the english month in php's date() will return the translated month name with this function... use 'en' as locale if you are in need of the original english names</li>
+            <li id="getDate"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDate.xhtml">getDate()</a>
+                — Returns an array with the normalized date from an locale date a input of 10.01.2006 without a $locale would return: array ('day' =&gt; 10, 'month' =&gt; 1, 'year' =&gt; 2006) The 'locale' option is only used to convert human readable day and month names to their numeric equivalents.</li>
+            <li id="getDateFormat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDateFormat.xhtml">getDateFormat()</a>
+                — Returns the default date format for $locale.</li>
+            <li id="getDateTime"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDateTime.xhtml">getDateTime()</a>
+                — Returns an array with 'year', 'month', 'day', 'hour', 'minute', and 'second' elements extracted from $datetime according to the order described in $format.  For a format of 'd.M.y H:m:s', and an input of 10.05.1985 11:20:55, getDateTime() would return: array ('year' =&gt; 1985, 'month' =&gt; 5, 'day' =&gt; 10, 'hour' =&gt; 11, 'minute' =&gt; 20, 'second' =&gt; 55) The optional $locale parameter may be used to help extract times from strings containing both a time and a day or month name.</li>
+            <li id="getDateTimeFormat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getDateTimeFormat.xhtml">getDateTimeFormat()</a>
+                — Returns the default datetime format for $locale.</li>
+            <li id="getFloat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getFloat.xhtml">getFloat()</a>
+                — Alias for getNumber</li>
+            <li id="getInteger"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getInteger.xhtml">getInteger()</a>
+                — Returns the first found integer from an string Parsing depends on given locale (grouping and decimal)</li>
+            <li id="getNumber"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getNumber.xhtml">getNumber()</a>
+                — Returns the normalized number from a localized one Parsing depends on given locale (grouping and decimal)</li>
+            <li id="getTime"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getTime.xhtml">getTime()</a>
+                — Returns an array with 'hour', 'minute', and 'second' elements extracted from $time according to the order described in $format.  For a format of 'H:m:s', and an input of 11:20:55, getTime() would return: array ('hour' =&gt; 11, 'minute' =&gt; 20, 'second' =&gt; 55) The optional $locale parameter may be used to help extract times from strings containing both a time and a day or month name.</li>
+            <li id="getTimeFormat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/getTimeFormat.xhtml">getTimeFormat()</a>
+                — Returns the default time format for $locale.</li>
+            <li id="isFloat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/isFloat.xhtml">isFloat()</a>
+                — Returns if a float was found Alias for isNumber()</li>
+            <li id="isInteger"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/isInteger.xhtml">isInteger()</a>
+                — Returns if a integer was found</li>
+            <li id="isNumber"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/isNumber.xhtml">isNumber()</a>
+                — Checks if the input contains a normalized or localized number</li>
+            <li id="setOptions"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/setOptions.xhtml">setOptions()</a>
+                — Sets class wide options, if no option was given, the actual set options will be returned The 'precision' option of a value is used to truncate or stretch extra digits. -1 means not to touch the extra digits.</li>
+            <li id="toFloat"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/toFloat.xhtml">toFloat()</a>
+                — Returns a locale formatted integer number Alias for toNumber()</li>
+            <li id="toInteger"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/toInteger.xhtml">toInteger()</a>
+                — Returns a localized number</li>
+            <li id="toNumber"><a title="Zend_Locale_Format" href="../classes/Zend_Locale_Format/toNumber.xhtml">toNumber()</a>
+                — Returns a locale formatted number depending on the given options.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

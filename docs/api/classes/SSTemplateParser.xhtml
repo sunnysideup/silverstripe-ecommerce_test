@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SSTemplateParser</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SSTemplateParser</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/view/SSTemplateParser.php.xhtml#line74">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SSTemplateParser</h1>
+        <h4>This is the parser for the SilverStripe template language. It gets called on a string and uses a php-peg parser to match that string against the language structure, building up the PHP code to execute that structure as it parses</h4>
+        <p>The $result array that is built up as part of the parsing (see thirdparty/php-peg/README.md for more on how<br/>parsers build results) has one special member, 'php', which contains the php equivalent of that part of the<br/>template tree.<br/><br/>Some match rules generate alternate php, or other variations, so check the per-match documentation too.<br/><br/>Terms used:<br/><br/>Marked: A string or lookup in the template that has been explictly marked as such - lookups by prepending with<br/>"$" (like $Foo.Bar), strings by wrapping with single or double quotes ('Foo' or "Foo")<br/><br/>Bare: The opposite of marked. An argument that has to has it's type inferred by usage and 2.4 defaults.<br/><br/>Example of using a bare argument for a loop block: &lt;% loop Foo %&gt;<br/><br/>Block: One of two SS template structures. The special characters "&lt;%" and "%&gt;" are used to wrap the opening and<br/>(required or forbidden depending on which block exactly) closing block marks.<br/><br/>Open Block: An SS template block that doesn't wrap any content or have a closing end tag (in fact, a closing end<br/>tag is forbidden)<br/><br/>Closed Block: An SS template block that wraps content, and requires a counterpart &lt;% end_blockname %&gt; tag<br/><br/>Angle Bracket: angle brackets "&lt;" and "&gt;" are used to eat whitespace between template elements<br/>N: eats white space including newlines (using in legacy _t support)</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SSTemplateParser
+                extends <a title="Parser" href="../classes/Parser.xhtml">Parser</a>
+                implements
+                <a title="TemplateParser" href="../interfaces/TemplateParser.xhtml">TemplateParser</a>
+            {<br/><ul class="none"><li>// members</li><li>protected <span title="bool">bool</span> <a href="#members">$includeDebuggingComments</a>;
+                    </li><li>protected array <a href="#members">$closedBlocks</a>;
+                    </li><li>protected array <a href="#members">$openBlocks</a>;
+                    </li><li>protected array <a href="#members">$match_Template_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Word_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Number_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Value_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_CallArguments_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Call_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_LookupStep_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_LastLookupStep_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Lookup_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Translate_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_InjectionVariables_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Entity_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_SimpleInjection_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_BracketInjection_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Injection_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_DollarMarkedLookup_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_QuotedString_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_FreeString_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Argument_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_ComparisonOperator_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Comparison_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_PresenceCheck_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_IfArgumentPortion_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_BooleanOperator_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_IfArgument_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_IfPart_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_ElseIfPart_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_ElsePart_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_If_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Require_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_CacheBlockArgument_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_CacheBlockArguments_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_CacheBlockTemplate_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_UncachedBlock_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_CacheRestrictedTemplate_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_CacheBlock_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_OldTPart_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_N_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_OldTTag_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_OldSprintfTag_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_OldI18NTag_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_NamedArgument_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Include_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_BlockArguments_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_NotBlockTag_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_ClosedBlock_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_OpenBlock_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_MismatchedEndBlock_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_MalformedOpenTag_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_MalformedCloseTag_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_MalformedBlock_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Comment_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_TopTemplate_typestack</a>;
+                    </li><li>protected array <a href="#members">$match_Text_typestack</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/construct.xhtml">construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/setClosedBlocks.xhtml">setClosedBlocks</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/setOpenBlocks.xhtml">setOpenBlocks</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/addClosedBlock.xhtml">addClosedBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/addOpenBlock.xhtml">addOpenBlock</a>()
+                    </li><li>protected void <a title="SSTemplateParser" href="../classes/SSTemplateParser/validateExtensionBlock.xhtml">validateExtensionBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Template.xhtml">match_Template</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Template_STR.xhtml">Template_STR</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Word.xhtml">match_Word</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Number.xhtml">match_Number</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Value.xhtml">match_Value</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CallArguments.xhtml">match_CallArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CallArguments_Argument.xhtml">CallArguments_Argument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Call.xhtml">match_Call</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_LookupStep.xhtml">match_LookupStep</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_LastLookupStep.xhtml">match_LastLookupStep</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Lookup.xhtml">match_Lookup</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup__construct.xhtml">Lookup__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup_AddLookupStep.xhtml">Lookup_AddLookupStep</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup_LookupStep.xhtml">Lookup_LookupStep</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup_LastLookupStep.xhtml">Lookup_LastLookupStep</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Translate.xhtml">match_Translate</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_InjectionVariables.xhtml">match_InjectionVariables</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Entity.xhtml">match_Entity</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate__construct.xhtml">Translate__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_Entity.xhtml">Translate_Entity</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_Default.xhtml">Translate_Default</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_Context.xhtml">Translate_Context</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_InjectionVariables.xhtml">Translate_InjectionVariables</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate__finalise.xhtml">Translate__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables__construct.xhtml">InjectionVariables__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables_InjectionName.xhtml">InjectionVariables_InjectionName</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables_Argument.xhtml">InjectionVariables_Argument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables__finalise.xhtml">InjectionVariables__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_SimpleInjection.xhtml">match_SimpleInjection</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_BracketInjection.xhtml">match_BracketInjection</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Injection.xhtml">match_Injection</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Injection_STR.xhtml">Injection_STR</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_DollarMarkedLookup.xhtml">match_DollarMarkedLookup</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/DollarMarkedLookup_STR.xhtml">DollarMarkedLookup_STR</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_QuotedString.xhtml">match_QuotedString</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_FreeString.xhtml">match_FreeString</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Argument.xhtml">match_Argument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_DollarMarkedLookup.xhtml">Argument_DollarMarkedLookup</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_QuotedString.xhtml">Argument_QuotedString</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_Lookup.xhtml">Argument_Lookup</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_FreeString.xhtml">Argument_FreeString</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ComparisonOperator.xhtml">match_ComparisonOperator</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Comparison.xhtml">match_Comparison</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Comparison_Argument.xhtml">Comparison_Argument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Comparison_ComparisonOperator.xhtml">Comparison_ComparisonOperator</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_PresenceCheck.xhtml">match_PresenceCheck</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/PresenceCheck_Not.xhtml">PresenceCheck_Not</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/PresenceCheck_Argument.xhtml">PresenceCheck_Argument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_IfArgumentPortion.xhtml">match_IfArgumentPortion</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/IfArgumentPortion_STR.xhtml">IfArgumentPortion_STR</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_BooleanOperator.xhtml">match_BooleanOperator</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_IfArgument.xhtml">match_IfArgument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/IfArgument_IfArgumentPortion.xhtml">IfArgument_IfArgumentPortion</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/IfArgument_BooleanOperator.xhtml">IfArgument_BooleanOperator</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_IfPart.xhtml">match_IfPart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ElseIfPart.xhtml">match_ElseIfPart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ElsePart.xhtml">match_ElsePart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_If.xhtml">match_If</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/If_IfPart.xhtml">If_IfPart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/If_ElseIfPart.xhtml">If_ElseIfPart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/If_ElsePart.xhtml">If_ElsePart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Require.xhtml">match_Require</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Require_Call.xhtml">Require_Call</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlockArgument.xhtml">match_CacheBlockArgument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArgument_DollarMarkedLookup.xhtml">CacheBlockArgument_DollarMarkedLookup</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArgument_QuotedString.xhtml">CacheBlockArgument_QuotedString</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArgument_Lookup.xhtml">CacheBlockArgument_Lookup</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlockArguments.xhtml">match_CacheBlockArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArguments_CacheBlockArgument.xhtml">CacheBlockArguments_CacheBlockArgument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlockTemplate.xhtml">match_CacheBlockTemplate</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_UncachedBlock.xhtml">match_UncachedBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/UncachedBlock_Template.xhtml">UncachedBlock_Template</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheRestrictedTemplate.xhtml">match_CacheRestrictedTemplate</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheRestrictedTemplate_CacheBlock.xhtml">CacheRestrictedTemplate_CacheBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheRestrictedTemplate_UncachedBlock.xhtml">CacheRestrictedTemplate_UncachedBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlock.xhtml">match_CacheBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock__construct.xhtml">CacheBlock__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_CacheBlockArguments.xhtml">CacheBlock_CacheBlockArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_Condition.xhtml">CacheBlock_Condition</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_CacheBlock.xhtml">CacheBlock_CacheBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_UncachedBlock.xhtml">CacheBlock_UncachedBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_CacheBlockTemplate.xhtml">CacheBlock_CacheBlockTemplate</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldTPart.xhtml">match_OldTPart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_N.xhtml">match_N</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart__construct.xhtml">OldTPart__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart_QuotedString.xhtml">OldTPart_QuotedString</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart_CallArguments.xhtml">OldTPart_CallArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart__finalise.xhtml">OldTPart__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldTTag.xhtml">match_OldTTag</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTTag_OldTPart.xhtml">OldTTag_OldTPart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldSprintfTag.xhtml">match_OldSprintfTag</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldSprintfTag__construct.xhtml">OldSprintfTag__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldSprintfTag_OldTPart.xhtml">OldSprintfTag_OldTPart</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldSprintfTag_CallArguments.xhtml">OldSprintfTag_CallArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldI18NTag.xhtml">match_OldI18NTag</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldI18NTag_STR.xhtml">OldI18NTag_STR</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_NamedArgument.xhtml">match_NamedArgument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/NamedArgument_Name.xhtml">NamedArgument_Name</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/NamedArgument_Value.xhtml">NamedArgument_Value</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Include.xhtml">match_Include</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include__construct.xhtml">Include__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include_Template.xhtml">Include_Template</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include_NamedArgument.xhtml">Include_NamedArgument</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include__finalise.xhtml">Include__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_BlockArguments.xhtml">match_BlockArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_NotBlockTag.xhtml">match_NotBlockTag</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ClosedBlock.xhtml">match_ClosedBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock__construct.xhtml">ClosedBlock__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_BlockArguments.xhtml">ClosedBlock_BlockArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock__finalise.xhtml">ClosedBlock__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_Handle_Loop.xhtml">ClosedBlock_Handle_Loop</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_Handle_Control.xhtml">ClosedBlock_Handle_Control</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_Handle_With.xhtml">ClosedBlock_Handle_With</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OpenBlock.xhtml">match_OpenBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock__construct.xhtml">OpenBlock__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_BlockArguments.xhtml">OpenBlock_BlockArguments</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock__finalise.xhtml">OpenBlock__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_Handle_Debug.xhtml">OpenBlock_Handle_Debug</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_Handle_Base_tag.xhtml">OpenBlock_Handle_Base_tag</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_Handle_Current_page.xhtml">OpenBlock_Handle_Current_page</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MismatchedEndBlock.xhtml">match_MismatchedEndBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/MismatchedEndBlock__finalise.xhtml">MismatchedEndBlock__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MalformedOpenTag.xhtml">match_MalformedOpenTag</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/MalformedOpenTag__finalise.xhtml">MalformedOpenTag__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MalformedCloseTag.xhtml">match_MalformedCloseTag</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/MalformedCloseTag__finalise.xhtml">MalformedCloseTag__finalise</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MalformedBlock.xhtml">match_MalformedBlock</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Comment.xhtml">match_Comment</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Comment__construct.xhtml">Comment__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_TopTemplate.xhtml">match_TopTemplate</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/TopTemplate__construct.xhtml">TopTemplate__construct</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Text.xhtml">match_Text</a>()
+                    </li><li>public void <a title="SSTemplateParser" href="../classes/SSTemplateParser/Text__finalise.xhtml">Text__finalise</a>()
+                    </li><li>public mixed|string <a title="SSTemplateParser" href="../classes/SSTemplateParser/compileString.xhtml">compileString</a>()
+                    </li><li>protected string <a title="SSTemplateParser" href="../classes/SSTemplateParser/includeDebuggingComments.xhtml">includeDebuggingComments</a>()
+                    </li><li>public mixed|string <a title="SSTemplateParser" href="../classes/SSTemplateParser/compileFile.xhtml">compileFile</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Parser">Parser</span></li><li>public void <a title="Parser" href="../classes/Parser/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/whitespace.xhtml">whitespace</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/literal.xhtml">literal</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/rx.xhtml">rx</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/expression.xhtml">expression</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/packhas.xhtml">packhas</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/packread.xhtml">packread</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/packwrite.xhtml">packwrite</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/typestack.xhtml">typestack</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/construct.xhtml">construct</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/finalise.xhtml">finalise</a>()
+                        </li><li>public void <a title="Parser" href="../classes/Parser/store.xhtml">store</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Parser.xhtml">Parser</a>
+            </li>
+          </ul>
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/i18nTextCollector_Parser.xhtml">i18nTextCollector_Parser</a>
+            </li>
+          </ul>
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/TemplateParser.xhtml">TemplateParser</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">4682</td>
+            <td>This is pretty ugly &amp; gets applied on all files not just html. I wonder if we can make this</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="closedBlocks"><strong>$closedBlocks</strong>
+                —
+                array<br/><span class="indent">Stores the user-supplied closed block extension rules in the form: array(   'name' =&gt; function (&amp;$res) {} ) See SSTemplateParser::ClosedBlock_Handle_Loop for an example of what the callable should look like</span></li>
+            <li id="includeDebuggingComments"><strong>$includeDebuggingComments</strong>
+                —
+                <a href="#">bool</a></li>
+            <li id="match_Argument_typestack">
+              <strong>$match_Argument_typestack</strong>
+            </li>
+            <li id="match_BlockArguments_typestack">
+              <strong>$match_BlockArguments_typestack</strong>
+            </li>
+            <li id="match_BooleanOperator_typestack">
+              <strong>$match_BooleanOperator_typestack</strong>
+            </li>
+            <li id="match_BracketInjection_typestack">
+              <strong>$match_BracketInjection_typestack</strong>
+            </li>
+            <li id="match_CacheBlockArgument_typestack">
+              <strong>$match_CacheBlockArgument_typestack</strong>
+            </li>
+            <li id="match_CacheBlockArguments_typestack">
+              <strong>$match_CacheBlockArguments_typestack</strong>
+            </li>
+            <li id="match_CacheBlockTemplate_typestack">
+              <strong>$match_CacheBlockTemplate_typestack</strong>
+            </li>
+            <li id="match_CacheBlock_typestack">
+              <strong>$match_CacheBlock_typestack</strong>
+            </li>
+            <li id="match_CacheRestrictedTemplate_typestack">
+              <strong>$match_CacheRestrictedTemplate_typestack</strong>
+            </li>
+            <li id="match_CallArguments_typestack">
+              <strong>$match_CallArguments_typestack</strong>
+            </li>
+            <li id="match_Call_typestack">
+              <strong>$match_Call_typestack</strong>
+            </li>
+            <li id="match_ClosedBlock_typestack">
+              <strong>$match_ClosedBlock_typestack</strong>
+            </li>
+            <li id="match_Comment_typestack">
+              <strong>$match_Comment_typestack</strong>
+            </li>
+            <li id="match_ComparisonOperator_typestack">
+              <strong>$match_ComparisonOperator_typestack</strong>
+            </li>
+            <li id="match_Comparison_typestack">
+              <strong>$match_Comparison_typestack</strong>
+            </li>
+            <li id="match_DollarMarkedLookup_typestack">
+              <strong>$match_DollarMarkedLookup_typestack</strong>
+            </li>
+            <li id="match_ElseIfPart_typestack">
+              <strong>$match_ElseIfPart_typestack</strong>
+            </li>
+            <li id="match_ElsePart_typestack">
+              <strong>$match_ElsePart_typestack</strong>
+            </li>
+            <li id="match_Entity_typestack">
+              <strong>$match_Entity_typestack</strong>
+            </li>
+            <li id="match_FreeString_typestack">
+              <strong>$match_FreeString_typestack</strong>
+            </li>
+            <li id="match_IfArgumentPortion_typestack">
+              <strong>$match_IfArgumentPortion_typestack</strong>
+            </li>
+            <li id="match_IfArgument_typestack">
+              <strong>$match_IfArgument_typestack</strong>
+            </li>
+            <li id="match_IfPart_typestack">
+              <strong>$match_IfPart_typestack</strong>
+            </li>
+            <li id="match_If_typestack">
+              <strong>$match_If_typestack</strong>
+            </li>
+            <li id="match_Include_typestack">
+              <strong>$match_Include_typestack</strong>
+            </li>
+            <li id="match_InjectionVariables_typestack">
+              <strong>$match_InjectionVariables_typestack</strong>
+            </li>
+            <li id="match_Injection_typestack">
+              <strong>$match_Injection_typestack</strong>
+            </li>
+            <li id="match_LastLookupStep_typestack">
+              <strong>$match_LastLookupStep_typestack</strong>
+            </li>
+            <li id="match_LookupStep_typestack">
+              <strong>$match_LookupStep_typestack</strong>
+            </li>
+            <li id="match_Lookup_typestack">
+              <strong>$match_Lookup_typestack</strong>
+            </li>
+            <li id="match_MalformedBlock_typestack">
+              <strong>$match_MalformedBlock_typestack</strong>
+            </li>
+            <li id="match_MalformedCloseTag_typestack">
+              <strong>$match_MalformedCloseTag_typestack</strong>
+            </li>
+            <li id="match_MalformedOpenTag_typestack">
+              <strong>$match_MalformedOpenTag_typestack</strong>
+            </li>
+            <li id="match_MismatchedEndBlock_typestack">
+              <strong>$match_MismatchedEndBlock_typestack</strong>
+            </li>
+            <li id="match_N_typestack">
+              <strong>$match_N_typestack</strong>
+            </li>
+            <li id="match_NamedArgument_typestack">
+              <strong>$match_NamedArgument_typestack</strong>
+            </li>
+            <li id="match_NotBlockTag_typestack">
+              <strong>$match_NotBlockTag_typestack</strong>
+            </li>
+            <li id="match_Number_typestack">
+              <strong>$match_Number_typestack</strong>
+            </li>
+            <li id="match_OldI18NTag_typestack">
+              <strong>$match_OldI18NTag_typestack</strong>
+            </li>
+            <li id="match_OldSprintfTag_typestack">
+              <strong>$match_OldSprintfTag_typestack</strong>
+            </li>
+            <li id="match_OldTPart_typestack">
+              <strong>$match_OldTPart_typestack</strong>
+            </li>
+            <li id="match_OldTTag_typestack">
+              <strong>$match_OldTTag_typestack</strong>
+            </li>
+            <li id="match_OpenBlock_typestack">
+              <strong>$match_OpenBlock_typestack</strong>
+            </li>
+            <li id="match_PresenceCheck_typestack">
+              <strong>$match_PresenceCheck_typestack</strong>
+            </li>
+            <li id="match_QuotedString_typestack">
+              <strong>$match_QuotedString_typestack</strong>
+            </li>
+            <li id="match_Require_typestack">
+              <strong>$match_Require_typestack</strong>
+            </li>
+            <li id="match_SimpleInjection_typestack">
+              <strong>$match_SimpleInjection_typestack</strong>
+            </li>
+            <li id="match_Template_typestack">
+              <strong>$match_Template_typestack</strong>
+            </li>
+            <li id="match_Text_typestack">
+              <strong>$match_Text_typestack</strong>
+            </li>
+            <li id="match_TopTemplate_typestack">
+              <strong>$match_TopTemplate_typestack</strong>
+            </li>
+            <li id="match_Translate_typestack">
+              <strong>$match_Translate_typestack</strong>
+            </li>
+            <li id="match_UncachedBlock_typestack">
+              <strong>$match_UncachedBlock_typestack</strong>
+            </li>
+            <li id="match_Value_typestack">
+              <strong>$match_Value_typestack</strong>
+            </li>
+            <li id="match_Word_typestack">
+              <strong>$match_Word_typestack</strong>
+            </li>
+            <li id="openBlocks"><strong>$openBlocks</strong>
+                —
+                array<br/><span class="indent">Stores the user-supplied open block extension rules in the form: array(   'name' =&gt; function (&amp;$res) {} ) See SSTemplateParser::OpenBlock_Handle_Base_tag for an example of what the callable should look like</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="includeDebuggingComments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/includeDebuggingComments.xhtml">includeDebuggingComments()</a>
+            </li>
+            <li id="validateExtensionBlock"><a title="SSTemplateParser" href="../classes/SSTemplateParser/validateExtensionBlock.xhtml">validateExtensionBlock()</a>
+                — Ensures that the arguments to addOpenBlock and addClosedBlock are valid</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="SSTemplateParser" href="../classes/SSTemplateParser/__construct.xhtml">__construct()</a>
+                — Allow the injection of new closed &amp; open block callables</li>
+            <li id="Argument_DollarMarkedLookup"><a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_DollarMarkedLookup.xhtml">Argument_DollarMarkedLookup()</a>
+                — If we get a bare value, we don't know enough to determine exactly what php would be the translation, because we don't know if the position of use indicates a lookup or a string argument.</li>
+            <li id="Argument_FreeString">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_FreeString.xhtml">Argument_FreeString()</a>
+            </li>
+            <li id="Argument_Lookup">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_Lookup.xhtml">Argument_Lookup()</a>
+            </li>
+            <li id="Argument_QuotedString">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Argument_QuotedString.xhtml">Argument_QuotedString()</a>
+            </li>
+            <li id="CacheBlockArgument_DollarMarkedLookup">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArgument_DollarMarkedLookup.xhtml">CacheBlockArgument_DollarMarkedLookup()</a>
+            </li>
+            <li id="CacheBlockArgument_Lookup">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArgument_Lookup.xhtml">CacheBlockArgument_Lookup()</a>
+            </li>
+            <li id="CacheBlockArgument_QuotedString">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArgument_QuotedString.xhtml">CacheBlockArgument_QuotedString()</a>
+            </li>
+            <li id="CacheBlockArguments_CacheBlockArgument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlockArguments_CacheBlockArgument.xhtml">CacheBlockArguments_CacheBlockArgument()</a>
+            </li>
+            <li id="CacheBlock_CacheBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_CacheBlock.xhtml">CacheBlock_CacheBlock()</a>
+            </li>
+            <li id="CacheBlock_CacheBlockArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_CacheBlockArguments.xhtml">CacheBlock_CacheBlockArguments()</a>
+            </li>
+            <li id="CacheBlock_CacheBlockTemplate">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_CacheBlockTemplate.xhtml">CacheBlock_CacheBlockTemplate()</a>
+            </li>
+            <li id="CacheBlock_Condition">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_Condition.xhtml">CacheBlock_Condition()</a>
+            </li>
+            <li id="CacheBlock_UncachedBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock_UncachedBlock.xhtml">CacheBlock_UncachedBlock()</a>
+            </li>
+            <li id="CacheBlock__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheBlock__construct.xhtml">CacheBlock__construct()</a>
+            </li>
+            <li id="CacheRestrictedTemplate_CacheBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheRestrictedTemplate_CacheBlock.xhtml">CacheRestrictedTemplate_CacheBlock()</a>
+            </li>
+            <li id="CacheRestrictedTemplate_UncachedBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/CacheRestrictedTemplate_UncachedBlock.xhtml">CacheRestrictedTemplate_UncachedBlock()</a>
+            </li>
+            <li id="CallArguments_Argument"><a title="SSTemplateParser" href="../classes/SSTemplateParser/CallArguments_Argument.xhtml">CallArguments_Argument()</a>
+                — Values are bare words in templates, but strings in PHP. We rely on PHP's type conversion to back-convert strings to numbers when needed.</li>
+            <li id="ClosedBlock_BlockArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_BlockArguments.xhtml">ClosedBlock_BlockArguments()</a>
+            </li>
+            <li id="ClosedBlock_Handle_Control"><a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_Handle_Control.xhtml">ClosedBlock_Handle_Control()</a>
+                — The deprecated closed block handler for control blocks</li>
+            <li id="ClosedBlock_Handle_Loop"><a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_Handle_Loop.xhtml">ClosedBlock_Handle_Loop()</a>
+                — This is an example of a block handler function. This one handles the loop tag.</li>
+            <li id="ClosedBlock_Handle_With"><a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock_Handle_With.xhtml">ClosedBlock_Handle_With()</a>
+                — The closed block handler for with blocks</li>
+            <li id="ClosedBlock__construct"><a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock__construct.xhtml">ClosedBlock__construct()</a>
+                — As mentioned in the parser comment, block handling is kept fairly generic for extensibility. The match rule builds up two important elements in the match result array:   'ArgumentCount' - how many arguments were passed in the opening tag   'Arguments' an array of the Argument match rule result arrays</li>
+            <li id="ClosedBlock__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/ClosedBlock__finalise.xhtml">ClosedBlock__finalise()</a>
+            </li>
+            <li id="Comment__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Comment__construct.xhtml">Comment__construct()</a>
+            </li>
+            <li id="Comparison_Argument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Comparison_Argument.xhtml">Comparison_Argument()</a>
+            </li>
+            <li id="Comparison_ComparisonOperator">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Comparison_ComparisonOperator.xhtml">Comparison_ComparisonOperator()</a>
+            </li>
+            <li id="DollarMarkedLookup_STR">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/DollarMarkedLookup_STR.xhtml">DollarMarkedLookup_STR()</a>
+            </li>
+            <li id="IfArgumentPortion_STR">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/IfArgumentPortion_STR.xhtml">IfArgumentPortion_STR()</a>
+            </li>
+            <li id="IfArgument_BooleanOperator">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/IfArgument_BooleanOperator.xhtml">IfArgument_BooleanOperator()</a>
+            </li>
+            <li id="IfArgument_IfArgumentPortion">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/IfArgument_IfArgumentPortion.xhtml">IfArgument_IfArgumentPortion()</a>
+            </li>
+            <li id="If_ElseIfPart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/If_ElseIfPart.xhtml">If_ElseIfPart()</a>
+            </li>
+            <li id="If_ElsePart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/If_ElsePart.xhtml">If_ElsePart()</a>
+            </li>
+            <li id="If_IfPart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/If_IfPart.xhtml">If_IfPart()</a>
+            </li>
+            <li id="Include_NamedArgument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include_NamedArgument.xhtml">Include_NamedArgument()</a>
+            </li>
+            <li id="Include_Template">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include_Template.xhtml">Include_Template()</a>
+            </li>
+            <li id="Include__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include__construct.xhtml">Include__construct()</a>
+            </li>
+            <li id="Include__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Include__finalise.xhtml">Include__finalise()</a>
+            </li>
+            <li id="InjectionVariables_Argument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables_Argument.xhtml">InjectionVariables_Argument()</a>
+            </li>
+            <li id="InjectionVariables_InjectionName">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables_InjectionName.xhtml">InjectionVariables_InjectionName()</a>
+            </li>
+            <li id="InjectionVariables__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables__construct.xhtml">InjectionVariables__construct()</a>
+            </li>
+            <li id="InjectionVariables__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/InjectionVariables__finalise.xhtml">InjectionVariables__finalise()</a>
+            </li>
+            <li id="Injection_STR">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Injection_STR.xhtml">Injection_STR()</a>
+            </li>
+            <li id="Lookup_AddLookupStep"><a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup_AddLookupStep.xhtml">Lookup_AddLookupStep()</a>
+                — The basic generated PHP of LookupStep and LastLookupStep is the same, except that LookupStep calls 'obj' to get the next ViewableData in the sequence, and LastLookupStep calls different methods (XML_val, hasValue, obj) depending on the context the lookup is used in.</li>
+            <li id="Lookup_LastLookupStep">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup_LastLookupStep.xhtml">Lookup_LastLookupStep()</a>
+            </li>
+            <li id="Lookup_LookupStep">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup_LookupStep.xhtml">Lookup_LookupStep()</a>
+            </li>
+            <li id="Lookup__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Lookup__construct.xhtml">Lookup__construct()</a>
+            </li>
+            <li id="MalformedCloseTag__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/MalformedCloseTag__finalise.xhtml">MalformedCloseTag__finalise()</a>
+            </li>
+            <li id="MalformedOpenTag__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/MalformedOpenTag__finalise.xhtml">MalformedOpenTag__finalise()</a>
+            </li>
+            <li id="MismatchedEndBlock__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/MismatchedEndBlock__finalise.xhtml">MismatchedEndBlock__finalise()</a>
+            </li>
+            <li id="NamedArgument_Name">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/NamedArgument_Name.xhtml">NamedArgument_Name()</a>
+            </li>
+            <li id="NamedArgument_Value">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/NamedArgument_Value.xhtml">NamedArgument_Value()</a>
+            </li>
+            <li id="OldI18NTag_STR">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldI18NTag_STR.xhtml">OldI18NTag_STR()</a>
+            </li>
+            <li id="OldSprintfTag_CallArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldSprintfTag_CallArguments.xhtml">OldSprintfTag_CallArguments()</a>
+            </li>
+            <li id="OldSprintfTag_OldTPart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldSprintfTag_OldTPart.xhtml">OldSprintfTag_OldTPart()</a>
+            </li>
+            <li id="OldSprintfTag__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldSprintfTag__construct.xhtml">OldSprintfTag__construct()</a>
+            </li>
+            <li id="OldTPart_CallArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart_CallArguments.xhtml">OldTPart_CallArguments()</a>
+            </li>
+            <li id="OldTPart_QuotedString">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart_QuotedString.xhtml">OldTPart_QuotedString()</a>
+            </li>
+            <li id="OldTPart__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart__construct.xhtml">OldTPart__construct()</a>
+            </li>
+            <li id="OldTPart__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTPart__finalise.xhtml">OldTPart__finalise()</a>
+            </li>
+            <li id="OldTTag_OldTPart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OldTTag_OldTPart.xhtml">OldTTag_OldTPart()</a>
+            </li>
+            <li id="OpenBlock_BlockArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_BlockArguments.xhtml">OpenBlock_BlockArguments()</a>
+            </li>
+            <li id="OpenBlock_Handle_Base_tag"><a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_Handle_Base_tag.xhtml">OpenBlock_Handle_Base_tag()</a>
+                — This is an open block handler, for the &lt;% base_tag %&gt; tag</li>
+            <li id="OpenBlock_Handle_Current_page"><a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_Handle_Current_page.xhtml">OpenBlock_Handle_Current_page()</a>
+                — This is an open block handler, for the &lt;% current_page %&gt; tag</li>
+            <li id="OpenBlock_Handle_Debug"><a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock_Handle_Debug.xhtml">OpenBlock_Handle_Debug()</a>
+                — This is an open block handler, for the &lt;% debug %&gt; utility tag</li>
+            <li id="OpenBlock__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock__construct.xhtml">OpenBlock__construct()</a>
+            </li>
+            <li id="OpenBlock__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/OpenBlock__finalise.xhtml">OpenBlock__finalise()</a>
+            </li>
+            <li id="PresenceCheck_Argument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/PresenceCheck_Argument.xhtml">PresenceCheck_Argument()</a>
+            </li>
+            <li id="PresenceCheck_Not">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/PresenceCheck_Not.xhtml">PresenceCheck_Not()</a>
+            </li>
+            <li id="Require_Call">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Require_Call.xhtml">Require_Call()</a>
+            </li>
+            <li id="Template_STR">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Template_STR.xhtml">Template_STR()</a>
+            </li>
+            <li id="Text__finalise"><a title="SSTemplateParser" href="../classes/SSTemplateParser/Text__finalise.xhtml">Text__finalise()</a>
+                — We convert text</li>
+            <li id="TopTemplate__construct"><a title="SSTemplateParser" href="../classes/SSTemplateParser/TopTemplate__construct.xhtml">TopTemplate__construct()</a>
+                — The TopTemplate also includes the opening stanza to start off the template</li>
+            <li id="Translate_Context">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_Context.xhtml">Translate_Context()</a>
+            </li>
+            <li id="Translate_Default">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_Default.xhtml">Translate_Default()</a>
+            </li>
+            <li id="Translate_Entity">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_Entity.xhtml">Translate_Entity()</a>
+            </li>
+            <li id="Translate_InjectionVariables">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate_InjectionVariables.xhtml">Translate_InjectionVariables()</a>
+            </li>
+            <li id="Translate__construct">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate__construct.xhtml">Translate__construct()</a>
+            </li>
+            <li id="Translate__finalise">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/Translate__finalise.xhtml">Translate__finalise()</a>
+            </li>
+            <li id="UncachedBlock_Template">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/UncachedBlock_Template.xhtml">UncachedBlock_Template()</a>
+            </li>
+            <li id="addClosedBlock"><a title="SSTemplateParser" href="../classes/SSTemplateParser/addClosedBlock.xhtml">addClosedBlock()</a>
+                — Add a closed block callable to allow &lt;% name %&gt;&lt;% end_name %&gt; syntax</li>
+            <li id="addOpenBlock"><a title="SSTemplateParser" href="../classes/SSTemplateParser/addOpenBlock.xhtml">addOpenBlock()</a>
+                — Add a closed block callable to allow &lt;% name %&gt; syntax</li>
+            <li id="compileFile"><a title="SSTemplateParser" href="../classes/SSTemplateParser/compileFile.xhtml">compileFile()</a>
+                — Compiles some file that contains template source code, and returns the php code that will execute as per that source</li>
+            <li id="compileString"><a title="SSTemplateParser" href="../classes/SSTemplateParser/compileString.xhtml">compileString()</a>
+                — Compiles some passed template source code into the php code that will execute as per the template source.</li>
+            <li id="construct"><a title="SSTemplateParser" href="../classes/SSTemplateParser/construct.xhtml">construct()</a>
+                — Override the function that constructs the result arrays to also prepare a 'php' item in the array</li>
+            <li id="match_Argument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Argument.xhtml">match_Argument()</a>
+            </li>
+            <li id="match_BlockArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_BlockArguments.xhtml">match_BlockArguments()</a>
+            </li>
+            <li id="match_BooleanOperator">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_BooleanOperator.xhtml">match_BooleanOperator()</a>
+            </li>
+            <li id="match_BracketInjection">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_BracketInjection.xhtml">match_BracketInjection()</a>
+            </li>
+            <li id="match_CacheBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlock.xhtml">match_CacheBlock()</a>
+            </li>
+            <li id="match_CacheBlockArgument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlockArgument.xhtml">match_CacheBlockArgument()</a>
+            </li>
+            <li id="match_CacheBlockArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlockArguments.xhtml">match_CacheBlockArguments()</a>
+            </li>
+            <li id="match_CacheBlockTemplate">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheBlockTemplate.xhtml">match_CacheBlockTemplate()</a>
+            </li>
+            <li id="match_CacheRestrictedTemplate">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CacheRestrictedTemplate.xhtml">match_CacheRestrictedTemplate()</a>
+            </li>
+            <li id="match_Call">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Call.xhtml">match_Call()</a>
+            </li>
+            <li id="match_CallArguments">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_CallArguments.xhtml">match_CallArguments()</a>
+            </li>
+            <li id="match_ClosedBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ClosedBlock.xhtml">match_ClosedBlock()</a>
+            </li>
+            <li id="match_Comment">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Comment.xhtml">match_Comment()</a>
+            </li>
+            <li id="match_Comparison">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Comparison.xhtml">match_Comparison()</a>
+            </li>
+            <li id="match_ComparisonOperator">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ComparisonOperator.xhtml">match_ComparisonOperator()</a>
+            </li>
+            <li id="match_DollarMarkedLookup">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_DollarMarkedLookup.xhtml">match_DollarMarkedLookup()</a>
+            </li>
+            <li id="match_ElseIfPart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ElseIfPart.xhtml">match_ElseIfPart()</a>
+            </li>
+            <li id="match_ElsePart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_ElsePart.xhtml">match_ElsePart()</a>
+            </li>
+            <li id="match_Entity">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Entity.xhtml">match_Entity()</a>
+            </li>
+            <li id="match_FreeString">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_FreeString.xhtml">match_FreeString()</a>
+            </li>
+            <li id="match_If">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_If.xhtml">match_If()</a>
+            </li>
+            <li id="match_IfArgument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_IfArgument.xhtml">match_IfArgument()</a>
+            </li>
+            <li id="match_IfArgumentPortion">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_IfArgumentPortion.xhtml">match_IfArgumentPortion()</a>
+            </li>
+            <li id="match_IfPart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_IfPart.xhtml">match_IfPart()</a>
+            </li>
+            <li id="match_Include">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Include.xhtml">match_Include()</a>
+            </li>
+            <li id="match_Injection">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Injection.xhtml">match_Injection()</a>
+            </li>
+            <li id="match_InjectionVariables">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_InjectionVariables.xhtml">match_InjectionVariables()</a>
+            </li>
+            <li id="match_LastLookupStep">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_LastLookupStep.xhtml">match_LastLookupStep()</a>
+            </li>
+            <li id="match_Lookup">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Lookup.xhtml">match_Lookup()</a>
+            </li>
+            <li id="match_LookupStep">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_LookupStep.xhtml">match_LookupStep()</a>
+            </li>
+            <li id="match_MalformedBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MalformedBlock.xhtml">match_MalformedBlock()</a>
+            </li>
+            <li id="match_MalformedCloseTag">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MalformedCloseTag.xhtml">match_MalformedCloseTag()</a>
+            </li>
+            <li id="match_MalformedOpenTag">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MalformedOpenTag.xhtml">match_MalformedOpenTag()</a>
+            </li>
+            <li id="match_MismatchedEndBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_MismatchedEndBlock.xhtml">match_MismatchedEndBlock()</a>
+            </li>
+            <li id="match_N">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_N.xhtml">match_N()</a>
+            </li>
+            <li id="match_NamedArgument">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_NamedArgument.xhtml">match_NamedArgument()</a>
+            </li>
+            <li id="match_NotBlockTag">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_NotBlockTag.xhtml">match_NotBlockTag()</a>
+            </li>
+            <li id="match_Number">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Number.xhtml">match_Number()</a>
+            </li>
+            <li id="match_OldI18NTag">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldI18NTag.xhtml">match_OldI18NTag()</a>
+            </li>
+            <li id="match_OldSprintfTag">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldSprintfTag.xhtml">match_OldSprintfTag()</a>
+            </li>
+            <li id="match_OldTPart">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldTPart.xhtml">match_OldTPart()</a>
+            </li>
+            <li id="match_OldTTag">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OldTTag.xhtml">match_OldTTag()</a>
+            </li>
+            <li id="match_OpenBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_OpenBlock.xhtml">match_OpenBlock()</a>
+            </li>
+            <li id="match_PresenceCheck">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_PresenceCheck.xhtml">match_PresenceCheck()</a>
+            </li>
+            <li id="match_QuotedString">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_QuotedString.xhtml">match_QuotedString()</a>
+            </li>
+            <li id="match_Require">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Require.xhtml">match_Require()</a>
+            </li>
+            <li id="match_SimpleInjection">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_SimpleInjection.xhtml">match_SimpleInjection()</a>
+            </li>
+            <li id="match_Template">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Template.xhtml">match_Template()</a>
+            </li>
+            <li id="match_Text">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Text.xhtml">match_Text()</a>
+            </li>
+            <li id="match_TopTemplate">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_TopTemplate.xhtml">match_TopTemplate()</a>
+            </li>
+            <li id="match_Translate">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Translate.xhtml">match_Translate()</a>
+            </li>
+            <li id="match_UncachedBlock">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_UncachedBlock.xhtml">match_UncachedBlock()</a>
+            </li>
+            <li id="match_Value">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Value.xhtml">match_Value()</a>
+            </li>
+            <li id="match_Word">
+              <a title="SSTemplateParser" href="../classes/SSTemplateParser/match_Word.xhtml">match_Word()</a>
+            </li>
+            <li id="setClosedBlocks"><a title="SSTemplateParser" href="../classes/SSTemplateParser/setClosedBlocks.xhtml">setClosedBlocks()</a>
+                — Set the closed blocks that the template parser should use</li>
+            <li id="setOpenBlocks"><a title="SSTemplateParser" href="../classes/SSTemplateParser/setOpenBlocks.xhtml">setOpenBlocks()</a>
+                — Set the open blocks that the template parser should use</li>
+          </ul>
+          <h3>Inherited from <a title="Parser" href="../classes/Parser.xhtml">Parser</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="construct">
+              <a title="Parser" href="../classes/Parser/construct.xhtml">construct()</a>
+            </li>
+            <li id="expression">
+              <a title="Parser" href="../classes/Parser/expression.xhtml">expression()</a>
+            </li>
+            <li id="finalise">
+              <a title="Parser" href="../classes/Parser/finalise.xhtml">finalise()</a>
+            </li>
+            <li id="literal">
+              <a title="Parser" href="../classes/Parser/literal.xhtml">literal()</a>
+            </li>
+            <li id="packhas">
+              <a title="Parser" href="../classes/Parser/packhas.xhtml">packhas()</a>
+            </li>
+            <li id="packread">
+              <a title="Parser" href="../classes/Parser/packread.xhtml">packread()</a>
+            </li>
+            <li id="packwrite">
+              <a title="Parser" href="../classes/Parser/packwrite.xhtml">packwrite()</a>
+            </li>
+            <li id="rx">
+              <a title="Parser" href="../classes/Parser/rx.xhtml">rx()</a>
+            </li>
+            <li id="store">
+              <a title="Parser" href="../classes/Parser/store.xhtml">store()</a>
+            </li>
+            <li id="typestack">
+              <a title="Parser" href="../classes/Parser/typestack.xhtml">typestack()</a>
+            </li>
+            <li id="whitespace">
+              <a title="Parser" href="../classes/Parser/whitespace.xhtml">whitespace()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

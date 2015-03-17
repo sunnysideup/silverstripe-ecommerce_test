@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_TemplateManifest" namespace="" name="SS_TemplateManifest" abstract="false" final="false" start="9" end="219">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/core/manifest" file="TemplateManifest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/core/manifest/TemplateManifest.php" size="5391" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="27411a47def04d76e22d70049e7490b02fffff89" relative="framework/core/manifest/TemplateManifest.php"/>
+  <docblock>
+    <description compact="A class which builds a manifest of all templates present in a directory, in both modules and themes."/>
+    <package value="framework"/>
+    <subpackage value="manifest"/>
+  </docblock>
+  <constant name="TEMPLATES_DIR" value="'templates'"/>
+  <member name="base" type="{unknown}" visibility="protected" line="13"/>
+  <member name="tests" type="{unknown}" visibility="protected" line="14"/>
+  <member name="cache" type="{unknown}" visibility="protected" line="15"/>
+  <member name="cacheKey" type="{unknown}" visibility="protected" line="16"/>
+  <member name="project" type="{unknown}" visibility="protected" line="17"/>
+  <member name="inited" type="{unknown}" visibility="protected" line="18"/>
+  <member name="templates" type="array" visibility="protected" line="19"/>
+  <constructor name="__construct" start="31" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructs a new template manifest. The manifest is not actually built or loaded from cache until needed."/>
+      <param description="The base path." type="string" variable="$base"/>
+      <param description="Path to application code" type="string" variable="$project"/>
+      <param description="Include tests in the manifest." type="object" variable="$includeTests">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <param description="Force the manifest to be regenerated." type="object" variable="$forceRegen">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="base" byreference="false" type="{unknown}"/>
+    <parameter name="project" byreference="false" type="{unknown}"/>
+    <parameter name="includeTests" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="forceRegen" byreference="false" type="{unknown}" default="false"/>
+  </constructor>
+  <method name="getBase" start="50" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getCacheKey" start="61" end="69" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Generate a unique cache key to avoid manifest cache collisions.">We compartmentalise based on the base path, the given project, and whether
+or not we intend to include tests.</description>
+      <param type="boolean" variable="$includeTests"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="includeTests" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getTemplates" start="96" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a map of all template information. The map is in the following format:">&lt;code&gt;
+  array(
+    'moduletemplate' =&gt; array(
+      'main' =&gt; '/path/to/module/templates/Main.ss'
+    ),
+    'include' =&gt; array(
+      'include' =&gt; '/path/to/module/templates/Includes/Include.ss'
+    ),
+    'page' =&gt; array(
+      'themes' =&gt; array(
+        'simple' =&gt; array(
+          'main'   =&gt; '/path/to/theme/Page.ss'
+          'Layout' =&gt; '/path/to/theme/Layout/Page.ss'
+        )
+      )
+    )
+  )
+&lt;/code&gt;</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getTemplate" start="114" end="126" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns a set of possible candidate templates that match a certain template name.">This is the same as extracting an individual array element from
+{@link SS_TemplateManifest::getTemplates()}.</description>
+      <param type="string" variable="$name"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCandidateTemplate" start="137" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the correct candidate template. In order of importance, application project code, current theme and finally modules."/>
+      <param type="string" variable="$name"/>
+      <param description="- theme name" type="string" variable="$theme"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="theme" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="theme overrides modules" line="141"/>
+      <comment value="project overrides theme" line="145"/>
+    </inline>
+  </method>
+  <method name="regenerate" start="163" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Regenerates the manifest by scanning the base path."/>
+      <param type="object" variable="$cache">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="cache" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="handleFile" start="181" end="209" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="basename" byreference="false" type="{unknown}"/>
+    <parameter name="pathname" byreference="false" type="{unknown}"/>
+    <parameter name="depth" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="init" start="211" end="218" abstract="false" final="false" static="false" visibility="protected"/>
+</class>

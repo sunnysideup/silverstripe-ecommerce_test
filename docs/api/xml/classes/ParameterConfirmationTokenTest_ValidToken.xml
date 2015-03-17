@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ParameterConfirmationTokenTest_ValidToken" namespace="" name="ParameterConfirmationTokenTest_ValidToken" abstract="false" final="false" start="17" end="22">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/core/startup" file="ParameterConfirmationTokenTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/core/startup/ParameterConfirmationTokenTest.php" size="4269" time="2015-03-14T10:41:07+13:00" unixtime="1426282867" sha1="f54f9bdef7d2b8867a61ee00f6f8435741affa49" relative="framework/tests/core/startup/ParameterConfirmationTokenTest.php"/>
+  <docblock>
+    <description compact="A token that always validates a given token"/>
+  </docblock>
+  <extends full="ParameterConfirmationTokenTest_Token" namespace="" name="ParameterConfirmationTokenTest_Token"/>
+  <method name="checkToken" start="19" end="21" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="token" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="ParameterConfirmationTokenTest_Token" namespace="" name="ParameterConfirmationTokenTest_Token">
+    <extends full="ParameterConfirmationToken" namespace="" name="ParameterConfirmationToken"/>
+    <method name="currentAbsoluteURL" start="8" end="10" abstract="false" final="false" static="false" visibility="public"/>
+  </parent>
+  <parent full="ParameterConfirmationToken" namespace="" name="ParameterConfirmationToken">
+    <member name="parameterName" type="{unknown}" default="null" visibility="protected" line="14"/>
+    <member name="parameter" type="{unknown}" default="null" visibility="protected" line="15"/>
+    <member name="token" type="{unknown}" default="null" visibility="protected" line="16"/>
+    <member name="alternateBaseURL" type="{unknown}" default="null" visibility="public" line="109">
+      <docblock>
+        <description compact="What to use instead of BASE_URL. Must not contain protocol or host. @var string"/>
+      </docblock>
+    </member>
+    <method name="pathForToken" start="18" end="20" abstract="false" final="false" static="false" visibility="protected">
+      <parameter name="token" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="genToken" start="22" end="32" abstract="false" final="false" static="false" visibility="protected">
+      <inline>
+        <comment value="Generate a new random token (as random as possible)" line="23"/>
+        <comment value="Store a file in the session save path (safer than /tmp, as open_basedir might limit that)" line="28"/>
+      </inline>
+    </method>
+    <method name="checkToken" start="34" end="44" abstract="false" final="false" static="false" visibility="protected">
+      <parameter name="token" byreference="false" type="{unknown}"/>
+    </method>
+    <constructor name="__construct" start="46" end="56" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="parameterName" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Store the parameter name" line="47"/>
+        <comment value="Store the parameter value" line="49"/>
+        <comment value="Store the token" line="51"/>
+        <comment value="If a token was provided, but isn't valid, ignore it" line="54"/>
+      </inline>
+    </constructor>
+    <method name="getName" start="63" end="65" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the name of this token"/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="parameterProvided" start="72" end="74" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Is the parameter requested?"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="tokenProvided" start="81" end="83" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Is the necessary token provided for this parameter?"/>
+        <return type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="reloadRequired" start="90" end="92" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Is this parameter requested without a valid token?"/>
+        <return description="True if the parameter is given without a valid token" type="object">
+          <type full="bool" namespace="" name="bool"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="suppress" start="97" end="99" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Suppress the current parameter by unsetting it from $_GET"/>
+      </docblock>
+    </method>
+    <method name="params" start="101" end="106" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="currentAbsoluteURL" start="111" end="155" abstract="false" final="false" static="false" visibility="protected">
+      <inline>
+        <comment value="Are we http or https? Replicates Director::is_https() without its dependencies/" line="114"/>
+        <comment value="Convention for (non-standard) proxy signaling a HTTPS forward," line="120"/>
+        <comment value="see https://en.wikipedia.org/wiki/List_of_HTTP_header_fields" line="121"/>
+        <comment value="Join together with protocol into our current absolute URL, avoiding duplicated &quot;/&quot; characters" line="153"/>
+      </inline>
+    </method>
+    <method name="reloadWithToken" start="157" end="176" abstract="false" final="false" static="false" visibility="public">
+      <inline>
+        <comment value="What's our GET params (ensuring they include the original parameter + a new token)" line="160"/>
+        <comment value="And redirect" line="166"/>
+      </inline>
+    </method>
+    <method name="prepare_tokens" start="185" end="196" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Given a list of token names, suppress all tokens that have not been validated, and return the non-validated token with the highest priority"/>
+        <param description="List of token keys in ascending priority (low to high)" type="object" variable="$keys">
+          <type full="type" namespace="" name="type"/>
+        </param>
+        <return description="The token container for the unvalidated $key given with the highest priority" type="object">
+          <type full="ParameterConfirmationToken" namespace="" name="ParameterConfirmationToken"/>
+        </return>
+      </docblock>
+      <parameter name="keys" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="Validate this token" line="189"/>
+      </inline>
+    </method>
+  </parent>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+</class>

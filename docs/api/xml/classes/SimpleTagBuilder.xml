@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimpleTagBuilder" namespace="" name="SimpleTagBuilder" abstract="false" final="false" start="25" end="113">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="page.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/page.php" size="29185" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="4041008169e92042c6927971d897091ef848a470" relative="framework/thirdparty/simpletest/page.php"/>
+  <docblock>
+    <description compact="Creates tags and widgets given HTML tag    attributes.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <method name="createTag" start="36" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Factory for the tag objects. Creates the    appropriate tag object for the incoming tag name    and attributes.">@param string $name        HTML tag name.
+   @param hash $attributes    Element attributes.
+   @return SimpleTag          Tag object.
+   @access public</description>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createSelectionTag" start="65" end="70" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Factory for selection fields.">@param hash $attributes    Element attributes.
+   @return SimpleTag          Tag object.
+   @access protected</description>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createInputTag" start="78" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Factory for input tags.">@param hash $attributes    Element attributes.
+   @return SimpleTag          Tag object.
+   @access protected</description>
+    </docblock>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_keysToLowerCase" start="106" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Make the keys lower case for case insensitive look-ups.">@param hash $map   Hash to convert.
+   @return hash       Unchanged values, but keys lower case.
+   @access private</description>
+    </docblock>
+    <parameter name="map" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Locale_Data" namespace="" name="Zend_Locale_Data" abstract="false" final="false" start="37" end="1518">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend/Locale" file="Data.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Locale/Data.php" size="75100" time="2015-03-14T10:41:29+13:00" unixtime="1426282889" sha1="206cc31dc2c3634b2694210fb32cf236922847eb" relative="framework/thirdparty/Zend/Locale/Data.php"/>
+  <docblock>
+    <description compact="Locale data reader, handles the CLDR"/>
+    <category value="Zend"/>
+    <package value="Zend_Locale"/>
+    <subpackage value="Data"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+  </docblock>
+  <member name="_ldml" type="array" visibility="private" line="45">
+    <docblock>
+      <description compact="Locale files"/>
+      <var type="object">
+        <type full="ressource" namespace="" name="ressource"/>
+      </var>
+      <access value="private"/>
+    </docblock>
+  </member>
+  <member name="_list" type="array" visibility="private" line="53">
+    <docblock>
+      <description compact="List of values which are collected"/>
+      <var type="array"/>
+      <access value="private"/>
+    </docblock>
+  </member>
+  <member name="_cache" type="{unknown}" default="null" visibility="private" line="61">
+    <docblock>
+      <description compact="Internal cache for ldml values"/>
+      <var type="object">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </var>
+      <access value="private"/>
+    </docblock>
+  </member>
+  <member name="_cacheTags" type="{unknown}" default="false" visibility="private" line="68">
+    <docblock>
+      <description compact="Internal value to remember if cache supports tags"/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="_cacheDisabled" type="{unknown}" default="false" visibility="private" line="76">
+    <docblock>
+      <description compact="Internal option, cache disabled"/>
+      <var type="boolean"/>
+      <access value="private"/>
+    </docblock>
+  </member>
+  <method name="_readFile" start="102" end="137" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Read the content from locale">Can be called like:
+&lt;ldml&gt;
+    &lt;delimiter&gt;test&lt;/delimiter&gt;
+    &lt;second type='myone'&gt;content&lt;/second&gt;
+    &lt;second type='mysecond'&gt;content2&lt;/second&gt;
+    &lt;third type='mythird' /&gt;
+&lt;/ldml&gt;
+
+Case 1: _readFile('ar','/ldml/delimiter')             -&gt; returns [] = test
+Case 1: _readFile('ar','/ldml/second[@type=myone]')   -&gt; returns [] = content
+Case 2: _readFile('ar','/ldml/second','type')         -&gt; returns [myone] = content; [mysecond] = content2
+Case 3: _readFile('ar','/ldml/delimiter',,'right')    -&gt; returns [right] = test
+Case 4: _readFile('ar','/ldml/third','type','myone')  -&gt; returns [myone] = mythird</description>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$attribute"/>
+      <param type="string" variable="$value"/>
+      <access value="private"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="attribute" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="temp" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="without attribute - read all values" line="104"/>
+      <comment value="with attribute    - read only this value" line="105"/>
+      <comment value="Case 1" line="115"/>
+    </inline>
+  </method>
+  <method name="_findRoute" start="150" end="218" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Find possible routing to other path or locale"/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$attribute"/>
+      <param type="string" variable="$value"/>
+      <param type="array" variable="$temp"/>
+      <throws type="object">
+        <type full="Zend_Locale_Exception" namespace="" name="Zend_Locale_Exception"/>
+      </throws>
+      <access value="private"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="attribute" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="temp" byreference="true" type="{unknown}"/>
+    <inline>
+      <comment value="load locale file if not already in cache" line="152"/>
+      <comment value="needed for alias tag when referring to other locale" line="153"/>
+      <comment value="search for 'alias' tag in the search path for redirection" line="164"/>
+      <comment value="parse the complete path" line="168"/>
+      <comment value="alias found" line="183"/>
+      <comment value="new path - path //ldml is to ignore" line="189"/>
+      <comment value="other path - parse to make real path" line="191"/>
+      <comment value="truncate ../ to realpath otherwise problems with alias" line="198"/>
+      <comment value="reroute to other locale" line="205"/>
+    </inline>
+  </method>
+  <method name="_getFile" start="229" end="251" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Read the right LDML file"/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$attribute"/>
+      <param type="string" variable="$value"/>
+      <access value="private"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="attribute" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="temp" byreference="false" type="array"/>
+    <inline>
+      <comment value="parse required locales reversive" line="236"/>
+      <comment value="example: when given zh_Hans_CN" line="237"/>
+      <comment value="1. -&gt; zh_Hans_CN" line="238"/>
+      <comment value="2. -&gt; zh_Hans" line="239"/>
+      <comment value="3. -&gt; zh" line="240"/>
+      <comment value="4. -&gt; root" line="241"/>
+    </inline>
+  </method>
+  <method name="_calendarDetail" start="260" end="273" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Find the details for supplemental calendar datas"/>
+      <param description="Locale for Detaildata" type="string" variable="$locale"/>
+      <param description="List to search" type="array" variable="$list"/>
+      <return description="Key for Detaildata" type="string"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="list" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_checkLocale" start="281" end="293" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Internal function for checking the locale"/>
+      <param description="Locale to check" type="object" variable="$locale">
+        <type full="string|Zend_Locale" namespace="" name="string|Zend_Locale"/>
+      </param>
+      <return type="string"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getList" start="304" end="919" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Read the LDML file, get a array of multipath defined value"/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$value"/>
+      <return type="array"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getContent" start="930" end="1430" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Read the LDML file, get a single path defined value"/>
+      <param type="string" variable="$locale"/>
+      <param type="string" variable="$path"/>
+      <param type="string" variable="$value"/>
+      <return type="string"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="locale" byreference="false" type="{unknown}"/>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getCache" start="1437" end="1440" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the set cache"/>
+      <return description="The set cache" type="object">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="setCache" start="1447" end="1451" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set a cache for Zend_Locale_Data"/>
+      <param description="A cache frontend" type="object" variable="$cache">
+        <type full="Zend_Cache_Core" namespace="" name="Zend_Cache_Core"/>
+      </param>
+    </docblock>
+    <parameter name="cache" byreference="false" type="object">
+      <type full="\\Zend_Cache_Core" namespace="\" name="Zend_Cache_Core"/>
+    </parameter>
+  </method>
+  <method name="hasCache" start="1458" end="1465" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns true when a cache is set"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="removeCache" start="1472" end="1475" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Removes any set cache"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="clearCache" start="1482" end="1489" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Clears all set cache data"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="disableCache" start="1496" end="1499" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Disables the cache"/>
+      <param type="object" variable="$flag">
+        <type full="unknown_type" namespace="" name="unknown_type"/>
+      </param>
+    </docblock>
+    <parameter name="flag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_getTagSupportForCache" start="1506" end="1517" abstract="false" final="false" static="true" visibility="private">
+    <docblock>
+      <description compact="Internal method to check if the given cache supports tags"/>
+      <param type="object" variable="$cache">
+        <type full="Zend_Cache" namespace="" name="Zend_Cache"/>
+      </param>
+    </docblock>
+  </method>
+</class>

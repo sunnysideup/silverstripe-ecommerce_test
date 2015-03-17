@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - PjaxResponseNegotiator</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">PjaxResponseNegotiator</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/control/PjaxResponseNegotiator.php.xhtml#line20">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>PjaxResponseNegotiator</h1>
+        <h4>Handle the X-Pjax header that AJAX responses may provide, returning the fragment, or, in the case of non-AJAX form submissions, redirecting back to the submitter.</h4>
+        <p>X-Pjax ensures that users won't end up seeing the unstyled form HTML in<br/>their browser.<br/><br/>If a JS error prevents the Ajax overriding of form submissions from happening.<br/><br/>It also provides better non-JS operation.<br/><br/>Caution: This API is volatile, and might eventually be replaced by a generic<br/>action helper system for controllers.</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class PjaxResponseNegotiator
+            {<br/><ul class="none"><li>// members</li><li>protected <span title="Array">Array</span> <a href="#members">$callbacks</a>;
+                    </li><li>protected <a href="#members">$response</a>;
+                    </li><li>protected <a href="#members">$fragmentOverride</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/getResponse.xhtml">getResponse</a>()
+                    </li><li>public void <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/setResponse.xhtml">setResponse</a>()
+                    </li><li>public SS_HTTPResponse <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/respond.xhtml">respond</a>()
+                    </li><li>public void <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/setCallback.xhtml">setCallback</a>()
+                    </li><li>public void <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/setFragmentOverride.xhtml">setFragmentOverride</a>()
+                    </li><li>public array <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/getFragmentOverride.xhtml">getFragmentOverride</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="callbacks"><strong>$callbacks</strong>
+                —
+                <a href="#">Array</a></li>
+            <li id="fragmentOverride">
+              <strong>$fragmentOverride</strong>
+              <br/>
+              <span class="indent">Overriden fragments (if any). Otherwise uses fragments from the request.</span>
+            </li>
+            <li id="response">
+              <strong>$response</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="getFragmentOverride">
+              <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/getFragmentOverride.xhtml">getFragmentOverride()</a>
+            </li>
+            <li id="getResponse">
+              <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/getResponse.xhtml">getResponse()</a>
+            </li>
+            <li id="respond"><a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/respond.xhtml">respond()</a>
+                — Out of the box, the handler "CurrentForm" value, which will return the rendered form.</li>
+            <li id="setCallback">
+              <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/setCallback.xhtml">setCallback()</a>
+            </li>
+            <li id="setFragmentOverride"><a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/setFragmentOverride.xhtml">setFragmentOverride()</a>
+                — Set up fragment overriding - will completely replace the incoming fragments.</li>
+            <li id="setResponse">
+              <a title="PjaxResponseNegotiator" href="../classes/PjaxResponseNegotiator/setResponse.xhtml">setResponse()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

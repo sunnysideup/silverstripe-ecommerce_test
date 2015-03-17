@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="BeforeCallAspect" namespace="" name="BeforeCallAspect" abstract="false" final="false" start="12" end="28">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/control/injector" file="BeforeCallAspect.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/control/injector/BeforeCallAspect.php" size="792" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="2e3e7cda26f8df889428efd19cdf3a4903526608" relative="framework/control/injector/BeforeCallAspect.php"/>
+  <docblock>
+    <description compact="A BeforeCallAspect is run before a method is executed.">This is a declared interface, but isn't actually required
+as PHP doesn't really care about types...</description>
+    <package value="framework"/>
+    <subpackage value="injector"/>
+  </docblock>
+  <method name="beforeCall" start="27" end="27" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Call this aspect before a method is executed"/>
+      <param type="object" variable="$proxied">The object having the method called upon it.</param>
+      <param type="string" variable="$method">The name of the method being called</param>
+      <param type="string" variable="$args">The arguments that were passed to the method call</param>
+      <param type="mixed" variable="$alternateReturn">An alternative return value that should be passed
+			to the caller. Only has effect of beforeCall returns false</param>
+    </docblock>
+    <parameter name="proxied" byreference="false" type="{unknown}"/>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="args" byreference="false" type="{unknown}"/>
+    <parameter name="alternateReturn" byreference="true" type="{unknown}"/>
+  </method>
+  <implementor full="BeforeAfterCallTestAspect" namespace="" name="BeforeAfterCallTestAspect"/>
+</interface>

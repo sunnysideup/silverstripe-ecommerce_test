@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="SSViewer" href="../../classes/SSViewer.xhtml">SSViewer</a>
+          </li>
+          <li class="separator">process</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="../../source/framework/view/SSViewer.php.xhtml#line1053">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>SSViewer::</small>process</h1>
+        <h4>The process() method handles the "meat" of the template processing.</h4>
+        <p>It takes care of caching the output (via ), as well as
+replacing the special "$Content" and "$Layout" placeholders with their
+respective subtemplates.
+The method injects extra HTML in the header via .
+Note: You can call this method indirectly by .
+</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function process(<a title="ViewableData" href="../../classes/ViewableData.xhtml">ViewableData</a>
+        $item,
+            [<a title="array|null" href="../../classes/array|null.xhtml">array|null</a>
+        $arguments = null,
+            [<a title="Object" href="../../classes/Object.xhtml">Object</a>
+        $inheritedScope = null]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$item</code>
+                —
+                object</dt>
+          <dd><br/><br/><br/>      </dd>
+          <dt><code>$arguments</code>
+                —
+                object</dt>
+          <dd>- arguments to an included template<br/><br/><br/>      </dd>
+          <dt><code>$inheritedScope</code>
+                —
+                object</dt>
+          <dd>- the current scope of a parent template including a sub-template<br/><br/><br/>      </dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>HTMLText</dt>
+          <dd>Parsed template output.<br/>
+        </dd>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - ErrorControlChain</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">ErrorControlChain</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/core/startup/ErrorControlChain.php.xhtml#line17">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>ErrorControlChain</h1>
+        <h4>Class ErrorControlChain</h4>
+        <p>Runs a set of steps, optionally suppressing uncaught errors or exceptions which would otherwise be fatal that<br/>occur in each step. If an error does occur, subsequent steps are normally skipped, but can optionally be run anyway.<br/><br/>Usage:<br/><br/>$chain = new ErrorControlChain();<br/>$chain-&gt;then($callback1)-&gt;then($callback2)-&gt;thenIfErrored($callback3)-&gt;execute();<br/><br/>WARNING: This class is experimental and designed specifically for use pre-startup in main.php<br/>It will likely be heavily refactored before the release of 3.2</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class ErrorControlChain
+            {<br/><ul class="none"><li>// members</li><li>public <a href="#members">$fatal_errors</a>;
+                    </li><li>protected <a href="#members">$error</a>;
+                    </li><li>protected array <a href="#members">$steps</a>;
+                    </li><li>protected <a href="#members">$suppression</a>;
+                    </li><li>protected <a href="#members">$handleFatalErrors</a>;
+                    </li><li>protected <a href="#members">$originalDisplayErrors</a>;
+                    </li><li>public array <a href="#members">$transtable</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/hasErrored.xhtml">hasErrored</a>()
+                    </li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/setErrored.xhtml">setErrored</a>()
+                    </li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/setSuppression.xhtml">setSuppression</a>()
+                    </li><li>public $this <a title="ErrorControlChain" href="../classes/ErrorControlChain/then.xhtml">then</a>()
+                    </li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/thenWhileGood.xhtml">thenWhileGood</a>()
+                    </li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/thenIfErrored.xhtml">thenIfErrored</a>()
+                    </li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/thenAlways.xhtml">thenAlways</a>()
+                    </li><li>protected void <a title="ErrorControlChain" href="../classes/ErrorControlChain/lastErrorWasFatal.xhtml">lastErrorWasFatal</a>()
+                    </li><li>protected void <a title="ErrorControlChain" href="../classes/ErrorControlChain/lastErrorWasMemoryExhaustion.xhtml">lastErrorWasMemoryExhaustion</a>()
+                    </li><li>protected void <a title="ErrorControlChain" href="../classes/ErrorControlChain/translateMemstring.xhtml">translateMemstring</a>()
+                    </li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/handleFatalError.xhtml">handleFatalError</a>()
+                    </li><li>public void <a title="ErrorControlChain" href="../classes/ErrorControlChain/execute.xhtml">execute</a>()
+                    </li><li>protected void <a title="ErrorControlChain" href="../classes/ErrorControlChain/step.xhtml">step</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/ErrorControlChainTest_Chain.xhtml">ErrorControlChainTest_Chain</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="error">
+              <strong>$error</strong>
+            </li>
+            <li id="handleFatalErrors">
+              <strong>$handleFatalErrors</strong>
+              <br/>
+              <span class="indent">We can't unregister_shutdown_function, so this acts as a flag to enable handling</span>
+            </li>
+            <li id="originalDisplayErrors">
+              <strong>$originalDisplayErrors</strong>
+              <br/>
+              <span class="indent">We overload display_errors to hide errors during execution, so we need to remember the original to restore to</span>
+            </li>
+            <li id="steps">
+              <strong>$steps</strong>
+            </li>
+            <li id="suppression">
+              <strong>$suppression</strong>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="fatal_errors">
+              <strong>$fatal_errors</strong>
+            </li>
+            <li id="transtable">
+              <strong>$transtable</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="lastErrorWasFatal">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/lastErrorWasFatal.xhtml">lastErrorWasFatal()</a>
+            </li>
+            <li id="lastErrorWasMemoryExhaustion">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/lastErrorWasMemoryExhaustion.xhtml">lastErrorWasMemoryExhaustion()</a>
+            </li>
+            <li id="step">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/step.xhtml">step()</a>
+            </li>
+            <li id="translateMemstring">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/translateMemstring.xhtml">translateMemstring()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="execute">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/execute.xhtml">execute()</a>
+            </li>
+            <li id="handleFatalError">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/handleFatalError.xhtml">handleFatalError()</a>
+            </li>
+            <li id="hasErrored">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/hasErrored.xhtml">hasErrored()</a>
+            </li>
+            <li id="setErrored">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/setErrored.xhtml">setErrored()</a>
+            </li>
+            <li id="setSuppression">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/setSuppression.xhtml">setSuppression()</a>
+            </li>
+            <li id="then"><a title="ErrorControlChain" href="../classes/ErrorControlChain/then.xhtml">then()</a>
+                — Add this callback to the chain of callbacks to call along with the state that $error must be in this point in the chain for the callback to be called</li>
+            <li id="thenAlways">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/thenAlways.xhtml">thenAlways()</a>
+            </li>
+            <li id="thenIfErrored">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/thenIfErrored.xhtml">thenIfErrored()</a>
+            </li>
+            <li id="thenWhileGood">
+              <a title="ErrorControlChain" href="../classes/ErrorControlChain/thenWhileGood.xhtml">thenWhileGood()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

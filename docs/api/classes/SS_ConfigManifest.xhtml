@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SS_ConfigManifest</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SS_ConfigManifest</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/core/manifest/ConfigManifest.php.xhtml#line10">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SS_ConfigManifest</h1>
+        <h4>A utility class which builds a manifest of configuration items</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SS_ConfigManifest
+            {<br/><ul class="none"><li>// members</li><li>protected string <a href="#members">$base</a>;
+                    </li><li>protected string <a href="#members">$key</a>;
+                    </li><li>protected <span title="bool">bool</span> <a href="#members">$includeTests</a>;
+                    </li><li>protected array <a href="#members">$variantKeySpec</a>;
+                    </li><li>protected array <a href="#members">$phpConfigSources</a>;
+                    </li><li>protected array <a href="#members">$yamlConfigFragments</a>;
+                    </li><li>public array <a href="#members">$yamlConfig</a>;
+                    </li><li>protected string <a href="#members">$yamlConfigVariantKey</a>;
+                    </li><li>protected <span title="[callback]">[callback]</span> <a href="#members">$configChangeCallbacks</a>;
+                    </li><li>public array <a href="#members">$modules</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addModule.xhtml">addModule</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/moduleExists.xhtml">moduleExists</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/__construct.xhtml">__construct</a>()
+                    </li><li>protected Zend_Cache_Frontend <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/getCache.xhtml">getCache</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/registerChangeCallback.xhtml">registerChangeCallback</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/activateConfig.xhtml">activateConfig</a>()
+                    </li><li>public any <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/get.xhtml">get</a>()
+                    </li><li>public string <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/variantKey.xhtml">variantKey</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/regenerate.xhtml">regenerate</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addSourceConfigFile.xhtml">addSourceConfigFile</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addYAMLConfigFile.xhtml">addYAMLConfigFile</a>()
+                    </li><li>protected void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/sortYamlFragments.xhtml">sortYamlFragments</a>()
+                    </li><li>protected string <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/relativeOrder.xhtml">relativeOrder</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/prefilterYamlFragments.xhtml">prefilterYamlFragments</a>()
+                    </li><li>public bool <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/matchesPrefilterVariantRules.xhtml">matchesPrefilterVariantRules</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/buildVariantKeySpec.xhtml">buildVariantKeySpec</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addVariantKeySpecRules.xhtml">addVariantKeySpecRules</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/buildYamlConfigVariant.xhtml">buildYamlConfigVariant</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/matchesVariantRules.xhtml">matchesVariantRules</a>()
+                    </li><li>public void <a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/mergeInYamlFragment.xhtml">mergeInYamlFragment</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/ConfigManifestTest_ConfigManifestAccess.xhtml">ConfigManifestTest_ConfigManifestAccess</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="base"><strong>$base</strong>
+                —
+                string</li>
+            <li id="configChangeCallbacks"><strong>$configChangeCallbacks</strong>
+                —
+                <a href="#">[callback]</a></li>
+            <li id="includeTests"><strong>$includeTests</strong>
+                —
+                <a href="#">bool</a></li>
+            <li id="key"><strong>$key</strong>
+                —
+                string</li>
+            <li id="phpConfigSources"><strong>$phpConfigSources</strong>
+                —
+                array<br/><span class="indent">All the _config.php files. Need to be included every request &amp; can't be cached. Not variant specific.</span></li>
+            <li id="variantKeySpec"><strong>$variantKeySpec</strong>
+                —
+                array<br/><span class="indent">All the values needed to be collected to determine the correct combination of fragements for the current environment.</span></li>
+            <li id="yamlConfigFragments"><strong>$yamlConfigFragments</strong>
+                —
+                array<br/><span class="indent">All the _config/*.yml fragments pre-parsed and sorted in ascending include order. Not variant specific.</span></li>
+            <li id="yamlConfigVariantKey"><strong>$yamlConfigVariantKey</strong>
+                —
+                string<br/><span class="indent">The variant key state as when yamlConfig was loaded</span></li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="modules"><strong>$modules</strong>
+                —
+                array<br/><span class="indent">A side-effect of collecting the _config fragments is the calculation of all module directories, since the definition of a module is "a directory that contains either a _config.php file or a _config directory</span></li>
+            <li id="yamlConfig"><strong>$yamlConfig</strong>
+                —
+                array<br/><span class="indent">The calculated config from _config/*.yml, sorted, filtered and merged. Variant specific.</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="getCache"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/getCache.xhtml">getCache()</a>
+                — Provides a hook for mock unit tests despite no DI</li>
+            <li id="relativeOrder"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/relativeOrder.xhtml">relativeOrder()</a>
+                — Return a string "after", "before" or "undefined" depending on whether the YAML fragment array element passed as $a should be positioned after, before, or either compared to the YAML fragment array element passed as $b</li>
+            <li id="sortYamlFragments"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/sortYamlFragments.xhtml">sortYamlFragments()</a>
+                — Sorts the YAML fragments so that the "before" and "after" rules are met.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="__construct"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/__construct.xhtml">__construct()</a>
+                — Constructs and initialises a new configuration object, either loading from the cache or re-scanning for classes.</li>
+            <li id="activateConfig"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/activateConfig.xhtml">activateConfig()</a>
+                — Includes all of the php _config.php files found by this manifest. Called by SS_Config when adding this manifest</li>
+            <li id="addModule"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addModule.xhtml">addModule()</a>
+                — Adds a path as a module</li>
+            <li id="addSourceConfigFile"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addSourceConfigFile.xhtml">addSourceConfigFile()</a>
+                — Handle finding a php file. We just keep a record of all php files found, we don't include them at this stage</li>
+            <li id="addVariantKeySpecRules"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addVariantKeySpecRules.xhtml">addVariantKeySpecRules()</a>
+                — Adds any variables referenced in the passed rules to the $this-&gt;variantKeySpec array</li>
+            <li id="addYAMLConfigFile"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/addYAMLConfigFile.xhtml">addYAMLConfigFile()</a>
+                — Handle finding a yml file. Parse the file by spliting it into header/fragment pairs, and normalising some of the header values (especially: give anonymous name if none assigned, splt/complete before and after matchers)</li>
+            <li id="buildVariantKeySpec"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/buildVariantKeySpec.xhtml">buildVariantKeySpec()</a>
+                — Builds the variant key spec - the list of values that need to be build to give a key that uniquely identifies this variant.</li>
+            <li id="buildYamlConfigVariant"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/buildYamlConfigVariant.xhtml">buildYamlConfigVariant()</a>
+                — Calculates which yaml config fragments are applicable in this variant, and merge those all together into the $this-&gt;yamlConfig propperty</li>
+            <li id="get"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/get.xhtml">get()</a>
+                — Gets the (merged) config value for the given class and config property name</li>
+            <li id="matchesPrefilterVariantRules"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/matchesPrefilterVariantRules.xhtml">matchesPrefilterVariantRules()</a>
+                — Returns false if the prefilterable parts of the rule aren't met, and true if they are</li>
+            <li id="matchesVariantRules"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/matchesVariantRules.xhtml">matchesVariantRules()</a>
+                — Returns false if the non-prefilterable parts of the rule aren't met, and true if they are</li>
+            <li id="mergeInYamlFragment"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/mergeInYamlFragment.xhtml">mergeInYamlFragment()</a>
+                — Recursively merge a yaml fragment's configuration array into the primary merged configuration array.</li>
+            <li id="moduleExists"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/moduleExists.xhtml">moduleExists()</a>
+                — Returns true if the passed module exists</li>
+            <li id="prefilterYamlFragments"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/prefilterYamlFragments.xhtml">prefilterYamlFragments()</a>
+                — This function filters the loaded yaml fragments, removing any that can't ever have their "only" and "except" rules match.</li>
+            <li id="regenerate"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/regenerate.xhtml">regenerate()</a>
+                — Completely regenerates the manifest file. Scans through finding all php _config.php and yaml _config/*.ya?ml files,parses the yaml files into fragments, sorts them and figures out what values need to be checked to pick the correct variant.</li>
+            <li id="registerChangeCallback"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/registerChangeCallback.xhtml">registerChangeCallback()</a>
+                — Register a callback to be called whenever the calculated merged config changes</li>
+            <li id="variantKey"><a title="SS_ConfigManifest" href="../classes/SS_ConfigManifest/variantKey.xhtml">variantKey()</a>
+                — Returns the string that uniquely identifies this variant. The variant is the combination of classes, modules, environment, environment variables and constants that selects which yaml fragments actually make it into the configuration because of "only" and "except" rules.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

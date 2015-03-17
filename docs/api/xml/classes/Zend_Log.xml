@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Zend_Log" namespace="" name="Zend_Log" abstract="false" final="false" start="29" end="624">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/Zend" file="Log.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/Zend/Log.php" size="19890" time="2015-03-14T10:41:29+13:00" unixtime="1426282889" sha1="071606fc2a41da5d5a42bd6f6825670656fdada3" relative="framework/thirdparty/Zend/Log.php"/>
+  <docblock>
+    <description/>
+    <category value="Zend"/>
+    <package value="Zend_Log"/>
+    <copyright value="Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)"/>
+    <license name="http://framework.zend.com/license/new-bsd     New BSD License"/>
+    <version value="$Id: Log.php 23783 2011-03-01 21:47:35Z intiilapa $"/>
+  </docblock>
+  <constant name="EMERG" value="0"/>
+  <constant name="ALERT" value="1"/>
+  <constant name="CRIT" value="2"/>
+  <constant name="ERR" value="3"/>
+  <constant name="WARN" value="4"/>
+  <constant name="NOTICE" value="5"/>
+  <constant name="INFO" value="6"/>
+  <constant name="DEBUG" value="7"/>
+  <member name="_priorities" type="array" visibility="protected" line="44">
+    <docblock>
+      <description/>
+      <var description="of priorities where the keys are the" type="array">priority numbers and the values are the priority names</var>
+    </docblock>
+  </member>
+  <member name="_writers" type="array" visibility="protected" line="49">
+    <docblock>
+      <description/>
+      <var description="of Zend_Log_Writer_Abstract" type="array"/>
+    </docblock>
+  </member>
+  <member name="_filters" type="array" visibility="protected" line="54">
+    <docblock>
+      <description/>
+      <var description="of Zend_Log_Filter_Interface" type="array"/>
+    </docblock>
+  </member>
+  <member name="_extras" type="array" visibility="protected" line="59">
+    <docblock>
+      <description/>
+      <var description="of extra log event" type="array"/>
+    </docblock>
+  </member>
+  <member name="_defaultWriterNamespace" type="string" default="'Zend_Log_Writer'" visibility="protected" line="65">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_defaultFilterNamespace" type="string" default="'Zend_Log_Filter'" visibility="protected" line="71">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_defaultFormatterNamespace" type="string" default="'Zend_Log_Formatter'" visibility="protected" line="77">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="_origErrorHandler" type="{unknown}" default="null" visibility="protected" line="83">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="callback" namespace="" name="callback"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_registeredErrorHandler" type="{unknown}" default="false" visibility="protected" line="89">
+    <docblock>
+      <description/>
+      <var type="boolean"/>
+    </docblock>
+  </member>
+  <member name="_errorHandlerMap" type="{unknown}" default="false" visibility="protected" line="95">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="array|boolean" namespace="" name="array|boolean"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="_timestampFormat" type="string" default="'c'" visibility="protected" line="101">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="109" end="117" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Class constructor.  Create a new logger"/>
+      <param description="default writer" type="object" variable="$writer">
+        <type full="Zend_Log_Writer_Abstract|null" namespace="" name="Zend_Log_Writer_Abstract|null"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="writer" byreference="false" type="object" default="null">
+      <type full="\\Zend_Log_Writer_Abstract" namespace="\" name="Zend_Log_Writer_Abstract"/>
+    </parameter>
+  </constructor>
+  <method name="factory" start="127" end="157" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Factory to construct the logger and one or more writers based on the configuration array"/>
+      <param description="Array or instance of Zend_Config" type="object">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log" namespace="" name="Zend_Log"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="array"/>
+    <inline>
+      <comment value="@see Zend_Log_Exception" line="134"/>
+    </inline>
+  </method>
+  <method name="_constructWriterFromConfig" start="167" end="191" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Construct a writer object based on a configuration array"/>
+      <param description="config array with writer spec" type="array" variable="$spec"/>
+      <return type="object">
+        <type full="Zend_Log_Writer_Abstract" namespace="" name="Zend_Log_Writer_Abstract"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="@see Zend_Log_Exception" line="175"/>
+    </inline>
+  </method>
+  <method name="_constructFilterFromConfig" start="200" end="214" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Construct filter object from configuration array or Zend_Config object"/>
+      <param description="Zend_Config or Array" type="object" variable="$config">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Filter_Interface" namespace="" name="Zend_Log_Filter_Interface"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="@see Zend_Log_Exception" line="208"/>
+    </inline>
+  </method>
+  <method name="_constructFormatterFromConfig" start="223" end="237" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Construct formatter object from configuration array or Zend_Config object"/>
+      <param description="Zend_Config or Array" type="object" variable="$config">
+        <type full="array|Zend_Config" namespace="" name="array|Zend_Config"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log_Formatter_Interface" namespace="" name="Zend_Log_Formatter_Interface"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="@see Zend_Log_Exception" line="231"/>
+    </inline>
+  </method>
+  <method name="_constructFromConfig" start="248" end="277" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Construct a filter or writer from config"/>
+      <param description="'writer' of 'filter'" type="string" variable="$type"/>
+      <param description="Zend_Config or Array" type="mixed" variable="$config"/>
+      <param type="string" variable="$namespace"/>
+      <return type="object"/>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <parameter name="namespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getClassName" start="288" end="303" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get the writer or filter full classname"/>
+      <param type="array" variable="$config"/>
+      <param description="filter|writer" type="string" variable="$type"/>
+      <param type="string" variable="$defaultNamespace"/>
+      <return description="full classname" type="string"/>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="config" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="defaultNamespace" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_packEvent" start="312" end="322" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Packs message and priority into Event array"/>
+      <param description="Message to log" type="string" variable="$message"/>
+      <param description="Priority of message" type="integer" variable="$priority"/>
+      <return description="Event array" type="array"/>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="{unknown}"/>
+  </method>
+  <destructor name="__destruct" start="329" end="334" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Class destructor.  Shutdown log writers"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </destructor>
+  <method name="__call" start="347" end="371" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Undefined method handler allows a shortcut:   $log-&gt;priorityName('message')     instead of   $log-&gt;log('message', Zend_Log::PRIORITY_NAME)"/>
+      <param description="priority name" type="string" variable="$method"/>
+      <param description="message to log" type="string" variable="$params"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="method" byreference="false" type="{unknown}"/>
+    <parameter name="params" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="log" start="382" end="430" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Log a message at a priority"/>
+      <param description="Message to log" type="string" variable="$message"/>
+      <param description="Priority of message" type="integer" variable="$priority"/>
+      <param description="Extra information to log in event" type="mixed" variable="$extras"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="{unknown}"/>
+    <parameter name="extras" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="sanity checks" line="384"/>
+      <comment value="@see Zend_Log_Exception" line="386"/>
+      <comment value="@see Zend_Log_Exception" line="392"/>
+      <comment value="pack into event required by filters and writers" line="397"/>
+      <comment value="Check to see if any extra information was passed" line="400"/>
+      <comment value="abort if rejected by the global filters" line="419"/>
+      <comment value="send to each writer" line="426"/>
+    </inline>
+  </method>
+  <method name="addPriority" start="439" end="453" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a custom priority"/>
+      <param description="Name of priority" type="string" variable="$name"/>
+      <param description="Numeric priority" type="integer" variable="$priority"/>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="priority" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Priority names must be uppercase for predictability." line="441"/>
+      <comment value="@see Zend_Log_Exception" line="446"/>
+    </inline>
+  </method>
+  <method name="addFilter" start="464" end="482" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a filter that will be applied before all log writers.">Before a message will be received by any of the writers, it
+must be accepted by all filters added with this method.</description>
+      <param type="object" variable="$filter">
+        <type full="int|Zend_Config|array|Zend_Log_Filter_Interface" namespace="" name="int|Zend_Config|array|Zend_Log_Filter_Interface"/>
+      </param>
+      <return type="object">
+        <type full="Zend_Log" namespace="" name="Zend_Log"/>
+      </return>
+      <throws type="object">
+        <type full="Zend_Log_Exception" namespace="" name="Zend_Log_Exception"/>
+      </throws>
+    </docblock>
+    <parameter name="filter" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="@see Zend_Log_Filter_Priority" line="467"/>
+    </inline>
+  </method>
+  <method name="addWriter" start="491" end="508" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a writer.  A writer is responsible for taking a log message and writing it out to storage."/>
+      <param description="Zend_Log_Writer_Abstract or Config array" type="mixed" variable="$writer"/>
+      <return type="object">
+        <type full="Zend_Log" namespace="" name="Zend_Log"/>
+      </return>
+    </docblock>
+    <parameter name="writer" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="@see Zend_Log_Exception" line="498"/>
+    </inline>
+  </method>
+  <method name="setEventItem" start="517" end="521" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set an extra item to pass to the log writers."/>
+      <param description="Name of the field" type="string" variable="$name"/>
+      <param description="Value of the field" type="string" variable="$value"/>
+      <return type="object">
+        <type full="Zend_Log" namespace="" name="Zend_Log"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="registerErrorHandler" start="538" end="571" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Register Logging system as an error handler to log php errors Note: it still calls the original error handler if set_error_handler is able to return it.">Errors will be mapped as:
+  E_NOTICE, E_USER_NOTICE =&gt; NOTICE
+  E_WARNING, E_CORE_WARNING, E_USER_WARNING =&gt; WARN
+  E_ERROR, E_USER_ERROR, E_CORE_ERROR, E_RECOVERABLE_ERROR =&gt; ERR
+  E_DEPRECATED, E_STRICT, E_USER_DEPRECATED =&gt; DEBUG
+  (unknown/other) =&gt; INFO</description>
+      <link value="http://www.php.net/manual/en/function.set-error-handler.php Custom error handler"/>
+      <return type="object">
+        <type full="Zend_Log" namespace="" name="Zend_Log"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="Only register once.  Avoids loop issues if it gets registered twice." line="540"/>
+      <comment value="Contruct a default map of phpErrors to Zend_Log priorities." line="547"/>
+      <comment value="Some of the errors are uncatchable, but are included for completeness" line="548"/>
+      <comment value="PHP 5.3.0+" line="561"/>
+    </inline>
+  </method>
+  <method name="errorHandler" start="584" end="601" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Error Handler will convert error into log message, and then call the original error handler"/>
+      <link value="http://www.php.net/manual/en/function.set-error-handler.php Custom error handler"/>
+      <param type="int" variable="$errno"/>
+      <param type="string" variable="$errstr"/>
+      <param type="string" variable="$errfile"/>
+      <param type="int" variable="$errline"/>
+      <param type="array" variable="$errcontext"/>
+      <return type="boolean"/>
+    </docblock>
+    <parameter name="errno" byreference="false" type="{unknown}"/>
+    <parameter name="errstr" byreference="false" type="{unknown}"/>
+    <parameter name="errfile" byreference="false" type="{unknown}"/>
+    <parameter name="errline" byreference="false" type="{unknown}"/>
+    <parameter name="errcontext" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setTimestampFormat" start="609" end="613" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set timestamp format for log entries."/>
+      <param type="string" variable="$format"/>
+      <return type="object">
+        <type full="Zend_Log" namespace="" name="Zend_Log"/>
+      </return>
+    </docblock>
+    <parameter name="format" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTimestampFormat" start="620" end="623" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get timestamp format used for log entries."/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <extender full="SS_ZendLog" namespace="" name="SS_ZendLog"/>
+</class>

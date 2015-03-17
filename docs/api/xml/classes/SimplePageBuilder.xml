@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SimplePageBuilder" namespace="" name="SimplePageBuilder" abstract="false" final="false" start="121" end="328">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/simpletest" file="page.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/simpletest/page.php" size="29185" time="2015-03-14T10:41:58+13:00" unixtime="1426282918" sha1="4041008169e92042c6927971d897091ef848a470" relative="framework/thirdparty/simpletest/page.php"/>
+  <docblock>
+    <description compact="SAX event handler. Maintains a list of    open tags and dispatches them as they close.">@package SimpleTest
+   @subpackage WebTester</description>
+  </docblock>
+  <extends full="SimpleSaxListener" namespace="" name="SimpleSaxListener"/>
+  <member name="_tags" type="{unknown}" visibility="public" line="122"/>
+  <member name="_page" type="{unknown}" visibility="public" line="123"/>
+  <member name="_private_content_tag" type="{unknown}" visibility="public" line="124"/>
+  <method name="SimplePageBuilder" start="130" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the builder up empty.">@access public</description>
+    </docblock>
+  </method>
+  <method name="free" start="139" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Frees up any references so as to allow the PHP garbage    collection from unset() to work.">@access public</description>
+    </docblock>
+  </method>
+  <method name="parse" start="152" end="159" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Reads the raw content and send events    into the page to be built.">@param $response SimpleHttpResponse  Fetched response.
+   @return SimplePage                   Newly parsed page.
+   @access public</description>
+    </docblock>
+    <parameter name="response" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createPage" start="166" end="169" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates an empty page.">@return SimplePage        New unparsed page.
+   @access protected</description>
+    </docblock>
+    <parameter name="response" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_createParser" start="178" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Creates the parser used with the builder.">@param $listener SimpleSaxListener   Target of parser.
+   @return SimpleSaxParser              Parser to generate
+                                        events for the builder.
+   @access protected</description>
+    </docblock>
+    <parameter name="listener" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="startElement" start="191" end="223" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Start of element event. Opens a new tag.">@param string $name         Element name.
+   @param hash $attributes     Attributes without content
+                               are marked as true.
+   @return boolean             False on parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="attributes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="endElement" start="231" end="254" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="End of element event.">@param string $name        Element name.
+   @return boolean            False on parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_hasNamedTagOnOpenTagStack" start="263" end="265" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Test to see if there are any open tags awaiting    closure that match the tag name.">@param string $name        Element name.
+   @return boolean            True if any are still open.
+   @access private</description>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addContent" start="274" end="281" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Unparsed, but relevant data. The data is added    to every open tag.">@param string $text        May include unparsed tags.
+   @return boolean            False on parse error.
+   @access public</description>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_addContentToAllOpenTags" start="289" end="295" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Any content fills all currently open tags unless it    is part of an option tag.">@param string $text        May include unparsed tags.
+   @access private</description>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_addContentTagToOpenTags" start="304" end="313" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Parsed data in tag form. The parsed tag is added    to every open tag. Used for adding options to select    fields only.">@param SimpleTag $tag        Option tags only.
+   @access private</description>
+    </docblock>
+    <parameter name="tag" byreference="true" type="{unknown}"/>
+  </method>
+  <method name="_openTag" start="321" end="327" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Opens a tag for receiving content. Multiple tags    will be receiving input at the same time.">@param SimpleTag $tag        New content tag.
+   @access private</description>
+    </docblock>
+    <parameter name="tag" byreference="true" type="{unknown}"/>
+  </method>
+  <parent full="SimpleSaxListener" namespace="" name="SimpleSaxListener">
+    <method name="SimpleSaxListener" start="731" end="732" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the document to write to.">@access public</description>
+      </docblock>
+    </method>
+    <method name="startElement" start="743" end="744" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Start of element event.">@param string $name        Element name.
+   @param hash $attributes    Name value pairs.
+                              Attributes without content
+                              are marked as true.
+   @return boolean            False on parse error.
+   @access public</description>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="attributes" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="endElement" start="752" end="753" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="End of element event.">@param string $name        Element name.
+   @return boolean            False on parse error.
+   @access public</description>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="addContent" start="761" end="762" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Unparsed, but relevant data.">@param string $text        May include unparsed tags.
+   @return boolean            False on parse error.
+   @access public</description>
+      </docblock>
+      <parameter name="text" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

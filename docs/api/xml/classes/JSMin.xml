@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="JSMin" namespace="" name="JSMin" abstract="false" final="false" start="48" end="321">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/thirdparty/jsmin" file="jsmin.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/thirdparty/jsmin/jsmin.php" size="9785" time="2015-03-14T10:41:54+13:00" unixtime="1426282914" sha1="0d4fcb7467c1abe233817509dd3dc60899032abf" relative="framework/thirdparty/jsmin/jsmin.php"/>
+  <docblock>
+    <description compact="jsmin.php - PHP implementation of Douglas Crockford's JSMin.">This is pretty much a direct port of jsmin.c to PHP with just a few
+PHP-specific performance tweaks. Also, whereas jsmin.c reads from stdin and
+outputs to stdout, this library accepts a string as input and returns another
+string as output.
+
+PHP 5 or higher is required.
+
+Permission is hereby granted to use this version of the library under the
+same terms as jsmin.c, which has the following license:
+
+--
+Copyright (c) 2002 Douglas Crockford  (www.crockford.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+The Software shall be used for Good, not Evil.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+--</description>
+    <package value="JSMin"/>
+    <author value="Ryan Grove &lt;ryan@wonko.com&gt;"/>
+    <copyright value="2002 Douglas Crockford &lt;douglas@crockford.com&gt; (jsmin.c)"/>
+    <copyright value="2008 Ryan Grove &lt;ryan@wonko.com&gt; (PHP port)"/>
+    <license name="http://opensource.org/licenses/mit-license.php MIT License"/>
+    <version value="1.1.1 (2008-03-02)"/>
+    <link value="http://code.google.com/p/jsmin-php/"/>
+  </docblock>
+  <constant name="ORD_LF" value="10"/>
+  <constant name="ORD_SPACE" value="32"/>
+  <member name="a" type="string" default="''" visibility="protected" line="52"/>
+  <member name="b" type="string" default="''" visibility="protected" line="53"/>
+  <member name="input" type="string" default="''" visibility="protected" line="54"/>
+  <member name="inputIndex" type="integer" default="0" visibility="protected" line="55"/>
+  <member name="inputLength" type="integer" default="0" visibility="protected" line="56"/>
+  <member name="lookAhead" type="{unknown}" default="null" visibility="protected" line="57"/>
+  <member name="output" type="string" default="''" visibility="protected" line="58"/>
+  <method name="minify" start="62" end="65" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="js" byreference="false" type="{unknown}"/>
+  </method>
+  <constructor name="__construct" start="69" end="72" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="input" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="action" start="85" end="161" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="d" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="get" start="163" end="185" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="isAlphaNum" start="190" end="192" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="c" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="min" start="194" end="273" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="next" start="278" end="315" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="peek" start="317" end="320" abstract="false" final="false" static="false" visibility="protected"/>
+</class>

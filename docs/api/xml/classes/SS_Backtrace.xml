@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_Backtrace" namespace="" name="SS_Backtrace" abstract="false" final="false" start="6" end="193">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev" file="Backtrace.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/Backtrace.php" size="6301" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="527e4721f8e8c53f0504f9e9af59817809b9261b" relative="framework/dev/Backtrace.php"/>
+  <docblock>
+    <description/>
+    <package value="framework"/>
+    <subpackage value="dev"/>
+  </docblock>
+  <member name="ignore_function_args" type="array" visibility="private" line="15">
+    <docblock>
+      <description/>
+      <var description="Replaces all arguments with a '&lt;filtered&gt;' string," type="array">mostly for security reasons. Use string values for global functions,
+and array notation for class methods.
+PHP's debug_backtrace() doesn't allow to inspect the argument names,
+so all arguments of the provided functions will be filtered out.</var>
+    </docblock>
+  </member>
+  <method name="filtered_backtrace" start="49" end="51" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return debug_backtrace() results with functions filtered specific to the debugging system, and not the trace."/>
+      <param description="If an array, filter these functions out of the trace" type="object" variable="$ignoredFunctions">
+        <type full="null|array" namespace="" name="null|array"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="ignoredFunctions" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="filter_backtrace" start="61" end="110" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Filter a backtrace so that it doesn't show the calls to the debugging system, which is useless information."/>
+      <param description="Backtrace to filter" type="array" variable="$bt"/>
+      <param description="List of extra functions to filter out" type="object" variable="$ignoredFunctions">
+        <type full="null|array" namespace="" name="null|array"/>
+      </param>
+      <return type="array"/>
+    </docblock>
+    <parameter name="bt" byreference="false" type="{unknown}"/>
+    <parameter name="ignoredFunctions" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Filter out arguments" line="92"/>
+    </inline>
+  </method>
+  <method name="backtrace" start="119" end="127" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Render or return a backtrace from the given scope."/>
+      <param type="object" variable="$returnVal">
+        <type full="unknown_type" namespace="" name="unknown_type"/>
+      </param>
+      <param type="object" variable="$ignoreAjax">
+        <type full="unknown_type" namespace="" name="unknown_type"/>
+      </param>
+      <return type="object">
+        <type full="unknown" namespace="" name="unknown"/>
+      </return>
+    </docblock>
+    <parameter name="returnVal" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="ignoreAjax" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="ignoredFunctions" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="full_func_name" start="138" end="159" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the full function name.  If showArgs is set to true, a string representation of the arguments will be shown"/>
+      <param type="object" variable="$item">
+        <type full="Object" namespace="" name="Object"/>
+      </param>
+      <param type="boolean" variable="$showArg"/>
+      <param type="object" variable="$argCharLimit">
+        <type full="Int" namespace="" name="Int"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="item" byreference="false" type="{unknown}"/>
+    <parameter name="showArgs" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="argCharLimit" byreference="false" type="integer" default="10000"/>
+  </method>
+  <method name="get_rendered_backtrace" start="169" end="191" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Render a backtrace array into an appropriate plain-text or HTML string."/>
+      <param description="The trace array, as returned by debug_backtrace() or Exception::getTrace()" type="string" variable="$bt"/>
+      <param description="Set to false for HTML output, or true for plain-text output" type="boolean" variable="$plainText"/>
+      <param description="List of functions that should be ignored. If not set, a default is provided" type="array"/>
+      <return description="The rendered backtrace" type="string"/>
+    </docblock>
+    <parameter name="bt" byreference="false" type="{unknown}"/>
+    <parameter name="plainText" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="ignoredFunctions" byreference="false" type="{unknown}" default="null"/>
+  </method>
+</class>

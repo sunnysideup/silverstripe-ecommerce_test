@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="SS_Log" href="../../classes/SS_Log.xhtml">SS_Log</a>
+          </li>
+          <li class="separator">add_writer</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="../../source/framework/dev/Log.php.xhtml#line140">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>SS_Log::</small>add_writer</h1>
+        <h4>Add a writer instance to the logger.</h4>
+        <p/>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function add_writer(<a title="" href="../../classes/.xhtml"/>
+        $writer,
+            [<a title="const" href="../../classes/const.xhtml">const</a>
+        $priority = null,
+            [string
+        $comparison = '=']] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$writer</code>
+                —
+                object</dt>
+          <dd>Zend_Log_Writer_Abstract instance</dd>
+          <dt><code>$priority</code>
+                —
+                object</dt>
+          <dd>Priority. Possible values: SS_Log::ERR, SS_Log::WARN or SS_Log::NOTICE<br/><br/><br/>      </dd>
+          <dt><code>$comparison</code>
+                —
+                string</dt>
+          <dd>comparison operator.  Acts on the integer values of the error<br/>levels, where more serious errors are lower numbers. By default this is "=", which means only<br/>the given priority will be logged. Set to "&lt;=" if you want to track errors of *at least*<br/>the given priority.</dd>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

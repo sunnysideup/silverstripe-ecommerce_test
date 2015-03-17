@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldButtonRow" namespace="" name="GridFieldButtonRow" abstract="false" final="false" start="14" end="33">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldButtonRow.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldButtonRow.php" size="942" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="69b09dd995c315804ce024c0e92753b5fa331009" relative="framework/forms/gridfield/GridFieldButtonRow.php"/>
+  <docblock>
+    <description compact="Adding this class to a {@link GridFieldConfig} of a {@link GridField} adds a button row to that field.">The button row provides a space for actions on this grid.
+
+This row provides two new HTML fragment spaces: 'toolbar-header-left' and
+'toolbar-header-right'.</description>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <implements full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider"/>
+  <member name="targetFragment" type="{unknown}" visibility="protected" line="16"/>
+  <constructor name="__construct" start="18" end="20" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="targetFragment" byreference="false" type="string" default="'before'"/>
+  </constructor>
+  <method name="getHTMLFragments" start="22" end="32" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="gridField" byreference="false" type="{unknown}"/>
+  </method>
+  <interface full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider">
+    <extends full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+    <method name="getHTMLFragments" start="38" end="38" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns a map where the keys are fragment names and the values are pieces of HTML to add to these fragments.">Here are 4 built-in fragments: 'header', 'footer', 'before', and
+'after', but components may also specify fragments of their own.
+To specify a new fragment, specify a new fragment by including the
+text "$DefineFragment(fragmentname)" in the HTML that you return.
+Fragment names should only contain alphanumerics, -, and _.
+If you attempt to return HTML for a fragment that doesn't exist, an
+exception will be thrown when the <link xmlns="http://xml.phpdox.net/src" value="GridField"/> is rendered.
+</description>
+        <return type="array"/>
+      </docblock>
+      <parameter name="gridField" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

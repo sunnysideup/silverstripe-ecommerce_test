@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ImagickBackend" namespace="" name="ImagickBackend" abstract="false" final="false" start="9" end="230">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/filesystem" file="ImagickBackend.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/filesystem/ImagickBackend.php" size="5593" time="2015-03-14T10:40:44+13:00" unixtime="1426282844" sha1="03e8e9cf8bdc34b562c4971fc9f26361ef45f33e" relative="framework/filesystem/ImagickBackend.php"/>
+  <extends full="Imagick" namespace="" name="Imagick"/>
+  <implements full="Image_Backend" namespace="" name="Image_Backend"/>
+  <member name="default_quality" type="integer" default="75" visibility="private" line="15">
+    <docblock>
+      <description/>
+      <config/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="23" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="__construct"/>
+      <param description="= null" type="string" variable="$filename"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="filename" byreference="false" type="{unknown}" default="null"/>
+  </constructor>
+  <method name="writeTo" start="36" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="writeTo"/>
+      <param type="string" variable="$path"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="set_default_quality" start="49" end="54" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="set_default_quality"/>
+      <deprecated value="3.2 Use the &quot;ImagickBackend.default_quality&quot; config setting instead"/>
+      <param type="int" variable="$quality"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="quality" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setQuality" start="62" end="64" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="setQuality"/>
+      <param type="int" variable="$quality"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="quality" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setImageResource" start="74" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="setImageResource">Set the backend-specific resource handling the manipulations. Replaces Image::setGD()</description>
+      <param type="mixed" variable="$resource"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="resource" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getImageResource" start="85" end="87" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="getImageResource">Get the backend-specific resource handling the manipulations. Replaces Image::getGD()</description>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+  <method name="hasImageResource" start="94" end="96" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="hasImageResource"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="resize" start="105" end="128" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="resize"/>
+      <param type="int" variable="$width"/>
+      <param type="int" variable="$height"/>
+      <return type="object">
+        <type full="Image_Backend" namespace="" name="Image_Backend"/>
+      </return>
+    </docblock>
+    <parameter name="width" byreference="false" type="{unknown}"/>
+    <parameter name="height" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="use whole numbers, ensuring that size is at least 1x1" line="113"/>
+      <comment value="Check that a resize is actually necessary." line="119"/>
+    </inline>
+  </method>
+  <method name="resizeRatio" start="137" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="resizeRatio"/>
+      <param type="int" variable="$width"/>
+      <param type="int" variable="$height"/>
+      <return type="object">
+        <type full="Image_Backend" namespace="" name="Image_Backend"/>
+      </return>
+    </docblock>
+    <parameter name="maxWidth" byreference="false" type="{unknown}"/>
+    <parameter name="maxHeight" byreference="false" type="{unknown}"/>
+    <parameter name="useAsMinimum" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="resizeByWidth" start="157" end="164" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="resizeByWidth"/>
+      <param type="int" variable="$width"/>
+      <return type="object">
+        <type full="Image_Backend" namespace="" name="Image_Backend"/>
+      </return>
+    </docblock>
+    <parameter name="width" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="resizeByHeight" start="172" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="resizeByHeight"/>
+      <param type="int" variable="$height"/>
+      <return type="object">
+        <type full="Image_Backend" namespace="" name="Image_Backend"/>
+      </return>
+    </docblock>
+    <parameter name="height" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="paddedResize" start="188" end="196" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="paddedResize"/>
+      <param type="int" variable="$width"/>
+      <param type="int" variable="$height"/>
+      <return type="object">
+        <type full="Image_Backend" namespace="" name="Image_Backend"/>
+      </return>
+    </docblock>
+    <parameter name="width" byreference="false" type="{unknown}"/>
+    <parameter name="height" byreference="false" type="{unknown}"/>
+    <parameter name="backgroundColor" byreference="false" type="string" default="&quot;FFFFFF&quot;"/>
+  </method>
+  <method name="croppedResize" start="205" end="229" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="croppedResize"/>
+      <param type="int" variable="$width"/>
+      <param type="int" variable="$height"/>
+      <return type="object">
+        <type full="Image_Backend" namespace="" name="Image_Backend"/>
+      </return>
+    </docblock>
+    <parameter name="width" byreference="false" type="{unknown}"/>
+    <parameter name="height" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Check that a resize is actually necessary." line="212"/>
+    </inline>
+  </method>
+  <parent full="Imagick" namespace="" name="Imagick">
+    <method name="deskewImage" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Removes skew from the image"/>
+      <return type="bool"/>
+    </docblock>
+    <parameter name="threshold" optional="false" byreference="false" type="object" class="float"/>
+  </method>
+    <method name="exportImagePixels" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Exports raw image pixels"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="x" optional="false" byreference="false" type="int"/>
+    <parameter name="y" optional="false" byreference="false" type="int"/>
+    <parameter name="width" optional="false" byreference="false" type="int"/>
+    <parameter name="height" optional="false" byreference="false" type="int"/>
+    <parameter name="map" optional="false" byreference="false" type="string"/>
+    <parameter name="STORAGE" optional="false" byreference="false" type="int"/>
+  </method>
+    <method name="functionImage" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Applies a function on the image"/>
+      <return type="bool"/>
+    </docblock>
+    <parameter name="function" optional="false" byreference="false" type="int"/>
+    <parameter name="arguments" optional="false" byreference="false" type="object" class="array"/>
+    <parameter name="channel" optional="true" byreference="false" type="int"/>
+  </method>
+    <method name="getImageChannelKurtosis" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="The getImageChannelKurtosis purpose"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="channel" optional="true" byreference="false" type="int"/>
+  </method>
+    <method name="haldClutImage" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Replaces colors in the image"/>
+      <return type="bool"/>
+    </docblock>
+    <parameter name="clut" optional="false" byreference="false" type="object" class="Imagick"/>
+    <parameter name="channel" optional="true" byreference="false" type="int"/>
+  </method>
+    <method name="importImagePixels" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Imports image pixels"/>
+      <return type="bool"/>
+    </docblock>
+    <parameter name="x" optional="false" byreference="false" type="int"/>
+    <parameter name="y" optional="false" byreference="false" type="int"/>
+    <parameter name="width" optional="false" byreference="false" type="int"/>
+    <parameter name="height" optional="false" byreference="false" type="int"/>
+    <parameter name="map" optional="false" byreference="false" type="string"/>
+    <parameter name="storage" optional="false" byreference="false" type="int"/>
+    <parameter name="pixels" optional="false" byreference="false" type="object" class="array"/>
+  </method>
+    <method name="remapImage" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Remaps image colors"/>
+      <return type="bool"/>
+    </docblock>
+    <parameter name="replacement" optional="false" byreference="false" type="object" class="Imagick"/>
+    <parameter name="DITHER" optional="false" byreference="false" type="int"/>
+  </method>
+    <method name="segmentImage" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Segments an image"/>
+      <return type="bool"/>
+    </docblock>
+    <parameter name="COLORSPACE" optional="false" byreference="false" type="int"/>
+    <parameter name="cluster_threshold" optional="false" byreference="false" type="object" class="float"/>
+    <parameter name="smooth_threshold" optional="false" byreference="false" type="object" class="float"/>
+    <parameter name="verbose" optional="true" byreference="false" type="object" class="bool"/>
+  </method>
+    <method name="sparseColorImage" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Interpolates colors"/>
+      <return type="bool"/>
+    </docblock>
+    <parameter name="SPARSE_METHOD" optional="false" byreference="false" type="int"/>
+    <parameter name="arguments" optional="false" byreference="false" type="object" class="array"/>
+    <parameter name="channel" optional="true" byreference="false" type="int"/>
+  </method>
+  </parent>
+  <interface full="Iterator" namespace="" name="Iterator">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="current" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Return the current element"/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+    <method name="key" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Return the key of the current element"/>
+      <return type="scalar"/>
+    </docblock>
+  </method>
+    <method name="next" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Move forward to next element">Moves the current position to the next element.</description>
+      <return type="void"/>
+    </docblock>
+  </method>
+    <method name="rewind" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Rewind the Iterator to the first element">Rewinds back to the first element of the Iterator.</description>
+      <return type="void"/>
+    </docblock>
+  </method>
+    <method name="valid" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Checks if current position is valid"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  </interface>
+  <interface full="Image_Backend" namespace="" name="Image_Backend">
+    <constructor name="__construct" start="18" end="18" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="__construct"/>
+        <param description="= null" type="string" variable="$filename"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="filename" byreference="false" type="{unknown}" default="null"/>
+    </constructor>
+    <method name="writeTo" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="writeTo"/>
+        <param type="string" variable="$path"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="path" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setQuality" start="34" end="34" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="setQuality"/>
+        <param type="int" variable="$quality"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="quality" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setImageResource" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="setImageResource">Set the backend-specific resource handling the manipulations. Replaces Image::setGD()</description>
+        <param type="mixed" variable="$resource"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="resource" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getImageResource" start="53" end="53" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="getImageResource">Get the backend-specific resource handling the manipulations. Replaces Image::getGD()</description>
+        <return type="mixed"/>
+      </docblock>
+    </method>
+    <method name="hasImageResource" start="60" end="60" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="hasImageResource"/>
+        <return type="boolean"/>
+      </docblock>
+    </method>
+    <method name="resize" start="69" end="69" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="resize"/>
+        <param type="int" variable="$width"/>
+        <param type="int" variable="$height"/>
+        <return type="object">
+          <type full="Image_Backend" namespace="" name="Image_Backend"/>
+        </return>
+      </docblock>
+      <parameter name="width" byreference="false" type="{unknown}"/>
+      <parameter name="height" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="resizeRatio" start="78" end="78" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="resizeRatio"/>
+        <param type="int" variable="$width"/>
+        <param type="int" variable="$height"/>
+        <return type="object">
+          <type full="Image_Backend" namespace="" name="Image_Backend"/>
+        </return>
+      </docblock>
+      <parameter name="maxWidth" byreference="false" type="{unknown}"/>
+      <parameter name="maxHeight" byreference="false" type="{unknown}"/>
+      <parameter name="useAsMinimum" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="resizeByWidth" start="86" end="86" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="resizeByWidth"/>
+        <param type="int" variable="$width"/>
+        <return type="object">
+          <type full="Image_Backend" namespace="" name="Image_Backend"/>
+        </return>
+      </docblock>
+      <parameter name="width" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="resizeByHeight" start="94" end="94" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="resizeByHeight"/>
+        <param type="int" variable="$height"/>
+        <return type="object">
+          <type full="Image_Backend" namespace="" name="Image_Backend"/>
+        </return>
+      </docblock>
+      <parameter name="height" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="paddedResize" start="103" end="103" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="paddedResize"/>
+        <param type="int" variable="$width"/>
+        <param type="int" variable="$height"/>
+        <return type="object">
+          <type full="Image_Backend" namespace="" name="Image_Backend"/>
+        </return>
+      </docblock>
+      <parameter name="width" byreference="false" type="{unknown}"/>
+      <parameter name="height" byreference="false" type="{unknown}"/>
+      <parameter name="backgroundColor" byreference="false" type="string" default="&quot;FFFFFF&quot;"/>
+    </method>
+    <method name="croppedResize" start="112" end="112" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="croppedResize"/>
+        <param type="int" variable="$width"/>
+        <param type="int" variable="$height"/>
+        <return type="object">
+          <type full="Image_Backend" namespace="" name="Image_Backend"/>
+        </return>
+      </docblock>
+      <parameter name="width" byreference="false" type="{unknown}"/>
+      <parameter name="height" byreference="false" type="{unknown}"/>
+    </method>
+  </interface>
+</class>

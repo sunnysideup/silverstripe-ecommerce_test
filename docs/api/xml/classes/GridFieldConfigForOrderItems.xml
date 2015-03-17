@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="GridFieldConfigForOrderItems" namespace="" name="GridFieldConfigForOrderItems" abstract="false" final="false" start="7" end="27">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../ecommerce/code/cms" file="GridFieldConfigForOrderItems.php" realpath="/var/www/_modules/ecommerce_test/trunk/ecommerce/code/cms/GridFieldConfigForOrderItems.php" size="1150" time="2015-03-14T10:43:16+13:00" unixtime="1426282996" sha1="ae93d97871a01a76be136eb747f853e57bcc0b1b" relative="ecommerce/code/cms/GridFieldConfigForOrderItems.php"/>
+  <docblock>
+    <description compact="ensures that order items can not be auto-linked or deleted but retains all the other features of the GridFieldConfig_RelationEditor settings."/>
+  </docblock>
+  <extends full="GridFieldConfig_RelationEditor" namespace="" name="GridFieldConfig_RelationEditor"/>
+  <constructor name="__construct" start="12" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param description="- How many items per page should show up" type="int" variable="$itemsPerPage"/>
+    </docblock>
+    <parameter name="itemsPerPage" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="$this-&gt;removeComponentsByType(&quot;GridFieldButtonRow&quot;);" line="15"/>
+      <comment value="$this-&gt;removeComponentsByType(&quot;GridFieldAddNewButton&quot;);" line="16"/>
+      <comment value="$this-&gt;removeComponentsByType(&quot;GridFieldToolbarHeader&quot;);" line="17"/>
+      <comment value="$this-&gt;removeComponentsByType(&quot;GridFieldSortableHeader&quot;);" line="18"/>
+      <comment value="$this-&gt;removeComponentsByType(&quot;GridFieldFilterHeader&quot;);" line="19"/>
+      <comment value="$this-&gt;removeComponentsByType(&quot;GridFieldDataColumns&quot;);" line="20"/>
+      <comment value="$this-&gt;removeComponentsByType(&quot;GridFieldEditButton&quot;);" line="21"/>
+    </inline>
+  </constructor>
+  <parent full="GridFieldConfig_RelationEditor" namespace="" name="GridFieldConfig_RelationEditor">
+    <extends full="GridFieldConfig" namespace="" name="GridFieldConfig"/>
+    <constructor name="__construct" start="238" end="256" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param description="- How many items per page should show up" type="int" variable="$itemsPerPage"/>
+      </docblock>
+      <parameter name="itemsPerPage" byreference="false" type="{unknown}" default="null"/>
+    </constructor>
+  </parent>
+  <parent full="GridFieldConfig" namespace="" name="GridFieldConfig">
+    <member name="components" type="{unknown}" default="null" visibility="protected" line="27">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="ArrayList" namespace="" name="ArrayList"/>
+        </var>
+      </docblock>
+    </member>
+    <method name="create" start="33" end="38" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description/>
+        <param description="... arguments to pass to the constructor" type="mixed" variable="$arguments"/>
+        <return type="object">
+          <type full="GridFieldConfig" namespace="" name="GridFieldConfig"/>
+        </return>
+      </docblock>
+    </method>
+    <constructor name="__construct" start="43" end="45" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+      </docblock>
+    </constructor>
+    <method name="addComponent" start="51" end="68" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$component">
+          <type full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+        </param>
+        <param description="The class of the component to insert this one before" type="string" variable="$insertBefore"/>
+      </docblock>
+      <parameter name="component" byreference="false" type="object">
+        <type full="\\GridFieldComponent" namespace="\" name="GridFieldComponent"/>
+      </parameter>
+      <parameter name="insertBefore" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="addComponents" start="73" end="77" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param description="One or more components" type="object">
+          <type full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+        </param>
+      </docblock>
+    </method>
+    <method name="removeComponent" start="83" end="86" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object" variable="$component">
+          <type full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+        </param>
+        <return description="$this" type="object">
+          <type full="GridFieldConfig" namespace="" name="GridFieldConfig"/>
+        </return>
+      </docblock>
+      <parameter name="component" byreference="false" type="object">
+        <type full="\\GridFieldComponent" namespace="\" name="GridFieldComponent"/>
+      </parameter>
+    </method>
+    <method name="removeComponentsByType" start="92" end="98" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param description="Class name or interface" type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return description="$this" type="object">
+          <type full="GridFieldConfig" namespace="" name="GridFieldConfig"/>
+        </return>
+      </docblock>
+      <parameter name="type" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getComponents" start="103" end="108" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <return description="Of GridFieldComponent" type="object">
+          <type full="ArrayList" namespace="" name="ArrayList"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="getComponentsByType" start="116" end="122" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns all components extending a certain class, or implementing a certain interface."/>
+        <param description="Class name or interface" type="object">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return description="Of GridFieldComponent" type="object">
+          <type full="ArrayList" namespace="" name="ArrayList"/>
+        </return>
+      </docblock>
+      <parameter name="type" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getComponentByType" start="130" end="134" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Returns the first available component with the given class or interface."/>
+        <param type="object" variable="ClassName">
+          <type full="String" namespace="" name="String"/>
+        </param>
+        <return type="object">
+          <type full="GridFieldComponent" namespace="" name="GridFieldComponent"/>
+        </return>
+      </docblock>
+      <parameter name="type" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

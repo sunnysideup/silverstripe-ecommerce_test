@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/model" file="Filterable.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/model/Filterable.php" size="2390" time="2015-03-14T10:40:57+13:00" unixtime="1426282857" sha1="bd23ac8e735df77c834ff93d375a72efd1a71b63" relative="framework/model/Filterable.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2"/>
+  <line no="3">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> * Additional interface for {@link SS_List} classes that are filterable.</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> * All methods in this interface are immutable - they should return new instances with the filter</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * applied, rather than applying the filter in place</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * @see SS_List, SS_Sortable, SS_Limitable</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * @package framework</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * @subpackage model</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="13">
+    <token name="T_INTERFACE">interface</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">SS_Filterable</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="14"/>
+  <line no="15">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT">	 * Returns TRUE if the list can be filtered by a given field expression.</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT">	 * @param  string $by</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT">	 * @return bool</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="21">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">canFilterBy</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$by</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="22">
+    <token name="T_WHITESPACE">	</token>
+  </line>
+  <line no="23">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT">	 * Return a new instance of this list that only includes items with these charactaristics</token>
+  </line>
+  <line no="25">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT">	 * @return SS_Filterable</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;filter('Name', 'bob'); // only bob in the list</token>
+  </line>
+  <line no="28">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;filter('Name', array('aziz', 'bob'); // aziz and bob in list</token>
+  </line>
+  <line no="29">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;filter(array('Name'=&gt;'bob, 'Age'=&gt;21)); // bob with the age 21</token>
+  </line>
+  <line no="30">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;filter(array('Name'=&gt;'bob, 'Age'=&gt;array(21, 43))); // bob with the Age 21 or 43</token>
+  </line>
+  <line no="31">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;filter(array('Name'=&gt;array('aziz','bob'), 'Age'=&gt;array(21, 43)));</token>
+  </line>
+  <line no="32">
+    <token name="T_DOC_COMMENT">	 *          // aziz with the age 21 or 43 and bob with the Age 21 or 43</token>
+  </line>
+  <line no="33">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="34">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">filter</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="35"/>
+  <line no="36">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="37">
+    <token name="T_DOC_COMMENT">	 * Return a new instance of this list that excludes any items with these charactaristics</token>
+  </line>
+  <line no="38">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="39">
+    <token name="T_DOC_COMMENT">	 * @return SS_Filterable</token>
+  </line>
+  <line no="40">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;exclude('Name', 'bob'); // exclude bob from list</token>
+  </line>
+  <line no="41">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;exclude('Name', array('aziz', 'bob'); // exclude aziz and bob from list</token>
+  </line>
+  <line no="42">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;exclude(array('Name'=&gt;'bob, 'Age'=&gt;21)); // exclude bob that has Age 21</token>
+  </line>
+  <line no="43">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;exclude(array('Name'=&gt;'bob, 'Age'=&gt;array(21, 43))); // exclude bob with Age 21 or 43</token>
+  </line>
+  <line no="44">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;exclude(array('Name'=&gt;array('bob','phil'), 'Age'=&gt;array(21, 43)));</token>
+  </line>
+  <line no="45">
+    <token name="T_DOC_COMMENT">	 *          // bob age 21 or 43, phil age 21 or 43 would be excluded</token>
+  </line>
+  <line no="46">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="47">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">exclude</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="48"/>
+  <line no="49">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="50">
+    <token name="T_DOC_COMMENT">	 * Return a new instance of this list that excludes any items with these charactaristics</token>
+  </line>
+  <line no="51">
+    <token name="T_DOC_COMMENT">	 * Filter this List by a callback function. The function will be passed each record of the List in turn,</token>
+  </line>
+  <line no="52">
+    <token name="T_DOC_COMMENT">	 * and must return true for the record to be included. Returns the filtered list.</token>
+  </line>
+  <line no="53">
+    <token name="T_DOC_COMMENT">	 *</token>
+  </line>
+  <line no="54">
+    <token name="T_DOC_COMMENT">	 * @example $list = $list-&gt;filterByCallback(function($item, $list) { return $item-&gt;Age == 9; })</token>
+  </line>
+  <line no="55">
+    <token name="T_DOC_COMMENT">	 * @return SS_Filterable</token>
+  </line>
+  <line no="56">
+    <token name="T_DOC_COMMENT">	 */</token>
+  </line>
+  <line no="57">
+    <token name="T_WHITESPACE">	</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">filterByCallback</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$callback</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="58">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="59"/>
+</source>

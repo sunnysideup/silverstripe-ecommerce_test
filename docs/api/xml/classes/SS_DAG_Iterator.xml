@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SS_DAG_Iterator" namespace="" name="SS_DAG_Iterator" abstract="false" final="false" start="119" end="160">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/core" file="DAG.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/core/DAG.php" size="3974" time="2015-03-14T10:39:29+13:00" unixtime="1426282769" sha1="04305aa31e2246afd193615f957f43d7bafb8e6f" relative="framework/core/DAG.php"/>
+  <docblock>
+    <description/>
+    <package value="framework"/>
+    <subpackage value="manifest"/>
+  </docblock>
+  <implements full="Iterator" namespace="" name="Iterator"/>
+  <member name="data" type="{unknown}" visibility="protected" line="121"/>
+  <member name="dag" type="{unknown}" visibility="protected" line="122"/>
+  <member name="dagkeys" type="{unknown}" visibility="protected" line="124"/>
+  <member name="i" type="{unknown}" visibility="protected" line="125"/>
+  <constructor name="__construct" start="127" end="131" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="dag" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="key" start="133" end="135" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="current" start="137" end="146" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="next" start="148" end="150" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="rewind" start="152" end="155" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="valid" start="157" end="159" abstract="false" final="false" static="false" visibility="public"/>
+  <interface full="Iterator" namespace="" name="Iterator">
+    <extends full="Traversable" namespace="" name="Traversable"/>
+    <method name="current" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Return the current element"/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+    <method name="key" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Return the key of the current element"/>
+      <return type="scalar"/>
+    </docblock>
+  </method>
+    <method name="next" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Move forward to next element">Moves the current position to the next element.</description>
+      <return type="void"/>
+    </docblock>
+  </method>
+    <method name="rewind" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Rewind the Iterator to the first element">Rewinds back to the first element of the Iterator.</description>
+      <return type="void"/>
+    </docblock>
+  </method>
+    <method name="valid" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Checks if current position is valid"/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  </interface>
+</class>

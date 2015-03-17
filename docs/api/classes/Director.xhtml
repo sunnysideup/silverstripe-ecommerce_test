@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Director</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">Director</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/framework/control/Director.php.xhtml#line17">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>Director</h1>
+        <h4>Director is responsible for processing URLs, and providing environment information.</h4>
+        <p>The most important part of director is , which is passed a URL and will execute the<br/>appropriate controller.<br/>Director also has a number of static methods that provide information about the environment, such as<br/>.<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Director
+                implements
+                <a title="TemplateGlobalProvider" href="../interfaces/TemplateGlobalProvider.xhtml">TemplateGlobalProvider</a>
+            {<br/><ul class="none"><li>// members</li><li>private <a href="#members">$urlParams</a>;
+                    </li><li>private array <a href="#members">$rules</a>;
+                    </li><li>private <span title="SiteTree">SiteTree</span> <a href="#members">$current_page</a>;
+                    </li><li>private string <a href="#members">$alternate_base_folder</a>;
+                    </li><li>private array <a href="#members">$dev_servers</a>;
+                    </li><li>private array <a href="#members">$test_servers</a>;
+                    </li><li>private string <a href="#members">$alternate_protocol</a>;
+                    </li><li>private string <a href="#members">$alternate_base_url</a>;
+                    </li><li>private string <a href="#members">$environment_type</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="Director" href="../classes/Director/addRules.xhtml">addRules</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/direct.xhtml">direct</a>()
+                    </li><li>public static SS_HTTPResponse <a title="Director" href="../classes/Director/test.xhtml">test</a>()
+                    </li><li>protected static SS_HTTPResponse|string <a title="Director" href="../classes/Director/handleRequest.xhtml">handleRequest</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/setUrlParams.xhtml">setUrlParams</a>()
+                    </li><li>public static SiteTree <a title="Director" href="../classes/Director/get_current_page.xhtml">get_current_page</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/set_current_page.xhtml">set_current_page</a>()
+                    </li><li>public static string <a title="Director" href="../classes/Director/absoluteURL.xhtml">absoluteURL</a>()
+                    </li><li>public static boolean|string <a title="Director" href="../classes/Director/protocolAndHost.xhtml">protocolAndHost</a>()
+                    </li><li>public static string <a title="Director" href="../classes/Director/protocol.xhtml">protocol</a>()
+                    </li><li>public static boolean <a title="Director" href="../classes/Director/is_https.xhtml">is_https</a>()
+                    </li><li>public static string <a title="Director" href="../classes/Director/baseURL.xhtml">baseURL</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/setBaseURL.xhtml">setBaseURL</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/baseFolder.xhtml">baseFolder</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/setBaseFolder.xhtml">setBaseFolder</a>()
+                    </li><li>public static string <a title="Director" href="../classes/Director/makeRelative.xhtml">makeRelative</a>()
+                    </li><li>public static bool <a title="Director" href="../classes/Director/is_absolute.xhtml">is_absolute</a>()
+                    </li><li>public static boolean <a title="Director" href="../classes/Director/is_absolute_url.xhtml">is_absolute_url</a>()
+                    </li><li>public static boolean <a title="Director" href="../classes/Director/is_relative_url.xhtml">is_relative_url</a>()
+                    </li><li>public static boolean <a title="Director" href="../classes/Director/is_site_url.xhtml">is_site_url</a>()
+                    </li><li>public static array <a title="Director" href="../classes/Director/extract_request_headers.xhtml">extract_request_headers</a>()
+                    </li><li>public static string <a title="Director" href="../classes/Director/getAbsFile.xhtml">getAbsFile</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/fileExists.xhtml">fileExists</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/absoluteBaseURL.xhtml">absoluteBaseURL</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/absoluteBaseURLWithAuth.xhtml">absoluteBaseURLWithAuth</a>()
+                    </li><li>protected static void <a title="Director" href="../classes/Director/force_redirect.xhtml">force_redirect</a>()
+                    </li><li>public static boolean|string <a title="Director" href="../classes/Director/forceSSL.xhtml">forceSSL</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/forceWWW.xhtml">forceWWW</a>()
+                    </li><li>public static boolean <a title="Director" href="../classes/Director/is_ajax.xhtml">is_ajax</a>()
+                    </li><li>public static boolean <a title="Director" href="../classes/Director/is_cli.xhtml">is_cli</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/set_environment_type.xhtml">set_environment_type</a>()
+                    </li><li>public static string <a title="Director" href="../classes/Director/get_environment_type.xhtml">get_environment_type</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/isLive.xhtml">isLive</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/isDev.xhtml">isDev</a>()
+                    </li><li>public static void <a title="Director" href="../classes/Director/isTest.xhtml">isTest</a>()
+                    </li><li>protected static string <a title="Director" href="../classes/Director/session_environment.xhtml">session_environment</a>()
+                    </li><li>public static array <a title="Director" href="../classes/Director/get_template_global_variables.xhtml">get_template_global_variables</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a href="../interfaces/TemplateGlobalProvider.xhtml">TemplateGlobalProvider</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">149</td>
+            <td>Need to NOT proceed with the request in an elegant manner</td>
+          </tr>
+          <tr>
+            <td class="nummeric">286</td>
+            <td>Need to NOT proceed with the request in an elegant manner</td>
+          </tr>
+          <tr>
+            <td class="nummeric">290</td>
+            <td>Pass in the DataModel</td>
+          </tr>
+          <tr>
+            <td class="nummeric">799</td>
+            <td>Use an exception - ATM we can be called from _config.php, before Director#handleRequest's try block</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="alternate_base_folder"><strong>$alternate_base_folder</strong>
+                —
+                string</li>
+            <li id="alternate_base_url"><strong>$alternate_base_url</strong>
+                —
+                string</li>
+            <li id="alternate_protocol"><strong>$alternate_protocol</strong>
+                —
+                string<br/><span class="indent">Setting this explicitly specifies the protocol (http or https) used, overriding the normal behaviour of Director::is_https introspecting it from the request</span></li>
+            <li id="current_page"><strong>$current_page</strong>
+                —
+                <a href="#">SiteTree</a></li>
+            <li id="dev_servers"><strong>$dev_servers</strong>
+                —
+                array</li>
+            <li id="environment_type"><strong>$environment_type</strong>
+                —
+                string</li>
+            <li id="rules">
+              <strong>$rules</strong>
+            </li>
+            <li id="test_servers"><strong>$test_servers</strong>
+                —
+                array</li>
+            <li id="urlParams">
+              <strong>$urlParams</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="force_redirect"><a title="Director" href="../classes/Director/force_redirect.xhtml">force_redirect()</a>
+                — Skip any further processing and immediately respond with a redirect to the passed URL.</li>
+            <li id="handleRequest"><a title="Director" href="../classes/Director/handleRequest.xhtml">handleRequest()</a>
+                — Handle an HTTP request, defined with a SS_HTTPRequest object.</li>
+            <li id="session_environment"><a title="Director" href="../classes/Director/session_environment.xhtml">session_environment()</a>
+                — Check or update any temporary environment specified in the session</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="absoluteBaseURL"><a title="Director" href="../classes/Director/absoluteBaseURL.xhtml">absoluteBaseURL()</a>
+                — Returns the Absolute URL of the site root.</li>
+            <li id="absoluteBaseURLWithAuth"><a title="Director" href="../classes/Director/absoluteBaseURLWithAuth.xhtml">absoluteBaseURLWithAuth()</a>
+                — Returns the Absolute URL of the site root, embedding the current basic-auth credentials into the URL.</li>
+            <li id="absoluteURL"><a title="Director" href="../classes/Director/absoluteURL.xhtml">absoluteURL()</a>
+                — Turns the given URL into an absolute URL.</li>
+            <li id="addRules"><a title="Director" href="../classes/Director/addRules.xhtml">addRules()</a>
+                — Add URL matching rules to the Director.</li>
+            <li id="baseFolder"><a title="Director" href="../classes/Director/baseFolder.xhtml">baseFolder()</a>
+                — Returns the root filesystem folder for the site.</li>
+            <li id="baseURL"><a title="Director" href="../classes/Director/baseURL.xhtml">baseURL()</a>
+                — Returns the root URL for the site.</li>
+            <li id="direct"><a title="Director" href="../classes/Director/direct.xhtml">direct()</a>
+                — Process the given URL, creating the appropriate controller and executing it.</li>
+            <li id="extract_request_headers"><a title="Director" href="../classes/Director/extract_request_headers.xhtml">extract_request_headers()</a>
+                — Takes a $_SERVER data array and extracts HTTP request headers.</li>
+            <li id="fileExists"><a title="Director" href="../classes/Director/fileExists.xhtml">fileExists()</a>
+                — Returns true if the given file exists.</li>
+            <li id="forceSSL"><a title="Director" href="../classes/Director/forceSSL.xhtml">forceSSL()</a>
+                — Force the site to run on SSL.</li>
+            <li id="forceWWW"><a title="Director" href="../classes/Director/forceWWW.xhtml">forceWWW()</a>
+                — Force a redirect to a domain starting with "www."</li>
+            <li id="getAbsFile"><a title="Director" href="../classes/Director/getAbsFile.xhtml">getAbsFile()</a>
+                — Given a filesystem reference relative to the site root, return the full file-system path.</li>
+            <li id="get_current_page"><a title="Director" href="../classes/Director/get_current_page.xhtml">get_current_page()</a>
+                — Return the {@link SiteTree} object that is currently being viewed. If there is no SiteTree object to return, then this will return the current controller.</li>
+            <li id="get_environment_type"><a title="Director" href="../classes/Director/get_environment_type.xhtml">get_environment_type()</a>
+                — Can also be checked with {@link Director::isDev()}, {@link Director::isTest()}, and {@link Director::isLive()}.</li>
+            <li id="get_template_global_variables">
+              <a title="Director" href="../classes/Director/get_template_global_variables.xhtml">get_template_global_variables()</a>
+            </li>
+            <li id="isDev"><a title="Director" href="../classes/Director/isDev.xhtml">isDev()</a>
+                — This function will return true if the site is in a development environment.</li>
+            <li id="isLive">
+              <a title="Director" href="../classes/Director/isLive.xhtml">isLive()</a>
+            </li>
+            <li id="isTest"><a title="Director" href="../classes/Director/isTest.xhtml">isTest()</a>
+                — This function will return true if the site is in a test environment.</li>
+            <li id="is_absolute"><a title="Director" href="../classes/Director/is_absolute.xhtml">is_absolute()</a>
+                — Returns true if a given path is absolute. Works under both *nix and windows systems</li>
+            <li id="is_absolute_url"><a title="Director" href="../classes/Director/is_absolute_url.xhtml">is_absolute_url()</a>
+                — Checks if a given URL is absolute (e.g. starts with 'http://' etc.).</li>
+            <li id="is_ajax"><a title="Director" href="../classes/Director/is_ajax.xhtml">is_ajax()</a>
+                — Checks if the current HTTP-Request is an "Ajax-Request" by checking for a custom header set by jQuery or wether a manually set request-parameter 'ajax' is present.</li>
+            <li id="is_cli"><a title="Director" href="../classes/Director/is_cli.xhtml">is_cli()</a>
+                — Returns true if this script is being run from the command line rather than the webserver.</li>
+            <li id="is_https"><a title="Director" href="../classes/Director/is_https.xhtml">is_https()</a>
+                — Return whether the site is running as under HTTPS.</li>
+            <li id="is_relative_url"><a title="Director" href="../classes/Director/is_relative_url.xhtml">is_relative_url()</a>
+                — Checks if a given URL is relative by checking {@link is_absolute_url()}.</li>
+            <li id="is_site_url"><a title="Director" href="../classes/Director/is_site_url.xhtml">is_site_url()</a>
+                — Checks if the given URL is belonging to this "site" (not an external link).</li>
+            <li id="makeRelative"><a title="Director" href="../classes/Director/makeRelative.xhtml">makeRelative()</a>
+                — Turns an absolute URL or folder into one that's relative to the root of the site. This is useful when turning a URL into a filesystem reference, or vice versa.</li>
+            <li id="protocol"><a title="Director" href="../classes/Director/protocol.xhtml">protocol()</a>
+                — Return the current protocol that the site is running under.</li>
+            <li id="protocolAndHost"><a title="Director" href="../classes/Director/protocolAndHost.xhtml">protocolAndHost()</a>
+                — Returns the part of the URL, 'http://www.mysite.com'.</li>
+            <li id="setBaseFolder"><a title="Director" href="../classes/Director/setBaseFolder.xhtml">setBaseFolder()</a>
+                — Sets the root folder for the website.</li>
+            <li id="setBaseURL"><a title="Director" href="../classes/Director/setBaseURL.xhtml">setBaseURL()</a>
+                — Sets the root URL for the website.</li>
+            <li id="setUrlParams"><a title="Director" href="../classes/Director/setUrlParams.xhtml">setUrlParams()</a>
+                — Set url parameters (should only be called internally by RequestHandler-&gt;handleRequest()).</li>
+            <li id="set_current_page"><a title="Director" href="../classes/Director/set_current_page.xhtml">set_current_page()</a>
+                — Set the currently active {@link SiteTree} object that is being used to respond to the request.</li>
+            <li id="set_environment_type"><a title="Director" href="../classes/Director/set_environment_type.xhtml">set_environment_type()</a>
+                — Set the environment type of the current site.</li>
+            <li id="test"><a title="Director" href="../classes/Director/test.xhtml">test()</a>
+                — Test a URL request, returning a response object.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

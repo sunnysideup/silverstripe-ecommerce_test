@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="DB" namespace="" name="DB" abstract="false" final="false" start="9" end="418">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/model" file="DB.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/model/DB.php" size="14338" time="2015-03-14T10:40:57+13:00" unixtime="1426282857" sha1="ece4cdfca307bc93c30a85f0738fd9605e2410f1" relative="framework/model/DB.php"/>
+  <docblock>
+    <description compact="Global database interface, complete with static methods.">Use this class for interacting with the database.</description>
+    <package value="framework"/>
+    <subpackage value="model"/>
+  </docblock>
+  <constant name="USE_ANSI_SQL" value="">
+    <docblock>
+      <description compact="This constant was added in SilverStripe 2.4 to indicate that SQL-queries should now use ANSI-compatible syntax.  The most notable affect of this change is that table and field names should be escaped with double quotes and not backticks"/>
+    </docblock>
+  </constant>
+  <member name="connections" type="array" visibility="private" line="23">
+    <docblock>
+      <description compact="The global database connection."/>
+      <var type="object">
+        <type full="SS_Database" namespace="" name="SS_Database"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="lastQuery" type="{unknown}" visibility="public" line="29">
+    <docblock>
+      <description compact="The last SQL query run."/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="connection_attempted" type="{unknown}" default="false" visibility="private" line="34">
+    <docblock>
+      <description compact="Internal flag to keep track of when db connection was attempted."/>
+    </docblock>
+  </member>
+  <method name="setConn" start="46" end="48" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set the global database connection.">Pass an object that's a subclass of SS_Database.  This object will be used when <link xmlns="http://xml.phpdox.net/src" value="DB::query()"/>is called.
+</description>
+      <param description="connecton object to set as the connection." variable="$connection" type="object">
+        <type full="The" namespace="" name="The"/>
+      </param>
+      <param description="name to give to this connection.  If you omit this argument, the connection" variable="$name" type="object">will be the default one used by the ORM.  However, you can store other named connections to
+be accessed through DB::getConn($name).  This is useful when you have an application that
+needs to connect to more than one database.<type full="The" namespace="" name="The"/></param>
+    </docblock>
+    <parameter name="connection" byreference="false" type="object">
+      <type full="\\SS_Database" namespace="\" name="SS_Database"/>
+    </parameter>
+    <parameter name="name" byreference="false" type="string" default="'default'"/>
+  </method>
+  <method name="getConn" start="56" end="60" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the global database connection."/>
+      <param description="optional name given to a connection in the DB::setConn() call.  If omitted," variable="$name" type="object">the default connection is returned.<type full="An" namespace="" name="An"/></param>
+      <return type="object">
+        <type full="SS_Database" namespace="" name="SS_Database"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="string" default="'default'"/>
+  </method>
+  <method name="set_alternative_database_name" start="75" end="106" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Set an alternative database in a browser cookie, with the cookie lifetime set to the browser session.">This is useful for integration testing on temporary databases.
+
+There is a strict naming convention for temporary databases to avoid abuse:
+&lt;prefix&gt; (default: 'ss_') + tmpdb + &lt;7 digits&gt;
+As an additional security measure, temporary databases will
+be ignored in "live" mode.
+
+Note that the database will be set on the next request.
+Set it to null to revert to the main database.</description>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Ensure key is correct length for chosen cypher" line="92"/>
+      <comment value="Set to browser session lifetime, and restricted to HTTP access only" line="99"/>
+    </inline>
+  </method>
+  <method name="get_alternative_database_name" start="111" end="131" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the name of the database in use"/>
+    </docblock>
+    <inline>
+      <comment value="Ensure key is correct length for chosen cypher" line="123"/>
+    </inline>
+  </method>
+  <method name="valid_alternative_database_name" start="140" end="146" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Determines if the name is valid, as a security measure against setting arbitrary databases."/>
+      <param type="object" variable="$name">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="Boolean" namespace="" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="connect" start="160" end="179" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Connect to a database.">Given the database configuration, this method will create the correct
+subclass of <link xmlns="http://xml.phpdox.net/src" value="SS_Database"/>.
+</description>
+      <param description="A map of options. The 'type' is the name of the subclass of SS_Database to use. For the" type="array" variable="$database">rest of the options, see the specific class.</param>
+      <param description="identifier for the connection" type="string" variable="$name"/>
+      <return type="object">
+        <type full="SS_Database" namespace="" name="SS_Database"/>
+      </return>
+    </docblock>
+    <parameter name="databaseConfig" byreference="false" type="{unknown}"/>
+    <parameter name="label" byreference="false" type="string" default="'default'"/>
+    <inline>
+      <comment value="This is used by the &quot;testsession&quot; module to test up a test session using an alternative name" line="162"/>
+    </inline>
+  </method>
+  <method name="connection_attempted" start="186" end="188" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns true if a database connection has been attempted.">In particular, it lets the caller know if we're still so early in the execution pipeline that
+we haven't even tried to connect to the database yet.</description>
+    </docblock>
+  </method>
+  <method name="getConnect" start="195" end="197" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Build the connection string from input."/>
+      <param description="The connection details." type="array" variable="$parameters"/>
+      <return description="$connect The connection string." type="string"/>
+    </docblock>
+    <parameter name="parameters" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="query" start="205" end="209" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Execute the given SQL query."/>
+      <param description="The SQL query to execute" type="string" variable="$sql"/>
+      <param description="The level of error reporting to enable for the query" type="int" variable="$errorLevel"/>
+      <return type="object">
+        <type full="SS_Query" namespace="" name="SS_Query"/>
+      </return>
+    </docblock>
+    <parameter name="sql" byreference="false" type="{unknown}"/>
+    <parameter name="errorLevel" byreference="false" type="{unknown}" default="E_USER_ERROR"/>
+  </method>
+  <method name="manipulate" start="251" end="254" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Execute a complex manipulation on the database.">A manipulation is an array of insert / or update sequences.  The keys of the array are table names,
+and the values are map containing 'command' and 'fields'.  Command should be 'insert' or 'update',
+and fields should be a map of field names to field values, including quotes.  The field value can
+also be a SQL function or similar.
+Example:
+&lt;code&gt;
+array(
+  // Command: insert
+  "table name" =&gt; array(
+     "command" =&gt; "insert",
+     "fields" =&gt; array(
+        "ClassName" =&gt; "'MyClass'", // if you're setting a literal, you need to escape and provide quotes
+        "Created" =&gt; "now()", // alternatively, you can call DB functions
+        "ID" =&gt; 234,
+      ),
+     "id" =&gt; 234 // an alternative to providing ID in the fields list
+   ),
+  // Command: update
+  "other table" =&gt; array(
+     "command" =&gt; "update",
+     "fields" =&gt; array(
+        "ClassName" =&gt; "'MyClass'",
+        "LastEdited" =&gt; "now()",
+      ),
+     "where" =&gt; "ID = 234",
+     "id" =&gt; 234 // an alternative to providing a where clause
+   ),
+)
+&lt;/code&gt;
+You'll note that only one command on a given table can be called.
+That's a limitation of the system that's due to it being written for <link xmlns="http://xml.phpdox.net/src" value="DataObject::write()"/>,
+which needs to do a single write on a number of different tables.
+</description>
+      <param type="array" variable="$manipulation"/>
+    </docblock>
+    <parameter name="manipulation" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getGeneratedID" start="260" end="262" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get the autogenerated ID from the previous INSERT query."/>
+      <return type="int"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isActive" start="268" end="271" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Check if the connection to the database is active."/>
+      <return type="boolean"/>
+    </docblock>
+  </method>
+  <method name="createDatabase" start="283" end="285" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create the database and connect to it. This can be called if the initial database connection is not successful because the database does not exist."/>
+      <param description="Connection string" type="string" variable="$connect"/>
+      <param description="SS_Database username" type="string" variable="$username"/>
+      <param description="SS_Database Password" type="string" variable="$password"/>
+      <param description="SS_Database to which to create" type="string" variable="$database"/>
+      <return description="Returns true if successful" type="boolean"/>
+    </docblock>
+    <parameter name="connect" byreference="false" type="{unknown}"/>
+    <parameter name="username" byreference="false" type="{unknown}"/>
+    <parameter name="password" byreference="false" type="{unknown}"/>
+    <parameter name="database" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createTable" start="297" end="299" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new table."/>
+      <param description="name of the table" variable="$tableName" type="object">
+        <type full="The" namespace="" name="The"/>
+      </param>
+      <param description="map of field names to field types" variable="$fields" type="object">
+        <type full="A" namespace="" name="A"/>
+      </param>
+      <param description="map of indexes" variable="$indexes" type="object">
+        <type full="A" namespace="" name="A"/>
+      </param>
+      <param description="map of additional options.  The available keys are as follows:" variable="$options" type="object">- 'MSSQLDatabase'/'MySQLDatabase'/'PostgreSQLDatabase' - database-specific options such as "engine" for MySQL.
+  - 'temporary' - If true, then a temporary table will be created<type full="An" namespace="" name="An"/></param>
+      <return description="table name generated.  This may be different from the table name, for example with temporary tables." type="object">
+        <type full="The" namespace="" name="The"/>
+      </return>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="fields" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="indexes" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="options" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="createField" start="307" end="309" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Create a new field on a table."/>
+      <param description="Name of the table." type="string" variable="$table"/>
+      <param description="Name of the field to add." type="string" variable="$field"/>
+      <param description="The field specification, eg 'INTEGER NOT NULL'" type="string" variable="$spec"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="spec" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="requireTable" start="324" end="328" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate the following table in the database, modifying whatever already exists as necessary."/>
+      <param description="The name of the table" type="string" variable="$table"/>
+      <param description="A list of the fields to create, in the same form as DataObject::$db" type="string" variable="$fieldSchema"/>
+      <param description="A list of indexes to create.  The keys of the array are the names of the index." type="string" variable="$indexSchema"/>
+      <param description="A flag indicating that the primary key on this table is an autoincrement type" type="boolean" variable="$hasAutoIncPK">The values of the array can be one of:
+  - true: Create a single column index on the field named the same as the index.
+  - array('fields' =&gt; array('A','B','C'), 'type' =&gt; 'index/unique/fulltext'): This gives you full
+    control over the index.</param>
+      <param description="SQL statement to append to the CREATE TABLE call." type="string" variable="$options"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="fieldSchema" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="indexSchema" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="hasAutoIncPK" byreference="false" type="{unknown}" default="true"/>
+    <parameter name="options" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="extensions" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="requireField" start="336" end="338" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate the given field on the table, modifying whatever already exists as necessary."/>
+      <param description="The table name." type="string" variable="$table"/>
+      <param description="The field name." type="string" variable="$field"/>
+      <param description="The field specification." type="string" variable="$spec"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="field" byreference="false" type="{unknown}"/>
+    <parameter name="spec" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="requireIndex" start="346" end="348" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Generate the given index in the database, modifying whatever already exists as necessary."/>
+      <param description="The table name." type="string" variable="$table"/>
+      <param description="The index name." type="string" variable="$index"/>
+      <param description="The specification of the index. See requireTable() for more information." type="object" variable="$spec">
+        <type full="string|boolean" namespace="" name="string|boolean"/>
+      </param>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="spec" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dontRequireTable" start="354" end="356" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="If the given table exists, move it out of the way by renaming it to _obsolete_(tablename)."/>
+      <param description="The table name." type="string" variable="$table"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="dontRequireField" start="364" end="366" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="See {@link SS_Database-&gt;dontRequireField()}."/>
+      <param description="The table name." type="string" variable="$table"/>
+      <param type="string" variable="$fieldName"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+    <parameter name="fieldName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="checkAndRepairTable" start="373" end="375" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Checks a table's integrity and repairs it if necessary."/>
+      <var description="$tableName The name of the table." type="string"/>
+      <return description="Return true if the table has integrity after the method is complete." type="boolean"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="affectedRows" start="381" end="383" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Return the number of rows affected by the previous operation."/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="tableList" start="390" end="392" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns a list of all tables in the database.">The table names will be in lower case.</description>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="fieldList" start="400" end="402" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Get a list of all the fields for the given table.">Returns a map of field name =&gt; field spec.</description>
+      <param description="The table name." type="string" variable="$table"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="quiet" start="407" end="409" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Enable supression of database messages."/>
+    </docblock>
+  </method>
+  <method name="alteration_message" start="414" end="416" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Show a message about database alteration."/>
+    </docblock>
+    <parameter name="message" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="string" default="&quot;&quot;"/>
+  </method>
+</class>

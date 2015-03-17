@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="ConfigStaticTest_Combined1" namespace="" name="ConfigStaticTest_Combined1" abstract="false" final="false" start="60" end="65">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/tests/core" file="ConfigTest.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/tests/core/ConfigTest.php" size="12469" time="2015-03-14T10:41:06+13:00" unixtime="1426282866" sha1="9cb5434d5861390c235d784c4f6b60c75c369a92" relative="framework/tests/core/ConfigTest.php"/>
+  <extends full="Config" namespace="" name="Config"/>
+  <implements full="TestOnly" namespace="" name="TestOnly"/>
+  <member name="first" type="array" visibility="private" line="62">
+    <docblock>
+      <config/>
+    </docblock>
+  </member>
+  <member name="second" type="array" visibility="private" line="64">
+    <docblock>
+      <config/>
+    </docblock>
+  </member>
+  <parent full="Config" namespace="" name="Config">
+    <constant name="INHERITED" value="0">
+      <docblock>
+        <description compact="source options bitmask value - merge all parent configuration in as lowest priority."/>
+        <const/>
+      </docblock>
+    </constant>
+    <constant name="UNINHERITED" value="1">
+      <docblock>
+        <description compact="source options bitmask value - only get configuration set for this specific class, not any of it's parents."/>
+        <const/>
+      </docblock>
+    </constant>
+    <constant name="FIRST_SET" value="2">
+      <docblock>
+        <description compact="source options bitmask value - inherit, but stop on the first class that actually provides a value (event an empty value)."/>
+        <const/>
+      </docblock>
+    </constant>
+    <constant name="EXCLUDE_EXTRA_SOURCES" value="4">
+      <docblock>
+        <description/>
+        <const value="source options bitmask value - do not use additional statics">sources (such as extension)</const>
+      </docblock>
+    </constant>
+    <constant name="ISNT_ARRAY" value="1">
+      <docblock>
+        <description compact="Return flag for get_value_type indicating value is a scalar (or really just not-an-array, at least ATM)"/>
+        <const/>
+      </docblock>
+    </constant>
+    <constant name="IS_ARRAY" value="2">
+      <docblock>
+        <description compact="Return flag for get_value_type indicating value is an array."/>
+        <const/>
+      </docblock>
+    </constant>
+    <member name="instance" type="{unknown}" visibility="protected" line="176">
+      <docblock>
+        <description/>
+        <todo value="If we can, replace next static &amp; static methods with DI once that's in"/>
+      </docblock>
+    </member>
+    <member name="cache" type="{unknown}" visibility="protected" line="246">
+      <docblock>
+        <description/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="nestedFrom" type="{unknown}" default="null" visibility="protected" line="264">
+      <docblock>
+        <description/>
+        <var description="- The config instance this one was copied from when" type="object">Config::nest() was called.<type full="Config" namespace="" name="Config"/></var>
+      </docblock>
+    </member>
+    <member name="overrides" type="array" visibility="protected" line="271">
+      <docblock>
+        <description/>
+        <var description="- Array of arrays. Each member is an nested array keyed as" type="array">$class =&gt; $name =&gt; $value, where value is a config value to treat as
+the highest priority item.</var>
+      </docblock>
+    </member>
+    <member name="suppresses" type="array" visibility="protected" line="278">
+      <docblock>
+        <description/>
+        <var description="$suppresses Array of arrays. Each member is an nested array" type="array">keyed as $class =&gt; $name =&gt; $value, where value is a config value suppress
+from any lower priority item.</var>
+      </docblock>
+    </member>
+    <member name="staticManifests" type="array" visibility="protected" line="283">
+      <docblock>
+        <description/>
+        <var type="array"/>
+      </docblock>
+    </member>
+    <member name="manifests" type="array" visibility="protected" line="295">
+      <docblock>
+        <var description="- The list of settings pulled from config files to search through" type="object">
+          <type full="[array]" namespace="" name="[array]"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="for_class_instances" type="array" visibility="protected" line="321">
+      <docblock>
+        <var description="- The list of Config_ForClass instances, keyed off class" type="object">
+          <type full="[Config_ForClass]" namespace="" name="[Config_ForClass]"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="extraConfigSources" type="array" visibility="protected" line="462"/>
+    <method name="anything" start="90" end="96" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get a marker class instance that is used to do a &quot;remove anything with this key&quot; by adding $key =&gt; Config::anything() to the suppress array"/>
+        <return type="object">
+          <type full="Object" namespace="" name="Object"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="get_value_type" start="155" end="161" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="Get whether the value is an array or not. Used to be more complicated, but still nice sugar to have an enum to compare and not just a true / false value."/>
+        <param description="- The value" variable="$val" type="object">
+          <type full="any" namespace="" name="any"/>
+        </param>
+        <return description="- One of ISNT_ARRAY or IS_ARRAY" type="int"/>
+      </docblock>
+      <parameter name="val" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="type_mismatch" start="168" end="171" abstract="false" final="false" static="true" visibility="protected">
+      <docblock>
+        <description compact="What to do if there's a type mismatch."/>
+        <throws type="object">
+          <type full="UnexpectedValueException" namespace="" name="UnexpectedValueException"/>
+        </throws>
+      </docblock>
+    </method>
+    <method name="inst" start="188" end="194" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Get the current active Config instance.">Configs should not normally be manually created.
+
+In general use you will use this method to obtain the current Config
+instance.</description>
+        <return type="object">
+          <type full="Config" namespace="" name="Config"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="set_instance" start="207" end="213" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Set the current active {@link Config} instance.">{@link Config} objects should not normally be manually created.
+
+A use case for replacing the active configuration set would be for
+creating an isolated environment for unit tests.</description>
+        <param description="New instance of Config to assign" type="object" variable="$instance">
+          <type full="Config" namespace="" name="Config"/>
+        </param>
+        <return description="Reference to new active Config instance" type="object">
+          <type full="Config" namespace="" name="Config"/>
+        </return>
+      </docblock>
+      <parameter name="instance" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="nest" start="225" end="231" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Make the newly active {@link Config} be a copy of the current active {@link Config} instance.">You can then make changes to the configuration by calling update and
+remove on the new value returned by <link xmlns="http://xml.phpdox.net/src" value="Config::inst()"/>, and then discard
+those changes later by calling unnest.
+</description>
+        <return description="Reference to new active Config instance" type="object">
+          <type full="Config" namespace="" name="Config"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="unnest" start="239" end="241" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Change the active Config back to the Config instance the current active Config object was copied from."/>
+        <return description="Reference to new active Config instance" type="object">
+          <type full="Config" namespace="" name="Config"/>
+        </return>
+      </docblock>
+    </method>
+    <constructor name="__construct" start="252" end="254" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Each copy of the Config object need's it's own cache, so changes don't leak through to other instances."/>
+      </docblock>
+    </constructor>
+    <method name="__clone" start="256" end="258" abstract="false" final="false" static="false" visibility="public"/>
+    <method name="pushConfigStaticManifest" start="288" end="292" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <param type="object">
+          <type full="SS_ConfigStaticManifest" namespace="" name="SS_ConfigStaticManifest"/>
+        </param>
+      </docblock>
+      <parameter name="manifest" byreference="false" type="object">
+        <type full="\\SS_ConfigStaticManifest" namespace="\" name="SS_ConfigStaticManifest"/>
+      </parameter>
+    </method>
+    <method name="pushConfigYamlManifest" start="303" end="318" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add another manifest to the list of config manifests to search through.">WARNING: Config manifests to not merge entries, and do not solve before/after rules inter-manifest -
+instead, the last manifest to be added always wins</description>
+      </docblock>
+      <parameter name="manifest" byreference="false" type="object">
+        <type full="\\SS_ConfigManifest" namespace="\" name="SS_ConfigManifest"/>
+      </parameter>
+      <inline>
+        <comment value="Now that we've got another yaml config manifest we need to clean the cache" line="306"/>
+        <comment value="We also need to clean the cache if the manifest's calculated config values change" line="308"/>
+        <todo value="Do anything with these. They're for caching after config.php has executed" line="311"/>
+      </inline>
+    </method>
+    <method name="forClass" start="332" end="339" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get an accessor that returns results by class by default.">Shouldn't be overridden, since there might be many Config_ForClass instances already held in the wild. Each
+Config_ForClass instance asks the current_instance of Config for the actual result, so override that instead</description>
+        <param variable="$class"/>
+        <return type="object">
+          <type full="Config_ForClass" namespace="" name="Config_ForClass"/>
+        </return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="merge_array_low_into_high" start="350" end="372" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Merge a lower priority associative array into an existing higher priority associative array, as per the class docblock rules">It is assumed you've already checked that you've got two associative arrays, not scalars or sequential arrays</description>
+        <param description="- The existing high priority associative array" variable="$dest" type="array"/>
+        <param description="- The low priority associative array to merge in" variable="$src" type="array"/>
+      </docblock>
+      <parameter name="dest" byreference="true" type="{unknown}"/>
+      <parameter name="src" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="merge_array_high_into_low" start="385" end="389" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Merge a higher priority assocative array into an existing lower priority associative array, as per the class docblock rules.">Much more expensive that the other way around, as there's no way to insert an associative k/v pair into an
+array at the top of the array</description>
+        <static/>
+        <param description="- The existing low priority associative array" variable="$dest" type="array"/>
+        <param description="- The high priority array to merge in" variable="$src" type="array"/>
+      </docblock>
+      <parameter name="dest" byreference="true" type="{unknown}"/>
+      <parameter name="src" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="merge_high_into_low" start="391" end="404" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="result" byreference="true" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="merge_low_into_high" start="406" end="429" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="result" byreference="true" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+      <parameter name="suppress" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="check_value_contained_in_suppress_array" start="431" end="437" abstract="false" final="false" static="true" visibility="public">
+      <parameter name="v" byreference="false" type="{unknown}"/>
+      <parameter name="suppresses" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="check_key_or_value_contained_in_suppress_array" start="439" end="445" abstract="false" final="false" static="true" visibility="protected">
+      <parameter name="k" byreference="false" type="{unknown}"/>
+      <parameter name="v" byreference="false" type="{unknown}"/>
+      <parameter name="suppresses" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="filter_array_by_suppress_array" start="447" end="460" abstract="false" final="false" static="true" visibility="protected">
+      <parameter name="array" byreference="false" type="{unknown}"/>
+      <parameter name="suppress" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="extraConfigSourcesChanged" start="464" end="467" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="class" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getUncached" start="469" end="546" abstract="false" final="false" static="false" visibility="protected">
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="sourceOptions" byreference="false" type="{unknown}"/>
+      <parameter name="result" byreference="true" type="{unknown}"/>
+      <parameter name="suppress" byreference="false" type="{unknown}"/>
+      <parameter name="tags" byreference="true" type="{unknown}"/>
+      <inline>
+        <comment value="If result is already not something to merge into, just return it" line="473"/>
+        <comment value="First, look through the override values" line="476"/>
+        <comment value="Then the manifest values" line="494"/>
+        <comment value="Include extensions only if not flagged not to, and some have been set" line="505"/>
+        <comment value="If we don't have a fresh list of extra sources, get it from the class itself" line="507"/>
+        <comment value="Update $sources with any extra sources" line="512"/>
+        <comment value="Finally, merge in the values from the parent class" line="536"/>
+      </inline>
+    </method>
+    <method name="get" start="575" end="587" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the config value associated for a given class and property">This merges all current sources and overrides together to give final value
+todo: Currently this is done every time. This function is an inner loop function, so we really need to be
+caching heavily here.</description>
+        <param description="- The name of the class to get the value for" variable="$class" type="string"/>
+        <param description="- The property to get the value for" variable="$name" type="string"/>
+        <param description="Bitmask which can be set to some combintain of Config::UNINHERITED," type="int" variable="$sourceOptions">Config::FIRST_SET, and Config::EXCLUDE_EXTENSIONS.
+
+  Config::UNINHERITED does not include parent classes when merging configuration fragments
+  Config::FIRST_SET stops inheriting once the first class that sets a value (even an empty value) is encoutered
+  Config::EXCLUDE_EXTRA_SOURCES does not include any additional static sources (such as extensions)
+
+  Config::INHERITED is a utility constant that can be used to mean "none of the above", equvilient to 0
+  Setting both Config::UNINHERITED and Config::FIRST_SET behaves the same as just Config::UNINHERITED
+
+should the parent classes value be merged in as the lowest priority source?</param>
+        <param description="Reference to a variable to put the result in. Also returned, so this can be left" variable="$result" type="object">as null safely. If you do pass a value, it will be treated as the highest priority
+                            value in the result chain<type full="array|scalar" namespace="" name="array|scalar"/></param>
+        <param description="Internal use when called by child classes. Array of mask pairs to filter value by" variable="$suppress" type="array"/>
+        <return description="The value of the config item, or null if no value set. Could be an associative array," type="object">sequential array or scalar depending on value (see class docblock)<type full="array|scalar" namespace="" name="array|scalar"/></return>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="sourceOptions" byreference="false" type="integer" default="0"/>
+      <parameter name="result" byreference="true" type="{unknown}" default="null"/>
+      <parameter name="suppress" byreference="false" type="{unknown}" default="null"/>
+      <inline>
+        <comment value="Have we got a cached value? Use it if so" line="576"/>
+      </inline>
+    </method>
+    <method name="update" start="605" end="619" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Update a configuration value">Configuration is modify only. The value passed is merged into the existing configuration. If you want to
+replace the current array value, you'll need to call remove first.</description>
+        <param description="- The class to update a configuration value for" variable="$class" type="string"/>
+        <param description="- The configuration property name to update" variable="$name" type="string"/>
+        <param description="- The value to update with" variable="$value" type="object">Arrays are recursively merged into current configuration as "latest" - for associative arrays the passed value
+replaces any item with the same key, for sequential arrays the items are placed at the end of the array, for
+non-array values, this value replaces any existing value
+
+You will get an error if you try and override array values with non-array values or vice-versa<type full="any" namespace="" name="any"/></param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="val" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="remove" start="651" end="677" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Remove a configuration value">You can specify a key, a key and a value, or neither. Either argument can be Config::anything(), which is
+what is defaulted to if you don't specify something
+
+This removes any current configuration value that matches the key and/or value specified
+
+Works like this:
+  - Check the current override array, and remove any values that match the arguments provided
+  - Keeps track of the arguments passed to this method, and in get filters everything _except_ the current
+    override array to exclude any match
+
+This way we can re-set anything removed by a call to this function by calling set. Because the current override
+array is only filtered immediately on calling this remove method, that value will then be exposed. However,
+every other source is filtered on request, so no amount of changes to parent's configuration etc can override a
+remove call.</description>
+        <param description="- The class to remove a configuration value from" variable="$class" type="string"/>
+        <param description="- The configuration name" variable="$name" type="string"/>
+        <param description="- An optional key to filter against." variable="$key" type="object">If referenced config value is an array, only members of that array that match this key will be removed
+  Must also match value if provided to be removed<type full="any" namespace="" name="any"/></param>
+        <param description="- And optional value to filter against." variable="$value" type="object">If referenced config value is an array, only members of that array that match this value will be removed
+  If referenced config value is not an array, value will be removed only if it matches this argument
+  Must also match key if provided and referenced config value is an array to be removed
+
+Matching is always by "==", not by "==="<type full="any" namespace="" name="any"/></param>
+      </docblock>
+      <parameter name="class" byreference="false" type="{unknown}"/>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+  <interface full="TestOnly" namespace="" name="TestOnly"/>
+  <extender full="ConfigStaticTest_Combined2" namespace="" name="ConfigStaticTest_Combined2"/>
+  <extender full="ConfigStaticTest_Combined3" namespace="" name="ConfigStaticTest_Combined3"/>
+</class>

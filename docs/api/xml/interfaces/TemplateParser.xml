@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="TemplateParser" namespace="" name="TemplateParser" abstract="false" final="false" start="9" end="19">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/view" file="TemplateParser.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/view/TemplateParser.php" size="777" time="2015-03-14T10:42:30+13:00" unixtime="1426282950" sha1="557495dfa9bf2bb5dd41546693b03a849b3438c4" relative="framework/view/TemplateParser.php"/>
+  <docblock>
+    <description compact="This interface needs to be implemented by any template parser that is used in SSViewer"/>
+    <package value="framework"/>
+    <subpackage value="view"/>
+  </docblock>
+  <method name="compileString" start="18" end="18" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Compiles some passed template source code into the php code that will execute as per the template source."/>
+      <param description="source of the template" variable="$string" type="object">
+        <type full="The" namespace="" name="The"/>
+      </param>
+      <param description="The name of the template, normally the filename the template source was loaded from" type="string" variable="$templateName"/>
+      <param description="True is debugging comments should be included in the output" type="object" variable="$includeDebuggingComments">
+        <type full="bool" namespace="" name="bool"/>
+      </param>
+      <return description="The php that, when executed (via include or exec) will behave as per the template source" type="object">
+        <type full="mixed|string" namespace="" name="mixed|string"/>
+      </return>
+    </docblock>
+    <parameter name="string" byreference="false" type="{unknown}"/>
+    <parameter name="templateName" byreference="false" type="string" default="&quot;&quot;"/>
+    <parameter name="includeDebuggingComments" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <implementor full="SSTemplateParser" namespace="" name="SSTemplateParser"/>
+  <implementor full="i18nTextCollector_Parser" namespace="" name="i18nTextCollector_Parser"/>
+</interface>

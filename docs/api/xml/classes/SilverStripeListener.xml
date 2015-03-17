@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="SilverStripeListener" namespace="" name="SilverStripeListener" abstract="false" final="false" start="10" end="61">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/dev" file="SilverStripeListener.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/dev/SilverStripeListener.php" size="1687" time="2015-03-14T10:39:31+13:00" unixtime="1426282771" sha1="c6714a753b176df1f0fc4ae756e21c4e2c82d645" relative="framework/dev/SilverStripeListener.php"/>
+  <docblock>
+    <description compact="Inject SilverStripe 'setUpOnce' and 'tearDownOnce' unittest extension methods into PHPUnit.">This is already in later SilverStripe 2.4 versions, but having it here extends compatibility to older versions.</description>
+    <package value="framework"/>
+    <subpackage value="testing"/>
+  </docblock>
+  <implements full="PHPUnit_Framework_TestListener" namespace="" name="PHPUnit_Framework_TestListener"/>
+  <method name="isValidClass" start="12" end="14" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="startTestSuite" start="16" end="22" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="suite" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_TestSuite" namespace="\" name="PHPUnit_Framework_TestSuite"/>
+    </parameter>
+  </method>
+  <method name="endTestSuite" start="24" end="30" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="suite" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_TestSuite" namespace="\" name="PHPUnit_Framework_TestSuite"/>
+    </parameter>
+  </method>
+  <method name="startTest" start="32" end="33" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+  </method>
+  <method name="endTest" start="35" end="36" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addError" start="38" end="39" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="\\Exception" namespace="\" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addFailure" start="41" end="42" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_AssertionFailedError" namespace="\" name="PHPUnit_Framework_AssertionFailedError"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addIncompleteTest" start="44" end="45" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="\\Exception" namespace="\" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addSkippedTest" start="47" end="48" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="\\Exception" namespace="\" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="addRiskyTest" start="58" end="60" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Risky test."/>
+      <param type="object" variable="$test">
+        <type full="PHPUnit_Framework_Test" namespace="" name="PHPUnit_Framework_Test"/>
+      </param>
+      <param type="object" variable="$e">
+        <type full="Exception" namespace="" name="Exception"/>
+      </param>
+      <param type="float" variable="$time"/>
+      <since value="Method available since Release 3.8.0"/>
+    </docblock>
+    <parameter name="test" byreference="false" type="object">
+      <type full="\\PHPUnit_Framework_Test" namespace="\" name="PHPUnit_Framework_Test"/>
+    </parameter>
+    <parameter name="e" byreference="false" type="object">
+      <type full="\\Exception" namespace="\" name="Exception"/>
+    </parameter>
+    <parameter name="time" byreference="false" type="{unknown}"/>
+  </method>
+</class>

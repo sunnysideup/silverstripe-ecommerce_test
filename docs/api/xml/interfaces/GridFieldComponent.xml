@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="GridFieldComponent" namespace="" name="GridFieldComponent" abstract="false" final="false" start="9" end="10">
+  <file path="/var/www/_modules/ecommerce_test/trunk/docs/en/phpdox/../../../framework/forms/gridfield" file="GridFieldComponent.php" realpath="/var/www/_modules/ecommerce_test/trunk/framework/forms/gridfield/GridFieldComponent.php" size="6076" time="2015-03-14T10:40:46+13:00" unixtime="1426282846" sha1="026a1c40c146e02df07a741dec8113859b0384a5" relative="framework/forms/gridfield/GridFieldComponent.php"/>
+  <docblock>
+    <description compact="Base interface for all components that can be added to GridField."/>
+    <package value="forms"/>
+    <subpackage value="fields-gridfield"/>
+  </docblock>
+  <extender full="GridField_HTMLProvider" namespace="" name="GridField_HTMLProvider"/>
+  <extender full="GridField_ColumnProvider" namespace="" name="GridField_ColumnProvider"/>
+  <extender full="GridField_ActionProvider" namespace="" name="GridField_ActionProvider"/>
+  <extender full="GridField_DataManipulator" namespace="" name="GridField_DataManipulator"/>
+  <extender full="GridField_URLHandler" namespace="" name="GridField_URLHandler"/>
+  <extender full="GridField_SaveHandler" namespace="" name="GridField_SaveHandler"/>
+</interface>

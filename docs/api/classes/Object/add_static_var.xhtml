@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#"/>
+          </li>
+          <li class="separator">
+            <a title="Object" href="../../classes/Object.xhtml">Object</a>
+          </li>
+          <li class="separator">add_static_var</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="../../source/framework/core/Object.php.xhtml#line465">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>Object::</small>add_static_var</h1>
+        <h4>Add a static variable without replacing it completely if possible, but merging in with both existing PHP statics and existing psuedo-statics. Uses PHP's array_merge_recursive() with if the $replace argument is FALSE.</h4>
+        <p>Documentation from http://php.net/array_merge_recursive:
+If the input arrays have the same string keys, then the values for these keys are merged together
+into an array, and this is done recursively, so that if one of the values is an array itself,
+the function will merge it with a corresponding entry in another array too.
+If, however, the arrays have the same numeric key, the later value will not overwrite the original value,
+but will be appended.</p>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function add_static_var(string
+        $class,
+            [string
+        $name = false,
+            [mixed
+        $value = false,
+            [<a title="bool" href="../../classes/bool.xhtml">bool</a>
+        $replace = false]]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$class</code>
+                —
+                string</dt>
+          <dd/>
+          <dt><code>$name</code>
+                —
+                string</dt>
+          <dd>the static name</dd>
+          <dt><code>$value</code>
+                —
+                mixed</dt>
+          <dd/>
+          <dt><code>$replace</code>
+                —
+                object</dt>
+          <dd>completely replace existing static values<br/><br/><br/>      </dd>
+        </dl>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>
