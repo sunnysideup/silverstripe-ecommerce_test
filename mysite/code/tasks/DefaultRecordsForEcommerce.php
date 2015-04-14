@@ -1133,29 +1133,7 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 	}
 
 	private function createCurrencies(){
-		$obj = new EcommerceCurrency();
-		$obj->Code = "USD";
-		$obj->Name = "US Dollars";
-		$obj->InUse = 1;
-		$obj->write();
-		DB::alteration_message("created USD currency", "created");
-		$obj = EcommerceCurrency::get()
-			->where("\"Code\" = 'EUR'")
-			->First();
-		if(!$obj) {
-			$obj = new EcommerceCurrency();
-		}
-		$obj->Code = "EUR";
-		$obj->Name = "Euros";
-		$obj->InUse = 1;
-		$obj->write();
-		DB::alteration_message("created EUR currency", "created");
-		$obj = new EcommerceCurrency();
-		$obj->Code = "AUD";
-		$obj->Name = "Australian Dollar";
-		$obj->InUse = 0;
-		$obj->write();
-		DB::alteration_message("created AUD currency", "created");
+		//done automatically
 	}
 
 	private function createtags(){
