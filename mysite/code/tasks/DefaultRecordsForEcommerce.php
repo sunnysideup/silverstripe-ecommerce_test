@@ -117,9 +117,8 @@ class DefaultRecordsForEcommerce extends BuildTask {
 		$checkoutPage = CheckoutPage::get()
 			->First();
 		$checkoutPage->TermsPageID = $termsPage->ID;
-		$checkoutPage->writeToStage('Stage');
+		$checkoutPage->write();
 		$checkoutPage->Publish('Stage', 'Live');
-		$checkoutPage->Status = "Published";
 		$checkoutPage->flushCache();
 		DB::alteration_message("adding terms page to checkout page");
 	}
@@ -926,9 +925,8 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 				$existingAttributeTypes->add($colourObject);
 				$this->addToTitle($product, "with variation", false);
 				$product->Content .= "<p>On this page you can see two example of how you customers can add variations to their products (form / table)... In a real-life shop you would probably choose one or the other.</p>";
-				$product->writeToStage('Stage');
+				$product->write();
 				$product->Publish('Stage', 'Live');
-				$product->Status = "Published";
 				$product->flushCache();
 				$descriptionOptions = array("", "Per Month", "", "", "Per Year", "This option has limited warranty");
 				if(!
@@ -998,9 +996,8 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 			foreach($products as $product) {
 				$includedProducts->add($product);
 			}
-			$page->writeToStage('Stage');
+			$page->write();
 			$page->Publish('Stage', 'Live');
-			$page->Status = "Published";
 			$pages->push($page);
 		}
 		$this->addExamplePages(1, "Combination Products", $pages);
@@ -1546,9 +1543,8 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 			->where("URLSegment = 'features'")
 			->First();
 		$featuresPage->Content .= $html;
-		$featuresPage->writeToStage('Stage');
+		$featuresPage->write();
 		$featuresPage->Publish('Stage', 'Live');
-		$featuresPage->Status = "Published";
 		$featuresPage->flushCache();
 	}
 
@@ -1633,9 +1629,8 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 		if($parentPage) {
 			$page->ParentID = $parentPage->ID;
 		}
-		$page->writeToStage('Stage');
+		$page->write();
 		$page->Publish('Stage', 'Live');
-		$page->Status = "Published";
 		$page->flushCache();
 		DB::alteration_message("Creating / Updating ".$page->Title, "created");
 		if($children) {
@@ -1687,9 +1682,8 @@ git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommer
 		$page->Title = $newTitle;
 		$page->MenuTitle = $newTitle;
 		if($save) {
-			$page->writeToStage('Stage');
+			$page->write();
 			$page->Publish('Stage', 'Live');
-			$page->Status = "Published";
 			$page->flushCache();
 		}
 	}
