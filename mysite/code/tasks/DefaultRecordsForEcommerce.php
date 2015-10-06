@@ -175,7 +175,13 @@ class DefaultRecordsForEcommerce extends BuildTask {
 composer create-project sunnysideup/ecommerce_test:dev-master ./ecommercetest
 cd ecommercetest
 				</pre>
-				After you install the project, you will need to install a
+				<p>After you install the project, you will need to do the following:</p>
+				<ul>
+					<li>add .htaccess file - as per usual</li>
+					<li>add _ss_enviroment.php file - as per usual</li>
+					<li>edit the name of your database in mysite/_config.php</li>
+					<li>run /dev/build/?flush=all or to reinstall, run: /dev/tasks/DefaultRecordsForEcommerce</li>
+				</ul>
 				<h3>git install</h3>
 				<p>
 					To install using git:
