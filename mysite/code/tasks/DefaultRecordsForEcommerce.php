@@ -177,36 +177,19 @@ cd ecommercetest
 				</pre>
 				<p>After you install the project, you will need to do the following:</p>
 				<ul>
-					<li>add .htaccess file - as per usual</li>
-					<li>add _ss_enviroment.php file - as per usual</li>
+					<li>add <em>.htaccess</em> file - as per usual</li>
+					<li>add <em>_ss_enviroment.php</em> file - as per usual</li>
 					<li>edit the name of your database in mysite/_config.php</li>
-					<li>run /dev/build/?flush=all or to reinstall, run: /dev/tasks/DefaultRecordsForEcommerce</li>
+					<li>run <em>/dev/build/?flush=all</em></li>
+					<li>run <em>/dev/tasks/CleanEcommerceTables</em></li>
 				</ul>
-				<h3>git install</h3>
 				<p>
-					To install using git:
-				</p
-				<pre>
-git clone https://github.com/sunnysideup/silverstripe-ecommerce_test.git ecommerce_test</pre>
-				<p>
-					After that, you will have to install the sub-modules, using the composer.json file as guide.
-				</p>
-				<h3>installing example data</h3>
-				<p>
-					You will need to add your own .htaccess and _ss_environment.php file (see <a href=\"http://doc.silverstripe.org/framework/en/installation/\">http://doc.silverstripe.org/framework/en/installation/</a>).
-					The .htaccess files only work on apache servers of course, for other web-servers, please use the appropriate alternatives.
+					The .htaccess files only works on apache servers of course, for other web-servers, please use the appropriate alternatives.
 					An example is included.
-				</p>
-				<p>
-					Next, to install the test data, please run:
-					<a href=\"/dev/tasks/CleanEcommerceTables/\">the install task (/dev/tasks/CleanEcommerceTables/ - resets everything!)</a>
 				</p>
 				<h3>downloads, svn and git</h3>
 				<p>
 					Please log in (see <a href=\"#LoginDetails\">login details</a> above) to the <a href=\"/home/downloads-git-svn/\">the Git / SVN / Download page </a> to fork / checkout / download the source code.
-				</p>
-				<p>
-					This demo is based on the <a href=\"https://silverstripe-ecommerce.googlecode.com/svn/trunk/\">trunk</a> of e-commerce, as well as a bunch of complementary modules.
 				</p>
 				<h3>themes</h3>
 				<p>
