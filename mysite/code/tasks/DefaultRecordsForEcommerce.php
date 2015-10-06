@@ -182,6 +182,7 @@ cd ecommercetest
 					<li>edit the name of your database in mysite/_config.php</li>
 					<li>run <em>/dev/build/?flush=all</em></li>
 					<li>run <em>/dev/tasks/CleanEcommerceTables</em></li>
+					<li>make sure run ?flush=all one more time, as e-commerce includes aggressive caching tricks</li>
 				</ul>
 				<p>
 					The .htaccess files only works on apache servers of course, for other web-servers, please use the appropriate alternatives.
