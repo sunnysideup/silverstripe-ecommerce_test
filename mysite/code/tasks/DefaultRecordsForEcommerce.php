@@ -243,14 +243,14 @@ cd ecommercetest
 					The best place to start is the e-commerce google group mailing list: <a href=\"https://groups.google.com/forum/#!forum/silverstripe-ecommerce\">https://groups.google.com/forum/#!forum/silverstripe-ecommerce</a>.
 				</p>
 				<p>
-					For more detailed questions / bug reports / etc... please visit our <a href=\"http://code.google.com/p/silverstripe-ecommerce/issues/list\">issue list</a> or <a href=\"https://github.com/sunnysideup/silverstripe-ecommerce/issues\">file an issue on github</a> or email us [modules <i>at</i> sunnysideup .co .nz] or get in touch with us in whatever way is easiest for you.
+					For more detailed questions / bug reports / etc... please visit our <a href=\"https://github.com/sunnysideup/silverstripe-ecommerce/issues\">issue list on github</a> or email us [modules <i>at</i> sunnysideup .co .nz].
 					We welcome any feedback and we will act on it where we can.
 				</p>
 
 				<h2>Thank you</h2>
 				<p>
 					Thank you <a href=\"http://www.silverstripe.org\">Silverstripe Community</a> for the Silverstripe foundation.
-					A big <i>kia ora</i> also to all the developers who contributed to <a href=\"http://code.google.com/p/silverstripe-ecommerce/\">the Silverstripe E-commerce Project</a>.
+					A big <i>kia ora</i> also to all the developers who contributed to this project.
 				</p>
 				",
 				"Children" => array(
@@ -664,7 +664,7 @@ cd ecommercetest
 						Here are our estimated charges for e-commerce websites:
 					</p>
 					<ul>
-						<li>free advice during your build of an e-commerce website: <a href=\"http://www.xe.com/ucc/convert/?Amount=200&From=NZD&To=EUR\">NZD200</a>.</li>
+						<li>basic advice during your build of an e-commerce website: free of charge.</li>
 						<li>install only: <a href=\"http://www.xe.com/ucc/convert/?Amount=700&From=NZD&To=EUR\">NZD700</a>.</li>
 						<li>small-size site, PHP + Javascript only: <a href=\"http://www.xe.com/ucc/convert/?Amount=1200&From=NZD&To=EUR\">NZD1200</a>.</li>
 						<li>small-size site, PHP + Javascript + CSS: <a href=\"http://www.xe.com/ucc/convert/?Amount=2400&From=NZD&To=EUR\">NZD2400</a>.</li>
