@@ -26,7 +26,11 @@
 		"post-update-cmd": [
 			"@movetheme"
 		],
-		"movetheme": "mv themes/themes/* themes; mv themes/themes/.[!.]* themes; rm themes/themes -rf"
+		"movetheme": "
+			mv themes/themes_ssu_flava/* themes; 
+			mv themes/themes_ssu_flava/.[!.]* themes; 
+			rm themes/themes_ssu_flava -rf
+		"
 	}
 
 }
