@@ -21,7 +21,14 @@
 		"sunnysideup/ecommerce_product_variation": "dev-master",
 		"sunnysideup/payment_paypal": "dev-master"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"scripts": {
+		"post-update-cmd": [
+			"@movetheme"
+		],
+		"movetheme": "mv themes/themes/* themes; mv themes/themes/.[!.]* themes; rm themes/themes -rf"
+	}
+
 }
 
 
