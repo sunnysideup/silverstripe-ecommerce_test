@@ -171,10 +171,13 @@ class DefaultRecordsForEcommerce extends BuildTask {
 					If you are familiar with composer then you can enter the following command lines:
 				</p>
 				<h3>composer install</h3>
+				<p>
+					Create a directory in which you wan to install the project (e.g. webroot of your server). 
+					Next, browse to that folder and type:</p>
 				<pre>
-composer create-project sunnysideup/ecommerce_test:dev-master ./ecommercetest
-cd ecommercetest
+composer create-project sunnysideup/ecommerce_test:dev-master ./
 				</pre>
+				<p>It is important to install it from within the root folder of the site.</p>
 				<p>After you install the project, you will need to do the following:</p>
 				<ul>
 					<li>add <em>.htaccess</em> file - as per usual</li>
