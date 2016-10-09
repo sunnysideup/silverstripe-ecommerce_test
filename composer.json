@@ -10,23 +10,27 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "3.4.1",
-        "silverstripe/cms": "3.4.1",
-        "sunnysideup/themes_ssu_flava": "dev-master",
+        "silverstripe/framework": "^3.4",
+        "silverstripe/cms": "^3.4",
+
         "silverstripe/geoip": "dev-master",
-        "sunnysideup/ecommerce": "dev-master",
-        "sunnysideup/ecommerce_tax": "dev-master",
-        "sunnysideup/ecommerce_delivery": "dev-master",
-        "sunnysideup/ecommerce_delivery_electronic": "dev-master",
-        "sunnysideup/ecommerce_product_variation": "dev-master",
+
+        "sunnysideup/themes_ssu_flava_main": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_cms": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_ecommerce": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_ecommerce_product_variation": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_webportfolio": "dev-master",
+        "sunnysideup/themes_ssu_simple": "dev-master",
+        "sunnysideup/themes_ssu_simple_ecommerce": "dev-master",
+
         "sunnysideup/payment_paypal": "dev-master",
-        "sunnysideup/permission_provider": "^1.0"
+        
+        "sunnysideup/permission_provider": "*"
+
+        "gdmedia/ss-auto-git-ignore": "dev-master"
     },
-    "minimum-stability": "dev",
     "scripts": {
-        "post-update-cmd": [
-            "@movetheme"
-        ],
-        "movetheme": "mv themes/themes_ssu_flava/* themes; mv themes/themes_ssu_flava/.[!.]* themes; rm themes/themes_ssu_flava -rf"
-    }
+        "post-update-cmd": "GDM\\SSAutoGitIgnore\\UpdateScript::Go"
+    },
+    "minimum-stability": "dev"
 }
