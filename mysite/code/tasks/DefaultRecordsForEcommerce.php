@@ -667,7 +667,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                     <p>
                         Basic advice during your build of an e-commerce website can be provided free of charge.
                         Please please <a href=\"http://www.sunnysideup.co.nz/contact-us/\">contact us</a> for more information.
-                    </p>  
+                    </p>
 
                     <h3>Install</h3>
                     <p>
@@ -698,7 +698,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                             <a href=\"https://github.com/sunnysideup?utf8=%E2%9C%93&tab=repositories&q=ecommerce&type=&language=\">extensions available</a>
                             (e.g. tax, delivery, dashboard, follow up, feedback, rating, payment gateways, internationalisation, apis, etc ... etc...).
                         Where available, we charge around <a href=\"http://www.x-rates.com/table/?from=NZD&amount=150\">NZD150</a> for an <em>as is</em> installation.
-                        For new and or customised module, you can expect to pay around <a href=\"http://www.x-rates.com/table/?from=NZD&amount=700\">NZD700</a> (back-end, HTML and basic JS only).
+                        For new or customised modules, you can expect to pay around <a href=\"http://www.x-rates.com/table/?from=NZD&amount=700\">NZD700</a> (back-end, HTML and basic JS only) per extension.
                     </p>
 
 
