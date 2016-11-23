@@ -635,31 +635,73 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
             array(
                 "ClassName" => "Page",
                 "URLSegment" => "about-us",
-                "Title" => "about us",
-                "MenuTitle" => "about us",
+                "Title" => "About us",
+                "MenuTitle" => "About us",
                 "ShowInMenus" => 1,
                 "ShowInSearch" => 1,
                 "Content" => "
                     <p>
                         This demo e-commerce website has been developed by <a href=\"http://www.sunnysideup.co.nz\">Sunny Side Up</a> for evaluation and testing.
                         If you would like help in building an e-commerce website using the Silverstripe CMS then do not hesitate to contact us.
-                        In many cases, we have provided the back-bone (PHP + Javascript) for sites, with our clients taking care of the front-end (HTML + CSS).
-                        Here are our estimated charges for e-commerce websites:
+                        In many cases, we have provided the back-bone (PHP + HTML + Javascript) for projects, with our clients taking care of the front-end (CSS).
                     </p>
-                    <ul>
-                        <li>basic advice during your build of an e-commerce website: free of charge.</li>
-                        <li>install only: <a href=\"http://www.xe.com/ucc/convert/?Amount=700&From=NZD&To=EUR\">NZD700</a>.</li>
-                        <li>small-size site, PHP + Javascript only: <a href=\"http://www.xe.com/ucc/convert/?Amount=1200&From=NZD&To=EUR\">NZD1200</a>.</li>
-                        <li>small-size site, PHP + Javascript + CSS: <a href=\"http://www.xe.com/ucc/convert/?Amount=2400&From=NZD&To=EUR\">NZD2400</a>.</li>
-                        <li>small-size site, PHP + Javascript + CSS + Design: <a href=\"http://www.xe.com/ucc/convert/?Amount=4800&From=NZD&To=EUR\">NZD4800</a>.</li>
-                        <li>medium-size site, PHP + Javascript only: <a href=\"http://www.xe.com/ucc/convert/?Amount=3600&From=NZD&To=EUR\">NZD3600</a>.</li>
-                        <li>medium-size site, PHP + Javascript + CSS: <a href=\"http://www.xe.com/ucc/convert/?Amount=7200&From=NZD&To=EUR\">NZD7200</a>.</li>
-                        <li>medium-size site, PHP + Javascript + CSS + Design: <a href=\"http://www.xe.com/ucc/convert/?Amount=10800&From=NZD&To=EUR\">NZD10800</a>.</li>
-                        <li>large-size site, PHP + Javascript only: <a href=\"http://www.xe.com/ucc/convert/?Amount=10800&From=NZD&To=EUR\">NZD10800</a>.</li>
-                        <li>large-size site, PHP + Javascript + CSS: <a href=\"http://www.xe.com/ucc/convert/?Amount=21600&From=NZD&To=EUR\">NZD21600</a>.</li>
-                        <li>large-size site, PHP + Javascript + CSS + Design: <a href=\"http://www.xe.com/ucc/convert/?Amount=43200&From=NZD&To=EUR\">NZD43200</a>.</li>
-                    </ul>
-                    <p>For more information, please <a href=\"http://www.ssmods.com/contact-us/\">contact us</a>.</p>
+                ")
+                ,
+                array(
+                    "ClassName" => "Page",
+                    "URLSegment" => "pricing",
+                    "Title" => "Pricing",
+                    "MenuTitle" => "Pricing",
+                    "ShowInMenus" => 1,
+                    "ShowInSearch" => 1,
+                    "Content" => "
+                    <p>
+                        If you like a quote for an e-commerce site then please <a href=\"http://www.sunnysideup.co.nz/contact-us/\">contact us</a> directly.
+                    </p>
+                    <h2>Digital Agencies</h2>
+                    <p>
+                        Below are some pricing indications for digital agencies who are keen to tap into the Sunny Side Up <em>know-how</em> for Silverstripe e-commerce sites.
+                    </p>
+                    </p>
+                    <h3>Help is free</h3>
+                    <p>
+                        Basic advice during your build of an e-commerce website can be provided free of charge.
+                        Please please <a href=\"http://www.sunnysideup.co.nz/contact-us/\">contact us</a> for more information.
+                    </p>  
+
+                    <h3>Install</h3>
+                    <p>
+                        Our e-commerce module has seven core features.
+                    </p>
+                    <ol>
+                        <li>configuration interface</li>
+                        <li>products</li>
+                        <li>product categories / listings</li>
+                        <li>product search</li>
+                        <li>account page (login / logout / update details)</li>
+                        <li>checkout</li>
+                        <li>post-sale order processing</li>
+                    </ol>
+
+                    <p>
+                        For a basic install and configuration (install, tweak database, and review yml settings)
+                        we charge <a href=\"http://www.x-rates.com/table/?from=NZD&amount=700\">NZD700</a>
+                    </p>
+                    <h3>Customisation</h3>
+                    <p>
+                        For a tested, customised install, we charge around <a href=\"http://www.x-rates.com/table/?from=NZD&amount=5000\">NZD5000</a>.
+                    </p>
+
+                    <h3>Need more features?</h3>
+                    <p>
+                        We also have a ton of
+                            <a href=\"https://github.com/sunnysideup?utf8=%E2%9C%93&tab=repositories&q=ecommerce&type=&language=\">extensions available</a>
+                            (e.g. tax, delivery, dashboard, follow up, feedback, rating, payment gateways, internationalisation, apis, etc ... etc...).
+                        Where available, we charge around <a href=\"http://www.x-rates.com/table/?from=NZD&amount=150\">NZD150</a> for an <em>as is</em> installation.
+                        For new and or customised module, you can expect to pay around <a href=\"http://www.x-rates.com/table/?from=NZD&amount=700\">NZD700</a> (back-end, HTML and basic JS only).
+                    </p>
+
+
                 "
             )
             /*
