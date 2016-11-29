@@ -1,7 +1,7 @@
 <?php
 
-class Page extends SiteTree {
-
+class Page extends SiteTree
+{
     private static $db = array(
         "SetupCompleted" => "Boolean"
     );
@@ -10,27 +10,27 @@ class Page extends SiteTree {
         "BackgroundImage" => "Image"
     );
 
-    function MyBackgroundImage() {
-        if($this->BackgroundImageID) {
-            if($image = $this->BackgroundImage()) {
+    public function MyBackgroundImage()
+    {
+        if ($this->BackgroundImageID) {
+            if ($image = $this->BackgroundImage()) {
                 return $image;
             }
         }
-        if($this->ParentID) {
-            if($parent = DataObject::get_by_id("SiteTree", $this->ParentID)) {
+        if ($this->ParentID) {
+            if ($parent = DataObject::get_by_id("SiteTree", $this->ParentID)) {
                 return $parent->MyBackgroundImage();
             }
         }
-        if($siteConfig = SiteConfig::current_site_config()) {
+        if ($siteConfig = SiteConfig::current_site_config()) {
             return $siteConfig->BackgroundImage();
         }
     }
-
 }
 
 
-class Page_Controller extends ContentController {
-
+class Page_Controller extends ContentController
+{
     private static $allowed_actions = array(
         "settheme"
     );
@@ -52,12 +52,13 @@ class Page_Controller extends ContentController {
      */
 
 
-    public function init() {
+    public function init()
+    {
         //theme needs to be set TWO times...
         //$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
         parent::init();
         $theme = Config::inst()->get("SSViewer", "theme");
-        if($theme == "main") {
+        if ($theme == "main") {
             Requirements::themedCSS('reset');
             Requirements::themedCSS('layout');
             Requirements::themedCSS('typography');
@@ -68,50 +69,55 @@ class Page_Controller extends ContentController {
 
             Requirements::themedCSS('individualPages');
             Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
-        }
-        elseif($theme == "simple") {
+        } elseif ($theme == "simple") {
         }
     }
 
-    public function index(){
-        if($this->URLSegment == "home") {
-            if(!CompleteSetupRecord::get()->count()) {
+    public function index()
+    {
+        if ($this->URLSegment == "home") {
+            if (!CompleteSetupRecord::get()->count()) {
                 $this->redirect('/dev/tasks/CleanEcommerceTables/?flush=all');
             }
         }
         return array();
     }
 
-    public function settheme(SS_HTTPRequest $request){
+    public function settheme(SS_HTTPRequest $request)
+    {
         $newTheme = $request->param("ID");
         $newTheme = Convert::raw2sql($newTheme);
         DB::query("Update SiteConfig SET Theme = '$newTheme';");
         Session::set("theme", $newTheme);
         SSViewer::flush_template_cache();
         $this->redirect($this->Link());
-
     }
 
-    function IsNotHome() {
+    public function IsNotHome()
+    {
         return $this->URLSegment != "home";
     }
 
-    function Siblings() {
+    public function Siblings()
+    {
         return SiteTree::get()
             ->filter(array("ShowInMenus" => 1, "ParentID" => $this->ParentID))
             ->exclude("ID", $this->ID);
     }
 
-    function MenuChildren() {
+    public function MenuChildren()
+    {
         return SiteTree::get()
             ->filter(array("ShowInMenus" => 1, "ParentID" => $this->ID));
     }
 
-    function HasNoExtendedMetatags(){
+    public function HasNoExtendedMetatags()
+    {
         return true;
     }
 
-    function ExtendedMetaTags(){
+    public function ExtendedMetaTags()
+    {
         return "
             <base href=\"".Director::absolutebaseURL()."\" />
             <meta charset=\"utf-8\" />
@@ -128,8 +134,7 @@ class Page_Controller extends ContentController {
             <meta property=\"og:type\" content=\"website\" />
             <meta property=\"og:url\" content=\"".$this->Link()."/\" />
             <meta property=\"og:site_name\" content=\"Silverstripe E-commerce\" />
-            <meta property=\"og:description\" content=\"".substr(strip_tags($this->Content),0, 100)."\" />
+            <meta property=\"og:description\" content=\"".substr(strip_tags($this->Content), 0, 100)."\" />
         ";
     }
-
 }

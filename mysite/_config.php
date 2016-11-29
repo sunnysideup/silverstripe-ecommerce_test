@@ -14,7 +14,9 @@ Email::setAdminEmail("sales@silverstripe-ecommerce.com");
 
 
 $theme = Session::get("theme");
-if(!$theme) {$theme = "simple";}
-if(Config::inst()->get("SSViewer", "theme") != $theme) {
-	Config::inst()->update("SSViewer", "theme", $theme);
+if (!$theme) {
+    $theme = "simple";
+}
+if (Config::inst()->get("SSViewer", "theme") != $theme) {
+    Config::inst()->update("SSViewer", "theme", $theme);
 }
