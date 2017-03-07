@@ -29,14 +29,30 @@
         "sunnysideup/themes_ssu_flava_simple_ecommerce": "*",
         "gdmedia/ss-auto-git-ignore": "*"
     },
+
     "scripts": {
         "post-update-cmd": "GDM\\SSAutoGitIgnore\\UpdateScript::Go"
+            "post-install-cmd": [
+                "sed -i '/CLEANING_MODE_ALL/d' ./framework/model/Aggregate.php",
+                "php framework/cli-script.php dev/build flush=all" 
+            ],
+            "post-update-cmd": [
+                "GDM\\SSAutoGitIgnore\\UpdateScript::Go",
+                "sed -i '/CLEANING_MODE_ALL/d' ./framework/model/Aggregate.php",
+                "php framework/cli-script.php dev/build flush=all" 
+            ]
     },
+
     "minimum-stability": "dev",
     "prefer-stable": true,
     "keywords": [
         "Silverstripe-CMS",
         "CMS",
         "Silverstripe"
+	"ecommerce",
+	"e-commerce",
+	"shop",
+	"sales",
+	"demo"
     ]
 }
