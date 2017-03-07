@@ -10,35 +10,36 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~3.1",
-        "silverstripe/cms": "~3.1",
+        "silverstripe/framework": "~3.5",
+        "silverstripe/cms": "~3.5",
         "silverstripe/geoip": "*",
-        "sunnysideup/ecommerce": "*",
-        "sunnysideup/ecommerce_tax": "*",
-        "sunnysideup/ecommerce_delivery": "*",
-        "sunnysideup/ecommerce_delivery_electronic": "*",
-        "sunnysideup/ecommerce_product_variation": "*",
-        "sunnysideup/payment_paypal": "*",
-        "sunnysideup/permission_provider": "*",
-        "sunnysideup/themes_ssu_flava_main": "*",
-        "sunnysideup/themes_ssu_flava_main_cms": "*",
-        "sunnysideup/themes_ssu_flava_main_ecommerce": "*",
-        "sunnysideup/themes_ssu_flava_main_ecommerce_product_variation": "*",
-        "sunnysideup/themes_ssu_flava_main_webportfolio": "*",
-        "sunnysideup/themes_ssu_flava_simple": "*",
-        "sunnysideup/themes_ssu_flava_simple_ecommerce": "*",
+        "sunnysideup/cms_edit_link_field": "dev-master",
+        "sunnysideup/ecommerce": "dev-master",
+        "sunnysideup/ecommerce_tax": "dev-master",
+        "sunnysideup/ecommerce_delivery": "dev-master",
+        "sunnysideup/ecommerce_delivery_electronic": "dev-master",
+        "sunnysideup/ecommerce_product_variation": "dev-master",
+        "sunnysideup/payment_paypal": "dev-master",
+        "sunnysideup/permission_provider": "dev-master",
+        "sunnysideup/themes_ssu_flava_main": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_cms": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_ecommerce": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_ecommerce_product_variation": "dev-master",
+        "sunnysideup/themes_ssu_flava_main_webportfolio": "dev-master",
+        "sunnysideup/themes_ssu_flava_simple": "dev-master",
+        "sunnysideup/themes_ssu_flava_simple_ecommerce": "dev-master",
         "gdmedia/ss-auto-git-ignore": "*"
     },
 
     "scripts": {
             "post-install-cmd": [
                 "sed -i '/CLEANING_MODE_ALL/d' ./framework/model/Aggregate.php",
-                "php framework/cli-script.php dev/build flush=all" 
+                "php framework/cli-script.php dev/build flush=all"
             ],
             "post-update-cmd": [
                 "GDM\\SSAutoGitIgnore\\UpdateScript::Go",
                 "sed -i '/CLEANING_MODE_ALL/d' ./framework/model/Aggregate.php",
-                "php framework/cli-script.php dev/build flush=all" 
+                "php framework/cli-script.php dev/build flush=all"
             ]
     },
 
@@ -48,10 +49,10 @@
         "Silverstripe-CMS",
         "CMS",
         "Silverstripe",
-	"ecommerce",
-	"e-commerce",
-	"shop",
-	"sales",
-	"demo"
+    "ecommerce",
+    "e-commerce",
+    "shop",
+    "sales",
+    "demo"
     ]
 }
