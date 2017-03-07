@@ -137,4 +137,20 @@ class Page_Controller extends ContentController
             <meta property=\"og:description\" content=\"".substr(strip_tags($this->Content), 0, 100)."\" />
         ";
     }
+
+    function IsInHouseTemplate()
+    {
+        $standard = array(
+            'Page',
+            'WebPortfolioPage',
+            'PresentationPage',
+            'TermsAndConditionsPage',
+            'ErrorPage',
+            'HomePage',
+            'TypographyTestPage',
+            'TemplateOverviewPage'
+        );
+
+        return in_array($this->ClassName, $standard);
+    }
 }
