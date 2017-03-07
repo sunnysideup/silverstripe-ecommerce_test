@@ -31,7 +31,6 @@
     },
 
     "scripts": {
-        "post-update-cmd": "GDM\\SSAutoGitIgnore\\UpdateScript::Go"
             "post-install-cmd": [
                 "sed -i '/CLEANING_MODE_ALL/d' ./framework/model/Aggregate.php",
                 "php framework/cli-script.php dev/build flush=all" 
@@ -48,7 +47,7 @@
     "keywords": [
         "Silverstripe-CMS",
         "CMS",
-        "Silverstripe"
+        "Silverstripe",
 	"ecommerce",
 	"e-commerce",
 	"shop",
