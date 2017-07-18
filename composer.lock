@@ -4,20 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "34d83e54a3dab80f9c95d3243b2cefc7",
+    "hash": "e5454be744f8f80ed9056a9decb29cd8",
+    "content-hash": "08162323bfb2cbdf1f1cc8813e002015",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "d78064c68299743e0161004f2de3a0204e33b804"
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
-                "reference": "d78064c68299743e0161004f2de3a0204e33b804",
+                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
                 "shasum": ""
             },
             "require": {
@@ -59,12 +60,16 @@
             "keywords": [
                 "Craft",
                 "Dolibarr",
+                "Eliasis",
                 "Hurad",
                 "ImageCMS",
+                "Kanboard",
                 "MODX Evo",
                 "Mautic",
+                "Maya",
                 "OXID",
                 "Plentymarkets",
+                "Porto",
                 "RadPHP",
                 "SMF",
                 "Thelia",
@@ -87,9 +92,11 @@
                 "fuelphp",
                 "grav",
                 "installer",
+                "itop",
                 "joomla",
                 "kohana",
                 "laravel",
+                "lavalite",
                 "lithium",
                 "magento",
                 "mako",
@@ -104,6 +111,7 @@
                 "roundcube",
                 "shopware",
                 "silverstripe",
+                "sydes",
                 "symfony",
                 "typo3",
                 "wordpress",
@@ -111,7 +119,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-08-13T20:53:52+00:00"
+            "time": "2017-04-24 06:37:16"
         },
         {
             "name": "gdmedia/ss-auto-git-ignore",
@@ -141,20 +149,20 @@
                 }
             ],
             "description": "A Composer post-update-cmd script to automatically add Composer managed SilverStripe modules and themes to .gitignore",
-            "time": "2016-07-27T19:24:49+00:00"
+            "time": "2016-07-27 19:24:49"
         },
         {
             "name": "silverstripe/cms",
-            "version": "3.5.3",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "80099f24b76b4ac36d38477f1ad8230208b031cb"
+                "reference": "05bb2fef1b246bfeb47d6dd0f9e19074a4135b34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/80099f24b76b4ac36d38477f1ad8230208b031cb",
-                "reference": "80099f24b76b4ac36d38477f1ad8230208b031cb",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/05bb2fef1b246bfeb47d6dd0f9e19074a4135b34",
+                "reference": "05bb2fef1b246bfeb47d6dd0f9e19074a4135b34",
                 "shasum": ""
             },
             "require": {
@@ -195,25 +203,25 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2017-02-20T17:01:15+00:00"
+            "time": "2017-06-15 11:50:49"
         },
         {
             "name": "silverstripe/framework",
-            "version": "3.5.3",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "a2580456bda9ff513cf80227039fc79405908f3f"
+                "reference": "ddff7c5dad117e49a40a3cfe1c16db84fd9b5016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/a2580456bda9ff513cf80227039fc79405908f3f",
-                "reference": "a2580456bda9ff513cf80227039fc79405908f3f",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/ddff7c5dad117e49a40a3cfe1c16db84fd9b5016",
+                "reference": "ddff7c5dad117e49a40a3cfe1c16db84fd9b5016",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "~1.0",
-                "php": ">=5.3.3,<7"
+                "php": ">= 5.3.3, <7.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "~3.7"
@@ -221,7 +229,7 @@
             "type": "silverstripe-module",
             "extra": {
                 "branch-alias": {
-                    "3.x-dev": "3.5.x-dev"
+                    "3.x-dev": "3.6.x-dev"
                 }
             },
             "autoload": {
@@ -249,7 +257,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2017-02-20T17:01:16+00:00"
+            "time": "2017-06-27 11:48:16"
         },
         {
             "name": "silverstripe/geoip",
@@ -284,24 +292,24 @@
                 "geoip",
                 "silverstripe-labs"
             ],
-            "time": "2016-03-07T20:40:00+00:00"
+            "time": "2016-03-07 20:40:00"
         },
         {
             "name": "silverstripe/reports",
-            "version": "3.5.3",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-reports.git",
-                "reference": "dcb80241588639aaf42bde7577e79e8b4bff0e23"
+                "reference": "2e29bf27fee9a465fcc4744aad656c3e9093167f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/dcb80241588639aaf42bde7577e79e8b4bff0e23",
-                "reference": "dcb80241588639aaf42bde7577e79e8b4bff0e23",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/2e29bf27fee9a465fcc4744aad656c3e9093167f",
+                "reference": "2e29bf27fee9a465fcc4744aad656c3e9093167f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3,<7",
+                "php": ">=5.3.3,<7.2",
                 "silverstripe/framework": "~3.3"
             },
             "require-dev": {
@@ -310,7 +318,7 @@
             "type": "silverstripe-module",
             "extra": {
                 "branch-alias": {
-                    "3.x-dev": "3.5.x-dev"
+                    "3.x-dev": "3.6.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -334,20 +342,20 @@
                 "reports",
                 "silverstripe"
             ],
-            "time": "2016-11-28T14:13:29+00:00"
+            "time": "2017-05-30 23:06:19"
         },
         {
             "name": "silverstripe/siteconfig",
-            "version": "3.5.3",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-siteconfig.git",
-                "reference": "875c18cc940aeace6032d37c112333f64deab345"
+                "reference": "8e03d7b7b86d72b5161682be25c052dd3f6db54e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/875c18cc940aeace6032d37c112333f64deab345",
-                "reference": "875c18cc940aeace6032d37c112333f64deab345",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/8e03d7b7b86d72b5161682be25c052dd3f6db54e",
+                "reference": "8e03d7b7b86d72b5161682be25c052dd3f6db54e",
                 "shasum": ""
             },
             "require": {
@@ -357,7 +365,7 @@
             "extra": {
                 "installer-name": "siteconfig",
                 "branch-alias": {
-                    "3.x-dev": "3.5.x-dev"
+                    "3.x-dev": "3.6.x-dev"
                 }
             },
             "autoload": {
@@ -377,20 +385,20 @@
                 "silverstripe",
                 "siteconfig"
             ],
-            "time": "2016-12-22T00:18:45+00:00"
+            "time": "2017-06-15 11:52:21"
         },
         {
             "name": "sunnysideup/cms_edit_link_field",
-            "version": "dev-master",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-cms_edit_link_field.git",
-                "reference": "c292ae57728f433828de4b5c89888f7bcd5fadbe"
+                "reference": "6aa080d3b5330daabccee8a9d78307e324ddbb7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-cms_edit_link_field/zipball/c292ae57728f433828de4b5c89888f7bcd5fadbe",
-                "reference": "c292ae57728f433828de4b5c89888f7bcd5fadbe",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-cms_edit_link_field/zipball/6aa080d3b5330daabccee8a9d78307e324ddbb7a",
+                "reference": "6aa080d3b5330daabccee8a9d78307e324ddbb7a",
                 "shasum": ""
             },
             "require": {
@@ -419,20 +427,20 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2017-02-02 07:39:25"
+            "time": "2017-03-15 02:17:11"
         },
         {
             "name": "sunnysideup/dataobjectsorter",
-            "version": "3.7.1",
+            "version": "3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-dataobjectsorter.git",
-                "reference": "17ab5cc04361e7077788eb9fa9e5aedd15861bc7"
+                "reference": "5fee16ff9b112d863d60481de92bb896f5c94f28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-dataobjectsorter/zipball/17ab5cc04361e7077788eb9fa9e5aedd15861bc7",
-                "reference": "17ab5cc04361e7077788eb9fa9e5aedd15861bc7",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-dataobjectsorter/zipball/5fee16ff9b112d863d60481de92bb896f5c94f28",
+                "reference": "5fee16ff9b112d863d60481de92bb896f5c94f28",
                 "shasum": ""
             },
             "require": {
@@ -468,20 +476,20 @@
                 "sort",
                 "sorting"
             ],
-            "time": "2017-01-03T01:01:36+00:00"
+            "time": "2017-01-16 00:05:44"
         },
         {
             "name": "sunnysideup/ecommerce",
-            "version": "dev-master",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce.git",
-                "reference": "00371b648dc4cff97ea49e7d0debd4e252a4095b"
+                "reference": "69736eca30a4654b95107344340a57a091f3ed55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/00371b648dc4cff97ea49e7d0debd4e252a4095b",
-                "reference": "00371b648dc4cff97ea49e7d0debd4e252a4095b",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/69736eca30a4654b95107344340a57a091f3ed55",
+                "reference": "69736eca30a4654b95107344340a57a091f3ed55",
                 "shasum": ""
             },
             "require": {
@@ -496,8 +504,8 @@
                 "silverstripe-australia/grouped-cms-menu": "HIGHLY RECOMMENDED! merge e-commerce cms menu items into one section.",
                 "silverstripe/geoip": "Native Silverstripe way to work out the customer country. Make sure this work on your server, before installing it - otherwise it is useless.",
                 "silverstripe/restfulserver": "Adds restful server functionality to your e-commerce site (creates an API for your e-commerce application, allowing third-parties to tap into your e-commerce data)",
-                "sunnysideup/cloudflaregeoip": "Extends Geoip if you are using cloudflare",
-                "sunnysideup/cms_edit_link_field": "easier ways to link through within ecommerce objects and other objects that have the CMSEditLink"
+                "sunnysideup/cms_edit_link_field": "easier ways to link through within ecommerce objects and other objects that have the CMSEditLink",
+                "sunnysideup/ecommerce_cloud_flare_geoip": "Extends Geoip if you are using cloudflare"
             },
             "type": "silverstripe-module",
             "extra": {
@@ -531,20 +539,20 @@
                 "silverstripe",
                 "webshop"
             ],
-            "time": "2017-03-02 03:11:16"
+            "time": "2017-04-19 01:15:52"
         },
         {
             "name": "sunnysideup/ecommerce_delivery",
-            "version": "dev-master",
+            "version": "5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce_delivery.git",
-                "reference": "a5e37fe20a30b9657d57b682a67d4466e102dcc8"
+                "reference": "816b145db7d9e4ee13b02512e8f31d931dbfb8cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_delivery/zipball/a5e37fe20a30b9657d57b682a67d4466e102dcc8",
-                "reference": "a5e37fe20a30b9657d57b682a67d4466e102dcc8",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_delivery/zipball/816b145db7d9e4ee13b02512e8f31d931dbfb8cf",
+                "reference": "816b145db7d9e4ee13b02512e8f31d931dbfb8cf",
                 "shasum": ""
             },
             "require": {
@@ -584,20 +592,20 @@
                 "silverstripe",
                 "tracking code"
             ],
-            "time": "2017-02-03 02:57:19"
+            "time": "2017-03-13 03:40:46"
         },
         {
             "name": "sunnysideup/ecommerce_delivery_electronic",
-            "version": "dev-master",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce_delivery_electronic.git",
-                "reference": "2f5c09f265177a25d276f4026d8c764578c24e0f"
+                "reference": "f460ebe528779e2142d4eeab9ccc10172e94272b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_delivery_electronic/zipball/2f5c09f265177a25d276f4026d8c764578c24e0f",
-                "reference": "2f5c09f265177a25d276f4026d8c764578c24e0f",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_delivery_electronic/zipball/f460ebe528779e2142d4eeab9ccc10172e94272b",
+                "reference": "f460ebe528779e2142d4eeab9ccc10172e94272b",
                 "shasum": ""
             },
             "require": {
@@ -607,6 +615,9 @@
                 "sunnysideup/ecommerce": "*"
             },
             "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "ecommerce_delivery_electronic"
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Sunny Side Up (BSD-3-Clause and CUSTOM)"
@@ -630,11 +641,11 @@
                 "shop",
                 "silverstripe"
             ],
-            "time": "2017-01-03 01:05:22"
+            "time": "2017-03-13 03:41:06"
         },
         {
             "name": "sunnysideup/ecommerce_product_variation",
-            "version": "dev-master",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce_product_variation.git",
@@ -690,7 +701,7 @@
         },
         {
             "name": "sunnysideup/ecommerce_tax",
-            "version": "dev-master",
+            "version": "5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce_tax.git",
@@ -741,16 +752,16 @@
         },
         {
             "name": "sunnysideup/google_address_field",
-            "version": "1.7.1",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-google_address_field.git",
-                "reference": "05f078ac5d3628db16dc0eb2fed0742c2af36e33"
+                "reference": "728a9d2293203382903296f637abe9d133b876e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-google_address_field/zipball/05f078ac5d3628db16dc0eb2fed0742c2af36e33",
-                "reference": "05f078ac5d3628db16dc0eb2fed0742c2af36e33",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-google_address_field/zipball/728a9d2293203382903296f637abe9d133b876e6",
+                "reference": "728a9d2293203382903296f637abe9d133b876e6",
                 "shasum": ""
             },
             "require": {
@@ -787,20 +798,20 @@
                 "maps",
                 "silverstripe"
             ],
-            "time": "2017-01-10T01:13:40+00:00"
+            "time": "2017-02-03 03:44:43"
         },
         {
             "name": "sunnysideup/payment_paypal",
-            "version": "dev-master",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-payment_paypal.git",
-                "reference": "1be382b11da75f683b157b311b37ab951eb338cc"
+                "reference": "e89a5968e29eb0159a6f58cdbb27ac01647adcc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-payment_paypal/zipball/1be382b11da75f683b157b311b37ab951eb338cc",
-                "reference": "1be382b11da75f683b157b311b37ab951eb338cc",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-payment_paypal/zipball/e89a5968e29eb0159a6f58cdbb27ac01647adcc5",
+                "reference": "e89a5968e29eb0159a6f58cdbb27ac01647adcc5",
                 "shasum": ""
             },
             "require": {
@@ -842,11 +853,11 @@
                 "shop",
                 "silverstripe"
             ],
-            "time": "2017-01-10 00:53:32"
+            "time": "2017-04-06 02:40:24"
         },
         {
             "name": "sunnysideup/permission_provider",
-            "version": "dev-master",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-permission_provider.git",
@@ -893,16 +904,16 @@
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main",
-            "version": "dev-master",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main.git",
-                "reference": "a6c3f7bc8c11dfc4d7497436ab7b87a740a28eed"
+                "reference": "e41e9a242da1bc00c46bcd27920e615dd856b774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main/zipball/a6c3f7bc8c11dfc4d7497436ab7b87a740a28eed",
-                "reference": "a6c3f7bc8c11dfc4d7497436ab7b87a740a28eed",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main/zipball/e41e9a242da1bc00c46bcd27920e615dd856b774",
+                "reference": "e41e9a242da1bc00c46bcd27920e615dd856b774",
                 "shasum": ""
             },
             "require": {
@@ -945,20 +956,20 @@
                 "theme",
                 "themes"
             ],
-            "time": "2017-03-07 01:03:02"
+            "time": "2017-03-21 00:35:08"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main_cms",
-            "version": "dev-master",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_cms.git",
-                "reference": "afa1a542c5e4a1dde81c3e540a487537be10eac4"
+                "reference": "03fe972459e50f3146fc0792a4fc5b8ae7357ab5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_cms/zipball/afa1a542c5e4a1dde81c3e540a487537be10eac4",
-                "reference": "afa1a542c5e4a1dde81c3e540a487537be10eac4",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_cms/zipball/03fe972459e50f3146fc0792a4fc5b8ae7357ab5",
+                "reference": "03fe972459e50f3146fc0792a4fc5b8ae7357ab5",
                 "shasum": ""
             },
             "require": {
@@ -1001,20 +1012,20 @@
                 "theme",
                 "themes"
             ],
-            "time": "2017-02-12 23:07:51"
+            "time": "2017-03-13 04:13:07"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main_ecommerce",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce.git",
-                "reference": "ed00504603bfa83706fc860229f1dfe42c4fc37c"
+                "reference": "1fd2fa2f56de7dc30a4a2fed1d950bb3cbc42632"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce/zipball/ed00504603bfa83706fc860229f1dfe42c4fc37c",
-                "reference": "ed00504603bfa83706fc860229f1dfe42c4fc37c",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce/zipball/1fd2fa2f56de7dc30a4a2fed1d950bb3cbc42632",
+                "reference": "1fd2fa2f56de7dc30a4a2fed1d950bb3cbc42632",
                 "shasum": ""
             },
             "require": {
@@ -1057,20 +1068,20 @@
                 "theme",
                 "themes"
             ],
-            "time": "2017-03-07 02:59:33"
+            "time": "2017-03-13 04:13:18"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main_ecommerce_product_variation",
-            "version": "dev-master",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce_product_variation.git",
-                "reference": "f54822931e085e228c1135447f77273e4e2eff0b"
+                "reference": "9804ffcc1d90ededaa6760af6c22dd2cb2a7bfdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce_product_variation/zipball/f54822931e085e228c1135447f77273e4e2eff0b",
-                "reference": "f54822931e085e228c1135447f77273e4e2eff0b",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce_product_variation/zipball/9804ffcc1d90ededaa6760af6c22dd2cb2a7bfdd",
+                "reference": "9804ffcc1d90ededaa6760af6c22dd2cb2a7bfdd",
                 "shasum": ""
             },
             "require": {
@@ -1113,20 +1124,20 @@
                 "theme",
                 "themes"
             ],
-            "time": "2017-02-12 23:06:54"
+            "time": "2017-03-13 04:13:28"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main_webportfolio",
-            "version": "dev-master",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_webportfolio.git",
-                "reference": "682a9e7fee4991be1671d546e12639ae4ed1b667"
+                "reference": "647853adba80b020def1d32d0c4acc8ae59f6550"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_webportfolio/zipball/682a9e7fee4991be1671d546e12639ae4ed1b667",
-                "reference": "682a9e7fee4991be1671d546e12639ae4ed1b667",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_webportfolio/zipball/647853adba80b020def1d32d0c4acc8ae59f6550",
+                "reference": "647853adba80b020def1d32d0c4acc8ae59f6550",
                 "shasum": ""
             },
             "require": {
@@ -1169,20 +1180,20 @@
                 "theme",
                 "themes"
             ],
-            "time": "2017-01-03 01:34:29"
+            "time": "2017-03-13 04:13:40"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_simple",
-            "version": "dev-master",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_simple.git",
-                "reference": "3bd2310fb5f2568d030c169940ae3c866b0231f9"
+                "reference": "e91e42b9706f5f15ef38f4a50b65a9f2167aeda4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_simple/zipball/3bd2310fb5f2568d030c169940ae3c866b0231f9",
-                "reference": "3bd2310fb5f2568d030c169940ae3c866b0231f9",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_simple/zipball/e91e42b9706f5f15ef38f4a50b65a9f2167aeda4",
+                "reference": "e91e42b9706f5f15ef38f4a50b65a9f2167aeda4",
                 "shasum": ""
             },
             "require": {
@@ -1225,20 +1236,20 @@
                 "theme",
                 "themes"
             ],
-            "time": "2017-01-03 01:34:43"
+            "time": "2017-03-13 04:13:53"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_simple_ecommerce",
-            "version": "dev-master",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_simple_ecommerce.git",
-                "reference": "09147c02bcae2332d87109aaa168a7a851b8f009"
+                "reference": "78f7b1c4ae7ce14bfdf36e58f622e36bd6cbe3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_simple_ecommerce/zipball/09147c02bcae2332d87109aaa168a7a851b8f009",
-                "reference": "09147c02bcae2332d87109aaa168a7a851b8f009",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_simple_ecommerce/zipball/78f7b1c4ae7ce14bfdf36e58f622e36bd6cbe3ce",
+                "reference": "78f7b1c4ae7ce14bfdf36e58f622e36bd6cbe3ce",
                 "shasum": ""
             },
             "require": {
@@ -1281,29 +1292,13 @@
                 "theme",
                 "themes"
             ],
-            "time": "2017-01-03 01:34:57"
+            "time": "2017-03-13 04:14:04"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "sunnysideup/cms_edit_link_field": 20,
-        "sunnysideup/ecommerce": 20,
-        "sunnysideup/ecommerce_tax": 20,
-        "sunnysideup/ecommerce_delivery": 20,
-        "sunnysideup/ecommerce_delivery_electronic": 20,
-        "sunnysideup/ecommerce_product_variation": 20,
-        "sunnysideup/payment_paypal": 20,
-        "sunnysideup/permission_provider": 20,
-        "sunnysideup/themes_ssu_flava_main": 20,
-        "sunnysideup/themes_ssu_flava_main_cms": 20,
-        "sunnysideup/themes_ssu_flava_main_ecommerce": 20,
-        "sunnysideup/themes_ssu_flava_main_ecommerce_product_variation": 20,
-        "sunnysideup/themes_ssu_flava_main_webportfolio": 20,
-        "sunnysideup/themes_ssu_flava_simple": 20,
-        "sunnysideup/themes_ssu_flava_simple_ecommerce": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
