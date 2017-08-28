@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "455c715ea87c678ee35030c90a4a9f79",
+    "content-hash": "a394bd6b114a77d4b754ff2cb4db7ade",
     "packages": [
         {
             "name": "composer/installers",
@@ -856,52 +856,6 @@
             "time": "2017-05-17T01:24:39+00:00"
         },
         {
-            "name": "sunnysideup/sswebpack_base",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-sswebpack_base.git",
-                "reference": "5ecd83c574ab97e073dcddb8ee62bb740f1c9f35"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-sswebpack_base/zipball/5ecd83c574ab97e073dcddb8ee62bb740f1c9f35",
-                "reference": "5ecd83c574ab97e073dcddb8ee62bb740f1c9f35",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "*",
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "sswebpack_base"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Base SilverStripe theme that can be used in conjunction with Silverstripe Webpack engine",
-            "keywords": [
-                "Silverstripe-CMS",
-                "blank theme",
-                "cms",
-                "silverstripe",
-                "silverstripe webpack",
-                "webpack",
-                "webpack theme"
-            ],
-            "time": "2017-08-26 08:54:18"
-        },
-        {
             "name": "sunnysideup/sswebpack_engine_only",
             "version": "dev-master",
             "source": {
@@ -944,6 +898,49 @@
                 "webpack theme"
             ],
             "time": "2017-08-28 07:11:49"
+        },
+        {
+            "name": "sunnysideup/sswebpack_skeleton",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-sswebpack_skeleton.git",
+                "reference": "1f8df80c75078adb435eafba51f749427d92a437"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-sswebpack_skeleton/zipball/1f8df80c75078adb435eafba51f749427d92a437",
+                "reference": "1f8df80c75078adb435eafba51f749427d92a437",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-theme",
+            "extra": {
+                "installer-name": "sswebpack_base"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Webpack base theme using the skeleton",
+            "keywords": [
+                "Skeleton",
+                "front-end framework",
+                "silverstripe",
+                "silverstripe webpack",
+                "webpack",
+                "webpack theme"
+            ],
+            "time": "2017-08-28 08:20:40"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main",
@@ -1343,12 +1340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-webpack_requirements_backend.git",
-                "reference": "aeb84dba6c1b6b9a4fe97445ed9a79f54de1b72e"
+                "reference": "bd9095a629ade375b7b800ae308a4cdf4eaedf96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-webpack_requirements_backend/zipball/aeb84dba6c1b6b9a4fe97445ed9a79f54de1b72e",
-                "reference": "aeb84dba6c1b6b9a4fe97445ed9a79f54de1b72e",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-webpack_requirements_backend/zipball/bd9095a629ade375b7b800ae308a4cdf4eaedf96",
+                "reference": "bd9095a629ade375b7b800ae308a4cdf4eaedf96",
                 "shasum": ""
             },
             "require": {
@@ -1385,7 +1382,7 @@
                 "theme-ing",
                 "webpack"
             ],
-            "time": "2017-08-17 04:48:39"
+            "time": "2017-08-28 08:27:52"
         }
     ],
     "packages-dev": [],
@@ -1394,7 +1391,7 @@
     "stability-flags": {
         "sunnysideup/webpack_requirements_backend": 20,
         "sunnysideup/sswebpack_engine_only": 20,
-        "sunnysideup/sswebpack_base": 20
+        "sunnysideup/sswebpack_skeleton": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
