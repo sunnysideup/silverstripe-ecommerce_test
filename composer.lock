@@ -4,9 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fdef9bd5dd8a08b4ff12bc4dafd5f146",
-    "content-hash": "35aa177106321f4b91d8aff6d62d7848",
+    "hash": "8b9f48cb65fbe295d8f2111430514b0c",
+    "content-hash": "8b25d724b148980ec19920d53ff541ab",
     "packages": [
+        {
+            "name": "adrexia/dashboardmods",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adrexia/silverstripe-dashboardmods.git",
+                "reference": "3f3eb468ab49bffb4a24523fb4dc8b9ef9d2b75d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adrexia/silverstripe-dashboardmods/zipball/3f3eb468ab49bffb4a24523fb4dc8b9ef9d2b75d",
+                "reference": "3f3eb468ab49bffb4a24523fb4dc8b9ef9d2b75d",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/dashboard": "*",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Design modifications to the SilverStripe Dashboard module",
+            "keywords": [
+                "silverstripe"
+            ],
+            "time": "2015-02-07 08:01:06"
+        },
         {
             "name": "composer/installers",
             "version": "v1.4.0",
@@ -433,6 +463,54 @@
             "time": "2017-07-18 08:39:07"
         },
         {
+            "name": "sunnysideup/dataintegritytests",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-dataintegritytests.git",
+                "reference": "ba4f7986068a2f1b12cbf9d7e2da7dc3885be66e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-dataintegritytests/zipball/ba4f7986068a2f1b12cbf9d7e2da7dc3885be66e",
+                "reference": "ba4f7986068a2f1b12cbf9d7e2da7dc3885be66e",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "dataintegritytests"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "check your database for obsolete fields and related data-structure errors",
+            "keywords": [
+                "Silverstripe-CMS",
+                "check database",
+                "clean database",
+                "cms",
+                "database",
+                "dataintegritytests",
+                "mysql",
+                "obsolete fields",
+                "silverstripe",
+                "test data structure"
+            ],
+            "time": "2017-08-14 10:48:05"
+        },
+        {
             "name": "sunnysideup/dataobjectsorter",
             "version": "3.9.0",
             "source": {
@@ -550,12 +628,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce_boostrap_theme.git",
-                "reference": "8d065348846d2e4384d7b072a159710b05fbc770"
+                "reference": "2bae2bd7adbb532491b596509100b0d9fa4b78ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_boostrap_theme/zipball/8d065348846d2e4384d7b072a159710b05fbc770",
-                "reference": "8d065348846d2e4384d7b072a159710b05fbc770",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_boostrap_theme/zipball/2bae2bd7adbb532491b596509100b0d9fa4b78ef",
+                "reference": "2bae2bd7adbb532491b596509100b0d9fa4b78ef",
                 "shasum": ""
             },
             "require": {
@@ -586,7 +664,56 @@
                 "silverstripe",
                 "theme"
             ],
-            "time": "2017-08-29 03:37:07"
+            "time": "2017-08-29 05:33:16"
+        },
+        {
+            "name": "sunnysideup/ecommerce_dashboard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_dashboard.git",
+                "reference": "4bdcabfba5d1f7b092775c6c3d984edc65c3bee3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_dashboard/zipball/4bdcabfba5d1f7b092775c6c3d984edc65c3bee3",
+                "reference": "4bdcabfba5d1f7b092775c6c3d984edc65c3bee3",
+                "shasum": ""
+            },
+            "require": {
+                "adrexia/dashboardmods": "*",
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1",
+                "sunnysideup/ecommerce": "*",
+                "unclecheese/dashboard": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "ecommerce_dashboard"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Adds a dash board to the silverstripe e-commerce application",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "dashboard",
+                "e-commerce",
+                "management summary",
+                "sales",
+                "silverstripe",
+                "statistics"
+            ],
+            "time": "2017-07-17 00:24:36"
         },
         {
             "name": "sunnysideup/ecommerce_delivery",
@@ -640,6 +767,96 @@
                 "tracking code"
             ],
             "time": "2017-05-02 23:38:46"
+        },
+        {
+            "name": "sunnysideup/ecommerce_discount_coupon",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_discount_coupon.git",
+                "reference": "679a175a3fd241a402eb1198a360c58fafa298e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_discount_coupon/zipball/679a175a3fd241a402eb1198a360c58fafa298e9",
+                "reference": "679a175a3fd241a402eb1198a360c58fafa298e9",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1",
+                "sunnysideup/ecommerce": ">=3.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "ecommerce_discount_coupon"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "adds a discount coupon functionality to your Silverstripe e-commerce application ",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "coupon",
+                "discount",
+                "discount coupon",
+                "e-commerce",
+                "ecommerce",
+                "shop",
+                "silverstripe"
+            ],
+            "time": "2017-08-07 01:33:15"
+        },
+        {
+            "name": "sunnysideup/ecommerce_orderstep_feedback",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_orderstep_feedback.git",
+                "reference": "93cccc09d0e82bc2a0038f66d083761b74a4a2f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_orderstep_feedback/zipball/93cccc09d0e82bc2a0038f66d083761b74a4a2f7",
+                "reference": "93cccc09d0e82bc2a0038f66d083761b74a4a2f7",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1",
+                "sunnysideup/ecommerce": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "ecommerce_orderstep_feedback"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "add a feedbck step to silverstripe e-commerce",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "silverstripe"
+            ],
+            "time": "2017-05-02 23:43:25"
         },
         {
             "name": "sunnysideup/ecommerce_product_variation",
@@ -750,7 +967,7 @@
         },
         {
             "name": "sunnysideup/google_address_field",
-            "version": "1.8.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-google_address_field.git",
@@ -797,6 +1014,100 @@
                 "silverstripe"
             ],
             "time": "2017-05-02 23:56:26"
+        },
+        {
+            "name": "sunnysideup/googleanalyticsbasics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-googleanalyticsbasics.git",
+                "reference": "aaa9fe61fae4ff75f9398dcf8d86ce8489b29ffc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-googleanalyticsbasics/zipball/aaa9fe61fae4ff75f9398dcf8d86ce8489b29ffc",
+                "reference": "aaa9fe61fae4ff75f9398dcf8d86ce8489b29ffc",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "googleanalyticsbasics"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "add google analytics to your Silverstripe website",
+            "keywords": [
+                "Silverstripe-CMS",
+                "analytics",
+                "cms",
+                "google",
+                "googleanalyticsbasics",
+                "silverstripe",
+                "statistics",
+                "visitors"
+            ],
+            "time": "2017-07-27 09:37:11"
+        },
+        {
+            "name": "sunnysideup/metatags",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-metatags.git",
+                "reference": "0dfeb1fdeadf0811a48cdd0e62a34cddc2cb2588"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-metatags/zipball/0dfeb1fdeadf0811a48cdd0e62a34cddc2cb2588",
+                "reference": "0dfeb1fdeadf0811a48cdd0e62a34cddc2cb2588",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "metatags"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "simplify your metatags - a ton of tools to increase SEO visibility, including file name adjustments",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "filenames",
+                "google",
+                "meta data",
+                "meta tags",
+                "metatags",
+                "search engine optimsation",
+                "seo",
+                "silverstripe"
+            ],
+            "time": "2017-07-31 04:03:38"
         },
         {
             "name": "sunnysideup/payment_paypal",
@@ -901,6 +1212,52 @@
             "time": "2017-05-17 01:24:39"
         },
         {
+            "name": "sunnysideup/prettyphoto",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-prettyphoto.git",
+                "reference": "2b2fd1c61adad20d23eb85df0586a31ff579ae1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-prettyphoto/zipball/2b2fd1c61adad20d23eb85df0586a31ff579ae1b",
+                "reference": "2b2fd1c61adad20d23eb85df0586a31ff579ae1b",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "prettyphoto"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "adds 'pretty photo' - a jQuery library to your Silverstripe application ",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "gallery",
+                "jquery",
+                "modal",
+                "pop-up",
+                "prettyPhoto",
+                "silverstripe"
+            ],
+            "time": "2017-05-03 00:08:17"
+        },
+        {
             "name": "sunnysideup/sswebpack_engine_only",
             "version": "dev-master",
             "source": {
@@ -986,6 +1343,52 @@
                 "webpack theme"
             ],
             "time": "2017-08-29 01:53:50"
+        },
+        {
+            "name": "sunnysideup/templateoverview",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-templateoverview.git",
+                "reference": "522473fc2dba39ed3130490ed5f3761f6b3a82ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-templateoverview/zipball/522473fc2dba39ed3130490ed5f3761f6b3a82ce",
+                "reference": "522473fc2dba39ed3130490ed5f3761f6b3a82ce",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1",
+                "sunnysideup/prettyphoto": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "templateoverview"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "adds development tools for building silverstripe websites, in particular around managing page types.",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "page types",
+                "review",
+                "silverstripe",
+                "template review",
+                "templateoverview"
+            ],
+            "time": "2017-08-28 04:00:23"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main",
@@ -1380,6 +1783,54 @@
             "time": "2017-05-03 00:17:13"
         },
         {
+            "name": "sunnysideup/typography",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-typography.git",
+                "reference": "04c8606bae416e1ed4a8e7ca0e635f879df4b185"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-typography/zipball/04c8606bae416e1ed4a8e7ca0e635f879df4b185",
+                "reference": "04c8606bae416e1ed4a8e7ca0e635f879df4b185",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "typography"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Add a typography test page to your silverstripe website / application.",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "developer tool",
+                "font styling",
+                "fonts",
+                "front-end design",
+                "html editing",
+                "silverstripe",
+                "tinymce",
+                "typography"
+            ],
+            "time": "2017-08-29 03:14:26"
+        },
+        {
             "name": "sunnysideup/webpack_requirements_backend",
             "version": "dev-master",
             "source": {
@@ -1428,19 +1879,210 @@
                 "webpack"
             ],
             "time": "2017-08-28 08:27:52"
+        },
+        {
+            "name": "symbiote/silverstripe-gridfieldextensions",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symbiote/silverstripe-gridfieldextensions.git",
+                "reference": "e14ed0b47aec0b8deb34f83653ac4dc089d07a34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-gridfieldextensions/zipball/e14ed0b47aec0b8deb34f83653ac4dc089d07a34",
+                "reference": "e14ed0b47aec0b8deb34f83653ac4dc089d07a34",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "replace": {
+                "ajshort/silverstripe-gridfieldextensions": "self.version",
+                "silverstripe-australia/gridfieldextensions": "self.version"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "gridfieldextensions",
+                "branch-alias": {
+                    "2.x-dev": "2.0.x-dev"
+                },
+                "screenshots": [
+                    "docs/en/_images/editable-rows.png",
+                    "docs/en/_images/add-existing-search.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Nyeholt",
+                    "email": "marcus@silverstripe.com.au"
+                },
+                {
+                    "name": "Andrew Short",
+                    "email": "andrewjshort@gmail.com"
+                }
+            ],
+            "description": "A collection of useful grid field components",
+            "homepage": "http://github.com/silverstripe-australia/silverstripe-gridfieldextensions",
+            "keywords": [
+                "gridfield",
+                "silverstripe"
+            ],
+            "time": "2017-08-28 02:04:20"
+        },
+        {
+            "name": "symbiote/silverstripe-grouped-cms-menu",
+            "version": "3.0.1",
+            "target-dir": "grouped-cms-menu",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symbiote/silverstripe-grouped-cms-menu.git",
+                "reference": "c3d03e3e309efc756983473125292a380a68d25f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symbiote/silverstripe-grouped-cms-menu/zipball/c3d03e3e309efc756983473125292a380a68d25f",
+                "reference": "c3d03e3e309efc756983473125292a380a68d25f",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^3.2"
+            },
+            "replace": {
+                "silverstripe-australia/grouped-cms-menu": "self.version"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "grouped-cms-menu",
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Nyeholt",
+                    "email": "marcus@symbiote.com.au"
+                }
+            ],
+            "description": "Allows you to group CMS menu items.",
+            "homepage": "https://github.com/symbiote/silverstripe-grouped-cms-menu",
+            "keywords": [
+                "cms",
+                "menu",
+                "module",
+                "silverstripe"
+            ],
+            "time": "2017-06-29 06:26:01"
+        },
+        {
+            "name": "unclecheese/betterbuttons",
+            "version": "1.3.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
+                "reference": "71f9653f51420ca07a33024bd8fe4396ee532bdb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/71f9653f51420ca07a33024bd8fe4396ee532bdb",
+                "reference": "71f9653f51420ca07a33024bd8fe4396ee532bdb",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Adds new form actions and buttons to GridField detail form for usability enhancements.",
+            "keywords": [
+                "buttons",
+                "gridfield",
+                "silverstripe"
+            ],
+            "time": "2017-01-20 08:51:05"
+        },
+        {
+            "name": "unclecheese/dashboard",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-dashboard.git",
+                "reference": "d8029a9c3b0f857acaa644ca93ff0188f100f7bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-dashboard/zipball/d8029a9c3b0f857acaa644ca93ff0188f100f7bc",
+                "reference": "d8029a9c3b0f857acaa644ca93ff0188f100f7bc",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "replace": {
+                "silverstripe/dashboard": "*"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "dashboard"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Adds a dashboard to the SilverStripe CMS",
+            "keywords": [
+                "cms",
+                "dashboard",
+                "module",
+                "silverstripe"
+            ],
+            "time": "2017-05-30 02:19:10"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sunnysideup/cms_edit_link_field": 20,
         "sunnysideup/ecommerce": 20,
         "sunnysideup/ecommerce_tax": 20,
         "sunnysideup/ecommerce_delivery": 20,
         "sunnysideup/ecommerce_product_variation": 20,
         "sunnysideup/payment_paypal": 20,
+        "sunnysideup/ecommerce_dashboard": 20,
+        "sunnysideup/ecommerce_discount_coupon": 20,
+        "sunnysideup/ecommerce_orderstep_feedback": 20,
+        "sunnysideup/cms_edit_link_field": 20,
         "sunnysideup/permission_provider": 20,
+        "sunnysideup/dataintegritytests": 20,
+        "sunnysideup/google_address_field": 20,
+        "sunnysideup/googleanalyticsbasics": 20,
+        "sunnysideup/metatags": 20,
+        "sunnysideup/typography": 20,
+        "sunnysideup/templateoverview": 20,
         "sunnysideup/themes_ssu_flava_main": 20,
         "sunnysideup/themes_ssu_flava_main_cms": 20,
         "sunnysideup/themes_ssu_flava_main_ecommerce": 20,

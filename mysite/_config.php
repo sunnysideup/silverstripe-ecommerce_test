@@ -8,8 +8,6 @@ $database = 'ecommerce_test';
 
 require_once('conf/ConfigureFromEnv.php');
 
-Email::setAdminEmail("sales@silverstripe-ecommerce.com");
-
 /*** ECOMMERCE ***/
 
 
