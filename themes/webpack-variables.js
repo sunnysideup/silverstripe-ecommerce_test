@@ -1,4 +1,1 @@
-module.exports = {
-  "themeName": "sswebpack",
-  "devWebaddress": "ecommerce.localhost"
-}
+module.exports = {"themeName":"skeleton","devWebAddress":"ecommerce.localhost"}
