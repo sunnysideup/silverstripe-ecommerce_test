@@ -1,0 +1,1 @@
+module.exports = {"themeName":"skeleton","devWebAddress":"ecommerce.localhost"}
