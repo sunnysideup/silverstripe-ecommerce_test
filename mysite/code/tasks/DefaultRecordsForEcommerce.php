@@ -40,7 +40,7 @@ class DefaultRecordsForEcommerce extends BuildTask
         "createshopadmin" => true,
         "collateexamplepages" => true,
         "deletedownloads" => true,
-        "addfilestoelectronicdownloadproduct" => true,
+        // "addfilestoelectronicdownloadproduct" => true,
         "completeall" => true
     );
 
@@ -1916,16 +1916,16 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
         $rand = rand(0, $length -1);
         return $array[$rand];
     }
-
-    private function addfilestoelectronicdownloadproduct()
-    {
-        $pages = ElectronicDownloadProduct::get();
-        $files = File::get()->limit(5)->Sort("Rand()");
-        foreach ($pages as $page) {
-            DB::alteration_message("Adding files to ".$page->Title, "created");
-            $page->DownloadFiles()->addMany($files);
-        }
-    }
+    //
+    // private function addfilestoelectronicdownloadproduct()
+    // {
+    //     $pages = ElectronicDownloadProduct::get();
+    //     $files = File::get()->limit(5)->Sort("Rand()");
+    //     foreach ($pages as $page) {
+    //         DB::alteration_message("Adding files to ".$page->Title, "created");
+    //         $page->DownloadFiles()->addMany($files);
+    //     }
+    // }
 
     private function completeall()
     {
