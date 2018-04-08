@@ -1,1 +1,1 @@
-module.exports = {"themeName":"sskube","devWebAddress":"localhost","distributionFolder":"sskube_dist"}
+module.exports = {"themeName":"skeleton","devWebAddress":false,"distributionFolder":"skeleton_dist"}
