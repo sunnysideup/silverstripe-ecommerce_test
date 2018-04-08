@@ -501,14 +501,14 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                             What is more, we have made a <a href=\"https://github.com/search?q=user%3Asunnysideup+ecommerce+&type=Repositories\">large range of modules</a> available that can add functionality such as grouping products, creating price lists, etc...
                         </p>",
                         "Children" => array(
-                            array(
-                                "ClassName" => "ElectronicDownloadProduct",
-                                "URLSegment" => "purchase-a-download",
-                                "Title" => "Purchase some files for download",
-                                "MenuTitle" => "Downloads",
-                                "Price" => 11.95,
-                                "Content" => "<p>This is an example of the ElectronicDownloadProduct page template.</p>",
-                            )
+                            // array(
+                            //     "ClassName" => "ElectronicDownloadProduct",
+                            //     "URLSegment" => "purchase-a-download",
+                            //     "Title" => "Purchase some files for download",
+                            //     "MenuTitle" => "Downloads",
+                            //     "Price" => 11.95,
+                            //     "Content" => "<p>This is an example of the ElectronicDownloadProduct page template.</p>",
+                            // )
                             /*
                             array(
                                 "ClassName" => "ProductGroupWithTags",
