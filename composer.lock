@@ -656,32 +656,32 @@
         },
         {
             "name": "sunnysideup/ecommerce",
-            "version": "8.1.0",
+            "version": "8.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce.git",
-                "reference": "016efb589c09900ee94c964917c40c000308bbe9"
+                "reference": "e3aa41b956fc8b85a9ec8b7a7e2181047007d4f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/016efb589c09900ee94c964917c40c000308bbe9",
-                "reference": "016efb589c09900ee94c964917c40c000308bbe9",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/e3aa41b956fc8b85a9ec8b7a7e2181047007d4f5",
+                "reference": "e3aa41b956fc8b85a9ec8b7a7e2181047007d4f5",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
+                "silverstripe/cms": "~3.6",
+                "silverstripe/framework": "~3.6",
                 "sunnysideup/cms_edit_link_field": "*",
                 "sunnysideup/google_address_field": "*",
                 "sunnysideup/permission_provider": "*"
             },
             "suggest": {
                 "micmania1/silverstripe-lumberjack": "great way to take product and product groups out of the sitetree",
-                "silverstripe-australia/grouped-cms-menu": "HIGHLY RECOMMENDED! merge e-commerce cms menu items into one section.",
                 "silverstripe/geoip": "Native Silverstripe way to work out the customer country. Make sure this work on your server, before installing it - otherwise it is useless.",
                 "silverstripe/restfulserver": "Adds restful server functionality to your e-commerce site (creates an API for your e-commerce application, allowing third-parties to tap into your e-commerce data)",
                 "sunnysideup/cms_edit_link_field": "easier ways to link through within ecommerce objects and other objects that have the CMSEditLink",
-                "sunnysideup/ecommerce_cloud_flare_geoip": "Extends Geoip if you are using cloudflare"
+                "sunnysideup/ecommerce_cloud_flare_geoip": "Extends Geoip if you are using cloudflare",
+                "symbiote/silverstripe-grouped-cms-menu": "HIGHLY RECOMMENDED! merge e-commerce cms menu items into one section."
             },
             "type": "silverstripe-module",
             "extra": {
@@ -689,7 +689,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -715,7 +715,7 @@
                 "silverstripe",
                 "webshop"
             ],
-            "time": "2017-12-20T02:47:27+00:00"
+            "time": "2018-04-09T09:14:03+00:00"
         },
         {
             "name": "sunnysideup/ecommerce_bootstrap_theme",
@@ -1494,16 +1494,16 @@
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main.git",
-                "reference": "453383e9ee36cbdec5a54fac15966b99b85ca3dc"
+                "reference": "fe6f15acd348c1e429cf1ec2cf72abc1b6936872"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main/zipball/453383e9ee36cbdec5a54fac15966b99b85ca3dc",
-                "reference": "453383e9ee36cbdec5a54fac15966b99b85ca3dc",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main/zipball/fe6f15acd348c1e429cf1ec2cf72abc1b6936872",
+                "reference": "fe6f15acd348c1e429cf1ec2cf72abc1b6936872",
                 "shasum": ""
             },
             "require": {
@@ -1546,7 +1546,7 @@
                 "theme",
                 "themes"
             ],
-            "time": "2018-04-09T08:17:48+00:00"
+            "time": "2018-04-09T08:31:05+00:00"
         },
         {
             "name": "sunnysideup/themes_ssu_flava_main_cms",
