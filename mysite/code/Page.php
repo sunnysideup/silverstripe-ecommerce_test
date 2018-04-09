@@ -58,6 +58,7 @@ class Page_Controller extends ContentController
         //$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
         parent::init();
         $theme = Config::inst()->get("SSViewer", "theme");
+        $this->InsertGoogleAnalyticsAsHeadTag();
         if ($theme == "main") {
             Requirements::themedCSS('reset');
             Requirements::themedCSS('layout');
