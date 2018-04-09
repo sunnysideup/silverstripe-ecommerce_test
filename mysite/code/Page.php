@@ -138,11 +138,11 @@ class Page_Controller extends ContentController
         ";
     }
 
-    function IsInHouseTemplate()
+    public function IsInHouseTemplate()
     {
-        if($this->IsEcommercePage()) {
+        if ($this->IsEcommercePage()) {
             return true;
-        } 
+        }
         $standard = array(
             'Page',
             'WebPortfolioPage',
