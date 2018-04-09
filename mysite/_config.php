@@ -12,7 +12,7 @@ require_once('conf/ConfigureFromEnv.php');
 
 if(Director::isLive()) {
         Director::forceSSL();
-        SS_Log::add_writer(new SS_LogEmailWriter('errors@sunnysideup.co.nz'), SS_Log::ERR);
+        SS_Log::add_writer(new SS_LogEmailWriter('ssuerrors@gmail.com'), SS_Log::ERR);
 }
 else {
 //      BasicAuth::protect_entire_site();
