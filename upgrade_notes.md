@@ -81,3 +81,27 @@ Script php framework/cli-script.php dev/build flush=all handling the post-update
  [WARNING] Composer could not resolved your updated dependencies. You'll need to manually resolve conflicts.
 
 ✔✔✔
+# running php upgrade environment see: https://github.com/silverstripe/silverstripe-upgrader
+cd /var/www/upgrades/upgradeto4
+php /var/www/ss3/upgrader/vendor/silverstripe/upgrader/bin/upgrade-code environment   --root-dir=/var/www/upgrades/upgradeto4 --write -vvv
+Changes have been saved to your `.env` file
+Converting `/var/www/_ss_environment.php`
+modified:	/var/www/upgrades/upgradeto4/.env
+@@ -1,1 +1,11 @@
++SS_ENVIRONMENT_TYPE="dev"
++SS_DEV="1"
++SS_DATABASE_SERVER="localhost"
++SS_DATABASE_USERNAME="root"
++SS_DATABASE_PASSWORD="x"
++SS_DATABASE_NAME="ss3_zenergy"
++SS_DEFAULT_ADMIN_USERNAME="x"
++SS_DEFAULT_ADMIN_PASSWORD="x"
++SENDGRID_SMTP_USERNAME=""
++SENDGRID_SMTP_PASSWORD=""
+
+
+unchanged:	_ss_environment.php
+Warnings for _ss_environment.php:
+ - _ss_environment.php:0 Your environment file contains unusual constructs. It can still be converted, but take time to validate the result.
+Changes have been saved to your `.env` file
+✔✔✔
