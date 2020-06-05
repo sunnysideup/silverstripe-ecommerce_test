@@ -6,3 +6,4 @@ class CompleteSetupRecord extends DataObject
         "CompletedSetup" => "Boolean"
     );
 }
+

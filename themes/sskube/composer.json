@@ -1,0 +1,32 @@
+{
+    "name": "sunnysideup/sskube",
+    "type": "silverstripe-theme",
+    "description": "Base SilverStripe theme that can be used in conjunction with Silverstripe Webpack engine",
+    "keywords": [
+        "Silverstripe-CMS",
+        "CMS",
+        "Silverstripe",
+        "webpack",
+        "webpack theme",
+        "silverstripe webpack",
+        "kube",
+        "imperavi"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Nicolaas Francken",
+            "email": "modules@sunnysideup.co.nz",
+            "role": "lead developer"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "~3.1",
+        "sunnysideup/webpack_requirements_backend": "*",
+        "sunnysideup/sswebpack_engine_only": "*",
+        "silverstripe/cms": "~3.1"
+    },
+    "extra": {
+        "installer-name": "sskube"
+    }
+}

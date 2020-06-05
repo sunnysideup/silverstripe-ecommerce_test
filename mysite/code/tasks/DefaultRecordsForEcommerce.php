@@ -1935,3 +1935,4 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
         DB::alteration_message("----------------------------- COMPLETE --------------------------- ");
     }
 }
+
