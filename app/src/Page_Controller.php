@@ -39,15 +39,15 @@ class Page_Controller extends ContentController
         $theme = Config::inst()->get("SSViewer", "theme");
         $this->InsertGoogleAnalyticsAsHeadTag();
         if ($theme == "main") {
-            Requirements::themedCSS('reset');
-            Requirements::themedCSS('layout');
-            Requirements::themedCSS('typography');
-            Requirements::themedCSS('form');
-            Requirements::themedCSS('menu');
+            Requirements::themedCSS('sunnysideup/ecommerce_test: reset');
+            Requirements::themedCSS('sunnysideup/ecommerce_test: layout');
+            Requirements::themedCSS('sunnysideup/ecommerce_test: typography');
+            Requirements::themedCSS('sunnysideup/ecommerce_test: form');
+            Requirements::themedCSS('sunnysideup/ecommerce_test: menu');
 
-            Requirements::themedCSS('ecommerce');
+            Requirements::themedCSS('sunnysideup/ecommerce_test: ecommerce');
 
-            Requirements::themedCSS('individualPages');
+            Requirements::themedCSS('sunnysideup/ecommerce_test: individualPages');
 
 /**
   * ### @@@@ START REPLACEMENT @@@@ ###
@@ -57,7 +57,7 @@ class Page_Controller extends ContentController
   * EXP: Check for best usage and inclusion of Jquery
   * ### @@@@ STOP REPLACEMENT @@@@ ###
   */
-            Requirements::javascript('silverstripe/admin: thirdparty/jquery/jquery.js');
+            Requirements::javascript('sunnysideup/ecommerce_test: silverstripe/admin: thirdparty/jquery/jquery.js');
         } elseif ($theme == "simple") {
         }
     }
