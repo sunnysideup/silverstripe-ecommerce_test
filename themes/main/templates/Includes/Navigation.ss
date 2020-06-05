@@ -13,4 +13,4 @@
         </li><% end_loop %>
     </ul>
 </nav>
-<% require javascript(themes/main/javascript/menu.js) %>
+<% require javascript(resources/themes/main/javascript/menu.js) %>

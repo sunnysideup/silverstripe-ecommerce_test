@@ -1,7 +1,7 @@
 <?php
 
 global $project;
-$project = 'mysite';
+$project = 'app';
 
 global $database;
 $database = 'ssecom';
@@ -17,14 +17,23 @@ if(Director::isLive()) {
 else {
 //      BasicAuth::protect_entire_site();
         if(Director::isDev()) {
-                SSViewer::set_source_file_comments(true);
+                Config::modify()->update('SSViewer', 'source_file_comments', true);
         }
 }
 
-$theme = Session::get("theme");
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: Session:: (case sensitive)
+  * NEW: Controller::curr()->getRequest()->getSession()-> (COMPLEX)
+  * EXP: If THIS is a controller than you can write: $this->getRequest(). You can also try to access the HTTPRequest directly. 
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+$theme = Controller::curr()->getRequest()->getSession()->get("theme");
 if (!$theme) {
     $theme = "simple";
 }
 if (Config::inst()->get("SSViewer", "theme") != $theme) {
-    Config::inst()->update("SSViewer", "theme", $theme);
+    Config::modify()->update("SSViewer", "theme", $theme);
 }

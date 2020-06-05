@@ -48,7 +48,16 @@ class Page_Controller extends ContentController
             Requirements::themedCSS('ecommerce');
 
             Requirements::themedCSS('individualPages');
-            Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: THIRDPARTY_DIR . '/jquery/jquery.js' (case sensitive)
+  * NEW: 'silverstripe/admin: thirdparty/jquery/jquery.js' (COMPLEX)
+  * EXP: Check for best usage and inclusion of Jquery
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+            Requirements::javascript('silverstripe/admin: thirdparty/jquery/jquery.js');
         } elseif ($theme == "simple") {
         }
     }
@@ -68,7 +77,16 @@ class Page_Controller extends ContentController
         $newTheme = $request->param("ID");
         $newTheme = Convert::raw2sql($newTheme);
         DB::query("Update SiteConfig SET Theme = '$newTheme';");
-        Session::set("theme", $newTheme);
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: Session:: (case sensitive)
+  * NEW: Controller::curr()->getRequest()->getSession()-> (COMPLEX)
+  * EXP: If THIS is a controller than you can write: $this->getRequest(). You can also try to access the HTTPRequest directly. 
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+        Controller::curr()->getRequest()->getSession()->set("theme", $newTheme);
         SSViewer::flush_template_cache();
         $this->redirect($this->Link());
     }
@@ -134,6 +152,15 @@ class Page_Controller extends ContentController
             'TemplateOverviewPage'
         );
 
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: $this->ClassName (case sensitive)
+  * NEW: $this->ClassName (COMPLEX)
+  * EXP: Check if the class name can still be used as such
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
         return in_array($this->ClassName, $standard);
     }
 }

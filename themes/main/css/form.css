@@ -25,7 +25,16 @@
 }
 
 .typography .middleColumn,
-.typography .Actions,
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.typography .btn-toolbar,
 .typography input.action,
 .typography p.ForgotPassword,
 .typography p.checkbox {
@@ -176,26 +185,71 @@
 /**
 * actions
 */
-.typography .Actions {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.typography .btn-toolbar {
     padding-top: 2em;
 }
 
-.typography .Actions input,
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.typography .btn-toolbar input,
 .typography input.action {
     padding-right: 30px;
 }
 
-.typography .Actions input.action {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.typography .btn-toolbar input.action {
     margin-left: 0px;
 }
 
-.typography .Actions input.action:focus {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.typography .btn-toolbar input.action:focus {
     outline: none;
     color: #FF336D;
 }
 
 .typography .action,
-.typography .Actions input,
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.typography .btn-toolbar input,
 .typography input.action {
     color: #808383;
     padding: 0.7em;
@@ -213,7 +267,16 @@
 }
 
 .typography .action:hover,
-.typography .Actions input:hover,
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.typography .btn-toolbar input:hover,
 .typography input.action:hover {
     background: -moz-linear-gradient(top,#ffffff 0%,#ffcc1a);
     background: -webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#ffcc1a));
@@ -475,7 +538,16 @@
     }
 
     .typography .middleColumn,
-    .typography .Actions,
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+    .typography .btn-toolbar,
     .typography input.action,
     .typography p.ForgotPassword,
     .typography p.checkbox {

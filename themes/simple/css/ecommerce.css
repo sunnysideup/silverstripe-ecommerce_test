@@ -21,7 +21,16 @@ a {border-bottom: 1px solid transparent;}
 
 
 
-.Actions:after {content: none;}
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.btn-toolbar:after {content: none;}
 
 
 
@@ -53,7 +62,16 @@ td.remove a:hover {border-bottom: none; }
 #InformationTable table tr:nth-child(2n) {background-color: transparent;}
 .cartMessage {background-color: #EDEDED;}
 
-.Actions input.next {float: right!important;}
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.btn-toolbar input.next {float: right!important;}
 
 .loading {
     background-image: url(/ecommerce/images/loading.gif)!important;

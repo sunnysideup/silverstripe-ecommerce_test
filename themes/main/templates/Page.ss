@@ -23,11 +23,29 @@
     <% require themedCSS('menu') %>
     <% require themedCSS('individualPages') %>
     <% require themedCSS('print', 'print') %>
-    <link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: /images/ (case sensitive)
+  * NEW: /client/images/ (COMPLEX)
+  * EXP: Check new location, also see: https://docs.silverstripe.org/en/4/developer_guides/templates/requirements/#direct-resource-urls
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+    <link rel="shortcut icon" href="$ThemeDir/client/images/favicon.ico" />
     <% end_if %>
 <% end_if %>
 </head>
-<body id="Body$ClassName" class="mobileBrowsing">
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: $ClassName (case sensitive)
+  * NEW: $`ClassName.ShortName (COMPLEX)
+  * EXP: Check if the class name can still be used as such. The ShortName provides the name without NameSpace
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+<body id="Body$`ClassName.ShortName" class="mobileBrowsing">
 <div id="Wrapper">
     <% include Navigation %>
     <a href="#" class="menuButton">menu</a>
@@ -60,7 +78,7 @@
         </footer>
     </div>
 </div>
-    <% require javascript('themes/main/javascript/menu.js') %>
+    <% require javascript('resources/themes/main/javascript/menu.js') %>
 
 </body>
 </html>

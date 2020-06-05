@@ -17,7 +17,7 @@ class DefaultRecordsForEcommerce extends BuildTask
 
     private $fruitArray = array("Apple", "Crabapple", "Hawthorn", "Pear", "Apricot", "Peach", "Nectarines", "Plum", "Cherry", "Blackberry", "Raspberry", "Mulberry", "Strawberry", "Cranberry", "Blueberry", "Barberry", "Currant", "Gooseberry", "Elderberry", "Grapes", "Grapefruit", "Kiwi fruit", "Rhubarb", "Pawpaw", "Melon", "Watermelon", "Figs", "Dates", "Olive", "Jujube", "Pomegranate", "Lemon", "Lime", "Key Lime", "Mandarin", "Orange", "Sweet Lime", "Tangerine", "Avocado", "Guava", "Kumquat", "Lychee", "Passion Fruit", "Tomato", "Banana", "Gourd", "Cashew Fruit", "Cacao", "Coconut", "Custard Apple", "Jackfruit", "Mango", "Neem", "Okra", "Pineapple", "Vanilla", "Carrot");
 
-    private $imageArray = array();
+    private $imageArray = [];
 
     private $steps = array(
         "checkreset" => true,
@@ -99,6 +99,15 @@ class DefaultRecordsForEcommerce extends BuildTask
                 $im = @imagecreate($width, $height) or die("Cannot Initialize new GD image stream");
                 $background_color = imagecolorallocate($im, $r, $g, $b);
                 $baseFolderPath = Director::baseFolder();
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: assets/ (case sensitive)
+  * NEW: assets/ (COMPLEX)
+  * EXP: Check if you need the assets parts - use ASSETS_PATH if needed
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
                 $fileName = $baseFolderPath."/assets/randomimages/img_".sprintf("%03d", $r)."_".sprintf("%03d", $g)."_".sprintf("%03d", $b).".png";
                 if (!file_exists($fileName)) {
                     imagepng($im, $fileName);
@@ -187,7 +196,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 <ul>
                     <li>add <em>.htaccess</em> file - as per usual</li>
                     <li>add <em>_ss_enviroment.php</em> file - as per usual</li>
-                    <li>edit the name of your database in mysite/_config.php</li>
+                    <li>edit the name of your database in app/_config.php</li>
                     <li>run <em>/dev/build/?flush=all</em></li>
                     <li>run <em>/dev/tasks/CleanEcommerceTables</em></li>
                     <li>run <em>?flush=all</em> at least one more time, as e-commerce includes aggressive caching which needs to be cleared</li>
@@ -431,7 +440,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                                                 <td>
                                                     <ul>
                                                         <li>Online: <a href=\"http://demo.ss-shop.org/docs/developer/en\">docs</a>, <a href=\"http://api.ss-shop.org/\">api</a></li>
-                                                        <li>mysite.com/dev/shop - tools and tasks for development</li>
+                                                        <li>app.com/dev/shop - tools and tasks for development</li>
                                                         <li>Moderate forum support (shared with ecommerce module)</li>
                                                         <li>Ecommerce mailing list (shared with ecommerce module)</li>
                                                     </ul>
@@ -725,7 +734,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     private function getProductGroups($numberOfGroups = 7)
     {
         $numberOfGroups--;
-        $array = array();
+        $array = [];
         for ($j = 1; $j < $numberOfGroups; $j++) {
             $parentCode = $this->randomName();
             if (($j == 1) && ($numberOfGroups > 3)) {
@@ -1237,7 +1246,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
             ->leftJoin("ProductVariation", "ProductVariation.ProductID = Product{$extension}.ID")
             ->limit(3);
         $i = 0;
-        $idArray = array();
+        $idArray = [];
         foreach ($products as $product) {
             $i++;
             $idArray[$product->ID] = $product->ID;
@@ -1582,7 +1591,25 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
 
     public function deletedownloads()
     {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: assets/ (case sensitive)
+  * NEW: assets/ (COMPLEX)
+  * EXP: Check if you need the assets parts - use ASSETS_PATH if needed
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
         $this->deleteFolder(Director::baseFolder().'/assets/downloads/');
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: assets/ (case sensitive)
+  * NEW: assets/ (COMPLEX)
+  * EXP: Check if you need the assets parts - use ASSETS_PATH if needed
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
         $this->deleteFolder(Director::baseFolder().'/assets/download-all/');
     }
 
@@ -1604,6 +1631,15 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
 
     public function createcustomisationsteps()
     {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: require_once ' (case sensitive)
+  * NEW: require_once ' (COMPLEX)
+  * EXP: This should probably be replaced by PSR-4 autoloading!
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
         require_once 'thirdparty/spyc/spyc.php';
         $parser = new Spyc();
         $array = $parser->loadFile(Director::baseFolder().'/ecommerce/docs/en/CustomisationChart.yaml');
@@ -1647,10 +1683,37 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
             ->First();
         if (!$page) {
             if (isset($fields["ClassName"])) {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: $className (case sensitive)
+  * NEW: $className (COMPLEX)
+  * EXP: Check if the class name can still be used as such
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
                 $className = $fields["ClassName"];
             } else {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: $className (case sensitive)
+  * NEW: $className (COMPLEX)
+  * EXP: Check if the class name can still be used as such
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
                 $className = "Page";
             }
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: $className (case sensitive)
+  * NEW: $className (COMPLEX)
+  * EXP: Check if the class name can still be used as such
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
             $page = new $className();
         }
         $children = null;

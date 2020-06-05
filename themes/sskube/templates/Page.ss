@@ -5,7 +5,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <% include WebpackCSSLinks %>
 </head>
-<body id="Body$ClassName">
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: $ClassName (case sensitive)
+  * NEW: $`ClassName.ShortName (COMPLEX)
+  * EXP: Check if the class name can still be used as such. The ShortName provides the name without NameSpace
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+<body id="Body$`ClassName.ShortName">
 <div id="Wrapper">
     <header id="header">
         <div class="container">

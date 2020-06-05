@@ -16,10 +16,28 @@ class Page extends SiteTree
     
     private static $table_name = 'Page';
 
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: private static $db = (case sensitive)
+  * NEW: private static $db = (COMPLEX)
+  * EXP: Make sure to add a private static $table_name!
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
     private static $db = array(
         "SetupCompleted" => "Boolean"
     );
 
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: private static $has_one = (case sensitive)
+  * NEW: private static $has_one = (COMPLEX)
+  * EXP: Make sure to add a private static $table_name!
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
     private static $has_one = array(
         "BackgroundImage" => "Image"
     );

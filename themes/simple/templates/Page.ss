@@ -27,9 +27,27 @@ Change it, enhance it and most importantly enjoy it!
 	<% require themedCSS('form') %>
 	<% require themedCSS('layout') %>
 	<% require themedCSS('ecommerce') %>
-	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: /images/ (case sensitive)
+  * NEW: /client/images/ (COMPLEX)
+  * EXP: Check new location, also see: https://docs.silverstripe.org/en/4/developer_guides/templates/requirements/#direct-resource-urls
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+	<link rel="shortcut icon" href="$ThemeDir/client/images/favicon.ico" />
 </head>
-<body class="$ClassName<% if not $Menu(2) %> no-sidebar<% end_if %>">
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: $ClassName (case sensitive)
+  * NEW: $`ClassName.ShortName (COMPLEX)
+  * EXP: Check if the class name can still be used as such. The ShortName provides the name without NameSpace
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+<body class="$`ClassName.ShortName<% if not $Menu(2) %> no-sidebar<% end_if %>">
 <% include Header %>
 <div class="main" role="main">
 	<div class="inner typography line">
@@ -39,7 +57,7 @@ Change it, enhance it and most importantly enjoy it!
 <% include Footer %>
 
 <% require javascript('framework/thirdparty/jquery/jquery.js') %>
-<%-- Please move: Theme javascript (below) should be moved to mysite/code/page.php  --%>
+<%-- Please move: Theme javascript (below) should be moved to app/code/page.php  --%>
 <script type="text/javascript" src="{$ThemeDir}/javascript/script.js"></script>
 
 </body>

@@ -185,11 +185,29 @@ form .date .middleColumn input {
     /*background: transparent url(../images/icons/your_icon_here.png) no-repeat scroll 90px 5px;*/
     width: 114px;
 }
-.Actions input.resetformaction {                  /* Clear button */
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.btn-toolbar input.resetformaction {                  /* Clear button */
     float: left;
     background-color: #888;
 }
-.Actions input.resetformaction:hover {            /* Clear button */
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: .Actions (case sensitive)
+  * NEW: .btn-toolbar (COMPLEX)
+  * EXP: Check if this replacement is right.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+.btn-toolbar input.resetformaction:hover {            /* Clear button */
     background-color: #aaa;
 }
 
