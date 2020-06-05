@@ -53,5 +53,10 @@
     "license": "BSD-3-Clause",
     "require-dev": {
         "sunnysideup/huringa": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sunnysideup\\EcommerceTest\\": "app/src/"
+        }
     }
 }
