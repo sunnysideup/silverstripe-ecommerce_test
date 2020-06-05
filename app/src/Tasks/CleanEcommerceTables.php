@@ -1,5 +1,14 @@
 <?php
 
+namespace Sunnysideup\EcommerceTest\Tasks;
+
+use BuildTask;
+use Permission;
+use Director;
+use Security;
+use DB;
+
+
 
 class CleanEcommerceTables extends BuildTask
 {

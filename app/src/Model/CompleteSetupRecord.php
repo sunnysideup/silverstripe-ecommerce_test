@@ -1,5 +1,10 @@
 <?php
 
+namespace Sunnysideup\EcommerceTest\Model;
+
+use DataObject;
+
+
 class CompleteSetupRecord extends DataObject
 {
 

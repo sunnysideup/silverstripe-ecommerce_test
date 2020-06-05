@@ -1,5 +1,46 @@
 <?php
 
+namespace Sunnysideup\EcommerceTest\Tasks;
+
+use BuildTask;
+use DB;
+use Product;
+use EcommerceTaskCreateMemberGroups;
+use EcommerceDBConfig;
+use Folder;
+use Director;
+use Page;
+use CheckoutPage;
+use ProductAttributeType;
+use ProductAttributeValue;
+use ProductVariation;
+use ArrayList;
+use ProductGroup;
+use CombinationProduct;
+use PickUpOrDeliveryModifierOptions;
+use GSTTaxModifierOptions;
+use DiscountCouponOption;
+use EcommerceProductTag;
+use ProductGroupWithTags;
+use Versioned;
+use EcommerceRole;
+use Group;
+use Member;
+use ComplexPriceObject;
+use Order;
+use BillingAddress;
+use ShippingAddress;
+use Product_OrderItem;
+use OrderConfirmationPage;
+use CartPage;
+use AccountPage;
+use Spyc;
+use SiteTree;
+use DataObjectSet;
+use Image;
+use CompleteSetupRecord;
+
+
 class DefaultRecordsForEcommerce extends BuildTask
 {
     protected $title = 'Install Example E-commerce Data';
