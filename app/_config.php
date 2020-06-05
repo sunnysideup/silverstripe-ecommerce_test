@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Control\Director;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Control\Controller;
+
 global $project;
 $project = 'app';
 
@@ -17,7 +22,7 @@ if(Director::isLive()) {
 else {
 //      BasicAuth::protect_entire_site();
         if(Director::isDev()) {
-                Config::modify()->update('SSViewer', 'source_file_comments', true);
+                Config::modify()->update(SSViewer::class, 'source_file_comments', true);
         }
 }
 
@@ -34,6 +39,6 @@ $theme = Controller::curr()->getRequest()->getSession()->get("theme");
 if (!$theme) {
     $theme = "simple";
 }
-if (Config::inst()->get("SSViewer", "theme") != $theme) {
-    Config::modify()->update("SSViewer", "theme", $theme);
+if (Config::inst()->get(SSViewer::class, "theme") != $theme) {
+    Config::modify()->update(SSViewer::class, "theme", $theme);
 }

@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\SiteConfig\SiteConfig;
+
 class Page extends SiteTree
 {
 
@@ -39,7 +44,7 @@ class Page extends SiteTree
   * ### @@@@ STOP REPLACEMENT @@@@ ###
   */
     private static $has_one = array(
-        "BackgroundImage" => "Image"
+        "BackgroundImage" => Image::class
     );
 
     public function MyBackgroundImage()
@@ -50,7 +55,7 @@ class Page extends SiteTree
             }
         }
         if ($this->ParentID) {
-            if ($parent = DataObject::get_by_id("SiteTree", $this->ParentID)) {
+            if ($parent = DataObject::get_by_id(SiteTree::class, $this->ParentID)) {
                 return $parent->MyBackgroundImage();
             }
         }

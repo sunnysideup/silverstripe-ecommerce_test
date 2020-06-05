@@ -2,7 +2,9 @@
 
 namespace Sunnysideup\EcommerceTest\Model;
 
-use DataObject;
+
+use SilverStripe\ORM\DataObject;
+
 
 
 class CompleteSetupRecord extends DataObject

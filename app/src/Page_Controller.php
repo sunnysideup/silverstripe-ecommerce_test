@@ -1,5 +1,18 @@
 <?php
 
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
+use SilverStripe\View\Requirements;
+use Sunnysideup\EcommerceTest\Model\CompleteSetupRecord;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Convert;
+use SilverStripe\ORM\DB;
+use SilverStripe\Control\Controller;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Director;
+use SilverStripe\ErrorPage\ErrorPage;
+use SilverStripe\CMS\Controllers\ContentController;
+
 class Page_Controller extends ContentController
 {
     private static $allowed_actions = array(
@@ -36,7 +49,7 @@ class Page_Controller extends ContentController
         //theme needs to be set TWO times...
         //$theme = Session::get("theme"); if(!$theme) {$theme = "simple";}SSViewer::set_theme($theme);
         parent::init();
-        $theme = Config::inst()->get("SSViewer", "theme");
+        $theme = Config::inst()->get(SSViewer::class, "theme");
         $this->InsertGoogleAnalyticsAsHeadTag();
         if ($theme == "main") {
             Requirements::themedCSS('sunnysideup/ecommerce_test: reset');
@@ -72,7 +85,7 @@ class Page_Controller extends ContentController
         return array();
     }
 
-    public function settheme(SS_HTTPRequest $request)
+    public function settheme(HTTPRequest $request)
     {
         $newTheme = $request->param("ID");
         $newTheme = Convert::raw2sql($newTheme);
@@ -146,7 +159,7 @@ class Page_Controller extends ContentController
             'WebPortfolioPage',
             'PresentationPage',
             'TermsAndConditionsPage',
-            'ErrorPage',
+            ErrorPage::class,
             'HomePage',
             'TypographyTestPage',
             'TemplateOverviewPage'

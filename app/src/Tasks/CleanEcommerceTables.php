@@ -2,11 +2,17 @@
 
 namespace Sunnysideup\EcommerceTest\Tasks;
 
-use BuildTask;
-use Permission;
-use Director;
-use Security;
-use DB;
+
+
+
+
+
+use SilverStripe\Security\Permission;
+use SilverStripe\Control\Director;
+use SilverStripe\Security\Security;
+use SilverStripe\ORM\DB;
+use SilverStripe\Dev\BuildTask;
+
 
 
 

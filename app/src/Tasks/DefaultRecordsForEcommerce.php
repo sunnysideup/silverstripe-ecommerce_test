@@ -2,19 +2,19 @@
 
 namespace Sunnysideup\EcommerceTest\Tasks;
 
-use BuildTask;
-use DB;
+
+
 use Product;
 use EcommerceTaskCreateMemberGroups;
 use EcommerceDBConfig;
-use Folder;
-use Director;
+
+
 use Page;
 use CheckoutPage;
 use ProductAttributeType;
 use ProductAttributeValue;
 use ProductVariation;
-use ArrayList;
+
 use ProductGroup;
 use CombinationProduct;
 use PickUpOrDeliveryModifierOptions;
@@ -22,10 +22,10 @@ use GSTTaxModifierOptions;
 use DiscountCouponOption;
 use EcommerceProductTag;
 use ProductGroupWithTags;
-use Versioned;
+
 use EcommerceRole;
-use Group;
-use Member;
+
+
 use ComplexPriceObject;
 use Order;
 use BillingAddress;
@@ -35,10 +35,23 @@ use OrderConfirmationPage;
 use CartPage;
 use AccountPage;
 use Spyc;
-use SiteTree;
+
 use DataObjectSet;
-use Image;
-use CompleteSetupRecord;
+
+
+use SilverStripe\ORM\DB;
+use SilverStripe\Assets\Folder;
+use SilverStripe\Control\Director;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Group;
+use SilverStripe\Security\Member;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Assets\Image;
+use Sunnysideup\EcommerceTest\Model\CompleteSetupRecord;
+use SilverStripe\Dev\BuildTask;
+
 
 
 class DefaultRecordsForEcommerce extends BuildTask
@@ -1781,10 +1794,10 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     private function UpdateMyRecords()
     {
         $array = array(
-            array("T" => "SiteConfig", "F" => "Title", "V" => "Silverstripe Ecommerce Demo", "W" => ""),
-            array("T" => "SiteConfig", "F" => "Tagline", "V" => "Built by Sunny Side Up", "W" => ""),
+            array("T" => SiteConfig::class, "F" => "Title", "V" => "Silverstripe Ecommerce Demo", "W" => ""),
+            array("T" => SiteConfig::class, "F" => "Tagline", "V" => "Built by Sunny Side Up", "W" => ""),
             //array("T" => "SiteConfig", "F" => "CopyrightNotice", "V" => "This demo (not the underlying modules) are &copy; Sunny Side Up Ltd", "W" => ""),
-            array("T" => "SiteConfig", "F" => "Theme", "V" => "main", "W" => ""),
+            array("T" => SiteConfig::class, "F" => "Theme", "V" => "main", "W" => ""),
             array("T" => "EcommerceDBConfig", "F" => "ShopClosed", "V" => "0", "W" => ""),
             array("T" => "EcommerceDBConfig", "F" => "ShopPricesAreTaxExclusive", "V" => "0", "W" => ""),
             array("T" => "EcommerceDBConfig", "F" => "ShopPhysicalAddress", "V" => "<address>The Shop<br />1 main street<br />Coolville 123<br />Landistan</address>", "W" => ""),
