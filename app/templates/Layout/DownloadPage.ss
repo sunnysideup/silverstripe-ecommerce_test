@@ -69,7 +69,7 @@
 				<li><a href="#DownloadSection">Downloads</a></li>
 			</ul>
 		</div>
-		<% include Sidebar %>
+		<% include Sunnysideup\EcommerceTest\IncludesSidebar %>
 		<div class="sidebarBottom"></div>
 	</div></aside>
 
