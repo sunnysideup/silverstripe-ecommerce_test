@@ -4,32 +4,173 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd24e5932a7568cda88326ffa7e70275",
+    "content-hash": "8dfe6b00b2cb477c429623c22fb926e3",
     "packages": [
         {
-            "name": "composer/installers",
-            "version": "v1.5.0",
+            "name": "bramus/ansi-php",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/composer/installers.git",
-                "reference": "049797d727261bf27f2690430d935067710049c2"
+                "url": "https://github.com/bramus/ansi-php.git",
+                "reference": "fb0be33f36053af7454d462e3ddc0a2ac0b2f311"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
-                "reference": "049797d727261bf27f2690430d935067710049c2",
+                "url": "https://api.github.com/repos/bramus/ansi-php/zipball/fb0be33f36053af7454d462e3ddc0a2ac0b2f311",
+                "reference": "fb0be33f36053af7454d462e3ddc0a2ac0b2f311",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0"
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bramus\\Ansi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bramus Van Damme",
+                    "email": "bramus@bram.us",
+                    "homepage": "https://www.bram.us/"
+                }
+            ],
+            "description": "ANSI Control Functions and ANSI Control Sequences (Colors, Erasing, etc.) for PHP CLI Apps",
+            "time": "2019-12-03T09:04:38+00:00"
+        },
+        {
+            "name": "bramus/monolog-colored-line-formatter",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bramus/monolog-colored-line-formatter.git",
+                "reference": "6bff15eee00afe2690642535b0f1541f10852c2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bramus/monolog-colored-line-formatter/zipball/6bff15eee00afe2690642535b0f1541f10852c2b",
+                "reference": "6bff15eee00afe2690642535b0f1541f10852c2b",
+                "shasum": ""
+            },
+            "require": {
+                "bramus/ansi-php": "~3.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "monolog/monolog": "~1.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bramus\\Monolog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bramus Van Damme",
+                    "email": "bramus@bram.us",
+                    "homepage": "https://www.bram.us/"
+                }
+            ],
+            "description": "Colored Line Formatter for Monolog",
+            "time": "2015-01-07T22:12:35+00:00"
+        },
+        {
+            "name": "composer/ca-bundle",
+            "version": "1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/ca-bundle.git",
+                "reference": "95c63ab2117a72f48f5a55da9740a3273d45b7fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/95c63ab2117a72f48f5a55da9740a3273d45b7fd",
+                "reference": "95c63ab2117a72f48f5a55da9740a3273d45b7fd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-pcre": "*",
+                "php": "^5.3.2 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 8",
+                "psr/log": "^1.0",
+                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\CaBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Lets you find a path to the system CA bundle, and includes a fallback to the Mozilla CA bundle.",
+            "keywords": [
+                "cabundle",
+                "cacert",
+                "certificate",
+                "ssl",
+                "tls"
+            ],
+            "time": "2020-04-08T08:27:21+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
                 "shama/baton": "*"
             },
             "require-dev": {
-                "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "^4.8.36"
+                "composer/composer": "1.6.* || 2.0.*@dev",
+                "composer/semver": "1.0.* || 2.0.*@dev",
+                "phpunit/phpunit": "^4.8.36",
+                "sebastian/comparator": "^1.2.4",
+                "symfony/process": "^2.3"
             },
             "type": "composer-plugin",
             "extra": {
@@ -65,6 +206,7 @@
                 "Kanboard",
                 "Lan Management System",
                 "MODX Evo",
+                "MantisBT",
                 "Mautic",
                 "Maya",
                 "OXID",
@@ -73,6 +215,7 @@
                 "RadPHP",
                 "SMF",
                 "Thelia",
+                "Whmcs",
                 "WolfCMS",
                 "agl",
                 "aimeos",
@@ -95,6 +238,7 @@
                 "installer",
                 "itop",
                 "joomla",
+                "known",
                 "kohana",
                 "laravel",
                 "lavalite",
@@ -117,6 +261,7 @@
                 "shopware",
                 "silverstripe",
                 "sydes",
+                "sylius",
                 "symfony",
                 "typo3",
                 "wordpress",
@@ -124,37 +269,103 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-12-29T09:13:20+00:00"
+            "time": "2020-04-07T06:57:05+00:00"
         },
         {
-            "name": "mustangostang/spyc",
-            "version": "0.6.2",
+            "name": "embed/embed",
+            "version": "v3.4.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mustangostang/spyc.git",
-                "reference": "23c35ae854d835f2d7bcc3e3ad743d7e57a8c14d"
+                "url": "https://github.com/oscarotero/Embed.git",
+                "reference": "2c73fb760da18c608d04d6c9de9c1295a2be6e10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mustangostang/spyc/zipball/23c35ae854d835f2d7bcc3e3ad743d7e57a8c14d",
-                "reference": "23c35ae854d835f2d7bcc3e3ad743d7e57a8c14d",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/2c73fb760da18c608d04d6c9de9c1295a2be6e10",
+                "reference": "2c73fb760da18c608d04d6c9de9c1295a2be6e10",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.1"
+                "composer/ca-bundle": "^1.0",
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "php": "^5.6|^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.3.*@dev"
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpunit/phpunit": "^4.8|^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Embed\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to retrieve page info using oembed, opengraph, etc",
+            "homepage": "https://github.com/oscarotero/Embed",
+            "keywords": [
+                "embed",
+                "embedly",
+                "oembed",
+                "opengraph",
+                "twitter cards"
+            ],
+            "time": "2020-05-30T22:27:02+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "suggest": {
+                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5.x-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
                 "files": [
-                    "Spyc.php"
+                    "src/functions_include.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -163,561 +374,420 @@
             ],
             "authors": [
                 {
-                    "name": "mustangostang",
-                    "email": "vlad.andersen@gmail.com"
-                }
-            ],
-            "description": "A simple YAML loader/dumper class for PHP",
-            "homepage": "https://github.com/mustangostang/spyc/",
-            "keywords": [
-                "spyc",
-                "yaml",
-                "yml"
-            ],
-            "time": "2017-02-24T16:06:33+00:00"
-        },
-        {
-            "name": "silverstripe/cms",
-            "version": "3.6.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "169f75c7bac29fdd816fdc1ea12bc22da9d6c4e0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/169f75c7bac29fdd816fdc1ea12bc22da9d6c4e0",
-                "reference": "169f75c7bac29fdd816fdc1ea12bc22da9d6c4e0",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "*",
-                "php": ">=5.3.3",
-                "silverstripe/framework": "~3.4",
-                "silverstripe/reports": "~3.4",
-                "silverstripe/siteconfig": "~3.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^3 || ^4 || ^5"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "branch-alias": {
-                    "3.x-dev": "3.6.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "tests/behat/",
-                    "code"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "SilverStripe",
-                    "homepage": "http://silverstripe.com"
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 },
                 {
-                    "name": "The SilverStripe Community",
-                    "homepage": "http://silverstripe.org"
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
-            "description": "The SilverStripe Content Management System",
-            "homepage": "http://silverstripe.org",
+            "description": "PSR-7 message implementation that also provides common utility methods",
             "keywords": [
-                "cms",
-                "silverstripe"
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
             ],
-            "time": "2018-01-11T10:04:03+00:00"
+            "time": "2019-07-01T23:21:34+00:00"
         },
         {
-            "name": "silverstripe/framework",
-            "version": "3.6.5",
+            "name": "intervention/image",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "a805aabecd1c859f772456e7b49fb3693b509787"
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "abbf18d5ab8367f96b3205ca3c89fb2fa598c69e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/a805aabecd1c859f772456e7b49fb3693b509787",
-                "reference": "a805aabecd1c859f772456e7b49fb3693b509787",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/abbf18d5ab8367f96b3205ca3c89fb2fa598c69e",
+                "reference": "abbf18d5ab8367f96b3205ca3c89fb2fa598c69e",
                 "shasum": ""
             },
             "require": {
-                "composer/installers": "~1.0",
-                "mustangostang/spyc": "^0.6.2",
-                "php": ">= 5.3.3, <7.2"
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^3 || ^4 || ^5"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "branch-alias": {
-                    "3.x-dev": "3.6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "SilverStripe\\": "src/",
-                    "Zend_": "thirdparty/Zend/"
-                },
-                "classmap": [
-                    "tests/behat/features/bootstrap",
-                    "admin/code",
-                    "api",
-                    "cache",
-                    "cli",
-                    "control",
-                    "core",
-                    "dev",
-                    "email",
-                    "filesystem",
-                    "forms",
-                    "i18n",
-                    "model",
-                    "oembed",
-                    "parsers",
-                    "search",
-                    "security",
-                    "tasks",
-                    "view",
-                    "thirdparty/php-peg",
-                    "thirdparty/simpletest",
-                    "thirdparty/zend_translate_railsyaml"
-                ],
-                "exclude-from-classmap": [
-                    "view/SSTemplateParser.php.inc",
-                    "dev/phpunit/PhpUnitWrapper.php",
-                    "model/fieldtypes/compat"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "SilverStripe",
-                    "homepage": "http://silverstripe.com"
-                },
-                {
-                    "name": "The SilverStripe Community",
-                    "homepage": "http://silverstripe.org"
-                }
-            ],
-            "description": "The SilverStripe framework",
-            "homepage": "http://silverstripe.org",
-            "keywords": [
-                "framework",
-                "silverstripe"
-            ],
-            "time": "2018-02-05T02:19:24+00:00"
-        },
-        {
-            "name": "silverstripe/geoip",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silverstripe-labs/silverstripe-geoip.git",
-                "reference": "53f2107192e73c2786f086324e4df949e4b17a1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-geoip/zipball/53f2107192e73c2786f086324e4df949e4b17a1a",
-                "reference": "53f2107192e73c2786f086324e4df949e4b17a1a",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": ">=2.4.0"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "geoip"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Sean Harvey",
-                    "email": "sean@silverstripe.com"
-                }
-            ],
-            "description": "GeoIP module for SilverStripe.",
-            "keywords": [
-                "geoip",
-                "silverstripe-labs"
-            ],
-            "time": "2016-03-07T20:40:00+00:00"
-        },
-        {
-            "name": "silverstripe/reports",
-            "version": "3.6.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-reports.git",
-                "reference": "5ddb796d151741c4be2f10a902e85809962a037f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/5ddb796d151741c4be2f10a902e85809962a037f",
-                "reference": "5ddb796d151741c4be2f10a902e85809962a037f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3,<7.2",
-                "silverstripe/framework": "~3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^3 || ^4 || ^5"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "branch-alias": {
-                    "3.x-dev": "3.6.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "code"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "SilverStripe",
-                    "homepage": "http://silverstripe.com"
-                },
-                {
-                    "name": "The SilverStripe Community",
-                    "homepage": "http://silverstripe.org"
-                }
-            ],
-            "description": "Reports module for SilverStripe CMS",
-            "homepage": "http://silverstripe.org",
-            "keywords": [
-                "cms",
-                "reports",
-                "silverstripe"
-            ],
-            "time": "2018-01-16T12:01:55+00:00"
-        },
-        {
-            "name": "silverstripe/siteconfig",
-            "version": "3.6.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-siteconfig.git",
-                "reference": "923fd31c69e92db9c2273107430ac3cf9877aee9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/923fd31c69e92db9c2273107430ac3cf9877aee9",
-                "reference": "923fd31c69e92db9c2273107430ac3cf9877aee9",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^3 || ^4 || ^5"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "siteconfig",
-                "branch-alias": {
-                    "3.x-dev": "3.6.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "code"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Will Rossiter",
-                    "email": "will@fullscreen.io"
-                }
-            ],
-            "description": "Site wide settings administration.",
-            "keywords": [
-                "silverstripe",
-                "siteconfig"
-            ],
-            "time": "2017-12-05T11:15:41+00:00"
-        },
-        {
-            "name": "sunnysideup/cms_edit_link_field",
-            "version": "7.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-cms_edit_link_field.git",
-                "reference": "0da10423faa7cff08bf22b9dd5001db9793a3828"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-cms_edit_link_field/zipball/0da10423faa7cff08bf22b9dd5001db9793a3828",
-                "reference": "0da10423faa7cff08bf22b9dd5001db9793a3828",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "cms_edit_link_field"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Adds 'EDIT IN CMS' link to any object within the Silverstripe CMS",
-            "keywords": [
-                "CMSEditLink",
-                "Silverstripe-CMS",
-                "cms",
-                "silverstripe"
-            ],
-            "time": "2018-02-22T21:05:45+00:00"
-        },
-        {
-            "name": "sunnysideup/ecommerce",
-            "version": "8.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-ecommerce.git",
-                "reference": "364b5f3c446ecf9c371a21cdff0c13f2cfc8245e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/364b5f3c446ecf9c371a21cdff0c13f2cfc8245e",
-                "reference": "364b5f3c446ecf9c371a21cdff0c13f2cfc8245e",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.6",
-                "silverstripe/framework": "~3.6",
-                "sunnysideup/cms_edit_link_field": "*",
-                "sunnysideup/google_address_field": "*",
-                "sunnysideup/permission_provider": "*"
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "^4.8 || ^5.7"
             },
             "suggest": {
-                "micmania1/silverstripe-lumberjack": "great way to take product and product groups out of the sitetree",
-                "silverstripe/geoip": "Native Silverstripe way to work out the customer country. Make sure this work on your server, before installing it - otherwise it is useless.",
-                "silverstripe/restfulserver": "Adds restful server functionality to your e-commerce site (creates an API for your e-commerce application, allowing third-parties to tap into your e-commerce data)",
-                "sunnysideup/cms_edit_link_field": "easier ways to link through within ecommerce objects and other objects that have the CMSEditLink",
-                "sunnysideup/ecommerce_cloud_flare_geoip": "Extends Geoip if you are using cloudflare",
-                "symbiote/silverstripe-grouped-cms-menu": "HIGHLY RECOMMENDED! merge e-commerce cms menu items into one section."
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
             },
-            "type": "silverstripe-module",
+            "type": "library",
             "extra": {
-                "installer-name": "ecommerce"
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Intervention\\Image\\ImageServiceProvider"
+                    ],
+                    "aliases": {
+                        "Image": "Intervention\\Image\\Facades\\Image"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.com",
+                    "homepage": "http://olivervogel.com/"
                 }
             ],
-            "description": "Silverstripe E-commerce Application",
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
             "keywords": [
-                "Silverstripe-CMS",
-                "cart",
-                "cms",
-                "e-commerce",
-                "ecommerce",
-                "online payment",
-                "payment",
-                "products",
-                "sales",
-                "selling stuff",
-                "services",
-                "shop",
-                "silverstripe",
-                "webshop"
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
             ],
-            "time": "2018-04-09T11:23:19+00:00"
+            "time": "2019-11-02T09:15:47+00:00"
         },
         {
-            "name": "sunnysideup/google_address_field",
-            "version": "1.9.1",
+            "name": "league/csv",
+            "version": "8.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-google_address_field.git",
-                "reference": "ce0cfbb04fe557afcc6a5906f7bd336106587ab6"
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "d2aab1e7bde802582c3879acf03d92716577c76d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-google_address_field/zipball/ce0cfbb04fe557afcc6a5906f7bd336106587ab6",
-                "reference": "ce0cfbb04fe557afcc6a5906f7bd336106587ab6",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/d2aab1e7bde802582c3879acf03d92716577c76d",
+                "reference": "d2aab1e7bde802582c3879acf03d92716577c76d",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.6",
-                "silverstripe/framework": "~3.6"
+                "ext-mbstring": "*",
+                "php": ">=5.5.0"
             },
-            "type": "silverstripe-module",
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.9",
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
             "extra": {
-                "installer-name": "google_address_field"
+                "branch-alias": {
+                    "dev-master": "8.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
                 }
             ],
-            "description": "Provide a form field for the Silverstripe CMS that allows geocoding address prediction (autocomplete) and quick lookup of addresses using the Google API",
+            "description": "Csv data manipulation made easy in PHP",
+            "homepage": "http://csv.thephpleague.com",
             "keywords": [
-                "Silverstripe-CMS",
-                "address",
-                "autocomplete",
-                "cms",
-                "field",
-                "find address",
-                "form",
-                "form field",
-                "geocoding",
-                "google",
-                "maps",
-                "silverstripe"
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "write"
             ],
-            "time": "2018-02-22T22:01:52+00:00"
+            "time": "2018-02-06T08:27:03+00:00"
         },
         {
-            "name": "sunnysideup/permission_provider",
-            "version": "2.1.1",
+            "name": "league/flysystem",
+            "version": "1.0.69",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-permission_provider.git",
-                "reference": "cf81a461e1ed596b9a70b87e81610ee275e33a5c"
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "7106f78428a344bc4f643c233a94e48795f10967"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-permission_provider/zipball/cf81a461e1ed596b9a70b87e81610ee275e33a5c",
-                "reference": "cf81a461e1ed596b9a70b87e81610ee275e33a5c",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7106f78428a344bc4f643c233a94e48795f10967",
+                "reference": "7106f78428a344bc4f643c233a94e48795f10967",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
+                "ext-fileinfo": "*",
+                "php": ">=5.5.9"
             },
-            "type": "silverstripe-module",
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^3.4",
+                "phpunit/phpunit": "^5.7.26"
+            },
+            "suggest": {
+                "ext-fileinfo": "Required for MimeType",
+                "ext-ftp": "Allows you to use FTP server storage",
+                "ext-openssl": "Allows you to use FTPS server storage",
+                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
+                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
+                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
+                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
+                "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
+                "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
+            },
+            "type": "library",
             "extra": {
-                "installer-name": "permission_provider"
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
                 }
             ],
-            "description": "Make it easier to set up permission groups (creates a member / user, group, and role in one go) for the Silverstripe CMS.",
+            "description": "Filesystem abstraction: Many filesystems, one API.",
             "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "group",
-                "member",
-                "permission",
-                "permissions",
-                "role",
-                "security",
-                "silverstripe"
+                "Cloud Files",
+                "WebDAV",
+                "abstraction",
+                "aws",
+                "cloud",
+                "copy.com",
+                "dropbox",
+                "file systems",
+                "files",
+                "filesystem",
+                "filesystems",
+                "ftp",
+                "rackspace",
+                "remote",
+                "s3",
+                "sftp",
+                "storage"
             ],
-            "time": "2018-02-22T22:25:10+00:00"
-        }
-    ],
-    "packages-dev": [
+            "time": "2020-05-18T15:13:39+00:00"
+        },
         {
-            "name": "adrexia/dashboardmods",
-            "version": "0.1.1",
+            "name": "m1/env",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/adrexia/silverstripe-dashboardmods.git",
-                "reference": "3f3eb468ab49bffb4a24523fb4dc8b9ef9d2b75d"
+                "url": "https://github.com/m1/Env.git",
+                "reference": "5c296e3e13450a207e12b343f3af1d7ab569f6f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrexia/silverstripe-dashboardmods/zipball/3f3eb468ab49bffb4a24523fb4dc8b9ef9d2b75d",
-                "reference": "3f3eb468ab49bffb4a24523fb4dc8b9ef9d2b75d",
+                "url": "https://api.github.com/repos/m1/Env/zipball/5c296e3e13450a207e12b343f3af1d7ab569f6f3",
+                "reference": "5c296e3e13450a207e12b343f3af1d7ab569f6f3",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/dashboard": "*",
-                "silverstripe/framework": "~3.1"
+                "php": ">=5.3.0"
             },
-            "type": "silverstripe-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Design modifications to the SilverStripe Dashboard module",
-            "keywords": [
-                "silverstripe"
-            ],
-            "time": "2015-02-07T08:01:06+00:00"
-        },
-        {
-            "name": "gdmedia/ss-auto-git-ignore",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guru-digital/SSAutoGitIgnore.git",
-                "reference": "0fd761b18305aa5c8aa35117d5b5b58cc006815d"
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "^2.3"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guru-digital/SSAutoGitIgnore/zipball/0fd761b18305aa5c8aa35117d5b5b58cc006815d",
-                "reference": "0fd761b18305aa5c8aa35117d5b5b58cc006815d",
-                "shasum": ""
+            "suggest": {
+                "josegonzalez/dotenv": "For loading of .env",
+                "m1/vars": "For loading of configs"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "GDM\\": "./"
+                "psr-4": {
+                    "M1\\Env\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
-                    "name": "Corey Sewell",
-                    "email": "corey@gurudigal.nz"
+                    "name": "Miles Croxford",
+                    "email": "hello@milescroxford.com",
+                    "homepage": "http://milescroxford.com",
+                    "role": "Developer"
                 }
             ],
-            "description": "A Composer post-update-cmd script to automatically add Composer managed SilverStripe modules and themes to .gitignore",
-            "time": "2016-07-27T19:24:49+00:00"
+            "description": "Env is a lightweight library bringing .env file parser compatibility to PHP. In short - it enables you to read .env files with PHP.",
+            "homepage": "https://github.com/m1/Env",
+            "keywords": [
+                ".env",
+                "config",
+                "dotenv",
+                "env",
+                "loader",
+                "m1",
+                "parser",
+                "support"
+            ],
+            "time": "2020-02-19T09:02:13+00:00"
+        },
+        {
+            "name": "marcj/topsort",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marcj/topsort.php.git",
+                "reference": "387086c2db60ee0a27ac5df588c0f0b30c6bdc4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marcj/topsort.php/zipball/387086c2db60ee0a27ac5df588c0f0b30c6bdc4b",
+                "reference": "387086c2db60ee0a27ac5df588c0f0b30c6bdc4b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "~4.0",
+                "symfony/console": "~2.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MJS\\TopSort\\": "src/",
+                    "MJS\\TopSort\\Tests\\": "tests/Tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc J. Schmidt",
+                    "email": "marc@marcjschmidt.de"
+                }
+            ],
+            "description": "High-Performance TopSort/Dependency resolving algorithm",
+            "keywords": [
+                "dependency resolving",
+                "topological sort",
+                "topsort"
+            ],
+            "time": "2016-11-19T14:58:11+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.25.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "3022efff205e2448b560c833c6fbbf91c3139168"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/3022efff205e2448b560c833c6fbbf91c3139168",
+                "reference": "3022efff205e2448b560c833c6fbbf91c3139168",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "graylog2/gelf-php": "~1.0",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "php-parallel-lint/php-parallel-lint": "^1.0",
+                "phpunit/phpunit": "~4.5",
+                "ruflin/elastica": ">=0.90 <3.0",
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2020-05-22T07:31:27+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -772,270 +842,320 @@
             "time": "2020-06-03T07:24:19+00:00"
         },
         {
-            "name": "sunnysideup/dataintegritytests",
-            "version": "7.1.1",
+            "name": "psr/cache",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-dataintegritytests.git",
-                "reference": "9367c2f02eea30674bd2de332d77b7eac6303742"
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-dataintegritytests/zipball/9367c2f02eea30674bd2de332d77b7eac6303742",
-                "reference": "9367c2f02eea30674bd2de332d77b7eac6303742",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
+                "php": ">=5.3.0"
             },
-            "type": "silverstripe-module",
+            "type": "library",
             "extra": {
-                "installer-name": "dataintegritytests"
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "description": "check your database for obsolete fields and related data-structure errors",
+            "description": "Common interface for caching libraries",
             "keywords": [
-                "Silverstripe-CMS",
-                "check database",
-                "clean database",
-                "cms",
-                "database",
-                "dataintegritytests",
-                "mysql",
-                "obsolete fields",
-                "silverstripe",
-                "test data structure"
+                "cache",
+                "psr",
+                "psr-6"
             ],
-            "time": "2018-02-22T21:10:27+00:00"
+            "time": "2016-08-06T20:24:11+00:00"
         },
         {
-            "name": "sunnysideup/dataobjectsorter",
-            "version": "4.1.1",
+            "name": "psr/container",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-dataobjectsorter.git",
-                "reference": "bc36c2030cfbfc6c1b13d3e1aa6acc22ab4eeef1"
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-dataobjectsorter/zipball/bc36c2030cfbfc6c1b13d3e1aa6acc22ab4eeef1",
-                "reference": "bc36c2030cfbfc6c1b13d3e1aa6acc22ab4eeef1",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
+                "php": ">=5.3.0"
             },
-            "type": "silverstripe-module",
+            "type": "library",
             "extra": {
-                "installer-name": "dataobjectsorter"
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "description": "Silverstripe module with crud functionality: edit one field for one record, edit one record, edit one field for all records AND sort records... ",
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
             "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "crud",
-                "dataobjectsorter",
-                "edit one field",
-                "edit one record",
-                "list of fields",
-                "quick edit",
-                "silverstripe",
-                "sort",
-                "sorting"
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
             ],
-            "time": "2018-02-22T20:56:47+00:00"
+            "time": "2017-02-14T16:28:37+00:00"
         },
         {
-            "name": "sunnysideup/ecommerce_bootstrap_theme",
-            "version": "1.1.2",
+            "name": "psr/http-message",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_boostrap_theme.git",
-                "reference": "909922b02ea4265e8d2f05825b251ebb305017c9"
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_boostrap_theme/zipball/909922b02ea4265e8d2f05825b251ebb305017c9",
-                "reference": "909922b02ea4265e8d2f05825b251ebb305017c9",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
+                "php": ">=5.3.0"
             },
-            "type": "silverstripe-theme",
+            "type": "library",
             "extra": {
-                "installer-name": "bootstrap"
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "description": "E-commerce using bootstrap",
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
-                "Silverstripe-CMS",
-                "bootstrap",
-                "cms",
-                "e-commerce",
-                "silverstripe",
-                "theme"
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
             ],
-            "time": "2018-02-22T21:18:28+00:00"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
-            "name": "sunnysideup/ecommerce_dashboard",
-            "version": "3.6.0",
+            "name": "psr/log",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_dashboard.git",
-                "reference": "e6c59d784b7616a48a38de710ec4d21231ed813d"
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_dashboard/zipball/e6c59d784b7616a48a38de710ec4d21231ed813d",
-                "reference": "e6c59d784b7616a48a38de710ec4d21231ed813d",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
                 "shasum": ""
             },
             "require": {
-                "adrexia/dashboardmods": "*",
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/ecommerce": "*",
-                "unclecheese/dashboard": "*"
+                "php": ">=5.3.0"
             },
-            "type": "silverstripe-module",
+            "type": "library",
             "extra": {
-                "installer-name": "ecommerce_dashboard"
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "description": "Adds a dash board to the silverstripe e-commerce application",
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "dashboard",
-                "e-commerce",
-                "management summary",
-                "sales",
-                "silverstripe",
-                "statistics"
+                "log",
+                "psr",
+                "psr-3"
             ],
-            "time": "2018-03-03T22:40:12+00:00"
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
-            "name": "sunnysideup/ecommerce_delivery",
-            "version": "5.6.2",
+            "name": "psr/simple-cache",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_delivery.git",
-                "reference": "6b398e71a4db8942b6bb28d1addd03955742fb11"
+                "url": "https://github.com/php-fig/simple-cache.git",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_delivery/zipball/6b398e71a4db8942b6bb28d1addd03955742fb11",
-                "reference": "6b398e71a4db8942b6bb28d1addd03955742fb11",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/dataobjectsorter": "*",
-                "sunnysideup/ecommerce": "*"
+                "php": ">=5.3.0"
             },
-            "type": "silverstripe-module",
+            "type": "library",
             "extra": {
-                "installer-name": "ecommerce_delivery"
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "description": "add delivery costs to your silverstripe e-commerce",
+            "description": "Common interfaces for simple caching",
             "keywords": [
-                "Silverstripe-CMS",
-                "cart",
-                "cms",
-                "courrier",
-                "delivery",
-                "e-commerce",
-                "ecommerce",
-                "pick-up",
-                "sending",
-                "shipping",
-                "shop",
-                "silverstripe",
-                "tracking code"
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
             ],
-            "time": "2018-02-22T21:25:31+00:00"
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
-            "name": "sunnysideup/ecommerce_orderstep_feedback",
-            "version": "1.4.3",
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_orderstep_feedback.git",
-                "reference": "740cf10c6311d2473ff74319bc42362c03436614"
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_orderstep_feedback/zipball/740cf10c6311d2473ff74319bc42362c03436614",
-                "reference": "740cf10c6311d2473ff74319bc42362c03436614",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/ecommerce": "*"
+                "php": ">=5.6"
             },
-            "type": "silverstripe-module",
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "silverstripe/admin",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-admin.git",
+                "reference": "375d02193d693ed892af403f0421170c119ffa50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-admin/zipball/375d02193d693ed892af403f0421170c119ffa50",
+                "reference": "375d02193d693ed892af403f0421170c119ffa50",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4.5",
+                "silverstripe/vendor-plugin": "^1.0",
+                "silverstripe/versioned": "^1@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "silverstripe-vendormodule",
             "extra": {
-                "installer-name": "ecommerce_orderstep_feedback"
+                "expose": [
+                    "client/dist",
+                    "client/lang",
+                    "thirdparty"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Admin\\": "code/",
+                    "SilverStripe\\Admin\\Tests\\": "tests/php/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1043,97 +1163,652 @@
             ],
             "authors": [
                 {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
                 }
             ],
-            "description": "add a feedbck step to silverstripe e-commerce",
+            "description": "SilverStripe admin interface",
+            "homepage": "http://silverstripe.org",
             "keywords": [
-                "Silverstripe-CMS",
+                "admin",
+                "silverstripe"
+            ],
+            "time": "2020-02-17T01:41:39+00:00"
+        },
+        {
+            "name": "silverstripe/asset-admin",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-asset-admin.git",
+                "reference": "ead94311a34d40ef749976b2fa0283b3471df5b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-asset-admin/zipball/ead94311a34d40ef749976b2fa0283b3471df5b6",
+                "reference": "ead94311a34d40ef749976b2fa0283b3471df5b6",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1.5",
+                "silverstripe/framework": "^4.5",
+                "silverstripe/graphql": "^3",
+                "silverstripe/vendor-plugin": "^1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/campaign-admin": "^1.5",
+                "silverstripe/cms": "^4.5"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\AssetAdmin\\": "code/",
+                    "SilverStripe\\AssetAdmin\\Tests\\": "tests/php/",
+                    "SilverStripe\\AssetAdmin\\Tests\\Behat\\Context\\": "tests/behat/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Asset management for the SilverStripe CMS",
+            "time": "2020-02-17T02:29:18+00:00"
+        },
+        {
+            "name": "silverstripe/assets",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-assets.git",
+                "reference": "c4709b6c6af840ea618b36d8ffe76f1ed48a21b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-assets/zipball/c4709b6c6af840ea618b36d8ffe76f1ed48a21b3",
+                "reference": "c4709b6c6af840ea618b36d8ffe76f1ed48a21b3",
+                "shasum": ""
+            },
+            "require": {
+                "intervention/image": "^2.3",
+                "silverstripe/framework": "^4.5",
+                "silverstripe/vendor-plugin": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/versioned": "^1@dev"
+            },
+            "suggest": {
+                "ext-exif": "If you use GD backend (the default) you may want to have EXIF extension installed to elude some tricky issues"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "silverstripe-assets"
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Assets\\": "src/",
+                    "SilverStripe\\Assets\\Tests\\": "tests/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "SilverStripe Assets component",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
+                "assets",
+                "silverstripe"
+            ],
+            "time": "2020-04-13T05:59:53+00:00"
+        },
+        {
+            "name": "silverstripe/campaign-admin",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-campaign-admin.git",
+                "reference": "88f76dbe7b4d218b33f37f0904d6fa07c4801e0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-campaign-admin/zipball/88f76dbe7b4d218b33f37f0904d6fa07c4801e0b",
+                "reference": "88f76dbe7b4d218b33f37f0904d6fa07c4801e0b",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1.5",
+                "silverstripe/framework": "^4.5",
+                "silverstripe/vendor-plugin": "^1.0",
+                "silverstripe/versioned": "^1.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/asset-admin": "^1.5",
+                "silverstripe/cms": "^4.5"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\CampaignAdmin\\": "src/",
+                    "SilverStripe\\CampaignAdmin\\Tests\\": "tests/php/",
+                    "SilverStripe\\CampaignAdmin\\Tests\\Behat\\Context\\": "tests/behat/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "SilverStripe campaign admin interface",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
+                "admin",
+                "campaign",
+                "silverstripe",
+                "versioned"
+            ],
+            "time": "2020-02-17T02:29:18+00:00"
+        },
+        {
+            "name": "silverstripe/cms",
+            "version": "4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-cms.git",
+                "reference": "9cb96bfc5245649ab4c96009f23734943d91b6e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/9cb96bfc5245649ab4c96009f23734943d91b6e4",
+                "reference": "9cb96bfc5245649ab4c96009f23734943d91b6e4",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1.5@dev",
+                "silverstripe/campaign-admin": "^1.5@dev",
+                "silverstripe/framework": "^4.5@dev",
+                "silverstripe/reports": "^4.5@dev",
+                "silverstripe/siteconfig": "^4.5@dev",
+                "silverstripe/vendor-plugin": "^1.0",
+                "silverstripe/versioned": "^1.5@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\CMS\\": "code/",
+                    "SilverStripe\\CMS\\Tests\\": "code/php/",
+                    "SilverStripe\\CMS\\Tests\\Behaviour\\": "tests/behat/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "The SilverStripe Content Management System",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
                 "cms",
                 "silverstripe"
             ],
-            "time": "2018-02-22T21:35:44+00:00"
+            "time": "2020-02-17T02:29:19+00:00"
         },
         {
-            "name": "sunnysideup/ecommerce_product_variation",
-            "version": "5.6.1",
+            "name": "silverstripe/config",
+            "version": "1.0.18",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_product_variation.git",
-                "reference": "e83376dc065f61f2025cd6ad73704dbc82ff7221"
+                "url": "https://github.com/silverstripe/silverstripe-config.git",
+                "reference": "ab03d6dc54bd51f4b8f5ebf92612895568ac9633"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_product_variation/zipball/e83376dc065f61f2025cd6ad73704dbc82ff7221",
-                "reference": "e83376dc065f61f2025cd6ad73704dbc82ff7221",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-config/zipball/ab03d6dc54bd51f4b8f5ebf92612895568ac9633",
+                "reference": "ab03d6dc54bd51f4b8f5ebf92612895568ac9633",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/ecommerce": "*"
+                "marcj/topsort": "^1.0",
+                "psr/simple-cache": "^1.0",
+                "symfony/finder": "^2.8 || ^3.2",
+                "symfony/yaml": "^2.8 || ^3.2"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpspec/prophecy": "^1.0",
+                "phpunit/phpunit": "^5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Config\\": "src/",
+                    "SilverStripe\\Config\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "SilverStripe configuration based on YAML and class statics",
+            "time": "2018-06-17T22:13:57+00:00"
+        },
+        {
+            "name": "silverstripe/errorpage",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-errorpage.git",
+                "reference": "50d030e9d803c1184bd43a8dea071e65a6c9ec5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-errorpage/zipball/50d030e9d803c1184bd43a8dea071e65a6c9ec5e",
+                "reference": "50d030e9d803c1184bd43a8dea071e65a6c9ec5e",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "^4.5@dev",
+                "silverstripe/vendor-plugin": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\ErrorPage\\": "src/",
+                    "SilverStripe\\ErrorPage\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "ErrorPage component for SilverStripe CMS",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
+                "error",
+                "errorpage",
+                "silverstripe"
+            ],
+            "time": "2020-02-17T02:29:19+00:00"
+        },
+        {
+            "name": "silverstripe/framework",
+            "version": "4.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-framework.git",
+                "reference": "10c32aaa28ceff3f90cd72e3f223b2d84dbeee28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/10c32aaa28ceff3f90cd72e3f223b2d84dbeee28",
+                "reference": "10c32aaa28ceff3f90cd72e3f223b2d84dbeee28",
+                "shasum": ""
+            },
+            "require": {
+                "bramus/monolog-colored-line-formatter": "~2.0",
+                "composer/installers": "~1.0",
+                "embed/embed": "^3.0",
+                "ext-ctype": "*",
+                "ext-dom": "*",
+                "ext-hash": "*",
+                "ext-intl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-session": "*",
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xml": "*",
+                "league/csv": "^8",
+                "league/flysystem": "~1.0.12",
+                "m1/env": "^2.1",
+                "monolog/monolog": "~1.11",
+                "nikic/php-parser": "^2 || ^3 || ^4",
+                "php": ">=7.1.0",
+                "psr/container": "1.0.0",
+                "psr/container-implementation": "1.0.0",
+                "silverstripe/assets": "^1@dev",
+                "silverstripe/config": "^1@dev",
+                "silverstripe/vendor-plugin": "^1.4",
+                "swiftmailer/swiftmailer": "~5.4",
+                "symfony/cache": "^3.3@dev",
+                "symfony/config": "^3.2",
+                "symfony/translation": "^2.8",
+                "symfony/yaml": "~3.2"
+            },
+            "provide": {
+                "psr/container-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/versioned": "^1",
+                "sminnee/phpunit-mock-objects": "^3.4.5"
+            },
+            "bin": [
+                "sake"
+            ],
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/images",
+                    "client/styles"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Control\\": "src/Control/",
+                    "SilverStripe\\Control\\Tests\\": "tests/php/Control/",
+                    "SilverStripe\\Core\\": "src/Core/",
+                    "SilverStripe\\Core\\Tests\\": "tests/php/Core/",
+                    "SilverStripe\\Dev\\": "src/Dev/",
+                    "SilverStripe\\Dev\\Tests\\": "tests/php/Dev/",
+                    "SilverStripe\\Forms\\": "src/Forms/",
+                    "SilverStripe\\Forms\\Tests\\": "tests/php/Forms/",
+                    "SilverStripe\\i18n\\": "src/i18n/",
+                    "SilverStripe\\i18n\\Tests\\": "tests/php/i18n/",
+                    "SilverStripe\\Logging\\": "src/Logging/",
+                    "SilverStripe\\Logging\\Tests\\": "tests/php/Logging/",
+                    "SilverStripe\\ORM\\": "src/ORM/",
+                    "SilverStripe\\ORM\\Tests\\": "tests/php/ORM/",
+                    "SilverStripe\\Security\\": "src/Security/",
+                    "SilverStripe\\Security\\Tests\\": "tests/php/Security/",
+                    "SilverStripe\\View\\": "src/View/",
+                    "SilverStripe\\View\\Tests\\": "tests/php/View/",
+                    "SilverStripe\\Framework\\Tests\\Behaviour\\": "tests/behat/src/"
+                },
+                "files": [
+                    "src/includes/constants.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/",
+                "src/includes/",
+                "thirdparty/"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "The SilverStripe framework",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
+                "framework",
+                "silverstripe"
+            ],
+            "time": "2020-04-13T23:02:06+00:00"
+        },
+        {
+            "name": "silverstripe/geoip",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe-labs/silverstripe-geoip.git",
+                "reference": "53f2107192e73c2786f086324e4df949e4b17a1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-geoip/zipball/53f2107192e73c2786f086324e4df949e4b17a1a",
+                "reference": "53f2107192e73c2786f086324e4df949e4b17a1a",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": ">=2.4.0"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "geoip"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Sean Harvey",
+                    "email": "sean@silverstripe.com"
+                }
+            ],
+            "description": "GeoIP module for SilverStripe.",
+            "keywords": [
+                "geoip",
+                "silverstripe-labs"
+            ],
+            "time": "2016-03-07T20:40:00+00:00"
+        },
+        {
+            "name": "silverstripe/graphql",
+            "version": "3.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-graphql.git",
+                "reference": "bee37b7d742a57fcfb7fe90782d1f9d16f07962e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-graphql/zipball/bee37b7d742a57fcfb7fe90782d1f9d16f07962e",
+                "reference": "bee37b7d742a57fcfb7fe90782d1f9d16f07962e",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4.2",
+                "silverstripe/vendor-plugin": "^1.0",
+                "webonyx/graphql-php": "~0.12.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "sminnee/phpunit-mock-objects": "^3.4.5",
+                "squizlabs/php_codesniffer": "^3.0"
             },
             "suggest": {
-                "sunnysideup/cms_edit_link_field": "dev-master",
-                "sunnysideup/dataobjectsorter": "dev-master",
-                "symbiote/silverstripe-gridfieldextensions": "dev-master"
+                "silverstripe/assets": "Allows schema to be cached in the filesystem.",
+                "silverstripe/graphql-devtools": "Adds in-browser tools for testing and debugging GraphQL queries"
             },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "ecommerce_product_variation"
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\GraphQL\\": "src/",
+                    "SilverStripe\\GraphQL\\Tests\\": "tests/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "create product variations within e-commerce (e.g. if you have a sock you can now sell a red XL sock or a small blue sock).",
-            "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "colours",
-                "e-commerce",
-                "ecommerce",
-                "product variation",
-                "shop",
-                "silverstripe",
-                "sizes",
-                "sub-types",
-                "types",
-                "variation"
-            ],
-            "time": "2018-03-06T17:44:24+00:00"
+            "description": "GraphQL server for SilverStripe models and other data",
+            "time": "2020-04-08T02:58:52+00:00"
         },
         {
-            "name": "sunnysideup/ecommerce_tax",
-            "version": "5.3.1",
+            "name": "silverstripe/recipe-cms",
+            "version": "4.5.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-ecommerce_tax.git",
-                "reference": "d2942672cea7250d2b360d64edd7557e93212c61"
+                "url": "https://github.com/silverstripe/recipe-cms.git",
+                "reference": "921b1cd7250fab6f924b47401c981c0554444a47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_tax/zipball/d2942672cea7250d2b360d64edd7557e93212c61",
-                "reference": "d2942672cea7250d2b360d64edd7557e93212c61",
+                "url": "https://api.github.com/repos/silverstripe/recipe-cms/zipball/921b1cd7250fab6f924b47401c981c0554444a47",
+                "reference": "921b1cd7250fab6f924b47401c981c0554444a47",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/ecommerce": "*"
+                "silverstripe/admin": "1.5.1@stable",
+                "silverstripe/asset-admin": "1.5.1@stable",
+                "silverstripe/campaign-admin": "1.5.1@stable",
+                "silverstripe/cms": "4.5.1@stable",
+                "silverstripe/errorpage": "1.5.1@stable",
+                "silverstripe/graphql": "3.2.3@stable",
+                "silverstripe/recipe-core": "4.5.2@stable",
+                "silverstripe/recipe-plugin": "^1.2",
+                "silverstripe/reports": "4.5.1@stable",
+                "silverstripe/siteconfig": "4.5.1@stable",
+                "silverstripe/versioned": "1.5.1@stable",
+                "silverstripe/versioned-admin": "1.3.1@stable"
             },
-            "type": "silverstripe-module",
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "silverstripe-recipe",
             "extra": {
-                "installer-name": "ecommerce_tax"
+                "project-files": [
+                    "app/src/*"
+                ],
+                "resources-dir": "_resources"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "SilverStripe recipe for fully featured page and asset content editing",
+            "homepage": "http://silverstripe.org",
+            "time": "2020-04-13T23:24:30+00:00"
+        },
+        {
+            "name": "silverstripe/recipe-core",
+            "version": "4.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/recipe-core.git",
+                "reference": "00b014795d147ff96e5b5b0d97994abe44cb2f90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/recipe-core/zipball/00b014795d147ff96e5b5b0d97994abe44cb2f90",
+                "reference": "00b014795d147ff96e5b5b0d97994abe44cb2f90",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/assets": "1.5.2@stable",
+                "silverstripe/config": "1.0.18@stable",
+                "silverstripe/framework": "4.5.3@stable",
+                "silverstripe/recipe-plugin": "^1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "silverstripe-recipe",
+            "extra": {
+                "project-files": [
+                    "app/*"
+                ],
+                "public-files": [
+                    ".htaccess",
+                    "web.config",
+                    "index.php"
+                ],
+                "resources-dir": "_resources"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "SilverStripe framework-only core recipe",
+            "homepage": "http://silverstripe.org",
+            "time": "2020-04-13T23:24:09+00:00"
+        },
+        {
+            "name": "silverstripe/recipe-plugin",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/recipe-plugin.git",
+                "reference": "88cd7ed3a0c07a0b24b70ee43d855488d7f1ac7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/recipe-plugin/zipball/88cd7ed3a0c07a0b24b70ee43d855488d7f1ac7e",
+                "reference": "88cd7ed3a0c07a0b24b70ee43d855488d7f1ac7e",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1"
+            },
+            "require-dev": {
+                "composer/composer": "^1.2"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "SilverStripe\\RecipePlugin\\RecipePlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\RecipePlugin\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1141,50 +1816,356 @@
             ],
             "authors": [
                 {
+                    "name": "Damian Mooyman",
+                    "email": "damian@silverstripe.com"
+                }
+            ],
+            "description": "Helper plugin to install SilverStripe recipes",
+            "time": "2018-04-11T07:22:09+00:00"
+        },
+        {
+            "name": "silverstripe/reports",
+            "version": "4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-reports.git",
+                "reference": "5677d2d61dd8eedb24a772f8e84d1fb3d2c9fb10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-reports/zipball/5677d2d61dd8eedb24a772f8e84d1fb3d2c9fb10",
+                "reference": "5677d2d61dd8eedb24a772f8e84d1fb3d2c9fb10",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1.5@dev",
+                "silverstripe/assets": "^1.5@dev",
+                "silverstripe/config": "^1.0@dev",
+                "silverstripe/framework": "^4.5@dev",
+                "silverstripe/vendor-plugin": "^1",
+                "silverstripe/versioned": "^1.5@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "javascript"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Reports\\": "code/",
+                    "SilverStripe\\Reports\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "Reports module for SilverStripe CMS",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
+                "cms",
+                "reports",
+                "silverstripe"
+            ],
+            "time": "2020-02-16T22:11:07+00:00"
+        },
+        {
+            "name": "silverstripe/siteconfig",
+            "version": "4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-siteconfig.git",
+                "reference": "b9a624f57c187dc6d6f70a386775e1a58557489b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-siteconfig/zipball/b9a624f57c187dc6d6f70a386775e1a58557489b",
+                "reference": "b9a624f57c187dc6d6f70a386775e1a58557489b",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1.5",
+                "silverstripe/framework": "^4.5",
+                "silverstripe/vendor-plugin": "^1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\SiteConfig\\": "code/",
+                    "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io"
+                }
+            ],
+            "description": "Site wide settings administration.",
+            "keywords": [
+                "silverstripe",
+                "siteconfig"
+            ],
+            "time": "2020-02-17T01:44:40+00:00"
+        },
+        {
+            "name": "silverstripe/vendor-plugin",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/vendor-plugin.git",
+                "reference": "a4811f281f31c9ac15566280a11680db9c36b282"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/vendor-plugin/zipball/a4811f281f31c9ac15566280a11680db9c36b282",
+                "reference": "a4811f281f31c9ac15566280a11680db9c36b282",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "composer/installers": "^1.4"
+            },
+            "require-dev": {
+                "composer/composer": "^1.5",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "SilverStripe\\VendorPlugin\\VendorPlugin",
+                "branch-alias": {
+                    "1.x-dev": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\VendorPlugin\\": "src/",
+                    "SilverStripe\\VendorPlugin\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Mooyman",
+                    "email": "damian@silverstripe.com"
+                }
+            ],
+            "description": "Allows vendor modules to expose directories to the webroot",
+            "time": "2019-10-18T02:36:02+00:00"
+        },
+        {
+            "name": "silverstripe/versioned",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-versioned.git",
+                "reference": "bfdeb505c793226b4e657835cfa57271bc376ada"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-versioned/zipball/bfdeb505c793226b4e657835cfa57271bc376ada",
+                "reference": "bfdeb505c793226b4e657835cfa57271bc376ada",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4.5",
+                "silverstripe/vendor-plugin": "^1",
+                "symfony/cache": "^3.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/admin": "^1",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Versioned\\": "src/",
+                    "SilverStripe\\Versioned\\Tests\\": "tests/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "SilverStripe Versioned component",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
+                "silverstripe",
+                "versioned"
+            ],
+            "time": "2020-02-17T01:43:08+00:00"
+        },
+        {
+            "name": "silverstripe/versioned-admin",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-versioned-admin.git",
+                "reference": "853e3f785710bfff5c5fc16105bb7af22766b103"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-versioned-admin/zipball/853e3f785710bfff5c5fc16105bb7af22766b103",
+                "reference": "853e3f785710bfff5c5fc16105bb7af22766b103",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1.5",
+                "silverstripe/framework": "^4.5",
+                "silverstripe/graphql": "^2.0 || ^3.0",
+                "silverstripe/vendor-plugin": "^1",
+                "silverstripe/versioned": "^1.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5",
+                "silverstripe/cms": "^4.5",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\VersionedAdmin\\": "src/",
+                    "SilverStripe\\VersionedAdmin\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "SilverStripe",
+                    "homepage": "http://silverstripe.com"
+                },
+                {
+                    "name": "The SilverStripe Community",
+                    "homepage": "http://silverstripe.org"
+                }
+            ],
+            "description": "SilverStripe versioned admin interface",
+            "homepage": "http://silverstripe.org",
+            "keywords": [
+                "admin",
+                "silverstripe",
+                "versioned"
+            ],
+            "time": "2020-02-16T22:12:28+00:00"
+        },
+        {
+            "name": "sunnysideup/ecommerce",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-ecommerce.git",
+                "reference": "42658570a04b313973fd8b5240f4710e011706d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/42658570a04b313973fd8b5240f4710e011706d3",
+                "reference": "42658570a04b313973fd8b5240f4710e011706d3",
+                "shasum": ""
+            },
+            "require": {
+                "sunnysideup/google_address_field": "dev-master"
+            },
+            "suggest": {
+                "silverstripe/geoip": "Native Silverstripe way to work out the customer country. Make sure this work on your server, before installing it - otherwise it is useless.",
+                "silverstripe/restfulserver": "Adds restful server functionality to your e-commerce site (creates an API for your e-commerce application, allowing third-parties to tap into your e-commerce data)",
+                "sunnysideup/cloudflaregeoip": "Extends Geoip if you are using cloudflare"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "ecommerce"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Sunny Side Up (BSD-3-Clause and CUSTOM)"
+            ],
+            "authors": [
+                {
                     "name": "Nicolaas Francken",
                     "email": "modules@sunnysideup.co.nz",
+                    "homepage": "https://github.com/sunnysideup",
                     "role": "lead developer"
                 }
             ],
-            "description": "adds tax options to the Silverstripe e-commerce application",
+            "description": "Silverstripe E-commerce Application",
+            "homepage": "http://www.silverstripe-ecommerce.com/",
             "keywords": [
-                "Silverstripe-CMS",
                 "cart",
-                "cms",
                 "e-commerce",
                 "ecommerce",
-                "goods and services tax",
-                "gst",
-                "order modifier",
+                "online payment",
+                "payment",
+                "products",
+                "sales",
+                "selling stuff",
+                "services",
                 "shop",
                 "silverstripe",
-                "tax",
-                "vat"
+                "webshop"
             ],
-            "time": "2018-02-22T21:48:20+00:00"
+            "time": "2015-09-30T19:27:48+00:00"
         },
         {
-            "name": "sunnysideup/googleanalyticsbasics",
-            "version": "6.0.2",
+            "name": "sunnysideup/google_address_field",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-googleanalyticsbasics.git",
-                "reference": "6a3b27011c4f60bca369ec6991e7c84702a7835c"
+                "url": "https://github.com/sunnysideup/silverstripe-google_address_field.git",
+                "reference": "b49a8f126bf002feee15a8fa0687e8266c15167b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-googleanalyticsbasics/zipball/6a3b27011c4f60bca369ec6991e7c84702a7835c",
-                "reference": "6a3b27011c4f60bca369ec6991e7c84702a7835c",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-google_address_field/zipball/b49a8f126bf002feee15a8fa0687e8266c15167b",
+                "reference": "b49a8f126bf002feee15a8fa0687e8266c15167b",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
+                "composer/installers": "^1.6",
+                "silverstripe/recipe-cms": "^4.2"
             },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "googleanalyticsbasics"
-            },
+            "type": "silverstripe-vendormodule",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
@@ -1196,19 +2177,653 @@
                     "role": "lead developer"
                 }
             ],
-            "description": "add google analytics to your Silverstripe website",
+            "description": "Provide a form field for the Silverstripe CMS that allows geocoding address prediction (autocomplete) and quick lookup of addresses using the Google API",
             "keywords": [
                 "Silverstripe-CMS",
-                "analytics",
+                "address",
+                "autocomplete",
                 "cms",
+                "field",
+                "find address",
+                "form",
+                "form field",
+                "geocoding",
                 "google",
-                "googleanalyticsbasics",
-                "silverstripe",
-                "statistics",
-                "visitors"
+                "maps",
+                "silverstripe"
             ],
-            "time": "2018-02-22T21:59:49+00:00"
+            "time": "2019-01-06T11:28:41+00:00"
         },
+        {
+            "name": "swiftmailer/swiftmailer",
+            "version": "v5.4.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/181b89f18a90f8925ef805f950d47a7190e9b950",
+                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1",
+                "symfony/phpunit-bridge": "~3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.4-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/swift_required.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Corbyn"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Swiftmailer, free feature-rich PHP mailer",
+            "homepage": "https://swiftmailer.symfony.com",
+            "keywords": [
+                "email",
+                "mail",
+                "mailer"
+            ],
+            "time": "2018-07-31T09:26:32+00:00"
+        },
+        {
+            "name": "symfony/cache",
+            "version": "v3.4.41",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/cache.git",
+                "reference": "1c139918b4e93aac8a1afc7785e106c2456c57cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/1c139918b4e93aac8a1afc7785e106c2456c57cc",
+                "reference": "1c139918b4e93aac8a1afc7785e106c2456c57cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "psr/cache": "~1.0",
+                "psr/log": "~1.0",
+                "psr/simple-cache": "^1.0",
+                "symfony/polyfill-apcu": "~1.1"
+            },
+            "conflict": {
+                "symfony/var-dumper": "<3.3"
+            },
+            "provide": {
+                "psr/cache-implementation": "1.0",
+                "psr/simple-cache-implementation": "1.0"
+            },
+            "require-dev": {
+                "cache/integration-tests": "dev-master",
+                "doctrine/cache": "^1.6",
+                "doctrine/dbal": "^2.4|^3.0",
+                "predis/predis": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Cache component with PSR-6, PSR-16, and tags",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "caching",
+                "psr6"
+            ],
+            "time": "2020-05-28T07:55:04+00:00"
+        },
+        {
+            "name": "symfony/config",
+            "version": "v3.4.41",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "cd61db31cbd19cbe4ba9f6968f13c9076e1372ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/cd61db31cbd19cbe4ba9f6968f13c9076e1372ab",
+                "reference": "cd61db31cbd19cbe4ba9f6968f13c9076e1372ab",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/filesystem": "~2.8|~3.0|~4.0",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<3.3",
+                "symfony/finder": "<3.3"
+            },
+            "require-dev": {
+                "symfony/dependency-injection": "~3.3|~4.0",
+                "symfony/event-dispatcher": "~3.3|~4.0",
+                "symfony/finder": "~3.3|~4.0",
+                "symfony/yaml": "~3.0|~4.0"
+            },
+            "suggest": {
+                "symfony/yaml": "To use the yaml reference dumper"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Config\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Config Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-05-22T10:56:48+00:00"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v4.4.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "b27f491309db5757816db672b256ea2e03677d30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b27f491309db5757816db672b256ea2e03677d30",
+                "reference": "b27f491309db5757816db672b256ea2e03677d30",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-05-30T18:50:54+00:00"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v3.4.41",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "5ec813ccafa8164ef21757e8c725d3a57da59200"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/5ec813ccafa8164ef21757e8c725d3a57da59200",
+                "reference": "5ec813ccafa8164ef21757e8c725d3a57da59200",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-02-14T07:34:21+00:00"
+        },
+        {
+            "name": "symfony/polyfill-apcu",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-apcu.git",
+                "reference": "9ec426b564916afb9bfd15f78708ec322eeb8538"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-apcu/zipball/9ec426b564916afb9bfd15f78708ec322eeb8538",
+                "reference": "9ec426b564916afb9bfd15f78708ec322eeb8538",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.17-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Apcu\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting apcu_* functions to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "apcu",
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2020-05-12T16:14:59+00:00"
+        },
+        {
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
+                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.17-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "time": "2020-05-12T16:14:59+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "fa79b11539418b02fc5e1897267673ba2c19419c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fa79b11539418b02fc5e1897267673ba2c19419c",
+                "reference": "fa79b11539418b02fc5e1897267673ba2c19419c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.17-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2020-05-12T16:47:27+00:00"
+        },
+        {
+            "name": "symfony/translation",
+            "version": "v2.8.52",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation.git",
+                "reference": "fc58c2a19e56c29f5ba2736ec40d0119a0de2089"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/fc58c2a19e56c29f5ba2736ec40d0119a0de2089",
+                "reference": "fc58c2a19e56c29f5ba2736ec40d0119a0de2089",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony/config": "<2.7"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.8",
+                "symfony/intl": "~2.7.25|^2.8.18|~3.2.5",
+                "symfony/yaml": "~2.2|~3.0.0"
+            },
+            "suggest": {
+                "psr/log-implementation": "To use logging capability in translator",
+                "symfony/config": "",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Translation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Translation Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-11-24T21:16:41+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v3.4.41",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "7233ac2bfdde24d672f5305f2b3f6b5d741ef8eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/7233ac2bfdde24d672f5305f2b3f6b5d741ef8eb",
+                "reference": "7233ac2bfdde24d672f5305f2b3f6b5d741ef8eb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
+            "require-dev": {
+                "symfony/console": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-05-11T07:51:54+00:00"
+        },
+        {
+            "name": "webonyx/graphql-php",
+            "version": "v0.12.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webonyx/graphql-php.git",
+                "reference": "4c545e5ec4fc37f6eb36c19f5a0e7feaf5979c95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/4c545e5ec4fc37f6eb36c19f5a0e7feaf5979c95",
+                "reference": "4c545e5ec4fc37f6eb36c19f5a0e7feaf5979c95",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "psr/http-message": "^1.0",
+                "react/promise": "2.*"
+            },
+            "suggest": {
+                "psr/http-message": "To use standard GraphQL server",
+                "react/promise": "To leverage async resolving on React PHP platform"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GraphQL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP port of GraphQL reference implementation",
+            "homepage": "https://github.com/webonyx/graphql-php",
+            "keywords": [
+                "api",
+                "graphql"
+            ],
+            "time": "2018-09-02T14:59:54+00:00"
+        }
+    ],
+    "packages-dev": [
         {
             "name": "sunnysideup/huringa",
             "version": "dev-master",
@@ -1252,1012 +2867,6 @@
             ],
             "description": "Runs code upgrades and transformations",
             "time": "2020-02-06T11:03:31+00:00"
-        },
-        {
-            "name": "sunnysideup/metatags",
-            "version": "7.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-metatags.git",
-                "reference": "cffc3dd8ff0b4c3c2d6cfce25bd19155c84341d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-metatags/zipball/cffc3dd8ff0b4c3c2d6cfce25bd19155c84341d1",
-                "reference": "cffc3dd8ff0b4c3c2d6cfce25bd19155c84341d1",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "metatags"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "simplify your metatags - a ton of tools to increase SEO visibility, including file name adjustments",
-            "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "filenames",
-                "google",
-                "meta data",
-                "meta tags",
-                "metatags",
-                "search engine optimsation",
-                "seo",
-                "silverstripe"
-            ],
-            "time": "2018-02-27T00:10:46+00:00"
-        },
-        {
-            "name": "sunnysideup/payment_paypal",
-            "version": "5.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-payment_paypal.git",
-                "reference": "96372e7300e10f15c3421780300ca81c563de397"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-payment_paypal/zipball/96372e7300e10f15c3421780300ca81c563de397",
-                "reference": "96372e7300e10f15c3421780300ca81c563de397",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/ecommerce": "*"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "payment_paypal"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "homepage": "https://github.com/sunnysideup",
-                    "role": "adjuster"
-                },
-                {
-                    "name": "Jeremy Shipman",
-                    "email": "jeremy@burnbright.net",
-                    "role": "original developer"
-                }
-            ],
-            "description": "add paypal to your payment options for the silverstripe payment and ecommerce modules",
-            "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "e-commerce",
-                "ecommerce",
-                "pay now",
-                "pay pal",
-                "payment",
-                "paypal",
-                "shop",
-                "silverstripe"
-            ],
-            "time": "2018-02-22T22:21:19+00:00"
-        },
-        {
-            "name": "sunnysideup/prettyphoto",
-            "version": "1.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-prettyphoto.git",
-                "reference": "3126f1e3c95458f1080602e6254717500f69e184"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-prettyphoto/zipball/3126f1e3c95458f1080602e6254717500f69e184",
-                "reference": "3126f1e3c95458f1080602e6254717500f69e184",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "prettyphoto"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "adds 'pretty photo' - a jQuery library to your Silverstripe application ",
-            "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "gallery",
-                "jquery",
-                "modal",
-                "pop-up",
-                "prettyPhoto",
-                "silverstripe"
-            ],
-            "time": "2018-02-22T22:27:10+00:00"
-        },
-        {
-            "name": "sunnysideup/skeleton",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-skeleton.git",
-                "reference": "dbd621a216dff2af70deef645348e0030c5492fc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-skeleton/zipball/dbd621a216dff2af70deef645348e0030c5492fc",
-                "reference": "dbd621a216dff2af70deef645348e0030c5492fc",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/sswebpack_engine_only": "*",
-                "sunnysideup/webpack_requirements_backend": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "skeleton"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Webpack base theme using the skeleton",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Skeleton",
-                "cms",
-                "front-end framework",
-                "silverstripe",
-                "silverstripe webpack",
-                "webpack",
-                "webpack theme"
-            ],
-            "time": "2018-02-22T22:34:08+00:00"
-        },
-        {
-            "name": "sunnysideup/sskube",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-sskube.git",
-                "reference": "bed59e6d8693bfcd1969687c9ad4aa505fa68056"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-sskube/zipball/bed59e6d8693bfcd1969687c9ad4aa505fa68056",
-                "reference": "bed59e6d8693bfcd1969687c9ad4aa505fa68056",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/sswebpack_engine_only": "*",
-                "sunnysideup/webpack_requirements_backend": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "sskube"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Base SilverStripe theme that can be used in conjunction with Silverstripe Webpack engine",
-            "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "imperavi",
-                "kube",
-                "silverstripe",
-                "silverstripe webpack",
-                "webpack",
-                "webpack theme"
-            ],
-            "time": "2018-02-22T22:36:53+00:00"
-        },
-        {
-            "name": "sunnysideup/sswebpack_engine_only",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-sswebpack_engine_only.git",
-                "reference": "8a6faa11eb0475b07c5eb5fb83dd2d1fee3ceb82"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-sswebpack_engine_only/zipball/8a6faa11eb0475b07c5eb5fb83dd2d1fee3ceb82",
-                "reference": "8a6faa11eb0475b07c5eb5fb83dd2d1fee3ceb82",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "sswebpack_engine_only"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Webpack engine for Silverstripe without any theme at all. Inspired and HUGE THANK YOU to: andrewhaine/silverstripe-webpack-theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "blank theme",
-                "cms",
-                "front-end framework",
-                "silverstripe",
-                "silverstripe webpack",
-                "webpack",
-                "webpack theme"
-            ],
-            "time": "2018-02-26T05:43:08+00:00"
-        },
-        {
-            "name": "sunnysideup/templateoverview",
-            "version": "5.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-templateoverview.git",
-                "reference": "134a0239778f43b35dcd76f236574f4265d760fa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-templateoverview/zipball/134a0239778f43b35dcd76f236574f4265d760fa",
-                "reference": "134a0239778f43b35dcd76f236574f4265d760fa",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1",
-                "sunnysideup/prettyphoto": "*"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "templateoverview"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "adds development tools for building silverstripe websites, in particular around managing page types.",
-            "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "page types",
-                "review",
-                "silverstripe",
-                "template review",
-                "templateoverview"
-            ],
-            "time": "2018-02-22T22:40:33+00:00"
-        },
-        {
-            "name": "sunnysideup/themes_ssu_flava_main",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main.git",
-                "reference": "fe6f15acd348c1e429cf1ec2cf72abc1b6936872"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main/zipball/fe6f15acd348c1e429cf1ec2cf72abc1b6936872",
-                "reference": "fe6f15acd348c1e429cf1ec2cf72abc1b6936872",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.6",
-                "silverstripe/framework": "~3.6"
-            },
-            "suggest": {
-                "sunnysideup/mysite_ssu_flava_main_cms": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce_product_variation": "*",
-                "sunnysideup/mysite_ssu_flava_main_webportfolio": "*",
-                "sunnysideup/mysite_ssu_flava_simple": "*",
-                "sunnysideup/mysite_ssu_flava_simple_ecommerce": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "main"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Sunny Side Up Theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Sunny Side Up",
-                "basic",
-                "boilerplate",
-                "cms",
-                "install",
-                "silverstripe",
-                "template",
-                "theme",
-                "themes"
-            ],
-            "time": "2018-04-09T08:31:05+00:00"
-        },
-        {
-            "name": "sunnysideup/themes_ssu_flava_main_cms",
-            "version": "1.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_cms.git",
-                "reference": "24206494571506aeaf17ea83333d65f8bcb7465b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_cms/zipball/24206494571506aeaf17ea83333d65f8bcb7465b",
-                "reference": "24206494571506aeaf17ea83333d65f8bcb7465b",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "suggest": {
-                "sunnysideup/mysite_ssu_flava_main": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce_product_variation": "*",
-                "sunnysideup/mysite_ssu_flava_main_webportfolio": "*",
-                "sunnysideup/mysite_ssu_flava_simple": "*",
-                "sunnysideup/mysite_ssu_flava_simple_ecommerce": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "main_cms"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Sunny Side Up Theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Sunny Side Up",
-                "basic",
-                "boilerplate",
-                "cms",
-                "install",
-                "silverstripe",
-                "template",
-                "theme",
-                "themes"
-            ],
-            "time": "2018-02-22T22:44:38+00:00"
-        },
-        {
-            "name": "sunnysideup/themes_ssu_flava_main_ecommerce",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce.git",
-                "reference": "fb2c344bbd7475c17f672903ce1ac1171094900e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce/zipball/fb2c344bbd7475c17f672903ce1ac1171094900e",
-                "reference": "fb2c344bbd7475c17f672903ce1ac1171094900e",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "suggest": {
-                "sunnysideup/mysite_ssu_flava_main": "*",
-                "sunnysideup/mysite_ssu_flava_main_cms": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce_product_variation": "*",
-                "sunnysideup/mysite_ssu_flava_main_webportfolio": "*",
-                "sunnysideup/mysite_ssu_flava_simple": "*",
-                "sunnysideup/mysite_ssu_flava_simple_ecommerce": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "main_ecommerce"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Sunny Side Up Theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Sunny Side Up",
-                "basic",
-                "boilerplate",
-                "cms",
-                "install",
-                "silverstripe",
-                "template",
-                "theme",
-                "themes"
-            ],
-            "time": "2018-02-22T22:45:04+00:00"
-        },
-        {
-            "name": "sunnysideup/themes_ssu_flava_main_ecommerce_product_variation",
-            "version": "0.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce_product_variation.git",
-                "reference": "9ecfd9257f749ef2a76d518f4378c14e79fb1f48"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_ecommerce_product_variation/zipball/9ecfd9257f749ef2a76d518f4378c14e79fb1f48",
-                "reference": "9ecfd9257f749ef2a76d518f4378c14e79fb1f48",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "suggest": {
-                "sunnysideup/mysite_ssu_flava_main": "*",
-                "sunnysideup/mysite_ssu_flava_main_cms": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce": "*",
-                "sunnysideup/mysite_ssu_flava_main_webportfolio": "*",
-                "sunnysideup/mysite_ssu_flava_simple": "*",
-                "sunnysideup/mysite_ssu_flava_simple_ecommerce": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "main_ecommerce_product_variation"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Sunny Side Up Theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Sunny Side Up",
-                "basic",
-                "boilerplate",
-                "cms",
-                "install",
-                "silverstripe",
-                "template",
-                "theme",
-                "themes"
-            ],
-            "time": "2018-02-22T22:45:29+00:00"
-        },
-        {
-            "name": "sunnysideup/themes_ssu_flava_main_webportfolio",
-            "version": "0.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_main_webportfolio.git",
-                "reference": "e2bd9bb5d737a80d1e2a4ca6ed43c97da71c7a5b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_main_webportfolio/zipball/e2bd9bb5d737a80d1e2a4ca6ed43c97da71c7a5b",
-                "reference": "e2bd9bb5d737a80d1e2a4ca6ed43c97da71c7a5b",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "suggest": {
-                "sunnysideup/mysite_ssu_flava_main": "*",
-                "sunnysideup/mysite_ssu_flava_main_cms": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce_product_variation": "*",
-                "sunnysideup/mysite_ssu_flava_simple": "*",
-                "sunnysideup/mysite_ssu_flava_simple_ecommerce": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "main_webportfolio"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Sunny Side Up Theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Sunny Side Up",
-                "basic",
-                "boilerplate",
-                "cms",
-                "install",
-                "silverstripe",
-                "template",
-                "theme",
-                "themes"
-            ],
-            "time": "2018-02-22T22:45:54+00:00"
-        },
-        {
-            "name": "sunnysideup/themes_ssu_flava_simple",
-            "version": "0.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_simple.git",
-                "reference": "4d855585bb90933f6d483e295c583ff3f58e6510"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_simple/zipball/4d855585bb90933f6d483e295c583ff3f58e6510",
-                "reference": "4d855585bb90933f6d483e295c583ff3f58e6510",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "suggest": {
-                "sunnysideup/mysite_ssu_flava_main": "*",
-                "sunnysideup/mysite_ssu_flava_main_cms": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce_product_variation": "*",
-                "sunnysideup/mysite_ssu_flava_main_webportfolio": "*",
-                "sunnysideup/mysite_ssu_flava_simple_ecommerce": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "simple"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "COPY of the Silverstripe Simple Theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Sunny Side Up",
-                "basic",
-                "boilerplate",
-                "cms",
-                "install",
-                "silverstripe",
-                "template",
-                "theme",
-                "themes"
-            ],
-            "time": "2018-02-22T22:46:20+00:00"
-        },
-        {
-            "name": "sunnysideup/themes_ssu_flava_simple_ecommerce",
-            "version": "0.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-themes_ssu_flava_simple_ecommerce.git",
-                "reference": "1cbbfa6a19f3df0af7128c0177bee70e18ccbdd3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-themes_ssu_flava_simple_ecommerce/zipball/1cbbfa6a19f3df0af7128c0177bee70e18ccbdd3",
-                "reference": "1cbbfa6a19f3df0af7128c0177bee70e18ccbdd3",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "suggest": {
-                "sunnysideup/mysite_ssu_flava_main": "*",
-                "sunnysideup/mysite_ssu_flava_main_cms": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce": "*",
-                "sunnysideup/mysite_ssu_flava_main_ecommerce_product_variation": "*",
-                "sunnysideup/mysite_ssu_flava_main_webportfolio": "*",
-                "sunnysideup/mysite_ssu_flava_simple": "*"
-            },
-            "type": "silverstripe-theme",
-            "extra": {
-                "installer-name": "simple_ecommerce"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Sunny Side Up Theme",
-            "keywords": [
-                "Silverstripe-CMS",
-                "Sunny Side Up",
-                "basic",
-                "boilerplate",
-                "cms",
-                "install",
-                "silverstripe",
-                "template",
-                "theme",
-                "themes"
-            ],
-            "time": "2018-02-22T22:46:46+00:00"
-        },
-        {
-            "name": "sunnysideup/typography",
-            "version": "6.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-typography.git",
-                "reference": "314d2d6105b281209084dc09d160534d714e2c61"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-typography/zipball/314d2d6105b281209084dc09d160534d714e2c61",
-                "reference": "314d2d6105b281209084dc09d160534d714e2c61",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "typography"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Add a typography test page to your silverstripe website / application.",
-            "keywords": [
-                "Silverstripe-CMS",
-                "cms",
-                "developer tool",
-                "font styling",
-                "fonts",
-                "front-end design",
-                "html editing",
-                "silverstripe",
-                "tinymce",
-                "typography"
-            ],
-            "time": "2018-02-22T22:49:00+00:00"
-        },
-        {
-            "name": "sunnysideup/webpack_requirements_backend",
-            "version": "3.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-webpack_requirements_backend.git",
-                "reference": "3c8391c7cd8f7cd783fbbcc65c7d52147e48fe5c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-webpack_requirements_backend/zipball/3c8391c7cd8f7cd783fbbcc65c7d52147e48fe5c",
-                "reference": "3c8391c7cd8f7cd783fbbcc65c7d52147e48fe5c",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "webpack_requirements_backend"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Silverstripe Module that provides an alternative to the standard Silvertripe Requirements Backend class so that your application can run webpack.",
-            "keywords": [
-                "Silverstripe-CMS",
-                "back-end",
-                "cms",
-                "css",
-                "front-end",
-                "javascript",
-                "module bundler",
-                "npm",
-                "requirements",
-                "silverstripe",
-                "theme-ing",
-                "webpack"
-            ],
-            "time": "2018-02-22T22:54:03+00:00"
-        },
-        {
-            "name": "symbiote/silverstripe-gridfieldextensions",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symbiote/silverstripe-gridfieldextensions.git",
-                "reference": "b6f03225d007179b76b2b7af2446c3386dc1ef05"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-gridfieldextensions/zipball/b6f03225d007179b76b2b7af2446c3386dc1ef05",
-                "reference": "b6f03225d007179b76b2b7af2446c3386dc1ef05",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": "~3.1"
-            },
-            "replace": {
-                "ajshort/silverstripe-gridfieldextensions": "self.version",
-                "silverstripe-australia/gridfieldextensions": "self.version"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "gridfieldextensions",
-                "screenshots": [
-                    "docs/en/_images/editable-rows.png",
-                    "docs/en/_images/add-existing-search.png"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Marcus Nyeholt",
-                    "email": "marcus@silverstripe.com.au"
-                },
-                {
-                    "name": "Andrew Short",
-                    "email": "andrewjshort@gmail.com"
-                }
-            ],
-            "description": "A collection of useful grid field components",
-            "homepage": "http://github.com/silverstripe-australia/silverstripe-gridfieldextensions",
-            "keywords": [
-                "gridfield",
-                "silverstripe"
-            ],
-            "time": "2017-09-22T19:58:58+00:00"
-        },
-        {
-            "name": "symbiote/silverstripe-grouped-cms-menu",
-            "version": "3.0.1",
-            "target-dir": "grouped-cms-menu",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symbiote/silverstripe-grouped-cms-menu.git",
-                "reference": "c3d03e3e309efc756983473125292a380a68d25f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symbiote/silverstripe-grouped-cms-menu/zipball/c3d03e3e309efc756983473125292a380a68d25f",
-                "reference": "c3d03e3e309efc756983473125292a380a68d25f",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": "^3.2"
-            },
-            "replace": {
-                "silverstripe-australia/grouped-cms-menu": "self.version"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "grouped-cms-menu",
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Marcus Nyeholt",
-                    "email": "marcus@symbiote.com.au"
-                }
-            ],
-            "description": "Allows you to group CMS menu items.",
-            "homepage": "https://github.com/symbiote/silverstripe-grouped-cms-menu",
-            "keywords": [
-                "cms",
-                "menu",
-                "module",
-                "silverstripe"
-            ],
-            "time": "2017-06-29T06:26:01+00:00"
-        },
-        {
-            "name": "unclecheese/betterbuttons",
-            "version": "1.3.14",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "71f9653f51420ca07a33024bd8fe4396ee532bdb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/71f9653f51420ca07a33024bd8fe4396ee532bdb",
-                "reference": "71f9653f51420ca07a33024bd8fe4396ee532bdb",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": "~3.1"
-            },
-            "type": "silverstripe-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU"
-            ],
-            "authors": [
-                {
-                    "name": "Uncle Cheese",
-                    "email": "unclecheese@leftandmain.com"
-                }
-            ],
-            "description": "Adds new form actions and buttons to GridField detail form for usability enhancements.",
-            "keywords": [
-                "buttons",
-                "gridfield",
-                "silverstripe"
-            ],
-            "time": "2017-01-20T08:51:05+00:00"
-        },
-        {
-            "name": "unclecheese/dashboard",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/unclecheese/silverstripe-dashboard.git",
-                "reference": "d8029a9c3b0f857acaa644ca93ff0188f100f7bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-dashboard/zipball/d8029a9c3b0f857acaa644ca93ff0188f100f7bc",
-                "reference": "d8029a9c3b0f857acaa644ca93ff0188f100f7bc",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/cms": "~3.1",
-                "silverstripe/framework": "~3.1"
-            },
-            "replace": {
-                "silverstripe/dashboard": "*"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "dashboard"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Uncle Cheese",
-                    "email": "unclecheese@leftandmain.com"
-                }
-            ],
-            "description": "Adds a dashboard to the SilverStripe CMS",
-            "keywords": [
-                "cms",
-                "dashboard",
-                "module",
-                "silverstripe"
-            ],
-            "time": "2017-05-30T02:19:10+00:00"
         }
     ],
     "aliases": [],
@@ -2267,6 +2876,8 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.6"
+    },
     "platform-dev": []
 }
