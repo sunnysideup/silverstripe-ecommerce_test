@@ -283,3 +283,50 @@ modified:	_config/config.yml
 
 Writing changes for 7 files
 ✔✔✔
+# running php upgrade inspect see: https://github.com/silverstripe/silverstripe-upgrader
+cd /var/www/upgrades/upgradeto4
+php /var/www/ss3/upgrader/vendor/silverstripe/upgrader/bin/upgrade-code inspect /var/www/upgrades/upgradeto4/app  --root-dir=/var/www/upgrades/upgradeto4 --write -vvv
+Writing changes for 1 files
+Running post-upgrade on "/var/www/upgrades/upgradeto4/app"
+[2020-06-05 15:00:38] Applying ApiChangeWarningsRule to _config.php...
+[2020-06-05 15:00:38] Applying UpdateVisibilityRule to _config.php...
+[2020-06-05 15:00:38] Applying ApiChangeWarningsRule to PageController.php...
+[2020-06-05 15:00:38] Applying UpdateVisibilityRule to PageController.php...
+[2020-06-05 15:00:38] Applying ApiChangeWarningsRule to Page_Controller.php...
+[2020-06-05 15:00:38] Applying UpdateVisibilityRule to Page_Controller.php...
+[2020-06-05 15:00:38] Applying ApiChangeWarningsRule to CompleteSetupRecord.php...
+[2020-06-05 15:00:38] Applying UpdateVisibilityRule to CompleteSetupRecord.php...
+[2020-06-05 15:00:38] Applying ApiChangeWarningsRule to DefaultRecordsForEcommerce.php...
+[2020-06-05 15:00:39] Applying UpdateVisibilityRule to DefaultRecordsForEcommerce.php...
+[2020-06-05 15:00:40] Applying ApiChangeWarningsRule to CleanEcommerceTables.php...
+[2020-06-05 15:00:40] Applying UpdateVisibilityRule to CleanEcommerceTables.php...
+[2020-06-05 15:00:40] Applying ApiChangeWarningsRule to Page.php...
+[2020-06-05 15:00:40] Applying UpdateVisibilityRule to Page.php...
+unchanged:	_config.php
+Warnings for _config.php:
+ - _config.php:20 SS_Log: Replaced with a PSR-3 logger (https://docs.silverstripe.org/en/4/changelogs/4.0.0#psr3-logging)
+modified:	src/Tasks/DefaultRecordsForEcommerce.php
+@@ -1291,7 +1291,7 @@
+     private function addstock()
+     {
+         $extension = "";
+-        if (Versioned::current_stage() == "Live") {
++        if (Versioned::get_stage() == "Live") {
+             $extension = "_Live";
+         }
+         $products = Product::get()
+@@ -1545,7 +1545,7 @@
+
+         //get a random product
+         $extension = "";
+-        if (Versioned::current_stage() == "Live") {
++        if (Versioned::get_stage() == "Live") {
+             $extension = "_Live";
+         }
+         $count = 0;
+
+Warnings for src/Tasks/DefaultRecordsForEcommerce.php:
+ - src/Tasks/DefaultRecordsForEcommerce.php:1294 SilverStripe\Versioned\Versioned::current_stage(): Moved to SilverStripe\Versioned\Versioned::get_stage()
+ - src/Tasks/DefaultRecordsForEcommerce.php:1548 SilverStripe\Versioned\Versioned::current_stage(): Moved to SilverStripe\Versioned\Versioned::get_stage()
+Writing changes for 1 files
+✔✔✔

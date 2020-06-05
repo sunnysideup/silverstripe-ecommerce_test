@@ -1291,7 +1291,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     private function addstock()
     {
         $extension = "";
-        if (Versioned::current_stage() == "Live") {
+        if (Versioned::get_stage() == "Live") {
             $extension = "_Live";
         }
         $products = Product::get()
@@ -1545,7 +1545,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
 
         //get a random product
         $extension = "";
-        if (Versioned::current_stage() == "Live") {
+        if (Versioned::get_stage() == "Live") {
             $extension = "_Live";
         }
         $count = 0;
