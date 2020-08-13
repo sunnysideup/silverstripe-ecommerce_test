@@ -1,0 +1,563 @@
+
+
+/**
+ * global fixes
+ */
+/**
+ * sidbar left: 210px fixed width:
+ * 170 vertical logo + 60 padding right = 230 / RandomImage: 40 + 152 + 40 = 232
+ *
+ *
+ */
+
+.clear {
+    clear: both;
+}
+
+
+/**
+ * outers and main bits
+ */
+
+
+body, html {
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+    background-position: 0 0;
+    background-repeat: repeat-y;
+    background-color: #fff;
+    background-image: url("/resources/themes/main/images/logo.gif");
+}
+
+body #Wrapper {
+    position: relative;
+}
+
+
+/**
+ * main items position!
+ */
+
+
+
+#Layout {
+    padding: 12vh 5% 12vh calc(170px + 5%);
+}
+
+
+#PageSpecificHolder .main-section.with-sidebar {
+    width: calc(70% - 5%);
+    float: left;
+}
+
+#PageSpecificHolder aside {
+    float: right;
+    width: 30%;
+}
+
+
+#Breadcrumbs {
+    position: absolute;
+    top: 2vh;
+}
+
+
+/**
+ * content sections
+ *
+ */
+
+
+
+/**
+ * side bar
+ *
+ */
+
+
+
+
+#Sidebar {
+    background-color: #f2f2f2;
+    border: 0px solid #fff;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top: 2px solid #808383;
+    border-bottom: 1px solid #ccc;
+}
+
+#Sidebar.content-padding,
+.has-random-image .content-padding {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+
+#Sidebar .sidebarBox {
+    padding: 10px 0px 0px!important;
+    margin-top: 30px;
+}
+
+#Sidebar .sidebarBox h3 {
+    margin-left: -12px;
+    margin-right: -12px;
+    border-bottom: 1px dotted #fff;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#Sidebar .sidebarBox.continueShopping h3 {
+    margin-bottom: 20px;
+}
+
+/** special sidebars **/
+#SidebarSiblings h3, #SidebarChildren h3 {
+    color: #FF336D;
+}
+
+#SidebarSiblings li a, #SidebarChildren li a {
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+#Sidebar table {
+    width: 100%;
+}
+
+#Sidebar th, #Sidebar td {
+    font-size: 11px;
+    padding: 2px;
+}
+
+#Sidebar td.quantity img {
+    margin: 0px;
+}
+
+#Sidebar ul {
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style: none;
+    -moz-column-count: 1;
+    -moz-column-gap: 0;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 0;
+    column-count: 1;
+    column-gap: 0;
+}
+
+#Sidebar ul li {
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style-image: none;
+    line-height: 1.33;
+
+}
+#Sidebar ul li:before {
+    content: '»';
+    display: inline-block;
+    margin-right: 2px;
+}
+
+#Sidebar ul li.current a {
+    color: #FF336D !important;
+}
+
+#Sidebar th, #Sidebar td {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #808383;
+}
+
+#Sidebar p {
+    line-height: 1;
+}
+
+#SidebarChildren li,
+#SidebarSiblings li {
+    padding-left: 0.2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#SidebarChildren li a:hover,
+#SidebarSiblings li a:hover {
+    background-color: #ffcc1a;
+    color: #fff;
+}
+
+/**
+ * side bar form
+ */
+
+
+.sidebarBox form {
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+.sidebarBox .middleColumn, input.action {
+    margin-left: 0px!important;
+}
+
+.sidebarBox .middleColumn input {
+    width: 90%!important;
+}
+
+
+/**
+ * footer
+ */
+
+
+
+footer {
+    clear: both;
+    padding-top: 12vh;
+}
+
+
+.backToTop {
+    float: right;
+    background-image:  url(
+        "data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 1000 1000' enable-background='new 0 0 1000 1000' xml:space='preserve'><metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata><g><path fill='%23cfd4d4' d='M886.1,515.6L534.2,163.7c-8.7-8.9-20.8-14.5-34.2-14.5c-13.6,0-25.9,5.7-34.6,14.9L113.9,515.6l0,0c-8.6,8.6-13.9,20.5-13.9,33.7c0,26.4,21.4,47.8,47.8,47.8c13.6,0,25.8-5.7,34.5-14.7l269.3-269.3v629.3c0,0,0,0,0,0c0,26.3,21.3,47.6,47.6,47.6c26.3,0,47.6-21.3,47.6-47.6V311.6l271.6,271.6l0.1-0.1c8.6,8.6,20.6,13.9,33.7,13.9c26.4,0,47.8-21.4,47.8-47.8C900,536.2,894.7,524.3,886.1,515.6L886.1,515.6z'/></g></svg>"
+    );
+    background-repeat: no-repeat;
+    width:32px;
+    height: 32px;
+    display: block;
+}
+.backToTop a {
+    color: transparent!important;
+    border-bottom: none!important;
+}
+
+footer *, #Breadcrumbs, #Breadcrumbs * {
+    font-size: 1.2vw!important;
+}
+
+#CopyrightMessage {
+    border-top: 1px solid #cfd4d4;
+}
+
+
+
+
+/**
+ * lists and pagination
+ */
+
+.resultsBar,
+.pageNumbers,
+.filterSortDisplayAndSearch {
+    font-size: 12px;
+    background-color: #f2f2f2;
+    /* gradient */
+    background-position: 0px center;
+    background-repeat: no-repeat;
+    border-top: 1px solid #808383;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    text-align: right;
+    padding: 0.7em;
+    margin: 0.3em 0;
+    padding-right: 30px;
+}
+
+/**
+ * has  image
+ */
+
+#RandomVisualThoughtExplanation {
+    margin-right: 80px;
+    padding-bottom: 30px;
+}
+#RandomVisualThought {
+    float: right;
+    background-size: cover;
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    opacity: 0.77;
+    margin-top: 10px;
+    margin-right: -10px;
+    cursor: pointer;
+}
+
+#RandomImageLarge {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: #808383;
+    overflow: hidden;
+    background-size: 100% 100%;
+    cursor: pointer;
+    opacity: 1;
+}
+
+#RandomImageLarge img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    border: 0px;
+    cursor: pointer;
+}
+
+
+/**
+ * has-random-image
+ */
+
+ body.transition-to-has-random-image #Wrapper {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: none!important;
+ }
+ body.transition-to-has-random-image #Wrapper #Layout {
+     display: none;
+ }
+ body.has-random-image #Wrapper {
+     padding-bottom: 100vh;
+     overflow: hidden;
+}
+
+body.has-random-image #Breadcrumbs {
+ display: none;
+}
+body.has-random-image #Layout {
+    padding-top: 7vh;
+}
+
+
+body.has-random-image #RandomVisualThoughtExplanation,
+body.has-random-image #RandomVisualThoughtHeader {
+    display: none;
+}
+body.has-random-image .main-section {
+    opacity: 0.77;
+    background-color: #030003;
+    border-radius: 0 0 20px 0;
+    padding-top: 5vh;
+}
+
+body.has-random-image #Sidebar {
+    background: #fff;
+    opacity: 0.77;
+    color: #000;
+    border: none!important;
+}
+body.has-random-image #Sidebar .sidebarBox {
+    /*position: absolute;!important;
+    bottom: 12vh;*/
+}
+body.has-random-image #Sidebar a,
+body.has-random-image #Sidebar p,
+body.has-random-image #Sidebar li {
+    color: #333;
+}
+
+body.has-random-image #RandomVisualThought {
+    position: fixed;
+    top: 7vh;
+    left: 40px;
+    bottom: auto;
+    right: auto;
+    border-radius: 0;
+    border-color: #222;
+    background-image:url("/resources/themes/main/images/mobile-webdesign.gif")!important;
+    width: 150px;
+    height: 92px;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+body.has-random-image footer {
+    position: absolute;
+    bottom: 50px;
+    right: 5%;
+    left: 0;
+    display: block;
+}
+body.has-random-image footer #CopyrightMessage {
+    display: none;
+}
+
+
+/**
+ * menu overlay
+ */
+
+
+
+body.has-menu-overlay:after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: white;
+    z-index: 0;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+
+
+
+/**
+ * mobile browsing
+ */
+@media screen and (max-width: 960px)  {
+
+
+    body {
+        background-color: #ffcc1a;
+    }
+
+
+     #Wrapper {
+        background-color: #fff;
+        background-image: url("/resources/themes/main/images/mobile-webdesign-wide.gif")!important;
+        background-position: right top;
+        background-repeat: no-repeat;
+        padding-top: 156px;
+    }
+
+    #Wrapper #Layout {
+        padding: 0;
+
+    }
+
+    body #PageSpecificHolder,
+    body #Wrapper footer {
+        padding: 40px;
+    }
+
+    #Layout #PageSpecificHolder .main-section {
+        width: auto;
+        margin-right: 0;
+        float: none;
+    }
+
+
+     #Breadcrumbs {
+        padding: 0px;
+        left: 40px;
+        top: 170px;
+        margin: 0;
+        position: absolute;
+    }
+
+    #Layout aside {
+        float: none;
+        width: auto;
+    }
+    #Layout #Sidebar {
+        margin-bottom: 10px!important;
+    }
+
+     #Layout .sidebarTop {
+        height: auto!important;
+        cursor: pointer!important;
+    }
+
+     #Layout .sidebarTop a {
+        padding: 0.5em;
+        text-align: center;
+    }
+
+
+
+
+    body.has-menu-overlay #RandomVisualThought {
+        position: fixed;
+        z-index: 12;
+        bottom: 20px;
+        left: 20px;
+        margin: 0!important;
+    }
+
+
+    body.has-random-image #Wrapper {
+        background-color: transparent;
+    }
+
+
+    body.has-random-image .main-section {
+        border-top: none;
+        margin-top: 0;
+        margin-left: 0;
+        border-radius: 0;
+    }
+
+
+    body.has-random-image #RandomVisualThought {
+        display: none;
+    }
+    footer *, #Breadcrumbs, #Breadcrumbs * {
+        font-size: 12px!important;
+    }
+    body.has-random-image footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: block;
+    }
+    body.has-random-image footer #CopyrightMessage {
+        display: none;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    body #PageSpecificHolder, body #Wrapper footer {
+        padding: 20px;
+    }
+    body #PageSpecificHolder {
+        padding-top: 40px;
+    }
+    #Breadcrumbs {
+       display: none;
+   }
+
+}
+
+@media screen and (max-width: 380px) {
+    body #PageSpecificHolder, body #Wrapper footer {
+        padding: 10px;
+    }
+    body #PageSpecificHolder {
+        padding-top: 40px;
+    }
+    body.has-random-image #PageSpecificHolder {
+        padding: 0px;
+    }
+    body.has-random-image #PageSpecificHolder {
+        padding-top: 0px;
+    }
+
+}

@@ -1,0 +1,222 @@
+#Nav {
+   text-align: center;
+}
+
+#Nav,
+#Nav ul,
+#Nav ul ul {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    text-transform: lowercase;
+}
+
+#Nav {
+    bottom: 0px;
+    background-color: #808383;
+    z-index: 999;
+}
+
+#Nav li {
+    padding: 0.77em 20px;
+    list-style: none;
+    text-align: right;
+}
+
+#Nav > li {
+    display: inline-block
+}
+
+#Nav li a {
+    font-size: 1.9em;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+
+#Nav li a:hover, #Nav li.current a, #Nav li.section a {
+    color: #ffcc1a;
+}
+
+#Nav li.current li.link a, #Nav li.section  li.link  a {
+    color: #D3D4B6;
+}
+
+#Nav li.current li.link a:hover, #Nav li.section  li.link  a:hover {
+    color: #454747;
+}
+
+#Nav ul {
+    bottom: 3.5em;
+    background-color: #808383;
+    width: auto;
+    display: none;
+    position: absolute;
+    padding-top: 7px;
+    left: 0px;
+}
+
+#Nav ul li {
+    display: block;
+    float: none;
+    text-align: left;
+    padding-left: 0px;
+}
+
+#Nav ul li.first {
+}
+
+#Nav ul li a {
+    font-size: 1.2em;
+    color: #D3D4B6;
+    padding: 0.34em 20px;
+    text-align: left;
+}
+
+#Nav ul li a:hover, #Nav ul li.current > a, #Nav ul li.section > a {
+    color: #ffcc1a;
+}
+
+#Nav li .hasCSSHover {
+    display: block;
+}
+
+.menuButton {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    #Nav,  #Nav ul,  #Nav ul ul {
+        position: relative!important;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: auto;
+        bottom: auto;
+        padding: 12px 0 0 0px!important;
+    }
+
+    #Nav ul,  #Nav ul ul {
+        margin: 0px!important;
+    }
+
+    #Nav li,  #Nav ul li,  #Nav ul ul li {
+        float: none;
+        width: auto;
+        display: block;
+    }
+
+    #Nav ul li {
+        padding-right: 0px;
+    }
+
+    #Nav > ul > li {
+        padding-right: 0px;
+        padding: 1.5em 40px;
+    }
+
+    #Nav ul {
+        display: none;
+    }
+
+    #Nav li.section ul,  #Nav li.current ul {
+        display: block;
+        border-radius: 0px;
+        -moz-border-radius-topleft: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    #Nav a {
+        display: block;
+        padding: 0!important;
+    }
+
+
+    nav {
+        display: none;
+    }
+
+    .has-menu-overlay #MainMenu {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow: auto;
+        background-color: #808383;
+        z-index: 3;
+
+    }
+
+    .has-menu-overlay nav {
+        display: block!important;
+        z-index: 1;
+    }
+
+    .menuButton {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        margin-top: 0;
+        padding: 0px;
+        display: block;
+        /*do forgert to change # for %23 */
+        background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23808383" height="48" viewBox="0 0 24 24" width="48"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+        background-repeat: no-repeat;
+        height: 55px;
+        width: 55px;
+        filter: alpha(opacity=77);
+        text-indent: -99999px;
+        z-index: 999;
+        border-bottom: none!important;
+        border-radius: 30px;
+        background-color: rgba(255, 255, 255, 0.5);
+        background-position: center;
+        opacity: 0.33;
+    }
+    .menuButton.nav-up {
+        display: none;
+    }
+    .menuButton.nav-down {
+        background-color: #ffcc1a;
+        position: fixed;
+        -webkit-animation: fadein 0.3s linear forwards;
+        animation: fadein 0.3s linear forwards;
+        opacity: 0;
+        top: 10px;
+    }
+
+    .has-menu-overlay .menuButton {
+        top: 20px;
+        left: 20px;
+        position: fixed;
+        /*do forgert to change # for %23 */
+        background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" height="36" viewBox="0 0 24 24" width="36"><path d="M0 0h24v24H0z" fill="none"/><path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>');
+/* For IE8 and earlier */
+    }
+
+    @keyframes fadein {
+        0% { opacity: 0; }
+        100% { opacity: 0.83; }
+    }
+    #Nav li.current li a,
+    #Nav li.section  li  a,
+    #Nav li.link  li  a {
+        text-align: right;
+
+}
+
+@media screen and (max-width: 480px) {
+    .menuButton {
+        top: 20px;
+        left: 20px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .menuButton,
+    .has-menu-overlay .menuButton {
+        top: 5px;
+        left: 5px;
+    }
+}
