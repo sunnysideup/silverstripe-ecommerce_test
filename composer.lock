@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d91a97529589d115c38fa2554949a699",
+    "content-hash": "e14f49595b804243de84136049eca532",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -5952,52 +5952,7 @@
             "time": "2018-09-02T14:59:54+00:00"
         }
     ],
-    "packages-dev": [
-        {
-            "name": "sunnysideup/huringa",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunnysideup/sunnysideup-huringa.git",
-                "reference": "203bfed4db279f78847c6ae11cf062d999448ddc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/sunnysideup-huringa/zipball/203bfed4db279f78847c6ae11cf062d999448ddc",
-                "reference": "203bfed4db279f78847c6ae11cf062d999448ddc",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "^4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8"
-            },
-            "bin": [
-                "bin/huringa"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sunnysideup\\Huringa\\": "src/",
-                    "Sunnysideup\\Huringa\\Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolaas Francken",
-                    "email": "modules@sunnysideup.co.nz",
-                    "role": "lead developer"
-                }
-            ],
-            "description": "Runs code upgrades and transformations",
-            "time": "2020-02-06T11:03:31+00:00"
-        }
-    ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
@@ -6022,8 +5977,7 @@
         "sunnysideup/payment_hirepurchase": 20,
         "sunnysideup/payment_instore": 20,
         "sunnysideup/afterpay": 20,
-        "sunnysideup/google_address_field": 0,
-        "sunnysideup/huringa": 20
+        "sunnysideup/google_address_field": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
