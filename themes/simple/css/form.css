@@ -62,18 +62,15 @@ textarea {
 
 
 /* Radio and Checkbox */
-div.field.checkbox, div.field.radio {
-    display: block;
-    float: none;
-}
-
-.field .checkbox, .field .radio {
+.field .checkbox:not(.field),
+.field .radio:not(.field) {
     float: left;
+    width: 13px;
+    height: 13px;
     margin-right: 6px;
-    margin-top: 3px;
+    margin-top: 5px;
     padding: 0;
 }
-
     .checkbox label.right,
     .radio label.right {
         float: left;
@@ -91,7 +88,9 @@ form .message {
         background-color: #ecf9d0;
         border-color: #8fbe00;
     }
-    form .bad, form .required {
+    form .bad,
+    form .required,
+    form .error {
         background-color: #f9d0d0;
         border-color: #cf0000;
         color: #b80000;
@@ -102,7 +101,7 @@ form .message {
 .Actions {
     margin-bottom: 20px;
 }
-    a.btn, button, input[type="submit"], .Actions .action {
+    a.btn, button, input[type="submit"], input[type="reset"], .Actions .action {
         background: #b80000;
         color: #fff;
         display: inline-block;
@@ -142,7 +141,6 @@ form .message {
     }
     .Actions:after {
         color: #B94A48;
-        content: "* Indicates a required field";
         display: inline-block;
         font-weight: normal;
         margin-top: 9px;
@@ -185,29 +183,13 @@ form .date .middleColumn input {
     /*background: transparent url(../images/icons/your_icon_here.png) no-repeat scroll 90px 5px;*/
     width: 114px;
 }
-
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: .Actions (case sensitive)
-  * NEW: .btn-toolbar (COMPLEX)
-  * EXP: Check if this replacement is right.
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
-.btn-toolbar input.resetformaction {                  /* Clear button */
+.Actions input.resetformaction,
+.Actions input.action-minor {                  /* Clear button */
     float: left;
     background-color: #888;
 }
-
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: .Actions (case sensitive)
-  * NEW: .btn-toolbar (COMPLEX)
-  * EXP: Check if this replacement is right.
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
-.btn-toolbar input.resetformaction:hover {            /* Clear button */
+.Actions input.resetformaction:hover,
+.Actions input.action-minor:hover {            /* Clear button */
     background-color: #aaa;
 }
 
@@ -264,8 +246,6 @@ form input.holder-required {        /* This class needs to be changed - is used 
 input:invalid,
 textarea:invalid {
     border-radius: 1px;
-    -moz-box-shadow: 0px 0px 5px red;
-    -webkit-box-shadow: 0px 0px 5px red;
     box-shadow: 0px 0px 5px red;
 }
 .no-boxshadow input:invalid,

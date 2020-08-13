@@ -1,40 +1,28 @@
 {
-    "name": "sunnysideup/themes_ssu_flava_simple",
+    "name": "silverstripe-themes/simple",
+    "description": "The SilverStripe simple theme (default SilverStripe 3 theme)",
     "type": "silverstripe-theme",
-    "description": "COPY of the Silverstripe Simple Theme",
-    "keywords": [
-        "Silverstripe-CMS",
-        "CMS",
-        "Silverstripe",
-        "themes",
-        "theme",
-        "template",
-        "basic",
-        "install",
-        "boilerplate",
-        "Sunny Side Up"
-    ],
+    "keywords": ["silverstripe", "theme"],
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Nicolaas Francken",
-            "email": "modules@sunnysideup.co.nz",
-            "role": "lead developer"
+            "name": "Sara Tušar (Innovaif)",
+            "homepage": "http://www.saratusar.com"
         }
     ],
     "require": {
-        "silverstripe/framework": "~3.1",
-        "silverstripe/cms": "~3.1"
+        "composer/installers": "*",
+        "silverstripe/framework": ">=3.5"
     },
-    "extra": {
-        "installer-name": "simple"
-    },
-    "suggest": {
-        "sunnysideup/app_ssu_flava_main": "*",
-        "sunnysideup/app_ssu_flava_main_cms": "*",
-        "sunnysideup/app_ssu_flava_main_ecommerce": "*",
-        "sunnysideup/app_ssu_flava_main_ecommerce_product_variation": "*",
-        "sunnysideup/app_ssu_flava_main_webportfolio": "*",
-        "sunnysideup/app_ssu_flava_simple_ecommerce": "*"
-    }
+	"extra": {
+		"branch-alias": {
+			"dev-master": "3.2.x-dev"
+		},
+        "expose": [
+            "css",
+            "images",
+            "javascript",
+            "webfonts"
+        ]
+	}
 }
