@@ -1,34 +1,63 @@
-EcommerceDBConfig:
-  array_of_buyables:
-    - ProductVariation
-
-Order:
+Sunnysideup\Ecommerce\Model\Order:
   modifiers:
-    - GSTTaxModifier
-    - PickUpOrDeliveryModifier
-
-StoreAdmin:
-  managed_models:
-    - GSTTaxModifierOptions
-    - PickUpOrDeliveryModifierOptions
-
-EcommercePayment:
-  supported_methods:
-    EcommercePayment_TestSuccess : "Test Success Payment"
-    EcommercePayment_TestPending : "Test Pending Payment"
-    EcommercePayment_TestFailure : "Test Failure Payment"
-    PayPalExpressCheckoutPayment : "Paypal"
-
-PayPalExpressCheckoutPayment:
-  test_mode: true
-  API_UserName: 'pay-facilitator_api1.sunnysideup.co.nz'
-  API_Password: '1377510536'
-  API_Signature: 'A28oa-B5R0CTgak6ipR9IK8jr0OoAg01ay9d32LkRH-gEW2FOekonB8q'
+    - Sunnysideup\EcommerceTax\Modifiers\GSTTaxModifier
+    - Sunnysideup\EcommerceDelivery\Modifiers\PickUpOrDeliveryModifier
+    # - Sunnysideup\EcommerceAlsoRecommended\Modifiers\RecommendedProductsModifier
+    # - Sunnysideup\EcommerceDiscountCoupon\Modifiers\DiscountCouponModifier
 
 
-OrderStep:
+Sunnysideup\Ecommerce\Model\Process\OrderStep:
   order_steps_to_include:
-    step1: OrderStep_Created
-    step2: OrderStep_Submitted
-    step3: OrderStep_Paid
-    step5: OrderStep_Archived
+    step1: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepCreated
+    step2: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepSubmitted
+    step10: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepArchived
+
+
+
+
+### ECOMMERCE - PAYMENT MODULE ###
+Sunnysideup\Ecommerce\Model\Money\EcommercePayment:
+  supported_methods:
+    Sunnysideup\PaymentDirectcredit\DirectCreditPayment: "Direct Credit (payment into bank account)"
+    Sunnysideup\PaymentInstore\InStorePayment: "Pay in Store on Pick-Up"
+    #Sunnysideup\Afterpay\Model\AfterpayEcommercePayment: "Afterpay"
+
+Sunnysideup\PaymentDirectcredit\DirectCreditPayment:
+  before_payment_message: "We will email you our bank account details."
+
+#
+#
+# EcommerceDBConfig:
+#   array_of_buyables:
+#     - ProductVariation
+#
+# Order:
+#   modifiers:
+#     - GSTTaxModifier
+#     - PickUpOrDeliveryModifier
+#
+# StoreAdmin:
+#   managed_models:
+#     - GSTTaxModifierOptions
+#     - PickUpOrDeliveryModifierOptions
+#
+# EcommercePayment:
+#   supported_methods:
+#     EcommercePayment_TestSuccess : "Test Success Payment"
+#     EcommercePayment_TestPending : "Test Pending Payment"
+#     EcommercePayment_TestFailure : "Test Failure Payment"
+#     PayPalExpressCheckoutPayment : "Paypal"
+#
+# PayPalExpressCheckoutPayment:
+#   test_mode: true
+#   API_UserName: 'pay-facilitator_api1.sunnysideup.co.nz'
+#   API_Password: '1377510536'
+#   API_Signature: 'A28oa-B5R0CTgak6ipR9IK8jr0OoAg01ay9d32LkRH-gEW2FOekonB8q'
+#
+#
+# OrderStep:
+#   order_steps_to_include:
+#     step1: OrderStep_Created
+#     step2: OrderStep_Submitted
+#     step3: OrderStep_Paid
+#     step5: OrderStep_Archived

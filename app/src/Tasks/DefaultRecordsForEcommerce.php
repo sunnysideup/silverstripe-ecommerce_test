@@ -2,41 +2,39 @@
 
 namespace Sunnysideup\EcommerceTest\Tasks;
 
+use SilverStripe\ORM\DataList;
 
-
-use Product;
-use EcommerceTaskCreateMemberGroups;
-use EcommerceDBConfig;
+use Sunnysideup\Ecommerce\Pages\Product;
+use Sunnysideup\Ecommerce\Tasks\EcommerceTaskCreateMemberGroups;
+use Sunnysideup\Ecommerce\Model\Config\EcommerceDBConfig;
 
 
 use Page;
-use CheckoutPage;
-use ProductAttributeType;
-use ProductAttributeValue;
-use ProductVariation;
+use Sunnysideup\Ecommerce\Pages\CheckoutPage;
+// use ProductAttributeType;
+// use ProductAttributeValue;
+// use ProductVariation;
 
-use ProductGroup;
-use CombinationProduct;
-use PickUpOrDeliveryModifierOptions;
-use GSTTaxModifierOptions;
-use DiscountCouponOption;
-use EcommerceProductTag;
-use ProductGroupWithTags;
+use Sunnysideup\Ecommerce\Pages\ProductGroup;
+// use CombinationProduct;
+use Sunnysideup\EcommerceDelivery\Model\PickUpOrDeliveryModifierOptions;
+use Sunnysideup\EcommerceTax\Model\GSTTaxModifierOptions;
+use Sunnysideup\EcommerceDiscountCoupon\Model\DiscountCouponOption;
+// use EcommerceProductTag;
+// use ProductGroupWithTags;
 
-use EcommerceRole;
+use Sunnysideup\Ecommerce\Model\Extensions\EcommerceRole;
 
 
-use ComplexPriceObject;
-use Order;
-use BillingAddress;
-use ShippingAddress;
-use Product_OrderItem;
-use OrderConfirmationPage;
-use CartPage;
-use AccountPage;
-use Spyc;
-
-use DataObjectSet;
+// use ComplexPriceObject;
+use Sunnysideup\Ecommerce\Model\Order;
+use Sunnysideup\Ecommerce\Model\Address\BillingAddress;
+use Sunnysideup\Ecommerce\Model\Address\ShippingAddress;
+use Sunnysideup\Ecommerce\Model\ProductOrderItem;
+use Sunnysideup\Ecommerce\Pages\OrderConfirmationPage;
+use Sunnysideup\Ecommerce\Pages\CartPage;
+use Sunnysideup\Ecommerce\Pages\AccountPage;
+use Sunnysideup\Ecommerce\Pages\ProductGroupSearchPage;
 
 
 use SilverStripe\ORM\DB;
@@ -60,11 +58,13 @@ class DefaultRecordsForEcommerce extends BuildTask
 
     protected $description = "Installs pages, product, etc... so that you can see e-commerce in action with a full collection of data.";
 
+    private static $segment = 'setup-ecommerce-records';
+
     private $examplePages = array(
         0 => array("Title" => "Basics", "List" => array()),
         1 => array("Title" => "Products and Product Groups", "List" => array()),
         2 => array("Title" => "Checkout Options", "List" => array()),
-        3 => array("Title" => "Stock Control", "List" => array()),
+        // 3 => array("Title" => "Stock Control", "List" => array()),
         4 => array("Title" => "Pricing", "List" => array()),
         5 => array("Title" => "Other", "List" => array())
     );
@@ -144,7 +144,6 @@ class DefaultRecordsForEcommerce extends BuildTask
         }
         $folder = Folder::find_or_make("randomimages");
         DB::alteration_message("checking randomimages");
-        $folder->syncChildren();
         if ($folder->Children()->count() < 250) {
             for ($i = 0; $i < 10; $i++) {
                 $r = mt_rand(0, 255);
@@ -153,15 +152,6 @@ class DefaultRecordsForEcommerce extends BuildTask
                 $im = @imagecreate($width, $height) or die("Cannot Initialize new GD image stream");
                 $background_color = imagecolorallocate($im, $r, $g, $b);
                 $baseFolderPath = Director::baseFolder();
-
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: assets/ (case sensitive)
-  * NEW: assets/ (COMPLEX)
-  * EXP: Check if you need the assets parts - use ASSETS_PATH if needed
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
                 $fileName = $baseFolderPath."/assets/randomimages/img_".sprintf("%03d", $r)."_".sprintf("%03d", $g)."_".sprintf("%03d", $b).".png";
                 if (!file_exists($fileName)) {
                     imagepng($im, $fileName);
@@ -519,7 +509,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 )
             ),
             array(
-                "ClassName" => "ProductGroupSearchPage",
+                "ClassName" => ProductGroupSearchPage::class,
                 "URLSegment" => "shop",
                 "Title" => "Shop",
                 "MenuTitle" => "Shop",
@@ -539,7 +529,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 ",
                 "Children" => array(
                     array(
-                        "ClassName" => "ProductGroup",
+                        "ClassName" => ProductGroup::class,
                         "URLSegment" => "browse-products",
                         "Title" => "Browse All Products",
                         "MenuTitle" => "Browse Products",
@@ -550,7 +540,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                         "Children" => $this->getProductGroups()
                     ),
                     array(
-                        "ClassName" => "ProductGroup",
+                        "ClassName" => ProductGroup::class,
                         "URLSegment" => "alternative-views",
                         "Title" => "Alternative Views of Product and Product Groups",
                         "MenuTitle" => "Alternative Views",
@@ -631,7 +621,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 )
             ),
             array(
-                "ClassName" => "CheckoutPage",
+                "ClassName" => CheckoutPage::class,
                 "URLSegment" => "checkout",
                 "Title" => "Checkout",
                 "MenuTitle" => "Checkout",
@@ -654,7 +644,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 "DeleteOrderLinkLabel" => "Delete order",
                 "Children" => array(
                     array(
-                        "ClassName" => "OrderConfirmationPage",
+                        "ClassName" => OrderConfirmationPage::class,
                         "URLSegment" => "confirmorder",
                         "Title" => "Order Confirmation",
                         "MenuTitle" => "Order Confirmation",
@@ -672,7 +662,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                         "DeleteOrderLinkLabel" => "Delete order",
                     ),
                     array(
-                        "ClassName" => "AccountPage",
+                        "ClassName" => AccountPage::class,
                         "URLSegment" => "my account",
                         "Title" => "My Account",
                         "MenuTitle" => "My Account",
@@ -681,7 +671,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                         "Content" => "<p>Update your details below.</p>"
                     ),
                     array(
-                        "ClassName" => "Page",
+                        "ClassName" => Page::class,
                         "URLSegment" => "terms-and-conditions",
                         "Title" => "Terms and Conditions",
                         "MenuTitle" => "Terms",
@@ -692,7 +682,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 )
             ),
             array(
-                "ClassName" => "CartPage",
+                "ClassName" => CartPage::class,
                 "URLSegment" => "cart",
                 "Title" => "Cart",
                 "MenuTitle" => "Cart",
@@ -701,7 +691,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 "Content" => "<p>Please review your order below. A Cart Page is like a checkout page but without the checkout form.</p>"
             ),
             array(
-                "ClassName" => "Page",
+                "ClassName" => Page::class,
                 "URLSegment" => "about-us",
                 "Title" => "About us",
                 "MenuTitle" => "About us",
@@ -716,7 +706,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                 ")
                 ,
                 array(
-                    "ClassName" => "Page",
+                    "ClassName" => Page::class,
                     "URLSegment" => "pricing",
                     "Title" => "Pricing",
                     "MenuTitle" => "Pricing",
@@ -840,7 +830,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                     break;
             }
             $array[$j] = array(
-                "ClassName" => "ProductGroup",
+                "ClassName" => ProductGroup::class,
                 "URLSegment" => "product-group-".$parentCode,
                 "Title" => "Product Group ".$parentCode,
                 "MenuTitle" => "Product group ".$parentCode,
@@ -887,10 +877,9 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
             $q = rand(1, 500);
             $allowPurchase = ($q % 17) ? "YES" : "NO";
             $imageID = $this->getRandomImageID();
-            DB::query("Update \"File\" SET \"ClassName\" = 'Product_Image' WHERE ID = ".$imageID);
             $numberSold = $i;
             $array[$i] = array(
-                "ClassName" => "Product",
+                "ClassName" => Product::class,
                 "ImageID" => $imageID,
                 "URLSegment" => "product-$parentCode-$i",
                 "Title" => "Product $parentCode $i",
@@ -923,175 +912,175 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
 
     private function addvariations()
     {
-        $colourObject = ProductAttributeType::get()
-            ->where("\"Name\" = 'Colour'")
-            ->First();
-        if (!$colourObject) {
-            $colourObject = new ProductAttributeType();
-            $colourObject->Name = "Colour";
-            $colourObject->Label = "Colour";
-            $colourObject->IsColour = true;
-            $colourObject->Sort = 100;
-            $colourObject->write();
-        }
-        if ($colourObject) {
-            $redObject = ProductAttributeValue::get()
-                ->where("\"Value\" = 'red'")
-                ->First();
-            if (!$redObject) {
-                $redObject = new ProductAttributeValue();
-                $redObject->Value = "red";
-                $redObject->RGBCode = "ff0000";
-                $redObject->ContrastRGBCode = "BFC1C1";
-                $redObject->TypeID = $colourObject->ID;
-                $redObject->Sort = 100;
-                $redObject->write();
-            }
-            $blueObject = ProductAttributeValue::get()
-                ->where("\"Value\" = 'blue'")
-                ->First();
-            if (!$blueObject) {
-                $blueObject = new ProductAttributeValue();
-                $blueObject->Value = "blue";
-                $blueObject->RGBCode = "0000ff";
-                $blueObject->ContrastRGBCode = "BFC1C1";
-                $blueObject->TypeID = $colourObject->ID;
-                $blueObject->Sort = 110;
-                $blueObject->write();
-            }
-        } else {
-            die("COULD NOT CREATE COLOUR OBJECT");
-        }
-        $sizeObject = ProductAttributeType::get()
-            ->filter("Name", 'Size')
-            ->First();
-        ;
-        if (!$sizeObject) {
-            $sizeObject = new ProductAttributeType();
-            $sizeObject->Name = "Size";
-            $sizeObject->Label = "Size";
-            $sizeObject->Sort = 110;
-            $sizeObject->write();
-        }
-        if ($sizeObject) {
-            $smallObject = ProductAttributeValue::get()
-                ->where("\"Value\" = 'S'")
-                ->First();
-            if (!$smallObject) {
-                $smallObject = new ProductAttributeValue();
-                $smallObject->Value = "S";
-                $smallObject->TypeID = $sizeObject->ID;
-                $smallObject->Sort = 100;
-                $smallObject->write();
-            }
-            $xtraLargeObject = ProductAttributeValue::get()
-                ->where("\"Value\" = 'XL'")
-                ->First();
-            if (!$xtraLargeObject) {
-                $xtraLargeObject = new ProductAttributeValue();
-                $xtraLargeObject->Value = "XL";
-                $xtraLargeObject->TypeID = $sizeObject->ID;
-                $xtraLargeObject->Sort = 110;
-                $xtraLargeObject->write();
-            }
-        } else {
-            die("COULD NOT CREATE SIZE OBJECT");
-        }
-        $products = Product::get()
-            ->where("ClassName = 'Product'")
-            ->sort("RAND()")
-            ->limit(2);
-        $this->addExamplePages(1, "products with variations (size, colour, etc...)", $products);
-        if ($products->count() && $colourObject && $sizeObject) {
-            $variationCombos = array(
-                array("Size" => $xtraLargeObject, "Colour" => $redObject),
-                array("Size" => $xtraLargeObject, "Colour" => $blueObject),
-                array("Size" => $smallObject, "Colour" => $redObject),
-                array("Size" => $smallObject, "Colour" => $blueObject)
-            );
-            foreach ($products as $product) {
-                $existingAttributeTypes = $product->VariationAttributes();
-                $existingAttributeTypes->add($sizeObject);
-                $existingAttributeTypes->add($colourObject);
-                $this->addToTitle($product, "with variation", false);
-                $product->Content .= "<p>On this page you can see two example of how you customers can add variations to their products (form / table)... In a real-life shop you would probably choose one or the other.</p>";
-                $product->write();
-                $product->Publish('Stage', 'Live');
-                $product->flushCache();
-                $descriptionOptions = array("", "Per Month", "", "", "Per Year", "This option has limited warranty");
-                if (!
-                    ProductVariation::get()
-                    ->where("ProductID  = ".$product->ID)
-                    ->count()
-                ) {
-                    foreach ($variationCombos as $variationCombo) {
-                        $productVariation = new ProductVariation();
-                        $productVariation->ProductID = $product->ID;
-                        $productVariation->Price = $product->Price * 2;
-                        $productVariation->Description = $descriptionOptions[rand(0, 5)];
-                        $productVariation->ImageID = rand(0, 1) ? 0 : $this->getRandomImageID();
-                        $productVariation->write();
-                        $existingAttributeValues = $productVariation->AttributeValues();
-                        $existingAttributeValues->add($variationCombo["Size"]);
-                        $existingAttributeValues->add($variationCombo["Colour"]);
-                        DB::alteration_message(" Creating variation for ".$product->Title . " // COLOUR ".$variationCombo["Colour"]->Value. " SIZE ".$variationCombo["Size"]->Value, "created");
-                    }
-                }
-            }
-        }
+        // $colourObject = ProductAttributeType::get()
+        //     ->where("\"Name\" = 'Colour'")
+        //     ->First();
+        // if (!$colourObject) {
+        //     $colourObject = new ProductAttributeType();
+        //     $colourObject->Name = "Colour";
+        //     $colourObject->Label = "Colour";
+        //     $colourObject->IsColour = true;
+        //     $colourObject->Sort = 100;
+        //     $colourObject->write();
+        // }
+        // if ($colourObject) {
+        //     $redObject = ProductAttributeValue::get()
+        //         ->where("\"Value\" = 'red'")
+        //         ->First();
+        //     if (!$redObject) {
+        //         $redObject = new ProductAttributeValue();
+        //         $redObject->Value = "red";
+        //         $redObject->RGBCode = "ff0000";
+        //         $redObject->ContrastRGBCode = "BFC1C1";
+        //         $redObject->TypeID = $colourObject->ID;
+        //         $redObject->Sort = 100;
+        //         $redObject->write();
+        //     }
+        //     $blueObject = ProductAttributeValue::get()
+        //         ->where("\"Value\" = 'blue'")
+        //         ->First();
+        //     if (!$blueObject) {
+        //         $blueObject = new ProductAttributeValue();
+        //         $blueObject->Value = "blue";
+        //         $blueObject->RGBCode = "0000ff";
+        //         $blueObject->ContrastRGBCode = "BFC1C1";
+        //         $blueObject->TypeID = $colourObject->ID;
+        //         $blueObject->Sort = 110;
+        //         $blueObject->write();
+        //     }
+        // } else {
+        //     die("COULD NOT CREATE COLOUR OBJECT");
+        // }
+        // $sizeObject = ProductAttributeType::get()
+        //     ->filter("Name", 'Size')
+        //     ->First();
+        // ;
+        // if (!$sizeObject) {
+        //     $sizeObject = new ProductAttributeType();
+        //     $sizeObject->Name = "Size";
+        //     $sizeObject->Label = "Size";
+        //     $sizeObject->Sort = 110;
+        //     $sizeObject->write();
+        // }
+        // if ($sizeObject) {
+        //     $smallObject = ProductAttributeValue::get()
+        //         ->where("\"Value\" = 'S'")
+        //         ->First();
+        //     if (!$smallObject) {
+        //         $smallObject = new ProductAttributeValue();
+        //         $smallObject->Value = "S";
+        //         $smallObject->TypeID = $sizeObject->ID;
+        //         $smallObject->Sort = 100;
+        //         $smallObject->write();
+        //     }
+        //     $xtraLargeObject = ProductAttributeValue::get()
+        //         ->where("\"Value\" = 'XL'")
+        //         ->First();
+        //     if (!$xtraLargeObject) {
+        //         $xtraLargeObject = new ProductAttributeValue();
+        //         $xtraLargeObject->Value = "XL";
+        //         $xtraLargeObject->TypeID = $sizeObject->ID;
+        //         $xtraLargeObject->Sort = 110;
+        //         $xtraLargeObject->write();
+        //     }
+        // } else {
+        //     die("COULD NOT CREATE SIZE OBJECT");
+        // }
+        // $products = Product::get()
+        //     ->where("ClassName = 'Product'")
+        //     ->sort("RAND()")
+        //     ->limit(2);
+        // $this->addExamplePages(1, "products with variations (size, colour, etc...)", $products);
+        // if ($products->count() && $colourObject && $sizeObject) {
+        //     $variationCombos = array(
+        //         array("Size" => $xtraLargeObject, "Colour" => $redObject),
+        //         array("Size" => $xtraLargeObject, "Colour" => $blueObject),
+        //         array("Size" => $smallObject, "Colour" => $redObject),
+        //         array("Size" => $smallObject, "Colour" => $blueObject)
+        //     );
+        //     foreach ($products as $product) {
+        //         $existingAttributeTypes = $product->VariationAttributes();
+        //         $existingAttributeTypes->add($sizeObject);
+        //         $existingAttributeTypes->add($colourObject);
+        //         $this->addToTitle($product, "with variation", false);
+        //         $product->Content .= "<p>On this page you can see two example of how you customers can add variations to their products (form / table)... In a real-life shop you would probably choose one or the other.</p>";
+        //         $product->write();
+        //         $product->Publish('Stage', 'Live');
+        //         $product->flushCache();
+        //         $descriptionOptions = array("", "Per Month", "", "", "Per Year", "This option has limited warranty");
+        //         if (!
+        //             ProductVariation::get()
+        //             ->where("ProductID  = ".$product->ID)
+        //             ->count()
+        //         ) {
+        //             foreach ($variationCombos as $variationCombo) {
+        //                 $productVariation = new ProductVariation();
+        //                 $productVariation->ProductID = $product->ID;
+        //                 $productVariation->Price = $product->Price * 2;
+        //                 $productVariation->Description = $descriptionOptions[rand(0, 5)];
+        //                 $productVariation->ImageID = rand(0, 1) ? 0 : $this->getRandomImageID();
+        //                 $productVariation->write();
+        //                 $existingAttributeValues = $productVariation->AttributeValues();
+        //                 $existingAttributeValues->add($variationCombo["Size"]);
+        //                 $existingAttributeValues->add($variationCombo["Colour"]);
+        //                 DB::alteration_message(" Creating variation for ".$product->Title . " // COLOUR ".$variationCombo["Colour"]->Value. " SIZE ".$variationCombo["Size"]->Value, "created");
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     private function addcomboproducts()
     {
-        $pages = new ArrayList();
-        $productGroups = ProductGroup::get()
-            ->where("ParentID > 0")
-            ->Sort("\"Sort\" DESC")
-            ->limit(3);
-        foreach ($productGroups as $productGroup) {
-            $i = rand(1, 500);
-            $imageID = $this->getRandomImageID();
-            DB::query("Update \"File\" SET \"ClassName\" = 'Product_Image' WHERE ID = ".$imageID);
-            $numberSold = $i;
-            $fields = array(
-                "ClassName" => "CombinationProduct",
-                "ImageID" => $imageID,
-                "URLSegment" => "combo-product-$i",
-                "Title" => "Combination Product $i",
-                "MenuTitle" => "Combi Product $i",
-                "ParentID" => $productGroup->ID,
-                "Content" => "<p>
-                    This is a combination Product.
-                    Aenean tincidunt nisl id ante pretium quis ornare libero varius. Nam cursus, mi quis dignissim laoreet, mauris turpis molestie ligula, et luctus urna nibh et ligula. Morbi in arcu ante, sit amet fermentum lacus. Cras elit lacus, feugiat sit amet faucibus quis, condimentum a leo. Donec molestie lacinia nisl a ullamcorper.
-                    For testing purposes - the following characteristics were added to this product:
-                <p>
-                <ul>
-                    <li>featured: <i>YES</i></li>
-                    <li>allow purchase: <i>YES</i></li>
-                    <li>number sold: <i>".$numberSold."</i></li>
-                </ul>",
-                "InternalItemID" => "combo".$i,
-                "FeaturedProduct" => 1,
-                "AllowPurchase" => 1,
-                "NumberSold" => $numberSold,
-                "NewPrice" => 10
-            );
-            $this->MakePage($fields);
-            $page = CombinationProduct::get()
-                ->where("ParentID = ".$productGroup->ID)
-                ->First();
-            $includedProducts = $page->IncludedProducts();
-            $products = Product::get()
-                ->where("\"AllowPurchase\" = 1")
-                ->limit(3);
-            foreach ($products as $product) {
-                $includedProducts->add($product);
-            }
-            $page->write();
-            $page->Publish('Stage', 'Live');
-            $pages->push($page);
-        }
-        $this->addExamplePages(1, "Combination Products", $pages);
+        // $pages = new ArrayList();
+        // $productGroups = ProductGroup::get()
+        //     ->where("ParentID > 0")
+        //     ->Sort("\"Sort\" DESC")
+        //     ->limit(3);
+        // foreach ($productGroups as $productGroup) {
+        //     $i = rand(1, 500);
+        //     $imageID = $this->getRandomImageID();
+        //     DB::query("Update \"File\" SET \"ClassName\" = 'Product_Image' WHERE ID = ".$imageID);
+        //     $numberSold = $i;
+        //     $fields = array(
+        //         "ClassName" => "CombinationProduct",
+        //         "ImageID" => $imageID,
+        //         "URLSegment" => "combo-product-$i",
+        //         "Title" => "Combination Product $i",
+        //         "MenuTitle" => "Combi Product $i",
+        //         "ParentID" => $productGroup->ID,
+        //         "Content" => "<p>
+        //             This is a combination Product.
+        //             Aenean tincidunt nisl id ante pretium quis ornare libero varius. Nam cursus, mi quis dignissim laoreet, mauris turpis molestie ligula, et luctus urna nibh et ligula. Morbi in arcu ante, sit amet fermentum lacus. Cras elit lacus, feugiat sit amet faucibus quis, condimentum a leo. Donec molestie lacinia nisl a ullamcorper.
+        //             For testing purposes - the following characteristics were added to this product:
+        //         <p>
+        //         <ul>
+        //             <li>featured: <i>YES</i></li>
+        //             <li>allow purchase: <i>YES</i></li>
+        //             <li>number sold: <i>".$numberSold."</i></li>
+        //         </ul>",
+        //         "InternalItemID" => "combo".$i,
+        //         "FeaturedProduct" => 1,
+        //         "AllowPurchase" => 1,
+        //         "NumberSold" => $numberSold,
+        //         "NewPrice" => 10
+        //     );
+        //     $this->MakePage($fields);
+        //     $page = CombinationProduct::get()
+        //         ->where("ParentID = ".$productGroup->ID)
+        //         ->First();
+        //     $includedProducts = $page->IncludedProducts();
+        //     $products = Product::get()
+        //         ->where("\"AllowPurchase\" = 1")
+        //         ->limit(3);
+        //     foreach ($products as $product) {
+        //         $includedProducts->add($product);
+        //     }
+        //     $page->write();
+        //     $page->Publish('Stage', 'Live');
+        //     $pages->push($page);
+        // }
+        // $this->addExamplePages(1, "Combination Products", $pages);
     }
 
     private function addmymodifiers()
@@ -1228,219 +1217,219 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
 
     private function createtags()
     {
-        $products = Product::get()
-            ->where("ClassName = 'Product'")
-            ->sort("Rand()")
-            ->limit(4);
-        $this->addExamplePages(1, "Product Tags", $products);
-        foreach ($products as $pos => $product) {
-            $idArray[$pos] = $product->ID;
-            $titleArray[] = $product->MenuTitle;
-            $this->addToTitle($product, "with tag", true);
-        }
-        $page = Page::get()
-            ->where("\"URLSegment\" = 'tag-explanation'")
-            ->First();
-        $t1 = new EcommerceProductTag();
-        $t1->Title = "TAG 1";
-        $t1->ExplanationPageID = $page->ID;
-        $t1->Explanation = "explains Tag 1";
-        $t1->write();
-        $existingProducts = $t1->Products();
-        $existingProducts->addMany(array($idArray[0], $idArray[1]));
-        DB::alteration_message("Creating tag: ".$t1->Title." for ".implode(",", $titleArray), "created");
-        $t2 = new EcommerceProductTag();
-        $t2->Title = "TAG 2";
-        $t2->ExplanationPageID = $page->ID;
-        $t2->Explanation = "explains Tag 2";
-        $t2->write();
-        $existingProducts = $t2->Products();
-        $existingProducts->addMany(array($idArray[2], $idArray[3]));
-        DB::alteration_message("Creating tag: ".$t2->Title." for ".implode(",", $titleArray), "created");
-        $productGroupWithTags = ProductGroupWithTags::get()
-            ->First();
-        $existingTags = $productGroupWithTags->EcommerceProductTags();
-        $existingTags->addMany(array($t1->ID, $t2->ID));
+        // $products = Product::get()
+        //     ->where("ClassName = 'Product'")
+        //     ->sort("Rand()")
+        //     ->limit(4);
+        // $this->addExamplePages(1, "Product Tags", $products);
+        // foreach ($products as $pos => $product) {
+        //     $idArray[$pos] = $product->ID;
+        //     $titleArray[] = $product->MenuTitle;
+        //     $this->addToTitle($product, "with tag", true);
+        // }
+        // $page = Page::get()
+        //     ->where("\"URLSegment\" = 'tag-explanation'")
+        //     ->First();
+        // $t1 = new EcommerceProductTag();
+        // $t1->Title = "TAG 1";
+        // $t1->ExplanationPageID = $page->ID;
+        // $t1->Explanation = "explains Tag 1";
+        // $t1->write();
+        // $existingProducts = $t1->Products();
+        // $existingProducts->addMany(array($idArray[0], $idArray[1]));
+        // DB::alteration_message("Creating tag: ".$t1->Title." for ".implode(",", $titleArray), "created");
+        // $t2 = new EcommerceProductTag();
+        // $t2->Title = "TAG 2";
+        // $t2->ExplanationPageID = $page->ID;
+        // $t2->Explanation = "explains Tag 2";
+        // $t2->write();
+        // $existingProducts = $t2->Products();
+        // $existingProducts->addMany(array($idArray[2], $idArray[3]));
+        // DB::alteration_message("Creating tag: ".$t2->Title." for ".implode(",", $titleArray), "created");
+        // $productGroupWithTags = ProductGroupWithTags::get()
+        //     ->First();
+        // $existingTags = $productGroupWithTags->EcommerceProductTags();
+        // $existingTags->addMany(array($t1->ID, $t2->ID));
     }
 
     private function createrecommendedproducts()
     {
-        $products = Product::get()
-            ->where("ClassName = 'Product'")
-            ->sort("RAND()")
-            ->limit(2);
-        $this->addExamplePages(1, "Products with recommended <i>additions</i>.", $products);
-        foreach ($products as $product) {
-            $idArrayProducts[] = $product->ID;
-            $this->addToTitle($product, "with recommendations", true);
-        }
-        $recommendedProducts = Product::get()
-            ->where(" SiteTree.ID NOT IN (".implode(",", $idArrayProducts).") AND ClassName = 'Product'")
-            ->sort("RAND()")
-            ->limit(3);
-        foreach ($recommendedProducts as $product) {
-            $idArrayRecommendedProducts[] = $product->ID;
-        }
-        foreach ($products as $product) {
-            $existingRecommendations = $product->EcommerceRecommendedProducts();
-            $existingRecommendations->addMany($idArrayRecommendedProducts);
-            DB::alteration_message("adding recommendations for: ".$product->Title." (".implode(",", $idArrayRecommendedProducts).")", "created");
-        }
+        // $products = Product::get()
+        //     ->where("ClassName = 'Product'")
+        //     ->sort("RAND()")
+        //     ->limit(2);
+        // $this->addExamplePages(1, "Products with recommended <i>additions</i>.", $products);
+        // foreach ($products as $product) {
+        //     $idArrayProducts[] = $product->ID;
+        //     $this->addToTitle($product, "with recommendations", true);
+        // }
+        // $recommendedProducts = Product::get()
+        //     ->where(" SiteTree.ID NOT IN (".implode(",", $idArrayProducts).") AND ClassName = 'Product'")
+        //     ->sort("RAND()")
+        //     ->limit(3);
+        // foreach ($recommendedProducts as $product) {
+        //     $idArrayRecommendedProducts[] = $product->ID;
+        // }
+        // foreach ($products as $product) {
+        //     $existingRecommendations = $product->EcommerceRecommendedProducts();
+        //     $existingRecommendations->addMany($idArrayRecommendedProducts);
+        //     DB::alteration_message("adding recommendations for: ".$product->Title." (".implode(",", $idArrayRecommendedProducts).")", "created");
+        // }
     }
 
     private function addstock()
     {
-        $extension = "";
-        if (Versioned::get_stage() == "Live") {
-            $extension = "_Live";
-        }
-        $products = Product::get()
-            ->where("SiteTree{$extension}.ClassName = 'Product' AND ProductVariation.ID IS NULL")
-            ->sort("RAND()")
-            ->leftJoin("ProductVariation", "ProductVariation.ProductID = Product{$extension}.ID")
-            ->limit(3);
-        $i = 0;
-        $idArray = [];
-        foreach ($products as $product) {
-            $i++;
-            $idArray[$product->ID] = $product->ID;
-            if ($i == 1) {
-                $this->addExamplePages(3, "Minimum quantity per order", $product);
-                $product->MinQuantity = 12;
-                $this->addToTitle($product, "minimum per order of 12", true);
-                DB::alteration_message("adding minimum quantity for: ".$product->Title, "created");
-            }
-            if ($i == 2) {
-                $this->addExamplePages(3, "Maxiumum quantity per order", $product);
-                $product->MaxQuantity = 12;
-                $this->addToTitle($product, "maximum per order of 12", true);
-                DB::alteration_message("adding maximum quantity for: ".$product->Title, "created");
-            }
-            if ($i == 3) {
-                $this->addExamplePages(3, "Limited stock product", $product);
-                $product->setActualQuantity(1);
-                $product->UnlimitedStock = 0;
-                $this->addToTitle($product, "limited stock", true);
-                DB::alteration_message("adding limited stock for: ".$product->Title, "created");
-            }
-        }
-        $variations = ProductVariation::get()
-            ->where("ClassName = 'ProductVariation'")
-            ->sort("RAND()")
-            ->limit(3);
-        $i = 0;
-        foreach ($variations as $variation) {
-            $i++;
-            if ($i == 1) {
-                $variation->MaxQuantity = 12;
-                $variation->Description = " - min quantity per order 12!";
-                $variation->write();
-                $variation->writeToStage("Stage");
-                $this->addExamplePages(3, "Minimum quantity product variation (colour / size / etc... option)", $variation->Product());
-                DB::alteration_message("adding limited quantity for: ".$variation->Title, "created");
-            }
-            if ($i == 2) {
-                $variation->MaxQuantity = 12;
-                $variation->Description = " - max quantity per order 12!";
-                $variation->write();
-                $variation->writeToStage("Stage");
-                $this->addExamplePages(3, "Maximum quantity product variation (colour / size / etc... option)", $variation->Product());
-                DB::alteration_message("adding limited quantity for: ".$variation->Title, "created");
-            }
-            if ($i == 3) {
-                $variation->setActualQuantity(1);
-                $variation->Description = " - limited stock!";
-                $variation->UnlimitedStock = 0;
-                $variation->write();
-                $variation->writeToStage("Stage");
-                $this->addExamplePages(3, "Limited stock for product variation (colour / size / etc... option)", $variation->Product());
-                DB::alteration_message("adding limited quantity for: ".$variation->Title, "created");
-            }
-        }
+        // $extension = "";
+        // if (Versioned::get_stage() == "Live") {
+        //     $extension = "_Live";
+        // }
+        // $products = Product::get()
+        //     ->where("SiteTree{$extension}.ClassName = 'Product' AND ProductVariation.ID IS NULL")
+        //     ->sort("RAND()")
+        //     ->leftJoin("ProductVariation", "ProductVariation.ProductID = Product{$extension}.ID")
+        //     ->limit(3);
+        // $i = 0;
+        // $idArray = [];
+        // foreach ($products as $product) {
+        //     $i++;
+        //     $idArray[$product->ID] = $product->ID;
+        //     if ($i == 1) {
+        //         $this->addExamplePages(3, "Minimum quantity per order", $product);
+        //         $product->MinQuantity = 12;
+        //         $this->addToTitle($product, "minimum per order of 12", true);
+        //         DB::alteration_message("adding minimum quantity for: ".$product->Title, "created");
+        //     }
+        //     if ($i == 2) {
+        //         $this->addExamplePages(3, "Maxiumum quantity per order", $product);
+        //         $product->MaxQuantity = 12;
+        //         $this->addToTitle($product, "maximum per order of 12", true);
+        //         DB::alteration_message("adding maximum quantity for: ".$product->Title, "created");
+        //     }
+        //     if ($i == 3) {
+        //         $this->addExamplePages(3, "Limited stock product", $product);
+        //         $product->setActualQuantity(1);
+        //         $product->UnlimitedStock = 0;
+        //         $this->addToTitle($product, "limited stock", true);
+        //         DB::alteration_message("adding limited stock for: ".$product->Title, "created");
+        //     }
+        // }
+        // $variations = ProductVariation::get()
+        //     ->where("ClassName = 'ProductVariation'")
+        //     ->sort("RAND()")
+        //     ->limit(3);
+        // $i = 0;
+        // foreach ($variations as $variation) {
+        //     $i++;
+        //     if ($i == 1) {
+        //         $variation->MaxQuantity = 12;
+        //         $variation->Description = " - min quantity per order 12!";
+        //         $variation->write();
+        //         $variation->writeToStage("Stage");
+        //         $this->addExamplePages(3, "Minimum quantity product variation (colour / size / etc... option)", $variation->Product());
+        //         DB::alteration_message("adding limited quantity for: ".$variation->Title, "created");
+        //     }
+        //     if ($i == 2) {
+        //         $variation->MaxQuantity = 12;
+        //         $variation->Description = " - max quantity per order 12!";
+        //         $variation->write();
+        //         $variation->writeToStage("Stage");
+        //         $this->addExamplePages(3, "Maximum quantity product variation (colour / size / etc... option)", $variation->Product());
+        //         DB::alteration_message("adding limited quantity for: ".$variation->Title, "created");
+        //     }
+        //     if ($i == 3) {
+        //         $variation->setActualQuantity(1);
+        //         $variation->Description = " - limited stock!";
+        //         $variation->UnlimitedStock = 0;
+        //         $variation->write();
+        //         $variation->writeToStage("Stage");
+        //         $this->addExamplePages(3, "Limited stock for product variation (colour / size / etc... option)", $variation->Product());
+        //         DB::alteration_message("adding limited quantity for: ".$variation->Title, "created");
+        //     }
+        // }
     }
 
     private function addspecialprice()
     {
-        $task = new EcommerceTaskCreateMemberGroups();
-        $task->run(false);
-        $customerGroup = EcommerceRole::get_customer_group();
-        if (!$customerGroup) {
-            die("could not create customer group");
-        }
-        $group = new Group();
-        $group->Title = "Discount Customers";
-        $group->Code = "discountcustomers";
-        $group->ParentID = $customerGroup->ID;
-        $group->write();
-        $member = new Member();
-        $member->FirstName = 'Bob';
-        $member->Surname = 'Jones';
-        $member->Email = 'bob@silverstripe-ecommerce.com';
-        $member->Password = 'test123';
-        $member->write();
-        $member->Groups()->add($group);
-        $products = Product::get()
-            ->where("ClassName = 'Product'")
-            ->sort("RAND()")
-            ->limit(2);
-        $this->addExamplePages(4, "Special price for particular customers", $products);
-        $i = 0;
-        foreach ($products as $product) {
-            $i++;
-            $complexObjectPrice = new ComplexPriceObject();
-            if ($i == 1) {
-                $complexObjectPrice->Price = $product->Price - 1.5;
-            } elseif ($i == 2) {
-                $complexObjectPrice->Percentage = 10;
-                $complexObjectPrice->Reduction = 2.5;
-            } else {
-                $complexObjectPrice->Price = $product->Price - 1.5;
-                $complexObjectPrice->Percentage = 10;
-                $complexObjectPrice->Reduction = 2.5;
-            }
-            $complexObjectPrice->From = date("Y-m-d h:n:s", strtotime("now"));
-            $complexObjectPrice->Until = date("Y-m-d h:n:s", strtotime("next year"));
-            $complexObjectPrice->ProductID = $product->ID;
-            $complexObjectPrice->write();
-            $complexObjectPrice->Groups()->add($group);
-            $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@silverstripe-ecommerce.com, password: test123 to get a special price. You can then <a href=\"Security/logout/?BackURL=".$product->Link()."\">log out</a> again to see the original price.</p>";
-            $this->addToTitle($product, "member price", true);
-        }
-        $variations = ProductVariation::get()
-            ->where("ClassName = 'ProductVariation'")
-            ->sort("RAND()")
-            ->limit(2);
-        $i = 0;
-        foreach ($variations as $variation) {
-            $i++;
-            $complexObjectPrice = new ComplexPriceObject();
-            if ($i == 1) {
-                $complexObjectPrice->Price = $product->Price - 1.5;
-            } elseif ($i == 2) {
-                $complexObjectPrice->Percentage = 10;
-                $complexObjectPrice->Reduction = 2.5;
-            } else {
-                $complexObjectPrice->Price = $product->Price - 1.5;
-                $complexObjectPrice->Percentage = 10;
-                $complexObjectPrice->Reduction = 2.5;
-            }
-            $complexObjectPrice->Price = $variation->Price - 1.5;
-            $complexObjectPrice->From = date("Y-m-d h:n:s", strtotime("now"));
-            $complexObjectPrice->Until = date("Y-m-d h:n:s", strtotime("next year"));
-            $complexObjectPrice->ProductVariationID = $variation->ID;
-            $complexObjectPrice->write();
-            $complexObjectPrice->Groups()->add($group);
-            $product = $variation->Product();
-            $this->addExamplePages(4, "Special price for particular customers for product variations $i", $product);
-            $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@jones.com, password: test123 to get a special price</p>";
-            $this->addToTitle($product, "member price", true);
-        }
+        // $task = new EcommerceTaskCreateMemberGroups();
+        // $task->run(false);
+        // $customerGroup = EcommerceRole::get_customer_group();
+        // if (!$customerGroup) {
+        //     die("could not create customer group");
+        // }
+        // $group = new Group();
+        // $group->Title = "Discount Customers";
+        // $group->Code = "discountcustomers";
+        // $group->ParentID = $customerGroup->ID;
+        // $group->write();
+        // $member = new Member();
+        // $member->FirstName = 'Bob';
+        // $member->Surname = 'Jones';
+        // $member->Email = 'bob@silverstripe-ecommerce.com';
+        // $member->Password = 'test123';
+        // $member->write();
+        // $member->Groups()->add($group);
+        // $products = Product::get()
+        //     ->where("ClassName = 'Product'")
+        //     ->sort("RAND()")
+        //     ->limit(2);
+        // $this->addExamplePages(4, "Special price for particular customers", $products);
+        // $i = 0;
+        // foreach ($products as $product) {
+        //     $i++;
+        //     $complexObjectPrice = new ComplexPriceObject();
+        //     if ($i == 1) {
+        //         $complexObjectPrice->Price = $product->Price - 1.5;
+        //     } elseif ($i == 2) {
+        //         $complexObjectPrice->Percentage = 10;
+        //         $complexObjectPrice->Reduction = 2.5;
+        //     } else {
+        //         $complexObjectPrice->Price = $product->Price - 1.5;
+        //         $complexObjectPrice->Percentage = 10;
+        //         $complexObjectPrice->Reduction = 2.5;
+        //     }
+        //     $complexObjectPrice->From = date("Y-m-d h:n:s", strtotime("now"));
+        //     $complexObjectPrice->Until = date("Y-m-d h:n:s", strtotime("next year"));
+        //     $complexObjectPrice->ProductID = $product->ID;
+        //     $complexObjectPrice->write();
+        //     $complexObjectPrice->Groups()->add($group);
+        //     $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@silverstripe-ecommerce.com, password: test123 to get a special price. You can then <a href=\"Security/logout/?BackURL=".$product->Link()."\">log out</a> again to see the original price.</p>";
+        //     $this->addToTitle($product, "member price", true);
+        // }
+        // $variations = ProductVariation::get()
+        //     ->where("ClassName = 'ProductVariation'")
+        //     ->sort("RAND()")
+        //     ->limit(2);
+        // $i = 0;
+        // foreach ($variations as $variation) {
+        //     $i++;
+        //     $complexObjectPrice = new ComplexPriceObject();
+        //     if ($i == 1) {
+        //         $complexObjectPrice->Price = $product->Price - 1.5;
+        //     } elseif ($i == 2) {
+        //         $complexObjectPrice->Percentage = 10;
+        //         $complexObjectPrice->Reduction = 2.5;
+        //     } else {
+        //         $complexObjectPrice->Price = $product->Price - 1.5;
+        //         $complexObjectPrice->Percentage = 10;
+        //         $complexObjectPrice->Reduction = 2.5;
+        //     }
+        //     $complexObjectPrice->Price = $variation->Price - 1.5;
+        //     $complexObjectPrice->From = date("Y-m-d h:n:s", strtotime("now"));
+        //     $complexObjectPrice->Until = date("Y-m-d h:n:s", strtotime("next year"));
+        //     $complexObjectPrice->ProductVariationID = $variation->ID;
+        //     $complexObjectPrice->write();
+        //     $complexObjectPrice->Groups()->add($group);
+        //     $product = $variation->Product();
+        //     $this->addExamplePages(4, "Special price for particular customers for product variations $i", $product);
+        //     $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@jones.com, password: test123 to get a special price</p>";
+        //     $this->addToTitle($product, "member price", true);
+        // }
     }
 
     private function productswithspecialtax()
     {
         $products = Product::get()
-            ->where("\"ClassName\" = 'Product'")
+            ->where("\"ClassName\" = '".addslashes(Product::class)."'")
             ->sort("RAND()")
             ->limit(2);
         $taxToAdd = GSTTaxModifierOptions::get()
@@ -1472,11 +1461,11 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     private function productsinmanygroups()
     {
         $products = Product::get()
-            ->where("\"ClassName\" = 'Product'")
+            ->where("\"ClassName\" = '".addslashes(Product::class)."'")
             ->sort("RAND()")
             ->limit(2);
         $productGroups = ProductGroup::get()
-            ->where("\"ClassName\" = 'ProductGroup'")
+            ->where("\"ClassName\" = '".addslashes(ProductGroup::class)."'")
             ->sort("RAND()")
             ->limit(3);
         foreach ($products as $product) {
@@ -1553,7 +1542,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
         $triedArray = array(0 => 0);
         while ($noProductYet && $count < 50) {
             $product = Product::get()
-                ->where("\"ClassName\" = 'Product' AND \"Product{$extension}\".\"ID\" NOT IN (".implode(",", $triedArray).") AND Price > 0")
+                ->where("\"ClassName\" = '".addslashes(Product::class)."' AND \"Product{$extension}\".\"ID\" NOT IN (".implode(",", $triedArray).") AND Price > 0")
                 ->First();
             if ($product) {
                 if ($product->canPurchase()) {
@@ -1566,7 +1555,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
         }
 
         //adding product order item
-        $item = new Product_OrderItem();
+        $item = new ProductOrderItem();
         $item->addBuyableToOrderItem($product, 7);
         $item->OrderID = $order->ID;
         $item->write();
@@ -1579,10 +1568,10 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     {
         $this->addExamplePages(0, "Checkout page", CheckoutPage::get()->First());
         $this->addExamplePages(0, "Order Confirmation page", OrderConfirmationPage::get()->First());
-        $this->addExamplePages(0, "Cart page (review cart without checkout)", CartPage::get()->where("ClassName = 'CartPage'")->First());
+        $this->addExamplePages(0, "Cart page (review cart without checkout)", CartPage::get()->where("ClassName = '".addslashes(CartPage::class)."'")->First());
         $this->addExamplePages(0, "Account page", AccountPage::get()->First());
         //$this->addExamplePages(1, "Donation page", AnyPriceProductPage::get()->First());
-        $this->addExamplePages(1, "Products that can not be sold", Product::get()->where("\"AllowPurchase\" = 0 AND ClassName = 'Product'")->First());
+        $this->addExamplePages(1, "Products that can not be sold", Product::get()->where("\"AllowPurchase\" = 0 AND ClassName = '".addslashes(Product::class)."'")->First());
         $this->addExamplePages(1, "Product group with short product display template", ProductGroup::get()->where("\"DisplayStyle\" = 'Short'")->First());
         $this->addExamplePages(1, "Product group with medium length product display template", ProductGroup::get()->where("\"DisplayStyle\" = ''")->First());
         $this->addExamplePages(1, "Product group with more detail product display template", ProductGroup::get()->where("\"DisplayStyle\" = 'MoreDetail'")->First());
@@ -1591,7 +1580,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
         $this->addExamplePages(2, "Delivery options (add product to cart first)", CheckoutPage::get()->First());
         $this->addExamplePages(2, "Taxes (NZ based GST - add product to cart first)", CheckoutPage::get()->first());
         $this->addExamplePages(2, "Discount Coupon (try <i>AAA</i>)", CheckoutPage::get()->First());
-        $this->addExamplePages(4, "Products with zero price", Product::get()->where("\"Price\" = 0 AND ClassName = 'Product'")->First());
+        $this->addExamplePages(4, "Products with zero price", Product::get()->where("\"Price\" = 0 AND ClassName = '".addslashes(Product::class)."'")->First());
         //$this->addExamplePages(5, "Corporate Account Order page", AddUpProductsToOrderPage::get()->First());
         $html = '
         <h2>Some Interesting Features</h2>
@@ -1646,25 +1635,6 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     public function deletedownloads()
     {
 
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: assets/ (case sensitive)
-  * NEW: assets/ (COMPLEX)
-  * EXP: Check if you need the assets parts - use ASSETS_PATH if needed
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
-        $this->deleteFolder(Director::baseFolder().'/assets/downloads/');
-
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: assets/ (case sensitive)
-  * NEW: assets/ (COMPLEX)
-  * EXP: Check if you need the assets parts - use ASSETS_PATH if needed
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
-        $this->deleteFolder(Director::baseFolder().'/assets/download-all/');
     }
 
     private function deleteFolder($path)
@@ -1686,41 +1656,6 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     public function createcustomisationsteps()
     {
 
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: require_once ' (case sensitive)
-  * NEW: require_once ' (COMPLEX)
-  * EXP: This should probably be replaced by PSR-4 autoloading!
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
-        require_once 'thirdparty/spyc/spyc.php';
-        $parser = new Spyc();
-        $array = $parser->loadFile(Director::baseFolder().'/ecommerce/docs/en/CustomisationChart.yaml');
-        $html = "
-            <ol>";
-        foreach ($array as $question => $answerArray) {
-            $html .= "
-                <li><h3>".$question."</h3>";
-            foreach ($answerArray as $answer => $notes) {
-                $html .= "
-                <h4>".$answer."</h4>
-                <ul>";
-                foreach ($notes as $noteKey => $note) {
-                    if (is_array($note)) {
-                        print_r($note);
-                    }
-
-                    $html .= "
-                    <li>$note</li>";
-                }
-                $html .= "
-                </ul>";
-            }
-        }
-        $html .= "
-            </ol>";
-        return $html;
     }
 
     //====================================== ASSISTING FUNCTIONS =========================
@@ -1738,36 +1673,11 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
         if (!$page) {
             if (isset($fields["ClassName"])) {
 
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: $className (case sensitive)
-  * NEW: $className (COMPLEX)
-  * EXP: Check if the class name can still be used as such
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
-                $className = $fields["ClassName"];
+                $className = addslashes($fields["ClassName"]);
             } else {
 
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: $className (case sensitive)
-  * NEW: $className (COMPLEX)
-  * EXP: Check if the class name can still be used as such
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
-                $className = "Page";
+                $className = Page::class;
             }
-
-/**
-  * ### @@@@ START REPLACEMENT @@@@ ###
-  * WHY: automated upgrade
-  * OLD: $className (case sensitive)
-  * NEW: $className (COMPLEX)
-  * EXP: Check if the class name can still be used as such
-  * ### @@@@ STOP REPLACEMENT @@@@ ###
-  */
             $page = new $className();
         }
         $children = null;
@@ -1798,20 +1708,20 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
             array("T" => SiteConfig::class, "F" => "Tagline", "V" => "Built by Sunny Side Up", "W" => ""),
             //array("T" => "SiteConfig", "F" => "CopyrightNotice", "V" => "This demo (not the underlying modules) are &copy; Sunny Side Up Ltd", "W" => ""),
             array("T" => SiteConfig::class, "F" => "Theme", "V" => "main", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ShopClosed", "V" => "0", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ShopPricesAreTaxExclusive", "V" => "0", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ShopPhysicalAddress", "V" => "<address>The Shop<br />1 main street<br />Coolville 123<br />Landistan</address>", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ReceiptEmail", "V" => "\"Silverstrip E-comerce Demo\" <sales@silverstripe-ecommerce.com>", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "PostalCodeURL", "V" => "http://tools.nzpost.co.nz/tools/address-postcode-finder/APLT2008.aspx", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "PostalCodeLabel", "V" => "Check Code", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "NumberOfProductsPerPage", "V" => "5", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "OnlyShowProductsThatCanBePurchased", "V" => "0", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ProductsHaveWeight", "V" => "1", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ProductsHaveModelNames", "V" => "1", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ProductsHaveQuantifiers", "V" => "1", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "ProductsAlsoInOtherGroups", "V" => "1", "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "EmailLogoID", "V" => $this->getRandomImageID(), "W" => ""),
-            array("T" => "EcommerceDBConfig", "F" => "DefaultProductImageID", "V" => $this->getRandomImageID(), "W" => "")
+            array("T" => EcommerceDBConfig::class, "F" => "ShopClosed", "V" => "0", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "ShopPricesAreTaxExclusive", "V" => "0", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "ShopPhysicalAddress", "V" => "<address>The Shop<br />1 main street<br />Coolville 123<br />Landistan</address>", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "ReceiptEmail", "V" => "\"Silverstrip E-comerce Demo\" <sales@silverstripe-ecommerce.com>", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "PostalCodeURL", "V" => "http://tools.nzpost.co.nz/tools/address-postcode-finder/APLT2008.aspx", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "PostalCodeLabel", "V" => "Check Code", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "NumberOfProductsPerPage", "V" => "5", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "OnlyShowProductsThatCanBePurchased", "V" => "0", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "ProductsHaveWeight", "V" => "1", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "ProductsHaveModelNames", "V" => "1", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "ProductsHaveQuantifiers", "V" => "1", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "ProductsAlsoInOtherGroups", "V" => "1", "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "EmailLogoID", "V" => $this->getRandomImageID(), "W" => ""),
+            array("T" => EcommerceDBConfig::class, "F" => "DefaultProductImageID", "V" => $this->getRandomImageID(), "W" => "")
         );
         foreach ($array as $innerArray) {
             if (isset($innerArray["W"]) && $innerArray["W"]) {
@@ -1844,7 +1754,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
     private function addExamplePages($group, $name, $pages)
     {
         $html = '<ul>';
-        if ($pages instanceof DataObjectSet) {
+        if ($pages instanceof DataList) {
             foreach ($pages as $page) {
                 $html .= '<li><a href="'.$page->Link().'">'.$page->Title.'</a></li>';
             }
@@ -2052,4 +1962,3 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
         DB::alteration_message("----------------------------- COMPLETE --------------------------- ");
     }
 }
-
