@@ -1,89 +1,87 @@
 {
-    "name": "sunnysideup/ecommerce_test",
-    "type": "silverstripe-module",
-    "description": "allows you to review sunnysideup/ecommerce",
-    "authors": [
-        {
-            "name": "Nicolaas Francken",
-            "email": "modules@sunnysideup.co.nz",
-            "role": "lead developer"
-        }
-    ],
-    "require": {
-        "php": ">=7.1.0",
-        "silverstripe/recipe-cms": "^4.4",
-        "silverstripe/geoip": "*",
-        "silverstripe-themes/simple": "~3.2.0",
-        "sunnysideup/ecommerce": "dev-master",
-        "sunnysideup/ecommerce_advanced_retail_connection": "dev-master",
-        "sunnysideup/ecommerce_alsorecommended": "dev-master",
-        "sunnysideup/ecommerce_assign_orders": "dev-master",
-        "sunnysideup/ecommerce_custom_product_lists": "dev-master",
-        "sunnysideup/ecommerce_tax": "dev-master",
-        "sunnysideup/ecommerce_discount_coupon": "dev-master",
-        "sunnysideup/ecommerce_giftvoucher": "dev-master",
-        "sunnysideup/ecommerce_delivery": "dev-master",
-        "sunnysideup/ecommerce-google-shopping-feed": "dev-master",
-        "sunnysideup/ecommerce_maxmind_minfraud": "dev-master",
-        "sunnysideup/ecommerce_orderstep_feedback": "dev-master",
-        "sunnysideup/ecommerce_quick_coupons": "dev-master",
-        "sunnysideup/ecommerce_security": "dev-master",
-        "sunnysideup/ecommerce_second_hand_product": "dev-master",
-        "sunnysideup/ecommerce-google-analytics": "dev-master",
-        "sunnysideup/payment_directcredit": "dev-master",
-        "sunnysideup/payment_dps": "dev-master",
-        "sunnysideup/payment_hirepurchase": "dev-master",
-        "sunnysideup/payment_instore": "dev-master",
-        "sunnysideup/afterpay": "dev-master",
-        "sunnysideup/google_address_field": "^2.0@stable"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "php framework/cli-script.php dev/build flush=all"
-        ],
-        "post-update-cmd": [
-            "php framework/cli-script.php dev/build flush=all"
-        ]
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "keywords": [
-        "Silverstripe-CMS",
-        "CMS",
-        "Silverstripe",
-        "ecommerce",
-        "e-commerce",
-        "shop",
-        "sales",
-        "demo"
-    ],
-    "extra": {
-        "installer-name": "ecommerce_test",
-        "project-files-installed": [
-            "app/.htaccess",
-            "app/_config.php",
-            "app/_config/mimevalidator.yml",
-            "app/_config/mysite.yml",
-            "app/src/Page.php",
-            "app/src/PageController.php"
-        ],
-        "public-files-installed": [
-            ".htaccess",
-            "index.php",
-            "web.config"
-        ]
-    },
-    "license": "BSD-3-Clause",
-    "require-dev": {
-        "sunnysideup/huringa": "dev-master"
-    },
-    "autoload": {
-        "psr-4": {
-            "Sunnysideup\\EcommerceTest\\": "app/src/"
-        },
-        "files": [
-            "app/src/Page.php",
-            "app/src/PageController.php"
-        ]
+  "name": "sunnysideup/ecommerce_test",
+  "type": "silverstripe-module",
+  "description": "allows you to review sunnysideup/ecommerce",
+  "authors": [
+    {
+      "name": "Nicolaas Francken",
+      "email": "modules@sunnysideup.co.nz",
+      "role": "lead developer"
     }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "silverstripe/recipe-cms": "^4.4",
+    "silverstripe/geoip": "*",
+    "silverstripe-themes/simple": "~3.2.0",
+    "sunnysideup/ecommerce": "dev-master",
+    "sunnysideup/ecommerce_advanced_retail_connection": "dev-master",
+    "sunnysideup/ecommerce_alsorecommended": "dev-master",
+    "sunnysideup/ecommerce_assign_orders": "dev-master",
+    "sunnysideup/ecommerce_custom_product_lists": "dev-master",
+    "sunnysideup/ecommerce_tax": "dev-master",
+    "sunnysideup/ecommerce_discount_coupon": "dev-master",
+    "sunnysideup/ecommerce_giftvoucher": "dev-master",
+    "sunnysideup/ecommerce_delivery": "dev-master",
+    "sunnysideup/ecommerce-google-shopping-feed": "dev-master",
+    "sunnysideup/ecommerce_maxmind_minfraud": "dev-master",
+    "sunnysideup/ecommerce_orderstep_feedback": "dev-master",
+    "sunnysideup/ecommerce_quick_coupons": "dev-master",
+    "sunnysideup/ecommerce_security": "dev-master",
+    "sunnysideup/ecommerce_second_hand_product": "dev-master",
+    "sunnysideup/ecommerce-google-analytics": "dev-master",
+    "sunnysideup/payment_directcredit": "dev-master",
+    "sunnysideup/payment_dps": "dev-master",
+    "sunnysideup/payment_hirepurchase": "dev-master",
+    "sunnysideup/payment_instore": "dev-master",
+    "sunnysideup/afterpay": "dev-master",
+    "sunnysideup/google_address_field": "^2.0@stable"
+  },
+  "scripts": {
+    "post-install-cmd": [
+    ],
+    "post-update-cmd": [
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "keywords": [
+    "Silverstripe-CMS",
+    "CMS",
+    "Silverstripe",
+    "ecommerce",
+    "e-commerce",
+    "shop",
+    "sales",
+    "demo"
+  ],
+  "extra": {
+    "installer-name": "ecommerce_test",
+    "project-files-installed": [
+      "app/.htaccess",
+      "app/_config.php",
+      "app/_config/mimevalidator.yml",
+      "app/_config/mysite.yml",
+      "app/src/Page.php",
+      "app/src/PageController.php"
+    ],
+    "public-files-installed": [
+      ".htaccess",
+      "index.php",
+      "web.config"
+    ]
+  },
+  "license": "BSD-3-Clause",
+  "require-dev": {
+    "sunnysideup/huringa": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sunnysideup\\EcommerceTest\\": "app/src/"
+    },
+    "files": [
+      "app/src/Page.php",
+      "app/src/PageController.php"
+    ]
+  }
 }
