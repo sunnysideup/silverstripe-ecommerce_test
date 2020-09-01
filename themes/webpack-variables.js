@@ -1,1 +1,0 @@
-module.exports = {"themeName":"main","devWebAddress":false,"distributionFolder":"main_dist"}
