@@ -58,7 +58,7 @@ class RunEcommerceDefaults extends SetUpBase
     public function run()
     {
         $request = true;
-        $buildTask = new EcommerceTaskCreateMemberGroups($request);
+        $buildTask = new EcommerceTaskCreateMemberGroups();
         $buildTask->run($request);
         $obj = new EcommerceDBConfig();
         $obj->Title = 'Test Configuration';

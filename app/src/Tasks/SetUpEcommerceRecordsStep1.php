@@ -5,6 +5,7 @@ namespace Sunnysideup\EcommerceTest\Tasks;
 use SilverStripe\Control\Director;
 use SilverStripe\Dev\BuildTask;
 use SilverStripe\ORM\DB;
+use SilverStripe\ORM\DatabaseAdmin;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
 
@@ -27,8 +28,8 @@ class SetUpEcommerceRecordsStep1 extends BuildTask
             DB::query('TRUNCATE TABLE "' . $table . '";');
             DB::alteration_message('deleting ' . $table, 'deleted');
         }
-        echo '<hr /><hr /><hr /><hr /><hr /><a href="/dev/build">build database</a>
-		<script type="text/javascript">window.location = "/dev/build/?returnURL=/dev/tasks/setup-ecommerce-records-step-2";</script>'
-        ;
+        $db = new DatabaseAdmin();
+        $db->doBuild($quiet = false, $populate = true, $testMode = false);
+        echo '<script type="text/javascript">window.location = "/dev/build/?returnURL=/dev/tasks/setup-ecommerce-records-step-2";</script>';
     }
 }

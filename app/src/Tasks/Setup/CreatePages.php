@@ -243,7 +243,7 @@ class CreatePages extends SetUpBase
                 </p>
                 <h3 id="LoginDetails">Log in details</h3>
                 <p>
-                    You can <a href="admin/shop/">log-in</a> as follows: shop@silverstripe-ecommerce.com / test123.
+                    You can <a href="admin/shop/">log-in</a> as follows: shop@silverstripe-ecommerce.com / thisIsTestPassword99.
                 </p>
 
                 <h2>Silverstripe Version</h2>

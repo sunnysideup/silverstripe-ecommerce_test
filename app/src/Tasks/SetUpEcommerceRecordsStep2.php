@@ -85,13 +85,13 @@ class SetUpEcommerceRecordsStep2 extends BuildTask
 
 
     private static $steps = [
-        CreateShopAdmin::class,
+        //first!
+        CheckReset::class,
         RunEcommerceDefaults::class,
+        CreateShopAdmin::class,
         CreateImages::class,
         CreatePages::class,
         CollateExamplePages::class,
-        CheckReset::class,
-        CompleteAll::class,
         CreateCurrencies::class,
         CreateCustomisationSteps::class,
         CreateOrder::class,

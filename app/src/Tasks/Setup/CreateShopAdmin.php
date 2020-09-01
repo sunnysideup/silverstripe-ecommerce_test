@@ -62,8 +62,8 @@ class CreateShopAdmin extends SetUpBase
         $member->FirstName = 'Shop';
         $member->Surname = 'Admin';
         $member->Email = 'shop@silverstripe-ecommerce.com';
-        $member->SetPassword = 'test123';
-        $member->Password = 'test123';
+        $member->SetPassword = 'thisIsTestPassword99';
+        $member->Password = 'thisIsTestPassword99';
         $member->write();
         $group = EcommerceRole::get_admin_group();
         $member->Groups()->add($group);

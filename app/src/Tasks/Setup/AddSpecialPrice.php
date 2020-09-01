@@ -75,7 +75,7 @@ class AddSpecialPrice extends SetUpBase
         // $member->FirstName = 'Bob';
         // $member->Surname = 'Jones';
         // $member->Email = 'bob@silverstripe-ecommerce.com';
-        // $member->Password = 'test123';
+        // $member->Password = 'thisIsTestPassword99';
         // $member->write();
         // $member->Groups()->add($group);
         // $products = Product::get()
@@ -102,7 +102,7 @@ class AddSpecialPrice extends SetUpBase
         //     $complexObjectPrice->ProductID = $product->ID;
         //     $complexObjectPrice->write();
         //     $complexObjectPrice->Groups()->add($group);
-        //     $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@silverstripe-ecommerce.com, password: test123 to get a special price. You can then <a href=\"Security/logout/?BackURL=".$product->Link()."\">log out</a> again to see the original price.</p>";
+        //     $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@silverstripe-ecommerce.com, password: thisIsTestPassword99 to get a special price. You can then <a href=\"Security/logout/?BackURL=".$product->Link()."\">log out</a> again to see the original price.</p>";
         //     $this->addToTitle($product, "member price", true);
         // }
         // $variations = ProductVariation::get()
@@ -131,7 +131,7 @@ class AddSpecialPrice extends SetUpBase
         //     $complexObjectPrice->Groups()->add($group);
         //     $product = $variation->Product();
         //     $this->addExamplePages(4, "Special price for particular customers for product variations $i", $product);
-        //     $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@jones.com, password: test123 to get a special price</p>";
+        //     $product->Content = "<p><a href=\"Security/login/?BackURL=".$product->Link()."\">Login</a> as bob@jones.com, password: thisIsTestPassword99 to get a special price</p>";
         //     $this->addToTitle($product, "member price", true);
         // }
     }
