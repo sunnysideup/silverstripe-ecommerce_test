@@ -18,6 +18,7 @@ use SilverStripe\Dev\BuildTask;
 // use ProductVariation;
 
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataObject;
 // use CombinationProduct;
 use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DB;
@@ -56,25 +57,113 @@ class UpdateMyRecords extends SetUpBase
 {
     public function run()
     {
+        $schema = DataObject::getSchema();
         $array = [
-            ['T' => SiteConfig::class, 'F' => 'Title', 'V' => 'Silverstripe Ecommerce Demo', 'W' => ''],
-            ['T' => SiteConfig::class, 'F' => 'Tagline', 'V' => 'Built by Sunny Side Up', 'W' => ''],
-            //array("T" => "SiteConfig", "F" => "CopyrightNotice", "V" => "This demo (not the underlying modules) are &copy; Sunny Side Up Ltd", "W" => ""),
-            ['T' => SiteConfig::class, 'F' => 'Theme', 'V' => 'main', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ShopClosed', 'V' => '0', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ShopPricesAreTaxExclusive', 'V' => '0', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ShopPhysicalAddress', 'V' => '<address>The Shop<br />1 main street<br />Coolville 123<br />Landistan</address>', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ReceiptEmail', 'V' => '"Silverstrip E-comerce Demo" <sales@silverstripe-ecommerce.com>', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'PostalCodeURL', 'V' => 'http://tools.nzpost.co.nz/tools/address-postcode-finder/APLT2008.aspx', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'PostalCodeLabel', 'V' => 'Check Code', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'NumberOfProductsPerPage', 'V' => '5', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'OnlyShowProductsThatCanBePurchased', 'V' => '0', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ProductsHaveWeight', 'V' => '1', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ProductsHaveModelNames', 'V' => '1', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ProductsHaveQuantifiers', 'V' => '1', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'ProductsAlsoInOtherGroups', 'V' => '1', 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'EmailLogoID', 'V' => $this->getRandomImageID(), 'W' => ''],
-            ['T' => EcommerceDBConfig::class, 'F' => 'DefaultProductImageID', 'V' => $this->getRandomImageID(), 'W' => ''],
+            [
+                'T' => $schema->tableName(SiteConfig::class),
+                'F' => 'Title',
+                'V' => 'Silverstripe Ecommerce Demo',
+                'W' => ''
+            ],
+
+            [
+                'T' => $schema->tableName(SiteConfig::class),
+                'F' => 'Tagline',
+                'V' => 'Built by Sunny Side Up',
+                'W' => ''
+            ],
+            //
+            // [
+            //     'T' => $schema->tableName(SiteConfig::class),
+            //     'F' => 'Theme',
+            //     'V' => 'main',
+            //     'W' => ''
+            // ],
+
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ShopClosed',
+                'V' => '0',
+                'W' => ''
+            ],
+
+                ['T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ShopPricesAreTaxExclusive',
+                'V' => '0',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ShopPhysicalAddress',
+                'V' => '<address>The Shop<br />1 main street<br />Coolville 123<br />Landistan</address>',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ReceiptEmail',
+                'V' => '"Silverstrip E-comerce Demo" <sales@silverstripe-ecommerce.com>',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'PostalCodeURL',
+                'V' => 'http://tools.nzpost.co.nz/tools/address-postcode-finder/APLT2008.aspx',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'PostalCodeLabel',
+                'V' => 'Check Code',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'NumberOfProductsPerPage',
+                'V' => '5',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'OnlyShowProductsThatCanBePurchased',
+                'V' => '0',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ProductsHaveWeight',
+                'V' => '1',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ProductsHaveModelNames',
+                'V' => '1',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ProductsHaveQuantifiers',
+                'V' => '1',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'ProductsAlsoInOtherGroups',
+                'V' => '1',
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'EmailLogoID',
+                'V' => $this->getRandomImageID(),
+                'W' => ''
+            ],
+            [
+                'T' => $schema->tableName(EcommerceDBConfig::class),
+                'F' => 'DefaultProductImageID',
+                'V' => $this->getRandomImageID(),
+                'W' => ''
+            ],
         ];
         foreach ($array as $innerArray) {
             if (isset($innerArray['W']) && $innerArray['W']) {
