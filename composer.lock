@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e14f49595b804243de84136049eca532",
+    "content-hash": "22d181af303c9241ff4e38157429126a",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2894,41 +2894,6 @@
             "time": "2020-08-12T22:09:50+00:00"
         },
         {
-            "name": "silverstripe/geoip",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silverstripe-labs/silverstripe-geoip.git",
-                "reference": "53f2107192e73c2786f086324e4df949e4b17a1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-geoip/zipball/53f2107192e73c2786f086324e4df949e4b17a1a",
-                "reference": "53f2107192e73c2786f086324e4df949e4b17a1a",
-                "shasum": ""
-            },
-            "require": {
-                "silverstripe/framework": ">=2.4.0"
-            },
-            "type": "silverstripe-module",
-            "extra": {
-                "installer-name": "geoip"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Sean Harvey",
-                    "email": "sean@silverstripe.com"
-                }
-            ],
-            "description": "GeoIP module for SilverStripe.",
-            "keywords": [
-                "geoip",
-                "silverstripe-labs"
-            ],
-            "time": "2016-03-07T20:40:00+00:00"
-        },
-        {
             "name": "silverstripe/graphql",
             "version": "3.3.0",
             "source": {
@@ -3640,12 +3605,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce.git",
-                "reference": "1351e91c5d27adccf3fcec54ae98716d29c72e10"
+                "reference": "377fdeed08e744e743556205e828df75e8a0aaf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/1351e91c5d27adccf3fcec54ae98716d29c72e10",
-                "reference": "1351e91c5d27adccf3fcec54ae98716d29c72e10",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce/zipball/377fdeed08e744e743556205e828df75e8a0aaf0",
+                "reference": "377fdeed08e744e743556205e828df75e8a0aaf0",
                 "shasum": ""
             },
             "require": {
@@ -3659,7 +3624,7 @@
             },
             "suggest": {
                 "micmania1/silverstripe-lumberjack": "great way to take product and product groups out of the sitetree",
-                "silverstripe/geoip": "Native Silverstripe way to work out the customer country. Make sure this work on your server, before installing it - otherwise it is useless.",
+                "silverstripe/geoip": "Native Silverstripe way to work out the customer country. Make sure this works on your server, before installing it - otherwise it is useless.",
                 "silverstripe/restfulserver": "Adds restful server functionality to your e-commerce site (creates an API for your e-commerce application, allowing third-parties to tap into your e-commerce data)",
                 "sunnysideup/cms_edit_link_field": "easier ways to link through within ecommerce objects and other objects that have the CMSEditLink",
                 "sunnysideup/ecommerce_cloud_flare_geoip": "Extends Geoip if you are using cloudflare",
@@ -3707,7 +3672,7 @@
                 "silverstripe",
                 "webshop"
             ],
-            "time": "2020-08-28T04:47:51+00:00"
+            "time": "2020-09-01T08:38:38+00:00"
         },
         {
             "name": "sunnysideup/ecommerce-google-analytics",
@@ -4478,6 +4443,43 @@
                 "vat"
             ],
             "time": "2020-07-06T03:20:05+00:00"
+        },
+        {
+            "name": "sunnysideup/geoip",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-geoip.git",
+                "reference": "5bd23275162c00e5b9be7d65e31938109d3f0f74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-geoip/zipball/5bd23275162c00e5b9be7d65e31938109d3f0f74",
+                "reference": "5bd23275162c00e5b9be7d65e31938109d3f0f74",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/recipe-cms": "^4.4"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\Geoip\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Sean Harvey",
+                    "email": "sean@silverstripe.com"
+                }
+            ],
+            "description": "GeoIP module for SilverStripe.",
+            "keywords": [
+                "geoip",
+                "silverstripe-labs"
+            ],
+            "time": "2020-09-01T08:59:31+00:00"
         },
         {
             "name": "sunnysideup/google_address_field",
