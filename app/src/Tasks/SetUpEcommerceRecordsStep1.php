@@ -8,11 +8,13 @@ use SilverStripe\ORM\DB;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
 
-class CleanEcommerceTables extends BuildTask
+class SetUpEcommerceRecordsStep1 extends BuildTask
 {
     protected $title = 'Delete Database';
 
     protected $description = 'WARNING! RESETS ALL tables in the database by deleting them!';
+
+    private static $segment = 'setup-ecommerce-records-step-1';
 
     public function run($request)
     {
@@ -26,7 +28,7 @@ class CleanEcommerceTables extends BuildTask
             DB::alteration_message('deleting ' . $table, 'deleted');
         }
         echo '<hr /><hr /><hr /><hr /><hr /><a href="/dev/build">build database</a>
-		<script type="text/javascript">window.location = "/dev/build/?returnURL=/dev/tasks/setup-ecommerce-records";</script>'
+		<script type="text/javascript">window.location = "/dev/build/?returnURL=/dev/tasks/setup-ecommerce-records-step-2";</script>'
         ;
     }
 }
