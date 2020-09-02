@@ -9,28 +9,5 @@ class Page extends SiteTree
 {
     private static $table_name = 'Page';
 
-    private static $db = [
-        'SetupCompleted' => 'Boolean',
-    ];
 
-    private static $has_one = [
-        'BackgroundImage' => Image::class,
-    ];
-
-    public function MyBackgroundImage()
-    {
-        if ($this->BackgroundImageID) {
-            if ($image = $this->BackgroundImage()) {
-                return $image;
-            }
-        }
-        if ($this->ParentID) {
-            if ($parent = DataObject::get_by_id(SiteTree::class, $this->ParentID)) {
-                return $parent->MyBackgroundImage();
-            }
-        }
-        if ($siteConfig = SiteConfig::current_site_config()) {
-            return $siteConfig->BackgroundImage();
-        }
-    }
 }

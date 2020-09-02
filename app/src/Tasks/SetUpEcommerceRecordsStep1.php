@@ -4,8 +4,8 @@ namespace Sunnysideup\EcommerceTest\Tasks;
 
 use SilverStripe\Control\Director;
 use SilverStripe\Dev\BuildTask;
-use SilverStripe\ORM\DB;
 use SilverStripe\ORM\DatabaseAdmin;
+use SilverStripe\ORM\DB;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
 

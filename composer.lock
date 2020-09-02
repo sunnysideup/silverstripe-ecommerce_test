@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ac2aef238237e79b3477861f67af4c8",
+    "content-hash": "097d644097b330dee4ff6c81b45441fe",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -493,28 +493,30 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "e864bbf5904cb8f5bb334f99209b48018522f042"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e864bbf5904cb8f5bb334f99209b48018522f042",
+                "reference": "e864bbf5904cb8f5bb334f99209b48018522f042",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "doctrine/coding-standard": "^6.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -528,12 +530,12 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Johannes Schmitt",
@@ -549,7 +551,21 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Flexer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-05-25T17:44:05+00:00"
         },
         {
             "name": "embed/embed",
@@ -1404,29 +1420,29 @@
         },
         {
             "name": "maxmind-db/reader",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
-                "reference": "febd4920bf17c1da84cef58e56a8227dfb37fbe4"
+                "reference": "942553da239f12051275f9c666538b5dd09e2908"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/febd4920bf17c1da84cef58e56a8227dfb37fbe4",
-                "reference": "febd4920bf17c1da84cef58e56a8227dfb37fbe4",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/942553da239f12051275f9c666538b5dd09e2908",
+                "reference": "942553da239f12051275f9c666538b5dd09e2908",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6"
+                "php": ">=7.2"
             },
             "conflict": {
-                "ext-maxminddb": "<1.6.0,>=2.0.0"
+                "ext-maxminddb": "<1.7.0,>=2.0.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "2.*",
                 "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpcov": "^3.0",
-                "phpunit/phpunit": "5.*",
+                "phpunit/phpcov": ">=6.0.0",
+                "phpunit/phpunit": ">=8.0.0,<10.0.0",
                 "squizlabs/php_codesniffer": "3.*"
             },
             "suggest": {
@@ -1460,7 +1476,7 @@
                 "geolocation",
                 "maxmind"
             ],
-            "time": "2019-12-19T22:59:03+00:00"
+            "time": "2020-08-07T22:10:05+00:00"
         },
         {
             "name": "maxmind/minfraud",
@@ -3435,13 +3451,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sunnysideup/silverstripe-afterpay.git",
-                "reference": "cc392cc1d0085a87d4cdb2e1b6073040e5a10f1c"
+                "url": "https://github.com/sunnysideup/silverstripe-payment-afterpay.git",
+                "reference": "416808611c88451ec3c916620a13f291dc87f931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-afterpay/zipball/cc392cc1d0085a87d4cdb2e1b6073040e5a10f1c",
-                "reference": "cc392cc1d0085a87d4cdb2e1b6073040e5a10f1c",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-payment-afterpay/zipball/416808611c88451ec3c916620a13f291dc87f931",
+                "reference": "416808611c88451ec3c916620a13f291dc87f931",
                 "shasum": ""
             },
             "require": {
@@ -3470,7 +3486,7 @@
                 }
             ],
             "description": "Integrate easily with the api.afterpay.com API",
-            "time": "2020-07-23T04:46:47+00:00"
+            "time": "2020-09-02T00:11:54+00:00"
         },
         {
             "name": "sunnysideup/cms_edit_link_field",
@@ -3720,12 +3736,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce-google-shopping-feed.git",
-                "reference": "6f8688563dd6c70712818a31424a82ee6c9963fd"
+                "reference": "f50b0c0f0898216e20dc41669c197c4644da3ddc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce-google-shopping-feed/zipball/6f8688563dd6c70712818a31424a82ee6c9963fd",
-                "reference": "6f8688563dd6c70712818a31424a82ee6c9963fd",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce-google-shopping-feed/zipball/f50b0c0f0898216e20dc41669c197c4644da3ddc",
+                "reference": "f50b0c0f0898216e20dc41669c197c4644da3ddc",
                 "shasum": ""
             },
             "require": {
@@ -3763,7 +3779,7 @@
                 "silverstripe",
                 "xml"
             ],
-            "time": "2020-06-30T00:31:28+00:00"
+            "time": "2020-09-01T23:50:58+00:00"
         },
         {
             "name": "sunnysideup/ecommerce_advanced_retail_connection",
@@ -4027,12 +4043,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sunnysideup/silverstripe-ecommerce_discount_coupon.git",
-                "reference": "3ed7c356fc9c2da9c5537e624a80063e0c83afbd"
+                "reference": "4570c201d1721900cee19191582e69a8383d4602"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_discount_coupon/zipball/3ed7c356fc9c2da9c5537e624a80063e0c83afbd",
-                "reference": "3ed7c356fc9c2da9c5537e624a80063e0c83afbd",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-ecommerce_discount_coupon/zipball/4570c201d1721900cee19191582e69a8383d4602",
+                "reference": "4570c201d1721900cee19191582e69a8383d4602",
                 "shasum": ""
             },
             "require": {
@@ -4075,7 +4091,7 @@
                 "shop",
                 "silverstripe"
             ],
-            "time": "2020-08-14T01:37:26+00:00"
+            "time": "2020-09-01T23:46:12+00:00"
         },
         {
             "name": "sunnysideup/ecommerce_giftvoucher",
@@ -4768,6 +4784,109 @@
             "time": "2020-06-22T00:35:30+00:00"
         },
         {
+            "name": "sunnysideup/sswebpack_engine_only",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-sswebpack_engine_only.git",
+                "reference": "ba67684fc267efcbb4ae192936c2c8b73b07f09a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-sswebpack_engine_only/zipball/ba67684fc267efcbb4ae192936c2c8b73b07f09a",
+                "reference": "ba67684fc267efcbb4ae192936c2c8b73b07f09a",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0",
+                "sunnysideup/webpack_requirements_backend": "*"
+            },
+            "type": "silverstripe-theme",
+            "extra": {
+                "installer-name": "sswebpack_engine_only"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Webpack engine for Silverstripe without any theme at all. Inspired and HUGE THANK YOU to: andrewhaine/silverstripe-webpack-theme",
+            "keywords": [
+                "Silverstripe-CMS",
+                "blank theme",
+                "cms",
+                "front-end framework",
+                "silverstripe",
+                "silverstripe webpack",
+                "webpack",
+                "webpack theme"
+            ],
+            "time": "2020-09-01T22:59:51+00:00"
+        },
+        {
+            "name": "sunnysideup/webpack_requirements_backend",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-webpack_requirements_backend.git",
+                "reference": "dedf77c53fb6c8f6a17d5be27f25bf2c616c426c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-webpack_requirements_backend/zipball/dedf77c53fb6c8f6a17d5be27f25bf2c616c426c",
+                "reference": "dedf77c53fb6c8f6a17d5be27f25bf2c616c426c",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0"
+            },
+            "suggest": {
+                "sunnysideup/sswebpack_engine_only": "Add webpack itself"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "webpack_requirements_backend"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\WebpackRequirementsBackend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Silverstripe Module that provides an alternative to the standard Silvertripe Requirements Backend class so that your application can run webpack.",
+            "keywords": [
+                "Silverstripe-CMS",
+                "back-end",
+                "cms",
+                "css",
+                "front-end",
+                "javascript",
+                "module bundler",
+                "npm",
+                "requirements",
+                "silverstripe",
+                "theme-ing",
+                "webpack"
+            ],
+            "time": "2019-09-04T01:32:59+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.12",
             "source": {
@@ -5043,25 +5162,25 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v4.4.12",
+            "version": "v5.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "bf17dc9f6ce144e41f786c32435feea4d8e11dcc"
+                "reference": "e544e24472d4c97b2d11ade7caacd446727c6bf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/bf17dc9f6ce144e41f786c32435feea4d8e11dcc",
-                "reference": "bf17dc9f6ce144e41f786c32435feea4d8e11dcc",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/e544e24472d4c97b2d11ade7caacd446727c6bf9",
+                "reference": "e544e24472d4c97b2d11ade7caacd446727c6bf9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1.3"
+                "php": ">=7.2.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -5106,7 +5225,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-05T09:39:30+00:00"
+            "time": "2020-05-20T17:43:50+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -6075,12 +6194,13 @@
         "sunnysideup/payment_hirepurchase": 20,
         "sunnysideup/payment_instore": 20,
         "sunnysideup/afterpay": 20,
-        "sunnysideup/google_address_field": 0
+        "sunnysideup/google_address_field": 0,
+        "sunnysideup/sswebpack_engine_only": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.0"
+        "php": ">=7.3.0"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
