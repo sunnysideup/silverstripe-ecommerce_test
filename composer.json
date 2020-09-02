@@ -34,9 +34,10 @@
         "sunnysideup/payment_dps": "dev-master",
         "sunnysideup/payment_hirepurchase": "dev-master",
         "sunnysideup/payment_instore": "dev-master",
-        "sunnysideup/payment-afterpay": "dev-master",
+        "sunnysideup/afterpay": "dev-master",
         "sunnysideup/google_address_field": "^2.0@stable",
-        "sunnysideup/sswebpack_engine_only": "dev-master"
+        "sunnysideup/sswebpack_engine_only": "dev-master",
+        "sunnysideup/webpack_requirements_backend": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [],
@@ -68,6 +69,9 @@
             ".htaccess",
             "index.php",
             "web.config"
+        ],
+        "expose": [
+            "themes/sun/dist"
         ]
     },
     "license": "BSD-3-Clause",
