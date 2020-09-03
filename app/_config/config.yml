@@ -1,21 +1,18 @@
 ---
 Name: ecommerceconfig
 ---
-EcommerceConfig:
+Sunnysideup\Ecommerce\Config\EcommerceConfig:
   folder_and_file_locations:
     - "app/_config/ecommerce.yml"
 
-SSViewer:
-  theme: main
-
-WebpackPageControllerExtension:
+Sunnysideup\WebpackRequirementsBackend\Api\Configuration:
   webpack_enabled_themes:
-    - sswebpack
+    - ecommerce-demo-theme
 
-Email:
+SilverStripe\Control\Email\Email:
   admin_email: ssuerrors@gmail.com
 
-GoogleAnalyticsSTE:
+Sunnysideup\GoogleAnalyticsBasics\GoogleAnalyticsSTE:
   main_code: 'UA-26108878-1' #e.g. UA-xxxx-y
 
 SilverStripe\Core\Manifest\ModuleManifest:

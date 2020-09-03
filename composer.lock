@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22d181af303c9241ff4e38157429126a",
+    "content-hash": "928e5792745cad542b4aa6f3e5d08fe6",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -4534,6 +4534,54 @@
             "time": "2020-07-23T00:35:00+00:00"
         },
         {
+            "name": "sunnysideup/googleanalyticsbasics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-googleanalyticsbasics.git",
+                "reference": "487a8183544989675156b1b2f880ff8ff020c8f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-googleanalyticsbasics/zipball/487a8183544989675156b1b2f880ff8ff020c8f0",
+                "reference": "487a8183544989675156b1b2f880ff8ff020c8f0",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0",
+                "silverstripe/recipe-cms": "*"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\GoogleAnalyticsBasics\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "add google analytics to your Silverstripe website",
+            "keywords": [
+                "Silverstripe-CMS",
+                "analytics",
+                "cms",
+                "google",
+                "googleanalyticsbasics",
+                "silverstripe",
+                "statistics",
+                "visitors"
+            ],
+            "time": "2020-07-06T02:23:21+00:00"
+        },
+        {
             "name": "sunnysideup/payment_directcredit",
             "version": "dev-master",
             "source": {
@@ -4782,6 +4830,108 @@
                 "silverstripe"
             ],
             "time": "2020-06-22T00:35:30+00:00"
+        },
+        {
+            "name": "sunnysideup/sswebpack_engine_only",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-sswebpack_engine_only.git",
+                "reference": "110af42a907ff9100877637e83c37315470debf3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-sswebpack_engine_only/zipball/110af42a907ff9100877637e83c37315470debf3",
+                "reference": "110af42a907ff9100877637e83c37315470debf3",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0"
+            },
+            "suggest": {
+                "sunnysideup/webpack_requirements_backend": "Make it work with Silvertripe"
+            },
+            "type": "silverstripe-theme",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Webpack engine for Silverstripe without any theme at all. Inspired and HUGE THANK YOU to: andrewhaine/silverstripe-webpack-theme",
+            "keywords": [
+                "Silverstripe-CMS",
+                "blank theme",
+                "cms",
+                "front-end framework",
+                "silverstripe",
+                "silverstripe webpack",
+                "webpack",
+                "webpack theme"
+            ],
+            "time": "2020-09-02T22:26:25+00:00"
+        },
+        {
+            "name": "sunnysideup/webpack_requirements_backend",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-webpack_requirements_backend.git",
+                "reference": "69db3e15cef94def01a2bd7856cd22a01bec1fcb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-webpack_requirements_backend/zipball/69db3e15cef94def01a2bd7856cd22a01bec1fcb",
+                "reference": "69db3e15cef94def01a2bd7856cd22a01bec1fcb",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0"
+            },
+            "suggest": {
+                "sunnysideup/sswebpack_engine_only": "Add webpack itself"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "webpack_requirements_backend"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\WebpackRequirementsBackend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Silverstripe Module that provides an alternative to the standard Silvertripe Requirements Backend class so that your application can run webpack.",
+            "keywords": [
+                "Silverstripe-CMS",
+                "back-end",
+                "cms",
+                "css",
+                "front-end",
+                "javascript",
+                "module bundler",
+                "npm",
+                "requirements",
+                "silverstripe",
+                "theme-ing",
+                "webpack"
+            ],
+            "time": "2020-09-02T22:22:20+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6091,7 +6241,9 @@
         "sunnysideup/payment_hirepurchase": 20,
         "sunnysideup/payment_instore": 20,
         "sunnysideup/afterpay": 20,
-        "sunnysideup/google_address_field": 0
+        "sunnysideup/google_address_field": 0,
+        "sunnysideup/googleanalyticsbasics": 20,
+        "sunnysideup/sswebpack_engine_only": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
