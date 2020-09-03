@@ -11,10 +11,14 @@
     ],
     "require": {
         "php": ">=7.3.0",
-        "silverstripe/recipe-cms": "^4.5",
-        "silverstripe-themes/simple": "*",
-        "sunnysideup/geoip": "^1.0",
+        "silverstripe/recipe-cms": "^4.6",
+
+        "silverstripe-themes/simple": "dev-master",
+
         "sunnysideup/ecommerce": "dev-master",
+
+        "sunnysideup/ecommerce-demo-theme": "dev-master",
+
         "sunnysideup/ecommerce_advanced_retail_connection": "dev-master",
         "sunnysideup/ecommerce_alsorecommended": "dev-master",
         "sunnysideup/ecommerce_assign_orders": "dev-master",
@@ -30,15 +34,23 @@
         "sunnysideup/ecommerce_security": "dev-master",
         "sunnysideup/ecommerce_second_hand_product": "dev-master",
         "sunnysideup/ecommerce-google-analytics": "dev-master",
+
         "sunnysideup/payment_directcredit": "dev-master",
         "sunnysideup/payment_dps": "dev-master",
         "sunnysideup/payment_hirepurchase": "dev-master",
         "sunnysideup/payment_instore": "dev-master",
+
         "sunnysideup/afterpay": "dev-master",
+
+        "sunnysideup/geoip": "^1.0",
         "sunnysideup/google_address_field": "^2.0@stable",
-        "sunnysideup/sswebpack_engine_only": "dev-master",
-        "sunnysideup/webpack_requirements_backend": "dev-master"
+        "sunnysideup/googleanalyticsbasics": "dev-master",
+
+        "sunnysideup/webpack_requirements_backend": "dev-master",
+        "sunnysideup/sswebpack_engine_only": "dev-master"
     },
+   "require-dev": {
+    }
     "scripts": {
         "post-install-cmd": [],
         "post-update-cmd": []
@@ -69,9 +81,6 @@
             ".htaccess",
             "index.php",
             "web.config"
-        ],
-        "expose": [
-            "themes/sun/dist"
         ]
     },
     "license": "BSD-3-Clause",
@@ -83,7 +92,5 @@
             "app/src/Page.php",
             "app/src/PageController.php"
         ]
-    },
-    "require-dev": {
     }
 }
