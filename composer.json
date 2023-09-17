@@ -33,7 +33,6 @@
     "sunnysideup/payment_dps": "dev-master",
     "sunnysideup/payment_hirepurchase": "dev-master",
     "sunnysideup/payment_instore": "dev-master",
-    "sunnysideup/afterpay": "dev-master",
     "sunnysideup/geoip": "dev-master",
     "sunnysideup/google_address_field": "dev-master",
     "sunnysideup/googleanalyticsbasics": "dev-master",
@@ -41,7 +40,8 @@
     "sunnysideup/sswebpack_engine_only": "dev-master"
   },
   "suggest": {
-    "sunnysideup/ecommerce_advanced_retail_connection": "add a connection to advance retail"
+    "sunnysideup/ecommerce_advanced_retail_connection": "add a connection to advance retail",
+    "sunnysideup/afterpay": "add afterpay"
   },
   "scripts": {
     "post-install-cmd": [],
@@ -86,6 +86,10 @@
     ]
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "silverstripe/recipe-plugin": true,
+      "silverstripe/vendor-plugin": true
+    }
   }
 }
