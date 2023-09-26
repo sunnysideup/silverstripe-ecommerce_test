@@ -67,9 +67,10 @@ class AddComboProducts extends SetUpBase
         //     foreach ($products as $product) {
         //         $includedProducts->add($product);
         //     }
-        //     $page->write();
-        //     $page->Publish('Stage', 'Live');
-        //     $pages->push($page);
+        // $page->writeToStage(Versioned::DRAFT);
+        // $page->PublishRecursive();
+        // $page->flushCache();
+
         // }
         // $this->addExamplePages(1, "Combination Products", $pages);
     }

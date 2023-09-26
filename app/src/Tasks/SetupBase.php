@@ -13,6 +13,7 @@ use SilverStripe\CMS\Model\SiteTree;
 // use CombinationProduct;
 use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DB;
+use SilverStripe\Versioned\Versioned;
 
 // use EcommerceProductTag;
 // use ProductGroupWithTags;
@@ -135,9 +136,10 @@ class SetupBase
         if ($parentPage) {
             $page->ParentID = $parentPage->ID;
         }
-        $page->write();
+        $page->writeToStage(Versioned::DRAFT);
         $page->PublishRecursive();
         $page->flushCache();
+
         DB::alteration_message('Creating / Updating ' . $page->Title, 'created');
         if ($children) {
             foreach ($children as $child) {
@@ -153,8 +155,8 @@ class SetupBase
         $page->Title = $newTitle;
         $page->MenuTitle = $newTitle;
         if ($save) {
-            $page->write();
-            $page->Publish('Stage', 'Live');
+            $page->writeToStage(Versioned::DRAFT);
+            $page->PublishRecursive();
             $page->flushCache();
         }
     }

@@ -28,7 +28,7 @@ class AddStock extends SetUpBase
         // }
         // $products = Product::get()
         //     ->where("SiteTree{$extension}.ClassName = 'Product' AND ProductVariation.ID IS NULL")
-        //     ->sort("RAND()")
+        //     ->orderBy("RAND()")
         //     ->leftJoin("ProductVariation", "ProductVariation.ProductID = Product{$extension}.ID")
         //     ->limit(3);
         // $i = 0;
@@ -58,7 +58,7 @@ class AddStock extends SetUpBase
         // }
         // $variations = ProductVariation::get()
         //     ->where("ClassName = 'ProductVariation'")
-        //     ->sort("RAND()")
+        //     ->orderBy("RAND()")
         //     ->limit(3);
         // $i = 0;
         // foreach ($variations as $variation) {

@@ -42,7 +42,7 @@ class AddSpecialPrice extends SetUpBase
         // $member->Groups()->add($group);
         // $products = Product::get()
         //     ->where("ClassName = 'Product'")
-        //     ->sort("RAND()")
+        //     ->orderBy("RAND()")
         //     ->limit(2);
         // $this->addExamplePages(4, "Special price for particular customers", $products);
         // $i = 0;
@@ -69,7 +69,7 @@ class AddSpecialPrice extends SetUpBase
         // }
         // $variations = ProductVariation::get()
         //     ->where("ClassName = 'ProductVariation'")
-        //     ->sort("RAND()")
+        //     ->orderBy("RAND()")
         //     ->limit(2);
         // $i = 0;
         // foreach ($variations as $variation) {

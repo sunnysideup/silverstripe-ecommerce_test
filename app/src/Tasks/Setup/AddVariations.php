@@ -113,9 +113,10 @@ class AddVariations extends SetUpBase
         //         $existingAttributeTypes->add($colourObject);
         //         $this->addToTitle($product, "with variation", false);
         //         $product->Content .= "<p>On this page you can see two example of how you customers can add variations to their products (form / table)... In a real-life shop you would probably choose one or the other.</p>";
-        //         $product->write();
-        //         $product->Publish('Stage', 'Live');
-        //         $product->flushCache();
+        // $page->writeToStage(Versioned::DRAFT);
+        // $page->PublishRecursive();
+        // $page->flushCache();
+
         //         $descriptionOptions = array("", "Per Month", "", "", "Per Year", "This option has limited warranty");
         //         if (!
         //             ProductVariation::get()

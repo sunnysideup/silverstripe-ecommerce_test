@@ -87,8 +87,9 @@ class CollateExamplePages extends SetUpBase
             ->First()
         ;
         $featuresPage->Content = (string) $featuresPage->Content . $html;
-        $featuresPage->write();
-        $featuresPage->Publish('Stage', 'Live');
+        $featuresPage->writeToStage(Versioned::DRAFT);
+        $featuresPage->PublishRecursive();
         $featuresPage->flushCache();
+
     }
 }

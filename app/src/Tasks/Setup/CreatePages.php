@@ -40,8 +40,8 @@ class CreatePages extends SetUpBase
             ->First()
         ;
         $checkoutPage->TermsPageID = $termsPage->ID;
-        $checkoutPage->write();
-        $checkoutPage->Publish('Stage', 'Live');
+        $checkoutPage->writeToStage(Versioned::DRAFT);
+        $checkoutPage->PublishRecursive();
         $checkoutPage->flushCache();
         DB::alteration_message('adding terms page to checkout page');
     }
