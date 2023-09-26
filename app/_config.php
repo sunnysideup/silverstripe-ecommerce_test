@@ -2,7 +2,7 @@
 
 use SilverStripe\Control\Director;
 
-/*** ECOMMERCE ***/
+// ECOMMERCE
 
 if (Director::isLive()) {
     Director::forceSSL();

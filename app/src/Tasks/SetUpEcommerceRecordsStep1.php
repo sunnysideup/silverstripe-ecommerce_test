@@ -4,8 +4,8 @@ namespace Sunnysideup\EcommerceTest\Tasks;
 
 use SilverStripe\Control\Director;
 use SilverStripe\Dev\BuildTask;
-use SilverStripe\ORM\DB;
 use SilverStripe\ORM\DatabaseAdmin;
+use SilverStripe\ORM\DB;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
 
@@ -30,7 +30,7 @@ class SetUpEcommerceRecordsStep1 extends BuildTask
         }
         $db = new DatabaseAdmin();
         $db->doBuild($quiet = false, $populate = true, $testMode = false);
-        if(Director::is_cli()) {
+        if (Director::is_cli()) {
             (new SetUpEcommerceRecordsStep2())->run(null);
         } else {
             echo '<script type="text/javascript">window.location = "/dev/build/?returnURL=/dev/tasks/setup-ecommerce-records-step-2";</script>';

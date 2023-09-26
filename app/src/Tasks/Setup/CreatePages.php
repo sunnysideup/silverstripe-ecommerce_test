@@ -2,43 +2,19 @@
 
 namespace Sunnysideup\EcommerceTest\Tasks\Setup;
 
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
-
 use Page;
-
-use SilverStripe\Assets\Folder;
-use SilverStripe\Assets\Image;
-use SilverStripe\CMS\Model\SiteTree;
-
-
-use SilverStripe\Control\Director;
-use SilverStripe\Dev\BuildTask;
+use SilverStripe\ORM\DB;
 // use ProductAttributeType;
 // use ProductAttributeValue;
 // use ProductVariation;
 
-use SilverStripe\ORM\ArrayList;
 // use CombinationProduct;
-use SilverStripe\ORM\DataList;
-use SilverStripe\ORM\DB;
 use SilverStripe\Security\Group;
+use Sunnysideup\Ecommerce\Model\Order;
 // use EcommerceProductTag;
 // use ProductGroupWithTags;
 
-use SilverStripe\Security\Member;
-
-
 // use ComplexPriceObject;
-use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\Versioned\Versioned;
-use Sunnysideup\Ecommerce\Model\Address\BillingAddress;
-use Sunnysideup\Ecommerce\Model\Address\ShippingAddress;
-use Sunnysideup\Ecommerce\Model\Config\EcommerceDBConfig;
-use Sunnysideup\Ecommerce\Model\Extensions\EcommerceRole;
-use Sunnysideup\Ecommerce\Model\Order;
-use Sunnysideup\Ecommerce\Model\ProductOrderItem;
-
-
 use Sunnysideup\Ecommerce\Pages\AccountPage;
 use Sunnysideup\Ecommerce\Pages\CartPage;
 use Sunnysideup\Ecommerce\Pages\CheckoutPage;
@@ -46,11 +22,7 @@ use Sunnysideup\Ecommerce\Pages\OrderConfirmationPage;
 use Sunnysideup\Ecommerce\Pages\Product;
 use Sunnysideup\Ecommerce\Pages\ProductGroup;
 use Sunnysideup\Ecommerce\Pages\ProductGroupSearchPage;
-use Sunnysideup\Ecommerce\Tasks\EcommerceTaskCreateMemberGroups;
-use Sunnysideup\EcommerceDelivery\Model\PickUpOrDeliveryModifierOptions;
-use Sunnysideup\EcommerceDiscountCoupon\Model\DiscountCouponOption;
-use Sunnysideup\EcommerceTax\Model\GSTTaxModifierOptions;
-use Sunnysideup\EcommerceTest\Model\CompleteSetupRecord;
+use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
 
 class CreatePages extends SetUpBase
 {
@@ -62,9 +34,11 @@ class CreatePages extends SetUpBase
         }
         $termsPage = Page::get()
             ->where("URLSegment = 'terms-and-conditions'")
-            ->First();
+            ->First()
+        ;
         $checkoutPage = CheckoutPage::get()
-            ->First();
+            ->First()
+        ;
         $checkoutPage->TermsPageID = $termsPage->ID;
         $checkoutPage->write();
         $checkoutPage->Publish('Stage', 'Live');
@@ -72,16 +46,13 @@ class CreatePages extends SetUpBase
         DB::alteration_message('adding terms page to checkout page');
     }
 
-
-
-
     private function getProductGroups($numberOfGroups = 7)
     {
-        $numberOfGroups--;
+        --$numberOfGroups;
         $array = [];
-        for ($j = 1; $j < $numberOfGroups; $j++) {
+        for ($j = 1; $j < $numberOfGroups; ++$j) {
             $parentCode = $this->randomName();
-            if (($j === -1) && ($numberOfGroups > 3)) {
+            if ((-1 === $j) && ($numberOfGroups > 3)) {
                 $children1 = $this->getProductGroups($numberOfGroups);
                 $children2 = $this->getProductGroups($numberOfGroups);
                 $children = array_merge($children1, $children2);
@@ -93,15 +64,19 @@ class CreatePages extends SetUpBase
             switch ($filterNumber % 4) {
                 case 0:
                     $filter = 'inherit';
+
                     break;
                 case 1:
                     $filter = '';
+
                     break;
                 case 2:
                     $filter = 'featuredonly';
+
                     break;
                 case 3:
                     $filter = 'nonfeaturedonly';
+
                     break;
                 default:
                     $filter = '';
@@ -112,21 +87,25 @@ class CreatePages extends SetUpBase
                     $style = 'inherit';
                     $numberOfProductsPerPage = 0;
                     $sortOrder = 'inherit';
+
                     break;
                 case 1:
                     $style = 'Short';
                     $numberOfProductsPerPage = 50;
                     $sortOrder = 'price';
+
                     break;
                 case 2:
                     $style = '';
                     $numberOfProductsPerPage = 9;
                     $sortOrder = '';
+
                     break;
                 case 3:
                     $style = 'MoreDetail';
                     $numberOfProductsPerPage = 5;
                     $sortOrder = 'title';
+
                     break;
             }
             $array[$j] = [
@@ -140,8 +119,7 @@ class CreatePages extends SetUpBase
                 'DefaultFilter' => $filter,
                 'DisplayStyle' => $style,
                 'ImageID' => $this->getRandomImageID(),
-                'Content' =>
-                    '<p>
+                'Content' => '<p>
                         ' . $this->lipsum() . '
                         <br /><br />For testing purposes - the following characteristics were added to this product group:
                     </p>
@@ -156,20 +134,21 @@ class CreatePages extends SetUpBase
                 'Children' => $children,
             ];
         }
+
         return $array;
     }
 
     private function getProducts($parentCode)
     {
         $endPoint = rand(10, 20);
-        for ($j = 0; $j < $endPoint; $j++) {
+        for ($j = 0; $j < $endPoint; ++$j) {
             $i = rand(1, 500);
             $q = rand(1, 500);
             $price = $q < 475 ? $q + ($q / 100) : 0;
             $q = rand(1, 500);
             $weight = $q % 3 ? 0 : 1.234;
             $q = rand(1, 500);
-            $model = $q % 4 ? '' : "model ${i}";
+            $model = $q % 4 ? '' : "model {$i}";
             $q = rand(1, 500);
             $featured = $q % 9 ? 'NO' : 'YES';
             $q = rand(1, 500);
@@ -181,35 +160,35 @@ class CreatePages extends SetUpBase
             $array[$i] = [
                 'ClassName' => Product::class,
                 'ImageID' => $imageID,
-                'URLSegment' => "product-${parentCode}-${i}",
-                'Title' => "Product ${parentCode} ${i}",
-                'MenuTitle' => "Product ${i}",
+                'URLSegment' => "product-{$parentCode}-{$i}",
+                'Title' => "Product {$parentCode} {$i}",
+                'MenuTitle' => "Product {$i}",
                 'Content' => "<p>
-                    Description for Product ${i} ...
+                    Description for Product {$i} ...
                     " . $this->lipsum() . '
                     <br /><br />For testing purposes - the following characteristics were added to this product:
                 <p>
                 <ul>
-                    <li>weight: <i>' . ($weight === 0 ? '[none]' : $weight . ' grams') . '</i> </li>
+                    <li>weight: <i>' . (0 === $weight ? '[none]' : $weight . ' grams') . '</i> </li>
                     <li>model: <i>' . ($model ?: '[none]') . "</i></li>
-                    <li>featured: <i>${featured}</i></li>
+                    <li>featured: <i>{$featured}</i></li>
                     <li>quantifier: <i>" . ($quantifier ?: '[none]') . "</i></li>
-                    <li>allow purchase: <i>${allowPurchase}</i></li>
+                    <li>allow purchase: <i>{$allowPurchase}</i></li>
                     <li>number sold: <i>" . $numberSold . '</i></li>
                 </ul>',
                 'Price' => $price,
                 'InternalItemID' => 'AAA' . $i,
                 'Weight' => $weight ? '1.234' : 0,
-                'Model' => $model ? "model ${i}" : '',
+                'Model' => $model ? "model {$i}" : '',
                 'Quantifier' => $quantifier,
-                'FeaturedProduct' => $featured === 'YES' ? 1 : 0,
-                'AllowPurchase' => $allowPurchase === 'YES' ? 1 : 0,
+                'FeaturedProduct' => 'YES' === $featured ? 1 : 0,
+                'AllowPurchase' => 'YES' === $allowPurchase ? 1 : 0,
                 'NumberSold' => $numberSold,
             ];
         }
+
         return $array;
     }
-
 
     private function getPages()
     {
@@ -371,8 +350,7 @@ composer create-project sunnysideup/ecommerce_test:dev-master ./
                         'MenuTitle' => 'Customisation',
                         'ShowInMenus' => true,
                         'ShowInSearch' => true,
-                        'Content' =>
-                            '<p>
+                        'Content' => '<p>
                                 To find out more about <a href="https://www.silverstripe.org/blog/making-a-module-fit-for-purpose/">Silverstripe customisation</a>,
                                 please vist our <a href="https://www.silverstripe.org/blog/making-a-module-fit-for-purpose/">blog entry on hacking a Silverstripe module</a>.
                             </p>
