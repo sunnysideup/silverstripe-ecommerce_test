@@ -43,37 +43,6 @@ ErrorDocument 500 /assets/error-500.html
     RewriteRule composer\.(json|lock) - [F,L,NC]
 
 
-    ## CONFIG FOR STATIC PUBLISHING
-    # Cached content - sub-pages (site in the root of a domain)
-    RewriteCond "%{HTTP:Accept-encoding}" "gzip"
-    RewriteCond %{REQUEST_METHOD} ^GET|HEAD$
-    RewriteCond %{QUERY_STRING} ^$
-    RewriteCond %{REQUEST_URI} /(.*[^/])/?$
-    RewriteCond %{DOCUMENT_ROOT}/cache/%1.html.gz -f
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule .* /cache/%1.html.gz [L]
-
-    # Cached content - homepage (site in root of a domain)
-    RewriteCond "%{HTTP:Accept-encoding}" "gzip"
-    RewriteCond %{REQUEST_METHOD} ^GET|HEAD$
-    RewriteCond %{QUERY_STRING} ^$
-    RewriteCond %{REQUEST_URI} ^/?$
-    RewriteCond %{DOCUMENT_ROOT}/cache/index.html.gz -f
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule .* /cache/index.html.gz [L]
-
-
-    RewriteRule "\.html\.gz$" "-" [T=text/html,E=no-gzip:1]
-
-    <FilesMatch "(\.html\.gz)$">
-        # Serve correct encoding type.
-        Header append Content-Encoding gzip
-
-        # Force proxies to cache gzipped &
-        # non-gzipped html files separately.
-        Header append Vary Accept-Encoding
-    </FilesMatch>
-
     # Deny access to potentially sensitive files and folders
     RewriteRule ^vendor(/|$) - [F,L,NC]
     RewriteRule ^\.env - [F,L,NC]
