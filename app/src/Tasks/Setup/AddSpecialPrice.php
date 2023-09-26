@@ -16,9 +16,9 @@ use Sunnysideup\Ecommerce\Model\Extensions\EcommerceRole;
 // use ComplexPriceObject;
 use Sunnysideup\Ecommerce\Pages\Product;
 use Sunnysideup\Ecommerce\Tasks\EcommerceTaskCreateMemberGroups;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class AddSpecialPrice extends SetUpBase
+class AddSpecialPrice extends SetupBase
 {
     public function run()
     {

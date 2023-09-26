@@ -16,9 +16,9 @@ use SilverStripe\Versioned\Versioned;
 // use ComplexPriceObject;
 use Sunnysideup\Ecommerce\Model\Order;
 use Sunnysideup\Ecommerce\Pages\Product;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class AddStock extends SetUpBase
+class AddStock extends SetupBase
 {
     public function run()
     {

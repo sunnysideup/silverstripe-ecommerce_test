@@ -18,9 +18,9 @@ use Sunnysideup\Ecommerce\Model\Address\ShippingAddress;
 use Sunnysideup\Ecommerce\Model\Order;
 use Sunnysideup\Ecommerce\Model\ProductOrderItem;
 use Sunnysideup\Ecommerce\Pages\Product;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class CreateOrder extends SetUpBase
+class CreateOrder extends SetupBase
 {
     public function run()
     {

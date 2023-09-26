@@ -15,9 +15,9 @@ use Sunnysideup\Ecommerce\Pages\Product;
 
 // use ComplexPriceObject;
 
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class AddVariations extends SetUpBase
+class AddVariations extends SetupBase
 {
     public function run()
     {

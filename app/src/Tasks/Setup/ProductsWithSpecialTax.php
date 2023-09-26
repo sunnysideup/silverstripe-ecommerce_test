@@ -14,9 +14,9 @@ use Sunnysideup\Ecommerce\Pages\Product;
 // use ComplexPriceObject;
 
 use Sunnysideup\EcommerceTax\Model\GSTTaxModifierOptions;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class ProductsWithSpecialTax extends SetUpBase
+class ProductsWithSpecialTax extends SetupBase
 {
     public function run()
     {

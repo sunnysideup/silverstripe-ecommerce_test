@@ -15,9 +15,9 @@ use Sunnysideup\EcommerceDelivery\Model\PickUpOrDeliveryModifierOptions;
 
 use Sunnysideup\EcommerceDiscountCoupon\Model\DiscountCouponOption;
 use Sunnysideup\EcommerceTax\Model\GSTTaxModifierOptions;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class AddMyModifiers extends SetUpBase
+class AddMyModifiers extends SetupBase
 {
     public function run()
     {

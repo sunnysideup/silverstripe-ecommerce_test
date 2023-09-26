@@ -9,14 +9,14 @@ use SilverStripe\ORM\DB;
 // use ProductVariation;
 
 // use CombinationProduct;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
 // use EcommerceProductTag;
 // use ProductGroupWithTags;
 
 // use ComplexPriceObject;
 
-class CreateImages extends SetUpBase
+class CreateImages extends SetupBase
 {
     public function run($width = 170, $height = 120)
     {

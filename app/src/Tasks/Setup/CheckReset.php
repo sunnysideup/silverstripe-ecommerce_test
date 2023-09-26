@@ -13,9 +13,9 @@ use Sunnysideup\Ecommerce\Pages\Product;
 
 // use ComplexPriceObject;
 
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class CheckReset extends SetUpBase
+class CheckReset extends SetupBase
 {
     public function run()
     {

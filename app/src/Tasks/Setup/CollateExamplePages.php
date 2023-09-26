@@ -20,9 +20,9 @@ use Sunnysideup\Ecommerce\Pages\CheckoutPage;
 use Sunnysideup\Ecommerce\Pages\OrderConfirmationPage;
 use Sunnysideup\Ecommerce\Pages\Product;
 use Sunnysideup\Ecommerce\Pages\ProductGroup;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class CollateExamplePages extends SetUpBase
+class CollateExamplePages extends SetupBase
 {
     public function run()
     {
@@ -91,6 +91,5 @@ class CollateExamplePages extends SetUpBase
         $featuresPage->writeToStage(Versioned::DRAFT);
         $featuresPage->PublishRecursive();
         $featuresPage->flushCache();
-
     }
 }

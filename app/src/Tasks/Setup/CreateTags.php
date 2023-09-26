@@ -15,9 +15,9 @@ use Sunnysideup\Ecommerce\Pages\Product;
 
 // use ComplexPriceObject;
 
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class CreateTags extends SetUpBase
+class CreateTags extends SetupBase
 {
     public function run()
     {

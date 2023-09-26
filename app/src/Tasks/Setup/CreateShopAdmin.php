@@ -13,9 +13,9 @@ use SilverStripe\Security\Member;
 
 use Sunnysideup\Ecommerce\Model\Extensions\EcommerceRole;
 // use ComplexPriceObject;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class CreateShopAdmin extends SetUpBase
+class CreateShopAdmin extends SetupBase
 {
     public function run()
     {

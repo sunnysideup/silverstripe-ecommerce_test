@@ -2,7 +2,7 @@
 
 namespace Sunnysideup\EcommerceTest\Tasks\Setup;
 
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
 // use ProductAttributeType;
 // use ProductAttributeValue;
@@ -14,7 +14,7 @@ use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
 
 // use ComplexPriceObject;
 
-class CreateCurrencies extends SetUpBase
+class CreateCurrencies extends SetupBase
 {
     public function run()
     {

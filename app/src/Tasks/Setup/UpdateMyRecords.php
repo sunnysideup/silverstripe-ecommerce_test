@@ -15,9 +15,9 @@ use SilverStripe\SiteConfig\SiteConfig;
 
 // use ComplexPriceObject;
 use Sunnysideup\Ecommerce\Model\Config\EcommerceDBConfig;
-use Sunnysideup\EcommerceTest\Tasks\SetUpBase;
+use Sunnysideup\EcommerceTest\Tasks\SetupBase;
 
-class UpdateMyRecords extends SetUpBase
+class UpdateMyRecords extends SetupBase
 {
     public function run()
     {
