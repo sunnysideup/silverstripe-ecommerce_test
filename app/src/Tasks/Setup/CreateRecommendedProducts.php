@@ -23,7 +23,7 @@ class CreateRecommendedProducts extends SetUpBase
     {
         // $products = Product::get()
         //     ->where("ClassName = 'Product'")
-        //     ->sort("RAND()")
+        //     ->orderBy("RAND()")
         //     ->limit(2);
         // $this->addExamplePages(1, "Products with recommended <i>additions</i>.", $products);
         // foreach ($products as $product) {
@@ -32,7 +32,7 @@ class CreateRecommendedProducts extends SetUpBase
         // }
         // $recommendedProducts = Product::get()
         //     ->where(" SiteTree.ID NOT IN (".implode(",", $idArrayProducts).") AND ClassName = 'Product'")
-        //     ->sort("RAND()")
+        //     ->orderBy("RAND()")
         //     ->limit(3);
         // foreach ($recommendedProducts as $product) {
         //     $idArrayRecommendedProducts[] = $product->ID;

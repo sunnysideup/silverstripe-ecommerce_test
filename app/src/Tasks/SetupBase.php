@@ -136,7 +136,7 @@ class SetupBase
             $page->ParentID = $parentPage->ID;
         }
         $page->write();
-        $page->Publish('Stage', 'Live');
+        $page->PublishRecursive();
         $page->flushCache();
         DB::alteration_message('Creating / Updating ' . $page->Title, 'created');
         if ($children) {
@@ -188,7 +188,7 @@ class SetupBase
             $folder = Folder::find_or_make('randomimages');
             $images = Image::get()
                 ->where('ParentID = ' . $folder->ID)
-                ->sort('RAND()')
+                ->orderBy('RAND()')
             ;
             if ($images->count()) {
                 $this->imageArray = $images->map('ID', 'ID')->toArray();
@@ -358,7 +358,7 @@ class SetupBase
     // protected function addfilestoelectronicdownloadproduct()
     // {
     //     $pages = ElectronicDownloadProduct::get();
-    //     $files = File::get()->limit(5)->Sort("Rand()");
+    //     $files = File::get()->limit(5)->orderBy("Rand()");
     //     foreach ($pages as $page) {
     //         DB::alteration_message("Adding files to ".$page->Title, "created");
     //         $page->DownloadFiles()->addMany($files);

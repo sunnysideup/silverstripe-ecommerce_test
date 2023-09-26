@@ -22,12 +22,12 @@ class ProductsInManyGroups extends SetUpBase
     {
         $products = Product::get()
             ->where("\"ClassName\" = '" . addslashes(Product::class) . "'")
-            ->sort('RAND()')
+            ->orderBy('RAND()')
             ->limit(2)
         ;
         $productGroups = ProductGroup::get()
             ->where("\"ClassName\" = '" . addslashes(ProductGroup::class) . "'")
-            ->sort('RAND()')
+            ->orderBy('RAND()')
             ->limit(3)
         ;
         foreach ($products as $product) {

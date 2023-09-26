@@ -97,7 +97,7 @@ class AddVariations extends SetUpBase
         // }
         // $products = Product::get()
         //     ->where("ClassName = 'Product'")
-        //     ->sort("RAND()")
+        //     ->orderBy("RAND()")
         //     ->limit(2);
         // $this->addExamplePages(1, "products with variations (size, colour, etc...)", $products);
         // if ($products->count() && $colourObject && $sizeObject) {

@@ -23,7 +23,7 @@ class CreateTags extends SetUpBase
     {
         // $products = Product::get()
         //     ->where("ClassName = 'Product'")
-        //     ->sort("Rand()")
+        //     ->orderBy("Rand()")
         //     ->limit(4);
         // $this->addExamplePages(1, "Product Tags", $products);
         // foreach ($products as $pos => $product) {

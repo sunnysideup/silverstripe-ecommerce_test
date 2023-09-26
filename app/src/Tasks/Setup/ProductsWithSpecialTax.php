@@ -22,7 +22,7 @@ class ProductsWithSpecialTax extends SetUpBase
     {
         $products = Product::get()
             ->where("\"ClassName\" = '" . addslashes(Product::class) . "'")
-            ->sort('RAND()')
+            ->orderBy('RAND()')
             ->limit(2)
         ;
         $taxToAdd = GSTTaxModifierOptions::get()
