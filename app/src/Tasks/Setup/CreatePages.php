@@ -228,7 +228,7 @@ class CreatePages extends SetupBase
 
                 <h2>Silverstripe Version</h2>
                 <p>
-                    This website runs on Silverstripe 3.1.
+                    This website runs on Silverstripe 5.
                 </p>
 
 
