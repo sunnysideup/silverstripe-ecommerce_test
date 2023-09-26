@@ -3,6 +3,7 @@
 namespace Sunnysideup\EcommerceTest\Tasks\Setup;
 
 use Page;
+use SilverStripe\Versioned\Versioned;
 use Sunnysideup\Ecommerce\Model\Order;
 // use ProductAttributeType;
 // use ProductAttributeValue;

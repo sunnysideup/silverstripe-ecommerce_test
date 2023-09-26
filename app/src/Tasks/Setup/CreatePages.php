@@ -10,6 +10,7 @@ use SilverStripe\ORM\DB;
 
 // use CombinationProduct;
 use SilverStripe\Security\Group;
+use SilverStripe\Versioned\Versioned;
 use Sunnysideup\Ecommerce\Model\Order;
 // use EcommerceProductTag;
 // use ProductGroupWithTags;
