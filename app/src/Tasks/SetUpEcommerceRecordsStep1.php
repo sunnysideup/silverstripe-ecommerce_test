@@ -30,6 +30,10 @@ class SetUpEcommerceRecordsStep1 extends BuildTask
         }
         $db = new DatabaseAdmin();
         $db->doBuild($quiet = false, $populate = true, $testMode = false);
-        echo '<script type="text/javascript">window.location = "/dev/build/?returnURL=/dev/tasks/setup-ecommerce-records-step-2";</script>';
+        if(Director::is_cli()) {
+            (new SetUpEcommerceRecordsStep2())->run(null);
+        } else {
+            echo '<script type="text/javascript">window.location = "/dev/build/?returnURL=/dev/tasks/setup-ecommerce-records-step-2";</script>';
+        }
     }
 }
