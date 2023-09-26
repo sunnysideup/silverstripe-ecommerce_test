@@ -5,26 +5,33 @@ Sunnysideup\Ecommerce\Model\Order:
     # - Sunnysideup\EcommerceAlsoRecommended\Modifiers\RecommendedProductsModifier
     # - Sunnysideup\EcommerceDiscountCoupon\Modifiers\DiscountCouponModifier
 
-
 Sunnysideup\Ecommerce\Model\Process\OrderStep:
   order_steps_to_include:
-    step1: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepCreated
-    step2: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepSubmitted
-    step10: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepArchived
-
-
-
+    step10: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepCreated
+    step20: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepSubmitted
+    step30: Sunnysideup\EcommerceMaxmindMinfraud\Model\Process\OrderStepRecordDeviceDetails
+    step40: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepSentInvoice
+    step50: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepSendAdminNotification
+    step60: Sunnysideup\PaymentDps\Model\Process\OrderStepAmountConfirmed
+    step70: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepPaid
+    step80: Sunnysideup\EcommerceMaxmindMinfraud\Model\Process\OrderStepFraudCheck
+    step90: Sunnysideup\EcommerceSecurity\Model\Process\OrderStepSecurityCheck
+    step100: Sunnysideup\EcommerceSecurity\Model\Process\OrderStepWhitelistCustomer
+    step110: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepConfirmed
+    step120: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepSentReceipt
+    step140: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepSent
+    step150: Sunnysideup\EcommerceOrderstepFeedback\Model\Process\OrderStepFeedback
+    step999: Sunnysideup\Ecommerce\Model\Process\OrderSteps\OrderStepArchived
 
 ### ECOMMERCE - PAYMENT MODULE ###
 Sunnysideup\Ecommerce\Model\Money\EcommercePayment:
   supported_methods:
-    Sunnysideup\PaymentDirectcredit\DirectCreditPayment: "Direct Credit (payment into bank account)"
-    Sunnysideup\PaymentInstore\InStorePayment: "Pay in Store on Pick-Up"
+    Sunnysideup\PaymentDirectcredit\DirectCreditPayment: 'Direct Credit (payment into bank account)'
+    Sunnysideup\PaymentInstore\InStorePayment: 'Pay in Store on Pick-Up'
     #Sunnysideup\Afterpay\Model\AfterpayEcommercePayment: "Afterpay"
 
 Sunnysideup\PaymentDirectcredit\DirectCreditPayment:
-  before_payment_message: "We will email you our bank account details."
-
+  before_payment_message: 'We will email you our bank account details.'
 #
 #
 # EcommerceDBConfig:
