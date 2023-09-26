@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "651934732ff9828e68a2e36610e47d52",
+    "content-hash": "f9f570e7ce242b179fb13f333dffd9cb",
     "packages": [
         {
             "name": "bummzack/sortablefile",
@@ -4116,6 +4116,118 @@
             "time": "2020-12-06T22:00:29+00:00"
         },
         {
+            "name": "sunnysideup/cms-dark-theme",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-cms-dark-theme.git",
+                "reference": "403eef89f65ab1da987a2b20f66393ec61e840d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-cms-dark-theme/zipball/403eef89f65ab1da987a2b20f66393ec61e840d8",
+                "reference": "403eef89f65ab1da987a2b20f66393ec61e840d8",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4.0 || ^5.0"
+            },
+            "default-branch": true,
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\CMSDarkTheme\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Adds the option to run the SilverStripe CMS in Dark Mode.",
+            "keywords": [
+                "Silverstripe-CMS",
+                "cms",
+                "dark mode",
+                "eco",
+                "efficiency",
+                "geeky",
+                "silverstripe",
+                "sustainability"
+            ],
+            "support": {
+                "issues": "https://github.com/sunnysideup/silverstripe-cms-dark-theme/issues",
+                "source": "https://github.com/sunnysideup/silverstripe-cms-dark-theme/tree/main"
+            },
+            "time": "2023-09-15T00:01:10+00:00"
+        },
+        {
+            "name": "sunnysideup/cms-niceties",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-cms-niceties.git",
+                "reference": "1df10d5557475e640776d22af8952cfccee0ce3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-cms-niceties/zipball/1df10d5557475e640776d22af8952cfccee0ce3c",
+                "reference": "1df10d5557475e640776d22af8952cfccee0ce3c",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "^4.0 || ^5.0",
+                "sunnysideup/cms-dark-theme": "dev-main",
+                "symbiote/silverstripe-grouped-cms-menu": "^4",
+                "undefinedoffset/sortablegridfield": "^2"
+            },
+            "default-branch": true,
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\CMSNiceties\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "adds a bit of formatting and a few CMS Field tricks to the CMS",
+            "keywords": [
+                "CMS Design",
+                "CMS Formatting",
+                "CMS Menus",
+                "CMS Tricks",
+                "Silverstripe-CMS",
+                "cms",
+                "gridfield",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/sunnysideup/silverstripe-cms-niceties/issues",
+                "source": "https://github.com/sunnysideup/silverstripe-cms-niceties/tree/master"
+            },
+            "time": "2023-09-24T05:31:43+00:00"
+        },
+        {
             "name": "sunnysideup/cms_edit_link_field",
             "version": "dev-master",
             "source": {
@@ -5750,6 +5862,64 @@
             "time": "2023-09-17T08:30:34+00:00"
         },
         {
+            "name": "sunnysideup/silverstripe-4-5-compatibility",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-4-5-compatibility.git",
+                "reference": "dc1a6d07d8ad00d95faf8f9efc3e4e62afad920a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-4-5-compatibility/zipball/dc1a6d07d8ad00d95faf8f9efc3e4e62afad920a",
+                "reference": "dc1a6d07d8ad00d95faf8f9efc3e4e62afad920a",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "^4.0 || ^5.0",
+                "symbiote/silverstripe-grouped-cms-menu": "*",
+                "undefinedoffset/sortablegridfield": "*"
+            },
+            "default-branch": true,
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\Silverstripe4To5Compatibility\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "Allow Silverstripe 4 modules to work with Silverstripe 5 and vice versa.",
+            "keywords": [
+                "Silverstripe 4.0",
+                "Silverstripe 5.0",
+                "Silverstripe-CMS",
+                "cms",
+                "compatibility",
+                "silverstripe",
+                "upgrade"
+            ],
+            "support": {
+                "issues": "https://github.com/sunnysideup/silverstripe-4-5-compatibility/issues",
+                "source": "https://github.com/sunnysideup/silverstripe-4-5-compatibility/tree/1.0.0"
+            },
+            "time": "2023-08-18T01:12:16+00:00"
+        },
+        {
             "name": "sunnysideup/silverstripe-ajax-select-field",
             "version": "dev-master",
             "source": {
@@ -5858,6 +6028,72 @@
                 "source": "https://github.com/sunnysideup/silverstripe-sswebpack_engine_only/tree/14.2.1"
             },
             "time": "2023-09-14T01:46:45+00:00"
+        },
+        {
+            "name": "sunnysideup/templateoverview",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunnysideup/silverstripe-templateoverview.git",
+                "reference": "d61e038e7bcf81d9584685b15c7db01b3e552bc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunnysideup/silverstripe-templateoverview/zipball/d61e038e7bcf81d9584685b15c7db01b3e552bc1",
+                "reference": "d61e038e7bcf81d9584685b15c7db01b3e552bc1",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0 || ^7.0",
+                "sebastian/diff": "*",
+                "silverstripe/cms": "^4.0 || ^5.0",
+                "sunnysideup/silverstripe-4-5-compatibility": "dev-main"
+            },
+            "suggest": {
+                "sebastian/diff": "Show diff for html files"
+            },
+            "default-branch": true,
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/javascript",
+                    "client/css"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sunnysideup\\TemplateOverview\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolaas Francken",
+                    "email": "modules@sunnysideup.co.nz",
+                    "role": "lead developer"
+                }
+            ],
+            "description": "adds development tools for building silverstripe websites, in particular around managing page types.",
+            "keywords": [
+                "Audit",
+                "Silverstripe-CMS",
+                "cms",
+                "list of all pages",
+                "page types",
+                "review",
+                "silverstripe",
+                "site audit",
+                "template review",
+                "templateoverview"
+            ],
+            "support": {
+                "issues": "https://github.com/sunnysideup/silverstripe-templateoverview/issues",
+                "source": "https://github.com/sunnysideup/silverstripe-templateoverview/tree/10.0.2"
+            },
+            "time": "2023-09-20T02:18:21+00:00"
         },
         {
             "name": "sunnysideup/vardump",
@@ -7905,6 +8141,69 @@
             "time": "2020-10-02T23:36:20+00:00"
         },
         {
+            "name": "undefinedoffset/sortablegridfield",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UndefinedOffset/SortableGridField.git",
+                "reference": "402dab8faa34c75cf05b10b3a0af10ebc37d83a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/402dab8faa34c75cf05b10b3a0af10ebc37d83a4",
+                "reference": "402dab8faa34c75cf05b10b3a0af10ebc37d83a4",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.11 | ^5",
+                "silverstripe/versioned": "^1 | ^2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "~3.4"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "sortablegridfield",
+                "expose": [
+                    "css",
+                    "javascript"
+                ],
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "UndefinedOffset\\SortableGridField\\": "src/",
+                    "UndefinedOffset\\SortableGridField\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ed Chipman",
+                    "homepage": "http://www.edchipman.ca",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds drag and drop functionality to SilverStripe 4.x's GridField",
+            "keywords": [
+                "gridfield",
+                "silverstripe",
+                "sort",
+                "sortable"
+            ],
+            "support": {
+                "issues": "https://github.com/undefinedoffset/SortableGridField/issues",
+                "source": "https://github.com/UndefinedOffset/SortableGridField/tree/2.2.0"
+            },
+            "time": "2023-05-08T13:51:31+00:00"
+        },
+        {
             "name": "webonyx/graphql-php",
             "version": "v15.6.3",
             "source": {
@@ -7983,31 +8282,33 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "silverstripe-themes/simple": 20,
+        "sunnysideup/cms-niceties": 20,
         "sunnysideup/ecommerce": 20,
         "sunnysideup/ecommerce-demo-theme": 20,
+        "sunnysideup/ecommerce-google-analytics": 20,
+        "sunnysideup/ecommerce-google-shopping-feed": 20,
         "sunnysideup/ecommerce_alsorecommended": 20,
         "sunnysideup/ecommerce_assign_orders": 20,
         "sunnysideup/ecommerce_custom_product_lists": 20,
-        "sunnysideup/ecommerce_tax": 20,
+        "sunnysideup/ecommerce_delivery": 20,
         "sunnysideup/ecommerce_discount_coupon": 20,
         "sunnysideup/ecommerce_giftvoucher": 20,
-        "sunnysideup/ecommerce_delivery": 20,
-        "sunnysideup/ecommerce-google-shopping-feed": 20,
         "sunnysideup/ecommerce_maxmind_minfraud": 20,
         "sunnysideup/ecommerce_orderstep_feedback": 20,
         "sunnysideup/ecommerce_quick_coupons": 20,
-        "sunnysideup/ecommerce_security": 20,
         "sunnysideup/ecommerce_second_hand_product": 20,
-        "sunnysideup/ecommerce-google-analytics": 20,
+        "sunnysideup/ecommerce_security": 20,
+        "sunnysideup/ecommerce_tax": 20,
+        "sunnysideup/geoip": 20,
+        "sunnysideup/google_address_field": 20,
+        "sunnysideup/googleanalyticsbasics": 20,
         "sunnysideup/payment_directcredit": 20,
         "sunnysideup/payment_dps": 20,
         "sunnysideup/payment_hirepurchase": 20,
         "sunnysideup/payment_instore": 20,
-        "sunnysideup/geoip": 20,
-        "sunnysideup/google_address_field": 20,
-        "sunnysideup/googleanalyticsbasics": 20,
-        "sunnysideup/webpack_requirements_backend": 20,
-        "sunnysideup/sswebpack_engine_only": 20
+        "sunnysideup/sswebpack_engine_only": 20,
+        "sunnysideup/templateoverview": 20,
+        "sunnysideup/webpack_requirements_backend": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
